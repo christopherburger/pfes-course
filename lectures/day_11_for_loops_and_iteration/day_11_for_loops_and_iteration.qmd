@@ -1,0 +1,13 @@
+---
+title: "Day 11: For Loops and Iteration"
+format: html
+---
+
+## Overview
+* Iterating over sequences (lists strings)
+* Using range()
+* The mechanics of the loop variable
+
+## Key Syntax
+```python
+# Add core syntax examples here

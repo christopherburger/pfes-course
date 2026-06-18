@@ -1,0 +1,13 @@
+---
+title: "Day 13: While Loops"
+format: html
+---
+
+## Overview
+* Syntax of a while loop
+* Condition checking
+* Infinite loops and the break statement
+
+## Key Syntax
+```python
+# Add core syntax examples here

@@ -1,0 +1,13 @@
+---
+title: "Day 12: Accumulators and Traversal"
+format: html
+---
+
+## Overview
+* The accumulator pattern (total = total + x)
+* Counting and filtering via loops
+* Index-based vs element-based traversal
+
+## Key Syntax
+```python
+# Add core syntax examples here

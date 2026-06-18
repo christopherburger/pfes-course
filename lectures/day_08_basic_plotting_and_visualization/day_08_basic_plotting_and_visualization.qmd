@@ -1,0 +1,13 @@
+---
+title: "Day 8: Basic Plotting and Visualization"
+format: html
+---
+
+## Overview
+* Importing Matplotlib and basic line/scatter plots
+* Adding titles labels and legends
+* Plotting NumPy arrays against each other
+
+## Key Syntax
+```python
+# Add core syntax examples here

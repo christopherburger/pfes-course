@@ -1,0 +1,13 @@
+---
+title: "Day 18: Sets"
+format: html
+---
+
+## Overview
+* Defining sets and uniqueness
+* Set operations (union intersection)
+* Checking membership efficiently
+
+## Key Syntax
+```python
+# Add core syntax examples here

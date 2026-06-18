@@ -1,0 +1,13 @@
+---
+title: "Day 3: Strings Lists Tuples"
+format: html
+---
+
+## Overview
+* Indexing and slicing syntax
+* Mutability (Lists) vs Immutability (Strings/Tuples)
+* Common built-in methods (append len)
+
+## Key Syntax
+```python
+# Add core syntax examples here

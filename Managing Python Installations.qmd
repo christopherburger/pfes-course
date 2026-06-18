@@ -1,0 +1,141 @@
+---
+title: "Managing a Python Installation"
+---
+
+## Overview
+
+One of the great benefits of Python is its extensive network of packages. But with so many different packages comes interdependency and the difficulty of ensuring there are no conflicts with all the different possible configurations between package and Python versions.
+
+## The Golden Rule of Python Environments
+
+When you want to install a package for Python (like pandas), your first instinct might be to open the terminal and type `pip install pandas`. **Do not do this.**
+
+Operating systems like MacOS and Linux rely on a hidden, system-level Python installation to run core operating system background tasks. If you use global `pip` to install or upgrade packages, you risk overwriting the dependencies your operating system relies on. This leads to a broken OS, or at best, conflicting dependencies between your own projects (often called "Dependency Hell").
+
+**Preventing Dependecy Hell:** Every project must live in its own isolated "Virtual Environment."
+
+This is one of the downsides to Python, in order to prevent dependency conflicts you need to manage what amounts to different Python installations. Fortunately, this is no longer particularly tedious.
+
+------------------------------------------------------------------------
+
+## `uv`
+
+Historically, managing Python safely required juggling several different tools (`pyenv` for Python versions, `venv` for environments, `pip` for packages, and `pipx` for global apps).
+
+There are multiple solutions to managing different Python installations (Conda/Miniconda are very popular), a recent one is **`uv`**. This replaces all of the traditional tools with a single tool. It operates entirely in user-space, meaning it requires no administrator privileges and generally can be installed without friction on computers that you do not have full control over.
+
+### 1. Installing `uv`
+
+Open your terminal and run the official standalone installer:
+
+``` bash
+# On macOS/Linux
+curl -LsSf https://astral.sh/uv/install.sh | sh
+
+# On Windows
+powershell -c "irm https://astral.sh/uv/install.ps1 | more"
+```
+
+### 2. Installing Python Versions
+
+You do not need to download Python from the official website. `uv` will download and isolate whatever version of Python you need for a project.
+
+For example, if you need a Python version of 3.12 as a requirement:
+
+``` bash
+# Install the latest version of Python 3.12
+uv python install 3.12
+```
+
+### 3. Creating a Project
+
+When creating a new project, `uv` makes environment isolation automatic.
+
+``` bash
+# Create a new project directory
+mkdir data_analysis_project
+cd data_analysis_project
+
+# Initialize the project structure
+uv init
+
+# Add a package (this automatically creates the virtual environment!)
+uv add pandas matplotlib
+```
+
+Notice that we never had to manually "activate" an environment. By using `uv add`, the tool automatically handles the creation and linkage of the isolated environment.
+
+### 4. Running Your Code
+
+To run a script using the isolated environment, simply prefix your command with `uv run`.
+
+``` bash
+# Runs script.py using the isolated pandas/matplotlib installation
+uv run script.py
+```
+
+------------------------------------------------------------------------
+
+## Installing Global Tools
+
+Sometimes you need to install a Python application that you want to use everywhere, not just in one project. A good example is something like Jupyter Lab.
+
+Installing an application into a specific project's virtual environment is tedious, but installing them globally via pip breaks the Golden Rule.
+
+The solution is an isolated tool runner.
+
+``` bash
+# Install Jupyter Lab in its own isolated global environment
+uv tool install jupyterlab
+
+# You can now launch Jupyter from anywhere on your computer
+jupyter lab
+```
+
+If you are working on a legacy system without `uv`, the traditional equivalent of this command is `pipx install jupyterlab`.
+
+------------------------------------------------------------------------
+
+## Working with Older Codebases
+
+While `uv` is the modern standard, you will inevitably encounter older codebases or tutorials that use the standard library tools. Adjusting them to use `uv` is straightforward.
+
+If a repository contains a `requirements.txt` file, the traditional setup workflow looks like this:
+
+1.  Create the Environment:
+
+``` bash
+python3 -m venv .venv
+```
+
+2.  Activate the Environment: (You must do this every time you open a new terminal)
+
+``` bash
+# macOS / Linux
+source .venv/bin/activate
+
+# Windows
+.venv\Scripts\activate
+```
+
+3.  Install the Dependencies:
+
+``` bash
+pip install -r requirements.txt
+```
+
+4.  Deactivate:
+
+``` bash
+deactivate
+```
+
+------------------------------------------------------------------------
+
+## Recap
+
+Need a library for a script? (e.g., numpy, pandas) -\> Use `uv` add or a local `venv`.
+
+Need a standalone app? (e.g., jupyter) -\> Use `uv tool install` or `pipx`.
+
+Never use: `pip install [package]` outside of an active virtual environment.

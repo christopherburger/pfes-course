@@ -1,0 +1,14 @@
+---
+title: "Day 24: Similarity Measures and Applications"
+format: html
+---
+
+## Overview
+
+- Cosine similarity vs distance
+- Implementing similarity algorithms
+- Use cases (e.g. recommendation)
+
+## Key Syntax
+
+\`\`\`python \# Add core syntax examples here

@@ -1,0 +1,13 @@
+---
+title: "Day 14: Nested Loops"
+format: html
+---
+
+## Overview
+* Writing loops inside loops
+* Tracking inner vs outer loop variables
+* Generating grids and combinations
+
+## Key Syntax
+```python
+# Add core syntax examples here

@@ -1,0 +1,13 @@
+---
+title: "Day 15: Matrices and 2D Arrays"
+format: html
+---
+
+## Overview
+* Creating 2D arrays in NumPy
+* Indexing rows and columns [r c]
+* Shape and reshaping arrays
+
+## Key Syntax
+```python
+# Add core syntax examples here

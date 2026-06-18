@@ -1,0 +1,13 @@
+---
+title: "Day 25: Matrix Transformations"
+format: html
+---
+
+## Overview
+* Scaling rotation and translation
+* Applying transformations to vectors
+* Visualizing transformed spaces
+
+## Key Syntax
+```python
+# Add core syntax examples here

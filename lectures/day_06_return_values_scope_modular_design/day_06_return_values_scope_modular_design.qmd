@@ -1,0 +1,13 @@
+---
+title: "Day 6: Return Values Scope Modular Design"
+format: html
+---
+
+## Overview
+* The return statement vs print
+* Local vs global variable scope
+* Designing pure functions
+
+## Key Syntax
+```python
+# Add core syntax examples here

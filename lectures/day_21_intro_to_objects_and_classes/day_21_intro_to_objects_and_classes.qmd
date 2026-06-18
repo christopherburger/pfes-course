@@ -1,0 +1,13 @@
+---
+title: "Day 21: Intro to Objects and Classes"
+format: html
+---
+
+## Overview
+* The concept of OOP
+* Defining a class and __init__
+* Instance attributes
+
+## Key Syntax
+```python
+# Add core syntax examples here

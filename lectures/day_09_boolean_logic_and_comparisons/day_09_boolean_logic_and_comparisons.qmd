@@ -1,0 +1,13 @@
+---
+title: "Day 9: Boolean Logic and Comparisons"
+format: html
+---
+
+## Overview
+* Relational operators (== != > <)
+* Logical operators (and or not)
+* Evaluating truth tables
+
+## Key Syntax
+```python
+# Add core syntax examples here

@@ -11,10 +11,36 @@ website:
         contents:
           - index.qmd
           - conventions.qmd
+          - Managing Python Installations.qmd
       - section: "Lectures"
         contents:
-          - lectures/day-01.qmd
-          - lectures/day-02.qmd
+          - lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.qmd
+          - lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.qmd
+          - lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.qmd
+          - lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.qmd
+          - lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.qmd
+          - lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.qmd
+          - lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.qmd
+          - lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.qmd
+          - lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.qmd
+          - lectures/day_10_control_structures/day_10_control_structures.qmd
+          - lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.qmd
+          - lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.qmd
+          - lectures/day_13_while_loops/day_13_while_loops.qmd
+          - lectures/day_14_nested_loops/day_14_nested_loops.qmd
+          - lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.qmd
+          - lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.qmd
+          - lectures/day_17_dictionaries/day_17_dictionaries.qmd
+          - lectures/day_18_sets/day_18_sets.qmd
+          - lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.qmd
+          - lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.qmd
+          - lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.qmd
+          - lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.qmd
+          - lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.qmd
+          - lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.qmd
+          - lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.qmd
+          - lectures/day_25_matrix_transformations/day_25_matrix_transformations.qmd
+          - lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.qmd
 
 format:
   html:

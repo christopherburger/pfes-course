@@ -1,0 +1,13 @@
+---
+title: "Day 16: Matrix Math & Vector Operations"
+format: html
+---
+
+## Overview
+* Matrix multiplication rules (rows x columns)
+* Using np.dot() and @ operator
+* Broadcasting concepts and vectorization benefits
+
+## Key Syntax
+```python
+# Add core syntax examples here

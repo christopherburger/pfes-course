@@ -1,0 +1,13 @@
+---
+title: "Day 26: Geometry Graphics and Visualization"
+format: html
+---
+
+## Overview
+* Plotting polygons and shapes
+* Applying matrices to graphics
+* Final project connections
+
+## Key Syntax
+```python
+# Add core syntax examples here

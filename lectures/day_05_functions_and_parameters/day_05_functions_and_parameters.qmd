@@ -1,0 +1,13 @@
+---
+title: "Day 5: Functions and Parameters"
+format: html
+---
+
+## Overview
+* Defining a function with def
+* Passing arguments (positional vs keyword)
+* The concept of modularity
+
+## Key Syntax
+```python
+# Add core syntax examples here

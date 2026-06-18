@@ -1,0 +1,13 @@
+---
+title: "Day 20: Pandas and CSV Data"
+format: html
+---
+
+## Overview
+* Importing pandas and reading CSVs
+* DataFrames vs Series
+* Basic data filtering
+
+## Key Syntax
+```python
+# Add core syntax examples here

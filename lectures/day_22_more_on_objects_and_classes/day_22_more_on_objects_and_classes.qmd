@@ -1,0 +1,13 @@
+---
+title: "Day 22: More on Objects and Classes"
+format: html
+---
+
+## Overview
+* Instance methods
+* Class variables vs instance variables
+* Basic encapsulation concepts
+
+## Key Syntax
+```python
+# Add core syntax examples here

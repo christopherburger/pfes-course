@@ -1,0 +1,13 @@
+---
+title: "Day 2: Variables Arithmetic Basic I/O"
+format: html
+---
+
+## Overview
+* Data types (int float str)
+* Basic math operations and order of precedence
+* Input() and print() formatting
+
+## Key Syntax
+```python
+# Add core syntax examples here

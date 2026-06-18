@@ -1,0 +1,13 @@
+---
+title: "Day 17: Dictionaries"
+format: html
+---
+
+## Overview
+* Key-value pair concept
+* Adding updating and retrieving values
+* Iterating over .keys() and .values()
+
+## Key Syntax
+```python
+# Add core syntax examples here

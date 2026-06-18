@@ -1,0 +1,13 @@
+---
+title: "Day 23: Distance in Vector Spaces"
+format: html
+---
+
+## Overview
+* Euclidean distance math
+* Calculating distance in Python/NumPy
+* Applications in data
+
+## Key Syntax
+```python
+# Add core syntax examples here

@@ -1,0 +1,13 @@
+---
+title: "Day 7: NumPy 1D Review & Math Functions"
+format: html
+---
+
+## Overview
+* Reviewing 1D array creation and indexing
+* Element-wise math operations
+* Aggregate functions (np.sum np.mean)
+
+## Key Syntax
+```python
+# Add core syntax examples here
