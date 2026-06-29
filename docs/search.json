@@ -510,51 +510,7 @@
     "href": "index.html",
     "title": "Course Overview",
     "section": "",
-    "text": "Welcome to the central repository for course materials, lecture notes, and computational resources. This site serves as the primary hub for our technical curriculum and will be updated weekly as we progress through the semester.",
-    "crumbs": [
-      "Course Info",
-      "Course Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#course-objectives",
-    "href": "index.html#course-objectives",
-    "title": "Course Overview",
-    "section": "Course Objectives",
-    "text": "Course Objectives\nThis course is designed to build a rigorous foundation in algorithmic thinking and scientific computing. By the end of the term, students will be expected to transition from basic scripting to developing structured, efficient solutions for engineering problems.\nOur primary focus areas include: * Translating physical and mathematical models into computational logic. * Implementing and analyzing fundamental data structures. * Utilizing industry-standard tools for data analysis and visualization. * Developing robust debugging and code-testing practices.",
-    "crumbs": [
-      "Course Info",
-      "Course Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#semester-outline",
-    "href": "index.html#semester-outline",
-    "title": "Course Overview",
-    "section": "Semester Outline",
-    "text": "Semester Outline\nThe curriculum is divided into four primary modules. Select a module below to access the corresponding lecture notes, slide decks, and reading assignments.\n\nModule 1: Foundations of Computation\nIntroduction to the computational environment, basic data types, control flow, and the principles of procedural programming.\n\n\nModule 2: Data Structures and Algorithms\nMoving beyond basic variables to explore lists, dictionaries, trees, and the algorithmic complexity of search and sort operations.\n\n\nModule 3: Scientific Computing\nLeveraging external libraries for matrix operations, applied linear algebra integrations, and numerical methods.\n\n\nModule 4: Applied Engineering Projects\nSynthesizing previous concepts to solve complex, open-ended engineering problems, including basic signal processing and data analysis.",
-    "crumbs": [
-      "Course Info",
-      "Course Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#core-resources",
-    "href": "index.html#core-resources",
-    "title": "Course Overview",
-    "section": "Core Resources",
-    "text": "Core Resources\nAccess the essential platforms and documentation required for this course.\n\nSyllabus and Policies - Grading rubrics, office hours, and academic integrity policies.\nAssignment Submission Portal - Official university portal for submitting graded work.\nIn-Browser Python IDE - Development environment for practical exercises and examinations.",
-    "crumbs": [
-      "Course Info",
-      "Course Overview"
-    ]
-  },
-  {
-    "objectID": "index.html#contact-information",
-    "href": "index.html#contact-information",
-    "title": "Course Overview",
-    "section": "Contact Information",
-    "text": "Contact Information\nFor matters directly related to the coursework, please utilize the dedicated discussion boards to benefit the entire class. For individual administrative inquiries, refer to the contact protocols outlined on the main Faculty Profile.",
+    "text": "This is the central repository for the lecture notes for CSCI/CISE 1056. These notes provide an overview of the content covered during lecture and will be available as the reference during lab.\nMore in-depth information from the official textbook can be found in the supplementary reading folder in each content section of Blackboard.",
     "crumbs": [
       "Course Info",
       "Course Overview"
