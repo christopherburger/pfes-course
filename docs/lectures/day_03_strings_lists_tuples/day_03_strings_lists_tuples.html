@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Christopher Burger, PhD">
 
-<title>Course Overview – Programming for Engineers and Scientists</title>
+<title>Day 3: Strings Lists Tuples – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -27,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1e2b06dee067459480ac35f5e9819e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -73,8 +72,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../custom.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -86,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info</a></li><li class="breadcrumb-item"><a href="./index.html">Course Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html">Day 3: Strings Lists Tuples</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -101,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for Engineers and Scientists</a> 
+      <a href="../../">Programming for Engineers and Scientists</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -122,19 +120,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Course Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./conventions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../conventions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Content Conventions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Managing Python Installations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Managing a Python Installation</span></a>
   </div>
 </li>
@@ -151,163 +149,163 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 1: Course Intro and Python Environment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 2: Variables Arithmetic Basic I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Day 3: Strings Lists Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 4: Vectors and NumPy Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 5: Functions and Parameters</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 6: Return Values Scope Modular Design</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 7: NumPy 1D Review &amp; Math Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 8: Basic Plotting and Visualization</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 9: Boolean Logic and Comparisons</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_10_control_structures/day_10_control_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_10_control_structures/day_10_control_structures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 10: Control Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 11: For Loops and Iteration</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 12: Accumulators and Traversal</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_13_while_loops/day_13_while_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_13_while_loops/day_13_while_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 13: While Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_14_nested_loops/day_14_nested_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_14_nested_loops/day_14_nested_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 14: Nested Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 15: Matrices and 2D Arrays</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 16: Matrix Math &amp; Vector Operations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_17_dictionaries/day_17_dictionaries.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_17_dictionaries/day_17_dictionaries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 17: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_18_sets/day_18_sets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_18_sets/day_18_sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 18: Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 19: Exceptions and File I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 19: Exceptions and File I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 20: Pandas and CSV Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 21: Intro to Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 22: More on Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 23: Distance in Vector Spaces</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 24: Similarity Measures and Applications</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_25_matrix_transformations/day_25_matrix_transformations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_25_matrix_transformations/day_25_matrix_transformations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 25: Matrix Transformations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 26: Geometry Graphics and Visualization</span></a>
   </div>
 </li>
@@ -322,41 +320,25 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul class="collapse">
-  <li><a href="#course-objectives" id="toc-course-objectives" class="nav-link active" data-scroll-target="#course-objectives">Course Objectives</a></li>
-  <li><a href="#semester-outline" id="toc-semester-outline" class="nav-link" data-scroll-target="#semester-outline">Semester Outline</a></li>
-  <li><a href="#core-resources" id="toc-core-resources" class="nav-link" data-scroll-target="#core-resources">Core Resources</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact Information</a></li>
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info</a></li><li class="breadcrumb-item"><a href="./index.html">Course Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html">Day 3: Strings Lists Tuples</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Course Overview</h1>
-<p class="subtitle lead">Programming for Engineers and Scientists</p>
+<h1 class="title">Day 3: Strings Lists Tuples</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Christopher Burger, PhD </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            University of Mississippi | School of Engineering
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    
   
     
   </div>
@@ -366,47 +348,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to the central repository for course materials, lecture notes, and computational resources. This site serves as the primary hub for our technical curriculum and will be updated weekly as we progress through the semester.</p>
-<section id="course-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="course-objectives">Course Objectives</h2>
-<p>This course is designed to build a rigorous foundation in algorithmic thinking and scientific computing. By the end of the term, students will be expected to transition from basic scripting to developing structured, efficient solutions for engineering problems.</p>
-<p>Our primary focus areas include: * Translating physical and mathematical models into computational logic. * Implementing and analyzing fundamental data structures. * Utilizing industry-standard tools for data analysis and visualization. * Developing robust debugging and code-testing practices.</p>
-<hr>
-</section>
-<section id="semester-outline" class="level2">
-<h2 class="anchored" data-anchor-id="semester-outline">Semester Outline</h2>
-<p>The curriculum is divided into four primary modules. Select a module below to access the corresponding lecture notes, slide decks, and reading assignments.</p>
-<section id="module-1-foundations-of-computation" class="level3">
-<h3 class="anchored" data-anchor-id="module-1-foundations-of-computation">Module 1: Foundations of Computation</h3>
-<p>Introduction to the computational environment, basic data types, control flow, and the principles of procedural programming.</p>
-</section>
-<section id="module-2-data-structures-and-algorithms" class="level3">
-<h3 class="anchored" data-anchor-id="module-2-data-structures-and-algorithms">Module 2: Data Structures and Algorithms</h3>
-<p>Moving beyond basic variables to explore lists, dictionaries, trees, and the algorithmic complexity of search and sort operations.</p>
-</section>
-<section id="module-3-scientific-computing" class="level3">
-<h3 class="anchored" data-anchor-id="module-3-scientific-computing">Module 3: Scientific Computing</h3>
-<p>Leveraging external libraries for matrix operations, applied linear algebra integrations, and numerical methods.</p>
-</section>
-<section id="module-4-applied-engineering-projects" class="level3">
-<h3 class="anchored" data-anchor-id="module-4-applied-engineering-projects">Module 4: Applied Engineering Projects</h3>
-<p>Synthesizing previous concepts to solve complex, open-ended engineering problems, including basic signal processing and data analysis.</p>
-<hr>
-</section>
-</section>
-<section id="core-resources" class="level2">
-<h2 class="anchored" data-anchor-id="core-resources">Core Resources</h2>
-<p>Access the essential platforms and documentation required for this course.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <ul>
-<li><a href="./syllabus.html"><strong>Syllabus and Policies</strong></a> - Grading rubrics, office hours, and academic integrity policies.</li>
-<li><a href="https://blackboard.olemiss.edu"><strong>Assignment Submission Portal</strong></a> - Official university portal for submitting graded work.</li>
-<li><a href="#"><strong>In-Browser Python IDE</strong></a> - Development environment for practical exercises and examinations.</li>
+<li>Indexing and slicing syntax</li>
+<li>Mutability (Lists) vs Immutability (Strings/Tuples)</li>
+<li>Common built-in methods (append len)</li>
 </ul>
-<hr>
 </section>
-<section id="contact-information" class="level2">
-<h2 class="anchored" data-anchor-id="contact-information">Contact Information</h2>
-<p>For matters directly related to the coursework, please utilize the dedicated discussion boards to benefit the entire class. For individual administrative inquiries, refer to the contact protocols outlined on the main <a href="https://sites.olemiss.edu/cburger">Faculty Profile</a>.</p>
+<section id="key-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
+<p>```python # Add core syntax examples here</p>
 
 
 </section>

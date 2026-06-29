@@ -1,24 +1,564 @@
 [
   {
-    "objectID": "lectures/day_01.html",
-    "href": "lectures/day_01.html",
-    "title": "Lecture 01: Introduction to the Course",
+    "objectID": "Managing Python Installations.html",
+    "href": "Managing Python Installations.html",
+    "title": "Managing a Python Installation",
     "section": "",
-    "text": "Today we define signal energy and power."
+    "text": "One of the great benefits of Python is its extensive network of packages. But with so many different packages comes interdependency and the difficulty of ensuring there are no conflicts with all the different possible configurations between package and Python versions.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
   },
   {
-    "objectID": "lectures/day_01.html#overview",
-    "href": "lectures/day_01.html#overview",
-    "title": "Lecture 01: Introduction to the Course",
+    "objectID": "Managing Python Installations.html#overview",
+    "href": "Managing Python Installations.html#overview",
+    "title": "Managing a Python Installation",
     "section": "",
-    "text": "Today we define signal energy and power."
+    "text": "One of the great benefits of Python is its extensive network of packages. But with so many different packages comes interdependency and the difficulty of ensuring there are no conflicts with all the different possible configurations between package and Python versions.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
   },
   {
-    "objectID": "lectures/day_01.html#mathematical-definition",
-    "href": "lectures/day_01.html#mathematical-definition",
-    "title": "Lecture 01: Introduction to the Course",
-    "section": "Mathematical Definition",
-    "text": "Mathematical Definition\nThe energy E_\\infty of a continuous-time signal x(t) is defined as:\nE_\\infty = \\int_{-\\infty}^{\\infty} |x(t)|^2 dt\nIf the energy is finite (0 &lt; E_\\infty &lt; \\infty), we call x(t) an energy signal.\n\nPractice Task\n\nCalculate the energy of a unit step function u(t).\nDetermine if the signal is power or energy dominant."
+    "objectID": "Managing Python Installations.html#the-golden-rule-of-python-environments",
+    "href": "Managing Python Installations.html#the-golden-rule-of-python-environments",
+    "title": "Managing a Python Installation",
+    "section": "The Golden Rule of Python Environments",
+    "text": "The Golden Rule of Python Environments\nWhen you want to install a package for Python (like pandas), your first instinct might be to open the terminal and type pip install pandas. Do not do this.\nOperating systems like MacOS and Linux rely on a hidden, system-level Python installation to run core operating system background tasks. If you use global pip to install or upgrade packages, you risk overwriting the dependencies your operating system relies on. This leads to a broken OS, or at best, conflicting dependencies between your own projects (often called “Dependency Hell”).\nPreventing Dependecy Hell: Every project must live in its own isolated “Virtual Environment.”\nThis is one of the downsides to Python, in order to prevent dependency conflicts you need to manage what amounts to different Python installations. Fortunately, this is no longer particularly tedious.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#uv",
+    "href": "Managing Python Installations.html#uv",
+    "title": "Managing a Python Installation",
+    "section": "uv",
+    "text": "uv\nHistorically, managing Python safely required juggling several different tools (pyenv for Python versions, venv for environments, pip for packages, and pipx for global apps).\nThere are multiple solutions to managing different Python installations (Conda/Miniconda are very popular), a recent one is uv. This replaces all of the traditional tools with a single tool. It operates entirely in user-space, meaning it requires no administrator privileges and generally can be installed without friction on computers that you do not have full control over.\n\n1. Installing uv\nOpen your terminal and run the official standalone installer:\n# On macOS/Linux\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n\n# On Windows\npowershell -c \"irm https://astral.sh/uv/install.ps1 | more\"\n\n\n2. Installing Python Versions\nYou do not need to download Python from the official website. uv will download and isolate whatever version of Python you need for a project.\nFor example, if you need a Python version of 3.12 as a requirement:\n# Install the latest version of Python 3.12\nuv python install 3.12\n\n\n3. Creating a Project\nWhen creating a new project, uv makes environment isolation automatic.\n# Create a new project directory\nmkdir data_analysis_project\ncd data_analysis_project\n\n# Initialize the project structure\nuv init\n\n# Add a package (this automatically creates the virtual environment!)\nuv add pandas matplotlib\nNotice that we never had to manually “activate” an environment. By using uv add, the tool automatically handles the creation and linkage of the isolated environment.\n\n\n4. Running Your Code\nTo run a script using the isolated environment, simply prefix your command with uv run.\n# Runs script.py using the isolated pandas/matplotlib installation\nuv run script.py",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#installing-global-tools",
+    "href": "Managing Python Installations.html#installing-global-tools",
+    "title": "Managing a Python Installation",
+    "section": "Installing Global Tools",
+    "text": "Installing Global Tools\nSometimes you need to install a Python application that you want to use everywhere, not just in one project. A good example is something like Jupyter Lab.\nInstalling an application into a specific project’s virtual environment is tedious, but installing them globally via pip breaks the Golden Rule.\nThe solution is an isolated tool runner.\n# Install Jupyter Lab in its own isolated global environment\nuv tool install jupyterlab\n\n# You can now launch Jupyter from anywhere on your computer\njupyter lab\nIf you are working on a legacy system without uv, the traditional equivalent of this command is pipx install jupyterlab.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#working-with-older-codebases",
+    "href": "Managing Python Installations.html#working-with-older-codebases",
+    "title": "Managing a Python Installation",
+    "section": "Working with Older Codebases",
+    "text": "Working with Older Codebases\nWhile uv is the modern standard, you will inevitably encounter older codebases or tutorials that use the standard library tools. Adjusting them to use uv is straightforward.\nIf a repository contains a requirements.txt file, the traditional setup workflow looks like this:\n\nCreate the Environment:\n\npython3 -m venv .venv\n\nActivate the Environment: (You must do this every time you open a new terminal)\n\n# macOS / Linux\nsource .venv/bin/activate\n\n# Windows\n.venv\\Scripts\\activate\n\nInstall the Dependencies:\n\npip install -r requirements.txt\n\nDeactivate:\n\ndeactivate",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#recap",
+    "href": "Managing Python Installations.html#recap",
+    "title": "Managing a Python Installation",
+    "section": "Recap",
+    "text": "Recap\nNeed a library for a script? (e.g., numpy, pandas) -&gt; Use uv add or a local venv.\nNeed a standalone app? (e.g., jupyter) -&gt; Use uv tool install or pipx.\nNever use: pip install [package] outside of an active virtual environment.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html",
+    "href": "lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html",
+    "title": "Day 8: Basic Plotting and Visualization",
+    "section": "",
+    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
+    "crumbs": [
+      "Lectures",
+      "Day 8: Basic Plotting and Visualization"
+    ]
+  },
+  {
+    "objectID": "lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html#overview",
+    "href": "lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html#overview",
+    "title": "Day 8: Basic Plotting and Visualization",
+    "section": "",
+    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
+    "crumbs": [
+      "Lectures",
+      "Day 8: Basic Plotting and Visualization"
+    ]
+  },
+  {
+    "objectID": "lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html#key-syntax",
+    "href": "lectures/day_08_basic_plotting_and_visualization/day_08_basic_plotting_and_visualization.html#key-syntax",
+    "title": "Day 8: Basic Plotting and Visualization",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 8: Basic Plotting and Visualization"
+    ]
+  },
+  {
+    "objectID": "lectures/day_17_dictionaries/day_17_dictionaries.html",
+    "href": "lectures/day_17_dictionaries/day_17_dictionaries.html",
+    "title": "Day 17: Dictionaries",
+    "section": "",
+    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()",
+    "crumbs": [
+      "Lectures",
+      "Day 17: Dictionaries"
+    ]
+  },
+  {
+    "objectID": "lectures/day_17_dictionaries/day_17_dictionaries.html#overview",
+    "href": "lectures/day_17_dictionaries/day_17_dictionaries.html#overview",
+    "title": "Day 17: Dictionaries",
+    "section": "",
+    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()",
+    "crumbs": [
+      "Lectures",
+      "Day 17: Dictionaries"
+    ]
+  },
+  {
+    "objectID": "lectures/day_17_dictionaries/day_17_dictionaries.html#key-syntax",
+    "href": "lectures/day_17_dictionaries/day_17_dictionaries.html#key-syntax",
+    "title": "Day 17: Dictionaries",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 17: Dictionaries"
+    ]
+  },
+  {
+    "objectID": "lectures/day_18_sets/day_18_sets.html",
+    "href": "lectures/day_18_sets/day_18_sets.html",
+    "title": "Day 18: Sets",
+    "section": "",
+    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently",
+    "crumbs": [
+      "Lectures",
+      "Day 18: Sets"
+    ]
+  },
+  {
+    "objectID": "lectures/day_18_sets/day_18_sets.html#overview",
+    "href": "lectures/day_18_sets/day_18_sets.html#overview",
+    "title": "Day 18: Sets",
+    "section": "",
+    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently",
+    "crumbs": [
+      "Lectures",
+      "Day 18: Sets"
+    ]
+  },
+  {
+    "objectID": "lectures/day_18_sets/day_18_sets.html#key-syntax",
+    "href": "lectures/day_18_sets/day_18_sets.html#key-syntax",
+    "title": "Day 18: Sets",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 18: Sets"
+    ]
+  },
+  {
+    "objectID": "lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html",
+    "href": "lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html",
+    "title": "Day 6: Return Values Scope Modular Design",
+    "section": "",
+    "text": "The return statement vs print\nLocal vs global variable scope\nDesigning pure functions",
+    "crumbs": [
+      "Lectures",
+      "Day 6: Return Values Scope Modular Design"
+    ]
+  },
+  {
+    "objectID": "lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html#overview",
+    "href": "lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html#overview",
+    "title": "Day 6: Return Values Scope Modular Design",
+    "section": "",
+    "text": "The return statement vs print\nLocal vs global variable scope\nDesigning pure functions",
+    "crumbs": [
+      "Lectures",
+      "Day 6: Return Values Scope Modular Design"
+    ]
+  },
+  {
+    "objectID": "lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html#key-syntax",
+    "href": "lectures/day_06_return_values_scope_modular_design/day_06_return_values_scope_modular_design.html#key-syntax",
+    "title": "Day 6: Return Values Scope Modular Design",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 6: Return Values Scope Modular Design"
+    ]
+  },
+  {
+    "objectID": "lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html",
+    "href": "lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html",
+    "title": "Day 16: Matrix Math & Vector Operations",
+    "section": "",
+    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits",
+    "crumbs": [
+      "Lectures",
+      "Day 16: Matrix Math & Vector Operations"
+    ]
+  },
+  {
+    "objectID": "lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html#overview",
+    "href": "lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html#overview",
+    "title": "Day 16: Matrix Math & Vector Operations",
+    "section": "",
+    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits",
+    "crumbs": [
+      "Lectures",
+      "Day 16: Matrix Math & Vector Operations"
+    ]
+  },
+  {
+    "objectID": "lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html#key-syntax",
+    "href": "lectures/day_16_matrix_math_and_vector_operations/day_16_matrix_math_and_vector_operations.html#key-syntax",
+    "title": "Day 16: Matrix Math & Vector Operations",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 16: Matrix Math & Vector Operations"
+    ]
+  },
+  {
+    "objectID": "lectures/day_10_control_structures/day_10_control_structures.html",
+    "href": "lectures/day_10_control_structures/day_10_control_structures.html",
+    "title": "Day 10: Control Structures",
+    "section": "",
+    "text": "If elif and else syntax\nIndentation rules\nNested conditionals",
+    "crumbs": [
+      "Lectures",
+      "Day 10: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/day_10_control_structures/day_10_control_structures.html#overview",
+    "href": "lectures/day_10_control_structures/day_10_control_structures.html#overview",
+    "title": "Day 10: Control Structures",
+    "section": "",
+    "text": "If elif and else syntax\nIndentation rules\nNested conditionals",
+    "crumbs": [
+      "Lectures",
+      "Day 10: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/day_10_control_structures/day_10_control_structures.html#key-syntax",
+    "href": "lectures/day_10_control_structures/day_10_control_structures.html#key-syntax",
+    "title": "Day 10: Control Structures",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 10: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html",
+    "href": "lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html",
+    "title": "Day 9: Boolean Logic and Comparisons",
+    "section": "",
+    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables",
+    "crumbs": [
+      "Lectures",
+      "Day 9: Boolean Logic and Comparisons"
+    ]
+  },
+  {
+    "objectID": "lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html#overview",
+    "href": "lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html#overview",
+    "title": "Day 9: Boolean Logic and Comparisons",
+    "section": "",
+    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables",
+    "crumbs": [
+      "Lectures",
+      "Day 9: Boolean Logic and Comparisons"
+    ]
+  },
+  {
+    "objectID": "lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html#key-syntax",
+    "href": "lectures/day_09_boolean_logic_and_comparisons/day_09_boolean_logic_and_comparisons.html#key-syntax",
+    "title": "Day 9: Boolean Logic and Comparisons",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 9: Boolean Logic and Comparisons"
+    ]
+  },
+  {
+    "objectID": "lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html",
+    "href": "lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html",
+    "title": "Day 3: Strings Lists Tuples",
+    "section": "",
+    "text": "Indexing and slicing syntax\nMutability (Lists) vs Immutability (Strings/Tuples)\nCommon built-in methods (append len)",
+    "crumbs": [
+      "Lectures",
+      "Day 3: Strings Lists Tuples"
+    ]
+  },
+  {
+    "objectID": "lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html#overview",
+    "href": "lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html#overview",
+    "title": "Day 3: Strings Lists Tuples",
+    "section": "",
+    "text": "Indexing and slicing syntax\nMutability (Lists) vs Immutability (Strings/Tuples)\nCommon built-in methods (append len)",
+    "crumbs": [
+      "Lectures",
+      "Day 3: Strings Lists Tuples"
+    ]
+  },
+  {
+    "objectID": "lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html#key-syntax",
+    "href": "lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.html#key-syntax",
+    "title": "Day 3: Strings Lists Tuples",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 3: Strings Lists Tuples"
+    ]
+  },
+  {
+    "objectID": "lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html",
+    "href": "lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html",
+    "title": "Day 5: Functions and Parameters",
+    "section": "",
+    "text": "Defining a function with def\nPassing arguments (positional vs keyword)\nThe concept of modularity",
+    "crumbs": [
+      "Lectures",
+      "Day 5: Functions and Parameters"
+    ]
+  },
+  {
+    "objectID": "lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html#overview",
+    "href": "lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html#overview",
+    "title": "Day 5: Functions and Parameters",
+    "section": "",
+    "text": "Defining a function with def\nPassing arguments (positional vs keyword)\nThe concept of modularity",
+    "crumbs": [
+      "Lectures",
+      "Day 5: Functions and Parameters"
+    ]
+  },
+  {
+    "objectID": "lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html#key-syntax",
+    "href": "lectures/day_05_functions_and_parameters/day_05_functions_and_parameters.html#key-syntax",
+    "title": "Day 5: Functions and Parameters",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 5: Functions and Parameters"
+    ]
+  },
+  {
+    "objectID": "lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html",
+    "href": "lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html",
+    "title": "Day 7: NumPy 1D Review & Math Functions",
+    "section": "",
+    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "crumbs": [
+      "Lectures",
+      "Day 7: NumPy 1D Review & Math Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html#overview",
+    "href": "lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html#overview",
+    "title": "Day 7: NumPy 1D Review & Math Functions",
+    "section": "",
+    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "crumbs": [
+      "Lectures",
+      "Day 7: NumPy 1D Review & Math Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html#key-syntax",
+    "href": "lectures/day_07_numpy_1d_review_and_math_functions/day_07_numpy_1d_review_and_math_functions.html#key-syntax",
+    "title": "Day 7: NumPy 1D Review & Math Functions",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 7: NumPy 1D Review & Math Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html",
+    "href": "lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html",
+    "title": "Day 2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "Data types (int float str)\nBasic math operations and order of precedence\nInput() and print() formatting",
+    "crumbs": [
+      "Lectures",
+      "Day 2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html#overview",
+    "href": "lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html#overview",
+    "title": "Day 2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "Data types (int float str)\nBasic math operations and order of precedence\nInput() and print() formatting",
+    "crumbs": [
+      "Lectures",
+      "Day 2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html#key-syntax",
+    "href": "lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.html#key-syntax",
+    "title": "Day 2: Variables Arithmetic Basic I/O",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/day_14_nested_loops/day_14_nested_loops.html",
+    "href": "lectures/day_14_nested_loops/day_14_nested_loops.html",
+    "title": "Day 14: Nested Loops",
+    "section": "",
+    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations",
+    "crumbs": [
+      "Lectures",
+      "Day 14: Nested Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/day_14_nested_loops/day_14_nested_loops.html#overview",
+    "href": "lectures/day_14_nested_loops/day_14_nested_loops.html#overview",
+    "title": "Day 14: Nested Loops",
+    "section": "",
+    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations",
+    "crumbs": [
+      "Lectures",
+      "Day 14: Nested Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/day_14_nested_loops/day_14_nested_loops.html#key-syntax",
+    "href": "lectures/day_14_nested_loops/day_14_nested_loops.html#key-syntax",
+    "title": "Day 14: Nested Loops",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 14: Nested Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html",
+    "href": "lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html",
+    "title": "Day 1: Course Intro and Python Environment",
+    "section": "",
+    "text": "Understanding the interpreter vs. scripts\nSetting up virtual environments\nUsing basic IDE features",
+    "crumbs": [
+      "Lectures",
+      "Day 1: Course Intro and Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html#overview",
+    "href": "lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html#overview",
+    "title": "Day 1: Course Intro and Python Environment",
+    "section": "",
+    "text": "Understanding the interpreter vs. scripts\nSetting up virtual environments\nUsing basic IDE features",
+    "crumbs": [
+      "Lectures",
+      "Day 1: Course Intro and Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html#key-syntax",
+    "href": "lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.html#key-syntax",
+    "title": "Day 1: Course Intro and Python Environment",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 1: Course Intro and Python Environment"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Course Overview",
+    "section": "",
+    "text": "Welcome to the central repository for course materials, lecture notes, and computational resources. This site serves as the primary hub for our technical curriculum and will be updated weekly as we progress through the semester.",
+    "crumbs": [
+      "Course Info",
+      "Course Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#course-objectives",
+    "href": "index.html#course-objectives",
+    "title": "Course Overview",
+    "section": "Course Objectives",
+    "text": "Course Objectives\nThis course is designed to build a rigorous foundation in algorithmic thinking and scientific computing. By the end of the term, students will be expected to transition from basic scripting to developing structured, efficient solutions for engineering problems.\nOur primary focus areas include: * Translating physical and mathematical models into computational logic. * Implementing and analyzing fundamental data structures. * Utilizing industry-standard tools for data analysis and visualization. * Developing robust debugging and code-testing practices.",
+    "crumbs": [
+      "Course Info",
+      "Course Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#semester-outline",
+    "href": "index.html#semester-outline",
+    "title": "Course Overview",
+    "section": "Semester Outline",
+    "text": "Semester Outline\nThe curriculum is divided into four primary modules. Select a module below to access the corresponding lecture notes, slide decks, and reading assignments.\n\nModule 1: Foundations of Computation\nIntroduction to the computational environment, basic data types, control flow, and the principles of procedural programming.\n\n\nModule 2: Data Structures and Algorithms\nMoving beyond basic variables to explore lists, dictionaries, trees, and the algorithmic complexity of search and sort operations.\n\n\nModule 3: Scientific Computing\nLeveraging external libraries for matrix operations, applied linear algebra integrations, and numerical methods.\n\n\nModule 4: Applied Engineering Projects\nSynthesizing previous concepts to solve complex, open-ended engineering problems, including basic signal processing and data analysis.",
+    "crumbs": [
+      "Course Info",
+      "Course Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#core-resources",
+    "href": "index.html#core-resources",
+    "title": "Course Overview",
+    "section": "Core Resources",
+    "text": "Core Resources\nAccess the essential platforms and documentation required for this course.\n\nSyllabus and Policies - Grading rubrics, office hours, and academic integrity policies.\nAssignment Submission Portal - Official university portal for submitting graded work.\nIn-Browser Python IDE - Development environment for practical exercises and examinations.",
+    "crumbs": [
+      "Course Info",
+      "Course Overview"
+    ]
+  },
+  {
+    "objectID": "index.html#contact-information",
+    "href": "index.html#contact-information",
+    "title": "Course Overview",
+    "section": "Contact Information",
+    "text": "Contact Information\nFor matters directly related to the coursework, please utilize the dedicated discussion boards to benefit the entire class. For individual administrative inquiries, refer to the contact protocols outlined on the main Faculty Profile.",
+    "crumbs": [
+      "Course Info",
+      "Course Overview"
+    ]
   },
   {
     "objectID": "conventions.html",
@@ -29,6 +569,435 @@
     "crumbs": [
       "Course Info",
       "Content Conventions"
+    ]
+  },
+  {
+    "objectID": "lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html",
+    "href": "lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html",
+    "title": "Day 23: Distance in Vector Spaces",
+    "section": "",
+    "text": "Euclidean distance math\nCalculating distance in Python/NumPy\nApplications in data",
+    "crumbs": [
+      "Lectures",
+      "Day 23: Distance in Vector Spaces"
+    ]
+  },
+  {
+    "objectID": "lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html#overview",
+    "href": "lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html#overview",
+    "title": "Day 23: Distance in Vector Spaces",
+    "section": "",
+    "text": "Euclidean distance math\nCalculating distance in Python/NumPy\nApplications in data",
+    "crumbs": [
+      "Lectures",
+      "Day 23: Distance in Vector Spaces"
+    ]
+  },
+  {
+    "objectID": "lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html#key-syntax",
+    "href": "lectures/day_23_distance_in_vector_spaces/day_23_distance_in_vector_spaces.html#key-syntax",
+    "title": "Day 23: Distance in Vector Spaces",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 23: Distance in Vector Spaces"
+    ]
+  },
+  {
+    "objectID": "lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html",
+    "href": "lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html",
+    "title": "Day 15: Matrices and 2D Arrays",
+    "section": "",
+    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays",
+    "crumbs": [
+      "Lectures",
+      "Day 15: Matrices and 2D Arrays"
+    ]
+  },
+  {
+    "objectID": "lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html#overview",
+    "href": "lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html#overview",
+    "title": "Day 15: Matrices and 2D Arrays",
+    "section": "",
+    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays",
+    "crumbs": [
+      "Lectures",
+      "Day 15: Matrices and 2D Arrays"
+    ]
+  },
+  {
+    "objectID": "lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html#key-syntax",
+    "href": "lectures/day_15_matrices_and_2d_arrays/day_15_matrices_and_2d_arrays.html#key-syntax",
+    "title": "Day 15: Matrices and 2D Arrays",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 15: Matrices and 2D Arrays"
+    ]
+  },
+  {
+    "objectID": "lectures/day_13_while_loops/day_13_while_loops.html",
+    "href": "lectures/day_13_while_loops/day_13_while_loops.html",
+    "title": "Day 13: While Loops",
+    "section": "",
+    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement",
+    "crumbs": [
+      "Lectures",
+      "Day 13: While Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/day_13_while_loops/day_13_while_loops.html#overview",
+    "href": "lectures/day_13_while_loops/day_13_while_loops.html#overview",
+    "title": "Day 13: While Loops",
+    "section": "",
+    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement",
+    "crumbs": [
+      "Lectures",
+      "Day 13: While Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/day_13_while_loops/day_13_while_loops.html#key-syntax",
+    "href": "lectures/day_13_while_loops/day_13_while_loops.html#key-syntax",
+    "title": "Day 13: While Loops",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 13: While Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html",
+    "href": "lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html",
+    "title": "Day 12: Accumulators and Traversal",
+    "section": "",
+    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal",
+    "crumbs": [
+      "Lectures",
+      "Day 12: Accumulators and Traversal"
+    ]
+  },
+  {
+    "objectID": "lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html#overview",
+    "href": "lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html#overview",
+    "title": "Day 12: Accumulators and Traversal",
+    "section": "",
+    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal",
+    "crumbs": [
+      "Lectures",
+      "Day 12: Accumulators and Traversal"
+    ]
+  },
+  {
+    "objectID": "lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html#key-syntax",
+    "href": "lectures/day_12_accumulators_and_traversal/day_12_accumulators_and_traversal.html#key-syntax",
+    "title": "Day 12: Accumulators and Traversal",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 12: Accumulators and Traversal"
+    ]
+  },
+  {
+    "objectID": "lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html",
+    "href": "lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html",
+    "title": "Day 20: Pandas and CSV Data",
+    "section": "",
+    "text": "Importing pandas and reading CSVs\nDataFrames vs Series\nBasic data filtering",
+    "crumbs": [
+      "Lectures",
+      "Day 20: Pandas and CSV Data"
+    ]
+  },
+  {
+    "objectID": "lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html#overview",
+    "href": "lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html#overview",
+    "title": "Day 20: Pandas and CSV Data",
+    "section": "",
+    "text": "Importing pandas and reading CSVs\nDataFrames vs Series\nBasic data filtering",
+    "crumbs": [
+      "Lectures",
+      "Day 20: Pandas and CSV Data"
+    ]
+  },
+  {
+    "objectID": "lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html#key-syntax",
+    "href": "lectures/day_20_pandas_and_csv_data/day_20_pandas_and_csv_data.html#key-syntax",
+    "title": "Day 20: Pandas and CSV Data",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 20: Pandas and CSV Data"
+    ]
+  },
+  {
+    "objectID": "lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html",
+    "href": "lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html",
+    "title": "Day 21: Intro to Objects and Classes",
+    "section": "",
+    "text": "The concept of OOP\nDefining a class and init\nInstance attributes",
+    "crumbs": [
+      "Lectures",
+      "Day 21: Intro to Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html#overview",
+    "href": "lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html#overview",
+    "title": "Day 21: Intro to Objects and Classes",
+    "section": "",
+    "text": "The concept of OOP\nDefining a class and init\nInstance attributes",
+    "crumbs": [
+      "Lectures",
+      "Day 21: Intro to Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html#key-syntax",
+    "href": "lectures/day_21_intro_to_objects_and_classes/day_21_intro_to_objects_and_classes.html#key-syntax",
+    "title": "Day 21: Intro to Objects and Classes",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 21: Intro to Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html",
+    "href": "lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html",
+    "title": "Day 19: Exceptions and File I/O",
+    "section": "",
+    "text": "Try/except blocks\nOpening and closing files (with statement)\nReading lines vs reading whole files",
+    "crumbs": [
+      "Lectures",
+      "Day 19: Exceptions and File I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html#overview",
+    "href": "lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html#overview",
+    "title": "Day 19: Exceptions and File I/O",
+    "section": "",
+    "text": "Try/except blocks\nOpening and closing files (with statement)\nReading lines vs reading whole files",
+    "crumbs": [
+      "Lectures",
+      "Day 19: Exceptions and File I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html#key-syntax",
+    "href": "lectures/day_19_exceptions_and_file_i_o/day_19_exceptions_and_file_i_o.html#key-syntax",
+    "title": "Day 19: Exceptions and File I/O",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 19: Exceptions and File I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html",
+    "href": "lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html",
+    "title": "Day 24: Similarity Measures and Applications",
+    "section": "",
+    "text": "Cosine similarity vs distance\nImplementing similarity algorithms\nUse cases (e.g. recommendation)",
+    "crumbs": [
+      "Lectures",
+      "Day 24: Similarity Measures and Applications"
+    ]
+  },
+  {
+    "objectID": "lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html#overview",
+    "href": "lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html#overview",
+    "title": "Day 24: Similarity Measures and Applications",
+    "section": "",
+    "text": "Cosine similarity vs distance\nImplementing similarity algorithms\nUse cases (e.g. recommendation)",
+    "crumbs": [
+      "Lectures",
+      "Day 24: Similarity Measures and Applications"
+    ]
+  },
+  {
+    "objectID": "lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html#key-syntax",
+    "href": "lectures/day_24_similarity_measures_and_applications/day_24_similarity_measures_and_applications.html#key-syntax",
+    "title": "Day 24: Similarity Measures and Applications",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 24: Similarity Measures and Applications"
+    ]
+  },
+  {
+    "objectID": "lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html",
+    "href": "lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html",
+    "title": "Day 26: Geometry Graphics and Visualization",
+    "section": "",
+    "text": "Plotting polygons and shapes\nApplying matrices to graphics\nFinal project connections",
+    "crumbs": [
+      "Lectures",
+      "Day 26: Geometry Graphics and Visualization"
+    ]
+  },
+  {
+    "objectID": "lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html#overview",
+    "href": "lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html#overview",
+    "title": "Day 26: Geometry Graphics and Visualization",
+    "section": "",
+    "text": "Plotting polygons and shapes\nApplying matrices to graphics\nFinal project connections",
+    "crumbs": [
+      "Lectures",
+      "Day 26: Geometry Graphics and Visualization"
+    ]
+  },
+  {
+    "objectID": "lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html#key-syntax",
+    "href": "lectures/day_26_geometry_graphics_and_visualization/day_26_geometry_graphics_and_visualization.html#key-syntax",
+    "title": "Day 26: Geometry Graphics and Visualization",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 26: Geometry Graphics and Visualization"
+    ]
+  },
+  {
+    "objectID": "lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html",
+    "href": "lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html",
+    "title": "Day 11: For Loops and Iteration",
+    "section": "",
+    "text": "Iterating over sequences (lists strings)\nUsing range()\nThe mechanics of the loop variable",
+    "crumbs": [
+      "Lectures",
+      "Day 11: For Loops and Iteration"
+    ]
+  },
+  {
+    "objectID": "lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html#overview",
+    "href": "lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html#overview",
+    "title": "Day 11: For Loops and Iteration",
+    "section": "",
+    "text": "Iterating over sequences (lists strings)\nUsing range()\nThe mechanics of the loop variable",
+    "crumbs": [
+      "Lectures",
+      "Day 11: For Loops and Iteration"
+    ]
+  },
+  {
+    "objectID": "lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html#key-syntax",
+    "href": "lectures/day_11_for_loops_and_iteration/day_11_for_loops_and_iteration.html#key-syntax",
+    "title": "Day 11: For Loops and Iteration",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 11: For Loops and Iteration"
+    ]
+  },
+  {
+    "objectID": "lectures/day_25_matrix_transformations/day_25_matrix_transformations.html",
+    "href": "lectures/day_25_matrix_transformations/day_25_matrix_transformations.html",
+    "title": "Day 25: Matrix Transformations",
+    "section": "",
+    "text": "Scaling rotation and translation\nApplying transformations to vectors\nVisualizing transformed spaces",
+    "crumbs": [
+      "Lectures",
+      "Day 25: Matrix Transformations"
+    ]
+  },
+  {
+    "objectID": "lectures/day_25_matrix_transformations/day_25_matrix_transformations.html#overview",
+    "href": "lectures/day_25_matrix_transformations/day_25_matrix_transformations.html#overview",
+    "title": "Day 25: Matrix Transformations",
+    "section": "",
+    "text": "Scaling rotation and translation\nApplying transformations to vectors\nVisualizing transformed spaces",
+    "crumbs": [
+      "Lectures",
+      "Day 25: Matrix Transformations"
+    ]
+  },
+  {
+    "objectID": "lectures/day_25_matrix_transformations/day_25_matrix_transformations.html#key-syntax",
+    "href": "lectures/day_25_matrix_transformations/day_25_matrix_transformations.html#key-syntax",
+    "title": "Day 25: Matrix Transformations",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 25: Matrix Transformations"
+    ]
+  },
+  {
+    "objectID": "lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html",
+    "href": "lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html",
+    "title": "Day 4: Vectors and NumPy Arrays",
+    "section": "",
+    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations",
+    "crumbs": [
+      "Lectures",
+      "Day 4: Vectors and NumPy Arrays"
+    ]
+  },
+  {
+    "objectID": "lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html#overview",
+    "href": "lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html#overview",
+    "title": "Day 4: Vectors and NumPy Arrays",
+    "section": "",
+    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations",
+    "crumbs": [
+      "Lectures",
+      "Day 4: Vectors and NumPy Arrays"
+    ]
+  },
+  {
+    "objectID": "lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html#key-syntax",
+    "href": "lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.html#key-syntax",
+    "title": "Day 4: Vectors and NumPy Arrays",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 4: Vectors and NumPy Arrays"
+    ]
+  },
+  {
+    "objectID": "lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html",
+    "href": "lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html",
+    "title": "Day 22: More on Objects and Classes",
+    "section": "",
+    "text": "Instance methods\nClass variables vs instance variables\nBasic encapsulation concepts",
+    "crumbs": [
+      "Lectures",
+      "Day 22: More on Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html#overview",
+    "href": "lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html#overview",
+    "title": "Day 22: More on Objects and Classes",
+    "section": "",
+    "text": "Instance methods\nClass variables vs instance variables\nBasic encapsulation concepts",
+    "crumbs": [
+      "Lectures",
+      "Day 22: More on Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html#key-syntax",
+    "href": "lectures/day_22_more_on_objects_and_classes/day_22_more_on_objects_and_classes.html#key-syntax",
+    "title": "Day 22: More on Objects and Classes",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "Day 22: More on Objects and Classes"
     ]
   }
 ]

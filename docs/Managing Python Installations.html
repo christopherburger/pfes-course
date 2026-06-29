@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Christopher Burger, PhD">
 
-<title>Course Overview – Programming for Engineers and Scientists</title>
+<title>Managing a Python Installation – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -23,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -43,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-1e2b06dee067459480ac35f5e9819e7c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -74,7 +108,6 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="custom.css">
-<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -86,7 +119,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info</a></li><li class="breadcrumb-item"><a href="./index.html">Course Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info</a></li><li class="breadcrumb-item"><a href="./Managing Python Installations.html">Managing a Python Installation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -122,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Course Overview</span></a>
   </div>
 </li>
@@ -134,7 +167,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Managing Python Installations.html" class="sidebar-item-text sidebar-link">
+  <a href="./Managing Python Installations.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Managing a Python Installation</span></a>
   </div>
 </li>
@@ -322,41 +355,35 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#the-golden-rule-of-python-environments" id="toc-the-golden-rule-of-python-environments" class="nav-link" data-scroll-target="#the-golden-rule-of-python-environments">The Golden Rule of Python Environments</a></li>
+  <li><a href="#uv" id="toc-uv" class="nav-link" data-scroll-target="#uv"><code>uv</code></a>
   <ul class="collapse">
-  <li><a href="#course-objectives" id="toc-course-objectives" class="nav-link active" data-scroll-target="#course-objectives">Course Objectives</a></li>
-  <li><a href="#semester-outline" id="toc-semester-outline" class="nav-link" data-scroll-target="#semester-outline">Semester Outline</a></li>
-  <li><a href="#core-resources" id="toc-core-resources" class="nav-link" data-scroll-target="#core-resources">Core Resources</a></li>
-  <li><a href="#contact-information" id="toc-contact-information" class="nav-link" data-scroll-target="#contact-information">Contact Information</a></li>
+  <li><a href="#installing-uv" id="toc-installing-uv" class="nav-link" data-scroll-target="#installing-uv">1. Installing <code>uv</code></a></li>
+  <li><a href="#installing-python-versions" id="toc-installing-python-versions" class="nav-link" data-scroll-target="#installing-python-versions">2. Installing Python Versions</a></li>
+  <li><a href="#creating-a-project" id="toc-creating-a-project" class="nav-link" data-scroll-target="#creating-a-project">3. Creating a Project</a></li>
+  <li><a href="#running-your-code" id="toc-running-your-code" class="nav-link" data-scroll-target="#running-your-code">4. Running Your Code</a></li>
+  </ul></li>
+  <li><a href="#installing-global-tools" id="toc-installing-global-tools" class="nav-link" data-scroll-target="#installing-global-tools">Installing Global Tools</a></li>
+  <li><a href="#working-with-older-codebases" id="toc-working-with-older-codebases" class="nav-link" data-scroll-target="#working-with-older-codebases">Working with Older Codebases</a></li>
+  <li><a href="#recap" id="toc-recap" class="nav-link" data-scroll-target="#recap">Recap</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info</a></li><li class="breadcrumb-item"><a href="./index.html">Course Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Course Info</a></li><li class="breadcrumb-item"><a href="./Managing Python Installations.html">Managing a Python Installation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Course Overview</h1>
-<p class="subtitle lead">Programming for Engineers and Scientists</p>
+<h1 class="title">Managing a Python Installation</h1>
 </div>
 
 
-<div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Author</div>
-  <div class="quarto-title-meta-heading">Affiliation</div>
-  
-    <div class="quarto-title-meta-contents">
-    <p class="author">Christopher Burger, PhD </p>
-  </div>
-  <div class="quarto-title-meta-contents">
-        <p class="affiliation">
-            University of Mississippi | School of Engineering
-          </p>
-      </div>
-  </div>
 
 <div class="quarto-title-meta">
 
-      
+    
   
     
   </div>
@@ -366,47 +393,104 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Welcome to the central repository for course materials, lecture notes, and computational resources. This site serves as the primary hub for our technical curriculum and will be updated weekly as we progress through the semester.</p>
-<section id="course-objectives" class="level2">
-<h2 class="anchored" data-anchor-id="course-objectives">Course Objectives</h2>
-<p>This course is designed to build a rigorous foundation in algorithmic thinking and scientific computing. By the end of the term, students will be expected to transition from basic scripting to developing structured, efficient solutions for engineering problems.</p>
-<p>Our primary focus areas include: * Translating physical and mathematical models into computational logic. * Implementing and analyzing fundamental data structures. * Utilizing industry-standard tools for data analysis and visualization. * Developing robust debugging and code-testing practices.</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>One of the great benefits of Python is its extensive network of packages. But with so many different packages comes interdependency and the difficulty of ensuring there are no conflicts with all the different possible configurations between package and Python versions.</p>
+</section>
+<section id="the-golden-rule-of-python-environments" class="level2">
+<h2 class="anchored" data-anchor-id="the-golden-rule-of-python-environments">The Golden Rule of Python Environments</h2>
+<p>When you want to install a package for Python (like pandas), your first instinct might be to open the terminal and type <code>pip install pandas</code>. <strong>Do not do this.</strong></p>
+<p>Operating systems like MacOS and Linux rely on a hidden, system-level Python installation to run core operating system background tasks. If you use global <code>pip</code> to install or upgrade packages, you risk overwriting the dependencies your operating system relies on. This leads to a broken OS, or at best, conflicting dependencies between your own projects (often called “Dependency Hell”).</p>
+<p><strong>Preventing Dependecy Hell:</strong> Every project must live in its own isolated “Virtual Environment.”</p>
+<p>This is one of the downsides to Python, in order to prevent dependency conflicts you need to manage what amounts to different Python installations. Fortunately, this is no longer particularly tedious.</p>
 <hr>
 </section>
-<section id="semester-outline" class="level2">
-<h2 class="anchored" data-anchor-id="semester-outline">Semester Outline</h2>
-<p>The curriculum is divided into four primary modules. Select a module below to access the corresponding lecture notes, slide decks, and reading assignments.</p>
-<section id="module-1-foundations-of-computation" class="level3">
-<h3 class="anchored" data-anchor-id="module-1-foundations-of-computation">Module 1: Foundations of Computation</h3>
-<p>Introduction to the computational environment, basic data types, control flow, and the principles of procedural programming.</p>
+<section id="uv" class="level2">
+<h2 class="anchored" data-anchor-id="uv"><code>uv</code></h2>
+<p>Historically, managing Python safely required juggling several different tools (<code>pyenv</code> for Python versions, <code>venv</code> for environments, <code>pip</code> for packages, and <code>pipx</code> for global apps).</p>
+<p>There are multiple solutions to managing different Python installations (Conda/Miniconda are very popular), a recent one is <strong><code>uv</code></strong>. This replaces all of the traditional tools with a single tool. It operates entirely in user-space, meaning it requires no administrator privileges and generally can be installed without friction on computers that you do not have full control over.</p>
+<section id="installing-uv" class="level3">
+<h3 class="anchored" data-anchor-id="installing-uv">1. Installing <code>uv</code></h3>
+<p>Open your terminal and run the official standalone installer:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># On macOS/Linux</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="ex">curl</span> <span class="at">-LsSf</span> https://astral.sh/uv/install.sh <span class="kw">|</span> <span class="fu">sh</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># On Windows</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">powershell</span> <span class="at">-c</span> <span class="st">"irm https://astral.sh/uv/install.ps1 | more"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="module-2-data-structures-and-algorithms" class="level3">
-<h3 class="anchored" data-anchor-id="module-2-data-structures-and-algorithms">Module 2: Data Structures and Algorithms</h3>
-<p>Moving beyond basic variables to explore lists, dictionaries, trees, and the algorithmic complexity of search and sort operations.</p>
+<section id="installing-python-versions" class="level3">
+<h3 class="anchored" data-anchor-id="installing-python-versions">2. Installing Python Versions</h3>
+<p>You do not need to download Python from the official website. <code>uv</code> will download and isolate whatever version of Python you need for a project.</p>
+<p>For example, if you need a Python version of 3.12 as a requirement:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the latest version of Python 3.12</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> python install 3.12</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
-<section id="module-3-scientific-computing" class="level3">
-<h3 class="anchored" data-anchor-id="module-3-scientific-computing">Module 3: Scientific Computing</h3>
-<p>Leveraging external libraries for matrix operations, applied linear algebra integrations, and numerical methods.</p>
+<section id="creating-a-project" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-project">3. Creating a Project</h3>
+<p>When creating a new project, <code>uv</code> makes environment isolation automatic.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new project directory</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mkdir</span> data_analysis_project</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">cd</span> data_analysis_project</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize the project structure</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> init</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Add a package (this automatically creates the virtual environment!)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> add pandas matplotlib</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Notice that we never had to manually “activate” an environment. By using <code>uv add</code>, the tool automatically handles the creation and linkage of the isolated environment.</p>
 </section>
-<section id="module-4-applied-engineering-projects" class="level3">
-<h3 class="anchored" data-anchor-id="module-4-applied-engineering-projects">Module 4: Applied Engineering Projects</h3>
-<p>Synthesizing previous concepts to solve complex, open-ended engineering problems, including basic signal processing and data analysis.</p>
+<section id="running-your-code" class="level3">
+<h3 class="anchored" data-anchor-id="running-your-code">4. Running Your Code</h3>
+<p>To run a script using the isolated environment, simply prefix your command with <code>uv run</code>.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Runs script.py using the isolated pandas/matplotlib installation</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> run script.py</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <hr>
 </section>
 </section>
-<section id="core-resources" class="level2">
-<h2 class="anchored" data-anchor-id="core-resources">Core Resources</h2>
-<p>Access the essential platforms and documentation required for this course.</p>
-<ul>
-<li><a href="./syllabus.html"><strong>Syllabus and Policies</strong></a> - Grading rubrics, office hours, and academic integrity policies.</li>
-<li><a href="https://blackboard.olemiss.edu"><strong>Assignment Submission Portal</strong></a> - Official university portal for submitting graded work.</li>
-<li><a href="#"><strong>In-Browser Python IDE</strong></a> - Development environment for practical exercises and examinations.</li>
-</ul>
+<section id="installing-global-tools" class="level2">
+<h2 class="anchored" data-anchor-id="installing-global-tools">Installing Global Tools</h2>
+<p>Sometimes you need to install a Python application that you want to use everywhere, not just in one project. A good example is something like Jupyter Lab.</p>
+<p>Installing an application into a specific project’s virtual environment is tedious, but installing them globally via pip breaks the Golden Rule.</p>
+<p>The solution is an isolated tool runner.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install Jupyter Lab in its own isolated global environment</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="ex">uv</span> tool install jupyterlab</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># You can now launch Jupyter from anywhere on your computer</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="ex">jupyter</span> lab</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If you are working on a legacy system without <code>uv</code>, the traditional equivalent of this command is <code>pipx install jupyterlab</code>.</p>
 <hr>
 </section>
-<section id="contact-information" class="level2">
-<h2 class="anchored" data-anchor-id="contact-information">Contact Information</h2>
-<p>For matters directly related to the coursework, please utilize the dedicated discussion boards to benefit the entire class. For individual administrative inquiries, refer to the contact protocols outlined on the main <a href="https://sites.olemiss.edu/cburger">Faculty Profile</a>.</p>
+<section id="working-with-older-codebases" class="level2">
+<h2 class="anchored" data-anchor-id="working-with-older-codebases">Working with Older Codebases</h2>
+<p>While <code>uv</code> is the modern standard, you will inevitably encounter older codebases or tutorials that use the standard library tools. Adjusting them to use <code>uv</code> is straightforward.</p>
+<p>If a repository contains a <code>requirements.txt</code> file, the traditional setup workflow looks like this:</p>
+<ol type="1">
+<li>Create the Environment:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv .venv</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="2" type="1">
+<li>Activate the Environment: (You must do this every time you open a new terminal)</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># macOS / Linux</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">source</span> .venv/bin/activate</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Windows</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="ex">.venv\Scripts\activate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="3" type="1">
+<li>Install the Dependencies:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb8"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-r</span> requirements.txt</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ol start="4" type="1">
+<li>Deactivate:</li>
+</ol>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb9"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">deactivate</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+</section>
+<section id="recap" class="level2">
+<h2 class="anchored" data-anchor-id="recap">Recap</h2>
+<p>Need a library for a script? (e.g., numpy, pandas) -&gt; Use <code>uv</code> add or a local <code>venv</code>.</p>
+<p>Need a standalone app? (e.g., jupyter) -&gt; Use <code>uv tool install</code> or <code>pipx</code>.</p>
+<p>Never use: <code>pip install [package]</code> outside of an active virtual environment.</p>
 
 
 </section>
