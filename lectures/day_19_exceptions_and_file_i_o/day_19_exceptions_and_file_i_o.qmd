@@ -4,10 +4,11 @@ format: html
 ---
 
 ## Overview
-* Try/except blocks
-* Opening and closing files (with statement)
-* Reading lines vs reading whole files
+
+- Try/except blocks
+- Opening and closing files (with statement)
+- Reading lines vs reading whole files
 
 ## Key Syntax
-```python
-# Add core syntax examples here
+
+\`\`\`python \# Add core syntax examples here

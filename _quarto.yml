@@ -14,7 +14,7 @@ website:
           - Managing Python Installations.qmd
       - section: "Lectures"
         contents:
-          - lectures/day_01_course_intro_and_python_environment/day_01_course_intro_and_python_environment.qmd
+          - lectures/01_course_introduction/ourse_intro_and_python_environment.qmd
           - lectures/day_02_variables_arithmetic_basic_i_o/day_02_variables_arithmetic_basic_i_o.qmd
           - lectures/day_03_strings_lists_tuples/day_03_strings_lists_tuples.qmd
           - lectures/day_04_vectors_and_numpy_arrays/day_04_vectors_and_numpy_arrays.qmd
