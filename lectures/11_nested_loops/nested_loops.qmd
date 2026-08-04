@@ -1,0 +1,14 @@
+---
+title: "Day 11: Nested Loops"
+format: html
+---
+
+## Overview
+
+- Iterating over sequences (lists strings)
+- Using range()
+- The mechanics of the loop variable
+
+## Key Syntax
+
+\`\`\`python \# Add core syntax examples here

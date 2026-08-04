@@ -1,0 +1,14 @@
+---
+title: "Day 10: While Loops"
+format: html
+---
+
+## Overview
+
+- If elif and else syntax
+- Indentation rules
+- Nested conditionals
+
+## Key Syntax
+
+\`\`\`python \# Add core syntax examples here

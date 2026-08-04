@@ -1,0 +1,14 @@
+---
+title: "Day 9: For Loops"
+format: html
+---
+
+## Overview
+
+- Relational operators (== != \> \<)
+- Logical operators (and or not)
+- Evaluating truth tables
+
+## Key Syntax
+
+\`\`\`python \# Add core syntax examples here

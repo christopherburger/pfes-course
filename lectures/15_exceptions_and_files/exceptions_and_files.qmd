@@ -1,0 +1,14 @@
+---
+title: "Day 15: Exceptions and Files"
+format: html
+---
+
+## Overview
+
+- Creating 2D arrays in NumPy
+- Indexing rows and columns \[r c\]
+- Shape and reshaping arrays
+
+## Key Syntax
+
+\`\`\`python \# Add core syntax examples here
