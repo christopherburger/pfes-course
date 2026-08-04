@@ -1,5 +1,5 @@
 ---
-title: "Day 6: Basic Plotting"
+title: "6: Basic Plotting"
 format: html
 ---
 

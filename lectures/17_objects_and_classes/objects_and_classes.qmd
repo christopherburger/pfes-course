@@ -1,5 +1,5 @@
 ---
-title: "Day 17: Objects and Classes"
+title: "17: Objects and Classes"
 format: html
 ---
 

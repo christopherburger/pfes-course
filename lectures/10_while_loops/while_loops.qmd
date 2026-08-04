@@ -1,5 +1,5 @@
 ---
-title: "Day 10: While Loops"
+title: "10: While Loops"
 format: html
 ---
 

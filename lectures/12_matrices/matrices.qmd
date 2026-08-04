@@ -1,5 +1,5 @@
 ---
-title: "Day 12: Matrices"
+title: "12: Matrices"
 format: html
 ---
 

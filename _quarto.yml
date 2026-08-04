@@ -10,8 +10,8 @@ website:
       - section: "Course Info"
         contents:
           - index.qmd
-          #- conventions.qmd
           - Managing Python Installations.qmd
+          #- conventions.qmd
       - section: "Lectures"
         contents:
           - lectures/01_course_introduction/course_intro_and_python_environment.qmd

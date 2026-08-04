@@ -1,5 +1,5 @@
 ---
-title: "Day 11: Nested Loops"
+title: "11: Nested Loops"
 format: html
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Day 16: Pandas"
+title: "16: Pandas"
 format: html
 ---
 

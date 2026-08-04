@@ -1,5 +1,5 @@
 ---
-title: "Day 15: Exceptions and Files"
+title: "15: Exceptions and Files"
 format: html
 ---
 

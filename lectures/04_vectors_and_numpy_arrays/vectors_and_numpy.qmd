@@ -1,13 +1,14 @@
 ---
-title: "Day 4: Vectors and NumPy Arrays"
+title: "4: Vectors and NumPy Arrays"
 format: html
 ---
 
 ## Overview
-* Importing NumPy
-* Creating 1D arrays
-* Basic array operations
+
+- Importing NumPy
+- Creating 1D arrays
+- Basic array operations
 
 ## Key Syntax
-```python
-# Add core syntax examples here
+
+\`\`\`python \# Add core syntax examples here

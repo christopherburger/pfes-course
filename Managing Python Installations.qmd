@@ -8,13 +8,13 @@ One of the great benefits of Python is its extensive network of packages. But wi
 
 ## The Golden Rule of Python Environments
 
-When you want to install a package for Python (like pandas), your first instinct might be to open the terminal and type `pip install pandas`. **Do not do this.**
+When you want to install a package for Python (like pandas), many guides often tell you to open the terminal and type `pip install pandas`. **Do not do this.**
 
 Operating systems like MacOS and Linux rely on a hidden, system-level Python installation to run core operating system background tasks. If you use global `pip` to install or upgrade packages, you risk overwriting the dependencies your operating system relies on. This leads to a broken OS, or at best, conflicting dependencies between your own projects (often called "Dependency Hell").
 
 **Preventing Dependecy Hell:** Every project must live in its own isolated "Virtual Environment."
 
-This is one of the downsides to Python, in order to prevent dependency conflicts you need to manage what amounts to different Python installations. Fortunately, this is no longer particularly tedious.
+This is one of the downsides to Python, in order to prevent dependency conflicts you need to manage what amounts to different Python installations. Fortunately, there are solutions that make this less tedious and prone to complication.
 
 ------------------------------------------------------------------------
 
@@ -36,7 +36,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 powershell -c "irm https://astral.sh/uv/install.ps1 | more"
 ```
 
-### 2. Installing Python Versions
+### qua2. Installing Python Versions
 
 You do not need to download Python from the official website. `uv` will download and isolate whatever version of Python you need for a project.
 

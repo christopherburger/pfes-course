@@ -1,5 +1,5 @@
 ---
-title: "Day 9: For Loops"
+title: "9: For Loops"
 format: html
 ---
 

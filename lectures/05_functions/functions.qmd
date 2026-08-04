@@ -1,5 +1,5 @@
 ---
-title: "Day 5: Functions"
+title: "5: Functions"
 format: html
 ---
 
