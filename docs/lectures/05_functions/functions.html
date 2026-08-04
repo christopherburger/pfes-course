@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Content Conventions – Programming for Engineers and Scientists</title>
+<title>Day 5: Functions – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +26,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-6388ad00bb6ecaefa25b9a98db1edf18.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -72,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="custom.css">
+<link rel="stylesheet" href="../../custom.css">
 </head>
 
 <body class="nav-sidebar floating quarto-light">
@@ -84,9 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Programming for Engineers and Scientists
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/05_functions/functions.html">Day 5: Functions</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -101,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Programming for Engineers and Scientists</a> 
+      <a href="../../">Programming for Engineers and Scientists</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -122,13 +120,13 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Course Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Managing Python Installations.html" class="sidebar-item-text sidebar-link">
+  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Managing a Python Installation</span></a>
   </div>
 </li>
@@ -145,19 +143,19 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/01_course_introduction/course_intro_and_python_environment.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1: Course Introduction and the Python Environment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 2: Variables Arithmetic Basic I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 3: Strings Lists Tuples</span></a>
   </div>
 </li>
@@ -166,85 +164,85 @@ ul.task-list li input[type="checkbox"] {
   </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/05_functions/functions.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/05_functions/functions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Day 5: Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/06_basic_plotting/basic_plotting.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/06_basic_plotting/basic_plotting.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 6: Basic Plotting</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/07_boolean_logic/boolean_logic.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/07_boolean_logic/boolean_logic.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 7: Boolean Logic</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/08_control_structures/control_structures.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/08_control_structures/control_structures.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 8: Control Structures</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/09_for_loops/for_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/09_for_loops/for_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 9: For Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/10_while_loops/while_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/10_while_loops/while_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 10: While Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/11_nested_loops/nested_loops.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/11_nested_loops/nested_loops.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 11: Nested Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/12_matrices/matrices.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/12_matrices/matrices.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 12: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/13_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/13_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 13: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/14_sets/sets.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/14_sets/sets.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 14: Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/15_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/15_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 15: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/16_pandas/pandas.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/16_pandas/pandas.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 16: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/17_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/17_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Day 17: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./lectures/18_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
+  <a href="../../lectures/18_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">18: Distance and Similarity</span></a>
   </div>
 </li>
@@ -260,18 +258,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#core-foundations-know-cold" id="toc-core-foundations-know-cold" class="nav-link active" data-scroll-target="#core-foundations-know-cold">1. Core Foundations (Know Cold)</a></li>
-  <li><a href="#reference-concepts-functional-familiarity" id="toc-reference-concepts-functional-familiarity" class="nav-link" data-scroll-target="#reference-concepts-functional-familiarity">2. Reference Concepts (Functional Familiarity)</a></li>
-  <li><a href="#extended-mastery-context-depth" id="toc-extended-mastery-context-depth" class="nav-link" data-scroll-target="#extended-mastery-context-depth">3. Extended Mastery (Context &amp; Depth)</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/05_functions/functions.html">Day 5: Functions</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Content Conventions</h1>
+<h1 class="title">Day 5: Functions</h1>
 </div>
 
 
@@ -288,26 +285,17 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>The information in these course notes is categorized into three visual tiers that indicate the level of importance when it comes to graded material.</p>
-<section id="core-foundations-know-cold" class="level3">
-<h3 class="anchored" data-anchor-id="core-foundations-know-cold">1. Core Foundations (Know Cold)</h3>
-<div class="core-box">
-<p>These blocks contain the core content of the course. If it is in a sharp-edged box, you are expected to be able to reproduce this information, derive the formulas, or perform the calculations from memory during examinations.</p>
-</div>
-<hr>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<ul>
+<li>Defining a function with def</li>
+<li>Passing arguments (positional vs keyword)</li>
+<li>The concept of modularity</li>
+</ul>
 </section>
-<section id="reference-concepts-functional-familiarity" class="level3">
-<h3 class="anchored" data-anchor-id="reference-concepts-functional-familiarity">2. Reference Concepts (Functional Familiarity)</h3>
-<div class="reference-box">
-<p>These blocks contain tools, syntax, or concepts that you should recognize and understand when you see them. You do not need to memorize these “cold,” but you should know they exist and where to find them.</p>
-</div>
-<hr>
-</section>
-<section id="extended-mastery-context-depth" class="level3">
-<h3 class="anchored" data-anchor-id="extended-mastery-context-depth">3. Extended Mastery (Context &amp; Depth)</h3>
-<div class="extended-box">
-<p>These rounded blocks are for students looking to further explore related content. This material is <strong>not testable</strong> but provides may prove useful for mastery of the core material in the course.</p>
-</div>
+<section id="key-syntax" class="level2">
+<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
+<p>```python # Add core syntax examples here</p>
 
 
 </section>

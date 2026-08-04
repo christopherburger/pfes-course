@@ -10,7 +10,7 @@ website:
       - section: "Course Info"
         contents:
           - index.qmd
-          - conventions.qmd
+          #- conventions.qmd
           - Managing Python Installations.qmd
       - section: "Lectures"
         contents:
