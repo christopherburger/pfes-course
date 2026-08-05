@@ -1,0 +1,734 @@
+[
+  {
+    "objectID": "Managing Python Installations.html",
+    "href": "Managing Python Installations.html",
+    "title": "Managing a Python Installation",
+    "section": "",
+    "text": "One of the great benefits of Python is its extensive network of packages. But with so many different packages comes interdependency and the difficulty of ensuring there are no conflicts with all the different possible configurations between package and Python versions.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#overview",
+    "href": "Managing Python Installations.html#overview",
+    "title": "Managing a Python Installation",
+    "section": "",
+    "text": "One of the great benefits of Python is its extensive network of packages. But with so many different packages comes interdependency and the difficulty of ensuring there are no conflicts with all the different possible configurations between package and Python versions.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#the-golden-rule-of-python-environments",
+    "href": "Managing Python Installations.html#the-golden-rule-of-python-environments",
+    "title": "Managing a Python Installation",
+    "section": "The Golden Rule of Python Environments",
+    "text": "The Golden Rule of Python Environments\nWhen you want to install a package for Python (like pandas), many guides often tell you to open the terminal and type pip install pandas. Do not do this.\nOperating systems like MacOS and Linux rely on a hidden, system-level Python installation to run core operating system background tasks. If you use global pip to install or upgrade packages, you risk overwriting the dependencies your operating system relies on. This leads to a broken OS, or at best, conflicting dependencies between your own projects (often called “Dependency Hell”).\nPreventing Dependecy Hell: Every project must live in its own isolated “Virtual Environment.”\nThis is one of the downsides to Python, in order to prevent dependency conflicts you need to manage what amounts to different Python installations. Fortunately, there are solutions that make this less tedious and prone to complication.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#uv",
+    "href": "Managing Python Installations.html#uv",
+    "title": "Managing a Python Installation",
+    "section": "uv",
+    "text": "uv\nHistorically, managing Python safely required juggling several different tools (pyenv for Python versions, venv for environments, pip for packages, and pipx for global apps).\nThere are multiple solutions to managing different Python installations (Conda/Miniconda are very popular), a recent one is uv. This replaces all of the traditional tools with a single tool. It operates entirely in user-space, meaning it requires no administrator privileges and generally can be installed without friction on computers that you do not have full control over.\n\n1. Installing uv\nOpen your terminal and run the official standalone installer:\n# On macOS/Linux\ncurl -LsSf https://astral.sh/uv/install.sh | sh\n\n# On Windows\npowershell -c \"irm https://astral.sh/uv/install.ps1 | more\"\n\n\nqua2. Installing Python Versions\nYou do not need to download Python from the official website. uv will download and isolate whatever version of Python you need for a project.\nFor example, if you need a Python version of 3.12 as a requirement:\n# Install the latest version of Python 3.12\nuv python install 3.12\n\n\n3. Creating a Project\nWhen creating a new project, uv makes environment isolation automatic.\n# Create a new project directory\nmkdir data_analysis_project\ncd data_analysis_project\n\n# Initialize the project structure\nuv init\n\n# Add a package (this automatically creates the virtual environment!)\nuv add pandas matplotlib\nNotice that we never had to manually “activate” an environment. By using uv add, the tool automatically handles the creation and linkage of the isolated environment.\n\n\n4. Running Your Code\nTo run a script using the isolated environment, simply prefix your command with uv run.\n# Runs script.py using the isolated pandas/matplotlib installation\nuv run script.py",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#installing-global-tools",
+    "href": "Managing Python Installations.html#installing-global-tools",
+    "title": "Managing a Python Installation",
+    "section": "Installing Global Tools",
+    "text": "Installing Global Tools\nSometimes you need to install a Python application that you want to use everywhere, not just in one project. A good example is something like Jupyter Lab.\nInstalling an application into a specific project’s virtual environment is tedious, but installing them globally via pip breaks the Golden Rule.\nThe solution is an isolated tool runner.\n# Install Jupyter Lab in its own isolated global environment\nuv tool install jupyterlab\n\n# You can now launch Jupyter from anywhere on your computer\njupyter lab\nIf you are working on a legacy system without uv, the traditional equivalent of this command is pipx install jupyterlab.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#working-with-older-codebases",
+    "href": "Managing Python Installations.html#working-with-older-codebases",
+    "title": "Managing a Python Installation",
+    "section": "Working with Older Codebases",
+    "text": "Working with Older Codebases\nWhile uv is the modern standard, you will inevitably encounter older codebases or tutorials that use the standard library tools. Adjusting them to use uv is straightforward.\nIf a repository contains a requirements.txt file, the traditional setup workflow looks like this:\n\nCreate the Environment:\n\npython3 -m venv .venv\n\nActivate the Environment: (You must do this every time you open a new terminal)\n\n# macOS / Linux\nsource .venv/bin/activate\n\n# Windows\n.venv\\Scripts\\activate\n\nInstall the Dependencies:\n\npip install -r requirements.txt\n\nDeactivate:\n\ndeactivate",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "Managing Python Installations.html#recap",
+    "href": "Managing Python Installations.html#recap",
+    "title": "Managing a Python Installation",
+    "section": "Recap",
+    "text": "Recap\nNeed a library for a script? (e.g., numpy, pandas) -&gt; Use uv add or a local venv.\nNeed a standalone app? (e.g., jupyter) -&gt; Use uv tool install or pipx.\nNever use: pip install [package] outside of an active virtual environment.",
+    "crumbs": [
+      "Course Info",
+      "Managing a Python Installation"
+    ]
+  },
+  {
+    "objectID": "lectures/16_pandas/pandas.html",
+    "href": "lectures/16_pandas/pandas.html",
+    "title": "16: Pandas",
+    "section": "",
+    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits",
+    "crumbs": [
+      "Lectures",
+      "16: Pandas"
+    ]
+  },
+  {
+    "objectID": "lectures/16_pandas/pandas.html#overview",
+    "href": "lectures/16_pandas/pandas.html#overview",
+    "title": "16: Pandas",
+    "section": "",
+    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits",
+    "crumbs": [
+      "Lectures",
+      "16: Pandas"
+    ]
+  },
+  {
+    "objectID": "lectures/16_pandas/pandas.html#key-syntax",
+    "href": "lectures/16_pandas/pandas.html#key-syntax",
+    "title": "16: Pandas",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "16: Pandas"
+    ]
+  },
+  {
+    "objectID": "lectures/12_matrices/matrices.html",
+    "href": "lectures/12_matrices/matrices.html",
+    "title": "12: Matrices",
+    "section": "",
+    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal",
+    "crumbs": [
+      "Lectures",
+      "12: Matrices"
+    ]
+  },
+  {
+    "objectID": "lectures/12_matrices/matrices.html#overview",
+    "href": "lectures/12_matrices/matrices.html#overview",
+    "title": "12: Matrices",
+    "section": "",
+    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal",
+    "crumbs": [
+      "Lectures",
+      "12: Matrices"
+    ]
+  },
+  {
+    "objectID": "lectures/12_matrices/matrices.html#key-syntax",
+    "href": "lectures/12_matrices/matrices.html#key-syntax",
+    "title": "12: Matrices",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "12: Matrices"
+    ]
+  },
+  {
+    "objectID": "lectures/14_sets/sets.html",
+    "href": "lectures/14_sets/sets.html",
+    "title": "14: Sets",
+    "section": "",
+    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations",
+    "crumbs": [
+      "Lectures",
+      "14: Sets"
+    ]
+  },
+  {
+    "objectID": "lectures/14_sets/sets.html#overview",
+    "href": "lectures/14_sets/sets.html#overview",
+    "title": "14: Sets",
+    "section": "",
+    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations",
+    "crumbs": [
+      "Lectures",
+      "14: Sets"
+    ]
+  },
+  {
+    "objectID": "lectures/14_sets/sets.html#key-syntax",
+    "href": "lectures/14_sets/sets.html#key-syntax",
+    "title": "14: Sets",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "14: Sets"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html",
+    "href": "lectures/05_functions/functions.html",
+    "title": "5: Functions",
+    "section": "",
+    "text": "Defining a function with def\nPassing arguments (positional vs keyword)\nThe concept of modularity",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html#overview",
+    "href": "lectures/05_functions/functions.html#overview",
+    "title": "5: Functions",
+    "section": "",
+    "text": "Defining a function with def\nPassing arguments (positional vs keyword)\nThe concept of modularity",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html#key-syntax",
+    "href": "lectures/05_functions/functions.html#key-syntax",
+    "title": "5: Functions",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html",
+    "title": "3: Strings Lists Tuples",
+    "section": "",
+    "text": "Indexing and slicing syntax\nMutability (Lists) vs Immutability (Strings/Tuples)\nCommon built-in methods (append len)",
+    "crumbs": [
+      "Lectures",
+      "3: Strings Lists Tuples"
+    ]
+  },
+  {
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#overview",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#overview",
+    "title": "3: Strings Lists Tuples",
+    "section": "",
+    "text": "Indexing and slicing syntax\nMutability (Lists) vs Immutability (Strings/Tuples)\nCommon built-in methods (append len)",
+    "crumbs": [
+      "Lectures",
+      "3: Strings Lists Tuples"
+    ]
+  },
+  {
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#key-syntax",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#key-syntax",
+    "title": "3: Strings Lists Tuples",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "3: Strings Lists Tuples"
+    ]
+  },
+  {
+    "objectID": "lectures/10_while_loops/while_loops.html",
+    "href": "lectures/10_while_loops/while_loops.html",
+    "title": "10: While Loops",
+    "section": "",
+    "text": "If elif and else syntax\nIndentation rules\nNested conditionals",
+    "crumbs": [
+      "Lectures",
+      "10: While Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/10_while_loops/while_loops.html#overview",
+    "href": "lectures/10_while_loops/while_loops.html#overview",
+    "title": "10: While Loops",
+    "section": "",
+    "text": "If elif and else syntax\nIndentation rules\nNested conditionals",
+    "crumbs": [
+      "Lectures",
+      "10: While Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/10_while_loops/while_loops.html#key-syntax",
+    "href": "lectures/10_while_loops/while_loops.html#key-syntax",
+    "title": "10: While Loops",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "10: While Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/15_exceptions_and_files/exceptions_and_files.html",
+    "href": "lectures/15_exceptions_and_files/exceptions_and_files.html",
+    "title": "15: Exceptions and Files",
+    "section": "",
+    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays",
+    "crumbs": [
+      "Lectures",
+      "15: Exceptions and Files"
+    ]
+  },
+  {
+    "objectID": "lectures/15_exceptions_and_files/exceptions_and_files.html#overview",
+    "href": "lectures/15_exceptions_and_files/exceptions_and_files.html#overview",
+    "title": "15: Exceptions and Files",
+    "section": "",
+    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays",
+    "crumbs": [
+      "Lectures",
+      "15: Exceptions and Files"
+    ]
+  },
+  {
+    "objectID": "lectures/15_exceptions_and_files/exceptions_and_files.html#key-syntax",
+    "href": "lectures/15_exceptions_and_files/exceptions_and_files.html#key-syntax",
+    "title": "15: Exceptions and Files",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "15: Exceptions and Files"
+    ]
+  },
+  {
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html",
+    "href": "lectures/07_boolean_logic/boolean_logic.html",
+    "title": "7: Boolean Logic",
+    "section": "",
+    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "crumbs": [
+      "Lectures",
+      "7: Boolean Logic"
+    ]
+  },
+  {
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html#overview",
+    "href": "lectures/07_boolean_logic/boolean_logic.html#overview",
+    "title": "7: Boolean Logic",
+    "section": "",
+    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "crumbs": [
+      "Lectures",
+      "7: Boolean Logic"
+    ]
+  },
+  {
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html#key-syntax",
+    "href": "lectures/07_boolean_logic/boolean_logic.html#key-syntax",
+    "title": "7: Boolean Logic",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "7: Boolean Logic"
+    ]
+  },
+  {
+    "objectID": "lectures/06_basic_plotting/basic_plotting.html",
+    "href": "lectures/06_basic_plotting/basic_plotting.html",
+    "title": "6: Basic Plotting",
+    "section": "",
+    "text": "The return statement vs print\nLocal vs global variable scope\nDesigning pure functions",
+    "crumbs": [
+      "Lectures",
+      "6: Basic Plotting"
+    ]
+  },
+  {
+    "objectID": "lectures/06_basic_plotting/basic_plotting.html#overview",
+    "href": "lectures/06_basic_plotting/basic_plotting.html#overview",
+    "title": "6: Basic Plotting",
+    "section": "",
+    "text": "The return statement vs print\nLocal vs global variable scope\nDesigning pure functions",
+    "crumbs": [
+      "Lectures",
+      "6: Basic Plotting"
+    ]
+  },
+  {
+    "objectID": "lectures/06_basic_plotting/basic_plotting.html#key-syntax",
+    "href": "lectures/06_basic_plotting/basic_plotting.html#key-syntax",
+    "title": "6: Basic Plotting",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "6: Basic Plotting"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Course Overview",
+    "section": "",
+    "text": "This is the central repository for the lecture notes for CSCI/CISE 1056. These notes provide an overview of the content covered during lecture and will be available as the reference during lab.\nMore in-depth information from the official textbook can be found in the supplementary reading folder in each content section of Blackboard.",
+    "crumbs": [
+      "Course Info",
+      "Course Overview"
+    ]
+  },
+  {
+    "objectID": "conventions.html",
+    "href": "conventions.html",
+    "title": "Content Conventions",
+    "section": "",
+    "text": "The information in these course notes is categorized into three visual tiers that indicate the level of importance when it comes to graded material.\n\n1. Core Foundations (Know Cold)\n\nThese blocks contain the core content of the course. If it is in a sharp-edged box, you are expected to be able to reproduce this information, derive the formulas, or perform the calculations from memory during examinations.\n\n\n\n\n2. Reference Concepts (Functional Familiarity)\n\nThese blocks contain tools, syntax, or concepts that you should recognize and understand when you see them. You do not need to memorize these “cold,” but you should know they exist and where to find them.\n\n\n\n\n3. Extended Mastery (Context & Depth)\n\nThese rounded blocks are for students looking to further explore related content. This material is not testable but provides may prove useful for mastery of the core material in the course."
+  },
+  {
+    "objectID": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html",
+    "href": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html",
+    "title": "4: Vectors and NumPy Arrays",
+    "section": "",
+    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations"
+  },
+  {
+    "objectID": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#overview",
+    "href": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#overview",
+    "title": "4: Vectors and NumPy Arrays",
+    "section": "",
+    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations"
+  },
+  {
+    "objectID": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#key-syntax",
+    "href": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#key-syntax",
+    "title": "4: Vectors and NumPy Arrays",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here"
+  },
+  {
+    "objectID": "lectures/13_dictionaries/dictionaries.html",
+    "href": "lectures/13_dictionaries/dictionaries.html",
+    "title": "13: Dictionaries",
+    "section": "",
+    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement",
+    "crumbs": [
+      "Lectures",
+      "13: Dictionaries"
+    ]
+  },
+  {
+    "objectID": "lectures/13_dictionaries/dictionaries.html#overview",
+    "href": "lectures/13_dictionaries/dictionaries.html#overview",
+    "title": "13: Dictionaries",
+    "section": "",
+    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement",
+    "crumbs": [
+      "Lectures",
+      "13: Dictionaries"
+    ]
+  },
+  {
+    "objectID": "lectures/13_dictionaries/dictionaries.html#key-syntax",
+    "href": "lectures/13_dictionaries/dictionaries.html#key-syntax",
+    "title": "13: Dictionaries",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "13: Dictionaries"
+    ]
+  },
+  {
+    "objectID": "lectures/17_objects_and_classes/objects_and_classes.html",
+    "href": "lectures/17_objects_and_classes/objects_and_classes.html",
+    "title": "17: Objects and Classes",
+    "section": "",
+    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()",
+    "crumbs": [
+      "Lectures",
+      "17: Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/17_objects_and_classes/objects_and_classes.html#overview",
+    "href": "lectures/17_objects_and_classes/objects_and_classes.html#overview",
+    "title": "17: Objects and Classes",
+    "section": "",
+    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()",
+    "crumbs": [
+      "Lectures",
+      "17: Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/17_objects_and_classes/objects_and_classes.html#key-syntax",
+    "href": "lectures/17_objects_and_classes/objects_and_classes.html#key-syntax",
+    "title": "17: Objects and Classes",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "17: Objects and Classes"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "Data types (int float str)\nBasic math operations and order of precedence\nInput() and print() formatting",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#overview",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#overview",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "Data types (int float str)\nBasic math operations and order of precedence\nInput() and print() formatting",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#key-syntax",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#key-syntax",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/08_control_structures/control_structures.html",
+    "href": "lectures/08_control_structures/control_structures.html",
+    "title": "8: Control Structures",
+    "section": "",
+    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
+    "crumbs": [
+      "Lectures",
+      "8: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/08_control_structures/control_structures.html#overview",
+    "href": "lectures/08_control_structures/control_structures.html#overview",
+    "title": "8: Control Structures",
+    "section": "",
+    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
+    "crumbs": [
+      "Lectures",
+      "8: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/08_control_structures/control_structures.html#key-syntax",
+    "href": "lectures/08_control_structures/control_structures.html#key-syntax",
+    "title": "8: Control Structures",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "8: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/18_distance_and_similarity/distance_and_similarity.html",
+    "href": "lectures/18_distance_and_similarity/distance_and_similarity.html",
+    "title": "18: Distance and Similarity",
+    "section": "",
+    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently",
+    "crumbs": [
+      "Lectures",
+      "18: Distance and Similarity"
+    ]
+  },
+  {
+    "objectID": "lectures/18_distance_and_similarity/distance_and_similarity.html#overview",
+    "href": "lectures/18_distance_and_similarity/distance_and_similarity.html#overview",
+    "title": "18: Distance and Similarity",
+    "section": "",
+    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently",
+    "crumbs": [
+      "Lectures",
+      "18: Distance and Similarity"
+    ]
+  },
+  {
+    "objectID": "lectures/18_distance_and_similarity/distance_and_similarity.html#key-syntax",
+    "href": "lectures/18_distance_and_similarity/distance_and_similarity.html#key-syntax",
+    "title": "18: Distance and Similarity",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "18: Distance and Similarity"
+    ]
+  },
+  {
+    "objectID": "lectures/09_for_loops/for_loops.html",
+    "href": "lectures/09_for_loops/for_loops.html",
+    "title": "9: For Loops",
+    "section": "",
+    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables",
+    "crumbs": [
+      "Lectures",
+      "9: For Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/09_for_loops/for_loops.html#overview",
+    "href": "lectures/09_for_loops/for_loops.html#overview",
+    "title": "9: For Loops",
+    "section": "",
+    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables",
+    "crumbs": [
+      "Lectures",
+      "9: For Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/09_for_loops/for_loops.html#key-syntax",
+    "href": "lectures/09_for_loops/for_loops.html#key-syntax",
+    "title": "9: For Loops",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "9: For Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/11_nested_loops/nested_loops.html",
+    "href": "lectures/11_nested_loops/nested_loops.html",
+    "title": "11: Nested Loops",
+    "section": "",
+    "text": "Iterating over sequences (lists strings)\nUsing range()\nThe mechanics of the loop variable",
+    "crumbs": [
+      "Lectures",
+      "11: Nested Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/11_nested_loops/nested_loops.html#overview",
+    "href": "lectures/11_nested_loops/nested_loops.html#overview",
+    "title": "11: Nested Loops",
+    "section": "",
+    "text": "Iterating over sequences (lists strings)\nUsing range()\nThe mechanics of the loop variable",
+    "crumbs": [
+      "Lectures",
+      "11: Nested Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/11_nested_loops/nested_loops.html#key-syntax",
+    "href": "lectures/11_nested_loops/nested_loops.html#key-syntax",
+    "title": "11: Nested Loops",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "11: Nested Loops"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "",
+    "text": "This course is about problem solving using computers.\nHaving a computer solve a problem requires the creation of a set of instructions, a program .\n\nThe process of creating these instructions is programming .\n\nProblem solving means the ability to formulate problems, think creatively about solutions, and express a solution clearly and accurately.\nThe process of learning to program is an excellent opportunity to practice problem solving skills.",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html#storing-numbers",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html#storing-numbers",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "Storing Numbers",
+    "text": "Storing Numbers\nBit represents two values, 0 and 1\nComputers use binary numbering system\n\nPosition of digit j is assigned the value\nTo determine the value of binary number sum position values of the 1s\nByte size limits are 0 and 255\n\n0 = all bits off; 255 = all bits on\nTo store larger numbers, use several bytes",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html#storing-characters",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html#storing-characters",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "Storing Characters",
+    "text": "Storing Characters\n\nData stored in computer must be stored as binary number\nCharacters are converted to numeric code, numeric code stored in memory\nMost important coding scheme is ASCII\nASCII is limited: defines codes for only 128 characters\nUnicode coding scheme becoming standard\nCompatible with ASCII\nCan represent characters for other languages",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html#advanced-number-storage",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html#advanced-number-storage",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "Advanced Number Storage",
+    "text": "Advanced Number Storage\n\nTo store negative numbers and real numbers, computers use binary numbering and encoding schemes\n\nNegative numbers encoded using two’s complement\nReal numbers encoded using floating-point notation",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html#other-types-of-data",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html#other-types-of-data",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "Other Types of Data",
+    "text": "Other Types of Data\n\nDigital: describes any device that stores data as binary numbers\nDigital images are composed of pixels\nTo store images, each pixel is converted to a binary number representing the pixel’s color Digital music is composed of sections called samples\nTo store music, each sample is converted to a binary number",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html#syntax-errors",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html#syntax-errors",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "Syntax Errors",
+    "text": "Syntax Errors\nPython can only execute a program if the program is syntactically correct ; otherwise, the process fails and returns an error message.  Syntax refers to the structure of a program and the rules about that structure. For example, in English, a sentence must begin with a capital letter and end with a period. If there is a single syntax error anywhere in your program, Python will display an error message and quit. You will not be able to complete the execution of your program. During the first few weeks of your programming career, you will probably spend a lot of time tracking down syntax errors. However, as you gain experience, you will make fewer errors, and you will also be able to find your errors faster.",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html#runtime-errors",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html#runtime-errors",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "Runtime Errors",
+    "text": "Runtime Errors\nThe second type of error is a runtime error, so called because the error does not appear until you run the program. These errors are also called exceptions because they usually indicate that something exceptional (and bad) has happened. Runtime errors are rare in the simple programs you will see in the first few chapters, so it might be a while before you encounter one.",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  },
+  {
+    "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html#semantic-errors",
+    "href": "lectures/01_course_introduction/course_intro_and_python_environment.html#semantic-errors",
+    "title": "1: Course Introduction and the Python Environment",
+    "section": "Semantic Errors",
+    "text": "Semantic Errors\nIf there is a semantic error in your program, it will run successfully in the sense that the computer will not generate any error messages. However, your program will not do the right thing. It will do something else. Specifically, it will do exactly what you told it to do.\n\nThe problem is that the program you wrote is not the program you wanted to write. The meaning of the program (its semantics) is wrong.\nIdentifying semantic errors can be tricky because it requires you to work backward by looking at the output of the program and trying to figure out what it is doing.",
+    "crumbs": [
+      "Lectures",
+      "1: Course Introduction and the Python Environment"
+    ]
+  }
+]

@@ -221,7 +221,7 @@ Traditionally, the first program written in a new language is called **Hello, W
 This is an example of using the **print function**, which displays a value on the screen.
 
 ```{python}
-print('Hello world’)
+print('Hello world')
 ```
 
 `Hello world`
@@ -241,7 +241,7 @@ A **comment** in a computer program is text that is intended only for the human
 In Python, the **\#** token starts a comment. The rest of the line is ignored. Here is a new version of **Hello, World!**.
 
 ```{python}
-print('Hello world’)  #This is a comment 
+print('Hello world') #This is a comment
 ```
 
 `Hello world`
