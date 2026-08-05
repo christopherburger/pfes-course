@@ -3,12 +3,123 @@ title: "2: Variables Arithmetic Basic I/O"
 format: html
 ---
 
-## Overview
+# Variables
 
-- Data types (int float str)
-- Basic math operations and order of precedence
-- Input() and print() formatting
+A **variable** is a name that represents a value stored in memory. Variables are used to access and manipulate data stored in these memory locations.
 
-## Key Syntax
+## Assignment
 
-\`\`\`python \# Add core syntax examples here
+An **assignment** is the process that is used to create a variable and make it reference data (or reference different data if the variable already exists).
+
+The general format of an assignment statement is:
+
+::: core-box
+The general format for assignment is:
+
+```{python}
+variable_name = expression
+```
+:::
+
+For example:
+
+```{python}
+mass = 50
+```
+
+This sets the variable *mass* to the value *50*.
+
+Be careful not to confuse the assignment operator **=** with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign **==**.
+
+Note that in our examples, the variable receiving the value is always on the left side. This is a general rule in Python, the variable that takes on the value must be on the left.
+
+We also can only use a variable if there is a value actually assigned to it.
+
+```{python}
+# number = 
+```
+
+The code above here is broken, as the variable named *number* is not assigned to anything. This will cause a syntax error.
+
+### Multiple Assignment
+
+You can also assign values to multiple variables in a single statement. This is known as multiple assignment.
+
+The following code blocks are functionally equivalent:
+
+```{python}
+x, y, z = 0, 1, 2
+```
+
+```{python}
+x = 0
+y = 1
+z = 2
+```
+
+## Data Types
+
+The purpose of data types is to categorize the value located in memory.
+
+The major types in Python are: - **int** for integer - **float** for a real number - **str** for sequences of characters (these can be any kind of symbol from letters to numbers to punctuation and more) - **bool** for Boolean values (True or False)
+
+Some operations behave differently depending on the data type (or may not even be defined at all). For example, the **+** operator performs standard addition when used on ints and floats but instead performs concatenation when used with two strs.
+
+## Copying by Value and Copying by Reference
+
+This example demonstrates the idea of copying by value.
+
+```{python}
+x = 7
+y = x
+x = 10
+print(y)
+```
+
+- y gets the value of x at the time of assignment
+- Changing x later does not change y
+- y still prints 7
+
+For simple data types (numbers, strings, Booleans), assignment behaves like copying a value.
+
+With more complex data types (like lists which will be introduced soon), variables behave differently.
+
+The assignment shares access to the same data. The variable names point to a location that holds a single instance of the data. If you change the data through one variable, it will be reflected to all the other variables that point at the same underlying data.
+
+For simple types (int, float, str, bool) assignment copies the value.
+
+For complex types (lists and many others) assignment shares access to the same data.
+
+## Variable Naming Rules
+
+Python has a set of rules for naming variables. Most of these if ignored will result in a syntax error.
+
+- Variable name cannot be a Python keyword
+- Variable name cannot contain spaces
+- First character must be a letter or an underscore
+- After first character may use letters, digits, or underscores
+- Variable names are case sensitive
+
+In general, a variable's name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (i, j, k, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.
+
+## Reassigning Variables to a Different Type
+
+We know that variables can reference different values while program is running. This is another way of saying we can reassign variables.
+
+Howver, Python does not check to see if your variable’s type is valid for what you are trying to do (this differs from some other programming languages). If you reassign a variable to a different type, you could break code that was previously working.
+
+Also, in Python, you do not need to worry about deleting variables after they have been used (like some other programming languages). Values that are no longer referenced by variables are automatically removed by Python’s garbage collector.
+
+## Casting
+
+Casting is the process of converting on type of data to another. In Python this is accomplished by a set of functions that is built directly into the language.
+
+| Function | Description | Example | Output |
+|------------------|-------------------|------------------|------------------|
+| int() | Converts to an integer. Truncates floats towards zero. | int(3.8)<br>int("4") | 3<br>4 |
+| float() | Converts to a floating-point number. | float("3.14") | 3.14 |
+| str() | Converts almost any object into its string representation. | str(100) | "100" |
+| bool() | Converts to a boolean (True or False). | bool(1) | True |
+
+```{python}
+```
