@@ -16,7 +16,7 @@ The general format of an assignment statement is:
 ::: core-box
 The general format for assignment is:
 
-```{python}
+```
 variable_name = expression
 ```
 :::
@@ -35,8 +35,8 @@ Note that in our examples, the variable receiving the value is always on the lef
 
 We also can only use a variable if there is a value actually assigned to it.
 
-```{python}
-# number = 
+```
+number = 
 ```
 
 The code above here is broken, as the variable named *number* is not assigned to anything. This will cause a syntax error.
@@ -217,7 +217,7 @@ Note the extra new line in the following example.
 
 ```{python}
 print('Hello world\n')
-print('Hello world’)
+print('Hello world')
 
 ```
 

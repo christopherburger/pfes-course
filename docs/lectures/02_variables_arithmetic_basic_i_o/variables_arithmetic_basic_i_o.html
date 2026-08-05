@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -160,8 +195,11 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">lectures/04_vectors_and_numpy/vectors_and_numpy.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/05_functions/functions.html" class="sidebar-item-text sidebar-link">
@@ -258,8 +296,45 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#variables" id="toc-variables" class="nav-link active" data-scroll-target="#variables">Variables</a>
+  <ul class="collapse">
+  <li><a href="#assignment" id="toc-assignment" class="nav-link" data-scroll-target="#assignment">Assignment</a>
+  <ul class="collapse">
+  <li><a href="#multiple-assignment" id="toc-multiple-assignment" class="nav-link" data-scroll-target="#multiple-assignment">Multiple Assignment</a></li>
+  </ul></li>
+  <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types">Data Types</a></li>
+  <li><a href="#copying-by-value-and-copying-by-reference" id="toc-copying-by-value-and-copying-by-reference" class="nav-link" data-scroll-target="#copying-by-value-and-copying-by-reference">Copying by Value and Copying by Reference</a></li>
+  <li><a href="#variable-naming-rules" id="toc-variable-naming-rules" class="nav-link" data-scroll-target="#variable-naming-rules">Variable Naming Rules</a></li>
+  <li><a href="#reassigning-variables-to-a-different-type" id="toc-reassigning-variables-to-a-different-type" class="nav-link" data-scroll-target="#reassigning-variables-to-a-different-type">Reassigning Variables to a Different Type</a></li>
+  <li><a href="#casting" id="toc-casting" class="nav-link" data-scroll-target="#casting">Casting</a></li>
+  <li><a href="#avoiding-magic-numbers" id="toc-avoiding-magic-numbers" class="nav-link" data-scroll-target="#avoiding-magic-numbers">Avoiding Magic Numbers</a>
+  <ul class="collapse">
+  <li><a href="#named-constants" id="toc-named-constants" class="nav-link" data-scroll-target="#named-constants">Named Constants</a></li>
+  </ul></li>
+  <li><a href="#the-none-type" id="toc-the-none-type" class="nav-link" data-scroll-target="#the-none-type">The None Type</a></li>
+  </ul></li>
+  <li><a href="#input-processing-and-output" id="toc-input-processing-and-output" class="nav-link" data-scroll-target="#input-processing-and-output">Input, Processing and Output</a>
+  <ul class="collapse">
+  <li><a href="#the-print-function" id="toc-the-print-function" class="nav-link" data-scroll-target="#the-print-function">The Print Function</a>
+  <ul class="collapse">
+  <li><a href="#program-execution-order" id="toc-program-execution-order" class="nav-link" data-scroll-target="#program-execution-order">Program Execution Order</a></li>
+  <li><a href="#displaying-multiple-items-with-the-print-function" id="toc-displaying-multiple-items-with-the-print-function" class="nav-link" data-scroll-target="#displaying-multiple-items-with-the-print-function">Displaying Multiple Items with the Print Function</a></li>
+  <li><a href="#newlines-and-tabs" id="toc-newlines-and-tabs" class="nav-link" data-scroll-target="#newlines-and-tabs">Newlines and Tabs</a></li>
+  </ul></li>
+  <li><a href="#the-input-function" id="toc-the-input-function" class="nav-link" data-scroll-target="#the-input-function">The Input Function</a>
+  <ul class="collapse">
+  <li><a href="#reading-numbers-with-the-input-function" id="toc-reading-numbers-with-the-input-function" class="nav-link" data-scroll-target="#reading-numbers-with-the-input-function">Reading Numbers with the Input Function</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#arithmetic-calculations" id="toc-arithmetic-calculations" class="nav-link" data-scroll-target="#arithmetic-calculations">Arithmetic Calculations</a>
+  <ul class="collapse">
+  <li><a href="#common-math-operators" id="toc-common-math-operators" class="nav-link" data-scroll-target="#common-math-operators">Common Math Operators</a>
+  <ul class="collapse">
+  <li><a href="#operator-precedence" id="toc-operator-precedence" class="nav-link" data-scroll-target="#operator-precedence">Operator Precedence</a></li>
+  <li><a href="#converting-math-formulas-into-python" id="toc-converting-math-formulas-into-python" class="nav-link" data-scroll-target="#converting-math-formulas-into-python">Converting Math Formulas into Python</a></li>
+  <li><a href="#mixed-type-expressions-and-automatic-type-conversion" id="toc-mixed-type-expressions-and-automatic-type-conversion" class="nav-link" data-scroll-target="#mixed-type-expressions-and-automatic-type-conversion">Mixed-Type Expressions and Automatic Type Conversion</a></li>
+  </ul></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -285,19 +360,349 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="variables" class="level1">
+<h1>Variables</h1>
+<p>A <strong>variable</strong> is a name that represents a value stored in memory. Variables are used to access and manipulate data stored in these memory locations.</p>
+<section id="assignment" class="level2">
+<h2 class="anchored" data-anchor-id="assignment">Assignment</h2>
+<p>An <strong>assignment</strong> is the process that is used to create a variable and make it reference data (or reference different data if the variable already exists).</p>
+<p>The general format of an assignment statement is:</p>
+<div class="core-box">
+<p>The general format for assignment is:</p>
+<pre><code>variable_name = expression</code></pre>
+</div>
+<p>For example:</p>
+<div id="8671a64c" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> <span class="dv">50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>This sets the variable <em>mass</em> to the value <em>50</em>.</p>
+<p>Be careful not to confuse the assignment operator <strong>=</strong> with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign <strong>==</strong>.</p>
+<p>Note that in our examples, the variable receiving the value is always on the left side. This is a general rule in Python, the variable that takes on the value must be on the left.</p>
+<p>We also can only use a variable if there is a value actually assigned to it.</p>
+<pre><code>number = </code></pre>
+<p>The code above here is broken, as the variable named <em>number</em> is not assigned to anything. This will cause a syntax error.</p>
+<section id="multiple-assignment" class="level3">
+<h3 class="anchored" data-anchor-id="multiple-assignment">Multiple Assignment</h3>
+<p>You can also assign values to multiple variables in a single statement. This is known as multiple assignment.</p>
+<p>The following code blocks are functionally equivalent:</p>
+<div id="5c52c529" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x, y, z <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="ade7a949" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="data-types" class="level2">
+<h2 class="anchored" data-anchor-id="data-types">Data Types</h2>
+<p>The purpose of data types is to categorize the value located in memory.</p>
+<p>The major types in Python are: - <strong>int</strong> for integer - <strong>float</strong> for a real number - <strong>str</strong> for sequences of characters (these can be any kind of symbol from letters to numbers to punctuation and more) - <strong>bool</strong> for Boolean values (True or False)</p>
+<p>Some operations behave differently depending on the data type (or may not even be defined at all). For example, the <strong>+</strong> operator performs standard addition when used on ints and floats but instead performs concatenation when used with two strs.</p>
+</section>
+<section id="copying-by-value-and-copying-by-reference" class="level2">
+<h2 class="anchored" data-anchor-id="copying-by-value-and-copying-by-reference">Copying by Value and Copying by Reference</h2>
+<p>This example demonstrates the idea of copying by value.</p>
+<div id="a2ac1203" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">7</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>7</code></pre>
+</div>
+</div>
 <ul>
-<li>Data types (int float str)</li>
-<li>Basic math operations and order of precedence</li>
-<li>Input() and print() formatting</li>
+<li>y gets the value of x at the time of assignment</li>
+<li>Changing x later does not change y</li>
+<li>y still prints 7</li>
+</ul>
+<p>For simple data types (numbers, strings, Booleans), assignment behaves like copying a value.</p>
+<p>With more complex data types (like lists which will be introduced soon), variables behave differently.</p>
+<p>The assignment shares access to the same data. The variable names point to a location that holds a single instance of the data. If you change the data through one variable, it will be reflected to all the other variables that point at the same underlying data.</p>
+<p>For simple types (int, float, str, bool) assignment copies the value.</p>
+<p>For complex types (lists and many others) assignment shares access to the same data.</p>
+</section>
+<section id="variable-naming-rules" class="level2">
+<h2 class="anchored" data-anchor-id="variable-naming-rules">Variable Naming Rules</h2>
+<p>Python has a set of rules for naming variables. Most of these if ignored will result in a syntax error.</p>
+<ul>
+<li>Variable name cannot be a Python keyword</li>
+<li>Variable name cannot contain spaces</li>
+<li>First character must be a letter or an underscore</li>
+<li>After first character may use letters, digits, or underscores</li>
+<li>Variable names are case sensitive</li>
+</ul>
+<p>In general, a variable’s name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (i, j, k, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.</p>
+</section>
+<section id="reassigning-variables-to-a-different-type" class="level2">
+<h2 class="anchored" data-anchor-id="reassigning-variables-to-a-different-type">Reassigning Variables to a Different Type</h2>
+<p>We know that variables can reference different values while program is running. This is another way of saying we can reassign variables.</p>
+<p>Howver, Python does not check to see if your variable’s type is valid for what you are trying to do (this differs from some other programming languages). If you reassign a variable to a different type, you could break code that was previously working.</p>
+<p>Also, in Python, you do not need to worry about deleting variables after they have been used (like some other programming languages). Values that are no longer referenced by variables are automatically removed by Python’s garbage collector.</p>
+</section>
+<section id="casting" class="level2">
+<h2 class="anchored" data-anchor-id="casting">Casting</h2>
+<p>Casting is the process of converting on type of data to another. In Python this is accomplished by a set of functions that is built directly into the language.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 26%">
+<col style="width: 24%">
+<col style="width: 24%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Description</th>
+<th>Example</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>int()</td>
+<td>Converts to an integer. Truncates floats towards zero.</td>
+<td>int(3.8)<br>int(“4”)</td>
+<td>3<br>4</td>
+</tr>
+<tr class="even">
+<td>float()</td>
+<td>Converts to a floating-point number.</td>
+<td>float(3)<br>float(“3.14”)</td>
+<td>3<br>3.14</td>
+</tr>
+<tr class="odd">
+<td>str()</td>
+<td>Converts almost any object into its string representation.</td>
+<td>str(100)</td>
+<td>“100”</td>
+</tr>
+<tr class="even">
+<td>bool()</td>
+<td>Converts to a boolean (True or False).</td>
+<td>bool(1)<br>bool(““)</td>
+<td>True<br>False</td>
+</tr>
+</tbody>
+</table>
+<p>There are certain restrictions on casting in Python that will cause a runtime error if ignored. - Non-Numeric Strings to Numeric Types - Attempting to cast a string that does not look like a number will raise a ValueError. - int(“apple”) - Casting Float-like Strings to Integers - Python cannot directly cast a string containing a decimal point straight into an integer. - score = int(“98.6”)</p>
+</section>
+<section id="avoiding-magic-numbers" class="level2">
+<h2 class="anchored" data-anchor-id="avoiding-magic-numbers">Avoiding Magic Numbers</h2>
+<p>A <strong>magic number</strong> is an unexplained numeric value that appears in a program’s code.</p>
+<p>For example:</p>
+<pre><code>amount = balance * 0.065</code></pre>
+<p>The value <em>0.065</em> is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).</p>
+<p>If a magic number is used in many places in a program it can take substantial effort to find and change the number in each location. You take the risk of making a mistake each type you type the magic number the program’s code. This can be the source of difficult to find and frustrating errors.</p>
+<section id="named-constants" class="level3">
+<h3 class="anchored" data-anchor-id="named-constants">Named Constants</h3>
+<p>Rather than using magic numbers, you should used a variable whose purpose is to represent the value. This variable is not intended to be changed during the program and so is called a <em>constant</em>. In practice, Python will allow you to change the value, so it is important to remember that this variable is supposed to be static. The common convention in Python is to use all caps to indicate a constant variable.</p>
+<div id="e2e242d2" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>INTEREST_RATE <span class="op">=</span> <span class="fl">0.051</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="the-none-type" class="level2">
+<h2 class="anchored" data-anchor-id="the-none-type">The None Type</h2>
+<p><strong>None</strong> is a special Python value that represents no value assigned yet. Note that <strong>None</strong> is a value (not an error). Its data type is a unique <strong>NoneType</strong>.</p>
+<p><strong>None</strong> is used as a placeholder when a value is unknown or not available.</p>
+<p><strong>None</strong> is not the same as: - 0 (a number) - “” (an empty string) - False (a Boolean)</p>
+<p>We use None to: - Initialize a variable before it has a real value - Represent missing or unknown information - Indicate that a result has not been computed yet</p>
+<p>Rule to remember: Do not perform math or string operations on None. - Any of these operations causes an error.</p>
+</section>
+</section>
+<section id="input-processing-and-output" class="level1">
+<h1>Input, Processing and Output</h1>
+<p>Typically, a computer performs a three-step process: - Receive input - Input: any data that the program receives while it is running - Perform some process on the input - Example: mathematical calculation - Produce output</p>
+<section id="the-print-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-print-function">The Print Function</h2>
+<p>We have already seen the print function in the <em>Hello World</em> example. The print function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.</p>
+<section id="program-execution-order" class="level3">
+<h3 class="anchored" data-anchor-id="program-execution-order">Program Execution Order</h3>
+<p>In general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.</p>
+<p>The output of the following example is ‘one’ then ‘two’ then ‘three’.</p>
+<div id="0023a317" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'two'</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'three'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>one
+two
+three</code></pre>
+</div>
+</div>
+</section>
+<section id="displaying-multiple-items-with-the-print-function" class="level3">
+<h3 class="anchored" data-anchor-id="displaying-multiple-items-with-the-print-function">Displaying Multiple Items with the Print Function</h3>
+<p>Python allows one to display multiple items with a single call to print. - Items are separated by commas when passed as arguments. - Arguments displayed in the order they are passed to the function. - Items are automatically separated by a space when displayed on screen.</p>
+<div id="48f65503" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>one two three</code></pre>
+</div>
+</div>
+<p>Based off the previous examples we can see that successive print statements place their value(s) on different lines. This is because the print function puts a newline character at the end of printed data. We can change this default newline to a value of our choice using the special argument <em>end</em>.</p>
+<p>The following example changes the default newline to a space.</p>
+<div id="2bc9c32c" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>,end<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'two'</span>,end<span class="op">=</span><span class="st">' '</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'three'</span>,end<span class="op">=</span><span class="st">' '</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>one two three </code></pre>
+</div>
+</div>
+<p>Similarly, for multiple items displayed on the same line, we can use the separator argument <em>sep</em> to change the default space to something else.</p>
+<p>The following example changes the default space to a dash.</p>
+<div id="a8d915c0" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>,sep<span class="op">=</span><span class="st">'-'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>one-two-three</code></pre>
+</div>
+</div>
+<p>Both of these options can be useful to help format printed values to make reading their output easier.</p>
+</section>
+<section id="newlines-and-tabs" class="level3">
+<h3 class="anchored" data-anchor-id="newlines-and-tabs">Newlines and Tabs</h3>
+<p>Certain special characters are preceded by a backslash **.</p>
+<p>These characters are treated as commands inside a string.</p>
+<p>To create a newline, we use the character ***.</p>
+<p>Note the extra new line in the following example.</p>
+<div id="5260293e" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world</span><span class="ch">\n</span><span class="st">'</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello world
+
+Hello world</code></pre>
+</div>
+</div>
+<p>To create a tab, we use **.</p>
+<p>Note the increased whitespace (the tab character) between the words <em>Hello</em> and <em>world</em>.</p>
+<div id="b5801f32" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello</span><span class="ch">\t</span><span class="st">world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello   world</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="the-input-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-input-function">The Input Function</h2>
+<p>Many programs need to read input from the user. While many kinds of data can be used as input, we will largely be dealing with the simple input function and working with text data. More complicated kinds of input tend to require more effort to both read and process, so we will avoid these in an introductory course.</p>
+<p>The input function displays an optional prompt and then reads input from the keyboard.</p>
+<div class="core-box">
+<pre><code>variable_name = input("Your Prompt Here")</code></pre>
+</div>
+<p>Note that the input function always returns the data as a <em>string</em>.</p>
+<p>The prompt is typically a string instructing user to enter a value.</p>
+<p>The input function also does not automatically display a space after the prompt.</p>
+<p>For example:</p>
+<pre><code>name = input("What is your name?  ")</code></pre>
+<p>The above does the following:</p>
+<ul>
+<li>Displays the string ‘What is your name?’</li>
+<li>Reads input, as a string, from the keyboard</li>
+<li>Assigns the string that was read from the keyboard to the name variable</li>
+</ul>
+<section id="reading-numbers-with-the-input-function" class="level3">
+<h3 class="anchored" data-anchor-id="reading-numbers-with-the-input-function">Reading Numbers with the Input Function</h3>
+<p>Since the input function always returns a string, if we want to use the input as a number in calculations we will need to cast the string to the appropriate numerical type.</p>
+<pre><code>number = int(input('Enter a number: '))</code></pre>
+<p>The above does the following:</p>
+<ul>
+<li>Displays the string <em>‘Enter a number:’</em></li>
+<li>Reads input, as a string, from the keyboard</li>
+<li>Converts the input to an int</li>
+<li>Assigns the resulting int to the number <em>variable</em></li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+</section>
+</section>
+<section id="arithmetic-calculations" class="level1">
+<h1>Arithmetic Calculations</h1>
+<p>A <strong>math expression</strong> is a statement that performs a calculation and results in a value.</p>
+<p>A <strong>math operator</strong> is a symbol that represents a specific type mathematical operation.</p>
+<p><strong>Operands</strong> are the values associated with an operator. In Python, variables can be operands.</p>
+<p>In general, the resulting value of a math expression is typically assigned to a variable.</p>
+<p>The following expression has <em>+</em> as the operator with the operands of <em>1</em> and <em>y</em>.</p>
+<pre><code>x = 1 + y</code></pre>
+<section id="common-math-operators" class="level2">
+<h2 class="anchored" data-anchor-id="common-math-operators">Common Math Operators</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 40%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Symbol</th>
+<th>Operation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+</td>
+<td>Addition</td>
+<td>Standard Arithmetic Addition</td>
+</tr>
+<tr class="even">
+<td>-</td>
+<td>Subtraction</td>
+<td>Standard Arithmetic Subtraction</td>
+</tr>
+<tr class="odd">
+<td>*</td>
+<td>Multiplication</td>
+<td>Standard Arithmetic Multiplication</td>
+</tr>
+<tr class="even">
+<td>/</td>
+<td>Division</td>
+<td>Floating Point Division</td>
+</tr>
+<tr class="odd">
+<td>//</td>
+<td>Integer Division</td>
+<td>Division that returns only a whole number (no remainder)</td>
+</tr>
+<tr class="even">
+<td>%</td>
+<td>Remainder (Modulus)</td>
+<td>Division that returns only the remainder</td>
+</tr>
+<tr class="odd">
+<td>**</td>
+<td>Exponentiation</td>
+<td>Raises number to a power</td>
+</tr>
+</tbody>
+</table>
+<section id="operator-precedence" class="level3">
+<h3 class="anchored" data-anchor-id="operator-precedence">Operator Precedence</h3>
+<p>Python has rules for operator precedence that are very close to that of normal arithmetic. Higher precedence operators are performed first and operators with the same precedence execute from left to right.</p>
+<ol type="1">
+<li>Operations enclosed in parenthesis.</li>
+<li>Exponentiation.</li>
+<li>Multiplication, Floating Point Division, Integer Division, Remainder.</li>
+<li>Addition, Subtraction</li>
+</ol>
+</section>
+<section id="converting-math-formulas-into-python" class="level3">
+<h3 class="anchored" data-anchor-id="converting-math-formulas-into-python">Converting Math Formulas into Python</h3>
+<p>In Python, an operator is required for any mathematical operation. Standard mathematical notation like <strong>xy</strong> which is implicitly understood that <strong>x</strong> and <strong>y</strong> are multiplied together is not allowed in Python. Any mathematical operation needs to be explicitly defined using operators.</p>
+<p>In general, converting math formulas into Python tends to require adding multiplication operators and the insertion of parentheses.</p>
+</section>
+<section id="mixed-type-expressions-and-automatic-type-conversion" class="level3">
+<h3 class="anchored" data-anchor-id="mixed-type-expressions-and-automatic-type-conversion">Mixed-Type Expressions and Automatic Type Conversion</h3>
+<p>The data type resulting from mathematical operations depends on the type of operands. - Two <em>int</em> operands results in another <em>int</em> - Two <em>float</em> operands results in another <em>float</em> - One <em>int</em> operands and one <em>float</em> operand results in a <em>float</em></p>
 
 
+</section>
+</section>
 </section>
 
 </main> <!-- /main -->

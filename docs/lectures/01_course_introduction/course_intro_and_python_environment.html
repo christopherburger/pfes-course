@@ -195,8 +195,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </div>
 </li>
           <li class="sidebar-item">
- <span class="menu-text">lectures/04_vectors_and_numpy/vectors_and_numpy.qmd</span>
-  </li>
+  <div class="sidebar-item-container"> 
+  <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+  </div>
+</li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/05_functions/functions.html" class="sidebar-item-text sidebar-link">
@@ -475,8 +478,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="more-about-programs" class="level1">
 <h1>More About Programs</h1>
 <p>A&nbsp;<strong>program</strong> is a sequence of instructions that specifies how to perform a computation.</p>
-<p>The computation might be something as complex as rendering an html page in a web browser or encoding a video and streaming it across the network.</p>
-<p>It can also be a symbolic computation, such as searching for and replacing text in a document or (strangely enough) compiling a program.</p>
+<p>The computation might be something as complex as rendering an html page in a web browser or encoding a video and streaming it across the network. It can also be a symbolic computation, such as searching for and replacing text in a document or (strangely enough) compiling a program.</p>
 </section>
 <section id="basic-programming-instructions" class="level1">
 <h1>Basic Programming Instructions</h1>
@@ -546,22 +548,15 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 </section>
 <section id="experimental-debugging" class="level1">
 <h1>Experimental Debugging</h1>
-<p>One of the most important skills you will acquire is debugging.</p>
-<p>Debugging is like an experimental science.</p>
-<p>Once you have an idea what is going wrong, you modify your program and try again.</p>
-<p>If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program.</p>
-<p>If your hypothesis was wrong, you have to come up with a new one.</p>
+<p>One of the most important skills you will acquire is debugging. Debugging is like an experimental science. Once you have an idea what is going wrong, you modify your program and try again. If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program. If your hypothesis was wrong, you have to come up with a new one.</p>
 </section>
 <section id="formal-and-natural-languages" class="level1">
 <h1>Formal and Natural Languages</h1>
 <p><strong>Natural languages</strong> are the languages that people speak, such as English, Spanish, and French. They were not designed by people (although people try to impose some order on them); they evolved naturally.</p>
 <p><strong>Formal languages</strong> are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols.</p>
-<p>Programming languages are formal languages that have been designed to express computations.</p>
-<p>Formal languages tend to have strict rules about syntax.</p>
+<p>Programming languages are formal languages that have been designed to express computations. Formal languages tend to have strict rules about syntax.</p>
 <p>For example,&nbsp;&nbsp;<strong>3+3=6</strong> &nbsp;is a syntactically correct mathematical statement, but&nbsp;<strong>3=+6$</strong> is not.</p>
-<p>Syntax rules come in two types, pertaining to&nbsp;<strong>tokens</strong> and structure.</p>
-<p><strong>Tokens</strong> are the basic elements of the language, such as words, numbers, and chemical elements.</p>
-<p>One of the problems with&nbsp;&nbsp;3=+6 &nbsp;is that&nbsp;=+&nbsp;is not a valid token in mathematics (that is, it is not defined for common use).</p>
+<p>Syntax rules come in two types, pertaining to&nbsp;<strong>tokens</strong> and structure. <strong>Tokens</strong> are the basic elements of the language, such as words, numbers, and chemical elements. One of the problems with&nbsp;&nbsp;3=+6 &nbsp;is that&nbsp;=+&nbsp;is not a valid token in mathematics (that is, it is not defined for common use).</p>
 <ul>
 <li>The second type of syntax rule pertains to the&nbsp;<strong>structure</strong> of a statement.
 <ul>
@@ -572,10 +567,7 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 </section>
 <section id="parsing-and-semantics" class="level1">
 <h1>Parsing and Semantics</h1>
-<p>When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is.</p>
-<p>This process is called&nbsp;<strong>parsing</strong>.</p>
-<p>For example, when you hear the sentence, “The other shoe fell”, you understand that the other shoe is the subject and fell is the verb.</p>
-<p>Once you have parsed a sentence, you can figure out what it means, or the&nbsp;<strong>semantics</strong> of the sentence.</p>
+<p>When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is. This process is called&nbsp;<strong>parsing</strong>. For example, when you hear the sentence, “The other shoe fell”, you understand that the other shoe is the subject and fell is the verb. Once you have parsed a sentence, you can figure out what it means, or the&nbsp;<strong>semantics</strong> of the sentence.</p>
 </section>
 <section id="differences-between-formal-and-natural-languages" class="level1">
 <h1>Differences between Formal and Natural Languages</h1>
@@ -603,29 +595,25 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 <h1>Hello World</h1>
 <p>Traditionally, the first program written in a new language is called&nbsp;<strong>Hello, World</strong> because all it does is display the words, Hello, World.</p>
 <p>This is an example of using the&nbsp;<strong>print function</strong>, which displays a value on the screen.</p>
-<div id="034d7276" class="cell" data-execution_count="1">
+<div id="8e2339b0" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
 </div>
 </div>
-<p><code>Hello world</code></p>
 </section>
 <section id="comments" class="level1">
 <h1>Comments</h1>
-<p>As programs get bigger and more complicated, they get more difficult to read.</p>
-<p>Formal languages are dense, and it is often difficult to look at a piece of code and figure out what it is doing, or why.</p>
-<p>For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing.</p>
-<p>These notes are called comments.</p>
+<p>As programs get bigger and more complicated, they get more difficult to read. Formal languages are dense, and it is often difficult to look at a piece of code and figure out what it is doing, or why.</p>
+<p>For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing. These notes are called comments.</p>
 <p>A&nbsp;<strong>comment</strong> in a computer program is text that is intended only for the human reader - it is completely ignored by the interpreter.</p>
 <p>In Python, the&nbsp;<strong>#</strong> token starts a comment. The rest of the line is ignored. Here is a new version of&nbsp;<strong>Hello, World!</strong>.</p>
-<div id="c4f7f865" class="cell" data-execution_count="2">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>)  <span class="co">#This is a comment </span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="d8524e4d" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>) <span class="co">#This is a comment</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
 </div>
 </div>
-<p><code>Hello world</code></p>
 
 
 </section>

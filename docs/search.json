@@ -308,36 +308,36 @@
     ]
   },
   {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html",
-    "href": "lectures/07_boolean_logic/boolean_logic.html",
-    "title": "7: Boolean Logic",
+    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html",
+    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html",
+    "title": "4: Vectors and NumPy Arrays",
     "section": "",
-    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations",
     "crumbs": [
       "Lectures",
-      "7: Boolean Logic"
+      "4: Vectors and NumPy Arrays"
     ]
   },
   {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#overview",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#overview",
-    "title": "7: Boolean Logic",
+    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#overview",
+    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#overview",
+    "title": "4: Vectors and NumPy Arrays",
     "section": "",
-    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations",
     "crumbs": [
       "Lectures",
-      "7: Boolean Logic"
+      "4: Vectors and NumPy Arrays"
     ]
   },
   {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#key-syntax",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#key-syntax",
-    "title": "7: Boolean Logic",
+    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#key-syntax",
+    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#key-syntax",
+    "title": "4: Vectors and NumPy Arrays",
     "section": "Key Syntax",
     "text": "Key Syntax\n```python # Add core syntax examples here",
     "crumbs": [
       "Lectures",
-      "7: Boolean Logic"
+      "4: Vectors and NumPy Arrays"
     ]
   },
   {
@@ -392,25 +392,37 @@
     "text": "The information in these course notes is categorized into three visual tiers that indicate the level of importance when it comes to graded material.\n\n1. Core Foundations (Know Cold)\n\nThese blocks contain the core content of the course. If it is in a sharp-edged box, you are expected to be able to reproduce this information, derive the formulas, or perform the calculations from memory during examinations.\n\n\n\n\n2. Reference Concepts (Functional Familiarity)\n\nThese blocks contain tools, syntax, or concepts that you should recognize and understand when you see them. You do not need to memorize these “cold,” but you should know they exist and where to find them.\n\n\n\n\n3. Extended Mastery (Context & Depth)\n\nThese rounded blocks are for students looking to further explore related content. This material is not testable but provides may prove useful for mastery of the core material in the course."
   },
   {
-    "objectID": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html",
-    "href": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html",
-    "title": "4: Vectors and NumPy Arrays",
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html",
+    "href": "lectures/07_boolean_logic/boolean_logic.html",
+    "title": "7: Boolean Logic",
     "section": "",
-    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations"
+    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "crumbs": [
+      "Lectures",
+      "7: Boolean Logic"
+    ]
   },
   {
-    "objectID": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#overview",
-    "href": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#overview",
-    "title": "4: Vectors and NumPy Arrays",
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html#overview",
+    "href": "lectures/07_boolean_logic/boolean_logic.html#overview",
+    "title": "7: Boolean Logic",
     "section": "",
-    "text": "Importing NumPy\nCreating 1D arrays\nBasic array operations"
+    "text": "Reviewing 1D array creation and indexing\nElement-wise math operations\nAggregate functions (np.sum np.mean)",
+    "crumbs": [
+      "Lectures",
+      "7: Boolean Logic"
+    ]
   },
   {
-    "objectID": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#key-syntax",
-    "href": "lectures/04_vectors_and_numpy_arrays/vectors_and_numpy.html#key-syntax",
-    "title": "4: Vectors and NumPy Arrays",
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html#key-syntax",
+    "href": "lectures/07_boolean_logic/boolean_logic.html#key-syntax",
+    "title": "7: Boolean Logic",
     "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here"
+    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "crumbs": [
+      "Lectures",
+      "7: Boolean Logic"
+    ]
   },
   {
     "objectID": "lectures/13_dictionaries/dictionaries.html",
@@ -483,29 +495,128 @@
     "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html",
     "title": "2: Variables Arithmetic Basic I/O",
     "section": "",
-    "text": "Data types (int float str)\nBasic math operations and order of precedence\nInput() and print() formatting",
+    "text": "A variable is a name that represents a value stored in memory. Variables are used to access and manipulate data stored in these memory locations.\n\n\nAn assignment is the process that is used to create a variable and make it reference data (or reference different data if the variable already exists).\nThe general format of an assignment statement is:\n\nThe general format for assignment is:\nvariable_name = expression\n\nFor example:\n\nmass = 50\n\nThis sets the variable mass to the value 50.\nBe careful not to confuse the assignment operator = with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign ==.\nNote that in our examples, the variable receiving the value is always on the left side. This is a general rule in Python, the variable that takes on the value must be on the left.\nWe also can only use a variable if there is a value actually assigned to it.\nnumber = \nThe code above here is broken, as the variable named number is not assigned to anything. This will cause a syntax error.\n\n\nYou can also assign values to multiple variables in a single statement. This is known as multiple assignment.\nThe following code blocks are functionally equivalent:\n\nx, y, z = 0, 1, 2\n\n\nx = 0\ny = 1\nz = 2\n\n\n\n\n\nThe purpose of data types is to categorize the value located in memory.\nThe major types in Python are: - int for integer - float for a real number - str for sequences of characters (these can be any kind of symbol from letters to numbers to punctuation and more) - bool for Boolean values (True or False)\nSome operations behave differently depending on the data type (or may not even be defined at all). For example, the + operator performs standard addition when used on ints and floats but instead performs concatenation when used with two strs.\n\n\n\nThis example demonstrates the idea of copying by value.\n\nx = 7\ny = x\nx = 10\nprint(y)\n\n7\n\n\n\ny gets the value of x at the time of assignment\nChanging x later does not change y\ny still prints 7\n\nFor simple data types (numbers, strings, Booleans), assignment behaves like copying a value.\nWith more complex data types (like lists which will be introduced soon), variables behave differently.\nThe assignment shares access to the same data. The variable names point to a location that holds a single instance of the data. If you change the data through one variable, it will be reflected to all the other variables that point at the same underlying data.\nFor simple types (int, float, str, bool) assignment copies the value.\nFor complex types (lists and many others) assignment shares access to the same data.\n\n\n\nPython has a set of rules for naming variables. Most of these if ignored will result in a syntax error.\n\nVariable name cannot be a Python keyword\nVariable name cannot contain spaces\nFirst character must be a letter or an underscore\nAfter first character may use letters, digits, or underscores\nVariable names are case sensitive\n\nIn general, a variable’s name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (i, j, k, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.\n\n\n\nWe know that variables can reference different values while program is running. This is another way of saying we can reassign variables.\nHowver, Python does not check to see if your variable’s type is valid for what you are trying to do (this differs from some other programming languages). If you reassign a variable to a different type, you could break code that was previously working.\nAlso, in Python, you do not need to worry about deleting variables after they have been used (like some other programming languages). Values that are no longer referenced by variables are automatically removed by Python’s garbage collector.\n\n\n\nCasting is the process of converting on type of data to another. In Python this is accomplished by a set of functions that is built directly into the language.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nOutput\n\n\n\n\nint()\nConverts to an integer. Truncates floats towards zero.\nint(3.8)int(“4”)\n34\n\n\nfloat()\nConverts to a floating-point number.\nfloat(3)float(“3.14”)\n33.14\n\n\nstr()\nConverts almost any object into its string representation.\nstr(100)\n“100”\n\n\nbool()\nConverts to a boolean (True or False).\nbool(1)bool(““)\nTrueFalse\n\n\n\nThere are certain restrictions on casting in Python that will cause a runtime error if ignored. - Non-Numeric Strings to Numeric Types - Attempting to cast a string that does not look like a number will raise a ValueError. - int(“apple”) - Casting Float-like Strings to Integers - Python cannot directly cast a string containing a decimal point straight into an integer. - score = int(“98.6”)\n\n\n\nA magic number is an unexplained numeric value that appears in a program’s code.\nFor example:\namount = balance * 0.065\nThe value 0.065 is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).\nIf a magic number is used in many places in a program it can take substantial effort to find and change the number in each location. You take the risk of making a mistake each type you type the magic number the program’s code. This can be the source of difficult to find and frustrating errors.\n\n\nRather than using magic numbers, you should used a variable whose purpose is to represent the value. This variable is not intended to be changed during the program and so is called a constant. In practice, Python will allow you to change the value, so it is important to remember that this variable is supposed to be static. The common convention in Python is to use all caps to indicate a constant variable.\n\nINTEREST_RATE = 0.051\n\n\n\n\n\nNone is a special Python value that represents no value assigned yet. Note that None is a value (not an error). Its data type is a unique NoneType.\nNone is used as a placeholder when a value is unknown or not available.\nNone is not the same as: - 0 (a number) - “” (an empty string) - False (a Boolean)\nWe use None to: - Initialize a variable before it has a real value - Represent missing or unknown information - Indicate that a result has not been computed yet\nRule to remember: Do not perform math or string operations on None. - Any of these operations causes an error.",
     "crumbs": [
       "Lectures",
       "2: Variables Arithmetic Basic I/O"
     ]
   },
   {
-    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#overview",
-    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#overview",
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#assignment",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#assignment",
     "title": "2: Variables Arithmetic Basic I/O",
     "section": "",
-    "text": "Data types (int float str)\nBasic math operations and order of precedence\nInput() and print() formatting",
+    "text": "An assignment is the process that is used to create a variable and make it reference data (or reference different data if the variable already exists).\nThe general format of an assignment statement is:\n\nThe general format for assignment is:\nvariable_name = expression\n\nFor example:\n\nmass = 50\n\nThis sets the variable mass to the value 50.\nBe careful not to confuse the assignment operator = with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign ==.\nNote that in our examples, the variable receiving the value is always on the left side. This is a general rule in Python, the variable that takes on the value must be on the left.\nWe also can only use a variable if there is a value actually assigned to it.\nnumber = \nThe code above here is broken, as the variable named number is not assigned to anything. This will cause a syntax error.\n\n\nYou can also assign values to multiple variables in a single statement. This is known as multiple assignment.\nThe following code blocks are functionally equivalent:\n\nx, y, z = 0, 1, 2\n\n\nx = 0\ny = 1\nz = 2",
     "crumbs": [
       "Lectures",
       "2: Variables Arithmetic Basic I/O"
     ]
   },
   {
-    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#key-syntax",
-    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#key-syntax",
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#data-types",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#data-types",
     "title": "2: Variables Arithmetic Basic I/O",
-    "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
+    "section": "",
+    "text": "The purpose of data types is to categorize the value located in memory.\nThe major types in Python are: - int for integer - float for a real number - str for sequences of characters (these can be any kind of symbol from letters to numbers to punctuation and more) - bool for Boolean values (True or False)\nSome operations behave differently depending on the data type (or may not even be defined at all). For example, the + operator performs standard addition when used on ints and floats but instead performs concatenation when used with two strs.",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#copying-by-value-and-copying-by-reference",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#copying-by-value-and-copying-by-reference",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "This example demonstrates the idea of copying by value.\n\nx = 7\ny = x\nx = 10\nprint(y)\n\n7\n\n\n\ny gets the value of x at the time of assignment\nChanging x later does not change y\ny still prints 7\n\nFor simple data types (numbers, strings, Booleans), assignment behaves like copying a value.\nWith more complex data types (like lists which will be introduced soon), variables behave differently.\nThe assignment shares access to the same data. The variable names point to a location that holds a single instance of the data. If you change the data through one variable, it will be reflected to all the other variables that point at the same underlying data.\nFor simple types (int, float, str, bool) assignment copies the value.\nFor complex types (lists and many others) assignment shares access to the same data.",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#variable-naming-rules",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#variable-naming-rules",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "Python has a set of rules for naming variables. Most of these if ignored will result in a syntax error.\n\nVariable name cannot be a Python keyword\nVariable name cannot contain spaces\nFirst character must be a letter or an underscore\nAfter first character may use letters, digits, or underscores\nVariable names are case sensitive\n\nIn general, a variable’s name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (i, j, k, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#reassigning-variables-to-a-different-type",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#reassigning-variables-to-a-different-type",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "We know that variables can reference different values while program is running. This is another way of saying we can reassign variables.\nHowver, Python does not check to see if your variable’s type is valid for what you are trying to do (this differs from some other programming languages). If you reassign a variable to a different type, you could break code that was previously working.\nAlso, in Python, you do not need to worry about deleting variables after they have been used (like some other programming languages). Values that are no longer referenced by variables are automatically removed by Python’s garbage collector.",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#casting",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#casting",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "Casting is the process of converting on type of data to another. In Python this is accomplished by a set of functions that is built directly into the language.\n\n\n\n\n\n\n\n\n\nFunction\nDescription\nExample\nOutput\n\n\n\n\nint()\nConverts to an integer. Truncates floats towards zero.\nint(3.8)int(“4”)\n34\n\n\nfloat()\nConverts to a floating-point number.\nfloat(3)float(“3.14”)\n33.14\n\n\nstr()\nConverts almost any object into its string representation.\nstr(100)\n“100”\n\n\nbool()\nConverts to a boolean (True or False).\nbool(1)bool(““)\nTrueFalse\n\n\n\nThere are certain restrictions on casting in Python that will cause a runtime error if ignored. - Non-Numeric Strings to Numeric Types - Attempting to cast a string that does not look like a number will raise a ValueError. - int(“apple”) - Casting Float-like Strings to Integers - Python cannot directly cast a string containing a decimal point straight into an integer. - score = int(“98.6”)",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#avoiding-magic-numbers",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#avoiding-magic-numbers",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "A magic number is an unexplained numeric value that appears in a program’s code.\nFor example:\namount = balance * 0.065\nThe value 0.065 is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).\nIf a magic number is used in many places in a program it can take substantial effort to find and change the number in each location. You take the risk of making a mistake each type you type the magic number the program’s code. This can be the source of difficult to find and frustrating errors.\n\n\nRather than using magic numbers, you should used a variable whose purpose is to represent the value. This variable is not intended to be changed during the program and so is called a constant. In practice, Python will allow you to change the value, so it is important to remember that this variable is supposed to be static. The common convention in Python is to use all caps to indicate a constant variable.\n\nINTEREST_RATE = 0.051",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#the-none-type",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#the-none-type",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "",
+    "text": "None is a special Python value that represents no value assigned yet. Note that None is a value (not an error). Its data type is a unique NoneType.\nNone is used as a placeholder when a value is unknown or not available.\nNone is not the same as: - 0 (a number) - “” (an empty string) - False (a Boolean)\nWe use None to: - Initialize a variable before it has a real value - Represent missing or unknown information - Indicate that a result has not been computed yet\nRule to remember: Do not perform math or string operations on None. - Any of these operations causes an error.",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#the-print-function",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#the-print-function",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "The Print Function",
+    "text": "The Print Function\nWe have already seen the print function in the Hello World example. The print function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.\n\nProgram Execution Order\nIn general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.\nThe output of the following example is ‘one’ then ‘two’ then ‘three’.\n\nprint('one')\nprint('two')\nprint('three')\n\none\ntwo\nthree\n\n\n\n\nDisplaying Multiple Items with the Print Function\nPython allows one to display multiple items with a single call to print. - Items are separated by commas when passed as arguments. - Arguments displayed in the order they are passed to the function. - Items are automatically separated by a space when displayed on screen.\n\nprint('one', 'two', 'three')\n\none two three\n\n\nBased off the previous examples we can see that successive print statements place their value(s) on different lines. This is because the print function puts a newline character at the end of printed data. We can change this default newline to a value of our choice using the special argument end.\nThe following example changes the default newline to a space.\n\nprint('one',end=' ')\nprint('two',end=' ')\nprint('three',end=' ')\n\none two three \n\n\nSimilarly, for multiple items displayed on the same line, we can use the separator argument sep to change the default space to something else.\nThe following example changes the default space to a dash.\n\nprint('one', 'two', 'three',sep='-')\n\none-two-three\n\n\nBoth of these options can be useful to help format printed values to make reading their output easier.\n\n\nNewlines and Tabs\nCertain special characters are preceded by a backslash **.\nThese characters are treated as commands inside a string.\nTo create a newline, we use the character ***.\nNote the extra new line in the following example.\n\nprint('Hello world\\n')\nprint('Hello world')\n\nHello world\n\nHello world\n\n\nTo create a tab, we use **.\nNote the increased whitespace (the tab character) between the words Hello and world.\n\nprint('Hello\\tworld')\n\nHello   world",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#the-input-function",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#the-input-function",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "The Input Function",
+    "text": "The Input Function\nMany programs need to read input from the user. While many kinds of data can be used as input, we will largely be dealing with the simple input function and working with text data. More complicated kinds of input tend to require more effort to both read and process, so we will avoid these in an introductory course.\nThe input function displays an optional prompt and then reads input from the keyboard.\n\nvariable_name = input(\"Your Prompt Here\")\n\nNote that the input function always returns the data as a string.\nThe prompt is typically a string instructing user to enter a value.\nThe input function also does not automatically display a space after the prompt.\nFor example:\nname = input(\"What is your name?  \")\nThe above does the following:\n\nDisplays the string ‘What is your name?’\nReads input, as a string, from the keyboard\nAssigns the string that was read from the keyboard to the name variable\n\n\nReading Numbers with the Input Function\nSince the input function always returns a string, if we want to use the input as a number in calculations we will need to cast the string to the appropriate numerical type.\nnumber = int(input('Enter a number: '))\nThe above does the following:\n\nDisplays the string ‘Enter a number:’\nReads input, as a string, from the keyboard\nConverts the input to an int\nAssigns the resulting int to the number variable",
+    "crumbs": [
+      "Lectures",
+      "2: Variables Arithmetic Basic I/O"
+    ]
+  },
+  {
+    "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#common-math-operators",
+    "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#common-math-operators",
+    "title": "2: Variables Arithmetic Basic I/O",
+    "section": "Common Math Operators",
+    "text": "Common Math Operators\n\n\n\n\n\n\n\n\nSymbol\nOperation\nDescription\n\n\n\n\n+\nAddition\nStandard Arithmetic Addition\n\n\n-\nSubtraction\nStandard Arithmetic Subtraction\n\n\n*\nMultiplication\nStandard Arithmetic Multiplication\n\n\n/\nDivision\nFloating Point Division\n\n\n//\nInteger Division\nDivision that returns only a whole number (no remainder)\n\n\n%\nRemainder (Modulus)\nDivision that returns only the remainder\n\n\n**\nExponentiation\nRaises number to a power\n\n\n\n\nOperator Precedence\nPython has rules for operator precedence that are very close to that of normal arithmetic. Higher precedence operators are performed first and operators with the same precedence execute from left to right.\n\nOperations enclosed in parenthesis.\nExponentiation.\nMultiplication, Floating Point Division, Integer Division, Remainder.\nAddition, Subtraction\n\n\n\nConverting Math Formulas into Python\nIn Python, an operator is required for any mathematical operation. Standard mathematical notation like xy which is implicitly understood that x and y are multiplied together is not allowed in Python. Any mathematical operation needs to be explicitly defined using operators.\nIn general, converting math formulas into Python tends to require adding multiplication operators and the insertion of parentheses.\n\n\nMixed-Type Expressions and Automatic Type Conversion\nThe data type resulting from mathematical operations depends on the type of operands. - Two int operands results in another int - Two float operands results in another float - One int operands and one float operand results in a float",
     "crumbs": [
       "Lectures",
       "2: Variables Arithmetic Basic I/O"
