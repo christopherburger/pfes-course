@@ -98,9 +98,7 @@ If problem solving is a central part of computer science, then the solutions tha
 
 A **program** is a sequence of instructions that specifies how to perform a computation.
 
-The computation might be something as complex as rendering an html page in a web browser or encoding a video and streaming it across the network.
-
-It can also be a symbolic computation, such as searching for and replacing text in a document or (strangely enough) compiling a program.
+The computation might be something as complex as rendering an html page in a web browser or encoding a video and streaming it across the network. It can also be a symbolic computation, such as searching for and replacing text in a document or (strangely enough) compiling a program.
 
 # Basic Programming Instructions
 
@@ -152,15 +150,7 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 
 # Experimental Debugging
 
-One of the most important skills you will acquire is debugging.
-
-Debugging is like an experimental science.
-
-Once you have an idea what is going wrong, you modify your program and try again.
-
-If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program.
-
-If your hypothesis was wrong, you have to come up with a new one.
+One of the most important skills you will acquire is debugging. Debugging is like an experimental science. Once you have an idea what is going wrong, you modify your program and try again. If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program. If your hypothesis was wrong, you have to come up with a new one.
 
 # Formal and Natural Languages
 
@@ -168,17 +158,11 @@ If your hypothesis was wrong, you have to come up with a new one.
 
 **Formal languages** are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols.
 
-Programming languages are formal languages that have been designed to express computations.
-
-Formal languages tend to have strict rules about syntax.
+Programming languages are formal languages that have been designed to express computations. Formal languages tend to have strict rules about syntax.
 
 For example,  **3+3=6**  is a syntactically correct mathematical statement, but **3=+6\$** is not.
 
-Syntax rules come in two types, pertaining to **tokens** and structure.
-
-**Tokens** are the basic elements of the language, such as words, numbers, and chemical elements.
-
-One of the problems with  3=+6  is that =+ is not a valid token in mathematics (that is, it is not defined for common use).
+Syntax rules come in two types, pertaining to **tokens** and structure. **Tokens** are the basic elements of the language, such as words, numbers, and chemical elements. One of the problems with  3=+6  is that =+ is not a valid token in mathematics (that is, it is not defined for common use).
 
 - The second type of syntax rule pertains to the **structure** of a statement.
   - This is the way the tokens are arranged.
@@ -186,13 +170,7 @@ One of the problems with  3=+6  is that =+ is not a valid token in mathemat
 
 # Parsing and Semantics
 
-When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is.
-
-This process is called **parsing**.
-
-For example, when you hear the sentence, “The other shoe fell”, you understand that the other shoe is the subject and fell is the verb.
-
-Once you have parsed a sentence, you can figure out what it means, or the **semantics** of the sentence.
+When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is. This process is called **parsing**. For example, when you hear the sentence, “The other shoe fell”, you understand that the other shoe is the subject and fell is the verb. Once you have parsed a sentence, you can figure out what it means, or the **semantics** of the sentence.
 
 # Differences between Formal and Natural Languages
 
@@ -224,17 +202,11 @@ This is an example of using the **print function**, which displays a value on t
 print('Hello world')
 ```
 
-`Hello world`
-
 # Comments
 
-As programs get bigger and more complicated, they get more difficult to read.
+As programs get bigger and more complicated, they get more difficult to read. Formal languages are dense, and it is often difficult to look at a piece of code and figure out what it is doing, or why.
 
-Formal languages are dense, and it is often difficult to look at a piece of code and figure out what it is doing, or why.
-
-For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing.
-
-These notes are called comments.
+For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing. These notes are called comments.
 
 A **comment** in a computer program is text that is intended only for the human reader - it is completely ignored by the interpreter.
 
@@ -243,5 +215,3 @@ In Python, the **\#** token starts a comment. The rest of the line is ignored. 
 ```{python}
 print('Hello world') #This is a comment
 ```
-
-`Hello world`

@@ -117,9 +117,207 @@ Casting is the process of converting on type of data to another. In Python this 
 | Function | Description | Example | Output |
 |------------------|-------------------|------------------|------------------|
 | int() | Converts to an integer. Truncates floats towards zero. | int(3.8)<br>int("4") | 3<br>4 |
-| float() | Converts to a floating-point number. | float("3.14") | 3.14 |
+| float() | Converts to a floating-point number. | float(3)<br>float("3.14") | 3<br>3.14 |
 | str() | Converts almost any object into its string representation. | str(100) | "100" |
-| bool() | Converts to a boolean (True or False). | bool(1) | True |
+| bool() | Converts to a boolean (True or False). | bool(1)<br>bool("") | True<br>False |
+
+There are certain restrictions on casting in Python that will cause a runtime error if ignored. - Non-Numeric Strings to Numeric Types - Attempting to cast a string that does not look like a number will raise a ValueError. - int("apple") - Casting Float-like Strings to Integers - Python cannot directly cast a string containing a decimal point straight into an integer. - score = int("98.6")
+
+## Avoiding Magic Numbers
+
+A **magic number** is an unexplained numeric value that appears in a program's code.
+
+For example:
+
+```         
+amount = balance * 0.065
+```
+
+The value *0.065* is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).
+
+If a magic number is used in many places in a program it can take substantial effort to find and change the number in each location. You take the risk of making a mistake each type you type the magic number the program's code. This can be the source of difficult to find and frustrating errors.
+
+### Named Constants
+
+Rather than using magic numbers, you should used a variable whose purpose is to represent the value. This variable is not intended to be changed during the program and so is called a *constant*. In practice, Python will allow you to change the value, so it is important to remember that this variable is supposed to be static. The common convention in Python is to use all caps to indicate a constant variable.
 
 ```{python}
+INTEREST_RATE = 0.051
 ```
+
+## The None Type
+
+**None** is a special Python value that represents no value assigned yet. Note that **None** is a value (not an error). Its data type is a unique **NoneType**.
+
+**None** is used as a placeholder when a value is unknown or not available.
+
+**None** is not the same as: - 0 (a number) - "" (an empty string) - False (a Boolean)
+
+We use None to: - Initialize a variable before it has a real value - Represent missing or unknown information - Indicate that a result has not been computed yet
+
+Rule to remember: Do not perform math or string operations on None. - Any of these operations causes an error.
+
+# Input, Processing and Output
+
+Typically, a computer performs a three-step process: - Receive input - Input: any data that the program receives while it is running - Perform some process on the input - Example: mathematical calculation - Produce output
+
+## The Print Function
+
+We have already seen the print function in the *Hello World* example. The print function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.
+
+### Program Execution Order
+
+In general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.
+
+The output of the following example is 'one' then 'two' then 'three'.
+
+```{python}
+print('one')
+print('two')
+print('three')
+```
+
+### Displaying Multiple Items with the Print Function
+
+Python allows one to display multiple items with a single call to print. - Items are separated by commas when passed as arguments. - Arguments displayed in the order they are passed to the function. - Items are automatically separated by a space when displayed on screen.
+
+```{python}
+print('one', 'two', 'three')
+```
+
+Based off the previous examples we can see that successive print statements place their value(s) on different lines. This is because the print function puts a newline character at the end of printed data. We can change this default newline to a value of our choice using the special argument *end*.
+
+The following example changes the default newline to a space.
+
+```{python}
+print('one',end=' ')
+print('two',end=' ')
+print('three',end=' ')
+```
+
+Similarly, for multiple items displayed on the same line, we can use the separator argument *sep* to change the default space to something else.
+
+The following example changes the default space to a dash.
+
+```{python}
+print('one', 'two', 'three',sep='-')
+```
+
+Both of these options can be useful to help format printed values to make reading their output easier.
+
+### Newlines and Tabs
+
+Certain special characters are preceded by a backslash \*\*.
+
+These characters are treated as commands inside a string.
+
+To create a newline, we use the character \*\*\n*\*.
+
+Note the extra new line in the following example.
+
+```{python}
+print('Hello world\n')
+print('Hello world’)
+
+```
+
+To create a tab, we use \*\*\t**.
+
+Note the increased whitespace (the tab character) between the words *Hello* and *world*.
+
+```{python}
+print('Hello\tworld')
+
+```
+
+## The Input Function
+
+Many programs need to read input from the user. While many kinds of data can be used as input, we will largely be dealing with the simple input function and working with text data. More complicated kinds of input tend to require more effort to both read and process, so we will avoid these in an introductory course.
+
+The input function displays an optional prompt and then reads input from the keyboard.
+
+::: core-box
+```         
+variable_name = input("Your Prompt Here")
+```
+:::
+
+Note that the input function always returns the data as a *string*.
+
+The prompt is typically a string instructing user to enter a value.
+
+The input function also does not automatically display a space after the prompt.
+
+For example:
+
+```         
+name = input("What is your name?  ")
+```
+
+The above does the following:
+
+- Displays the string 'What is your name? '
+- Reads input, as a string, from the keyboard
+- Assigns the string that was read from the keyboard to the name variable
+
+### Reading Numbers with the Input Function
+
+Since the input function always returns a string, if we want to use the input as a number in calculations we will need to cast the string to the appropriate numerical type.
+
+```         
+number = int(input('Enter a number: '))
+```
+
+The above does the following:
+
+- Displays the string *'Enter a number: '*
+- Reads input, as a string, from the keyboard
+- Converts the input to an int
+- Assigns the resulting int to the number *variable*
+
+# Arithmetic Calculations
+
+A **math expression** is a statement that performs a calculation and results in a value.
+
+A **math operator** is a symbol that represents a specific type mathematical operation.
+
+**Operands** are the values associated with an operator. In Python, variables can be operands.
+
+In general, the resulting value of a math expression is typically assigned to a variable.
+
+The following expression has *+* as the operator with the operands of *1* and *y*.
+
+```         
+x = 1 + y
+```
+
+## Common Math Operators
+
+| Symbol | Operation | Description |
+|------------------|-------------------------|-----------------------------|
+| \+ | Addition | Standard Arithmetic Addition |
+| \- | Subtraction | Standard Arithmetic Subtraction |
+| \* | Multiplication | Standard Arithmetic Multiplication |
+| / | Division | Floating Point Division |
+| // | Integer Division | Division that returns only a whole number (no remainder) |
+| \% | Remainder (Modulus) | Division that returns only the remainder |
+| \*\* | Exponentiation | Raises number to a power |
+
+### Operator Precedence
+
+Python has rules for operator precedence that are very close to that of normal arithmetic. Higher precedence operators are performed first and operators with the same precedence execute from left to right.
+
+1.  Operations enclosed in parenthesis.
+2.  Exponentiation.
+3.  Multiplication, Floating Point Division, Integer Division, Remainder.
+4.  Addition, Subtraction
+
+### Converting Math Formulas into Python
+
+In Python, an operator is required for any mathematical operation. Standard mathematical notation like **xy** which is implicitly understood that **x** and **y** are multiplied together is not allowed in Python. Any mathematical operation needs to be explicitly defined using operators.
+
+In general, converting math formulas into Python tends to require adding multiplication operators and the insertion of parentheses.
+
+### Mixed-Type Expressions and Automatic Type Conversion
+
+The data type resulting from mathematical operations depends on the type of operands. - Two *int* operands results in another *int* - Two *float* operands results in another *float* - One *int* operands and one *float* operand results in a *float*
