@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -190,65 +225,35 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/09_for_loops/for_loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9: For Loops</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/09_for_loops/for_loops.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/10_while_loops/while_loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">10: While Loops</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/10_while_loops/while_loops.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/11_nested_loops/nested_loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">11: Nested Loops</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/11_nested_loops/nested_loops.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/12_matrices/matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12: Matrices</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/12_matrices/matrices.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/13_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/13_dictionaries/dictionaries.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/14_sets/sets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14: Sets</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/14_sets/sets.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/15_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15: Exceptions and Files</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/15_exceptions_and_files/exceptions_and_files.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/16_pandas/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16: Pandas</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/16_pandas/pandas.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/17_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/17_objects_and_classes/objects_and_classes.qmd</span>
+  </li>
           <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../../lectures/18_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">18: Distance and Similarity</span></a>
-  </div>
-</li>
+ <span class="menu-text">lectures/18_distance_and_similarity/distance_and_similarity.qmd</span>
+  </li>
       </ul>
   </li>
     </ul>
@@ -261,8 +266,29 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#functions" id="toc-functions" class="nav-link active" data-scroll-target="#functions">Functions</a>
+  <ul class="collapse">
+  <li><a href="#naming-rules" id="toc-naming-rules" class="nav-link" data-scroll-target="#naming-rules">Naming Rules</a></li>
+  <li><a href="#defining-functions" id="toc-defining-functions" class="nav-link" data-scroll-target="#defining-functions">Defining Functions</a></li>
+  <li><a href="#calling-functions" id="toc-calling-functions" class="nav-link" data-scroll-target="#calling-functions">Calling Functions</a></li>
+  <li><a href="#returning-values-from-functions" id="toc-returning-values-from-functions" class="nav-link" data-scroll-target="#returning-values-from-functions">Returning Values from Functions</a>
+  <ul class="collapse">
+  <li><a href="#returning-multiple-values" id="toc-returning-multiple-values" class="nav-link" data-scroll-target="#returning-multiple-values">Returning Multiple Values</a></li>
+  <li><a href="#the-pass-keyword" id="toc-the-pass-keyword" class="nav-link" data-scroll-target="#the-pass-keyword">The pass Keyword</a></li>
+  </ul></li>
+  <li><a href="#more-on-parameters-and-arguments" id="toc-more-on-parameters-and-arguments" class="nav-link" data-scroll-target="#more-on-parameters-and-arguments">More on Parameters and Arguments</a>
+  <ul class="collapse">
+  <li><a href="#keyword-arguments" id="toc-keyword-arguments" class="nav-link" data-scroll-target="#keyword-arguments">Keyword Arguments</a></li>
+  </ul></li>
+  <li><a href="#scope" id="toc-scope" class="nav-link" data-scroll-target="#scope">Scope</a>
+  <ul class="collapse">
+  <li><a href="#local-scope" id="toc-local-scope" class="nav-link" data-scroll-target="#local-scope">Local Scope</a></li>
+  <li><a href="#enclosing-scope" id="toc-enclosing-scope" class="nav-link" data-scroll-target="#enclosing-scope">Enclosing Scope</a></li>
+  <li><a href="#global-scope" id="toc-global-scope" class="nav-link" data-scroll-target="#global-scope">Global Scope</a></li>
+  <li><a href="#built-in-scope" id="toc-built-in-scope" class="nav-link" data-scroll-target="#built-in-scope">Built-in Scope</a></li>
+  </ul></li>
+  <li><a href="#the-id-function" id="toc-the-id-function" class="nav-link" data-scroll-target="#the-id-function">The id() Function</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -288,19 +314,254 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="functions" class="level1">
+<h1>Functions</h1>
+<p>We have used prebuilt functions repeatedly in this course (like <em>print</em> or <em>input</em>) and now we will look at building our own.</p>
+<p>A <strong>function</strong> is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.</p>
+<p>This idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.</p>
+<section id="naming-rules" class="level2">
+<h2 class="anchored" data-anchor-id="naming-rules">Naming Rules</h2>
+<p>Function naming rules are very similar to those of variables:</p>
 <ul>
-<li>Defining a function with def</li>
-<li>Passing arguments (positional vs keyword)</li>
-<li>The concept of modularity</li>
+<li>Cannot use keywords as a function name</li>
+<li>Cannot contain spaces</li>
+<li>First character must be a letter or underscore</li>
+<li>All other characters must be a letter, number or underscore</li>
+<li>Uppercase and lowercase characters are distinct</li>
 </ul>
+<p>And like variables, the function name should be descriptive of the task carried out by the function.</p>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="defining-functions" class="level2">
+<h2 class="anchored" data-anchor-id="defining-functions">Defining Functions</h2>
+<div class="core-box">
+<p>Defining a function:</p>
+<pre><code>def function_name(parameter_1,parameter_2, ...):
+    statement_1
+    statement_2
+    ...</code></pre>
+</div>
+<p>The function header is the first line of the function and includes the keyword <strong>def</strong> and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.</p>
+<p>Inside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.</p>
+</section>
+<section id="calling-functions" class="level2">
+<h2 class="anchored" data-anchor-id="calling-functions">Calling Functions</h2>
+<p>To use a function, we call it by invoking its name.</p>
+<div id="0072b09b" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x <span class="op">+</span> y)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>add(<span class="dv">2</span>,<span class="dv">3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+<p>The simple function <em>add</em> above takes in two parameters, <em>x</em> and <em>y</em> then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation <strong>add(2,3)</strong>. Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to <em>x</em> and 3 is the second argument so it is assigned to <em>y</em>.</p>
+<p>Functions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.</p>
+</section>
+<section id="returning-values-from-functions" class="level2">
+<h2 class="anchored" data-anchor-id="returning-values-from-functions">Returning Values from Functions</h2>
+<p>The function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a <strong>void</strong> function.</p>
+<p>In contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The <em>input</em> and <em>int</em> functions are example of value-returning functions that you have used.</p>
+<p>To return a value from a function, you need only use the <strong>return</strong> keyword.</p>
+<div id="2352dbd7" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> add(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+<p>We can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the <em>result</em> variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.</p>
+<section id="returning-multiple-values" class="level3">
+<h3 class="anchored" data-anchor-id="returning-multiple-values">Returning Multiple Values</h3>
+<p>We can return multiple values by separating the values by commas.</p>
+<div id="f29fc76d" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y, x, y</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>result <span class="op">=</span> add(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(5, 2, 3)</code></pre>
+</div>
+</div>
+<p>Our add function now returns the sum, then the value associated with parameter <em>x</em> and finally the value associated with parameter <em>y</em>. Note that the values are returned in the order they are specified. Also note that the variable <em>result</em> is now a tuple containing three objects, which is what we would expect since we returned three individual values.</p>
+<p>We can assign these values immediately using the convention for multiple assignment:</p>
+<div id="3086e6a7" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y, x, y</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>result, x, y <span class="op">=</span> add(<span class="dv">2</span>,<span class="dv">3</span>)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(result)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5
+2
+3</code></pre>
+</div>
+</div>
+<p>If you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.</p>
+</section>
+<section id="the-pass-keyword" class="level3">
+<h3 class="anchored" data-anchor-id="the-pass-keyword">The pass Keyword</h3>
+<p>You can use the <strong>pass</strong> keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.</p>
+<div id="83e15aa3" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_function():</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="more-on-parameters-and-arguments" class="level2">
+<h2 class="anchored" data-anchor-id="more-on-parameters-and-arguments">More on Parameters and Arguments</h2>
+<p>Changes made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.</p>
+<div id="4c29fb23" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_1():</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    function_2(value)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_2(x):</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value is now </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Note that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.</p>
+<section id="keyword-arguments" class="level3">
+<h3 class="anchored" data-anchor-id="keyword-arguments">Keyword Arguments</h3>
+<p>A <strong>keyword</strong> argument is an argument that specifies which parameter the value should be passed to.</p>
+<pre><code>function_name(parameter=value)</code></pre>
+<p>Note that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.</p>
+<p>Keyword arguments are often used to provide a default argument for a parameter. A <strong>default argument</strong> is a value that will be there by default unless explicitly overwritten when the function is called.</p>
+<p>In the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.</p>
+<div id="2d91bab8" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_tax(price, tax_rate<span class="op">=</span><span class="fl">0.08</span>):</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    tax <span class="op">=</span> price <span class="op">*</span> tax_rate</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The tax is </span><span class="sc">{</span>tax<span class="sc">}</span><span class="ss">.'</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>show_tax(<span class="dv">10</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>show_tax(<span class="dv">10</span>,tax_rate<span class="op">=</span><span class="fl">0.10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The tax is 0.8.
+The tax is 1.0.</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="scope" class="level2">
+<h2 class="anchored" data-anchor-id="scope">Scope</h2>
+<p>In Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.</p>
+<p>Python follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.</p>
+<ul>
+<li>Local</li>
+<li>Enclosing</li>
+<li>Global</li>
+<li>Built-in</li>
+</ul>
+<section id="local-scope" class="level3">
+<h3 class="anchored" data-anchor-id="local-scope">Local Scope</h3>
+<p>A local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.</p>
+<p>Only statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.</p>
+<p>A local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.</p>
+<p>Note that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.</p>
+<pre><code>def my_func():
+    x = 10  # Local scope
+    print(x)
+
+my_func()
+# print(x)  # Throws NameError: name 'x' is not defined</code></pre>
+<p>Notice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.</p>
+<div id="5e43243e" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_1():</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> <span class="dv">4</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(x)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_2():</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(x)</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>function_1()</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>function_2()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4
+10</code></pre>
+</div>
+</div>
+</section>
+<section id="enclosing-scope" class="level3">
+<h3 class="anchored" data-anchor-id="enclosing-scope">Enclosing Scope</h3>
+<p>Enclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.</p>
+<p>By default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the <strong>nonlocal</strong> keyword if you intend to mutate an enclosing variable.</p>
+<p>However, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.</p>
+<div id="2af8bd85" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> outer_function():</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="st">"Hello"</span>  <span class="co"># Enclosing scope</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> inner_function():</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>        <span class="kw">nonlocal</span> message</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>        message <span class="op">=</span> <span class="st">"Hi"</span>  <span class="co"># Modifies the enclosing variable</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    inner_function()</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(message)  <span class="co"># Outputs: Hi</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="global-scope" class="level3">
+<h3 class="anchored" data-anchor-id="global-scope">Global Scope</h3>
+<p>Global scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.</p>
+<p>Global variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.</p>
+<div id="287dd684" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Global scope</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> increment():</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">global</span> counter</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    counter <span class="op">+=</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Global variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.</p>
+</section>
+<section id="built-in-scope" class="level3">
+<h3 class="anchored" data-anchor-id="built-in-scope">Built-in Scope</h3>
+<p>Built-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.</p>
+<p>Python allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.</p>
+<pre><code>sum = 10
+a_list = [1,2,3]
+
+print(sum(a_list)) # TypeError: 'int' object is not callable</code></pre>
+<p>Once you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.</p>
+</section>
+</section>
+<section id="the-id-function" class="level2">
+<h2 class="anchored" data-anchor-id="the-id-function">The id() Function</h2>
+<p>We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.</p>
+<ul>
+<li>If two variables are stored at the same memory address, they must refer to the same data.</li>
+<li>If two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.</li>
+</ul>
+<div id="83ca78b0" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Var 1 = </span><span class="sc">{</span><span class="bu">id</span>(var1)<span class="sc">}</span><span class="ss"> </span><span class="ch">\t</span><span class="ss"> Var 2 = </span><span class="sc">{</span><span class="bu">id</span>(var2)<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Var 1 = 4355928160   Var 2 = 4355928160</code></pre>
+</div>
+</div>
+<div id="41297885" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> var1</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Var 1 = </span><span class="sc">{</span><span class="bu">id</span>(var1)<span class="sc">}</span><span class="ss"> </span><span class="ch">\t</span><span class="ss"> Var 2 = </span><span class="sc">{</span><span class="bu">id</span>(var2)<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Var 1 = 4355928160   Var 2 = 4355928160</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

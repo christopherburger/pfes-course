@@ -11,7 +11,7 @@ website:
         contents:
           - index.qmd
           - Managing Python Installations.qmd
-          #- conventions.qmd
+          - conventions.qmd
       - section: "Lectures"
         contents:
           - lectures/01_course_introduction/course_intro_and_python_environment.qmd
@@ -22,16 +22,14 @@ website:
           - lectures/06_basic_plotting/basic_plotting.qmd
           - lectures/07_boolean_logic/boolean_logic.qmd
           - lectures/08_control_structures/control_structures.qmd
-          - lectures/09_for_loops/for_loops.qmd
-          - lectures/10_while_loops/while_loops.qmd
-          - lectures/11_nested_loops/nested_loops.qmd
-          - lectures/12_matrices/matrices.qmd
-          - lectures/13_dictionaries/dictionaries.qmd
-          - lectures/14_sets/sets.qmd
-          - lectures/15_exceptions_and_files/exceptions_and_files.qmd
-          - lectures/16_pandas/pandas.qmd
-          - lectures/17_objects_and_classes/objects_and_classes.qmd
-          - lectures/18_distance_and_similarity/distance_and_similarity.qmd
+          - lectures/09_loops/loops.qmd
+          - lectures/10_matrices/matrices.qmd
+          - lectures/11_dictionaries/dictionaries.qmd
+          - lectures/12_sets/sets.qmd
+          - lectures/13_exceptions_and_files/exceptions_and_files.qmd
+          - lectures/14_pandas/pandas.qmd
+          - lectures/15_objects_and_classes/objects_and_classes.qmd
+          - lectures/16_distance_and_similarity/distance_and_similarity.qmd
 
 format:
   html:

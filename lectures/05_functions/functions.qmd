@@ -3,12 +3,272 @@ title: "5: Functions"
 format: html
 ---
 
-## Overview
+# Functions
 
-- Defining a function with def
-- Passing arguments (positional vs keyword)
-- The concept of modularity
+We have used prebuilt functions repeatedly in this course (like *print* or *input*) and now we will look at building our own.
 
-## Key Syntax
+A **function** is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.
 
-\`\`\`python \# Add core syntax examples here
+This idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.
+
+## Naming Rules
+
+Function naming rules are very similar to those of variables:
+
+- Cannot use keywords as a function name
+- Cannot contain spaces
+- First character must be a letter or underscore
+- All other characters must be a letter, number or underscore
+- Uppercase and lowercase characters are distinct
+
+And like variables, the function name should be descriptive of the task carried out by the function.
+
+## Defining Functions
+
+::: core-box
+Defining a function:
+
+```         
+def function_name(parameter_1,parameter_2, ...):
+    statement_1
+    statement_2
+    ...
+```
+:::
+
+The function header is the first line of the function and includes the keyword **def** and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.
+
+Inside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.
+
+## Calling Functions
+
+To use a function, we call it by invoking its name.
+
+```{python}
+def add(x,y):
+    print(x + y)
+
+add(2,3)
+```
+
+The simple function *add* above takes in two parameters, *x* and *y* then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation **add(2,3)**. Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to *x* and 3 is the second argument so it is assigned to *y*.
+
+Functions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.
+
+## Returning Values from Functions
+
+The function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a **void** function.
+
+In contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The *input* and *int* functions are example of value-returning functions that you have used.
+
+To return a value from a function, you need only use the **return** keyword.
+
+```{python}
+def add(x,y):
+    return x + y
+
+result = add(2,3)
+print(result)
+```
+
+We can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the *result* variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.
+
+### Returning Multiple Values
+
+We can return multiple values by separating the values by commas.
+
+```{python}
+def add(x,y):
+    return x + y, x, y
+
+result = add(2,3)
+print(result)
+```
+
+Our add function now returns the sum, then the value associated with parameter *x* and finally the value associated with parameter *y*. Note that the values are returned in the order they are specified. Also note that the variable *result* is now a tuple containing three objects, which is what we would expect since we returned three individual values.
+
+We can assign these values immediately using the convention for multiple assignment:
+
+```{python}
+def add(x,y):
+    return x + y, x, y
+
+result, x, y = add(2,3)
+print(result)
+print(x)
+print(y)
+```
+
+If you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.
+
+### The pass Keyword
+
+You can use the **pass** keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.
+
+```{python}
+def a_function():
+    pass
+```
+
+## More on Parameters and Arguments
+
+Changes made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.
+
+```{python}
+
+def function_1():
+    value = 5
+    print(f'The value is {value}')
+    function_2(value)
+    print(f'The value is {value}')
+
+def function_2(x):
+    print(f'The value is {x}')
+    x = 0
+    print(f'The value is now {x}')
+
+```
+
+Note that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.
+
+### Keyword Arguments
+
+A **keyword** argument is an argument that specifies which parameter the value should be passed to.
+
+```         
+function_name(parameter=value)
+```
+
+Note that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.
+
+Keyword arguments are often used to provide a default argument for a parameter. A **default argument** is a value that will be there by default unless explicitly overwritten when the function is called.
+
+In the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.
+
+```{python}
+def show_tax(price, tax_rate=0.08):
+    tax = price * tax_rate
+    print(f'The tax is {tax}.')
+
+show_tax(10)
+
+show_tax(10,tax_rate=0.10)
+```
+
+## Scope
+
+In Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.
+
+Python follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.
+
+- Local
+- Enclosing
+- Global
+- Built-in
+
+### Local Scope
+
+A local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.
+
+Only statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.
+
+A local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.
+
+Note that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.
+
+```         
+def my_func():
+    x = 10  # Local scope
+    print(x)
+
+my_func()
+# print(x)  # Throws NameError: name 'x' is not defined
+```
+
+Notice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.
+
+```{python}
+x = 10
+
+def function_1():
+		x = 4
+		print(x)
+
+def function_2():
+		print(x)
+
+function_1()
+function_2()
+```
+
+### Enclosing Scope
+
+Enclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.
+
+By default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the **nonlocal** keyword if you intend to mutate an enclosing variable.
+
+However, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.
+
+```{python}
+def outer_function():
+    message = "Hello"  # Enclosing scope
+    
+    def inner_function():
+        nonlocal message
+        message = "Hi"  # Modifies the enclosing variable
+        
+    inner_function()
+    print(message)  # Outputs: Hi
+```
+
+### Global Scope
+
+Global scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.
+
+Global variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.
+
+```{python}
+counter = 0  # Global scope
+
+def increment():
+    global counter
+    counter += 1
+```
+
+Global variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.
+
+### Built-in Scope
+
+Built-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.
+
+Python allows you to reuse built-in names for your own variables like naming a variable list = \[1, 2, 3\]. This is called shadowing.
+
+```         
+sum = 10
+a_list = [1,2,3]
+
+print(sum(a_list)) # TypeError: 'int' object is not callable
+```
+
+Once you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.
+
+## The id() Function
+
+We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.
+
+- If two variables are stored at the same memory address, they must refer to the same data.
+- If two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.
+
+```{python}
+var1 = 5
+var2 = 5
+
+print(f'Var 1 = {id(var1)} \t Var 2 = {id(var2)}')
+```
+
+```{python}
+var1 = 5
+var2 = var1
+
+print(f'Var 1 = {id(var1)} \t Var 2 = {id(var2)}')
+```

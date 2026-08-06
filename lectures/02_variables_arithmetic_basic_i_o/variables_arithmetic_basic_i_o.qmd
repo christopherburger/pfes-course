@@ -16,7 +16,7 @@ The general format of an assignment statement is:
 ::: core-box
 The general format for assignment is:
 
-```
+```         
 variable_name = expression
 ```
 :::
@@ -35,7 +35,7 @@ Note that in our examples, the variable receiving the value is always on the lef
 
 We also can only use a variable if there is a value actually assigned to it.
 
-```
+```         
 number = 
 ```
 
@@ -159,7 +159,13 @@ Rule to remember: Do not perform math or string operations on None. - Any of the
 
 # Input, Processing and Output
 
-Typically, a computer performs a three-step process: - Receive input - Input: any data that the program receives while it is running - Perform some process on the input - Example: mathematical calculation - Produce output
+Typically, a computer performs a three-step process:
+
+- Receive input
+  - Input: any data that the program receives while it is running
+- Perform some process on the input
+  - Example: mathematical calculation
+- Produce output
 
 ## The Print Function
 
@@ -207,11 +213,11 @@ Both of these options can be useful to help format printed values to make readin
 
 ### Newlines and Tabs
 
-Certain special characters are preceded by a backslash \*\*.
+Certain special characters are preceded by a backslash **\\**.
 
 These characters are treated as commands inside a string.
 
-To create a newline, we use the character \*\*\n*\*.
+To create a newline, we use the character **\\n**.
 
 Note the extra new line in the following example.
 
@@ -221,7 +227,7 @@ print('Hello world')
 
 ```
 
-To create a tab, we use \*\*\t**.
+To create a tab, we use **\\t**.
 
 Note the increased whitespace (the tab character) between the words *Hello* and *world*.
 
@@ -229,6 +235,17 @@ Note the increased whitespace (the tab character) between the words *Hello* and 
 print('Hello\tworld')
 
 ```
+
+We can also see that there is no additional space here in the string *Hello\\tworld* and yet the tab is still correctly placed. If we included space between the tab and the other parts of the string like:
+
+
+```{python}
+print('Hello \t world')
+
+```
+
+
+We see that there is additional space in the printed output. This is an important feature of printing strings in that anything inside the string is printed exactly as it is written. By adding the spaces to make things easier for us to read inside the string, we altered the output.
 
 ## The Input Function
 

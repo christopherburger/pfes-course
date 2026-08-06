@@ -77,135 +77,166 @@
     ]
   },
   {
-    "objectID": "lectures/16_pandas/pandas.html",
-    "href": "lectures/16_pandas/pandas.html",
-    "title": "16: Pandas",
+    "objectID": "lectures/13_exceptions_and_files/exceptions_and_files.html",
+    "href": "lectures/13_exceptions_and_files/exceptions_and_files.html",
+    "title": "15: Exceptions and Files",
     "section": "",
-    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits",
-    "crumbs": [
-      "Lectures",
-      "16: Pandas"
-    ]
+    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays"
   },
   {
-    "objectID": "lectures/16_pandas/pandas.html#overview",
-    "href": "lectures/16_pandas/pandas.html#overview",
-    "title": "16: Pandas",
+    "objectID": "lectures/13_exceptions_and_files/exceptions_and_files.html#overview",
+    "href": "lectures/13_exceptions_and_files/exceptions_and_files.html#overview",
+    "title": "15: Exceptions and Files",
     "section": "",
-    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits",
-    "crumbs": [
-      "Lectures",
-      "16: Pandas"
-    ]
+    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays"
   },
   {
-    "objectID": "lectures/16_pandas/pandas.html#key-syntax",
-    "href": "lectures/16_pandas/pandas.html#key-syntax",
-    "title": "16: Pandas",
+    "objectID": "lectures/13_exceptions_and_files/exceptions_and_files.html#key-syntax",
+    "href": "lectures/13_exceptions_and_files/exceptions_and_files.html#key-syntax",
+    "title": "15: Exceptions and Files",
     "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "16: Pandas"
-    ]
+    "text": "Key Syntax\n```python # Add core syntax examples here"
   },
   {
-    "objectID": "lectures/12_matrices/matrices.html",
-    "href": "lectures/12_matrices/matrices.html",
-    "title": "12: Matrices",
+    "objectID": "lectures/11_dictionaries/dictionaries.html",
+    "href": "lectures/11_dictionaries/dictionaries.html",
+    "title": "13: Dictionaries",
     "section": "",
-    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal",
-    "crumbs": [
-      "Lectures",
-      "12: Matrices"
-    ]
+    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement"
   },
   {
-    "objectID": "lectures/12_matrices/matrices.html#overview",
-    "href": "lectures/12_matrices/matrices.html#overview",
-    "title": "12: Matrices",
+    "objectID": "lectures/11_dictionaries/dictionaries.html#overview",
+    "href": "lectures/11_dictionaries/dictionaries.html#overview",
+    "title": "13: Dictionaries",
     "section": "",
-    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal",
-    "crumbs": [
-      "Lectures",
-      "12: Matrices"
-    ]
+    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement"
   },
   {
-    "objectID": "lectures/12_matrices/matrices.html#key-syntax",
-    "href": "lectures/12_matrices/matrices.html#key-syntax",
-    "title": "12: Matrices",
+    "objectID": "lectures/11_dictionaries/dictionaries.html#key-syntax",
+    "href": "lectures/11_dictionaries/dictionaries.html#key-syntax",
+    "title": "13: Dictionaries",
     "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "12: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/14_sets/sets.html",
-    "href": "lectures/14_sets/sets.html",
-    "title": "14: Sets",
-    "section": "",
-    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations",
-    "crumbs": [
-      "Lectures",
-      "14: Sets"
-    ]
-  },
-  {
-    "objectID": "lectures/14_sets/sets.html#overview",
-    "href": "lectures/14_sets/sets.html#overview",
-    "title": "14: Sets",
-    "section": "",
-    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations",
-    "crumbs": [
-      "Lectures",
-      "14: Sets"
-    ]
-  },
-  {
-    "objectID": "lectures/14_sets/sets.html#key-syntax",
-    "href": "lectures/14_sets/sets.html#key-syntax",
-    "title": "14: Sets",
-    "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "14: Sets"
-    ]
+    "text": "Key Syntax\n```python # Add core syntax examples here"
   },
   {
     "objectID": "lectures/05_functions/functions.html",
     "href": "lectures/05_functions/functions.html",
     "title": "5: Functions",
     "section": "",
-    "text": "Defining a function with def\nPassing arguments (positional vs keyword)\nThe concept of modularity",
+    "text": "We have used prebuilt functions repeatedly in this course (like print or input) and now we will look at building our own.\nA function is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.\nThis idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.\n\n\nFunction naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.\n\n\n\n\nDefining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.\n\n\n\nTo use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.\n\n\n\nThe function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass\n\n\n\n\n\nChanges made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.\n\n\n\n\n\n\nIn Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.\n\n\n\n\nWe can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4355928160   Var 2 = 4355928160\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4355928160   Var 2 = 4355928160",
     "crumbs": [
       "Lectures",
       "5: Functions"
     ]
   },
   {
-    "objectID": "lectures/05_functions/functions.html#overview",
-    "href": "lectures/05_functions/functions.html#overview",
+    "objectID": "lectures/05_functions/functions.html#naming-rules",
+    "href": "lectures/05_functions/functions.html#naming-rules",
     "title": "5: Functions",
     "section": "",
-    "text": "Defining a function with def\nPassing arguments (positional vs keyword)\nThe concept of modularity",
+    "text": "Function naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.",
     "crumbs": [
       "Lectures",
       "5: Functions"
     ]
   },
   {
-    "objectID": "lectures/05_functions/functions.html#key-syntax",
-    "href": "lectures/05_functions/functions.html#key-syntax",
+    "objectID": "lectures/05_functions/functions.html#defining-functions",
+    "href": "lectures/05_functions/functions.html#defining-functions",
     "title": "5: Functions",
+    "section": "",
+    "text": "Defining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html#calling-functions",
+    "href": "lectures/05_functions/functions.html#calling-functions",
+    "title": "5: Functions",
+    "section": "",
+    "text": "To use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html#returning-values-from-functions",
+    "href": "lectures/05_functions/functions.html#returning-values-from-functions",
+    "title": "5: Functions",
+    "section": "",
+    "text": "The function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html#more-on-parameters-and-arguments",
+    "href": "lectures/05_functions/functions.html#more-on-parameters-and-arguments",
+    "title": "5: Functions",
+    "section": "",
+    "text": "Changes made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html#scope",
+    "href": "lectures/05_functions/functions.html#scope",
+    "title": "5: Functions",
+    "section": "",
+    "text": "In Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/05_functions/functions.html#the-id-function",
+    "href": "lectures/05_functions/functions.html#the-id-function",
+    "title": "5: Functions",
+    "section": "",
+    "text": "We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4355928160   Var 2 = 4355928160\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4355928160   Var 2 = 4355928160",
+    "crumbs": [
+      "Lectures",
+      "5: Functions"
+    ]
+  },
+  {
+    "objectID": "lectures/08_control_structures/control_structures.html",
+    "href": "lectures/08_control_structures/control_structures.html",
+    "title": "8: Control Structures",
+    "section": "",
+    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
+    "crumbs": [
+      "Lectures",
+      "8: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/08_control_structures/control_structures.html#overview",
+    "href": "lectures/08_control_structures/control_structures.html#overview",
+    "title": "8: Control Structures",
+    "section": "",
+    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
+    "crumbs": [
+      "Lectures",
+      "8: Control Structures"
+    ]
+  },
+  {
+    "objectID": "lectures/08_control_structures/control_structures.html#key-syntax",
+    "href": "lectures/08_control_structures/control_structures.html#key-syntax",
+    "title": "8: Control Structures",
     "section": "Key Syntax",
     "text": "Key Syntax\n```python # Add core syntax examples here",
     "crumbs": [
       "Lectures",
-      "5: Functions"
+      "8: Control Structures"
     ]
   },
   {
@@ -242,70 +273,25 @@
     ]
   },
   {
-    "objectID": "lectures/10_while_loops/while_loops.html",
-    "href": "lectures/10_while_loops/while_loops.html",
-    "title": "10: While Loops",
+    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html",
+    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html",
+    "title": "18: Distance and Similarity",
     "section": "",
-    "text": "If elif and else syntax\nIndentation rules\nNested conditionals",
-    "crumbs": [
-      "Lectures",
-      "10: While Loops"
-    ]
+    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently"
   },
   {
-    "objectID": "lectures/10_while_loops/while_loops.html#overview",
-    "href": "lectures/10_while_loops/while_loops.html#overview",
-    "title": "10: While Loops",
+    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#overview",
+    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#overview",
+    "title": "18: Distance and Similarity",
     "section": "",
-    "text": "If elif and else syntax\nIndentation rules\nNested conditionals",
-    "crumbs": [
-      "Lectures",
-      "10: While Loops"
-    ]
+    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently"
   },
   {
-    "objectID": "lectures/10_while_loops/while_loops.html#key-syntax",
-    "href": "lectures/10_while_loops/while_loops.html#key-syntax",
-    "title": "10: While Loops",
+    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#key-syntax",
+    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#key-syntax",
+    "title": "18: Distance and Similarity",
     "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "10: While Loops"
-    ]
-  },
-  {
-    "objectID": "lectures/15_exceptions_and_files/exceptions_and_files.html",
-    "href": "lectures/15_exceptions_and_files/exceptions_and_files.html",
-    "title": "15: Exceptions and Files",
-    "section": "",
-    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays",
-    "crumbs": [
-      "Lectures",
-      "15: Exceptions and Files"
-    ]
-  },
-  {
-    "objectID": "lectures/15_exceptions_and_files/exceptions_and_files.html#overview",
-    "href": "lectures/15_exceptions_and_files/exceptions_and_files.html#overview",
-    "title": "15: Exceptions and Files",
-    "section": "",
-    "text": "Creating 2D arrays in NumPy\nIndexing rows and columns [r c]\nShape and reshaping arrays",
-    "crumbs": [
-      "Lectures",
-      "15: Exceptions and Files"
-    ]
-  },
-  {
-    "objectID": "lectures/15_exceptions_and_files/exceptions_and_files.html#key-syntax",
-    "href": "lectures/15_exceptions_and_files/exceptions_and_files.html#key-syntax",
-    "title": "15: Exceptions and Files",
-    "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "15: Exceptions and Files"
-    ]
+    "text": "Key Syntax\n```python # Add core syntax examples here"
   },
   {
     "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html",
@@ -425,70 +411,25 @@
     ]
   },
   {
-    "objectID": "lectures/13_dictionaries/dictionaries.html",
-    "href": "lectures/13_dictionaries/dictionaries.html",
-    "title": "13: Dictionaries",
-    "section": "",
-    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement",
-    "crumbs": [
-      "Lectures",
-      "13: Dictionaries"
-    ]
-  },
-  {
-    "objectID": "lectures/13_dictionaries/dictionaries.html#overview",
-    "href": "lectures/13_dictionaries/dictionaries.html#overview",
-    "title": "13: Dictionaries",
-    "section": "",
-    "text": "Syntax of a while loop\nCondition checking\nInfinite loops and the break statement",
-    "crumbs": [
-      "Lectures",
-      "13: Dictionaries"
-    ]
-  },
-  {
-    "objectID": "lectures/13_dictionaries/dictionaries.html#key-syntax",
-    "href": "lectures/13_dictionaries/dictionaries.html#key-syntax",
-    "title": "13: Dictionaries",
-    "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "13: Dictionaries"
-    ]
-  },
-  {
-    "objectID": "lectures/17_objects_and_classes/objects_and_classes.html",
-    "href": "lectures/17_objects_and_classes/objects_and_classes.html",
+    "objectID": "lectures/15_objects_and_classes/objects_and_classes.html",
+    "href": "lectures/15_objects_and_classes/objects_and_classes.html",
     "title": "17: Objects and Classes",
     "section": "",
-    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()",
-    "crumbs": [
-      "Lectures",
-      "17: Objects and Classes"
-    ]
+    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()"
   },
   {
-    "objectID": "lectures/17_objects_and_classes/objects_and_classes.html#overview",
-    "href": "lectures/17_objects_and_classes/objects_and_classes.html#overview",
+    "objectID": "lectures/15_objects_and_classes/objects_and_classes.html#overview",
+    "href": "lectures/15_objects_and_classes/objects_and_classes.html#overview",
     "title": "17: Objects and Classes",
     "section": "",
-    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()",
-    "crumbs": [
-      "Lectures",
-      "17: Objects and Classes"
-    ]
+    "text": "Key-value pair concept\nAdding updating and retrieving values\nIterating over .keys() and .values()"
   },
   {
-    "objectID": "lectures/17_objects_and_classes/objects_and_classes.html#key-syntax",
-    "href": "lectures/17_objects_and_classes/objects_and_classes.html#key-syntax",
+    "objectID": "lectures/15_objects_and_classes/objects_and_classes.html#key-syntax",
+    "href": "lectures/15_objects_and_classes/objects_and_classes.html#key-syntax",
     "title": "17: Objects and Classes",
     "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "17: Objects and Classes"
-    ]
+    "text": "Key Syntax\n```python # Add core syntax examples here"
   },
   {
     "objectID": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html",
@@ -594,7 +535,7 @@
     "href": "lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html#the-print-function",
     "title": "2: Variables Arithmetic Basic I/O",
     "section": "The Print Function",
-    "text": "The Print Function\nWe have already seen the print function in the Hello World example. The print function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.\n\nProgram Execution Order\nIn general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.\nThe output of the following example is ‘one’ then ‘two’ then ‘three’.\n\nprint('one')\nprint('two')\nprint('three')\n\none\ntwo\nthree\n\n\n\n\nDisplaying Multiple Items with the Print Function\nPython allows one to display multiple items with a single call to print. - Items are separated by commas when passed as arguments. - Arguments displayed in the order they are passed to the function. - Items are automatically separated by a space when displayed on screen.\n\nprint('one', 'two', 'three')\n\none two three\n\n\nBased off the previous examples we can see that successive print statements place their value(s) on different lines. This is because the print function puts a newline character at the end of printed data. We can change this default newline to a value of our choice using the special argument end.\nThe following example changes the default newline to a space.\n\nprint('one',end=' ')\nprint('two',end=' ')\nprint('three',end=' ')\n\none two three \n\n\nSimilarly, for multiple items displayed on the same line, we can use the separator argument sep to change the default space to something else.\nThe following example changes the default space to a dash.\n\nprint('one', 'two', 'three',sep='-')\n\none-two-three\n\n\nBoth of these options can be useful to help format printed values to make reading their output easier.\n\n\nNewlines and Tabs\nCertain special characters are preceded by a backslash **.\nThese characters are treated as commands inside a string.\nTo create a newline, we use the character ***.\nNote the extra new line in the following example.\n\nprint('Hello world\\n')\nprint('Hello world')\n\nHello world\n\nHello world\n\n\nTo create a tab, we use **.\nNote the increased whitespace (the tab character) between the words Hello and world.\n\nprint('Hello\\tworld')\n\nHello   world",
+    "text": "The Print Function\nWe have already seen the print function in the Hello World example. The print function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.\n\nProgram Execution Order\nIn general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.\nThe output of the following example is ‘one’ then ‘two’ then ‘three’.\n\nprint('one')\nprint('two')\nprint('three')\n\none\ntwo\nthree\n\n\n\n\nDisplaying Multiple Items with the Print Function\nPython allows one to display multiple items with a single call to print. - Items are separated by commas when passed as arguments. - Arguments displayed in the order they are passed to the function. - Items are automatically separated by a space when displayed on screen.\n\nprint('one', 'two', 'three')\n\none two three\n\n\nBased off the previous examples we can see that successive print statements place their value(s) on different lines. This is because the print function puts a newline character at the end of printed data. We can change this default newline to a value of our choice using the special argument end.\nThe following example changes the default newline to a space.\n\nprint('one',end=' ')\nprint('two',end=' ')\nprint('three',end=' ')\n\none two three \n\n\nSimilarly, for multiple items displayed on the same line, we can use the separator argument sep to change the default space to something else.\nThe following example changes the default space to a dash.\n\nprint('one', 'two', 'three',sep='-')\n\none-two-three\n\n\nBoth of these options can be useful to help format printed values to make reading their output easier.\n\n\nNewlines and Tabs\nCertain special characters are preceded by a backslash \\.\nThese characters are treated as commands inside a string.\nTo create a newline, we use the character \\n.\nNote the extra new line in the following example.\n\nprint('Hello world\\n')\nprint('Hello world')\n\nHello world\n\nHello world\n\n\nTo create a tab, we use \\t.\nNote the increased whitespace (the tab character) between the words Hello and world.\n\nprint('Hello\\tworld')\n\nHello   world\n\n\nWe can also see that there is no additional space here in the string Hello\\tworld and yet the tab is still correctly placed. If we included space between the tab and the other parts of the string like:\n\nprint('Hello \\t world')\n\nHello    world\n\n\nWe see that there is additional space in the printed output. This is an important feature of printing strings in that anything inside the string is printed exactly as it is written. By adding the spaces to make things easier for us to read inside the string, we altered the output.",
     "crumbs": [
       "Lectures",
       "2: Variables Arithmetic Basic I/O"
@@ -623,136 +564,88 @@
     ]
   },
   {
-    "objectID": "lectures/08_control_structures/control_structures.html",
-    "href": "lectures/08_control_structures/control_structures.html",
-    "title": "8: Control Structures",
-    "section": "",
-    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#overview",
-    "href": "lectures/08_control_structures/control_structures.html#overview",
-    "title": "8: Control Structures",
-    "section": "",
-    "text": "Importing Matplotlib and basic line/scatter plots\nAdding titles labels and legends\nPlotting NumPy arrays against each other",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#key-syntax",
-    "href": "lectures/08_control_structures/control_structures.html#key-syntax",
-    "title": "8: Control Structures",
-    "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/18_distance_and_similarity/distance_and_similarity.html",
-    "href": "lectures/18_distance_and_similarity/distance_and_similarity.html",
-    "title": "18: Distance and Similarity",
-    "section": "",
-    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently",
-    "crumbs": [
-      "Lectures",
-      "18: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/18_distance_and_similarity/distance_and_similarity.html#overview",
-    "href": "lectures/18_distance_and_similarity/distance_and_similarity.html#overview",
-    "title": "18: Distance and Similarity",
-    "section": "",
-    "text": "Defining sets and uniqueness\nSet operations (union intersection)\nChecking membership efficiently",
-    "crumbs": [
-      "Lectures",
-      "18: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/18_distance_and_similarity/distance_and_similarity.html#key-syntax",
-    "href": "lectures/18_distance_and_similarity/distance_and_similarity.html#key-syntax",
-    "title": "18: Distance and Similarity",
-    "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "18: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/09_for_loops/for_loops.html",
-    "href": "lectures/09_for_loops/for_loops.html",
+    "objectID": "lectures/09_loops/loops.html",
+    "href": "lectures/09_loops/loops.html",
     "title": "9: For Loops",
     "section": "",
-    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables",
-    "crumbs": [
-      "Lectures",
-      "9: For Loops"
-    ]
+    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables"
   },
   {
-    "objectID": "lectures/09_for_loops/for_loops.html#overview",
-    "href": "lectures/09_for_loops/for_loops.html#overview",
+    "objectID": "lectures/09_loops/loops.html#overview",
+    "href": "lectures/09_loops/loops.html#overview",
     "title": "9: For Loops",
     "section": "",
-    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables",
-    "crumbs": [
-      "Lectures",
-      "9: For Loops"
-    ]
+    "text": "Relational operators (== != &gt; &lt;)\nLogical operators (and or not)\nEvaluating truth tables"
   },
   {
-    "objectID": "lectures/09_for_loops/for_loops.html#key-syntax",
-    "href": "lectures/09_for_loops/for_loops.html#key-syntax",
+    "objectID": "lectures/09_loops/loops.html#key-syntax",
+    "href": "lectures/09_loops/loops.html#key-syntax",
     "title": "9: For Loops",
     "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "9: For Loops"
-    ]
+    "text": "Key Syntax\n```python # Add core syntax examples here"
   },
   {
-    "objectID": "lectures/11_nested_loops/nested_loops.html",
-    "href": "lectures/11_nested_loops/nested_loops.html",
-    "title": "11: Nested Loops",
+    "objectID": "lectures/10_matrices/matrices.html",
+    "href": "lectures/10_matrices/matrices.html",
+    "title": "12: Matrices",
     "section": "",
-    "text": "Iterating over sequences (lists strings)\nUsing range()\nThe mechanics of the loop variable",
-    "crumbs": [
-      "Lectures",
-      "11: Nested Loops"
-    ]
+    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal"
   },
   {
-    "objectID": "lectures/11_nested_loops/nested_loops.html#overview",
-    "href": "lectures/11_nested_loops/nested_loops.html#overview",
-    "title": "11: Nested Loops",
+    "objectID": "lectures/10_matrices/matrices.html#overview",
+    "href": "lectures/10_matrices/matrices.html#overview",
+    "title": "12: Matrices",
     "section": "",
-    "text": "Iterating over sequences (lists strings)\nUsing range()\nThe mechanics of the loop variable",
-    "crumbs": [
-      "Lectures",
-      "11: Nested Loops"
-    ]
+    "text": "The accumulator pattern (total = total + x)\nCounting and filtering via loops\nIndex-based vs element-based traversal"
   },
   {
-    "objectID": "lectures/11_nested_loops/nested_loops.html#key-syntax",
-    "href": "lectures/11_nested_loops/nested_loops.html#key-syntax",
-    "title": "11: Nested Loops",
+    "objectID": "lectures/10_matrices/matrices.html#key-syntax",
+    "href": "lectures/10_matrices/matrices.html#key-syntax",
+    "title": "12: Matrices",
     "section": "Key Syntax",
-    "text": "Key Syntax\n```python # Add core syntax examples here",
-    "crumbs": [
-      "Lectures",
-      "11: Nested Loops"
-    ]
+    "text": "Key Syntax\n```python # Add core syntax examples here"
+  },
+  {
+    "objectID": "lectures/14_pandas/pandas.html",
+    "href": "lectures/14_pandas/pandas.html",
+    "title": "16: Pandas",
+    "section": "",
+    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits"
+  },
+  {
+    "objectID": "lectures/14_pandas/pandas.html#overview",
+    "href": "lectures/14_pandas/pandas.html#overview",
+    "title": "16: Pandas",
+    "section": "",
+    "text": "Matrix multiplication rules (rows x columns)\nUsing np.dot() and @ operator\nBroadcasting concepts and vectorization benefits"
+  },
+  {
+    "objectID": "lectures/14_pandas/pandas.html#key-syntax",
+    "href": "lectures/14_pandas/pandas.html#key-syntax",
+    "title": "16: Pandas",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here"
+  },
+  {
+    "objectID": "lectures/12_sets/sets.html",
+    "href": "lectures/12_sets/sets.html",
+    "title": "14: Sets",
+    "section": "",
+    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations"
+  },
+  {
+    "objectID": "lectures/12_sets/sets.html#overview",
+    "href": "lectures/12_sets/sets.html#overview",
+    "title": "14: Sets",
+    "section": "",
+    "text": "Writing loops inside loops\nTracking inner vs outer loop variables\nGenerating grids and combinations"
+  },
+  {
+    "objectID": "lectures/12_sets/sets.html#key-syntax",
+    "href": "lectures/12_sets/sets.html#key-syntax",
+    "title": "14: Sets",
+    "section": "Key Syntax",
+    "text": "Key Syntax\n```python # Add core syntax examples here"
   },
   {
     "objectID": "lectures/01_course_introduction/course_intro_and_python_environment.html",
