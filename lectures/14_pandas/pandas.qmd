@@ -1,14 +1,1351 @@
 ---
-title: "16: Pandas"
+title: "14: Pandas"
 format: html
 ---
 
-## Overview
+## Pandas
 
-- Matrix multiplication rules (rows x columns)
-- Using np.dot() and \@ operator
-- Broadcasting concepts and vectorization benefits
+CSCI – 1056
 
-## Key Syntax
+## Heterogenous Data
 
-\`\`\`python \# Add core syntax examples here
+- NumPy requires pure, homogeneous numbers.
+- Real data is messy, labeled, and heterogeneous.
+- Remember that if we put a word into a NumPy array, it converts our math to text.
+- We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy).
+
+## Pandas
+
+- Pandas is an industry-standard library for data ingestion and cleaning.
+
+- Pandas does not replace NumPy; they serve different roles.
+
+  - Pandas prepares the data.
+  - NumPy solves the equations.
+
+import pandas as pd
+
+## DataFrames
+
+- The core component of Pandas is the **DataFrame**.
+
+  - A 2D array (matrix) with attached row and column labels.
+
+- Each column can hold a *different* type of data without breaking the others.
+
+- We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.
+
+## DataFrames
+
+|     | Row ID | Order ID       | Order Date | ... | Quantity | Discount | Profit    |
+|-----|--------|----------------|------------|-----|----------|----------|-----------|
+| 0   | 1      | CA-2017-152156 | 11/8/2017  | …   | 2.0      | 0.00     | 41.9136   |
+| 1   | 2      | CA-2017-152156 | 11/8/2017  | …   | 3.0      | 0.00     | 219.5820  |
+| 2   | 3      | CA-2017-138688 | 6/12/2017  | …   | 2.0      | 0.00     | 6.8714    |
+| 3   | 4      | US-2016-108966 | 10/11/2016 | …   | 5.0      | 0.45     | -383.0310 |
+| 4   | 5      | US-2016-108966 | 10/11/2016 | …   | 2.0      | 0.20     | 2.5164    |
+
+## DataFrames
+
+- To load data into a DataFrame, we first need to know what file type we are working with.
+
+  - Commonly, this is a CSV file (Comma Separated Values)
+
+- We then need to know where the file is located.
+
+  - This could be a file path on your computer or even a URL.
+
+import pandas as pd
+
+url = "[https://website/data.csv"](https://website/data.csv%22)
+
+df = pd.read_csv(url)
+
+## DataFrames
+
+- For our work in this course, we will use a CSV file that has been included in the Lab IDE automatically.
+- This is Tableau’s Sample Superstore dataset.
+- If you are using a different IDE, you will need to download the dataset and remember the file location.
+
+import pandas as pd
+
+df = pd.read_csv('superstore.csv')
+
+## Inspecting Data
+
+- The example DataFrame from earlier was from the superstore dataset.
+
+- The data we saw was output from the **head()** method.
+
+  - This returns the first 5 rows of the data in the DataFrame.
+
+- The **head** method (and its counterpart, **tail**) are important first steps after you load data using Pandas.
+
+- You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.
+
+df = pd.read_csv('superstore.csv’)
+
+print(df.head())
+
+## Inspecting Data
+
+- We can see not all the columns are visible (…) due to visual size limitations.
+
+|     | Row ID | Order ID       | Order Date | ... | Quantity | Discount | Profit    |
+|-----|--------|----------------|------------|-----|----------|----------|-----------|
+| 0   | 1      | CA-2017-152156 | 11/8/2017  | …   | 2.0      | 0.00     | 41.9136   |
+| 1   | 2      | CA-2017-152156 | 11/8/2017  | …   | 3.0      | 0.00     | 219.5820  |
+| 2   | 3      | CA-2017-138688 | 6/12/2017  | …   | 2.0      | 0.00     | 6.8714    |
+| 3   | 4      | US-2016-108966 | 10/11/2016 | …   | 5.0      | 0.45     | -383.0310 |
+| 4   | 5      | US-2016-108966 | 10/11/2016 | …   | 2.0      | 0.20     | 2.5164    |
+
+## Inspecting Data
+
+- The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas.
+- However, some datasets will be large enough that you will not have enough display space to visually inspect everything.
+- head / tail provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.
+
+Row ID Order ID Order Date ... Quantity Discount Profit
+
+0 1 CA-2017-152156 11/8/2017 ... 2.0 0.00 41.9136
+
+…
+
+\[5 rows x 21 columns\]
+
+## Inspecting Data
+
+- While head / tail give us the total number of columns, they do not provide the total number of rows.
+- We can use the **shape** attribute to return both the number of rows and number of columns.
+
+import pandas as pd
+
+df = pd.read_csv('superstore.csv’)
+
+print(df.shape)
+
+\>\>\> (10800, 21)
+
+## Inspecting Data
+
+- **dtypes** tells us the data type of each column
+
+- Float64 specifies a floating-point number.
+
+- Object is a general non-numeric type (often a string).
+
+Row ID object
+
+Order ID object
+
+Order Date object
+
+… …
+
+Sub-Category object
+
+Product Name object
+
+Sales float64
+
+Quantity float64
+
+Discount float64
+
+Profit float64
+
+import pandas as pd
+
+df = pd.read_csv('superstore.csv’)
+
+print(df.dtypes)
+
+## Inspecting Data
+
+- **describe()** gives us summary statistics on columns with a numeric data type.
+
+- The statistics are:
+
+  - count (the number of non-empty cells)
+
+    - The values **None**, **NaN**, **NaT**, **pandas.NA** are considered “empty”
+    - **NaN**: not a number, **NaT**: not a time
+
+  - mean
+
+  - standard deviation
+
+  - min (smallest value)
+
+  - 25%, 50%, 75% (percentiles)
+
+  - max (largest value)
+
+## Inspecting Data
+
+- **describe()** gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).
+
+Postal Code Sales Quantity Discount Profit
+
+count 9983.000000 9994.000000 9994.000000 9994.000000 9994.000000
+
+mean 55245.233297 229.858001 3.789574 0.156203 28.656896
+
+std 32038.715955 623.245101 2.225110 0.206452 234.260108
+
+min 1040.000000 0.444000 1.000000 0.000000 -6599.978000
+
+25% 23223.000000 17.280000 2.000000 0.000000 1.728750
+
+50% 57103.000000 54.490000 3.000000 0.200000 8.666500
+
+75% 90008.000000 209.940000 5.000000 0.200000 29.364000
+
+max 99301.000000 22638.480000 14.000000 0.800000 8399.976000
+
+## Inspecting Data
+
+- **describe()** is very useful for finding impossible values.
+- For example, assume we have a DataFrame of sensor readings with one of the columns being temperature.
+- If we see negative values in the temperature column, we know the data is erroneous.
+
+## Extracting Columns
+
+- Extract a single column (1D Series) using one set of brackets:
+
+\[‘Column_Name’\]
+
+- Extract a sub-matrix (2D DataFrame) using a list of columns:
+
+\[\[‘Column_Name_1’, ‘Column_Name_2’\]\]
+
+- A DataFrame is a dictionary of column vectors, so case matters for the column names.
+
+## Extracting Columns
+
+df\[‘Discount’\]
+
+0 0.00
+
+1 0.00
+
+... ...
+
+10798 NaN
+
+10799 NaN
+
+Name: Discount, Length: 10800, dtype: float64
+
+df\[‘Discount’,’Profit’\]
+
+Discount Profit
+
+0 0.00 41.9136
+
+1 0.00 219.5820
+
+... ...
+
+10798 NaN NaN
+
+10799 NaN NaN\
+
+\[10800 rows x 2 columns\]
+
+## Renaming Columns
+
+- Raw data often has terrible names (e.g., "Temp (C) - Sensor 1!").
+- Use .rename() and a dictionary to fix them before writing logic.
+
+\# Syntax: columns={'old_name': 'new_name’}
+
+df = df.rename(columns={'Temp (C)': 'Temp',
+
+'Press_kpa': 'Pressure'})
+
+## Filtering Rows (Boolean Masking)
+
+- We can apply the exact same relational logic (\>, \<, ==) to a Pandas column.
+- This creates a "mask" of True/False values to filter the DataFrame.
+
+\# Find all rows where Temperature is over 100
+
+danger_mask = df\['Temp'\] \> 100
+
+\# Apply the mask to the DataFrame
+
+danger_data = df\[danger_mask\]
+
+\# Do it in one line:
+
+danger_data = df\[df\['Temp'\] \> 100\]
+
+## Combining Logic (AND / OR)
+
+- To find specific overlaps, use & (AND) and \| (OR).
+- **Very Important:** You *must* put parentheses around each condition.
+
+\# Find Discounts AND Negative Profit
+
+losses = df\[(df\[‘Discount'\] \> 0) & (df\[‘Profit'\] \< 0)\]
+
+Row ID Order ID Order Date ... Quantity Discount Profit
+
+3 4 US-2016-108966 10/11/2016 ... 5.0 0.45 -383.0310
+
+14 15 US-2016-118983 11/22/2016 ... 5.0 0.80 -123.8580
+
+…
+
+## Sorting
+
+- Sorting data sequentially in Pandas is very simple.
+
+- **.sort_values()** orders the matrix by a specific column.
+
+  - The column is specified using the **by** parameter
+  - You can adjust sorting by ascending/descending order by setting the Boolean on the **ascending** parameter.
+
+\# Sort from highest profit to lowest
+
+sorted_data = df.sort_values(by=‘Profit', ascending=False)
+
+\# View the top 3 most profitable rows
+
+print(sorted_data.head(3))
+
+## Handling Missing Data
+
+- **NaN** stands for "Not a Number" (a blank cell in the CSV).
+
+  - We mentioned other versions earlier like **NaT** (Not a Time)
+
+- In general, you cannot do mathematics with missing data.
+
+  - Calculations that involve **NaN** resolve to **NaN**.
+  - Calculations that involve **None** throw an exception.
+
+- **.dropna()** removes any row containing a **NaN**.
+
+## Handling Missing Data
+
+- The safest decision is to drop the corrupted observation entirely.
+- There exist methods to interpolate the missing value(s), but these should be used cautiously.
+
+\# See how many missing values exist
+
+print(df.isna().sum())
+
+\# Drop the corrupted rows permanently
+
+df = df.dropna()
+
+## Calculated Columns (Pandas Vectorization)
+
+- We can create brand new columns using the data we already have.
+- Pandas handles the row-by-row iteration automatically (just like NumPy).
+
+\# Calculate Power (P = V \* I)
+
+df\['Power_Watts'\] = df\['Voltage'\] \* df\['Current'\]
+
+## Calculated Columns (Pandas Vectorization)
+
+- Using calculated columns is much cleaner than writing a for loop to iterate through thousands of rows.
+
+df\['Profit_Per_Unit'\] = df\['Profit'\] / df\['Quantity’\]
+
+print(df.head())
+
+Row ID Order ID Order Date ... Discount Profit Profit_Per_Unit
+
+0 1 CA-2017-152156 11/8/2017 ... 0.00 41.9136 20.9568
+
+1 2 CA-2017-152156 11/8/2017 ... 0.00 219.5820 73.1940
+
+2 3 CA-2017-138688 6/12/2017 ... 0.00 6.8714 3.4357
+
+3 4 US-2016-108966 10/11/2016 ... 0.45 -383.0310 -76.6062
+
+4 5 US-2016-108966 10/11/2016 ... 0.20 2.5164 1.2582
+
+## Text Scrubbing
+
+- Sometimes numbers are accidentally imported as strings because of symbols (e.g., "\$1,000").
+- We use **.str** to access string methods, and **.astype()** to cast them back to numbers.
+
+\# 1. Replace the comma with nothing
+
+df\['Cost'\] = df\['Cost'\].str.replace(',', '')
+
+\# 2. Strip accidental blank spaces
+
+df\['Cost'\] = df\['Cost'\].str.strip()
+
+\# 3. Convert the clean text back into a float for math
+
+df\['Cost'\] = df\['Cost'\].astype(float)
+
+## Time and Dates
+
+- Python reads dates as "dumb" strings by default.
+- **pd.to_datetime()** converts them into "smart" timestamps.
+- The **.dt** accessor extracts specific features (month, year, day of week).
+
+\# Convert the string column to datetime objects
+
+df\['Date'\] = pd.to_datetime(df\['Date_String'\])
+
+\# Extract the month as a new numeric column (1-12)
+
+df\['Month'\] = df\['Date'\].dt.month
+
+## Aggregation
+
+- How do we find the average profit per day?
+
+- Or the postal code with the highest number of total sales?
+
+- We can use the **groupby()** method, likely the most powerful single tool in Pandas**.**
+
+- The process has three steps:
+
+  - Split the data into categories.
+  - Apply math.
+  - Combine the results.
+
+## Aggregation
+
+\# Drop rows where the date column is NaT
+
+df = df.dropna(subset=\['Order Date’\])
+
+appd = df.groupby('Order Date')\['Profit'\].mean() #average profit per day
+
+print(appd.head())
+
+Order Date
+
+2015-01-03 5.551200
+
+2015-01-04 -21.996700
+
+2015-01-05 4.884000
+
+Name: Profit, dtype: float64
+
+## Aggregation
+
+#Find the top 3 area codes by total sales
+
+appd = df.groupby('Postal Code')\['Sales'\].sum().nlargest(3)
+
+print(appd.head())
+
+Postal Code
+
+10024.0 78697.182
+
+10035.0 77357.885
+
+10009.0 54761.496
+
+Name: Sales, dtype: float64
+
+## Aggregation
+
+- We see that the Postal Codes here are floats.
+
+  - It is an identifier and not a quantity, so it is a good idea to change the type.
+
+- We can fix this using the **astype** function and casting as an integer.
+
+Postal Code
+
+0 42420.0
+
+1 42420.0
+
+2 90036.0
+
+Name: Postal Code, dtype: float64
+
+## Aggregation
+
+- We see that the Postal Codes here are floats.
+
+  - It is an identifier and not a quantity, so it is a good idea to change the type.
+
+- We can fix this using the **astype** function and casting as an integer.
+
+df\['Postal Code'\] = df\['Postal Code'\].astype('Int64')
+
+Postal Code
+
+0 42420
+
+1 42420
+
+2 90036
+
+Name: Postal Code, dtype: Int64
+
+## Aggregation
+
+- \# Convert a string column to datetime objects
+
+- df\['Date'\] = pd.to_datetime(df\['Date_String'\])
+
+- \# Extract the month as a new numeric column (1-12)
+
+- df\['Month'\] = df\['Date'\].dt.month
+
+## Useful Distinctions
+
+- **Aggregation** (sum(), mean(), count()) computes one value per group.
+
+- **Reduction** (max(), min()) computes one value from the entire Series.
+
+  - A series can be viewed as a single column in the DataFrame.
+
+- **Index retrieval** (idxmax(), idxmin()) tells you *which label* produced that maximum or minimum.
+
+## Performing Mathematics on DataFrames
+
+- More complicated mathematical operations will require you to cast the DataFrame to a NumPy array.
+- This is done using the **.to_numpy()** method.
+- Note that there can be no text or NaN values in the columns that are cast into an array if you want to receive valid output.
+
+data = df\['Sales'\].to_numpy()
+
+print(data.mean())
+
+## Performing Mathematics on DataFrames
+
+- Simple operations can be done on the DataFrame itself, especially a single series associated with it.
+
+print(df\["Sales"\].mean())
+
+\>\>\>229.85800083049827
+
+## Performing Mathematics on DataFrames
+
+- We can also iterate through using the standard Python for loop syntax.
+- However, Pandas specific operations are both shorter to write and more efficient.
+
+#Also the mean of the sales series
+
+s = 0
+
+for i in df\['Sales'\]:
+
+s += i
+
+print(s/len(df\['Sales’\]))
+
+\>\>\> 229.8580008304938
+
+## Pandas - Continued
+
+CSCI – 1056
+
+## Multiple Aggregations
+
+- Often, we need different math for different columns at the same time.
+- The **.agg()** method takes a dictionary: **{ 'ColumnName': 'math_operation' }**.
+- This can complete enormous tasks in a single computational pass.
+
+#Find the total, average, maximum, and minimum sales by region.
+
+summary = (
+
+df.groupby('Region')\['Sales'\]
+
+.agg(\['sum', 'mean', 'max', 'min'\])
+
+)
+
+print(summary)
+
+## Different Aggregations for Different Columns
+
+- We can run simultaneous aggregations by passing a dictionary into the **.agg** method.
+
+  - The key is the name of the column, and its value is the operation.
+  - Operations used must accept a series and return a single value.
+
+summary = (
+
+df.groupby('Region')
+
+.agg({
+
+'Sales': 'sum',
+
+'Profit': 'mean',
+
+'Discount': 'max',
+
+'Quantity': 'sum’}))
+
+## Different Aggregations for Different Columns
+
+summary = (
+
+df.groupby('Region')
+
+.agg({
+
+'Sales': 'sum',
+
+'Profit': 'mean',
+
+'Discount': 'max',
+
+'Quantity': 'sum’}))
+
+Sales Profit Discount Quantity
+
+Region
+
+Central 501239.8908 17.092709 0.8 8780.0
+
+East 678781.2400 32.135808 0.7 10618.0
+
+South 391721.9050 28.857673 0.7 6209.0
+
+West 725457.8245 33.849032 0.7 12266.0
+
+## Different Aggregations for Different Columns
+
+- You are not limited to pre-built aggregation functions.
+- You can define operations yourself by creating a function that accepts a Pandas series and returns a single value.
+
+def range(series):
+
+return series.max() – series.min()
+
+## Different Aggregations for Different Columns
+
+- The issue here is that “Sales” is ambiguous for what we are performing by the aggregation.
+- To make our operations obvious, we can use named aggregations to rename the displayed column names.
+
+summary = (
+
+df.groupby('Region')
+
+.agg({
+
+'Sales': range,
+
+}))
+
+Sales
+
+Region
+
+Central 17499.506
+
+East 11199.116
+
+South 22637.313
+
+West 13998.970
+
+## Named Aggregations
+
+- We can rename the displayed column names using a variable assignment inside the aggregation.
+
+- **TotalSales=(”Sales”, sum)**
+
+  - The resulting column name of the sum of sales by category is **TotalSales**.
+
+summary = (
+
+df.groupby('Category')
+
+.agg(
+
+TotalSales=('Sales', 'sum'),
+
+AvgSale=('Sales', 'mean'),
+
+TotalProfit=('Profit', 'sum'),
+
+AvgProfit=('Profit', 'mean'),
+
+Orders=('Sales', 'count’)
+
+)).round(2)
+
+## Named Aggregations
+
+summary = (
+
+df.groupby('Category')
+
+.agg(
+
+TotalSales=('Sales', 'sum'),
+
+AvgSale=('Sales', 'mean'),
+
+TotalProfit=('Profit', 'sum'),
+
+AvgProfit=('Profit', 'mean'),
+
+Orders=('Sales', 'count’)
+
+)).round(2)
+
+TotalSales AvgSale TotalProfit AvgProfit Orders
+
+Category
+
+Furniture 741999.80 349.83 18451.27 8.70 2121
+
+Office Supplies 719047.03 119.32 122490.80 20.33 6026
+
+Technology 836154.03 452.71 145454.95 78.75 1847
+
+## Several Statistics for Several Columns
+
+- We can produce multiple statistics across multiple columns.
+- The same dictionary format is used for the **.agg** method and the value is now a list of operations.
+
+summary = (
+
+df.groupby('Category')
+
+.agg({
+
+'Sales': \['sum', 'mean'\],
+
+'Profit': \['sum', 'mean'\],
+
+'Quantity': \['sum', 'max'\]
+
+})).round(2)
+
+## Several Statistics for Several Columns
+
+summary = (
+
+df.groupby('Category')
+
+.agg({
+
+'Sales': \['sum', 'mean'\],
+
+'Profit': \['sum', 'mean'\],
+
+'Quantity': \['sum', 'max'\]
+
+})).round(2)
+
+Sales Profit
+
+sum mean sum mean Category
+
+Furniture 741999.80 349.83 18451.27 8.70
+
+Office Supplies 719047.03 119.32 122490.80 20.33
+
+Technology 836154.03 452.71 145454.95 78.75
+
+## Two-level groupby with Multiple Aggregations
+
+- We want to evaluate the profit, sales, and average discount across the different categories of goods by region.
+- We can include multiple levels in the groupby simply by using a list of series names.
+
+summary = (
+
+df.groupby(\['Region', 'Category'\])
+
+.agg(
+
+Sales=('Sales', 'sum'),
+
+Profit=('Profit', 'sum'),
+
+AvgDiscount=('Discount', 'mean')
+
+)
+
+).round(2)
+
+## Two-level groupby with Multiple Aggregations
+
+summary = (
+
+df.groupby(\['Region', 'Category'\])
+
+.agg(
+
+Sales=('Sales', 'sum'),
+
+Profit=('Profit', 'sum'),
+
+AvgDiscount=('Discount', 'mean')
+
+)
+
+).round(2)
+
+Region Category
+
+Central Furniture 163797.16 -2871.05 0.30
+
+Office Supplies 167026.42 8879.98 0.25
+
+Technology 170416.31 33697.43 0.13
+
+East Furniture 208291.20 3046.17 0.15
+
+Office Supplies 205516.06 41014.58 0.14
+
+Technology 264973.98 47462.04 0.14
+
+## Which category is most profitable in each region?
+
+summary = (
+
+df.groupby(\['Region', 'Category'\])
+
+.agg(
+
+TotalSales=('Sales', 'sum'),
+
+TotalProfit=('Profit', 'sum')
+
+)
+
+.sort_values('TotalProfit', ascending=False)
+
+)
+
+## Which category is most profitable in each region?
+
+Region Category
+
+West Office Supplies 220853.25 52609.85
+
+East Technology 264973.98 47462.04
+
+West Technology 251991.83 44303.65
+
+East Office Supplies 205516.06 41014.58
+
+Central Technology 170416.31 33697.43
+
+South Technology 148771.91 19991.8
+
+Office Supplies 125651.31 19986.39
+
+West Furniture 252612.74 11504.95
+
+Central Office Supplies 167026.42 8879.98
+
+South Furniture 117298.68 6771.21
+
+East Furniture 208291.20 3046.17
+
+Central Furniture 163797.16 -2871.05
+
+> The empty space by office supplies is Pandas omitting the identical region name (south) to prevent repeats.
+
+## Reshaping: Pivot Tables
+
+- Sometimes data is too "tall" to read easily.
+- **pivot_table** reshapes data to look exactly like an Excel pivot table, turning unique row values into new columns.
+
+monthly_view = df.pivot_table(
+
+index='', \# What stays as rows
+
+columns='', \# What becomes the new columns
+
+values='', \# What fills the cells
+
+aggfunc='' \# How to handle duplicates
+
+)
+
+## Reshaping: Pivot Tables
+
+- We can use pivot tables much the same way as groupby.
+- Both below compute the same summary.
+
+df.pivot_table(
+
+values='Sales',
+
+index='Region',
+
+columns='Category',
+
+aggfunc='sum’
+
+)
+
+df.groupby(\['Region', 'Category'\])\['Sales'\].sum()
+
+## Reshaping: Pivot Tables
+
+- The difference is in how the result is arranged:
+- **groupby()** leaves both grouping variables in the index (or MultiIndex).
+- **pivot_table()** places one grouping variable into columns, producing a cross-tab that resembles an Excel pivot table.
+
+df.pivot_table(
+
+values='Sales',
+
+index='Region',
+
+columns='Category',
+
+aggfunc='sum’
+
+)
+
+df.groupby(\['Region', 'Category'\])\['Sales'\].sum()
+
+## Reshaping: Pivot Tables
+
+Region Category
+
+Central Furniture 163797.1638
+
+Office Supplies 167026.4150
+
+Technology 170416.3120
+
+East Furniture 208291.2040
+
+Office Supplies 205516.0550
+
+Technology 264973.9810
+
+South Furniture 117298.6840
+
+Office Supplies 125651.3130
+
+Technology 148771.9080
+
+West Furniture 252612.7435
+
+Office Supplies 220853.2490
+
+Technology 251991.8320
+
+Name: Sales, dtype: float64
+
+Category Furniture Office Supplies Technology
+
+Region
+
+Central 163797.1638 167026.415 170416.312
+
+East 208291.2040 205516.055 264973.981
+
+South 117298.6840 125651.313 148771.908
+
+West 252612.7435 220853.249 251991.832
+
+- The **pivot table** below is functionally equivalent to the **groupby** to the right.
+
+- Only the visual presentation differs.
+
+## Reshaping: Pivot Tables
+
+- Multiple values can be used by passing in a list.
+
+pivot = df.pivot_table(
+
+values=\['Sales', 'Profit'\],
+
+index='Region',
+
+columns='Category',
+
+aggfunc='sum’
+
+)
+
+Profit Sales
+
+Category Furniture Office Supplies Technology Furniture Office Supplies Technology
+
+Region
+
+Central -2871.05 8879.98 33697.43 163797.16 167026.42 170416.31
+
+East 3046.17 41014.58 47462.04 208291.20 205516.06 264973.98
+
+South 6771.21 19986.39 19991.83 117298.68 125651.31 148771.91
+
+West 11504.95 52609.85 44303.65 252612.74 220853.25 251991.83
+
+## Reshaping: Pivot Tables
+
+- Passing the margins flag generates an all column and row.
+
+pivot = df.pivot_table(
+
+values='Sales',
+
+index='Region',
+
+columns='Category',
+
+aggfunc='sum',
+
+margins=True
+
+).round(2)
+
+Category Furniture Office Supplies Technology All
+
+Region
+
+Central 163797.16 167026.42 170416.31 501239.89
+
+East 208291.20 205516.06 264973.98 678781.24
+
+South 117298.68 125651.31 148771.91 391721.90
+
+West 252612.74 220853.25 251991.83 725457.82
+
+All 741999.80 719047.03 836154.03 2297200.86
+
+## Reshaping: Melt
+
+- Human generated data is often "wide" (e.g., Jan, Feb, Mar as separate columns).
+- **pd.melt()** unpivots data, collapsing multiple columns down into two generic columns: "Variable" and "Value".
+- Many plotting libraries, statistical tools and SQL databases expect data in the melt format, not the pivot format.
+
+tall_df = pd.melt(
+
+wide_df,
+
+id_vars=\[’’\], \# Columns to lock in place
+
+var_name='', \# Name for the columns
+
+value_name='' \# Name for the values
+
+)
+
+## Reshaping: Melt
+
+- The DataFrame resulting from the pivot_table below looks like:
+
+sales = df.pivot_table(
+
+values='Sales',
+
+index='Region',
+
+columns='Category',
+
+aggfunc='sum'
+
+).reset_index()
+
+Category Region Furniture Office Supplies Technology
+
+0 Central 163797.1638 167026.415 170416.312
+
+1 East 208291.2040 205516.055 264973.981
+
+2 South 117298.6840 125651.313 148771.908
+
+3 West 252612.7435 220853.249 251991.832
+
+## Reshaping: Melt
+
+- If we wanted one row per Region–Category combination instead:
+
+- **melt()** takes multiple columns and stacks them into two columns: one for the former column names and one for their values.
+
+long = sales.melt(
+
+id_vars='Region',
+
+var_name='Category',
+
+value_name='Sales'
+
+)
+
+## Reshaping: Melt
+
+Region Category Sales
+
+0 Central Furniture 163797.1638
+
+1 East Furniture 208291.2040
+
+2 South Furniture 117298.6840
+
+3 West Furniture 252612.7435
+
+4 Central Office Supplies 167026.4150
+
+5 East Office Supplies 205516.0550
+
+6 South Office Supplies 125651.3130
+
+7 West Office Supplies 220853.2490
+
+8 Central Technology 170416.3120
+
+9 East Technology 264973.9810
+
+10 South Technology 148771.9080
+
+11 West Technology 251991.8320
+
+## Concatenation
+
+- **pd.concat()** is used when you have the exact same columns, but new rows of data.
+- Perfect for stacking multiple months, quarters, or batches of data together.
+- Important to reset the index to prevent repeated row numbers.
+
+\# Stacking Q1 and Q2 data vertically
+
+full_year_df = pd.concat(\[q1_data, q2_data\], axis=0)
+
+\# Reset the index so row numbers don't repeat
+
+full_year_df = full_year_df.reset_index(drop=True)
+
+## Merging & Joins
+
+- Merges and joins are among the most important operations in pandas because they allow you to combine information from multiple DataFrames.
+
+- The important question when combining two DataFrames is:
+
+- **How do we know which rows belong together?**
+
+- Pandas answers this by matching values in one or more columns.
+
+  - It can also match on an index, which is the term row label.
+  - Columns contain the actual data values; the index is just for identification.
+
+## Merging & Joins
+
+- **pd.merge()** combines two *different* DataFrames based on a shared column (a "Key").
+
+  - This is identical to a SQL JOIN.
+
+- **Left Join:** Keep everything in the left table, attach data from the right table if it matches.
+
+- **Right Join:** Keep everything in the right table, attach data from the left table if it matches.
+
+- **Inner Join:** Keep only rows that appear in both tables.
+
+- **Outer Join:** Keep everything from both tables.
+
+## Merging & Joins
+
+- The basic syntax is:
+
+pd.merge(left_df, #Left DataFrame
+
+right_df, #Right DataFrame
+
+on="ColumnName", #Column used for matching
+
+how="inner") #Type of join
+
+## Merging & Joins
+
+- Suppose we have two DataFrames, Customers and Accounts.
+
+**Customers**\
+CustomerID Name\
+0 101 Alice\
+1 102 Bob\
+2 103 Charlie\
+3 104 David
+
+**Accounts**\
+CustomerID Balance
+
+0 101 2500
+
+1 101 1200
+
+2 103 8000
+
+3 105 500
+
+## Inner Join
+
+- An **inner join** keeps only rows that appear in both tables.
+
+merged = pd.merge(customers,
+
+accounts,
+
+on="CustomerID",
+
+how="inner")\
+
+CustomerID Name Balance
+
+0 101 Alice 2500
+
+1 101 Alice 1200
+
+2 103 Charlie 8000
+
+## Inner Join
+
+- Notice that Alice appears twice.
+- This is because there are two matching rows in the Accounts table.
+- Inner join is matching every possible pair.
+
+**Customers**\
+CustomerID Name\
+0 101 Alice\
+1 102 Bob\
+2 103 Charlie\
+3 104 David
+
+**Accounts**\
+CustomerID Balance
+
+0 101 2500
+
+1 101 1200
+
+2 103 8000
+
+3 105 500
+
+## Left Join
+
+- A left join keeps **everything from the left table**.
+
+merged = pd.merge(customers,
+
+accounts,
+
+on="CustomerID",
+
+how="left")
+
+## Left Join
+
+- Since Bob and David have no entry in the right table (accounts) Pandas will insert NaN to fill the empty balance value.
+
+CustomerID Name Balance
+
+0 101 Alice 2500.0
+
+1 101 Alice 1200.0
+
+2 102 Bob NaN
+
+3 103 Charlie 8000.0
+
+4 104 David NaN
+
+## Right Join
+
+- A **right join** keeps everything from the right table.
+
+merged = pd.merge(customers,
+
+accounts,
+
+on="CustomerID",
+
+how=”right")
+
+## Right Join
+
+- Customer 105 only exists in the accounts table; Pandas will insert NaN to fill the empty name value.
+
+CustomerID Name Balance
+
+0 101 Alice 2500
+
+1 101 Alice 1200
+
+2 103 Charlie 8000
+
+3 105 NaN 500
+
+## Outer Join
+
+- An **outer join** keeps everything from both tables.
+
+merged = pd.merge(customers,
+
+accounts,
+
+on="CustomerID",
+
+how=”outer")
+
+## Outer Join
+
+- Nothing in either table is discarded.
+
+CustomerID Name Balance
+
+0 101 Alice 2500.0
+
+1 101 Alice 1200.0
+
+2 102 Bob NaN
+
+3 103 Charlie 8000.0
+
+4 104 David NaN
+
+5 105 NaN 500.0
+
+## Merging on Different Column Names
+
+- Sometimes the key columns have different names.
+- This is easily handled using the **left_on** and **right_on** parameters.
+
+pd.merge(customers,
+
+transactions,
+
+left_on="CustomerID",
+
+right_on="CustID")
+
+## Multi-Key Joins
+
+- Sometimes one column is not enough to guarantee a unique match.
+- For example, an Account Number might repeat across different Processing Dates.
+- We can pass a list of columns to the **on** parameter to match on multiple keys simultaneously.
+
+pd.merge(df1,
+
+df2,
+
+on=\["CustomerID", "Type"\])
+
+## Concatenation is Different from Merging
+
+- A common mistake is confusing **merge()** with **concat()**.
+
+- **concat()** stacks DataFrames together.
+
+  - It does **not** match rows.
+
+- If you need to match rows, use **merge()** and specify the type of join.
+
+  - If you want to match by the index (and not the data in the column) use the **join()** method instead.
+  - Matching by index is uncommon, most situations will be by matching columns.
+
+- If you do not need to match rows, use **concat()**.

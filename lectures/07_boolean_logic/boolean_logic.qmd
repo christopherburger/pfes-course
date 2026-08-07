@@ -3,12 +3,365 @@ title: "7: Boolean Logic"
 format: html
 ---
 
-## Overview
+## 
 
-- Reviewing 1D array creation and indexing
-- Element-wise math operations
-- Aggregate functions (np.sum np.mean)
+## Boolean Logic and Comparisons
 
-## Key Syntax
+CSCI – 1056
 
-\`\`\`python \# Add core syntax examples here
+Content Modified from Pearson’s Starting Out with Python 6th Edition
+
+## Boolean Variables
+
+- **Boolean variable: references one of two values, True or False**
+
+  - Represented by bool data type
+
+- **Commonly used as flags**
+
+  - **Flag**: variable that signals when some condition exists in a program
+
+    - Flag set to False  condition does not exist
+    - Flag set to True  condition exists
+
+## Boolean Expressions and Relational Operators (1 of 4)
+
+- **Boolean expression: expression tested to determine if it is true or false**
+
+  - Example: a \> b
+
+    - true if a is greater than b; false otherwise
+
+- **Relational operator: determines whether a specific relationship exists between two values**
+
+  - Example: greater than (\>)
+
+## Boolean Expressions and Relational Operators (2 of 4)
+
+- **\>= and \<= operators test more than one relationship**
+
+  - It is enough for one of the relationships to exist for the expression to be true
+
+- **== operator determines whether the two operands are equal to one another**
+
+  - Do not confuse with assignment operator (=)
+
+- **!= operator determines whether the two operands are not equal**
+
+## Boolean Expressions and Relational Operators (3 of 4)
+
+**Table 3-2** Boolean expressions using relational operators
+
+| **Expression** | **Meaning**                      |
+|----------------|----------------------------------|
+| x \> y         | Is x greater than y?             |
+| x \< y         | Is x less than y?                |
+| x \>= y        | Is x greater than or equal to y? |
+| x \<= y        | Is x less than or equal to y?    |
+| x == y         | Is x equal to y?                 |
+| x != y         | Is x not equal to y?             |
+
+## Boolean Expressions and Relational Operators (4 of 4)
+
+- **Using a Boolean expression with the \> relational operator**
+
+**Figure 3-3** Example decision structure
+
+A flowchart illustrates the use of Boolean expressions and relational operators. For long description in Notes pane, press F6.
+
+> In a flowchart, a decision box, sales greater than 50000, indicates the conditions true and false. If the condition is true, the action, bonus = 500.0, is implemented. If the condition is false, the action is skipped. The flow exits after both the false and the true statements.
+
+## Example
+
+x = 10
+
+y = 5
+
+print(x \> y)
+
+\>\> True
+
+## Example
+
+a = 3
+
+b = 5
+
+print(a != b)
+
+\>\> True
+
+## Example
+
+a = 5
+
+b = 10
+
+c = 15
+
+print(a \< b \< c)
+
+\>\> True
+
+## Practice
+
+x = "10"
+
+y = 10
+
+print(x == y)
+
+## Practice
+
+x = 10
+
+y = "10"
+
+print(x == int(y))
+
+## Comparing Strings (1 of 2)
+
+- **Strings can be compared using the == and != operators**
+
+- **String comparisons are case sensitive**
+
+- **Strings can be compared using \>, \<, \>=, and \<=**
+
+  - Compared character by character based on the ASCII values for each character
+  - If shorter word is substring of longer word, longer word is greater than shorter word
+
+## Comparing Strings (2 of 2)
+
+**Figure 3-9** Comparing each character in a string
+
+An illustration displays the comparison of the character codes for the strings Mary and Mark using A S C I I codes. For long description in Notes pane, press F6.
+
+> The A S C I I codes for each letter in the strings are displayed within a cell of an array. Since Mary and Mark both have four letters each, a 1 cross 4 array is used for each of the strings. The character codes for the letters in Mary are as follows. Upper M 77, Lower a 97, Lower r 114, Lower y 121. The character codes for the letters in Mark are as follows. Upper M 77, Lower a 97, Lower r 114, Lower k 107. The arrays are aligned one below the other, such that the double headed arrow is present between each pair of cells indicates a comparison. The first cells of both strings is compared, the second cells of both strings is compared, the third cells of both strings is compared, and the fourth cells of both strings is compared.
+
+## Practice
+
+Define the names below as strings and test the relational operators =, !=, \<, \> on them.
+
+An illustration displays the comparison of the character codes for the strings Mary and Mark using A S C I I codes. For long description in Notes pane, press F6.
+
+> The A S C I I codes for each letter in the strings are displayed within a cell of an array. Since Mary and Mark both have four letters each, a 1 cross 4 array is used for each of the strings. The character codes for the letters in Mary are as follows. Upper M 77, Lower a 97, Lower r 114, Lower y 121. The character codes for the letters in Mark are as follows. Upper M 77, Lower a 97, Lower r 114, Lower k 107. The arrays are aligned one below the other, such that the double headed arrow is present between each pair of cells indicates a comparison. The first cells of both strings is compared, the second cells of both strings is compared, the third cells of both strings is compared, and the fourth cells of both strings is compared.
+
+## Logical Operators
+
+- **Logical operators: operators that can be used to create complex Boolean expressions**
+
+  - and operator and or operator: binary operators, connect two Boolean expressions into a compound Boolean expression
+  - not operator: unary operator, reverses the truth of its Boolean operand
+
+## The and Operator
+
+- **Takes two Boolean expressions as operands**
+
+  - Creates compound Boolean expression that is true only when both sub expressions are true
+  - Can be used to simplify nested decision structures
+
+- **Truth table for the and operator**
+
+| **Expression**  | **Value of the Expression** |
+|-----------------|-----------------------------|
+| false and false | false                       |
+| false and true  | false                       |
+| true and false  | false                       |
+| true and true   | true                        |
+
+## Example
+
+x = True
+
+y = False
+
+print(x and y) #y and x is the same here
+
+\>\> False
+
+print(y and y)
+
+\>\> False
+
+print(x and x)
+
+\>\> True
+
+## The or Operator
+
+- **Takes two Boolean expressions as operands**
+
+  - Creates compound Boolean expression that is true when either of the sub expressions is true
+  - Can be used to simplify nested decision structures
+
+- **Truth table for the or operator**
+
+| **Expression**     | **Value of the Expression** |
+|--------------------|-----------------------------|
+| False **or** False | False                       |
+| False **or** True  | True                        |
+| True **or** False  | True                        |
+| True **or** True   | True                        |
+
+## Example
+
+x = True
+
+y = False
+
+print(x or y) #y and x is the same here
+
+\>\> True
+
+print(y or y)
+
+\>\> False
+
+print(x or x)
+
+\>\> True
+
+## Short-Circuit Evaluation
+
+- **Short circuit evaluation: deciding the value of a compound Boolean expression after evaluating only one sub expression**
+
+  - Performed by the or and and operators
+
+    - For or operator: If left operand is true, compound expression is true. Otherwise, evaluate right operand
+    - For and operator: If left operand is false, compound expression is false. Otherwise, evaluate right operand
+
+## Example
+
+x = True
+
+y = False
+
+z = True
+
+print(x and y and z)
+
+\>\> False
+
+print(x or y or z)
+
+\>\> True
+
+## The not Operator
+
+- **Takes one Boolean expressions as operand and reverses its logical value**
+
+  - Sometimes it may be necessary to place parentheses around an expression to clarify to what you are applying the not operator
+
+- **Truth table for the not operator**
+
+| **Expression** | **Value of the Expression** |
+|----------------|-----------------------------|
+| true           | false                       |
+| false          | true                        |
+
+## Example
+
+x = True
+
+y = False
+
+print(x and y)
+
+\>\> False
+
+print(not (x and y))
+
+\>\> True
+
+print(not x and y)
+
+\>\> False
+
+> Note the operator precedence on the last expression, not acts before and so converts x to false immediately, then x and y is evaluated.
+
+## Checking Numeric Ranges With Logical Operators
+
+- **To determine whether a numeric value is within a specific range of values, use and**
+
+  - Example: x \>= 10 and x \<= 20
+
+- **To determine whether a numeric value is outside of a specific range of values, use or**
+
+  - Example: x \< 10 or x \> 20
+
+## Example
+
+x = 25
+
+print(x \>= 10 and x \<= 20)
+
+\>\> False
+
+print(x \< 10 or x \> 20)
+
+\>\> True
+
+## The in Keyword (Membership Test)
+
+- The **in** keyword checks whether a value exists inside a collection, such as a list.
+
+  - Returns **True** or **False**
+  - Commonly used with lists (also works with strings)
+  - Does not change the list
+
+numbers = \[3, 8, 12, 20\]
+
+12 in numbers \# True
+
+5 in numbers \# False
+
+## Assignment Expressions and the Walrus Operator (1 of 5)
+
+- **The walrus operator := is an enhanced assignment operator**
+
+- **You use the walrus operator to create assignment expressions**
+
+- **An assignment expression does two things:**
+
+  - It assigns a value to a variable
+  - It returns the value that was assigned to the variable
+
+## Assignment Expressions and the Walrus Operator (2 of 5)
+
+- **Example:**\
+  print(num := 99)
+
+- **This statement does two things:**
+
+  - It assigns 99 to the num variable
+  - It prints the value that was assigned to the num variable, 99
+
+## Assignment Expressions and the Walrus Operator (3 of 5)
+
+- **Example:**\
+  if (area := width \* height) \> 100:\
+  print('The area is too large')
+
+- **This if statement does the following:**
+
+  - The area variable is assigned the value of width \* height
+  - If the value that was assigned to area is greater than 100, the message **The area is too large** is displayed.
+
+## Assignment Expressions and the Walrus Operator (4 of 5)
+
+- **Precedence of the walrus operator**
+
+  - The walrus operator has the lowest precedence of all the operators in Python
+  - When using the walrus operator in a larger expression that also uses other operators, the walrus operator will work last
+  - In most cases, you need to put parentheses around the assignment expression to make sure the walrus operator assigns the correct value to its variable
+
+## Assignment Expressions and the Walrus Operator (5 of 5)
+
+- **An assignment expression is not a complete statement**
+
+  - For example, this alone causes an error:\
+    num := 99
+
+- **It must be written as part of a larger statement**
+
+print(num := 99)

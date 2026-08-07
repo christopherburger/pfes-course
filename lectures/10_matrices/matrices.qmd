@@ -1,14 +1,423 @@
 ---
-title: "12: Matrices"
+title: "10: Matrices"
 format: html
 ---
 
-## Overview
+## 
 
-- The accumulator pattern (total = total + x)
-- Counting and filtering via loops
-- Index-based vs element-based traversal
+## Matrices and 2d Arrays
 
-## Key Syntax
+CSCI – 1056
 
-\`\`\`python \# Add core syntax examples here
+Content Modified from Pearson’s Starting Out with Python 6th Edition
+
+## Matrices
+
+- So far, we have stored one list of numbers:
+
+  - \[82, 91, 77, 95\]
+
+- But what if we have several lists?
+
+  - Alice 82 91 77 95\
+    Bob 74 83 89 88\
+    Carol 90 97 92 99
+
+- Now our data naturally forms a table.
+
+- A NumPy matrix is a way to store this table efficiently and let us perform mathematical operations on its contents.
+
+## Creating Matrices in NumPy
+
+import numpy as np
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+print(A)
+
+Output:
+
+\[\[1 2 3\]
+
+\[4 5 6\]\]
+
+Note that every inner list becomes one row.
+
+## Dimensions
+
+- A very useful property of matrices is its **dimensions**.
+
+  - The number of rows and the number of columns.
+
+- Knowing the dimensions of your matrices is necessary to see if certain operations on them are defined at all.
+
+- Matrix multiplication is unlike scalar multiplication which is commutative.
+
+  - Multiplication of two matrices is defined only if both have a relation between their dimensions.
+  - The first matrix must have the same number of columns as the second matrix has rows.
+
+## Dimensions
+
+- In NumPy we can use the **shape** attribute to find the dimensions of a matrix.
+
+- **A.shape** here returns **(2,3)**
+
+  - Two rows, three columns
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+## Dimensions
+
+## Accessing Elements
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+## Accessing Elements
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+## Accessing Elements
+
+| **Row** | **Column** | **Value** |
+|---------|------------|-----------|
+| 0       | 0          | 1         |
+| 0       | 1          | 2         |
+| 0       | 2          | 3         |
+| 1       | 0          | 4         |
+| 1       | 1          | 5         |
+| 1       | 2          | 6         |
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+## Row and Column Operations
+
+- A matrix can be viewed as a collection of column vectors.
+
+  - This is a good idea to keep in mind for many future operations on matrices.
+
+- We can select a row in the matrix by using just the first digit of the shape tuple.
+
+  - **A\[0\]** selects the first row
+  - For our matrix A, this is \[1 2 3\]
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+## Row and Column Operations
+
+- We can select a column in the matrix by using the colon as the first digit of the shape tuple and specifying the column number.
+
+  - **A\[:,0\]** selects the first column
+  - For our matrix A, this is \[1 4\]
+
+- **:** means “all rows”
+
+  - **A\[:,0\]** is all rows, column 0
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+## Scalar Addition
+
+## Scalar Addition
+
+- Adding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+A + 2
+
+\>\>\> \[\[3 4 5\]
+
+\[6 7 8\]\]
+
+## Scalar Multiplication
+
+## Scalar Addition
+
+- Multiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.
+
+A \* 2
+
+\>\>\> \[\[2 4 6\]
+
+\[8 10 12\]\]
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+## The Transpose of a Matrix
+
+- The transpose operation on a matrix turns all rows to columns and all columns to rows.
+
+  - In NumPy, we use the syntax **A.T** to take the transpose of matrix **A**.
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+A.T
+
+\>\>\> \[\[1 4\]
+
+\[2 5\]
+
+\[3 6\]\]
+
+## Matrix Addition
+
+- Matrix addition is defined similarly to vector addition.
+
+- Each paired element is added together.
+
+  - Note that we need a pairing, and so the matrices must be of identical dimensions.
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+A + A
+
+\>\>\> \[\[2, 4, 6\],
+
+\[8, 10, 12\]\]
+
+## Matrix Multiplication
+
+- When it comes to “multiplication” of matrices, we need to define what multiplication means.
+
+- Without prior knowledge, most people would define matrix multiplication similarly to scalar multiplication.
+
+  - That is, element-wise multiplication
+
+- This kind of multiplication is the Hadamard product which we have seen with vectors.
+
+  - This is not generally what people mean when they say matrix multiplication.
+
+- In NumPy the Hadamard product is computed using the asterisk.
+
+## The Hadamard Product
+
+- It is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.
+
+A = np.array(\[
+
+\[1, 2, 3\],
+
+\[4, 5, 6\]
+
+\])
+
+A \* A
+
+\>\>\> \[\[1, 4, 9\],
+
+\[16, 25, 36\]\]
+
+## Matrix-Vector Multiplication
+
+## Matrix-Vector Multiplication
+
+## Matrix-Vector Multiplication
+
+A = np.array(\[
+
+\[1,3\],
+
+\[2,1\]
+
+\])
+
+x = np.array(\[2,5\])
+
+print(A \@ x)
+
+\>\>\> \[17 9\]
+
+print(2\*A\[:,0\] + 5\*A\[:,1\])
+
+\>\>\> \[17 9\]
+
+## Matrix-Vector Multiplication
+
+- Why not define multiplication some other way?
+- Matrix multiplication was not invented to multiply tables of numbers.
+- It was invented as a compact way to describe transformations of vectors.
+- The chosen definition turns matrices into machines (or rules) that transform vectors.
+
+## Matrix-Vector Multiplication
+
+## Matrix-Vector Multiplication
+
+## Matrix-Vector Multiplication
+
+## Matrix-Vector Multiplication
+
+## Matrix-Vector Multiplication
+
+- Matrix columns:
+
+  - directions or features
+
+- Vector entries:
+
+  - how much of each to use
+
+- Output:
+
+  - the resulting combination
+
+- This is very useful because many problems are linear combinations or can at least be approximated by linear combinations.
+
+## Matrix-Matrix Multiplication
+
+## Matrix-Matrix Multiplication
+
+## Matrix-Matrix Multiplication
+
+## Matrix-Matrix Multiplication
+
+## Matrix-Matrix Multiplication
+
+## Dimension Rules
+
+## Dimension Rules
+
+## Rotation Matrices
+
+## Rotation Matrices
+
+def rotate(theta,vector):
+
+rotation_matrix = np.array(\[
+
+\[np.cos(theta), -1\*np.sin(theta)\],
+
+\[np.sin(theta), np.cos(theta)\]
+
+\])
+
+return rotation_matrix \@ vector
+
+vector = \[1,2\]
+
+theta = np.pi / 2
+
+print(rotate(theta,vector))
+
+\>\>\> \[-2. 1.\]
+
+## Rotation Matrices
+
+vector = \[1,2\]
+
+## Rotation Matrices
+
+theta = np.pi / 2
+
+print(rotate(theta,vector))
+
+\>\>\> \[-2. 1.\]
+
+## Rotation Matrices
+
+## Rotation Matrices
+
+- What is actually being rotated?
+- It is not actually the "house."
+- Our matrix is rotating every **vertex** of the house.
+- We just draw the lines after each rotation.
+- This is fundamentally how computer graphics work.
+
+## Rotation Matrices
+
+- The rotation matrix operates on a deeper level than just rotating the points that comprise the house.
+- It acts as a transformation of the entire coordinate system.
+- The matrix transforms everything in the plane.
+
+## Floating Point Approximations
+
+vector = np.array(\[1,0\])
+
+theta = np.pi/2
+
+R = np.array(\[
+
+\[np.cos(theta), -np.sin(theta)\],
+
+\[np.sin(theta), np.cos(theta)\]
+
+\])
+
+print(R \@ vector)
+
+\>\>\> \[6.123234e-17 1.000000e+00\]
+
+## Floating Point Approximations
+
+- We can clean this up using **np.round()**
+- **np.round** takes in a NumPy array and an integer that controls the number of digits (the precision).
+- Here, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.
+
+np.round(R \@ vector, 10)
+
+array(\[0., 1.\])

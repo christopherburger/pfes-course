@@ -1,14 +1,618 @@
 ---
-title: "17: Objects and Classes"
+title: "15: Objects and Classes"
 format: html
 ---
 
-## Overview
+## 
 
-- Key-value pair concept
-- Adding updating and retrieving values
-- Iterating over .keys() and .values()
+## Introduction to Objects and Classes
 
-## Key Syntax
+CSCI – 1056
 
-\`\`\`python \# Add core syntax examples here
+Content Modified from Pearson’s Starting Out with Python 6th Edition
+
+## Procedural Programming
+
+- **Procedural programming: writing programs made of functions that perform specific tasks**
+
+  - Procedures typically operate on data items that are separate from the procedures
+  - Data items commonly passed from one procedure to another
+  - Focus: to create procedures that operate on the program’s data
+
+## Object-Oriented Programming (1 of 4)
+
+- **Object-oriented programming: focused on creating objects**
+
+- **Object: entity that contains data and procedures**
+
+  - Data is known as data attributes and procedures are known as methods
+
+    - Methods perform operations on the data attributes
+
+- **Encapsulation: combining data and code into a single object**
+
+## Object-Oriented Programming (2 of 4)
+
+**Figure 10-1** An object contains data attributes and methods
+
+An illustration depicts the components of an object. For long description in Notes pane, press F6.
+
+> An object contains data attributes and methods that operate on the data attributes. The data attributes is depicted as small squares and the methods are depicted as circular loops, within the object. Double headed arrows indicate the interaction between the data attributes and the methods.
+
+## Object-Oriented Programming (3 of 4)
+
+- **Data hiding: object’s data attributes are hidden from code outside the object**
+
+  - Access restricted to the object’s methods
+
+    - Protects from accidental corruption
+    - Outside code does not need to know internal structure of the object
+
+- **Object reusability: the same object can be used in different programs**
+
+  - Example: 3D image object can be used for architecture and game programming
+
+## Object-Oriented Programming (4 of 4)
+
+**Figure 10-2** Code outside the object interacts with the object's methods
+
+An illustration depicts the components of an object and how a code interacts with them from the outside. For long description in Notes pane, press F6.
+
+> An object contains data attributes and methods that operate on the data attributes. The data attributes is depicted as small squares and the methods are depicted as circular loops, within the object. Double headed arrows indicate the interaction between the data attributes and the methods. The interaction between the code outside the object and the methods is also depicted by double headed arrows.
+
+## An Everyday Example of an Object
+
+- **Data attributes: define the state of an object**
+
+  - Example: clock object would have second, minute, and hour data attributes
+
+- **Public methods: allow external code to manipulate the object**
+
+  - Example: set_time, set_alarm_time
+
+- **Private methods: used for object’s inner workings**
+
+## Classes (1 of 3)
+
+- **Class: code that specifies the data attributes and methods of a particular type of object**
+
+  - Similar to a blueprint of a house or a cookie cutter
+
+- **Instance: an object created from a class**
+
+  - Similar to a specific house built according to the blueprint or a specific cookie
+  - There can be many instances of one class
+
+## Classes (2 of 3)
+
+**Figure 10-3** A blueprint and houses built from the blueprint
+
+A blueprint that describes a house includes a house plan with a bedroom and a living room. Below the blueprint, similar front views of three instances of the house described by the blueprint are displayed one beside the other.
+
+## Classes (3 of 3)
+
+**Figure 10-5** The housefly and mosquito objects are instances of the Insect class
+
+The insect class points to the housefly object and the mosquito object. The insect class is denoted by a dashed rectangle, while the two objects are denoted by rectangles with solid lines. For long description in Notes pane, press F6.
+
+> The following notes are present beside the insect class and the housefly and mosquito objects. The Insect class describes the data attributes and methods that a particular type of object may have. The housefly object is an instance of the Insect class. It has the data attributes and methods described by the Insect class. The mosquito object is an instance of the Insect class. It has the data attributes and methods described by the Insect class.
+
+## Class Definitions (1 of 7)
+
+- **Class definition: set of statements that define a class’s methods and data attributes**
+
+  - Format: begin with class *Class_name*:
+
+    - Class names often start with uppercase letter
+
+  - Method definition like any other python function definition
+
+    - **self parameter**: required in every method in the class – references the specific object that the method is working on
+
+## Class Definitions (2 of 7)
+
+- **Initializer method: automatically executed when an instance of the class is created**
+
+  - Initializes object’s data attributes and assigns self parameter to the object that was just created
+  - Format: def \_\_init\_\_ (self):
+  - Usually the first method in a class definition
+
+## Class Definitions (3 of 7)
+
+import random
+
+class Coin:
+
+def \_\_init\_\_(self):
+
+self.sideup = 'Heads'
+
+def toss(self):
+
+if random.randint(0, 1) == 0:
+
+self.sideup = 'Heads'
+
+else:
+
+self.sideup = 'Tails'
+
+def get_sideup(self):
+
+return self.sideup
+
+## Class Definitions (4 of 7)
+
+- **To create a new instance of a class**
+
+  - Format: *variable_name* = *ClassName*()
+
+- **Example:**
+
+my_coin = Coin()
+
+- **This creates an instance of the class and calls the class's \_\_init\_\_ method**
+
+## Class Definitions (5 of 7)
+
+**Figure 10-6** Actions caused by the coin() expression
+
+An illustration of the actions caused by the coin class. For long description in Notes pane, press F6.
+
+> The steps in the illustration are as follows. Step 1. An object is created in memory from the Coin class. A Coin object that is represented by an empty rectangle points to the pseudo code in the second step. Step 2. The Coin class’s underscore underscore i n i t underscore underscore method is called, and the self parameter is set to the newly created object. The adjoining pseudo code is as follows. Line 1. d e f underscore underscore i n i t underscore underscore left parenthesis self right parenthesis colon. Line 2, indented once. self period side up = open quote Heads close quote. Step 3. After these steps take place, a Coin object will exist with its sideup attribute set to open quote Heads close quote. The empty rectangle of the coin object now contains an arrow that points from side up to open quote Heads close quote.
+
+## Class Definitions (6 of 7)
+
+- **To call any of the class methods using the created instance, use dot notation**
+
+  - Format: *My_instance*.*method*()
+
+  - Because the self parameter references the specific instance of the object, the method will affect this instance
+
+    - Reference to self is passed automatically
+
+## Class Definitions (7 of 7)
+
+| 1   | my_coin = Coin()            |
+|-----|-----------------------------|
+| 2   | my_coin.toss()              |
+| 3   | print(my_coin.get_sideup()) |
+
+| Line 1: | Creates an instance of the Coin class and executes the \_\_init\_\_ method. A reference to the object is assigned to the my_coin variable. |
+|------------------------------------|------------------------------------|
+| Line 2: | Calls the my_coin object's toss method. |
+| Line 3: | Calls the the my_coin object's get_sideup method and displays the value it returns. |
+
+## Hiding Attributes and Storing Classes in Modules
+
+- **An object’s data attributes should be private**
+
+  - To make sure of this, place two underscores (\_\_) in front of attribute name
+
+    - Example: \_\_sideup
+
+- Classes can be stored in modules
+
+  - Filename for module must end in .py
+  - Module can be imported to programs that use the class
+
+## The BankAccount Class – More About Classes
+
+- **Class methods can have multiple parameters in addition to self**
+
+  - For \_\_init\_\_, parameters needed to create an instance of the class
+
+    - Example: a BankAccount object is created with a balance
+
+      - When called, the initializer method receives a value to be assigned to a \_\_balance attribute
+
+  - For other methods, parameters needed to perform required task
+
+    - Example: deposit method amount to be deposited
+
+## The \_\_str\_\_ method
+
+- **Object’s state: the values of the object’s attribute at a given moment**
+
+- **\_\_str\_\_ method: displays the object’s state**
+
+  - Automatically called when the object is passed as an argument to the print function
+  - Automatically called when the object is passed as an argument to the str function
+
+## Operator Overloading
+
+- Python has a powerful feature that allows a designer of a class to decide what an operation like == or \< should mean.
+
+- With operator overloading, you can define what these operators do for objects of your own class.
+
+- For example, the == operator calls the special method \_\_eq\_\_() behind the scenes.
+
+  - You can override this method in your class to change the behavior of the == operator.
+
+- This is useful for classes representing mathematical or data structures like our Fraction class.
+
+## Common Operators and Their Methods
+
+| **Operator** | **Method**      | **Description**                      |
+|--------------|-----------------|--------------------------------------|
+| \+           | \_\_add\_\_     | Addition                             |
+| \-           | \_\_sub\_\_     | Subtraction                          |
+| \*           | \_\_mul\_\_     | Multiplication                       |
+| ==           | \_\_eq\_\_      | Equality                             |
+| \<           | \_\_lt\_\_      | Less than                            |
+| \<=          | \_\_le\_\_      | Less than or equal                   |
+| !=           | \_\_ne\_\_      | Not equal                            |
+| \>           | \_\_gt\_\_      | Greater than                         |
+| \[\]         | \_\_getitem\_\_ | Indexing                             |
+| ()           | \_\_call\_\_    | Call object like a function          |
+| str()        | \_\_str\_\_     | Human-readable string representation |
+
+## Working With Instances
+
+- **Instance attribute: belongs to a specific instance of a class**
+
+  - Created when a method uses the self parameter to create an attribute
+
+- **If many instances of a class are created, each would have its own set of attributes**
+
+## Three Coin Objects
+
+**Figure 10-8** The coin1 , coin2, and coin3 variables reference three coin objects
+
+Three variables point to three coin objects, respectively. For long description in Notes pane, press F6.
+
+**Figure 10-9** The objects after the toss method
+
+Three variables point to three coin objects, respectively. For long description in Notes pane, press F6.
+
+> coin 1 points to a coin object, in which underscore underscore side up points to open quote Heads close quote. coin 2 points to a coin object, in which underscore underscore side up points to open quote Heads close quote. coin 3 points to a coin object, in which underscore underscore side up points to open quote Heads close quote.
+>
+> coin 1 points to a coin object, in which underscore underscore side up points to open quote Tails close quote. coin 2 points to a coin object, in which underscore underscore side up points to open quote Tails close quote. coin 3 points to a coin object, in which underscore underscore side up points to open quote Heads close quote.
+
+## Accessor and Mutator Methods
+
+- **Typically, all of a class’s data attributes are private and provide methods to access and change them**
+
+- **Accessor methods: return a value from a class’s attribute without changing it**
+
+  - Safe way for code outside the class to retrieve the value of attributes
+
+- **Mutator methods: store or change the value of a data attribute**
+
+## Passing Objects as Arguments
+
+- **Methods and functions often need to accept objects as arguments**
+
+- **When you pass an object as an argument, you are actually passing a reference to the object**
+
+  - The receiving method or function has access to the actual object
+
+    - Methods of the object can be called within the receiving function or method, and data attributes may be changed using mutator methods
+
+## Techniques for Designing Classes
+
+- **U M L diagram: standard diagrams for graphically depicting object-oriented systems**
+
+  - Stands for Unified Modeling Language
+
+- **General layout: box divided into three sections:**
+
+  - Top section: name of the class
+  - Middle section: list of data attributes
+  - Bottom section: list of class methods
+
+## U M L Diagrams
+
+**Figure 10-10** General layout of a U M L diagram for a class
+
+The U M L class diagram is depicted as a table with a single column, without a header, and three rows. The class name goes in the first row, the data attributes are listed in the second row, and the methods are listed in the third row.
+
+**Figure 10-11** U M L diagram for the coin class
+
+The U M L diagram for the coin class. For long description in Notes pane, press F6.
+
+> The U M L class diagram is depicted as a table with a single column, without a header, and three rows. The class name, coin, is present in the first row. The attribute listed in the second row is underscore underscore side up. The methods listed in the third row are underscore underscore i n i t underscore underscore left parenthesis right parenthesis, toss left parenthesis right parenthesis, and get underscore side up left parenthesis right parenthesis.
+
+## Identifying a Class’s Responsibilities
+
+- **A classes responsibilities are:**
+
+  - The things the class is responsible for knowing
+
+    - Identifying these helps identify the class’s data attributes
+
+  - The actions the class is responsible for doing
+
+    - Identifying these helps identify the class’s methods
+
+- **To find out a class’s responsibilities look at the problem domain**
+
+  - Deduce required information and actions
+
+## Object Oriented Programming
+
+CSCI – 1056
+
+Content Modified from Pearson’s Starting Out with Python 6th Edition
+
+## A Fraction Class (1 of 4)
+
+- We can change the state of an object by making an assignment to one of its instance variables.
+- Consider the fraction class seen in 18.1 of the text.
+
+class Fraction:
+
+def \_\_init\_\_(self, top, bottom):
+
+self.num = top \# the numerator is on top
+
+self.den = bottom \# the denominator is on the bottom
+
+def \_\_str\_\_(self):
+
+return str(self.num) + "/" + str(self.den)
+
+def getNum(self):
+
+return self.num
+
+def getDen(self):
+
+return self.den
+
+## A Fraction Class (2 of 4)
+
+- The *state* of a fraction object can be completely described by representing two integers, the numerator and the denominator
+
+class Fraction:
+
+def \_\_init\_\_(self, top, bottom):
+
+self.num = top \# the numerator is on top
+
+self.den = bottom \# the denominator is on the bottom
+
+def \_\_str\_\_(self):
+
+return str(self.num) + "/" + str(self.den)
+
+def getNum(self):
+
+return self.num
+
+def getDen(self):
+
+return self.den
+
+## A Fraction Class (3 of 4)
+
+myfraction = Fraction(3, 4)
+
+print(myfraction)
+
+\>\>\> 3 / 4
+
+print(myfraction.getNum())
+
+\>\>\> 3
+
+print(myfraction.getDen())
+
+\>\>\> 4
+
+## A Fraction Class (4 of 4)
+
+- Note that the \_\_str\_\_ method provides a “typical” looking fraction using a slash between the numerator and denominator.
+- The figure below shows the state of **myfraction**. The accessor methods, **getNum** and **getDen**, can return the state values for the fraction.
+
+## Mutability
+
+- We can change the state of an object by making an assignment to one of its instance variables.
+- For example, we could change the numerator of the fraction by assigning a new value to self.num.
+- Likewise, we could do the same thing for self.den.
+- These methods are **mutators** because they mutate or change the internal state of our Fraction object.
+
+## Sameness (1 of 4)
+
+- If two Fraction objects are the same, what does that actually mean?
+
+  - Do they represent the same number?
+  - Are they both the same object?
+
+- We can use the **is** operator to find out if two references refer to the same object.
+
+## Sameness (2 of 4)
+
+myfraction = Fraction(3, 4)
+
+yourfraction = Fraction(3, 4)
+
+print(myfraction is yourfraction)
+
+\>\>\> False
+
+ourfraction = myfraction
+
+print(myfraction is ourfraction)
+
+\>\>\> True
+
+## Sameness (3 of 4)
+
+- Even though **myfraction** and **yourfraction** refer to the same rational number, they are not the same object.
+
+## Sameness (4 of 4)
+
+- If we assign **myfraction** to **ourfraction**, then the two variables are aliases of the same object.
+
+## Shallow Equality
+
+- This type of equality is called **shallow equality** because it compares only the references (i.e., the memory locations), not the contents of the objects.
+- Using the == operator to check equality between two user defined objects will return the shallow equality result.
+- In other words, the Fraction objects are equal (==) if they are the same object.
+
+## Deep Equality
+
+- We could define equality to mean the fractions are the same in that they represent the same rational number.
+- This type of equality is known as **deep equality** since it compares the values “deep” in the object, not just the reference to the object.
+- If two variables refer to the same object, they have both shallow and deep equality.
+
+## Object-oriented Programming
+
+- Object-oriented programming involves four key ideas: encapsulation, information hiding, inheritance, and polymorphism.
+
+- **Encapsulation** is the idea that a class can package some data together with the methods that manipulate the data.
+
+  - This is a powerful capability, and the chief idea that distinguishes OOP from structured programming.
+
+## Object-oriented Programming
+
+- **Information Hiding** promotes quality code by allowing objects to protect their state against direct manipulation by code using the object.
+- Python, like many languages, provides mechanisms to achieve information hiding, but we do not cover them in this course.
+- **Inheritance** and **polymorphism** are mechanisms that help to enable code reuse and contract-based programming.
+
+## Inheritance (1 of 4)
+
+- Recall the Point class from earlier in the textbook:
+
+class Point:
+
+def \_\_init\_\_(self, initX, initY):
+
+self.x = initX
+
+self.y = initY
+
+def distanceFromOrigin(self):
+
+return ((self.x \*\* 2) + (self.y \*\* 2)) \*\* 0.5
+
+def \_\_str\_\_(self):
+
+return "x=" + str(self.x) + ", y=" + str(self.y)
+
+## Inheritance (2 of 4)
+
+- Now, suppose we want to create a class that works like **Point** in every respect, but also keeps track of a short description for the point.
+- We could create a **LabeledPoint** class by copying and pasting the definition for Point, changing the name to **LabeledPoint**, and modifying the class to suit our purposes.
+- However, any time you copy and paste code, keep in mind that you are copying and pasting bugs that may exist in the code.
+- Inheritance provides a way to reuse the definition of **Point** without having to copy and paste.
+
+class LabeledPoint(Point):
+
+def \_\_init\_\_(self, initX, initY, label):
+
+self.x = initX
+
+self.y = initY
+
+self.label = label
+
+def \_\_str\_\_(self):
+
+return "x=" + str(self.x) + ", y=" + str(self.y) + " (" + self.label + ")"
+
+## Inheritance (3 of 4)
+
+- This example defines a class named **LabeledPoint** that inherits from the **Point** class.
+
+class LabeledPoint(Point):
+
+- Putting the name **Point** in parenthesis tells Python that the new class, **LabeledPoint**, begins with all of the methods defined in its parent, **Point**.
+
+## Inheritance (4 of 4)
+
+- Here, we have redefined two of the methods that LabeledPoint inherits from Point: \_\_init\_\_() and \_\_str\_\_().
+
+  - This is called *overriding*.
+
+- When a child class redefines methods that are defined in its parent, we say that the child *overrides* the functionality inherited from its parent.
+
+def \_\_init\_\_(self, initX, initY, label):
+
+self.x = initX
+
+self.y = initY
+
+self.label = label
+
+## Extending Classes (1 of 2)
+
+- For the \_\_init\_\_ methods of Point and LabeledPoint, there is some duplication–the initialization of x and y.
+- We can eliminate the duplication by having LabeledPoint’s \_\_init\_\_() method invoke Point’s \_\_init\_\_() method.
+- That way, each class will be responsible for initializing its own instance variables.
+
+## Extending Classes (2 of 2)
+
+- A method in a child class that overrides a method in the parent can invoke the overridden method using super(), like this:
+
+- In this example, line 4 invokes the \_\_init\_\_() method in Point, passing the values of initX and initY to be used in initializing the x and y instance variables.
+
+class LabeledPoint(Point):
+
+def \_\_init\_\_(self, initX, initY, label):
+
+super().\_\_init\_\_(initX, initY)
+
+self.label = label
+
+## Composition
+
+- Inheritance is not the only way to reuse code.
+- **Composition** occurs when an object stores a reference to one or more objects in one of its instance variables.
+- The object is thus able to reuse code in the objects it embeds within itself.
+
+class LabeledPoint(Point):
+
+def \_\_init\_\_(self, initX, initY, label):
+
+self.point = Point(initX, initY)
+
+self.label = label
+
+## Class Diagrams (1 of 4)
+
+- When two classes are involved in an inheritance or composition relationship, we say that an association exists between them.
+- Often it is helpful to depict the associations between classes on a graphical diagram, so that developers working on the code can see immediately how the classes are related to each other.
+
+## Class Diagrams (2 of 4)
+
+- The ***Unified Modeling Language*** (UML) is a graphical notation that provides a standard for depicting classes and their associations on various types of diagrams.
+
+  - Class diagrams are one of the most common UML diagrams.
+
+- Class diagrams can contain several different elements, but we will focus on the basics: depicting classes with their instance variables and methods, and relationships to other classes.
+
+## **Class Diagrams** (3 of 4)
+
+- On a UML class diagram, a class is depicted as a rectangle with three sections.
+
+  - The top section contains the class name
+  - The middle section, the instance variables
+  - The bottom section, the methods.
+
+- The diagram shows the classes **Point** and **LabeledPoint** in their original inheritance relationship.
+
+UML diagram showing class inheritance
+
+## Class Diagrams (4 of 4)
+
+- To depict composition, UML uses a different type of association, as shown in this figure:
+
+UML diagram showing composition
+
+## Composition vs. Inheritance
+
+- Now you have seen two ways for a class to reuse code in another class.
+
+- When do you use inheritance, and when is composition the better choice?
+
+- Composition is usually a better choice than inheritance to reuse code.
+
+- Inheritance is appropriate when the proposed child class (the one reusing the functionality in its parent) represents a *specialization* of its parent.
+
+- Class A is a specialization of Class B if class A represents a specific type of class B.
+
+- This is generally the case if you can fill in the following sentence with the names of the proposed child and parent classes.
+
+  - **(child class) is a type of (parent class).**

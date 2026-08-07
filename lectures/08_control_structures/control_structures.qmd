@@ -3,12 +3,306 @@ title: "8: Control Structures"
 format: html
 ---
 
-## Overview
+## 
 
-- Importing Matplotlib and basic line/scatter plots
-- Adding titles labels and legends
-- Plotting NumPy arrays against each other
+## Control Structures
 
-## Key Syntax
+CSCI – 1056
 
-\`\`\`python \# Add core syntax examples here
+Content Modified from Pearson’s Starting Out with Python 6th Edition
+
+## The if Statement (1 of 4)
+
+- **Control structure: logical design that controls order in which set of statements execute**
+
+- **Sequence structure: set of statements that execute in the order they appear**
+
+- **Decision structure: specific action(s) performed only if a condition exists**
+
+  - Also known as selection structure
+
+## The if Statement (2 of 4)
+
+- **In flowchart, diamond represents true/false condition that must be tested**
+
+- **Actions can be conditionally executed**
+
+  - Performed only when a condition is true
+
+- **Single alternative decision structure: provides only one alternative path of execution**
+
+  - If condition is not true, exit the structure
+
+## The if Statement (3 of 4)
+
+**Figure 3-1** A simple decision structure
+
+A flowchart illustrates the decision to wear a coat. For long description in Notes pane, press F6.
+
+> A decision box, cold outside, indicates the conditions true and false. If the condition is true, the action, wear a coat, is implemented. If the condition is false, the action is skipped.\
+> The flow exits after both the false and the true statements.
+
+## The if Statement (4 of 4)
+
+- **Python syntax:**
+
+if *condition*:
+
+*Statement*
+
+*Statement*
+
+- **First line known as the if clause**
+
+  - Includes the keyword if followed by condition
+
+    - The condition can be true or false
+    - When the if statement executes, the condition is tested, and if it is true the block statements are executed. otherwise, block statements are skipped
+
+## Single-Line if Statements
+
+An if statement can be written on a single line if it executes only one statement.
+
+- **Python syntax:**
+
+if *condition*: *statement*
+
+- **Example:**
+
+if score \> 60: print('You passed!')
+
+## The if-else Statement (1 of 3)
+
+- **Dual alternative decision structure: two possible paths of execution**
+
+  - One is taken if the condition is true, and the other if the condition is false
+  - Syntax: if *condition*:
+
+*statements*
+
+else:
+
+*other statements*
+
+- if clause and else clause must be aligned
+- Statements must be consistently indented
+
+## The if-else Statement (2 of 3)
+
+**Figure 3-5** A dual alternative decision structure
+
+A flowchart illustrates the dual alternative decision structure. For long description in Notes pane, press F6.
+
+> In the flowchart, a decision box, temperature less than 40, indicates the conditions true and false. If the condition is true, display, a little cold, isn’t it. If the condition is false, display, nice weather we’re having. The flow exits after both the false and the true statements.
+
+## The if-else Statement (3 of 3)
+
+**Figure 3-6** Conditional execution in an if-else statement
+
+A conditional execution displays the alignment of the if and else clauses. For long description in Notes pane, press F6.
+
+> The syntax for the if else clause is as follows. Line 1. if condition semicolon. Line 2. Indented once, statement. Line 3. Indented once, statement. Line 4. Indented once, et cetera. Line 5. else semicolon. Line 6. Indented once, statement. Line 7. Indented once, statement. Line 8. Indented once, et cetera. If the condition is true, the following block of statements is executed. The syntax is as follows. Line 1. if condition semicolon. Line 2. Indented once, statement. Line 3. Indented once, statement. Line 4. Indented once, et cetera. Then, control jumps to the statement following the if else statement. If the condition is false, the following block of statements is executed. The syntax is as follows. Line 5. Else semicolon. Line 6. Indented once, statement. Line 7. Indented once, statement. Line 8. et cetera. Then, control jumps to the statement following the if else statement.
+
+## Practice
+
+Convert the flowchart below to Python code:
+
+A flowchart illustrates the dual alternative decision structure. For long description in Notes pane, press F6.
+
+> In the flowchart, a decision box, temperature less than 40, indicates the conditions true and false. If the condition is true, display, a little cold, isn’t it. If the condition is false, display, nice weather we’re having. The flow exits after both the false and the true statements.
+
+## Nested Decision Structures and the if-elif-else Statement (1 of 2)
+
+- **A decision structure can be nested inside another decision structure**
+
+  - Commonly needed in programs
+
+  - Example:
+
+    - Determine if someone qualifies for a loan, they must meet two conditions:
+
+      - Must earn at least \$30,000/year
+      - Must have been employed for at least two years
+
+    - Check first condition, and if it is true, check second condition
+
+## Figure 3-12 A Nested Decision Structure
+
+A flowchart with a nested decision structure. For long description in Notes pane, press F6.
+
+> A decision box, salary greater than or equal to 30000 has the conditions, true and false. If the condition is false, the action box reads, display you must earn at least \$30,000 per year to qualify. If the condition is true, the flow leads to a nested decision box, years on job greater than or equal to 2. This decision box also has the conditions, true and false. If the condition is true, the action box reads, display you qualify for the loan. If the condition is false, the action box reads, display you must have been on your current job for at least two years to qualify. The flow exits from both the false statements and from the last true statement.
+>
+> Convert this flow chart to Python code
+
+## Nested Decision Structures and the if-elif-else Statement (2 of 2)
+
+- **Important to use proper indentation in a nested decision structure**
+
+  - Important for Python interpreter
+
+  - Makes code more readable for programmer
+
+  - Rules for writing nested if statements:
+
+    - else clause should align with matching if clause
+    - Statements in each block must be consistently indented
+
+## The if-elif-else Statement (1 of 2)
+
+- **if-elif-else statement: special version of a decision structure**
+
+  - Makes logic of nested decision structures simpler to write
+
+    - Can include multiple elif statements
+
+  - Syntax:
+
+An if el if else statement syntax. For long description in Notes pane, press F6.
+
+> The lines read as follows. Line 1. if condition underscore 1 colon. Line 2, indented once. statement left parenthesis s right parenthesis. Line 3. el if condition underscore 2 colon. Line 4, indented once. statement left parenthesis s right parenthesis. Line 5. el if condition underscore 3 colon. Line 6, indented once. statement left parenthesis s right parenthesis. The lines of code 3, 4, 5, and 6, are labeled, insert as many el if clauses as necessary. Line 7. else. Line 8, indented once. statement left parenthesis s right parenthesis.
+
+## The if-elif-else Statement (2 of 2)
+
+- **Alignment used with if-elif-else statement:**
+
+  - if, elif, and else clauses are all aligned
+  - Conditionally executed blocks are consistently indented
+
+- **if-elif-else statement is never required, but logic easier to follow**
+
+  - Can be accomplished by nested if-else
+
+    - Code can become complex, and indentation can cause problematic long lines
+
+## Figure 3-15 Nested Decision Structure to Determine a Grade
+
+A flowchart for nested decision structure to determine a grade. For long description in Notes pane, press F6.
+
+> The steps are as follows. A decision box, score is greater than or equal to 90, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is A period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 80, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is B period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 70, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is C period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 60, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is D period single quote right parenthesis. If the condition is false, the action box displays print left parenthesis single quote your grade is F period single quote right parenthesis. The flow exits from all the true statements and from the last false statement.
+
+## Practice
+
+A flowchart for nested decision structure to determine a grade. For long description in Notes pane, press F6.
+
+Convert the flowchart below to Python code:
+
+> The steps are as follows. A decision box, score is greater than or equal to 90, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is A period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 80, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is B period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 70, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is C period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 60, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is D period single quote right parenthesis. If the condition is false, the action box displays print left parenthesis single quote your grade is F period single quote right parenthesis. The flow exits from all the true statements and from the last false statement.
+
+## Conditional Expressions (1 of 3)
+
+- **Syntax:**
+
+*value_1* if *condition* else *value_2*
+
+- *condition* **is a Boolean expression that is tested**
+- **If** *condition* **is true, the expression gives us** *value_1*
+- **If** *condition* **is false, the expression gives us** *value_2*
+
+## Conditional Expressions (2 of 3)
+
+- **Example:**
+
+grade = 'Pass' if score \> 59 else 'Fail'
+
+- **If score is greater than 59, grade is assigned 'Pass'. Otherwise, grade is assigned 'Fail'.**
+- **Equivalent to:**
+
+if score \> 59:\
+grade = 'Pass'
+
+else:
+
+grade = 'Fail'
+
+## Conditional Expressions (3 of 3)
+
+- **Example:**
+
+max = num1 if num1 \> num2 else num2
+
+- **If num1 is greater than num2, max is assigned num1. Otherwise, max is assigned num2.**
+- **Equivalent to:**
+
+if num1 \> num2:\
+max = num1
+
+else:
+
+max = num2
+
+## Practice
+
+- What is printed by the following code:
+
+num = 5
+
+print(“E" if num % 2 == 0 else “O")
+
+## Practice
+
+- What is the purpose of the conditional expression below?
+
+result = “E" if s == "" else “F"
+
+## Practice
+
+- What is the purpose of the conditional expression below?
+
+result = “E" if len(s) == 0 else “F"
+
+## Practice
+
+- Write a conditional expression to find the greater of two numbers, **a** and **b**.
+- Use the input function to assign values to the variables above.
+- Store the result in a variable called **greater**.
+- Print the variables **a**, **b**, and **greater**.
+
+> a = float(input("Enter a number: "))
+>
+> b = float(input("Enter a number: "))
+>
+> greater = None
+>
+> if a \> b:
+>
+> greater = a
+>
+> elif b \> a:
+>
+> greater = b
+>
+> else:
+>
+> print("Both numbers are equal.")
+>
+> output = f'a = {a} \\t b = {b} \\t greater = {greater}' if greater != None else f'a = {a}\\t b = {b}'
+>
+> print(output)
+
+## Practice
+
+- Given three numbers a, b, and c, write a conditional expression to determine the largest number and store it in a variable named **largest**.
+
+## Practice
+
+- Given a year stored in variable **year**, write a Python conditional expression to determine if the year is a leap year.
+- A leap year is divisible by 4 but not by 100, unless also divisible by 400.
+- Store "Leap Year" or "Not a Leap Year" in a variable called **result**.
+
+> year = 2100
+>
+> result = None
+>
+> if year % 400 == 0:
+>
+> result = "Leap Year"
+>
+> elif (year % 4 == 0) and (year % 100 != 0):
+>
+> result = "Leap Year"
+>
+> else:
+>
+> result = "Not a Leap Year"
+>
+> print(result)

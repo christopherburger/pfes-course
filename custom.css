@@ -65,3 +65,25 @@
   padding-bottom: 0.3em;
   font-size: 1.1em;
 }
+
+
+/* -----------------------------------------
+   3. Practice 
+----------------------------------------- */
+.practice-box {
+  border: 1px solid #6a1b9a;
+  border-left: 8px solid #6a1b9a;
+  background-color: #fdf2ff;
+  border-radius: 25px; /* Distinctive rounded shape */
+}
+
+.Practice-box::before {
+  content: "🚀 Practice";
+  display: block;
+  font-weight: 700;
+  color: #6a1b9a;
+  margin-bottom: 0.8em;
+  border-bottom: 1px solid #e1bee7;
+  padding-bottom: 0.3em;
+  font-size: 1.1em;
+}

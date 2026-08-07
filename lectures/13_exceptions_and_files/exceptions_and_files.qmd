@@ -1,14 +1,810 @@
 ---
-title: "15: Exceptions and Files"
+title: "13: Exceptions and Files"
 format: html
 ---
 
-## Overview
+## 
 
-- Creating 2D arrays in NumPy
-- Indexing rows and columns \[r c\]
-- Shape and reshaping arrays
+## File Input and Output
 
-## Key Syntax
+CSCI – 1056
 
-\`\`\`python \# Add core syntax examples here
+Content Modified from Pearson’s Starting Out with Python 6th Edition
+
+## Introduction to File Input and Output (1 of 2)
+
+- **For program to retain data between the times it is run, you must save the data**
+
+  - Data is saved to a file, typically on computer disk
+  - Saved data can be retrieved and used at a later time
+
+- **“Writing data to”: saving data on a file**
+
+- **Output file: a file that data is written to**
+
+## Figure 6-1 Writing Data to a File
+
+An illustration of how data is copied from the file to RAM, and referenced by variables. For long description in Notes pane, press F6.
+
+> There are three variables namely variable pay underscore rate, variable employee underscore i d, and variable employee underscore name, with the data values 18.65, 7451 Z, and Cindy Chandler, respectively. The data is copied to a file on the disk that is represented as a 1 cross 3 array on a disk. Arrows from each cell in the array point to each one of the data values. The cells in row 1 of the array read as follows. Cindy Chandler, 7451 Z, and 18.65.
+
+## Introduction to File Input and Output (2 of 2)
+
+- **“Reading data from”: process of retrieving data from a file**
+
+- **Input file: a file from which data is read**
+
+- **Three steps when a program uses a file**
+
+  - Open the file
+  - Process the file
+  - Close the file
+
+## Figure 6-2 Reading Data From a File
+
+An illustration of how data is copied from the file to RAM, and referenced by variables. For long description in Notes pane, press F6.
+
+> There are three variables namely variable pay underscore rate, variable employee underscore i d, and variable employee underscore name, with the data values 18.65, 7451 Z, and Cindy Chandler, respectively. The data is copied to a file on the disk that is represented as a 1 cross 3 array on a disk. Arrows from each cell in the array point to each one of the data values. The cells in row 1 of the array read as follows. Cindy Chandler, 7451 Z, and 18.65.
+
+## Types of Files and File Access Methods
+
+- **In general, two types of files**
+
+  - **Text file**: contains data that has been encoded as text
+  - **Binary file**: contains data that has not been converted to text
+
+- **Two ways to access data stored in file**
+
+  - **Sequential access**: file read sequentially from beginning to end, can’t skip ahead
+  - **Direct access**: can jump directly to any piece of data in the file
+
+## Filenames and File Objects (1 of 2)
+
+- **Filename extensions: short sequences of characters that appear at the end of a filename preceded by a period**
+
+  - Extension indicates type of data stored in the file
+
+- **File object: object associated with a specific file**
+
+  - Provides a way for a program to work with the file: file object referenced by a variable
+
+## Filenames and File Objects (2 of 2)
+
+**Figure 6-4** A variable name references a file object that is associated with a file
+
+Variable underscore name points to file object, which in turn points to a file on the disk. The file on the disk is represented as a 1 cross 3 array on the disk. The cells in row 1 of the array read as follows. Cindy Chandler, 7451 Z, and 18.65.
+
+## Opening a File
+
+- **open function: used to open a file**
+
+  - Creates a file object and associates it with a file on the disk
+  - General format:
+  - *file_object* = open(*filename, mode*)
+
+- **Mode: string specifying how the file will be opened**
+
+  - Example: reading only ('r'), writing ('w'), and appending ('a')
+
+## Specifying the Location of a File
+
+- **If open function receives a filename that does not contain a path, assumes that file is in same directory as program**
+
+- **If program is running and file is created, it is created in the same directory as the program**
+
+  - Can specify alternative path and file name in the open function argument
+
+    - Prefix the path string literal with the letter r
+
+## Writing Data to a File
+
+- **Method: a function that belongs to an object**
+
+  - Performs operations using that object
+
+- **File object’s write method used to write data to the file**
+
+  - Format: *file_variable*.write(*string*)
+
+- **File should be closed using file object close method**
+
+  - Format: *file_variable*.close()
+
+## Reading Data From a File
+
+- **read method: file object method that reads entire file contents into memory**
+
+  - Only works if file has been opened for reading
+  - Contents returned as a string
+
+- **readline method: file object method that reads a line from the file**
+
+  - Line returned as a string, including '\\n'
+
+- **Read position: marks the location of the next item to be read from a file**
+
+## Concatenating a Newline to and Stripping it From a String
+
+- **In most cases, data items written to a file are values referenced by variables**
+
+  - Usually necessary to concatenate a '\\n' to data before writing it
+
+    - Carried out using the + operator in the argument of the write method
+
+- **In many cases need to remove '\\n' from string after it is read from a file**
+
+  - rstrip method: string method that strips specific characters from end of the string
+
+## Appending Data to an Existing File
+
+- **When open file with 'w' mode, if the file already exists it is overwritten**
+
+- **To append data to a file use the 'a' mode**
+
+  - If file exists, it is not erased, and if it does not exist it is created
+  - Data is written to the file at the end of the current contents
+
+## Writing and Reading Numeric Data
+
+- **Numbers must be converted to strings before they are written to a file**
+
+- **str function: converts value to string**
+
+- **Number are read from a text file as strings**
+
+  - Must be converted to numeric type in order to perform mathematical operations
+  - Use int and float functions to convert string to numeric value
+
+## Using Loops to Process Files
+
+- **Files typically used to hold large amounts of data**
+
+  - Loop typically involved in reading from and writing to a file
+
+- **Often the number of items stored in file is unknown**
+
+  - The readline method uses an empty string as a sentinel when end of file is reached
+
+    - Can write a while loop with the condition
+
+while *line* != ''
+
+## Figure 6-17 General Logic for Detecting the End of a File
+
+A flowchart depicts the logic to detect the end of a file. For long description in Notes pane, press F6.
+
+> The flow is as follows. The process enters open the file that points to use read line to read the first line from the file. Then the process enters a decision, did read line return an empty string. If yes, true, close the file. If no, false, process the item that was just read from the file and then use read line to read the next line from the file. After this, the process again enters the decision symbol.
+
+## Using Python’s for Loop to Read Lines
+
+- **Python allows the programmer to write a for loop that automatically reads lines in a file and stops when end of file is reached**
+
+  - Format: for *line* in *file_object*:
+  - statements
+  - The loop iterates once over each line in the file
+
+## Example – Writing to a File
+
+file = open("example.txt", "w")
+
+for i in range(1, 6):
+
+file.write(f"Line {i}\\n")
+
+file.close()
+
+> This writes Line 1, Line 2, … to the file.
+
+## Practice
+
+- Write the odd numbers from 1 to 15 (inclusive) to file named *example2.txt*
+
+> file = open("example2.txt", "w")
+>
+> for i in range(1, 16):
+>
+> if i % 2 == 1:
+>
+> file.write(f"{i}\\n")
+>
+> file.close()
+
+## Example – Reading from a File
+
+file = open("example.txt", "r")
+
+for line in file:
+
+print(line.rstrip('\\n'))
+
+file.close()
+
+Line 1
+
+Line 2
+
+Line 3
+
+Line 4
+
+Line 5
+
+> Without the rstrip, we would have an extra newline for every printed line.
+
+## Practice
+
+- Read from the file *example2.txt* and add one to each number before it is printed.
+
+> file = open("example2.txt", "r")
+>
+> for line in file:
+>
+> print(int(line.rstrip('\\n'))+1)
+>
+> file.close()
+
+## Example – Appending to a File
+
+file = open("example.txt", “a")
+
+for i in range(1, 6):
+
+file.write(f"Line {i}\\n")
+
+file.close()
+
+> This writes Line 1, Line 2, … etc to an existing file and places the new content after any existing content.
+
+## Practice
+
+- Read from the file *example2.txt* and add one to each number storing them in a list.
+- Then append the values within the list (each independent value, not the entire list at once) to the file *example2.txt*
+
+> file = open("example2.txt", "w")
+>
+> for i in range(1, 16):
+>
+> if i % 2 == 1:
+>
+> file.write(f"{i}\\n")
+>
+> file.close()
+>
+> print("File written.\\n\\n")
+>
+> values = \[\]
+>
+> file = open("example2.txt", "r")
+>
+> for line in file:
+>
+> x = int(line.rstrip('\\n'))+1
+>
+> print(x)
+>
+> values.append(x)
+>
+> file.close()
+>
+> print("File read.\\n\\n")
+>
+> file = open("example2.txt", "a")
+>
+> for i in values:
+>
+> file.write(f"{i}\\n")
+>
+> file.close()
+>
+> print("File appended.\\n\\n")
+>
+> file = open("example2.txt", "r")
+>
+> for line in file:
+>
+> x = int(line.rstrip('\\n'))
+>
+> print(x)
+>
+> file.close()
+>
+> print("File read.")
+
+## Combining Reading and Writing
+
+- The **+** symbol adds reading and writing to a file mode.
+
+- 'r+' → read **and** write
+
+  - File **must already exist**
+  - File pointer starts at the **beginning**
+  - Writing happens at the **current file position**
+  - Writing can **overwrite existing content**
+
+## Combining Reading and Writing
+
+- The **+** symbol adds reading and writing to a file mode.
+
+  - 'r+' → read **and** write (file must already exist)
+
+    - File must already exist
+    - File pointer starts at the beginning
+    - Writing happens at the current file position
+    - Writing can overwrite existing content
+
+- 'w+' → write **and** read (file is cleared first)
+
+- 'a+' → append **and** read (writing goes to the end)
+
+## Combining Reading and Writing
+
+- 'w+' → write **and** read
+
+  - Deletes all existing contents when the file is opened
+  - If the file does not exist, it creates it
+  - File position starts at the beginning
+
+- 'a+' → append **and** read
+
+  - File is created if it does not exist
+  - File pointer starts at the end
+  - Writing always adds to the end
+  - Reading requires moving the file pointer manually
+
+## Example – Reading and Writing to a File
+
+file = open("example.txt", “a+")
+
+for i in range(1, 6):
+
+file.write(f"Line {i}\\n")
+
+for line in file:
+
+print(line.rstrip('\\n'))
+
+file.close()
+
+“No Output”
+
+> Without the rstrip, we would have an extra newline for every printed line.
+
+## Example – Reading and Writing to a File
+
+file = open("example.txt", “a+")
+
+for i in range(1, 6):
+
+file.write(f"Line {i}\\n")
+
+for line in file:
+
+print(line.rstrip('\\n'))
+
+file.close()
+
+- **What happens:**
+- Lines are successfully written to the file
+- The file pointer is now at the **end**
+- The read loop starts at the end
+- Result: **Nothing is printed**
+- This is not an error, it is expected behavior.
+
+> Without the rstrip, we would have an extra newline for every printed line.
+
+## File Pointer
+
+- Python keeps track of the current location we are at in the file using a **file pointer**.
+
+- So, to read what was just written, we must move the file pointer:
+
+- We can do this by: file.seek(0)
+
+- seek(0) moves the pointer to the **start of the file**
+
+  - Now reading will work as expected in our previous example
+
+## Example – Reading and Writing to a File
+
+file = open("example.txt", “a+")
+
+for i in range(1, 6):
+
+file.write(f"Line {i}\\n")
+
+file.seek(0)
+
+for line in file:
+
+print(line.rstrip('\\n'))
+
+file.close()
+
+- **What happens:**
+- Lines are successfully written to the file
+- The file pointer is now at the **end**
+- We move the file pointer to the **beginning** using file.seek(0)
+- The read loop starts at the beginning
+- The output is now the expected “Line 1” … “Line 5”
+
+> Without the rstrip, we would have an extra newline for every printed line.
+
+## Using the with Statement to Open Files (1 of 4)
+
+- **The with statement can be used to open a file and automatically close the file. General format:**
+
+with open(*filename*, *mode*) as *file*\_*variable*:
+
+*statement*
+
+*statement*
+
+*etc*.
+
+- *filename* is a string specifying the name of the file
+- *mode* is a string specifying the mode, such as 'r', 'w', or 'a'
+- *file*\_*variable* is the name of the variable that will reference the file object
+- The indented block of statements is known as the with suite
+
+## Using the with Statement to Open Files (2 of 4)
+
+- **Example:**
+
+with open('myfile.txt', 'w') as output_file:
+
+*statement*
+
+*statement*
+
+*etc*.
+
+- **This example opens a file named myfile.txt**
+- **Code inside the with suite can use output_file to write data to the file**
+- **When the code inside the with suite has finished, the file is automatically closed**
+
+## Using the with Statement to Open Files (3 of 4)
+
+- **Example:**
+
+with open('myfile.txt', 'r') as input_file:
+
+*statement*
+
+*statement*
+
+*etc*.
+
+- **This example opens a file named myfile.txt**
+- **Code inside the with suite can use input_file to read data from the file**
+- **When the code inside the with suite has finished, the file is automatically closed**
+
+## Using the with Statement to Open Files (4 of 4)
+
+- **Opening multiple files with a with statement:**
+
+with open('file1.txt', 'r') as input_file,
+
+open('file2.txt', 'w') as output_file:
+
+*statement*
+
+*statement*
+
+*etc*.
+
+- **This example opens a file named file1.txt for reading, and a file named file2.txt for writing**
+- **Code inside the with suite can use input_file to read data from file1.txt and output_file to write data to file2.txt**
+- **When the code inside the with suite has finished, both files are automatically closed**
+
+## Example
+
+with open("example.txt", "w") as file:
+
+for i in range(1, 6):
+
+file.write(f"Line {i}\\n")
+
+## Example
+
+with open("example.txt", “r") as file:
+
+for line in file:
+
+print(line.rstrip('\\n'))
+
+## Example – Copying from one File to Another File
+
+with open('file1.txt', 'r') as input_file,\
+open('file2.txt', 'w') as output_file:
+
+for line in input_file:
+
+output_file.write(line)
+
+## Exception Handing
+
+CSCI – 1056
+
+Content Modified from Pearson’s Starting Out with Python 6th Edition
+
+## Exceptions (1 of 4)
+
+- **Exception: error that occurs while a program is running**
+
+  - Usually causes program to abruptly halt
+
+- **Traceback: error message that gives information regarding line numbers that caused the exception**
+
+  - Indicates the type of exception and brief description of the error that caused exception to be raised
+
+## Exceptions (2 of 4)
+
+- **Many exceptions can be prevented by careful coding**
+
+  - Example: input validation
+  - Usually involve a simple decision construct
+
+- **Some exceptions cannot be avoided by careful coding**
+
+  - Examples
+
+    - Trying to convert non-numeric string to an integer
+    - Trying to open for reading a file that doesn’t exist
+
+## Exceptions (3 of 4)
+
+- **Exception handler: code that responds when exceptions are raised and prevents program from crashing**
+
+  - In Python, written as try/except statement
+
+    - General format: try:
+
+*statements*
+
+except *exceptionName*:
+
+*statements*
+
+- **Try suite**: statements that can potentially raise an exception
+- **Handler**: statements contained in except block
+
+## Exceptions (4 of 4)
+
+- **If statement in try suite raises exception:**
+
+  - Exception specified in except clause:
+
+    - Handler immediately following except clause executes
+    - Continue program after try/except statement
+
+  - Other exceptions:
+
+    - Program halts with traceback error message
+
+- **If no exception is raised, handlers are skipped**
+
+## Displaying an Exception’s Default Error Message
+
+- **Exception object: object created in memory when an exception is thrown**
+
+  - Usually contains default error message pertaining to the exception
+
+  - Can assign the exception object to a variable in an except clause
+
+    - Example: except ValueError as err:
+
+  - Can pass exception object variable to print function to display the default error message
+
+## Example
+
+*print(variable)*
+
+*print("Continuing on")*
+
+*\>* NameError: name 'variable' is not defined
+
+## Example
+
+*try:*
+
+*print(variable)*
+
+*except NameError as e:*
+
+*print(e)*
+
+*print("Continuing on")*
+
+*\>*name 'variable' is not defined
+
+\>Continuing on
+
+## Practice
+
+- Given the list \[1,2,’3’,4,’5’,6\], use a for loop to attempt to add each element into an accumulator variable.
+- Use exception handling (use TypeError as the exception type) to ignore errors for undefined operations.
+
+> var = \[1,2,'3',4,'5',6\]
+>
+> s = 0
+>
+> for i in var:
+>
+> try:
+>
+> s += i
+>
+> except TypeError as e:
+>
+> print(e)
+>
+> continue
+>
+> print(s)
+
+## Handling Multiple Exceptions
+
+- **Often code in the try suite can throw more than one type of exception**
+
+  - Need to write except clause for each type of exception that needs to be handled
+
+- **An except clause that does not list a specific exception will handle any exception that is raised in the try suite**
+
+  - Should always be last in a series of except clauses
+
+## Example
+
+*try:*
+
+*num = int(input())*
+
+*result = 10 / num*
+
+*print(result)*
+
+*except ValueError:*
+
+*print(”Invalid Number.")*
+
+*except ZeroDivisionError:*
+
+*print(”Zero Division.")*
+
+- We can catch two specific errors here:
+- **ValueError**: input is not a number
+- **ZeroDivisionError**: user enters 0
+- Each error is handled separately
+
+## Example
+
+*try:*
+
+*num = int(input())*
+
+*result = 10 / num*
+
+*print(result)*
+
+*except:*
+
+*print("An error occurred.")*
+
+- This handles ***all*** exceptions
+- But it does **not tell you what went wrong**
+- This format is considered bad form
+- Always use specific exceptions when possible
+
+## Example
+
+*try:*
+
+*num = int(input())*
+
+*result = 10 / num*
+
+*print(result)*
+
+*except ValueError:*
+
+*print(”Invalid Number.")*
+
+*except ZeroDivisionError:*
+
+*print(”Zero Division.")*
+
+*except:*
+
+*print("An error occurred.")*
+
+- Python checks except clauses **top to bottom**
+
+- A generic except would catch everything if placed first
+
+  - Specific error handling would never run
+
+## The else Clause
+
+- **try/except statement may include an optional else clause, which appears after all the except clauses**
+
+  - Aligned with try and except clauses
+
+  - Syntax similar to else clause in decision structure
+
+  - **Else suite**: block of statements executed after statements in try suite, only if no exceptions were raised
+
+    - If exception was raised, the else suite is skipped
+
+## Example
+
+try:
+
+file = open("example.txt", "r")
+
+except FileNotFoundError:
+
+print("Error: The file does not exist.")
+
+else:
+
+for line in file:
+
+print(line.strip())
+
+file.close
+
+> The try block attempts to open a file.
+>
+> If the file does not exist, the except block catches the FileNotFoundError and displays an error message.
+>
+> If no exception occurs, the else block executes.
+
+## The finally Clause
+
+- **try/except statement may include an optional finally clause, which appears after all the except clauses**
+
+  - Aligned with try and except clauses
+  - General format: finally:
+
+statements
+
+- **Finally suite**: block of statements after the finally clause
+
+  - Execute whether an exception occurs or not
+  - Purpose is to perform cleanup before exiting
+
+## Example
+
+try:
+
+file = open("example.txt", "r")
+
+except FileNotFoundError:
+
+print("Error: The file does not exist.")
+
+finally:
+
+try:
+
+file.close()
+
+except NameError:
+
+pass
+
+> The try block attempts to open and read the file.
+>
+> The except block handles the case where the file does not exist.
+>
+> The finally block ensures the file is closed if it was successfully opened.
+
+## What If an Exception Is Not Handled?
+
+- **Two ways for exception to go unhandled:**
+
+  - No except clause specifying exception of the right type
+  - Exception raised outside a try suite
+
+- **In both cases, exception will cause the program to halt**
+
+  - Python documentation provides information about exceptions that can be raised by different functions

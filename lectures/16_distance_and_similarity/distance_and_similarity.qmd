@@ -1,14 +1,428 @@
 ---
-title: "18: Distance and Similarity"
+title: "16: Distance and Similarity"
 format: html
 ---
 
-## Overview
+## 
 
-- Defining sets and uniqueness
-- Set operations (union intersection)
-- Checking membership efficiently
+## Vector Spaces and Distance
 
-## Key Syntax
+CSCI – 1056
 
-\`\`\`python \# Add core syntax examples here
+## Distance and the Feature Space
+
+- So far, we have viewed vectors as arrows in 2D or 3D physical space.
+- In modern computing, a vector is just a list of features.
+- If an object has 5 attributes, they can be viewed as a single point in a **5-Dimensional Vector Space**.
+- While we cannot draw 5D space, the mathematics work the same.
+- The exact same NumPy addition and dot products we used for 2D apply to 5D or 10,000-dimensional data.
+
+## Distance and the Feature Space
+
+- A row in a DataFrame is just a point in a high-dimensional space.
+- The DataFrame below has a dimension of three, since it contains three features.
+
+patients = pd.DataFrame({
+
+"Age": \[45, 48, 52, 51\],
+
+"HeartRate": \[72, 75, 68, 77\],
+
+"BloodPressure": \[120, 125, 118, 131\]
+
+})
+
+## Distance and the Feature Space
+
+- We can think of the x-coordinate as age.
+- The y-coordinate as heart rate.
+- And the z-coordinate as blood pressure.
+- We can switch any of these values between axes, the specific choice is not important.
+
+patients = pd.DataFrame({
+
+"Age": \[45, 48, 52, 51\],
+
+"HeartRate": \[72, 75, 68, 77\],
+
+"BloodPressure": \[120, 125, 118, 131\]
+
+})
+
+## Distance and the Feature Space
+
+patients = pd.DataFrame({
+
+"Age": \[45, 48, 52, 51\],
+
+"HeartRate": \[72, 75, 68, 77\],
+
+"BloodPressure": \[120, 125, 118, 131\]
+
+})
+
+## Distance and the Feature Space
+
+- Every row is one point.
+- Every column is one feature.
+
+patients = pd.DataFrame({
+
+"Age": \[45, 48, 52, 51\],
+
+"HeartRate": \[72, 75, 68, 77\],
+
+"BloodPressure": \[120, 125, 118, 131\]
+
+})
+
+print(patients.iloc\[0\])
+
+Age 45
+
+HeartRate 72
+
+BloodPressure 120
+
+## How Close Are Two Data Points?
+
+- To find similar things, we measure the distance between their vectors.
+- The closer the distance, the more similar the objects are.
+- The question is, how to calculate the distance?
+
+## Distance Measures
+
+- There are many ways to calculate the distance in a vector space.
+
+- We will talk about the two most commonly used methods.
+
+  - Euclidean Distance (Straight-line Distance)
+  - Manhattan Distance (City Block Distance)
+
+## Euclidean Distance (Straight-line Distance)
+
+## Euclidean Distance (Straight-line Distance)
+
+\# Two patients: \[Age, Heart_Rate, Blood_Pressure\]
+
+patient_A = np.array(\[45, 72, 120\])
+
+patient_B = np.array(\[48, 75, 125\])
+
+\# Calculate the distance vector, then take its norm
+
+distance = np.linalg.norm(patient_A - patient_B)
+
+\>\>\> 6.557438524302
+
+## Manhattan Distance (City Block Distance)
+
+## Manhattan Distance (City Block Distance)
+
+\# Two patients: \[Age, Heart_Rate, Blood_Pressure\]
+
+patient_A = np.array(\[45, 72, 120\])
+
+patient_B = np.array(\[48, 75, 125\])
+
+distance = np.linalg.norm(patient_A - patient_B, ord=1)
+
+\>\>\> 11
+
+## Finding the Closest Match
+
+- How does a computer classify something new?
+
+  - It finds the closest historical data point.
+
+- We will develop an algorithm to find the closest match in our DataFrame for a given point.
+
+  - We need to iterate through every row in the DataFrame, as we will not know if there is a closer pair unless we examine every pair.
+  - We then need to calculate the distance between each pair.
+  - We will need to keep track of the smallest distance.
+
+## Finding the Closest Match
+
+best_distance = infinity\
+
+for every row:\
+
+compute distance\
+
+if smaller:\
+remember row
+
+## Finding the Closest Match
+
+unknown = np.array(\[46,74,121\])
+
+smallest_distance = np.inf
+
+for \_, row in df.iterrows():
+
+d = np.linalg.norm(row.to_numpy() - unknown)
+
+if d \< smallest_distance:
+
+smallest_distance = d
+
+print(smallest_distance)
+
+\>\>\> 2.449489742783178
+
+## Finding the Closest Match
+
+unknown = np.array(\[46,74,121\])
+
+distances = np.linalg.norm(
+
+patients.to_numpy() - unknown,
+
+axis=1 #this specifies we calculate across the columns
+
+)
+
+print(distances.min()))
+
+\>\>\> 2.449489742783178
+
+## Finding the Closest Match
+
+- What about finding the two closest points?
+- Most of our code can be reused, but we will need to keep track of the second smallest distance.
+
+## Finding the Closest Match
+
+smallest_distance, second_smallest_distance = np.inf, np.inf
+
+for \_, row in patients.iterrows():
+
+d = np.linalg.norm(row.to_numpy() - unknown)
+
+if d \< smallest_distance:
+
+second_smallest_distance = smallest_distance
+
+smallest_distance = d
+
+elif d \< second_smallest_distance:
+
+second_smallest_distance = d
+
+## Finding the Closest Match
+
+- What about finding the three closest points?
+
+- We now need to have conditions that handle:
+
+  - the observation is the smallest overall
+  - the observation is the second smallest overall
+  - the observation is the third smallest overall
+
+- We need a better solution than continuing to create conditional statements.
+
+  - We can collect all the distances in a list, then sort the list.
+
+## Finding the Closest Match
+
+unknown = np.array(\[46,74,121\])
+
+distances = \[\]
+
+for \_, row in patients.iterrows():
+
+d = np.linalg.norm(row.to_numpy() - unknown)
+
+distances.append(d)
+
+distances.sort()
+
+print(distances)
+
+\>\>\>\[2.4494897, 4.582575, 9.0, 11.5758369\]
+
+## Finding the Closest Match
+
+distances = np.linalg.norm(
+
+df.to_numpy() - unknown,
+
+axis=1 #this specifies we calculate across the columns
+
+)
+
+distances = np.sort(distances)
+
+print(distances)
+
+\>\>\> \[ 2.44948974 4.58257569 9. 11.5758369 \]
+
+## Not Every Feature Needs to Count Equally
+
+- Suppose we have two data points with the following features:
+
+**Age** = 45 and **Income** = \$900,000
+
+**Age** = 46 and **Income** = \$901,000
+
+- 
+
+  - In terms of raw numbers, income dominates because the units are much larger.
+
+- Does a difference of \$1,000 matter more than a year of age?
+
+  - It depends, but this is is why we often rescale data before measuring distance.
+
+- This is outside of the scope of this course but is important in applications.
+
+## Distance is everywhere.
+
+- Finding similar customers
+
+- Movie recommendations
+
+- Fraud detection
+
+- Image search
+
+- Face recognition
+
+- Spell checking
+
+- Most of “AI” involves measuring distance as a core component.
+
+  - If you can turn it into a vector, you can measure distance.
+
+## Similarity Measures
+
+CSCI – 1056
+
+## Everything Can Become a Vector
+
+- Once something is represented as a vector, we can compare it mathematically.
+
+| **Data** | **Vector**                       |
+|----------|----------------------------------|
+| Patient  | age, pulse, blood pressure       |
+| House    | bedrooms, bathrooms, square feet |
+| Image    | pixel brightness values          |
+| Music    | amplitude samples                |
+| Document | counts of different words        |
+
+## Images as Vectors
+
+## Direction and Magnitude
+
+- Vector A points in the same direction as B.
+- But vectors A and C are much closer using Euclidean distance.
+
+## Direction and Magnitude
+
+A = np.array(\[1,1\])
+
+B = np.array(\[4,4\])
+
+C = np.array(\[-1,1\])
+
+print(np.linalg.norm(A - B))
+
+\>\>\> 4.242640687119285
+
+print(np.linalg.norm(A - C))
+
+\>\>\> 2.0
+
+## Direction and Magnitude
+
+print(np.linalg.norm(A - B), ord = 1)
+
+\>\>\> 6.0
+
+print(np.linalg.norm(A - C), ord = 1)
+
+\>\>\> 2.0
+
+> Changing to Manhattan distance, we see that A and B are even further apart than Euclidean.
+
+## Direction and Magnitude
+
+- A better way to approach this is to avoid distance and instead look at the angle between the two vectors.
+- The closer the angle is to zero, the more the vectors point in the same direction.
+- So, the closer the angle to zero, the more similar the vectors are.
+
+## The Dot Product
+
+## The Dot Product
+
+## Cosine Similarity
+
+- From this alternative form of the dot product definition, we can then simultaneously both find the angle and have it automatically translated to an extremely convenient range.
+
+## Cosine Similarity
+
+## Cosine Similarity
+
+## Cosine Similarity
+
+def similarity(A,B):
+
+return np.dot(A,B) / (
+
+np.linalg.norm(A) \*
+
+np.linalg.norm(B)
+
+)
+
+A = np.array(\[1,1\])
+
+B = np.array(\[4,4\])
+
+C = np.array(\[-1,1\])
+
+print(similarity(A, B))
+
+\>\>\> 0.9999999999999998
+
+print(similarity(A, C))
+
+\>\>\> 0.0
+
+## Cosine Similarity
+
+- Note that a cosine similarity of -1 means the two vectors are closely related, they are just in opposite directions.
+
+- If we had vectors of words, **good** and **bad** are related words, one is the opposite of the other.
+
+  - These would likely have a cosine similarity of -1.
+
+| **Cosine Similarity** | **Meaning**          |
+|-----------------------|----------------------|
+| 1                     | Same direction       |
+| 0.8                   | Very similar         |
+| 0                     | Unrelated directions |
+| -1                    | Opposite directions  |
+
+## Cosine Similarity
+
+- If we had vectors of the words, **good** and **brick**, there is no obvious relationship between the two.
+
+  - As these words are unrelated, we would expect a cosine similarity around zero.
+
+| **Cosine Similarity** | **Meaning**          |
+|-----------------------|----------------------|
+| 1                     | Same direction       |
+| 0.8                   | Very similar         |
+| 0                     | Unrelated directions |
+| -1                    | Opposite directions  |
+
+## Comparing Measures
+
+- Different measures answer different questions.
+- One measure is not always better than another.
+
+| Question                                          | Measure            |
+|---------------------------------------------------|--------------------|
+| How far apart are these vectors?                  | Euclidean Distance |
+| How much do they differ coordinate-by-coordinate? | Manhattan Distance |
+| Do they point in the same direction?              | Cosine Similarity  |
