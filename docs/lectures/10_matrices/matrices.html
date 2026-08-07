@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>12: Matrices – Programming for Engineers and Scientists</title>
+<title>10: Matrices – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/10_matrices/matrices.html">12: Matrices</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/10_matrices/matrices.html">10: Matrices</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Strings Lists Tuples</span></a>
+ <span class="menu-text">3: Strings, Lists and Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+ <span class="menu-text">4: Vectors and NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,19 +198,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/09_loops/loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9: For Loops</span></a>
+ <span class="menu-text">9: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/10_matrices/matrices.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">12: Matrices</span></a>
+ <span class="menu-text">10: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/11_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
+ <span class="menu-text">11: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,25 +222,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15: Exceptions and Files</span></a>
+ <span class="menu-text">13: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/14_pandas/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16: Pandas</span></a>
+ <span class="menu-text">14: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/15_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
+ <span class="menu-text">15: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">18: Distance and Similarity</span></a>
+ <span class="menu-text">16: Distance and Similarity</span></a>
   </div>
 </li>
       </ul>
@@ -255,17 +255,60 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#matrices-and-2d-arrays" id="toc-matrices-and-2d-arrays" class="nav-link" data-scroll-target="#matrices-and-2d-arrays">Matrices and 2d Arrays</a></li>
+  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">Matrices</a></li>
+  <li><a href="#creating-matrices-in-numpy" id="toc-creating-matrices-in-numpy" class="nav-link" data-scroll-target="#creating-matrices-in-numpy">Creating Matrices in NumPy</a></li>
+  <li><a href="#dimensions" id="toc-dimensions" class="nav-link" data-scroll-target="#dimensions">Dimensions</a></li>
+  <li><a href="#dimensions-1" id="toc-dimensions-1" class="nav-link" data-scroll-target="#dimensions-1">Dimensions</a></li>
+  <li><a href="#dimensions-2" id="toc-dimensions-2" class="nav-link" data-scroll-target="#dimensions-2">Dimensions</a></li>
+  <li><a href="#accessing-elements" id="toc-accessing-elements" class="nav-link" data-scroll-target="#accessing-elements">Accessing Elements</a></li>
+  <li><a href="#accessing-elements-1" id="toc-accessing-elements-1" class="nav-link" data-scroll-target="#accessing-elements-1">Accessing Elements</a></li>
+  <li><a href="#accessing-elements-2" id="toc-accessing-elements-2" class="nav-link" data-scroll-target="#accessing-elements-2">Accessing Elements</a></li>
+  <li><a href="#row-and-column-operations" id="toc-row-and-column-operations" class="nav-link" data-scroll-target="#row-and-column-operations">Row and Column Operations</a></li>
+  <li><a href="#row-and-column-operations-1" id="toc-row-and-column-operations-1" class="nav-link" data-scroll-target="#row-and-column-operations-1">Row and Column Operations</a></li>
+  <li><a href="#scalar-addition" id="toc-scalar-addition" class="nav-link" data-scroll-target="#scalar-addition">Scalar Addition</a></li>
+  <li><a href="#scalar-addition-1" id="toc-scalar-addition-1" class="nav-link" data-scroll-target="#scalar-addition-1">Scalar Addition</a></li>
+  <li><a href="#scalar-multiplication" id="toc-scalar-multiplication" class="nav-link" data-scroll-target="#scalar-multiplication">Scalar Multiplication</a></li>
+  <li><a href="#scalar-addition-2" id="toc-scalar-addition-2" class="nav-link" data-scroll-target="#scalar-addition-2">Scalar Addition</a></li>
+  <li><a href="#the-transpose-of-a-matrix" id="toc-the-transpose-of-a-matrix" class="nav-link" data-scroll-target="#the-transpose-of-a-matrix">The Transpose of a Matrix</a></li>
+  <li><a href="#matrix-addition" id="toc-matrix-addition" class="nav-link" data-scroll-target="#matrix-addition">Matrix Addition</a></li>
+  <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication">Matrix Multiplication</a></li>
+  <li><a href="#the-hadamard-product" id="toc-the-hadamard-product" class="nav-link" data-scroll-target="#the-hadamard-product">The Hadamard Product</a></li>
+  <li><a href="#matrix-vector-multiplication" id="toc-matrix-vector-multiplication" class="nav-link" data-scroll-target="#matrix-vector-multiplication">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-1" id="toc-matrix-vector-multiplication-1" class="nav-link" data-scroll-target="#matrix-vector-multiplication-1">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-2" id="toc-matrix-vector-multiplication-2" class="nav-link" data-scroll-target="#matrix-vector-multiplication-2">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-3" id="toc-matrix-vector-multiplication-3" class="nav-link" data-scroll-target="#matrix-vector-multiplication-3">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-4" id="toc-matrix-vector-multiplication-4" class="nav-link" data-scroll-target="#matrix-vector-multiplication-4">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-5" id="toc-matrix-vector-multiplication-5" class="nav-link" data-scroll-target="#matrix-vector-multiplication-5">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-6" id="toc-matrix-vector-multiplication-6" class="nav-link" data-scroll-target="#matrix-vector-multiplication-6">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-7" id="toc-matrix-vector-multiplication-7" class="nav-link" data-scroll-target="#matrix-vector-multiplication-7">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-vector-multiplication-8" id="toc-matrix-vector-multiplication-8" class="nav-link" data-scroll-target="#matrix-vector-multiplication-8">Matrix-Vector Multiplication</a></li>
+  <li><a href="#matrix-matrix-multiplication" id="toc-matrix-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-matrix-multiplication">Matrix-Matrix Multiplication</a></li>
+  <li><a href="#matrix-matrix-multiplication-1" id="toc-matrix-matrix-multiplication-1" class="nav-link" data-scroll-target="#matrix-matrix-multiplication-1">Matrix-Matrix Multiplication</a></li>
+  <li><a href="#matrix-matrix-multiplication-2" id="toc-matrix-matrix-multiplication-2" class="nav-link" data-scroll-target="#matrix-matrix-multiplication-2">Matrix-Matrix Multiplication</a></li>
+  <li><a href="#matrix-matrix-multiplication-3" id="toc-matrix-matrix-multiplication-3" class="nav-link" data-scroll-target="#matrix-matrix-multiplication-3">Matrix-Matrix Multiplication</a></li>
+  <li><a href="#matrix-matrix-multiplication-4" id="toc-matrix-matrix-multiplication-4" class="nav-link" data-scroll-target="#matrix-matrix-multiplication-4">Matrix-Matrix Multiplication</a></li>
+  <li><a href="#dimension-rules" id="toc-dimension-rules" class="nav-link" data-scroll-target="#dimension-rules">Dimension Rules</a></li>
+  <li><a href="#dimension-rules-1" id="toc-dimension-rules-1" class="nav-link" data-scroll-target="#dimension-rules-1">Dimension Rules</a></li>
+  <li><a href="#rotation-matrices" id="toc-rotation-matrices" class="nav-link" data-scroll-target="#rotation-matrices">Rotation Matrices</a></li>
+  <li><a href="#rotation-matrices-1" id="toc-rotation-matrices-1" class="nav-link" data-scroll-target="#rotation-matrices-1">Rotation Matrices</a></li>
+  <li><a href="#rotation-matrices-2" id="toc-rotation-matrices-2" class="nav-link" data-scroll-target="#rotation-matrices-2">Rotation Matrices</a></li>
+  <li><a href="#rotation-matrices-3" id="toc-rotation-matrices-3" class="nav-link" data-scroll-target="#rotation-matrices-3">Rotation Matrices</a></li>
+  <li><a href="#rotation-matrices-4" id="toc-rotation-matrices-4" class="nav-link" data-scroll-target="#rotation-matrices-4">Rotation Matrices</a></li>
+  <li><a href="#rotation-matrices-5" id="toc-rotation-matrices-5" class="nav-link" data-scroll-target="#rotation-matrices-5">Rotation Matrices</a></li>
+  <li><a href="#rotation-matrices-6" id="toc-rotation-matrices-6" class="nav-link" data-scroll-target="#rotation-matrices-6">Rotation Matrices</a></li>
+  <li><a href="#floating-point-approximations" id="toc-floating-point-approximations" class="nav-link" data-scroll-target="#floating-point-approximations">Floating Point Approximations</a></li>
+  <li><a href="#floating-point-approximations-1" id="toc-floating-point-approximations-1" class="nav-link" data-scroll-target="#floating-point-approximations-1">Floating Point Approximations</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/10_matrices/matrices.html">12: Matrices</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/10_matrices/matrices.html">10: Matrices</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">12: Matrices</h1>
+<h1 class="title">10: Matrices</h1>
 </div>
 
 
@@ -282,17 +325,413 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="matrices-and-2d-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="matrices-and-2d-arrays">Matrices and 2d Arrays</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="matrices" class="level2">
+<h2 class="anchored" data-anchor-id="matrices">Matrices</h2>
 <ul>
-<li>The accumulator pattern (total = total + x)</li>
-<li>Counting and filtering via loops</li>
-<li>Index-based vs element-based traversal</li>
+<li><p>So far, we have stored one list of numbers:</p>
+<ul>
+<li>[82, 91, 77, 95]</li>
+</ul></li>
+<li><p>But what if we have several lists?</p>
+<ul>
+<li>Alice 82 91 77 95<br>
+Bob 74 83 89 88<br>
+Carol 90 97 92 99</li>
+</ul></li>
+<li><p>Now our data naturally forms a table.</p></li>
+<li><p>A NumPy matrix is a way to store this table efficiently and let us perform mathematical operations on its contents.</p></li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="creating-matrices-in-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="creating-matrices-in-numpy">Creating Matrices in NumPy</h2>
+<p>import numpy as np</p>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+<p>print(A)</p>
+<p>Output:</p>
+<p>[[1 2 3]</p>
+<p>[4 5 6]]</p>
+<p>Note that every inner list becomes one row.</p>
+</section>
+<section id="dimensions" class="level2">
+<h2 class="anchored" data-anchor-id="dimensions">Dimensions</h2>
+<ul>
+<li><p>A very useful property of matrices is its <strong>dimensions</strong>.</p>
+<ul>
+<li>The number of rows and the number of columns.</li>
+</ul></li>
+<li><p>Knowing the dimensions of your matrices is necessary to see if certain operations on them are defined at all.</p></li>
+<li><p>Matrix multiplication is unlike scalar multiplication which is commutative.</p>
+<ul>
+<li>Multiplication of two matrices is defined only if both have a relation between their dimensions.</li>
+<li>The first matrix must have the same number of columns as the second matrix has rows.</li>
+</ul></li>
+</ul>
+</section>
+<section id="dimensions-1" class="level2">
+<h2 class="anchored" data-anchor-id="dimensions-1">Dimensions</h2>
+<ul>
+<li><p>In NumPy we can use the <strong>shape</strong> attribute to find the dimensions of a matrix.</p></li>
+<li><p><strong>A.shape</strong> here returns <strong>(2,3)</strong></p>
+<ul>
+<li>Two rows, three columns</li>
+</ul></li>
+</ul>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+</section>
+<section id="dimensions-2" class="level2">
+<h2 class="anchored" data-anchor-id="dimensions-2">Dimensions</h2>
+</section>
+<section id="accessing-elements" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-elements">Accessing Elements</h2>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+</section>
+<section id="accessing-elements-1" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-elements-1">Accessing Elements</h2>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+</section>
+<section id="accessing-elements-2" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-elements-2">Accessing Elements</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Row</strong></th>
+<th><strong>Column</strong></th>
+<th><strong>Value</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr class="even">
+<td>0</td>
+<td>1</td>
+<td>2</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>2</td>
+<td>3</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>0</td>
+<td>4</td>
+</tr>
+<tr class="odd">
+<td>1</td>
+<td>1</td>
+<td>5</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+<td>6</td>
+</tr>
+</tbody>
+</table>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+</section>
+<section id="row-and-column-operations" class="level2">
+<h2 class="anchored" data-anchor-id="row-and-column-operations">Row and Column Operations</h2>
+<ul>
+<li><p>A matrix can be viewed as a collection of column vectors.</p>
+<ul>
+<li>This is a good idea to keep in mind for many future operations on matrices.</li>
+</ul></li>
+<li><p>We can select a row in the matrix by using just the first digit of the shape tuple.</p>
+<ul>
+<li><strong>A[0]</strong> selects the first row</li>
+<li>For our matrix A, this is [1 2 3]</li>
+</ul></li>
+</ul>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+</section>
+<section id="row-and-column-operations-1" class="level2">
+<h2 class="anchored" data-anchor-id="row-and-column-operations-1">Row and Column Operations</h2>
+<ul>
+<li><p>We can select a column in the matrix by using the colon as the first digit of the shape tuple and specifying the column number.</p>
+<ul>
+<li><strong>A[:,0]</strong> selects the first column</li>
+<li>For our matrix A, this is [1 4]</li>
+</ul></li>
+<li><p><strong>:</strong> means “all rows”</p>
+<ul>
+<li><strong>A[:,0]</strong> is all rows, column 0</li>
+</ul></li>
+</ul>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+</section>
+<section id="scalar-addition" class="level2">
+<h2 class="anchored" data-anchor-id="scalar-addition">Scalar Addition</h2>
+</section>
+<section id="scalar-addition-1" class="level2">
+<h2 class="anchored" data-anchor-id="scalar-addition-1">Scalar Addition</h2>
+<ul>
+<li>Adding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.</li>
+</ul>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+<p>A + 2</p>
+<p>&gt;&gt;&gt; [[3 4 5]</p>
+<p>[6 7 8]]</p>
+</section>
+<section id="scalar-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="scalar-multiplication">Scalar Multiplication</h2>
+</section>
+<section id="scalar-addition-2" class="level2">
+<h2 class="anchored" data-anchor-id="scalar-addition-2">Scalar Addition</h2>
+<ul>
+<li>Multiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.</li>
+</ul>
+<p>A * 2</p>
+<p>&gt;&gt;&gt; [[2 4 6]</p>
+<p>[8 10 12]]</p>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+</section>
+<section id="the-transpose-of-a-matrix" class="level2">
+<h2 class="anchored" data-anchor-id="the-transpose-of-a-matrix">The Transpose of a Matrix</h2>
+<ul>
+<li><p>The transpose operation on a matrix turns all rows to columns and all columns to rows.</p>
+<ul>
+<li>In NumPy, we use the syntax <strong>A.T</strong> to take the transpose of matrix <strong>A</strong>.</li>
+</ul></li>
+</ul>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+<p>A.T</p>
+<p>&gt;&gt;&gt; [[1 4]</p>
+<p>[2 5]</p>
+<p>[3 6]]</p>
+</section>
+<section id="matrix-addition" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-addition">Matrix Addition</h2>
+<ul>
+<li><p>Matrix addition is defined similarly to vector addition.</p></li>
+<li><p>Each paired element is added together.</p>
+<ul>
+<li>Note that we need a pairing, and so the matrices must be of identical dimensions.</li>
+</ul></li>
+</ul>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+<p>A + A</p>
+<p>&gt;&gt;&gt; [[2, 4, 6],</p>
+<p>[8, 10, 12]]</p>
+</section>
+<section id="matrix-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-multiplication">Matrix Multiplication</h2>
+<ul>
+<li><p>When it comes to “multiplication” of matrices, we need to define what multiplication means.</p></li>
+<li><p>Without prior knowledge, most people would define matrix multiplication similarly to scalar multiplication.</p>
+<ul>
+<li>That is, element-wise multiplication</li>
+</ul></li>
+<li><p>This kind of multiplication is the Hadamard product which we have seen with vectors.</p>
+<ul>
+<li>This is not generally what people mean when they say matrix multiplication.</li>
+</ul></li>
+<li><p>In NumPy the Hadamard product is computed using the asterisk.</p></li>
+</ul>
+</section>
+<section id="the-hadamard-product" class="level2">
+<h2 class="anchored" data-anchor-id="the-hadamard-product">The Hadamard Product</h2>
+<ul>
+<li>It is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.</li>
+</ul>
+<p>A = np.array([</p>
+<p>[1, 2, 3],</p>
+<p>[4, 5, 6]</p>
+<p>])</p>
+<p>A * A</p>
+<p>&gt;&gt;&gt; [[1, 4, 9],</p>
+<p>[16, 25, 36]]</p>
+</section>
+<section id="matrix-vector-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication">Matrix-Vector Multiplication</h2>
+</section>
+<section id="matrix-vector-multiplication-1" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-1">Matrix-Vector Multiplication</h2>
+</section>
+<section id="matrix-vector-multiplication-2" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-2">Matrix-Vector Multiplication</h2>
+<p>A = np.array([</p>
+<p>[1,3],</p>
+<p>[2,1]</p>
+<p>])</p>
+<p>x = np.array([2,5])</p>
+<p>print(A @ x)</p>
+<p>&gt;&gt;&gt; [17 9]</p>
+<p>print(2*A[:,0] + 5*A[:,1])</p>
+<p>&gt;&gt;&gt; [17 9]</p>
+</section>
+<section id="matrix-vector-multiplication-3" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-3">Matrix-Vector Multiplication</h2>
+<ul>
+<li>Why not define multiplication some other way?</li>
+<li>Matrix multiplication was not invented to multiply tables of numbers.</li>
+<li>It was invented as a compact way to describe transformations of vectors.</li>
+<li>The chosen definition turns matrices into machines (or rules) that transform vectors.</li>
+</ul>
+</section>
+<section id="matrix-vector-multiplication-4" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-4">Matrix-Vector Multiplication</h2>
+</section>
+<section id="matrix-vector-multiplication-5" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-5">Matrix-Vector Multiplication</h2>
+</section>
+<section id="matrix-vector-multiplication-6" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-6">Matrix-Vector Multiplication</h2>
+</section>
+<section id="matrix-vector-multiplication-7" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-7">Matrix-Vector Multiplication</h2>
+</section>
+<section id="matrix-vector-multiplication-8" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-vector-multiplication-8">Matrix-Vector Multiplication</h2>
+<ul>
+<li><p>Matrix columns:</p>
+<ul>
+<li>directions or features</li>
+</ul></li>
+<li><p>Vector entries:</p>
+<ul>
+<li>how much of each to use</li>
+</ul></li>
+<li><p>Output:</p>
+<ul>
+<li>the resulting combination</li>
+</ul></li>
+<li><p>This is very useful because many problems are linear combinations or can at least be approximated by linear combinations.</p></li>
+</ul>
+</section>
+<section id="matrix-matrix-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-matrix-multiplication">Matrix-Matrix Multiplication</h2>
+</section>
+<section id="matrix-matrix-multiplication-1" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-matrix-multiplication-1">Matrix-Matrix Multiplication</h2>
+</section>
+<section id="matrix-matrix-multiplication-2" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-matrix-multiplication-2">Matrix-Matrix Multiplication</h2>
+</section>
+<section id="matrix-matrix-multiplication-3" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-matrix-multiplication-3">Matrix-Matrix Multiplication</h2>
+</section>
+<section id="matrix-matrix-multiplication-4" class="level2">
+<h2 class="anchored" data-anchor-id="matrix-matrix-multiplication-4">Matrix-Matrix Multiplication</h2>
+</section>
+<section id="dimension-rules" class="level2">
+<h2 class="anchored" data-anchor-id="dimension-rules">Dimension Rules</h2>
+</section>
+<section id="dimension-rules-1" class="level2">
+<h2 class="anchored" data-anchor-id="dimension-rules-1">Dimension Rules</h2>
+</section>
+<section id="rotation-matrices" class="level2">
+<h2 class="anchored" data-anchor-id="rotation-matrices">Rotation Matrices</h2>
+</section>
+<section id="rotation-matrices-1" class="level2">
+<h2 class="anchored" data-anchor-id="rotation-matrices-1">Rotation Matrices</h2>
+<p>def rotate(theta,vector):</p>
+<p>rotation_matrix = np.array([</p>
+<p>[np.cos(theta), -1*np.sin(theta)],</p>
+<p>[np.sin(theta), np.cos(theta)]</p>
+<p>])</p>
+<p>return rotation_matrix @ vector</p>
+<p>vector = [1,2]</p>
+<p>theta = np.pi / 2</p>
+<p>print(rotate(theta,vector))</p>
+<p>&gt;&gt;&gt; [-2. 1.]</p>
+</section>
+<section id="rotation-matrices-2" class="level2">
+<h2 class="anchored" data-anchor-id="rotation-matrices-2">Rotation Matrices</h2>
+<p>vector = [1,2]</p>
+</section>
+<section id="rotation-matrices-3" class="level2">
+<h2 class="anchored" data-anchor-id="rotation-matrices-3">Rotation Matrices</h2>
+<p>theta = np.pi / 2</p>
+<p>print(rotate(theta,vector))</p>
+<p>&gt;&gt;&gt; [-2. 1.]</p>
+</section>
+<section id="rotation-matrices-4" class="level2">
+<h2 class="anchored" data-anchor-id="rotation-matrices-4">Rotation Matrices</h2>
+</section>
+<section id="rotation-matrices-5" class="level2">
+<h2 class="anchored" data-anchor-id="rotation-matrices-5">Rotation Matrices</h2>
+<ul>
+<li>What is actually being rotated?</li>
+<li>It is not actually the “house.”</li>
+<li>Our matrix is rotating every <strong>vertex</strong> of the house.</li>
+<li>We just draw the lines after each rotation.</li>
+<li>This is fundamentally how computer graphics work.</li>
+</ul>
+</section>
+<section id="rotation-matrices-6" class="level2">
+<h2 class="anchored" data-anchor-id="rotation-matrices-6">Rotation Matrices</h2>
+<ul>
+<li>The rotation matrix operates on a deeper level than just rotating the points that comprise the house.</li>
+<li>It acts as a transformation of the entire coordinate system.</li>
+<li>The matrix transforms everything in the plane.</li>
+</ul>
+</section>
+<section id="floating-point-approximations" class="level2">
+<h2 class="anchored" data-anchor-id="floating-point-approximations">Floating Point Approximations</h2>
+<p>vector = np.array([1,0])</p>
+<p>theta = np.pi/2</p>
+<p>R = np.array([</p>
+<p>[np.cos(theta), -np.sin(theta)],</p>
+<p>[np.sin(theta), np.cos(theta)]</p>
+<p>])</p>
+<p>print(R @ vector)</p>
+<p>&gt;&gt;&gt; [6.123234e-17 1.000000e+00]</p>
+</section>
+<section id="floating-point-approximations-1" class="level2">
+<h2 class="anchored" data-anchor-id="floating-point-approximations-1">Floating Point Approximations</h2>
+<ul>
+<li>We can clean this up using <strong>np.round()</strong></li>
+<li><strong>np.round</strong> takes in a NumPy array and an integer that controls the number of digits (the precision).</li>
+<li>Here, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.</li>
+</ul>
+<p>np.round(R @ vector, 10)</p>
+<p>array([0., 1.])</p>
 
 
 </section>

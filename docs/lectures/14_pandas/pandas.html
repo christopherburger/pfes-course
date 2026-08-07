@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>16: Pandas – Programming for Engineers and Scientists</title>
+<title>14: Pandas – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/14_pandas/pandas.html">16: Pandas</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/14_pandas/pandas.html">14: Pandas</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Strings Lists Tuples</span></a>
+ <span class="menu-text">3: Strings, Lists and Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+ <span class="menu-text">4: Vectors and NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,19 +198,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/09_loops/loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9: For Loops</span></a>
+ <span class="menu-text">9: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/10_matrices/matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12: Matrices</span></a>
+ <span class="menu-text">10: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/11_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
+ <span class="menu-text">11: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,25 +222,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15: Exceptions and Files</span></a>
+ <span class="menu-text">13: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/14_pandas/pandas.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">16: Pandas</span></a>
+ <span class="menu-text">14: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/15_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
+ <span class="menu-text">15: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">18: Distance and Similarity</span></a>
+ <span class="menu-text">16: Distance and Similarity</span></a>
   </div>
 </li>
       </ul>
@@ -255,17 +255,92 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#pandas" id="toc-pandas" class="nav-link active" data-scroll-target="#pandas">Pandas</a></li>
+  <li><a href="#heterogenous-data" id="toc-heterogenous-data" class="nav-link" data-scroll-target="#heterogenous-data">Heterogenous Data</a></li>
+  <li><a href="#pandas-1" id="toc-pandas-1" class="nav-link" data-scroll-target="#pandas-1">Pandas</a></li>
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes">DataFrames</a></li>
+  <li><a href="#dataframes-1" id="toc-dataframes-1" class="nav-link" data-scroll-target="#dataframes-1">DataFrames</a></li>
+  <li><a href="#dataframes-2" id="toc-dataframes-2" class="nav-link" data-scroll-target="#dataframes-2">DataFrames</a></li>
+  <li><a href="#dataframes-3" id="toc-dataframes-3" class="nav-link" data-scroll-target="#dataframes-3">DataFrames</a></li>
+  <li><a href="#inspecting-data" id="toc-inspecting-data" class="nav-link" data-scroll-target="#inspecting-data">Inspecting Data</a></li>
+  <li><a href="#inspecting-data-1" id="toc-inspecting-data-1" class="nav-link" data-scroll-target="#inspecting-data-1">Inspecting Data</a></li>
+  <li><a href="#inspecting-data-2" id="toc-inspecting-data-2" class="nav-link" data-scroll-target="#inspecting-data-2">Inspecting Data</a></li>
+  <li><a href="#inspecting-data-3" id="toc-inspecting-data-3" class="nav-link" data-scroll-target="#inspecting-data-3">Inspecting Data</a></li>
+  <li><a href="#inspecting-data-4" id="toc-inspecting-data-4" class="nav-link" data-scroll-target="#inspecting-data-4">Inspecting Data</a></li>
+  <li><a href="#inspecting-data-5" id="toc-inspecting-data-5" class="nav-link" data-scroll-target="#inspecting-data-5">Inspecting Data</a></li>
+  <li><a href="#inspecting-data-6" id="toc-inspecting-data-6" class="nav-link" data-scroll-target="#inspecting-data-6">Inspecting Data</a></li>
+  <li><a href="#inspecting-data-7" id="toc-inspecting-data-7" class="nav-link" data-scroll-target="#inspecting-data-7">Inspecting Data</a></li>
+  <li><a href="#extracting-columns" id="toc-extracting-columns" class="nav-link" data-scroll-target="#extracting-columns">Extracting Columns</a></li>
+  <li><a href="#extracting-columns-1" id="toc-extracting-columns-1" class="nav-link" data-scroll-target="#extracting-columns-1">Extracting Columns</a></li>
+  <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns">Renaming Columns</a></li>
+  <li><a href="#filtering-rows-boolean-masking" id="toc-filtering-rows-boolean-masking" class="nav-link" data-scroll-target="#filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</a></li>
+  <li><a href="#combining-logic-and-or" id="toc-combining-logic-and-or" class="nav-link" data-scroll-target="#combining-logic-and-or">Combining Logic (AND / OR)</a></li>
+  <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
+  <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling Missing Data</a></li>
+  <li><a href="#handling-missing-data-1" id="toc-handling-missing-data-1" class="nav-link" data-scroll-target="#handling-missing-data-1">Handling Missing Data</a></li>
+  <li><a href="#calculated-columns-pandas-vectorization" id="toc-calculated-columns-pandas-vectorization" class="nav-link" data-scroll-target="#calculated-columns-pandas-vectorization">Calculated Columns (Pandas Vectorization)</a></li>
+  <li><a href="#calculated-columns-pandas-vectorization-1" id="toc-calculated-columns-pandas-vectorization-1" class="nav-link" data-scroll-target="#calculated-columns-pandas-vectorization-1">Calculated Columns (Pandas Vectorization)</a></li>
+  <li><a href="#text-scrubbing" id="toc-text-scrubbing" class="nav-link" data-scroll-target="#text-scrubbing">Text Scrubbing</a></li>
+  <li><a href="#time-and-dates" id="toc-time-and-dates" class="nav-link" data-scroll-target="#time-and-dates">Time and Dates</a></li>
+  <li><a href="#aggregation" id="toc-aggregation" class="nav-link" data-scroll-target="#aggregation">Aggregation</a></li>
+  <li><a href="#aggregation-1" id="toc-aggregation-1" class="nav-link" data-scroll-target="#aggregation-1">Aggregation</a></li>
+  <li><a href="#aggregation-2" id="toc-aggregation-2" class="nav-link" data-scroll-target="#aggregation-2">Aggregation</a></li>
+  <li><a href="#aggregation-3" id="toc-aggregation-3" class="nav-link" data-scroll-target="#aggregation-3">Aggregation</a></li>
+  <li><a href="#aggregation-4" id="toc-aggregation-4" class="nav-link" data-scroll-target="#aggregation-4">Aggregation</a></li>
+  <li><a href="#aggregation-5" id="toc-aggregation-5" class="nav-link" data-scroll-target="#aggregation-5">Aggregation</a></li>
+  <li><a href="#useful-distinctions" id="toc-useful-distinctions" class="nav-link" data-scroll-target="#useful-distinctions">Useful Distinctions</a></li>
+  <li><a href="#performing-mathematics-on-dataframes" id="toc-performing-mathematics-on-dataframes" class="nav-link" data-scroll-target="#performing-mathematics-on-dataframes">Performing Mathematics on DataFrames</a></li>
+  <li><a href="#performing-mathematics-on-dataframes-1" id="toc-performing-mathematics-on-dataframes-1" class="nav-link" data-scroll-target="#performing-mathematics-on-dataframes-1">Performing Mathematics on DataFrames</a></li>
+  <li><a href="#performing-mathematics-on-dataframes-2" id="toc-performing-mathematics-on-dataframes-2" class="nav-link" data-scroll-target="#performing-mathematics-on-dataframes-2">Performing Mathematics on DataFrames</a></li>
+  <li><a href="#pandas---continued" id="toc-pandas---continued" class="nav-link" data-scroll-target="#pandas---continued">Pandas - Continued</a></li>
+  <li><a href="#multiple-aggregations" id="toc-multiple-aggregations" class="nav-link" data-scroll-target="#multiple-aggregations">Multiple Aggregations</a></li>
+  <li><a href="#different-aggregations-for-different-columns" id="toc-different-aggregations-for-different-columns" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns">Different Aggregations for Different Columns</a></li>
+  <li><a href="#different-aggregations-for-different-columns-1" id="toc-different-aggregations-for-different-columns-1" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns-1">Different Aggregations for Different Columns</a></li>
+  <li><a href="#different-aggregations-for-different-columns-2" id="toc-different-aggregations-for-different-columns-2" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns-2">Different Aggregations for Different Columns</a></li>
+  <li><a href="#different-aggregations-for-different-columns-3" id="toc-different-aggregations-for-different-columns-3" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns-3">Different Aggregations for Different Columns</a></li>
+  <li><a href="#named-aggregations" id="toc-named-aggregations" class="nav-link" data-scroll-target="#named-aggregations">Named Aggregations</a></li>
+  <li><a href="#named-aggregations-1" id="toc-named-aggregations-1" class="nav-link" data-scroll-target="#named-aggregations-1">Named Aggregations</a></li>
+  <li><a href="#several-statistics-for-several-columns" id="toc-several-statistics-for-several-columns" class="nav-link" data-scroll-target="#several-statistics-for-several-columns">Several Statistics for Several Columns</a></li>
+  <li><a href="#several-statistics-for-several-columns-1" id="toc-several-statistics-for-several-columns-1" class="nav-link" data-scroll-target="#several-statistics-for-several-columns-1">Several Statistics for Several Columns</a></li>
+  <li><a href="#two-level-groupby-with-multiple-aggregations" id="toc-two-level-groupby-with-multiple-aggregations" class="nav-link" data-scroll-target="#two-level-groupby-with-multiple-aggregations">Two-level groupby with Multiple Aggregations</a></li>
+  <li><a href="#two-level-groupby-with-multiple-aggregations-1" id="toc-two-level-groupby-with-multiple-aggregations-1" class="nav-link" data-scroll-target="#two-level-groupby-with-multiple-aggregations-1">Two-level groupby with Multiple Aggregations</a></li>
+  <li><a href="#which-category-is-most-profitable-in-each-region" id="toc-which-category-is-most-profitable-in-each-region" class="nav-link" data-scroll-target="#which-category-is-most-profitable-in-each-region">Which category is most profitable in each region?</a></li>
+  <li><a href="#which-category-is-most-profitable-in-each-region-1" id="toc-which-category-is-most-profitable-in-each-region-1" class="nav-link" data-scroll-target="#which-category-is-most-profitable-in-each-region-1">Which category is most profitable in each region?</a></li>
+  <li><a href="#reshaping-pivot-tables" id="toc-reshaping-pivot-tables" class="nav-link" data-scroll-target="#reshaping-pivot-tables">Reshaping: Pivot Tables</a></li>
+  <li><a href="#reshaping-pivot-tables-1" id="toc-reshaping-pivot-tables-1" class="nav-link" data-scroll-target="#reshaping-pivot-tables-1">Reshaping: Pivot Tables</a></li>
+  <li><a href="#reshaping-pivot-tables-2" id="toc-reshaping-pivot-tables-2" class="nav-link" data-scroll-target="#reshaping-pivot-tables-2">Reshaping: Pivot Tables</a></li>
+  <li><a href="#reshaping-pivot-tables-3" id="toc-reshaping-pivot-tables-3" class="nav-link" data-scroll-target="#reshaping-pivot-tables-3">Reshaping: Pivot Tables</a></li>
+  <li><a href="#reshaping-pivot-tables-4" id="toc-reshaping-pivot-tables-4" class="nav-link" data-scroll-target="#reshaping-pivot-tables-4">Reshaping: Pivot Tables</a></li>
+  <li><a href="#reshaping-pivot-tables-5" id="toc-reshaping-pivot-tables-5" class="nav-link" data-scroll-target="#reshaping-pivot-tables-5">Reshaping: Pivot Tables</a></li>
+  <li><a href="#reshaping-melt" id="toc-reshaping-melt" class="nav-link" data-scroll-target="#reshaping-melt">Reshaping: Melt</a></li>
+  <li><a href="#reshaping-melt-1" id="toc-reshaping-melt-1" class="nav-link" data-scroll-target="#reshaping-melt-1">Reshaping: Melt</a></li>
+  <li><a href="#reshaping-melt-2" id="toc-reshaping-melt-2" class="nav-link" data-scroll-target="#reshaping-melt-2">Reshaping: Melt</a></li>
+  <li><a href="#reshaping-melt-3" id="toc-reshaping-melt-3" class="nav-link" data-scroll-target="#reshaping-melt-3">Reshaping: Melt</a></li>
+  <li><a href="#concatenation" id="toc-concatenation" class="nav-link" data-scroll-target="#concatenation">Concatenation</a></li>
+  <li><a href="#merging-joins" id="toc-merging-joins" class="nav-link" data-scroll-target="#merging-joins">Merging &amp; Joins</a></li>
+  <li><a href="#merging-joins-1" id="toc-merging-joins-1" class="nav-link" data-scroll-target="#merging-joins-1">Merging &amp; Joins</a></li>
+  <li><a href="#merging-joins-2" id="toc-merging-joins-2" class="nav-link" data-scroll-target="#merging-joins-2">Merging &amp; Joins</a></li>
+  <li><a href="#merging-joins-3" id="toc-merging-joins-3" class="nav-link" data-scroll-target="#merging-joins-3">Merging &amp; Joins</a></li>
+  <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join">Inner Join</a></li>
+  <li><a href="#inner-join-1" id="toc-inner-join-1" class="nav-link" data-scroll-target="#inner-join-1">Inner Join</a></li>
+  <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join">Left Join</a></li>
+  <li><a href="#left-join-1" id="toc-left-join-1" class="nav-link" data-scroll-target="#left-join-1">Left Join</a></li>
+  <li><a href="#right-join" id="toc-right-join" class="nav-link" data-scroll-target="#right-join">Right Join</a></li>
+  <li><a href="#right-join-1" id="toc-right-join-1" class="nav-link" data-scroll-target="#right-join-1">Right Join</a></li>
+  <li><a href="#outer-join" id="toc-outer-join" class="nav-link" data-scroll-target="#outer-join">Outer Join</a></li>
+  <li><a href="#outer-join-1" id="toc-outer-join-1" class="nav-link" data-scroll-target="#outer-join-1">Outer Join</a></li>
+  <li><a href="#merging-on-different-column-names" id="toc-merging-on-different-column-names" class="nav-link" data-scroll-target="#merging-on-different-column-names">Merging on Different Column Names</a></li>
+  <li><a href="#multi-key-joins" id="toc-multi-key-joins" class="nav-link" data-scroll-target="#multi-key-joins">Multi-Key Joins</a></li>
+  <li><a href="#concatenation-is-different-from-merging" id="toc-concatenation-is-different-from-merging" class="nav-link" data-scroll-target="#concatenation-is-different-from-merging">Concatenation is Different from Merging</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/14_pandas/pandas.html">16: Pandas</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/14_pandas/pandas.html">14: Pandas</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">16: Pandas</h1>
+<h1 class="title">14: Pandas</h1>
 </div>
 
 
@@ -282,17 +357,1183 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="pandas" class="level2">
+<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
+<p>CSCI – 1056</p>
+</section>
+<section id="heterogenous-data" class="level2">
+<h2 class="anchored" data-anchor-id="heterogenous-data">Heterogenous Data</h2>
 <ul>
-<li>Matrix multiplication rules (rows x columns)</li>
-<li>Using np.dot() and @ operator</li>
-<li>Broadcasting concepts and vectorization benefits</li>
+<li>NumPy requires pure, homogeneous numbers.</li>
+<li>Real data is messy, labeled, and heterogeneous.</li>
+<li>Remember that if we put a word into a NumPy array, it converts our math to text.</li>
+<li>We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy).</li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="pandas-1" class="level2">
+<h2 class="anchored" data-anchor-id="pandas-1">Pandas</h2>
+<ul>
+<li><p>Pandas is an industry-standard library for data ingestion and cleaning.</p></li>
+<li><p>Pandas does not replace NumPy; they serve different roles.</p>
+<ul>
+<li>Pandas prepares the data.</li>
+<li>NumPy solves the equations.</li>
+</ul></li>
+</ul>
+<p>import pandas as pd</p>
+</section>
+<section id="dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="dataframes">DataFrames</h2>
+<ul>
+<li><p>The core component of Pandas is the <strong>DataFrame</strong>.</p>
+<ul>
+<li>A 2D array (matrix) with attached row and column labels.</li>
+</ul></li>
+<li><p>Each column can hold a <em>different</em> type of data without breaking the others.</p></li>
+<li><p>We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.</p></li>
+</ul>
+</section>
+<section id="dataframes-1" class="level2">
+<h2 class="anchored" data-anchor-id="dataframes-1">DataFrames</h2>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Row ID</th>
+<th>Order ID</th>
+<th>Order Date</th>
+<th>…</th>
+<th>Quantity</th>
+<th>Discount</th>
+<th>Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>CA-2017-152156</td>
+<td>11/8/2017</td>
+<td>…</td>
+<td>2.0</td>
+<td>0.00</td>
+<td>41.9136</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+<td>CA-2017-152156</td>
+<td>11/8/2017</td>
+<td>…</td>
+<td>3.0</td>
+<td>0.00</td>
+<td>219.5820</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+<td>CA-2017-138688</td>
+<td>6/12/2017</td>
+<td>…</td>
+<td>2.0</td>
+<td>0.00</td>
+<td>6.8714</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>4</td>
+<td>US-2016-108966</td>
+<td>10/11/2016</td>
+<td>…</td>
+<td>5.0</td>
+<td>0.45</td>
+<td>-383.0310</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>5</td>
+<td>US-2016-108966</td>
+<td>10/11/2016</td>
+<td>…</td>
+<td>2.0</td>
+<td>0.20</td>
+<td>2.5164</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="dataframes-2" class="level2">
+<h2 class="anchored" data-anchor-id="dataframes-2">DataFrames</h2>
+<ul>
+<li><p>To load data into a DataFrame, we first need to know what file type we are working with.</p>
+<ul>
+<li>Commonly, this is a CSV file (Comma Separated Values)</li>
+</ul></li>
+<li><p>We then need to know where the file is located.</p>
+<ul>
+<li>This could be a file path on your computer or even a URL.</li>
+</ul></li>
+</ul>
+<p>import pandas as pd</p>
+<p>url = “<a href="https://website/data.csv%22">https://website/data.csv”</a></p>
+<p>df = pd.read_csv(url)</p>
+</section>
+<section id="dataframes-3" class="level2">
+<h2 class="anchored" data-anchor-id="dataframes-3">DataFrames</h2>
+<ul>
+<li>For our work in this course, we will use a CSV file that has been included in the Lab IDE automatically.</li>
+<li>This is Tableau’s Sample Superstore dataset.</li>
+<li>If you are using a different IDE, you will need to download the dataset and remember the file location.</li>
+</ul>
+<p>import pandas as pd</p>
+<p>df = pd.read_csv(‘superstore.csv’)</p>
+</section>
+<section id="inspecting-data" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data">Inspecting Data</h2>
+<ul>
+<li><p>The example DataFrame from earlier was from the superstore dataset.</p></li>
+<li><p>The data we saw was output from the <strong>head()</strong> method.</p>
+<ul>
+<li>This returns the first 5 rows of the data in the DataFrame.</li>
+</ul></li>
+<li><p>The <strong>head</strong> method (and its counterpart, <strong>tail</strong>) are important first steps after you load data using Pandas.</p></li>
+<li><p>You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.</p></li>
+</ul>
+<p>df = pd.read_csv(’superstore.csv’)</p>
+<p>print(df.head())</p>
+</section>
+<section id="inspecting-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data-1">Inspecting Data</h2>
+<ul>
+<li>We can see not all the columns are visible (…) due to visual size limitations.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 6%">
+<col style="width: 10%">
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 6%">
+<col style="width: 12%">
+<col style="width: 12%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>Row ID</th>
+<th>Order ID</th>
+<th>Order Date</th>
+<th>…</th>
+<th>Quantity</th>
+<th>Discount</th>
+<th>Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0</td>
+<td>1</td>
+<td>CA-2017-152156</td>
+<td>11/8/2017</td>
+<td>…</td>
+<td>2.0</td>
+<td>0.00</td>
+<td>41.9136</td>
+</tr>
+<tr class="even">
+<td>1</td>
+<td>2</td>
+<td>CA-2017-152156</td>
+<td>11/8/2017</td>
+<td>…</td>
+<td>3.0</td>
+<td>0.00</td>
+<td>219.5820</td>
+</tr>
+<tr class="odd">
+<td>2</td>
+<td>3</td>
+<td>CA-2017-138688</td>
+<td>6/12/2017</td>
+<td>…</td>
+<td>2.0</td>
+<td>0.00</td>
+<td>6.8714</td>
+</tr>
+<tr class="even">
+<td>3</td>
+<td>4</td>
+<td>US-2016-108966</td>
+<td>10/11/2016</td>
+<td>…</td>
+<td>5.0</td>
+<td>0.45</td>
+<td>-383.0310</td>
+</tr>
+<tr class="odd">
+<td>4</td>
+<td>5</td>
+<td>US-2016-108966</td>
+<td>10/11/2016</td>
+<td>…</td>
+<td>2.0</td>
+<td>0.20</td>
+<td>2.5164</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="inspecting-data-2" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data-2">Inspecting Data</h2>
+<ul>
+<li>The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas.</li>
+<li>However, some datasets will be large enough that you will not have enough display space to visually inspect everything.</li>
+<li>head / tail provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.</li>
+</ul>
+<p>Row ID Order ID Order Date … Quantity Discount Profit</p>
+<p>0 1 CA-2017-152156 11/8/2017 … 2.0 0.00 41.9136</p>
+<p>…</p>
+<p>[5 rows x 21 columns]</p>
+</section>
+<section id="inspecting-data-3" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data-3">Inspecting Data</h2>
+<ul>
+<li>While head / tail give us the total number of columns, they do not provide the total number of rows.</li>
+<li>We can use the <strong>shape</strong> attribute to return both the number of rows and number of columns.</li>
+</ul>
+<p>import pandas as pd</p>
+<p>df = pd.read_csv(’superstore.csv’)</p>
+<p>print(df.shape)</p>
+<p>&gt;&gt;&gt; (10800, 21)</p>
+</section>
+<section id="inspecting-data-4" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data-4">Inspecting Data</h2>
+<ul>
+<li><p><strong>dtypes</strong> tells us the data type of each column</p></li>
+<li><p>Float64 specifies a floating-point number.</p></li>
+<li><p>Object is a general non-numeric type (often a string).</p></li>
+</ul>
+<p>Row ID object</p>
+<p>Order ID object</p>
+<p>Order Date object</p>
+<p>… …</p>
+<p>Sub-Category object</p>
+<p>Product Name object</p>
+<p>Sales float64</p>
+<p>Quantity float64</p>
+<p>Discount float64</p>
+<p>Profit float64</p>
+<p>import pandas as pd</p>
+<p>df = pd.read_csv(’superstore.csv’)</p>
+<p>print(df.dtypes)</p>
+</section>
+<section id="inspecting-data-5" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data-5">Inspecting Data</h2>
+<ul>
+<li><p><strong>describe()</strong> gives us summary statistics on columns with a numeric data type.</p></li>
+<li><p>The statistics are:</p>
+<ul>
+<li><p>count (the number of non-empty cells)</p>
+<ul>
+<li>The values <strong>None</strong>, <strong>NaN</strong>, <strong>NaT</strong>, <strong>pandas.NA</strong> are considered “empty”</li>
+<li><strong>NaN</strong>: not a number, <strong>NaT</strong>: not a time</li>
+</ul></li>
+<li><p>mean</p></li>
+<li><p>standard deviation</p></li>
+<li><p>min (smallest value)</p></li>
+<li><p>25%, 50%, 75% (percentiles)</p></li>
+<li><p>max (largest value)</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="inspecting-data-6" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data-6">Inspecting Data</h2>
+<ul>
+<li><strong>describe()</strong> gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).</li>
+</ul>
+<p>Postal Code Sales Quantity Discount Profit</p>
+<p>count 9983.000000 9994.000000 9994.000000 9994.000000 9994.000000</p>
+<p>mean 55245.233297 229.858001 3.789574 0.156203 28.656896</p>
+<p>std 32038.715955 623.245101 2.225110 0.206452 234.260108</p>
+<p>min 1040.000000 0.444000 1.000000 0.000000 -6599.978000</p>
+<p>25% 23223.000000 17.280000 2.000000 0.000000 1.728750</p>
+<p>50% 57103.000000 54.490000 3.000000 0.200000 8.666500</p>
+<p>75% 90008.000000 209.940000 5.000000 0.200000 29.364000</p>
+<p>max 99301.000000 22638.480000 14.000000 0.800000 8399.976000</p>
+</section>
+<section id="inspecting-data-7" class="level2">
+<h2 class="anchored" data-anchor-id="inspecting-data-7">Inspecting Data</h2>
+<ul>
+<li><strong>describe()</strong> is very useful for finding impossible values.</li>
+<li>For example, assume we have a DataFrame of sensor readings with one of the columns being temperature.</li>
+<li>If we see negative values in the temperature column, we know the data is erroneous.</li>
+</ul>
+</section>
+<section id="extracting-columns" class="level2">
+<h2 class="anchored" data-anchor-id="extracting-columns">Extracting Columns</h2>
+<ul>
+<li>Extract a single column (1D Series) using one set of brackets:</li>
+</ul>
+<p>[‘Column_Name’]</p>
+<ul>
+<li>Extract a sub-matrix (2D DataFrame) using a list of columns:</li>
+</ul>
+<p>[[‘Column_Name_1’, ‘Column_Name_2’]]</p>
+<ul>
+<li>A DataFrame is a dictionary of column vectors, so case matters for the column names.</li>
+</ul>
+</section>
+<section id="extracting-columns-1" class="level2">
+<h2 class="anchored" data-anchor-id="extracting-columns-1">Extracting Columns</h2>
+<p>df[‘Discount’]</p>
+<p>0 0.00</p>
+<p>1 0.00</p>
+<p>… …</p>
+<p>10798 NaN</p>
+<p>10799 NaN</p>
+<p>Name: Discount, Length: 10800, dtype: float64</p>
+<p>df[‘Discount’,’Profit’]</p>
+<p>Discount Profit</p>
+<p>0 0.00 41.9136</p>
+<p>1 0.00 219.5820</p>
+<p>… …</p>
+<p>10798 NaN NaN</p>
+<p>10799 NaN NaN<br>
+</p>
+<p>[10800 rows x 2 columns]</p>
+</section>
+<section id="renaming-columns" class="level2">
+<h2 class="anchored" data-anchor-id="renaming-columns">Renaming Columns</h2>
+<ul>
+<li>Raw data often has terrible names (e.g., “Temp (C) - Sensor 1!”).</li>
+<li>Use .rename() and a dictionary to fix them before writing logic.</li>
+</ul>
+<p># Syntax: columns={‘old_name’: ’new_name’}</p>
+<p>df = df.rename(columns={‘Temp (C)’: ‘Temp’,</p>
+<p>‘Press_kpa’: ‘Pressure’})</p>
+</section>
+<section id="filtering-rows-boolean-masking" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</h2>
+<ul>
+<li>We can apply the exact same relational logic (&gt;, &lt;, ==) to a Pandas column.</li>
+<li>This creates a “mask” of True/False values to filter the DataFrame.</li>
+</ul>
+<p># Find all rows where Temperature is over 100</p>
+<p>danger_mask = df[‘Temp’] &gt; 100</p>
+<p># Apply the mask to the DataFrame</p>
+<p>danger_data = df[danger_mask]</p>
+<p># Do it in one line:</p>
+<p>danger_data = df[df[‘Temp’] &gt; 100]</p>
+</section>
+<section id="combining-logic-and-or" class="level2">
+<h2 class="anchored" data-anchor-id="combining-logic-and-or">Combining Logic (AND / OR)</h2>
+<ul>
+<li>To find specific overlaps, use &amp; (AND) and | (OR).</li>
+<li><strong>Very Important:</strong> You <em>must</em> put parentheses around each condition.</li>
+</ul>
+<p># Find Discounts AND Negative Profit</p>
+<p>losses = df[(df[‘Discount’] &gt; 0) &amp; (df[‘Profit’] &lt; 0)]</p>
+<p>Row ID Order ID Order Date … Quantity Discount Profit</p>
+<p>3 4 US-2016-108966 10/11/2016 … 5.0 0.45 -383.0310</p>
+<p>14 15 US-2016-118983 11/22/2016 … 5.0 0.80 -123.8580</p>
+<p>…</p>
+</section>
+<section id="sorting" class="level2">
+<h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
+<ul>
+<li><p>Sorting data sequentially in Pandas is very simple.</p></li>
+<li><p><strong>.sort_values()</strong> orders the matrix by a specific column.</p>
+<ul>
+<li>The column is specified using the <strong>by</strong> parameter</li>
+<li>You can adjust sorting by ascending/descending order by setting the Boolean on the <strong>ascending</strong> parameter.</li>
+</ul></li>
+</ul>
+<p># Sort from highest profit to lowest</p>
+<p>sorted_data = df.sort_values(by=‘Profit’, ascending=False)</p>
+<p># View the top 3 most profitable rows</p>
+<p>print(sorted_data.head(3))</p>
+</section>
+<section id="handling-missing-data" class="level2">
+<h2 class="anchored" data-anchor-id="handling-missing-data">Handling Missing Data</h2>
+<ul>
+<li><p><strong>NaN</strong> stands for “Not a Number” (a blank cell in the CSV).</p>
+<ul>
+<li>We mentioned other versions earlier like <strong>NaT</strong> (Not a Time)</li>
+</ul></li>
+<li><p>In general, you cannot do mathematics with missing data.</p>
+<ul>
+<li>Calculations that involve <strong>NaN</strong> resolve to <strong>NaN</strong>.</li>
+<li>Calculations that involve <strong>None</strong> throw an exception.</li>
+</ul></li>
+<li><p><strong>.dropna()</strong> removes any row containing a <strong>NaN</strong>.</p></li>
+</ul>
+</section>
+<section id="handling-missing-data-1" class="level2">
+<h2 class="anchored" data-anchor-id="handling-missing-data-1">Handling Missing Data</h2>
+<ul>
+<li>The safest decision is to drop the corrupted observation entirely.</li>
+<li>There exist methods to interpolate the missing value(s), but these should be used cautiously.</li>
+</ul>
+<p># See how many missing values exist</p>
+<p>print(df.isna().sum())</p>
+<p># Drop the corrupted rows permanently</p>
+<p>df = df.dropna()</p>
+</section>
+<section id="calculated-columns-pandas-vectorization" class="level2">
+<h2 class="anchored" data-anchor-id="calculated-columns-pandas-vectorization">Calculated Columns (Pandas Vectorization)</h2>
+<ul>
+<li>We can create brand new columns using the data we already have.</li>
+<li>Pandas handles the row-by-row iteration automatically (just like NumPy).</li>
+</ul>
+<p># Calculate Power (P = V * I)</p>
+<p>df[‘Power_Watts’] = df[‘Voltage’] * df[‘Current’]</p>
+</section>
+<section id="calculated-columns-pandas-vectorization-1" class="level2">
+<h2 class="anchored" data-anchor-id="calculated-columns-pandas-vectorization-1">Calculated Columns (Pandas Vectorization)</h2>
+<ul>
+<li>Using calculated columns is much cleaner than writing a for loop to iterate through thousands of rows.</li>
+</ul>
+<p>df[‘Profit_Per_Unit’] = df[‘Profit’] / df[’Quantity’]</p>
+<p>print(df.head())</p>
+<p>Row ID Order ID Order Date … Discount Profit Profit_Per_Unit</p>
+<p>0 1 CA-2017-152156 11/8/2017 … 0.00 41.9136 20.9568</p>
+<p>1 2 CA-2017-152156 11/8/2017 … 0.00 219.5820 73.1940</p>
+<p>2 3 CA-2017-138688 6/12/2017 … 0.00 6.8714 3.4357</p>
+<p>3 4 US-2016-108966 10/11/2016 … 0.45 -383.0310 -76.6062</p>
+<p>4 5 US-2016-108966 10/11/2016 … 0.20 2.5164 1.2582</p>
+</section>
+<section id="text-scrubbing" class="level2">
+<h2 class="anchored" data-anchor-id="text-scrubbing">Text Scrubbing</h2>
+<ul>
+<li>Sometimes numbers are accidentally imported as strings because of symbols (e.g., “$1,000”).</li>
+<li>We use <strong>.str</strong> to access string methods, and <strong>.astype()</strong> to cast them back to numbers.</li>
+</ul>
+<p># 1. Replace the comma with nothing</p>
+<p>df[‘Cost’] = df[‘Cost’].str.replace(‘,’, ’’)</p>
+<p># 2. Strip accidental blank spaces</p>
+<p>df[‘Cost’] = df[‘Cost’].str.strip()</p>
+<p># 3. Convert the clean text back into a float for math</p>
+<p>df[‘Cost’] = df[‘Cost’].astype(float)</p>
+</section>
+<section id="time-and-dates" class="level2">
+<h2 class="anchored" data-anchor-id="time-and-dates">Time and Dates</h2>
+<ul>
+<li>Python reads dates as “dumb” strings by default.</li>
+<li><strong>pd.to_datetime()</strong> converts them into “smart” timestamps.</li>
+<li>The <strong>.dt</strong> accessor extracts specific features (month, year, day of week).</li>
+</ul>
+<p># Convert the string column to datetime objects</p>
+<p>df[‘Date’] = pd.to_datetime(df[‘Date_String’])</p>
+<p># Extract the month as a new numeric column (1-12)</p>
+<p>df[‘Month’] = df[‘Date’].dt.month</p>
+</section>
+<section id="aggregation" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation">Aggregation</h2>
+<ul>
+<li><p>How do we find the average profit per day?</p></li>
+<li><p>Or the postal code with the highest number of total sales?</p></li>
+<li><p>We can use the <strong>groupby()</strong> method, likely the most powerful single tool in Pandas<strong>.</strong></p></li>
+<li><p>The process has three steps:</p>
+<ul>
+<li>Split the data into categories.</li>
+<li>Apply math.</li>
+<li>Combine the results.</li>
+</ul></li>
+</ul>
+</section>
+<section id="aggregation-1" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-1">Aggregation</h2>
+<p># Drop rows where the date column is NaT</p>
+<p>df = df.dropna(subset=[’Order Date’])</p>
+<p>appd = df.groupby(‘Order Date’)[‘Profit’].mean() #average profit per day</p>
+<p>print(appd.head())</p>
+<p>Order Date</p>
+<p>2015-01-03 5.551200</p>
+<p>2015-01-04 -21.996700</p>
+<p>2015-01-05 4.884000</p>
+<p>Name: Profit, dtype: float64</p>
+</section>
+<section id="aggregation-2" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-2">Aggregation</h2>
+<p>#Find the top 3 area codes by total sales</p>
+<p>appd = df.groupby(‘Postal Code’)[‘Sales’].sum().nlargest(3)</p>
+<p>print(appd.head())</p>
+<p>Postal Code</p>
+<p>10024.0 78697.182</p>
+<p>10035.0 77357.885</p>
+<p>10009.0 54761.496</p>
+<p>Name: Sales, dtype: float64</p>
+</section>
+<section id="aggregation-3" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-3">Aggregation</h2>
+<ul>
+<li><p>We see that the Postal Codes here are floats.</p>
+<ul>
+<li>It is an identifier and not a quantity, so it is a good idea to change the type.</li>
+</ul></li>
+<li><p>We can fix this using the <strong>astype</strong> function and casting as an integer.</p></li>
+</ul>
+<p>Postal Code</p>
+<p>0 42420.0</p>
+<p>1 42420.0</p>
+<p>2 90036.0</p>
+<p>Name: Postal Code, dtype: float64</p>
+</section>
+<section id="aggregation-4" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-4">Aggregation</h2>
+<ul>
+<li><p>We see that the Postal Codes here are floats.</p>
+<ul>
+<li>It is an identifier and not a quantity, so it is a good idea to change the type.</li>
+</ul></li>
+<li><p>We can fix this using the <strong>astype</strong> function and casting as an integer.</p></li>
+</ul>
+<p>df[‘Postal Code’] = df[‘Postal Code’].astype(‘Int64’)</p>
+<p>Postal Code</p>
+<p>0 42420</p>
+<p>1 42420</p>
+<p>2 90036</p>
+<p>Name: Postal Code, dtype: Int64</p>
+</section>
+<section id="aggregation-5" class="level2">
+<h2 class="anchored" data-anchor-id="aggregation-5">Aggregation</h2>
+<ul>
+<li><p># Convert a string column to datetime objects</p></li>
+<li><p>df[‘Date’] = pd.to_datetime(df[‘Date_String’])</p></li>
+<li><p># Extract the month as a new numeric column (1-12)</p></li>
+<li><p>df[‘Month’] = df[‘Date’].dt.month</p></li>
+</ul>
+</section>
+<section id="useful-distinctions" class="level2">
+<h2 class="anchored" data-anchor-id="useful-distinctions">Useful Distinctions</h2>
+<ul>
+<li><p><strong>Aggregation</strong> (sum(), mean(), count()) computes one value per group.</p></li>
+<li><p><strong>Reduction</strong> (max(), min()) computes one value from the entire Series.</p>
+<ul>
+<li>A series can be viewed as a single column in the DataFrame.</li>
+</ul></li>
+<li><p><strong>Index retrieval</strong> (idxmax(), idxmin()) tells you <em>which label</em> produced that maximum or minimum.</p></li>
+</ul>
+</section>
+<section id="performing-mathematics-on-dataframes" class="level2">
+<h2 class="anchored" data-anchor-id="performing-mathematics-on-dataframes">Performing Mathematics on DataFrames</h2>
+<ul>
+<li>More complicated mathematical operations will require you to cast the DataFrame to a NumPy array.</li>
+<li>This is done using the <strong>.to_numpy()</strong> method.</li>
+<li>Note that there can be no text or NaN values in the columns that are cast into an array if you want to receive valid output.</li>
+</ul>
+<p>data = df[‘Sales’].to_numpy()</p>
+<p>print(data.mean())</p>
+</section>
+<section id="performing-mathematics-on-dataframes-1" class="level2">
+<h2 class="anchored" data-anchor-id="performing-mathematics-on-dataframes-1">Performing Mathematics on DataFrames</h2>
+<ul>
+<li>Simple operations can be done on the DataFrame itself, especially a single series associated with it.</li>
+</ul>
+<p>print(df[“Sales”].mean())</p>
+<p>&gt;&gt;&gt;229.85800083049827</p>
+</section>
+<section id="performing-mathematics-on-dataframes-2" class="level2">
+<h2 class="anchored" data-anchor-id="performing-mathematics-on-dataframes-2">Performing Mathematics on DataFrames</h2>
+<ul>
+<li>We can also iterate through using the standard Python for loop syntax.</li>
+<li>However, Pandas specific operations are both shorter to write and more efficient.</li>
+</ul>
+<p>#Also the mean of the sales series</p>
+<p>s = 0</p>
+<p>for i in df[‘Sales’]:</p>
+<p>s += i</p>
+<p>print(s/len(df[’Sales’]))</p>
+<p>&gt;&gt;&gt; 229.8580008304938</p>
+</section>
+<section id="pandas---continued" class="level2">
+<h2 class="anchored" data-anchor-id="pandas---continued">Pandas - Continued</h2>
+<p>CSCI – 1056</p>
+</section>
+<section id="multiple-aggregations" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-aggregations">Multiple Aggregations</h2>
+<ul>
+<li>Often, we need different math for different columns at the same time.</li>
+<li>The <strong>.agg()</strong> method takes a dictionary: <strong>{ ‘ColumnName’: ‘math_operation’ }</strong>.</li>
+<li>This can complete enormous tasks in a single computational pass.</li>
+</ul>
+<p>#Find the total, average, maximum, and minimum sales by region.</p>
+<p>summary = (</p>
+<p>df.groupby(‘Region’)[‘Sales’]</p>
+<p>.agg([‘sum’, ‘mean’, ‘max’, ‘min’])</p>
+<p>)</p>
+<p>print(summary)</p>
+</section>
+<section id="different-aggregations-for-different-columns" class="level2">
+<h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns">Different Aggregations for Different Columns</h2>
+<ul>
+<li><p>We can run simultaneous aggregations by passing a dictionary into the <strong>.agg</strong> method.</p>
+<ul>
+<li>The key is the name of the column, and its value is the operation.</li>
+<li>Operations used must accept a series and return a single value.</li>
+</ul></li>
+</ul>
+<p>summary = (</p>
+<p>df.groupby(‘Region’)</p>
+<p>.agg({</p>
+<p>‘Sales’: ‘sum’,</p>
+<p>‘Profit’: ‘mean’,</p>
+<p>‘Discount’: ‘max’,</p>
+<p>‘Quantity’: ’sum’}))</p>
+</section>
+<section id="different-aggregations-for-different-columns-1" class="level2">
+<h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns-1">Different Aggregations for Different Columns</h2>
+<p>summary = (</p>
+<p>df.groupby(‘Region’)</p>
+<p>.agg({</p>
+<p>‘Sales’: ‘sum’,</p>
+<p>‘Profit’: ‘mean’,</p>
+<p>‘Discount’: ‘max’,</p>
+<p>‘Quantity’: ’sum’}))</p>
+<p>Sales Profit Discount Quantity</p>
+<p>Region</p>
+<p>Central 501239.8908 17.092709 0.8 8780.0</p>
+<p>East 678781.2400 32.135808 0.7 10618.0</p>
+<p>South 391721.9050 28.857673 0.7 6209.0</p>
+<p>West 725457.8245 33.849032 0.7 12266.0</p>
+</section>
+<section id="different-aggregations-for-different-columns-2" class="level2">
+<h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns-2">Different Aggregations for Different Columns</h2>
+<ul>
+<li>You are not limited to pre-built aggregation functions.</li>
+<li>You can define operations yourself by creating a function that accepts a Pandas series and returns a single value.</li>
+</ul>
+<p>def range(series):</p>
+<p>return series.max() – series.min()</p>
+</section>
+<section id="different-aggregations-for-different-columns-3" class="level2">
+<h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns-3">Different Aggregations for Different Columns</h2>
+<ul>
+<li>The issue here is that “Sales” is ambiguous for what we are performing by the aggregation.</li>
+<li>To make our operations obvious, we can use named aggregations to rename the displayed column names.</li>
+</ul>
+<p>summary = (</p>
+<p>df.groupby(‘Region’)</p>
+<p>.agg({</p>
+<p>‘Sales’: range,</p>
+<p>}))</p>
+<p>Sales</p>
+<p>Region</p>
+<p>Central 17499.506</p>
+<p>East 11199.116</p>
+<p>South 22637.313</p>
+<p>West 13998.970</p>
+</section>
+<section id="named-aggregations" class="level2">
+<h2 class="anchored" data-anchor-id="named-aggregations">Named Aggregations</h2>
+<ul>
+<li><p>We can rename the displayed column names using a variable assignment inside the aggregation.</p></li>
+<li><p><strong>TotalSales=(”Sales”, sum)</strong></p>
+<ul>
+<li>The resulting column name of the sum of sales by category is <strong>TotalSales</strong>.</li>
+</ul></li>
+</ul>
+<p>summary = (</p>
+<p>df.groupby(‘Category’)</p>
+<p>.agg(</p>
+<p>TotalSales=(‘Sales’, ‘sum’),</p>
+<p>AvgSale=(‘Sales’, ‘mean’),</p>
+<p>TotalProfit=(‘Profit’, ‘sum’),</p>
+<p>AvgProfit=(‘Profit’, ‘mean’),</p>
+<p>Orders=(‘Sales’, ’count’)</p>
+<p>)).round(2)</p>
+</section>
+<section id="named-aggregations-1" class="level2">
+<h2 class="anchored" data-anchor-id="named-aggregations-1">Named Aggregations</h2>
+<p>summary = (</p>
+<p>df.groupby(‘Category’)</p>
+<p>.agg(</p>
+<p>TotalSales=(‘Sales’, ‘sum’),</p>
+<p>AvgSale=(‘Sales’, ‘mean’),</p>
+<p>TotalProfit=(‘Profit’, ‘sum’),</p>
+<p>AvgProfit=(‘Profit’, ‘mean’),</p>
+<p>Orders=(‘Sales’, ’count’)</p>
+<p>)).round(2)</p>
+<p>TotalSales AvgSale TotalProfit AvgProfit Orders</p>
+<p>Category</p>
+<p>Furniture 741999.80 349.83 18451.27 8.70 2121</p>
+<p>Office Supplies 719047.03 119.32 122490.80 20.33 6026</p>
+<p>Technology 836154.03 452.71 145454.95 78.75 1847</p>
+</section>
+<section id="several-statistics-for-several-columns" class="level2">
+<h2 class="anchored" data-anchor-id="several-statistics-for-several-columns">Several Statistics for Several Columns</h2>
+<ul>
+<li>We can produce multiple statistics across multiple columns.</li>
+<li>The same dictionary format is used for the <strong>.agg</strong> method and the value is now a list of operations.</li>
+</ul>
+<p>summary = (</p>
+<p>df.groupby(‘Category’)</p>
+<p>.agg({</p>
+<p>‘Sales’: [‘sum’, ‘mean’],</p>
+<p>‘Profit’: [‘sum’, ‘mean’],</p>
+<p>‘Quantity’: [‘sum’, ‘max’]</p>
+<p>})).round(2)</p>
+</section>
+<section id="several-statistics-for-several-columns-1" class="level2">
+<h2 class="anchored" data-anchor-id="several-statistics-for-several-columns-1">Several Statistics for Several Columns</h2>
+<p>summary = (</p>
+<p>df.groupby(‘Category’)</p>
+<p>.agg({</p>
+<p>‘Sales’: [‘sum’, ‘mean’],</p>
+<p>‘Profit’: [‘sum’, ‘mean’],</p>
+<p>‘Quantity’: [‘sum’, ‘max’]</p>
+<p>})).round(2)</p>
+<p>Sales Profit</p>
+<p>sum mean sum mean Category</p>
+<p>Furniture 741999.80 349.83 18451.27 8.70</p>
+<p>Office Supplies 719047.03 119.32 122490.80 20.33</p>
+<p>Technology 836154.03 452.71 145454.95 78.75</p>
+</section>
+<section id="two-level-groupby-with-multiple-aggregations" class="level2">
+<h2 class="anchored" data-anchor-id="two-level-groupby-with-multiple-aggregations">Two-level groupby with Multiple Aggregations</h2>
+<ul>
+<li>We want to evaluate the profit, sales, and average discount across the different categories of goods by region.</li>
+<li>We can include multiple levels in the groupby simply by using a list of series names.</li>
+</ul>
+<p>summary = (</p>
+<p>df.groupby([‘Region’, ‘Category’])</p>
+<p>.agg(</p>
+<p>Sales=(‘Sales’, ‘sum’),</p>
+<p>Profit=(‘Profit’, ‘sum’),</p>
+<p>AvgDiscount=(‘Discount’, ‘mean’)</p>
+<p>)</p>
+<p>).round(2)</p>
+</section>
+<section id="two-level-groupby-with-multiple-aggregations-1" class="level2">
+<h2 class="anchored" data-anchor-id="two-level-groupby-with-multiple-aggregations-1">Two-level groupby with Multiple Aggregations</h2>
+<p>summary = (</p>
+<p>df.groupby([‘Region’, ‘Category’])</p>
+<p>.agg(</p>
+<p>Sales=(‘Sales’, ‘sum’),</p>
+<p>Profit=(‘Profit’, ‘sum’),</p>
+<p>AvgDiscount=(‘Discount’, ‘mean’)</p>
+<p>)</p>
+<p>).round(2)</p>
+<p>Region Category</p>
+<p>Central Furniture 163797.16 -2871.05 0.30</p>
+<p>Office Supplies 167026.42 8879.98 0.25</p>
+<p>Technology 170416.31 33697.43 0.13</p>
+<p>East Furniture 208291.20 3046.17 0.15</p>
+<p>Office Supplies 205516.06 41014.58 0.14</p>
+<p>Technology 264973.98 47462.04 0.14</p>
+</section>
+<section id="which-category-is-most-profitable-in-each-region" class="level2">
+<h2 class="anchored" data-anchor-id="which-category-is-most-profitable-in-each-region">Which category is most profitable in each region?</h2>
+<p>summary = (</p>
+<p>df.groupby([‘Region’, ‘Category’])</p>
+<p>.agg(</p>
+<p>TotalSales=(‘Sales’, ‘sum’),</p>
+<p>TotalProfit=(‘Profit’, ‘sum’)</p>
+<p>)</p>
+<p>.sort_values(‘TotalProfit’, ascending=False)</p>
+<p>)</p>
+</section>
+<section id="which-category-is-most-profitable-in-each-region-1" class="level2">
+<h2 class="anchored" data-anchor-id="which-category-is-most-profitable-in-each-region-1">Which category is most profitable in each region?</h2>
+<p>Region Category</p>
+<p>West Office Supplies 220853.25 52609.85</p>
+<p>East Technology 264973.98 47462.04</p>
+<p>West Technology 251991.83 44303.65</p>
+<p>East Office Supplies 205516.06 41014.58</p>
+<p>Central Technology 170416.31 33697.43</p>
+<p>South Technology 148771.91 19991.8</p>
+<p>Office Supplies 125651.31 19986.39</p>
+<p>West Furniture 252612.74 11504.95</p>
+<p>Central Office Supplies 167026.42 8879.98</p>
+<p>South Furniture 117298.68 6771.21</p>
+<p>East Furniture 208291.20 3046.17</p>
+<p>Central Furniture 163797.16 -2871.05</p>
+<blockquote class="blockquote">
+<p>The empty space by office supplies is Pandas omitting the identical region name (south) to prevent repeats.</p>
+</blockquote>
+</section>
+<section id="reshaping-pivot-tables" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-pivot-tables">Reshaping: Pivot Tables</h2>
+<ul>
+<li>Sometimes data is too “tall” to read easily.</li>
+<li><strong>pivot_table</strong> reshapes data to look exactly like an Excel pivot table, turning unique row values into new columns.</li>
+</ul>
+<p>monthly_view = df.pivot_table(</p>
+<p>index=’’, # What stays as rows</p>
+<p>columns=’’, # What becomes the new columns</p>
+<p>values=’’, # What fills the cells</p>
+<p>aggfunc=’’ # How to handle duplicates</p>
+<p>)</p>
+</section>
+<section id="reshaping-pivot-tables-1" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-1">Reshaping: Pivot Tables</h2>
+<ul>
+<li>We can use pivot tables much the same way as groupby.</li>
+<li>Both below compute the same summary.</li>
+</ul>
+<p>df.pivot_table(</p>
+<p>values=‘Sales’,</p>
+<p>index=‘Region’,</p>
+<p>columns=‘Category’,</p>
+<p>aggfunc=’sum’</p>
+<p>)</p>
+<p>df.groupby([‘Region’, ‘Category’])[‘Sales’].sum()</p>
+</section>
+<section id="reshaping-pivot-tables-2" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-2">Reshaping: Pivot Tables</h2>
+<ul>
+<li>The difference is in how the result is arranged:</li>
+<li><strong>groupby()</strong> leaves both grouping variables in the index (or MultiIndex).</li>
+<li><strong>pivot_table()</strong> places one grouping variable into columns, producing a cross-tab that resembles an Excel pivot table.</li>
+</ul>
+<p>df.pivot_table(</p>
+<p>values=‘Sales’,</p>
+<p>index=‘Region’,</p>
+<p>columns=‘Category’,</p>
+<p>aggfunc=’sum’</p>
+<p>)</p>
+<p>df.groupby([‘Region’, ‘Category’])[‘Sales’].sum()</p>
+</section>
+<section id="reshaping-pivot-tables-3" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-3">Reshaping: Pivot Tables</h2>
+<p>Region Category</p>
+<p>Central Furniture 163797.1638</p>
+<p>Office Supplies 167026.4150</p>
+<p>Technology 170416.3120</p>
+<p>East Furniture 208291.2040</p>
+<p>Office Supplies 205516.0550</p>
+<p>Technology 264973.9810</p>
+<p>South Furniture 117298.6840</p>
+<p>Office Supplies 125651.3130</p>
+<p>Technology 148771.9080</p>
+<p>West Furniture 252612.7435</p>
+<p>Office Supplies 220853.2490</p>
+<p>Technology 251991.8320</p>
+<p>Name: Sales, dtype: float64</p>
+<p>Category Furniture Office Supplies Technology</p>
+<p>Region</p>
+<p>Central 163797.1638 167026.415 170416.312</p>
+<p>East 208291.2040 205516.055 264973.981</p>
+<p>South 117298.6840 125651.313 148771.908</p>
+<p>West 252612.7435 220853.249 251991.832</p>
+<ul>
+<li><p>The <strong>pivot table</strong> below is functionally equivalent to the <strong>groupby</strong> to the right.</p></li>
+<li><p>Only the visual presentation differs.</p></li>
+</ul>
+</section>
+<section id="reshaping-pivot-tables-4" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-4">Reshaping: Pivot Tables</h2>
+<ul>
+<li>Multiple values can be used by passing in a list.</li>
+</ul>
+<p>pivot = df.pivot_table(</p>
+<p>values=[‘Sales’, ‘Profit’],</p>
+<p>index=‘Region’,</p>
+<p>columns=‘Category’,</p>
+<p>aggfunc=’sum’</p>
+<p>)</p>
+<p>Profit Sales</p>
+<p>Category Furniture Office Supplies Technology Furniture Office Supplies Technology</p>
+<p>Region</p>
+<p>Central -2871.05 8879.98 33697.43 163797.16 167026.42 170416.31</p>
+<p>East 3046.17 41014.58 47462.04 208291.20 205516.06 264973.98</p>
+<p>South 6771.21 19986.39 19991.83 117298.68 125651.31 148771.91</p>
+<p>West 11504.95 52609.85 44303.65 252612.74 220853.25 251991.83</p>
+</section>
+<section id="reshaping-pivot-tables-5" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-5">Reshaping: Pivot Tables</h2>
+<ul>
+<li>Passing the margins flag generates an all column and row.</li>
+</ul>
+<p>pivot = df.pivot_table(</p>
+<p>values=‘Sales’,</p>
+<p>index=‘Region’,</p>
+<p>columns=‘Category’,</p>
+<p>aggfunc=‘sum’,</p>
+<p>margins=True</p>
+<p>).round(2)</p>
+<p>Category Furniture Office Supplies Technology All</p>
+<p>Region</p>
+<p>Central 163797.16 167026.42 170416.31 501239.89</p>
+<p>East 208291.20 205516.06 264973.98 678781.24</p>
+<p>South 117298.68 125651.31 148771.91 391721.90</p>
+<p>West 252612.74 220853.25 251991.83 725457.82</p>
+<p>All 741999.80 719047.03 836154.03 2297200.86</p>
+</section>
+<section id="reshaping-melt" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-melt">Reshaping: Melt</h2>
+<ul>
+<li>Human generated data is often “wide” (e.g., Jan, Feb, Mar as separate columns).</li>
+<li><strong>pd.melt()</strong> unpivots data, collapsing multiple columns down into two generic columns: “Variable” and “Value”.</li>
+<li>Many plotting libraries, statistical tools and SQL databases expect data in the melt format, not the pivot format.</li>
+</ul>
+<p>tall_df = pd.melt(</p>
+<p>wide_df,</p>
+<p>id_vars=[’’], # Columns to lock in place</p>
+<p>var_name=’’, # Name for the columns</p>
+<p>value_name=’’ # Name for the values</p>
+<p>)</p>
+</section>
+<section id="reshaping-melt-1" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-melt-1">Reshaping: Melt</h2>
+<ul>
+<li>The DataFrame resulting from the pivot_table below looks like:</li>
+</ul>
+<p>sales = df.pivot_table(</p>
+<p>values=‘Sales’,</p>
+<p>index=‘Region’,</p>
+<p>columns=‘Category’,</p>
+<p>aggfunc=‘sum’</p>
+<p>).reset_index()</p>
+<p>Category Region Furniture Office Supplies Technology</p>
+<p>0 Central 163797.1638 167026.415 170416.312</p>
+<p>1 East 208291.2040 205516.055 264973.981</p>
+<p>2 South 117298.6840 125651.313 148771.908</p>
+<p>3 West 252612.7435 220853.249 251991.832</p>
+</section>
+<section id="reshaping-melt-2" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-melt-2">Reshaping: Melt</h2>
+<ul>
+<li><p>If we wanted one row per Region–Category combination instead:</p></li>
+<li><p><strong>melt()</strong> takes multiple columns and stacks them into two columns: one for the former column names and one for their values.</p></li>
+</ul>
+<p>long = sales.melt(</p>
+<p>id_vars=‘Region’,</p>
+<p>var_name=‘Category’,</p>
+<p>value_name=‘Sales’</p>
+<p>)</p>
+</section>
+<section id="reshaping-melt-3" class="level2">
+<h2 class="anchored" data-anchor-id="reshaping-melt-3">Reshaping: Melt</h2>
+<p>Region Category Sales</p>
+<p>0 Central Furniture 163797.1638</p>
+<p>1 East Furniture 208291.2040</p>
+<p>2 South Furniture 117298.6840</p>
+<p>3 West Furniture 252612.7435</p>
+<p>4 Central Office Supplies 167026.4150</p>
+<p>5 East Office Supplies 205516.0550</p>
+<p>6 South Office Supplies 125651.3130</p>
+<p>7 West Office Supplies 220853.2490</p>
+<p>8 Central Technology 170416.3120</p>
+<p>9 East Technology 264973.9810</p>
+<p>10 South Technology 148771.9080</p>
+<p>11 West Technology 251991.8320</p>
+</section>
+<section id="concatenation" class="level2">
+<h2 class="anchored" data-anchor-id="concatenation">Concatenation</h2>
+<ul>
+<li><strong>pd.concat()</strong> is used when you have the exact same columns, but new rows of data.</li>
+<li>Perfect for stacking multiple months, quarters, or batches of data together.</li>
+<li>Important to reset the index to prevent repeated row numbers.</li>
+</ul>
+<p># Stacking Q1 and Q2 data vertically</p>
+<p>full_year_df = pd.concat([q1_data, q2_data], axis=0)</p>
+<p># Reset the index so row numbers don’t repeat</p>
+<p>full_year_df = full_year_df.reset_index(drop=True)</p>
+</section>
+<section id="merging-joins" class="level2">
+<h2 class="anchored" data-anchor-id="merging-joins">Merging &amp; Joins</h2>
+<ul>
+<li><p>Merges and joins are among the most important operations in pandas because they allow you to combine information from multiple DataFrames.</p></li>
+<li><p>The important question when combining two DataFrames is:</p></li>
+<li><p><strong>How do we know which rows belong together?</strong></p></li>
+<li><p>Pandas answers this by matching values in one or more columns.</p>
+<ul>
+<li>It can also match on an index, which is the term row label.</li>
+<li>Columns contain the actual data values; the index is just for identification.</li>
+</ul></li>
+</ul>
+</section>
+<section id="merging-joins-1" class="level2">
+<h2 class="anchored" data-anchor-id="merging-joins-1">Merging &amp; Joins</h2>
+<ul>
+<li><p><strong>pd.merge()</strong> combines two <em>different</em> DataFrames based on a shared column (a “Key”).</p>
+<ul>
+<li>This is identical to a SQL JOIN.</li>
+</ul></li>
+<li><p><strong>Left Join:</strong> Keep everything in the left table, attach data from the right table if it matches.</p></li>
+<li><p><strong>Right Join:</strong> Keep everything in the right table, attach data from the left table if it matches.</p></li>
+<li><p><strong>Inner Join:</strong> Keep only rows that appear in both tables.</p></li>
+<li><p><strong>Outer Join:</strong> Keep everything from both tables.</p></li>
+</ul>
+</section>
+<section id="merging-joins-2" class="level2">
+<h2 class="anchored" data-anchor-id="merging-joins-2">Merging &amp; Joins</h2>
+<ul>
+<li>The basic syntax is:</li>
+</ul>
+<p>pd.merge(left_df, #Left DataFrame</p>
+<p>right_df, #Right DataFrame</p>
+<p>on=“ColumnName”, #Column used for matching</p>
+<p>how=“inner”) #Type of join</p>
+</section>
+<section id="merging-joins-3" class="level2">
+<h2 class="anchored" data-anchor-id="merging-joins-3">Merging &amp; Joins</h2>
+<ul>
+<li>Suppose we have two DataFrames, Customers and Accounts.</li>
+</ul>
+<p><strong>Customers</strong><br>
+CustomerID Name<br>
+0 101 Alice<br>
+1 102 Bob<br>
+2 103 Charlie<br>
+3 104 David</p>
+<p><strong>Accounts</strong><br>
+CustomerID Balance</p>
+<p>0 101 2500</p>
+<p>1 101 1200</p>
+<p>2 103 8000</p>
+<p>3 105 500</p>
+</section>
+<section id="inner-join" class="level2">
+<h2 class="anchored" data-anchor-id="inner-join">Inner Join</h2>
+<ul>
+<li>An <strong>inner join</strong> keeps only rows that appear in both tables.</li>
+</ul>
+<p>merged = pd.merge(customers,</p>
+<p>accounts,</p>
+<p>on=“CustomerID”,</p>
+<p>how=“inner”)<br>
+</p>
+<p>CustomerID Name Balance</p>
+<p>0 101 Alice 2500</p>
+<p>1 101 Alice 1200</p>
+<p>2 103 Charlie 8000</p>
+</section>
+<section id="inner-join-1" class="level2">
+<h2 class="anchored" data-anchor-id="inner-join-1">Inner Join</h2>
+<ul>
+<li>Notice that Alice appears twice.</li>
+<li>This is because there are two matching rows in the Accounts table.</li>
+<li>Inner join is matching every possible pair.</li>
+</ul>
+<p><strong>Customers</strong><br>
+CustomerID Name<br>
+0 101 Alice<br>
+1 102 Bob<br>
+2 103 Charlie<br>
+3 104 David</p>
+<p><strong>Accounts</strong><br>
+CustomerID Balance</p>
+<p>0 101 2500</p>
+<p>1 101 1200</p>
+<p>2 103 8000</p>
+<p>3 105 500</p>
+</section>
+<section id="left-join" class="level2">
+<h2 class="anchored" data-anchor-id="left-join">Left Join</h2>
+<ul>
+<li>A left join keeps <strong>everything from the left table</strong>.</li>
+</ul>
+<p>merged = pd.merge(customers,</p>
+<p>accounts,</p>
+<p>on=“CustomerID”,</p>
+<p>how=“left”)</p>
+</section>
+<section id="left-join-1" class="level2">
+<h2 class="anchored" data-anchor-id="left-join-1">Left Join</h2>
+<ul>
+<li>Since Bob and David have no entry in the right table (accounts) Pandas will insert NaN to fill the empty balance value.</li>
+</ul>
+<p>CustomerID Name Balance</p>
+<p>0 101 Alice 2500.0</p>
+<p>1 101 Alice 1200.0</p>
+<p>2 102 Bob NaN</p>
+<p>3 103 Charlie 8000.0</p>
+<p>4 104 David NaN</p>
+</section>
+<section id="right-join" class="level2">
+<h2 class="anchored" data-anchor-id="right-join">Right Join</h2>
+<ul>
+<li>A <strong>right join</strong> keeps everything from the right table.</li>
+</ul>
+<p>merged = pd.merge(customers,</p>
+<p>accounts,</p>
+<p>on=“CustomerID”,</p>
+<p>how=”right”)</p>
+</section>
+<section id="right-join-1" class="level2">
+<h2 class="anchored" data-anchor-id="right-join-1">Right Join</h2>
+<ul>
+<li>Customer 105 only exists in the accounts table; Pandas will insert NaN to fill the empty name value.</li>
+</ul>
+<p>CustomerID Name Balance</p>
+<p>0 101 Alice 2500</p>
+<p>1 101 Alice 1200</p>
+<p>2 103 Charlie 8000</p>
+<p>3 105 NaN 500</p>
+</section>
+<section id="outer-join" class="level2">
+<h2 class="anchored" data-anchor-id="outer-join">Outer Join</h2>
+<ul>
+<li>An <strong>outer join</strong> keeps everything from both tables.</li>
+</ul>
+<p>merged = pd.merge(customers,</p>
+<p>accounts,</p>
+<p>on=“CustomerID”,</p>
+<p>how=”outer”)</p>
+</section>
+<section id="outer-join-1" class="level2">
+<h2 class="anchored" data-anchor-id="outer-join-1">Outer Join</h2>
+<ul>
+<li>Nothing in either table is discarded.</li>
+</ul>
+<p>CustomerID Name Balance</p>
+<p>0 101 Alice 2500.0</p>
+<p>1 101 Alice 1200.0</p>
+<p>2 102 Bob NaN</p>
+<p>3 103 Charlie 8000.0</p>
+<p>4 104 David NaN</p>
+<p>5 105 NaN 500.0</p>
+</section>
+<section id="merging-on-different-column-names" class="level2">
+<h2 class="anchored" data-anchor-id="merging-on-different-column-names">Merging on Different Column Names</h2>
+<ul>
+<li>Sometimes the key columns have different names.</li>
+<li>This is easily handled using the <strong>left_on</strong> and <strong>right_on</strong> parameters.</li>
+</ul>
+<p>pd.merge(customers,</p>
+<p>transactions,</p>
+<p>left_on=“CustomerID”,</p>
+<p>right_on=“CustID”)</p>
+</section>
+<section id="multi-key-joins" class="level2">
+<h2 class="anchored" data-anchor-id="multi-key-joins">Multi-Key Joins</h2>
+<ul>
+<li>Sometimes one column is not enough to guarantee a unique match.</li>
+<li>For example, an Account Number might repeat across different Processing Dates.</li>
+<li>We can pass a list of columns to the <strong>on</strong> parameter to match on multiple keys simultaneously.</li>
+</ul>
+<p>pd.merge(df1,</p>
+<p>df2,</p>
+<p>on=[“CustomerID”, “Type”])</p>
+</section>
+<section id="concatenation-is-different-from-merging" class="level2">
+<h2 class="anchored" data-anchor-id="concatenation-is-different-from-merging">Concatenation is Different from Merging</h2>
+<ul>
+<li><p>A common mistake is confusing <strong>merge()</strong> with <strong>concat()</strong>.</p></li>
+<li><p><strong>concat()</strong> stacks DataFrames together.</p>
+<ul>
+<li>It does <strong>not</strong> match rows.</li>
+</ul></li>
+<li><p>If you need to match rows, use <strong>merge()</strong> and specify the type of join.</p>
+<ul>
+<li>If you want to match by the index (and not the data in the column) use the <strong>join()</strong> method instead.</li>
+<li>Matching by index is uncommon, most situations will be by matching columns.</li>
+</ul></li>
+<li><p>If you do not need to match rows, use <strong>concat()</strong>.</p></li>
+</ul>
 
 
 </section>

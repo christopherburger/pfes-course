@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>15: Exceptions and Files – Programming for Engineers and Scientists</title>
+<title>13: Exceptions and Files – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html">15: Exceptions and Files</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html">13: Exceptions and Files</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Strings Lists Tuples</span></a>
+ <span class="menu-text">3: Strings, Lists and Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+ <span class="menu-text">4: Vectors and NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,19 +198,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/09_loops/loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9: For Loops</span></a>
+ <span class="menu-text">9: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/10_matrices/matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12: Matrices</span></a>
+ <span class="menu-text">10: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/11_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
+ <span class="menu-text">11: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,25 +222,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">15: Exceptions and Files</span></a>
+ <span class="menu-text">13: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/14_pandas/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16: Pandas</span></a>
+ <span class="menu-text">14: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/15_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
+ <span class="menu-text">15: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">18: Distance and Similarity</span></a>
+ <span class="menu-text">16: Distance and Similarity</span></a>
   </div>
 </li>
       </ul>
@@ -255,17 +255,72 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#file-input-and-output" id="toc-file-input-and-output" class="nav-link" data-scroll-target="#file-input-and-output">File Input and Output</a></li>
+  <li><a href="#introduction-to-file-input-and-output-1-of-2" id="toc-introduction-to-file-input-and-output-1-of-2" class="nav-link" data-scroll-target="#introduction-to-file-input-and-output-1-of-2">Introduction to File Input and Output (1 of 2)</a></li>
+  <li><a href="#figure-6-1-writing-data-to-a-file" id="toc-figure-6-1-writing-data-to-a-file" class="nav-link" data-scroll-target="#figure-6-1-writing-data-to-a-file">Figure 6-1 Writing Data to a File</a></li>
+  <li><a href="#introduction-to-file-input-and-output-2-of-2" id="toc-introduction-to-file-input-and-output-2-of-2" class="nav-link" data-scroll-target="#introduction-to-file-input-and-output-2-of-2">Introduction to File Input and Output (2 of 2)</a></li>
+  <li><a href="#figure-6-2-reading-data-from-a-file" id="toc-figure-6-2-reading-data-from-a-file" class="nav-link" data-scroll-target="#figure-6-2-reading-data-from-a-file">Figure 6-2 Reading Data From a File</a></li>
+  <li><a href="#types-of-files-and-file-access-methods" id="toc-types-of-files-and-file-access-methods" class="nav-link" data-scroll-target="#types-of-files-and-file-access-methods">Types of Files and File Access Methods</a></li>
+  <li><a href="#filenames-and-file-objects-1-of-2" id="toc-filenames-and-file-objects-1-of-2" class="nav-link" data-scroll-target="#filenames-and-file-objects-1-of-2">Filenames and File Objects (1 of 2)</a></li>
+  <li><a href="#filenames-and-file-objects-2-of-2" id="toc-filenames-and-file-objects-2-of-2" class="nav-link" data-scroll-target="#filenames-and-file-objects-2-of-2">Filenames and File Objects (2 of 2)</a></li>
+  <li><a href="#opening-a-file" id="toc-opening-a-file" class="nav-link" data-scroll-target="#opening-a-file">Opening a File</a></li>
+  <li><a href="#specifying-the-location-of-a-file" id="toc-specifying-the-location-of-a-file" class="nav-link" data-scroll-target="#specifying-the-location-of-a-file">Specifying the Location of a File</a></li>
+  <li><a href="#writing-data-to-a-file" id="toc-writing-data-to-a-file" class="nav-link" data-scroll-target="#writing-data-to-a-file">Writing Data to a File</a></li>
+  <li><a href="#reading-data-from-a-file" id="toc-reading-data-from-a-file" class="nav-link" data-scroll-target="#reading-data-from-a-file">Reading Data From a File</a></li>
+  <li><a href="#concatenating-a-newline-to-and-stripping-it-from-a-string" id="toc-concatenating-a-newline-to-and-stripping-it-from-a-string" class="nav-link" data-scroll-target="#concatenating-a-newline-to-and-stripping-it-from-a-string">Concatenating a Newline to and Stripping it From a String</a></li>
+  <li><a href="#appending-data-to-an-existing-file" id="toc-appending-data-to-an-existing-file" class="nav-link" data-scroll-target="#appending-data-to-an-existing-file">Appending Data to an Existing File</a></li>
+  <li><a href="#writing-and-reading-numeric-data" id="toc-writing-and-reading-numeric-data" class="nav-link" data-scroll-target="#writing-and-reading-numeric-data">Writing and Reading Numeric Data</a></li>
+  <li><a href="#using-loops-to-process-files" id="toc-using-loops-to-process-files" class="nav-link" data-scroll-target="#using-loops-to-process-files">Using Loops to Process Files</a></li>
+  <li><a href="#figure-6-17-general-logic-for-detecting-the-end-of-a-file" id="toc-figure-6-17-general-logic-for-detecting-the-end-of-a-file" class="nav-link" data-scroll-target="#figure-6-17-general-logic-for-detecting-the-end-of-a-file">Figure 6-17 General Logic for Detecting the End of a File</a></li>
+  <li><a href="#using-pythons-for-loop-to-read-lines" id="toc-using-pythons-for-loop-to-read-lines" class="nav-link" data-scroll-target="#using-pythons-for-loop-to-read-lines">Using Python’s for Loop to Read Lines</a></li>
+  <li><a href="#example-writing-to-a-file" id="toc-example-writing-to-a-file" class="nav-link" data-scroll-target="#example-writing-to-a-file">Example – Writing to a File</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#example-reading-from-a-file" id="toc-example-reading-from-a-file" class="nav-link" data-scroll-target="#example-reading-from-a-file">Example – Reading from a File</a></li>
+  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1">Practice</a></li>
+  <li><a href="#example-appending-to-a-file" id="toc-example-appending-to-a-file" class="nav-link" data-scroll-target="#example-appending-to-a-file">Example – Appending to a File</a></li>
+  <li><a href="#practice-2" id="toc-practice-2" class="nav-link" data-scroll-target="#practice-2">Practice</a></li>
+  <li><a href="#combining-reading-and-writing" id="toc-combining-reading-and-writing" class="nav-link" data-scroll-target="#combining-reading-and-writing">Combining Reading and Writing</a></li>
+  <li><a href="#combining-reading-and-writing-1" id="toc-combining-reading-and-writing-1" class="nav-link" data-scroll-target="#combining-reading-and-writing-1">Combining Reading and Writing</a></li>
+  <li><a href="#combining-reading-and-writing-2" id="toc-combining-reading-and-writing-2" class="nav-link" data-scroll-target="#combining-reading-and-writing-2">Combining Reading and Writing</a></li>
+  <li><a href="#example-reading-and-writing-to-a-file" id="toc-example-reading-and-writing-to-a-file" class="nav-link" data-scroll-target="#example-reading-and-writing-to-a-file">Example – Reading and Writing to a File</a></li>
+  <li><a href="#example-reading-and-writing-to-a-file-1" id="toc-example-reading-and-writing-to-a-file-1" class="nav-link" data-scroll-target="#example-reading-and-writing-to-a-file-1">Example – Reading and Writing to a File</a></li>
+  <li><a href="#file-pointer" id="toc-file-pointer" class="nav-link" data-scroll-target="#file-pointer">File Pointer</a></li>
+  <li><a href="#example-reading-and-writing-to-a-file-2" id="toc-example-reading-and-writing-to-a-file-2" class="nav-link" data-scroll-target="#example-reading-and-writing-to-a-file-2">Example – Reading and Writing to a File</a></li>
+  <li><a href="#using-the-with-statement-to-open-files-1-of-4" id="toc-using-the-with-statement-to-open-files-1-of-4" class="nav-link" data-scroll-target="#using-the-with-statement-to-open-files-1-of-4">Using the with Statement to Open Files (1 of 4)</a></li>
+  <li><a href="#using-the-with-statement-to-open-files-2-of-4" id="toc-using-the-with-statement-to-open-files-2-of-4" class="nav-link" data-scroll-target="#using-the-with-statement-to-open-files-2-of-4">Using the with Statement to Open Files (2 of 4)</a></li>
+  <li><a href="#using-the-with-statement-to-open-files-3-of-4" id="toc-using-the-with-statement-to-open-files-3-of-4" class="nav-link" data-scroll-target="#using-the-with-statement-to-open-files-3-of-4">Using the with Statement to Open Files (3 of 4)</a></li>
+  <li><a href="#using-the-with-statement-to-open-files-4-of-4" id="toc-using-the-with-statement-to-open-files-4-of-4" class="nav-link" data-scroll-target="#using-the-with-statement-to-open-files-4-of-4">Using the with Statement to Open Files (4 of 4)</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#example-copying-from-one-file-to-another-file" id="toc-example-copying-from-one-file-to-another-file" class="nav-link" data-scroll-target="#example-copying-from-one-file-to-another-file">Example – Copying from one File to Another File</a></li>
+  <li><a href="#exception-handing" id="toc-exception-handing" class="nav-link" data-scroll-target="#exception-handing">Exception Handing</a></li>
+  <li><a href="#exceptions-1-of-4" id="toc-exceptions-1-of-4" class="nav-link" data-scroll-target="#exceptions-1-of-4">Exceptions (1 of 4)</a></li>
+  <li><a href="#exceptions-2-of-4" id="toc-exceptions-2-of-4" class="nav-link" data-scroll-target="#exceptions-2-of-4">Exceptions (2 of 4)</a></li>
+  <li><a href="#exceptions-3-of-4" id="toc-exceptions-3-of-4" class="nav-link" data-scroll-target="#exceptions-3-of-4">Exceptions (3 of 4)</a></li>
+  <li><a href="#exceptions-4-of-4" id="toc-exceptions-4-of-4" class="nav-link" data-scroll-target="#exceptions-4-of-4">Exceptions (4 of 4)</a></li>
+  <li><a href="#displaying-an-exceptions-default-error-message" id="toc-displaying-an-exceptions-default-error-message" class="nav-link" data-scroll-target="#displaying-an-exceptions-default-error-message">Displaying an Exception’s Default Error Message</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
+  <li><a href="#practice-3" id="toc-practice-3" class="nav-link" data-scroll-target="#practice-3">Practice</a></li>
+  <li><a href="#handling-multiple-exceptions" id="toc-handling-multiple-exceptions" class="nav-link" data-scroll-target="#handling-multiple-exceptions">Handling Multiple Exceptions</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example</a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
+  <li><a href="#example-6" id="toc-example-6" class="nav-link" data-scroll-target="#example-6">Example</a></li>
+  <li><a href="#the-else-clause" id="toc-the-else-clause" class="nav-link" data-scroll-target="#the-else-clause">The else Clause</a></li>
+  <li><a href="#example-7" id="toc-example-7" class="nav-link" data-scroll-target="#example-7">Example</a></li>
+  <li><a href="#the-finally-clause" id="toc-the-finally-clause" class="nav-link" data-scroll-target="#the-finally-clause">The finally Clause</a></li>
+  <li><a href="#example-8" id="toc-example-8" class="nav-link" data-scroll-target="#example-8">Example</a></li>
+  <li><a href="#what-if-an-exception-is-not-handled" id="toc-what-if-an-exception-is-not-handled" class="nav-link" data-scroll-target="#what-if-an-exception-is-not-handled">What If an Exception Is Not Handled?</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html">15: Exceptions and Files</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html">13: Exceptions and Files</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">15: Exceptions and Files</h1>
+<h1 class="title">13: Exceptions and Files</h1>
 </div>
 
 
@@ -282,17 +337,773 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="file-input-and-output" class="level2">
+<h2 class="anchored" data-anchor-id="file-input-and-output">File Input and Output</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="introduction-to-file-input-and-output-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-file-input-and-output-1-of-2">Introduction to File Input and Output (1 of 2)</h2>
 <ul>
-<li>Creating 2D arrays in NumPy</li>
-<li>Indexing rows and columns [r c]</li>
-<li>Shape and reshaping arrays</li>
+<li><p><strong>For program to retain data between the times it is run, you must save the data</strong></p>
+<ul>
+<li>Data is saved to a file, typically on computer disk</li>
+<li>Saved data can be retrieved and used at a later time</li>
+</ul></li>
+<li><p><strong>“Writing data to”: saving data on a file</strong></p></li>
+<li><p><strong>Output file: a file that data is written to</strong></p></li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="figure-6-1-writing-data-to-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="figure-6-1-writing-data-to-a-file">Figure 6-1 Writing Data to a File</h2>
+<p>An illustration of how data is copied from the file to RAM, and referenced by variables. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>There are three variables namely variable pay underscore rate, variable employee underscore i d, and variable employee underscore name, with the data values 18.65, 7451 Z, and Cindy Chandler, respectively. The data is copied to a file on the disk that is represented as a 1 cross 3 array on a disk. Arrows from each cell in the array point to each one of the data values. The cells in row 1 of the array read as follows. Cindy Chandler, 7451 Z, and 18.65.</p>
+</blockquote>
+</section>
+<section id="introduction-to-file-input-and-output-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-file-input-and-output-2-of-2">Introduction to File Input and Output (2 of 2)</h2>
+<ul>
+<li><p><strong>“Reading data from”: process of retrieving data from a file</strong></p></li>
+<li><p><strong>Input file: a file from which data is read</strong></p></li>
+<li><p><strong>Three steps when a program uses a file</strong></p>
+<ul>
+<li>Open the file</li>
+<li>Process the file</li>
+<li>Close the file</li>
+</ul></li>
+</ul>
+</section>
+<section id="figure-6-2-reading-data-from-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="figure-6-2-reading-data-from-a-file">Figure 6-2 Reading Data From a File</h2>
+<p>An illustration of how data is copied from the file to RAM, and referenced by variables. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>There are three variables namely variable pay underscore rate, variable employee underscore i d, and variable employee underscore name, with the data values 18.65, 7451 Z, and Cindy Chandler, respectively. The data is copied to a file on the disk that is represented as a 1 cross 3 array on a disk. Arrows from each cell in the array point to each one of the data values. The cells in row 1 of the array read as follows. Cindy Chandler, 7451 Z, and 18.65.</p>
+</blockquote>
+</section>
+<section id="types-of-files-and-file-access-methods" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-files-and-file-access-methods">Types of Files and File Access Methods</h2>
+<ul>
+<li><p><strong>In general, two types of files</strong></p>
+<ul>
+<li><strong>Text file</strong>: contains data that has been encoded as text</li>
+<li><strong>Binary file</strong>: contains data that has not been converted to text</li>
+</ul></li>
+<li><p><strong>Two ways to access data stored in file</strong></p>
+<ul>
+<li><strong>Sequential access</strong>: file read sequentially from beginning to end, can’t skip ahead</li>
+<li><strong>Direct access</strong>: can jump directly to any piece of data in the file</li>
+</ul></li>
+</ul>
+</section>
+<section id="filenames-and-file-objects-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="filenames-and-file-objects-1-of-2">Filenames and File Objects (1 of 2)</h2>
+<ul>
+<li><p><strong>Filename extensions: short sequences of characters that appear at the end of a filename preceded by a period</strong></p>
+<ul>
+<li>Extension indicates type of data stored in the file</li>
+</ul></li>
+<li><p><strong>File object: object associated with a specific file</strong></p>
+<ul>
+<li>Provides a way for a program to work with the file: file object referenced by a variable</li>
+</ul></li>
+</ul>
+</section>
+<section id="filenames-and-file-objects-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="filenames-and-file-objects-2-of-2">Filenames and File Objects (2 of 2)</h2>
+<p><strong>Figure 6-4</strong> A variable name references a file object that is associated with a file</p>
+<p>Variable underscore name points to file object, which in turn points to a file on the disk. The file on the disk is represented as a 1 cross 3 array on the disk. The cells in row 1 of the array read as follows. Cindy Chandler, 7451 Z, and 18.65.</p>
+</section>
+<section id="opening-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="opening-a-file">Opening a File</h2>
+<ul>
+<li><p><strong>open function: used to open a file</strong></p>
+<ul>
+<li>Creates a file object and associates it with a file on the disk</li>
+<li>General format:</li>
+<li><em>file_object</em> = open(<em>filename, mode</em>)</li>
+</ul></li>
+<li><p><strong>Mode: string specifying how the file will be opened</strong></p>
+<ul>
+<li>Example: reading only (‘r’), writing (‘w’), and appending (‘a’)</li>
+</ul></li>
+</ul>
+</section>
+<section id="specifying-the-location-of-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="specifying-the-location-of-a-file">Specifying the Location of a File</h2>
+<ul>
+<li><p><strong>If open function receives a filename that does not contain a path, assumes that file is in same directory as program</strong></p></li>
+<li><p><strong>If program is running and file is created, it is created in the same directory as the program</strong></p>
+<ul>
+<li><p>Can specify alternative path and file name in the open function argument</p>
+<ul>
+<li>Prefix the path string literal with the letter r</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="writing-data-to-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="writing-data-to-a-file">Writing Data to a File</h2>
+<ul>
+<li><p><strong>Method: a function that belongs to an object</strong></p>
+<ul>
+<li>Performs operations using that object</li>
+</ul></li>
+<li><p><strong>File object’s write method used to write data to the file</strong></p>
+<ul>
+<li>Format: <em>file_variable</em>.write(<em>string</em>)</li>
+</ul></li>
+<li><p><strong>File should be closed using file object close method</strong></p>
+<ul>
+<li>Format: <em>file_variable</em>.close()</li>
+</ul></li>
+</ul>
+</section>
+<section id="reading-data-from-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="reading-data-from-a-file">Reading Data From a File</h2>
+<ul>
+<li><p><strong>read method: file object method that reads entire file contents into memory</strong></p>
+<ul>
+<li>Only works if file has been opened for reading</li>
+<li>Contents returned as a string</li>
+</ul></li>
+<li><p><strong>readline method: file object method that reads a line from the file</strong></p>
+<ul>
+<li>Line returned as a string, including ‘\n’</li>
+</ul></li>
+<li><p><strong>Read position: marks the location of the next item to be read from a file</strong></p></li>
+</ul>
+</section>
+<section id="concatenating-a-newline-to-and-stripping-it-from-a-string" class="level2">
+<h2 class="anchored" data-anchor-id="concatenating-a-newline-to-and-stripping-it-from-a-string">Concatenating a Newline to and Stripping it From a String</h2>
+<ul>
+<li><p><strong>In most cases, data items written to a file are values referenced by variables</strong></p>
+<ul>
+<li><p>Usually necessary to concatenate a ‘\n’ to data before writing it</p>
+<ul>
+<li>Carried out using the + operator in the argument of the write method</li>
+</ul></li>
+</ul></li>
+<li><p><strong>In many cases need to remove ‘\n’ from string after it is read from a file</strong></p>
+<ul>
+<li>rstrip method: string method that strips specific characters from end of the string</li>
+</ul></li>
+</ul>
+</section>
+<section id="appending-data-to-an-existing-file" class="level2">
+<h2 class="anchored" data-anchor-id="appending-data-to-an-existing-file">Appending Data to an Existing File</h2>
+<ul>
+<li><p><strong>When open file with ‘w’ mode, if the file already exists it is overwritten</strong></p></li>
+<li><p><strong>To append data to a file use the ‘a’ mode</strong></p>
+<ul>
+<li>If file exists, it is not erased, and if it does not exist it is created</li>
+<li>Data is written to the file at the end of the current contents</li>
+</ul></li>
+</ul>
+</section>
+<section id="writing-and-reading-numeric-data" class="level2">
+<h2 class="anchored" data-anchor-id="writing-and-reading-numeric-data">Writing and Reading Numeric Data</h2>
+<ul>
+<li><p><strong>Numbers must be converted to strings before they are written to a file</strong></p></li>
+<li><p><strong>str function: converts value to string</strong></p></li>
+<li><p><strong>Number are read from a text file as strings</strong></p>
+<ul>
+<li>Must be converted to numeric type in order to perform mathematical operations</li>
+<li>Use int and float functions to convert string to numeric value</li>
+</ul></li>
+</ul>
+</section>
+<section id="using-loops-to-process-files" class="level2">
+<h2 class="anchored" data-anchor-id="using-loops-to-process-files">Using Loops to Process Files</h2>
+<ul>
+<li><p><strong>Files typically used to hold large amounts of data</strong></p>
+<ul>
+<li>Loop typically involved in reading from and writing to a file</li>
+</ul></li>
+<li><p><strong>Often the number of items stored in file is unknown</strong></p>
+<ul>
+<li><p>The readline method uses an empty string as a sentinel when end of file is reached</p>
+<ul>
+<li>Can write a while loop with the condition</li>
+</ul></li>
+</ul></li>
+</ul>
+<p>while <em>line</em> != ’’</p>
+</section>
+<section id="figure-6-17-general-logic-for-detecting-the-end-of-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="figure-6-17-general-logic-for-detecting-the-end-of-a-file">Figure 6-17 General Logic for Detecting the End of a File</h2>
+<p>A flowchart depicts the logic to detect the end of a file. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>The flow is as follows. The process enters open the file that points to use read line to read the first line from the file. Then the process enters a decision, did read line return an empty string. If yes, true, close the file. If no, false, process the item that was just read from the file and then use read line to read the next line from the file. After this, the process again enters the decision symbol.</p>
+</blockquote>
+</section>
+<section id="using-pythons-for-loop-to-read-lines" class="level2">
+<h2 class="anchored" data-anchor-id="using-pythons-for-loop-to-read-lines">Using Python’s for Loop to Read Lines</h2>
+<ul>
+<li><p><strong>Python allows the programmer to write a for loop that automatically reads lines in a file and stops when end of file is reached</strong></p>
+<ul>
+<li>Format: for <em>line</em> in <em>file_object</em>:</li>
+<li>statements</li>
+<li>The loop iterates once over each line in the file</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-writing-to-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="example-writing-to-a-file">Example – Writing to a File</h2>
+<p>file = open(“example.txt”, “w”)</p>
+<p>for i in range(1, 6):</p>
+<p>file.write(f”Line {i}\n”)</p>
+<p>file.close()</p>
+<blockquote class="blockquote">
+<p>This writes Line 1, Line 2, … to the file.</p>
+</blockquote>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<ul>
+<li>Write the odd numbers from 1 to 15 (inclusive) to file named <em>example2.txt</em></li>
+</ul>
+<blockquote class="blockquote">
+<p>file = open(“example2.txt”, “w”)</p>
+<p>for i in range(1, 16):</p>
+<p>if i % 2 == 1:</p>
+<p>file.write(f”{i}\n”)</p>
+<p>file.close()</p>
+</blockquote>
+</section>
+<section id="example-reading-from-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="example-reading-from-a-file">Example – Reading from a File</h2>
+<p>file = open(“example.txt”, “r”)</p>
+<p>for line in file:</p>
+<p>print(line.rstrip(‘\n’))</p>
+<p>file.close()</p>
+<p>Line 1</p>
+<p>Line 2</p>
+<p>Line 3</p>
+<p>Line 4</p>
+<p>Line 5</p>
+<blockquote class="blockquote">
+<p>Without the rstrip, we would have an extra newline for every printed line.</p>
+</blockquote>
+</section>
+<section id="practice-1" class="level2">
+<h2 class="anchored" data-anchor-id="practice-1">Practice</h2>
+<ul>
+<li>Read from the file <em>example2.txt</em> and add one to each number before it is printed.</li>
+</ul>
+<blockquote class="blockquote">
+<p>file = open(“example2.txt”, “r”)</p>
+<p>for line in file:</p>
+<p>print(int(line.rstrip(‘\n’))+1)</p>
+<p>file.close()</p>
+</blockquote>
+</section>
+<section id="example-appending-to-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="example-appending-to-a-file">Example – Appending to a File</h2>
+<p>file = open(“example.txt”, “a”)</p>
+<p>for i in range(1, 6):</p>
+<p>file.write(f”Line {i}\n”)</p>
+<p>file.close()</p>
+<blockquote class="blockquote">
+<p>This writes Line 1, Line 2, … etc to an existing file and places the new content after any existing content.</p>
+</blockquote>
+</section>
+<section id="practice-2" class="level2">
+<h2 class="anchored" data-anchor-id="practice-2">Practice</h2>
+<ul>
+<li>Read from the file <em>example2.txt</em> and add one to each number storing them in a list.</li>
+<li>Then append the values within the list (each independent value, not the entire list at once) to the file <em>example2.txt</em></li>
+</ul>
+<blockquote class="blockquote">
+<p>file = open(“example2.txt”, “w”)</p>
+<p>for i in range(1, 16):</p>
+<p>if i % 2 == 1:</p>
+<p>file.write(f”{i}\n”)</p>
+<p>file.close()</p>
+<p>print(“File written.\n\n”)</p>
+<p>values = []</p>
+<p>file = open(“example2.txt”, “r”)</p>
+<p>for line in file:</p>
+<p>x = int(line.rstrip(‘\n’))+1</p>
+<p>print(x)</p>
+<p>values.append(x)</p>
+<p>file.close()</p>
+<p>print(“File read.\n\n”)</p>
+<p>file = open(“example2.txt”, “a”)</p>
+<p>for i in values:</p>
+<p>file.write(f”{i}\n”)</p>
+<p>file.close()</p>
+<p>print(“File appended.\n\n”)</p>
+<p>file = open(“example2.txt”, “r”)</p>
+<p>for line in file:</p>
+<p>x = int(line.rstrip(‘\n’))</p>
+<p>print(x)</p>
+<p>file.close()</p>
+<p>print(“File read.”)</p>
+</blockquote>
+</section>
+<section id="combining-reading-and-writing" class="level2">
+<h2 class="anchored" data-anchor-id="combining-reading-and-writing">Combining Reading and Writing</h2>
+<ul>
+<li><p>The <strong>+</strong> symbol adds reading and writing to a file mode.</p></li>
+<li><p>‘r+’ → read <strong>and</strong> write</p>
+<ul>
+<li>File <strong>must already exist</strong></li>
+<li>File pointer starts at the <strong>beginning</strong></li>
+<li>Writing happens at the <strong>current file position</strong></li>
+<li>Writing can <strong>overwrite existing content</strong></li>
+</ul></li>
+</ul>
+</section>
+<section id="combining-reading-and-writing-1" class="level2">
+<h2 class="anchored" data-anchor-id="combining-reading-and-writing-1">Combining Reading and Writing</h2>
+<ul>
+<li><p>The <strong>+</strong> symbol adds reading and writing to a file mode.</p>
+<ul>
+<li><p>‘r+’ → read <strong>and</strong> write (file must already exist)</p>
+<ul>
+<li>File must already exist</li>
+<li>File pointer starts at the beginning</li>
+<li>Writing happens at the current file position</li>
+<li>Writing can overwrite existing content</li>
+</ul></li>
+</ul></li>
+<li><p>‘w+’ → write <strong>and</strong> read (file is cleared first)</p></li>
+<li><p>‘a+’ → append <strong>and</strong> read (writing goes to the end)</p></li>
+</ul>
+</section>
+<section id="combining-reading-and-writing-2" class="level2">
+<h2 class="anchored" data-anchor-id="combining-reading-and-writing-2">Combining Reading and Writing</h2>
+<ul>
+<li><p>‘w+’ → write <strong>and</strong> read</p>
+<ul>
+<li>Deletes all existing contents when the file is opened</li>
+<li>If the file does not exist, it creates it</li>
+<li>File position starts at the beginning</li>
+</ul></li>
+<li><p>‘a+’ → append <strong>and</strong> read</p>
+<ul>
+<li>File is created if it does not exist</li>
+<li>File pointer starts at the end</li>
+<li>Writing always adds to the end</li>
+<li>Reading requires moving the file pointer manually</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-reading-and-writing-to-a-file" class="level2">
+<h2 class="anchored" data-anchor-id="example-reading-and-writing-to-a-file">Example – Reading and Writing to a File</h2>
+<p>file = open(“example.txt”, “a+“)</p>
+<p>for i in range(1, 6):</p>
+<p>file.write(f”Line {i}\n”)</p>
+<p>for line in file:</p>
+<p>print(line.rstrip(‘\n’))</p>
+<p>file.close()</p>
+<p>“No Output”</p>
+<blockquote class="blockquote">
+<p>Without the rstrip, we would have an extra newline for every printed line.</p>
+</blockquote>
+</section>
+<section id="example-reading-and-writing-to-a-file-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-reading-and-writing-to-a-file-1">Example – Reading and Writing to a File</h2>
+<p>file = open(“example.txt”, “a+“)</p>
+<p>for i in range(1, 6):</p>
+<p>file.write(f”Line {i}\n”)</p>
+<p>for line in file:</p>
+<p>print(line.rstrip(‘\n’))</p>
+<p>file.close()</p>
+<ul>
+<li><strong>What happens:</strong></li>
+<li>Lines are successfully written to the file</li>
+<li>The file pointer is now at the <strong>end</strong></li>
+<li>The read loop starts at the end</li>
+<li>Result: <strong>Nothing is printed</strong></li>
+<li>This is not an error, it is expected behavior.</li>
+</ul>
+<blockquote class="blockquote">
+<p>Without the rstrip, we would have an extra newline for every printed line.</p>
+</blockquote>
+</section>
+<section id="file-pointer" class="level2">
+<h2 class="anchored" data-anchor-id="file-pointer">File Pointer</h2>
+<ul>
+<li><p>Python keeps track of the current location we are at in the file using a <strong>file pointer</strong>.</p></li>
+<li><p>So, to read what was just written, we must move the file pointer:</p></li>
+<li><p>We can do this by: file.seek(0)</p></li>
+<li><p>seek(0) moves the pointer to the <strong>start of the file</strong></p>
+<ul>
+<li>Now reading will work as expected in our previous example</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-reading-and-writing-to-a-file-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-reading-and-writing-to-a-file-2">Example – Reading and Writing to a File</h2>
+<p>file = open(“example.txt”, “a+“)</p>
+<p>for i in range(1, 6):</p>
+<p>file.write(f”Line {i}\n”)</p>
+<p>file.seek(0)</p>
+<p>for line in file:</p>
+<p>print(line.rstrip(‘\n’))</p>
+<p>file.close()</p>
+<ul>
+<li><strong>What happens:</strong></li>
+<li>Lines are successfully written to the file</li>
+<li>The file pointer is now at the <strong>end</strong></li>
+<li>We move the file pointer to the <strong>beginning</strong> using file.seek(0)</li>
+<li>The read loop starts at the beginning</li>
+<li>The output is now the expected “Line 1” … “Line 5”</li>
+</ul>
+<blockquote class="blockquote">
+<p>Without the rstrip, we would have an extra newline for every printed line.</p>
+</blockquote>
+</section>
+<section id="using-the-with-statement-to-open-files-1-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-with-statement-to-open-files-1-of-4">Using the with Statement to Open Files (1 of 4)</h2>
+<ul>
+<li><strong>The with statement can be used to open a file and automatically close the file. General format:</strong></li>
+</ul>
+<p>with open(<em>filename</em>, <em>mode</em>) as <em>file</em>_<em>variable</em>:</p>
+<p><em>statement</em></p>
+<p><em>statement</em></p>
+<p><em>etc</em>.</p>
+<ul>
+<li><em>filename</em> is a string specifying the name of the file</li>
+<li><em>mode</em> is a string specifying the mode, such as ‘r’, ‘w’, or ‘a’</li>
+<li><em>file</em>_<em>variable</em> is the name of the variable that will reference the file object</li>
+<li>The indented block of statements is known as the with suite</li>
+</ul>
+</section>
+<section id="using-the-with-statement-to-open-files-2-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-with-statement-to-open-files-2-of-4">Using the with Statement to Open Files (2 of 4)</h2>
+<ul>
+<li><strong>Example:</strong></li>
+</ul>
+<p>with open(‘myfile.txt’, ‘w’) as output_file:</p>
+<p><em>statement</em></p>
+<p><em>statement</em></p>
+<p><em>etc</em>.</p>
+<ul>
+<li><strong>This example opens a file named myfile.txt</strong></li>
+<li><strong>Code inside the with suite can use output_file to write data to the file</strong></li>
+<li><strong>When the code inside the with suite has finished, the file is automatically closed</strong></li>
+</ul>
+</section>
+<section id="using-the-with-statement-to-open-files-3-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-with-statement-to-open-files-3-of-4">Using the with Statement to Open Files (3 of 4)</h2>
+<ul>
+<li><strong>Example:</strong></li>
+</ul>
+<p>with open(‘myfile.txt’, ‘r’) as input_file:</p>
+<p><em>statement</em></p>
+<p><em>statement</em></p>
+<p><em>etc</em>.</p>
+<ul>
+<li><strong>This example opens a file named myfile.txt</strong></li>
+<li><strong>Code inside the with suite can use input_file to read data from the file</strong></li>
+<li><strong>When the code inside the with suite has finished, the file is automatically closed</strong></li>
+</ul>
+</section>
+<section id="using-the-with-statement-to-open-files-4-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-with-statement-to-open-files-4-of-4">Using the with Statement to Open Files (4 of 4)</h2>
+<ul>
+<li><strong>Opening multiple files with a with statement:</strong></li>
+</ul>
+<p>with open(‘file1.txt’, ‘r’) as input_file,</p>
+<p>open(‘file2.txt’, ‘w’) as output_file:</p>
+<p><em>statement</em></p>
+<p><em>statement</em></p>
+<p><em>etc</em>.</p>
+<ul>
+<li><strong>This example opens a file named file1.txt for reading, and a file named file2.txt for writing</strong></li>
+<li><strong>Code inside the with suite can use input_file to read data from file1.txt and output_file to write data to file2.txt</strong></li>
+<li><strong>When the code inside the with suite has finished, both files are automatically closed</strong></li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>with open(“example.txt”, “w”) as file:</p>
+<p>for i in range(1, 6):</p>
+<p>file.write(f”Line {i}\n”)</p>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p>with open(“example.txt”, “r”) as file:</p>
+<p>for line in file:</p>
+<p>print(line.rstrip(‘\n’))</p>
+</section>
+<section id="example-copying-from-one-file-to-another-file" class="level2">
+<h2 class="anchored" data-anchor-id="example-copying-from-one-file-to-another-file">Example – Copying from one File to Another File</h2>
+<p>with open(‘file1.txt’, ‘r’) as input_file,<br>
+open(‘file2.txt’, ‘w’) as output_file:</p>
+<p>for line in input_file:</p>
+<p>output_file.write(line)</p>
+</section>
+<section id="exception-handing" class="level2">
+<h2 class="anchored" data-anchor-id="exception-handing">Exception Handing</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="exceptions-1-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="exceptions-1-of-4">Exceptions (1 of 4)</h2>
+<ul>
+<li><p><strong>Exception: error that occurs while a program is running</strong></p>
+<ul>
+<li>Usually causes program to abruptly halt</li>
+</ul></li>
+<li><p><strong>Traceback: error message that gives information regarding line numbers that caused the exception</strong></p>
+<ul>
+<li>Indicates the type of exception and brief description of the error that caused exception to be raised</li>
+</ul></li>
+</ul>
+</section>
+<section id="exceptions-2-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="exceptions-2-of-4">Exceptions (2 of 4)</h2>
+<ul>
+<li><p><strong>Many exceptions can be prevented by careful coding</strong></p>
+<ul>
+<li>Example: input validation</li>
+<li>Usually involve a simple decision construct</li>
+</ul></li>
+<li><p><strong>Some exceptions cannot be avoided by careful coding</strong></p>
+<ul>
+<li><p>Examples</p>
+<ul>
+<li>Trying to convert non-numeric string to an integer</li>
+<li>Trying to open for reading a file that doesn’t exist</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="exceptions-3-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="exceptions-3-of-4">Exceptions (3 of 4)</h2>
+<ul>
+<li><p><strong>Exception handler: code that responds when exceptions are raised and prevents program from crashing</strong></p>
+<ul>
+<li><p>In Python, written as try/except statement</p>
+<ul>
+<li>General format: try:</li>
+</ul></li>
+</ul></li>
+</ul>
+<p><em>statements</em></p>
+<p>except <em>exceptionName</em>:</p>
+<p><em>statements</em></p>
+<ul>
+<li><strong>Try suite</strong>: statements that can potentially raise an exception</li>
+<li><strong>Handler</strong>: statements contained in except block</li>
+</ul>
+</section>
+<section id="exceptions-4-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="exceptions-4-of-4">Exceptions (4 of 4)</h2>
+<ul>
+<li><p><strong>If statement in try suite raises exception:</strong></p>
+<ul>
+<li><p>Exception specified in except clause:</p>
+<ul>
+<li>Handler immediately following except clause executes</li>
+<li>Continue program after try/except statement</li>
+</ul></li>
+<li><p>Other exceptions:</p>
+<ul>
+<li>Program halts with traceback error message</li>
+</ul></li>
+</ul></li>
+<li><p><strong>If no exception is raised, handlers are skipped</strong></p></li>
+</ul>
+</section>
+<section id="displaying-an-exceptions-default-error-message" class="level2">
+<h2 class="anchored" data-anchor-id="displaying-an-exceptions-default-error-message">Displaying an Exception’s Default Error Message</h2>
+<ul>
+<li><p><strong>Exception object: object created in memory when an exception is thrown</strong></p>
+<ul>
+<li><p>Usually contains default error message pertaining to the exception</p></li>
+<li><p>Can assign the exception object to a variable in an except clause</p>
+<ul>
+<li>Example: except ValueError as err:</li>
+</ul></li>
+<li><p>Can pass exception object variable to print function to display the default error message</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example</h2>
+<p><em>print(variable)</em></p>
+<p><em>print(“Continuing on”)</em></p>
+<p><em>&gt;</em> NameError: name ‘variable’ is not defined</p>
+</section>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example</h2>
+<p><em>try:</em></p>
+<p><em>print(variable)</em></p>
+<p><em>except NameError as e:</em></p>
+<p><em>print(e)</em></p>
+<p><em>print(“Continuing on”)</em></p>
+<p><em>&gt;</em>name ‘variable’ is not defined</p>
+<p>&gt;Continuing on</p>
+</section>
+<section id="practice-3" class="level2">
+<h2 class="anchored" data-anchor-id="practice-3">Practice</h2>
+<ul>
+<li>Given the list [1,2,’3’,4,’5’,6], use a for loop to attempt to add each element into an accumulator variable.</li>
+<li>Use exception handling (use TypeError as the exception type) to ignore errors for undefined operations.</li>
+</ul>
+<blockquote class="blockquote">
+<p>var = [1,2,‘3’,4,‘5’,6]</p>
+<p>s = 0</p>
+<p>for i in var:</p>
+<p>try:</p>
+<p>s += i</p>
+<p>except TypeError as e:</p>
+<p>print(e)</p>
+<p>continue</p>
+<p>print(s)</p>
+</blockquote>
+</section>
+<section id="handling-multiple-exceptions" class="level2">
+<h2 class="anchored" data-anchor-id="handling-multiple-exceptions">Handling Multiple Exceptions</h2>
+<ul>
+<li><p><strong>Often code in the try suite can throw more than one type of exception</strong></p>
+<ul>
+<li>Need to write except clause for each type of exception that needs to be handled</li>
+</ul></li>
+<li><p><strong>An except clause that does not list a specific exception will handle any exception that is raised in the try suite</strong></p>
+<ul>
+<li>Should always be last in a series of except clauses</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example</h2>
+<p><em>try:</em></p>
+<p><em>num = int(input())</em></p>
+<p><em>result = 10 / num</em></p>
+<p><em>print(result)</em></p>
+<p><em>except ValueError:</em></p>
+<p><em>print(”Invalid Number.”)</em></p>
+<p><em>except ZeroDivisionError:</em></p>
+<p><em>print(”Zero Division.”)</em></p>
+<ul>
+<li>We can catch two specific errors here:</li>
+<li><strong>ValueError</strong>: input is not a number</li>
+<li><strong>ZeroDivisionError</strong>: user enters 0</li>
+<li>Each error is handled separately</li>
+</ul>
+</section>
+<section id="example-5" class="level2">
+<h2 class="anchored" data-anchor-id="example-5">Example</h2>
+<p><em>try:</em></p>
+<p><em>num = int(input())</em></p>
+<p><em>result = 10 / num</em></p>
+<p><em>print(result)</em></p>
+<p><em>except:</em></p>
+<p><em>print(“An error occurred.”)</em></p>
+<ul>
+<li>This handles <strong><em>all</em></strong> exceptions</li>
+<li>But it does <strong>not tell you what went wrong</strong></li>
+<li>This format is considered bad form</li>
+<li>Always use specific exceptions when possible</li>
+</ul>
+</section>
+<section id="example-6" class="level2">
+<h2 class="anchored" data-anchor-id="example-6">Example</h2>
+<p><em>try:</em></p>
+<p><em>num = int(input())</em></p>
+<p><em>result = 10 / num</em></p>
+<p><em>print(result)</em></p>
+<p><em>except ValueError:</em></p>
+<p><em>print(”Invalid Number.”)</em></p>
+<p><em>except ZeroDivisionError:</em></p>
+<p><em>print(”Zero Division.”)</em></p>
+<p><em>except:</em></p>
+<p><em>print(“An error occurred.”)</em></p>
+<ul>
+<li><p>Python checks except clauses <strong>top to bottom</strong></p></li>
+<li><p>A generic except would catch everything if placed first</p>
+<ul>
+<li>Specific error handling would never run</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-else-clause" class="level2">
+<h2 class="anchored" data-anchor-id="the-else-clause">The else Clause</h2>
+<ul>
+<li><p><strong>try/except statement may include an optional else clause, which appears after all the except clauses</strong></p>
+<ul>
+<li><p>Aligned with try and except clauses</p></li>
+<li><p>Syntax similar to else clause in decision structure</p></li>
+<li><p><strong>Else suite</strong>: block of statements executed after statements in try suite, only if no exceptions were raised</p>
+<ul>
+<li>If exception was raised, the else suite is skipped</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-7" class="level2">
+<h2 class="anchored" data-anchor-id="example-7">Example</h2>
+<p>try:</p>
+<p>file = open(“example.txt”, “r”)</p>
+<p>except FileNotFoundError:</p>
+<p>print(“Error: The file does not exist.”)</p>
+<p>else:</p>
+<p>for line in file:</p>
+<p>print(line.strip())</p>
+<p>file.close</p>
+<blockquote class="blockquote">
+<p>The try block attempts to open a file.</p>
+<p>If the file does not exist, the except block catches the FileNotFoundError and displays an error message.</p>
+<p>If no exception occurs, the else block executes.</p>
+</blockquote>
+</section>
+<section id="the-finally-clause" class="level2">
+<h2 class="anchored" data-anchor-id="the-finally-clause">The finally Clause</h2>
+<ul>
+<li><p><strong>try/except statement may include an optional finally clause, which appears after all the except clauses</strong></p>
+<ul>
+<li>Aligned with try and except clauses</li>
+<li>General format: finally:</li>
+</ul></li>
+</ul>
+<p>statements</p>
+<ul>
+<li><p><strong>Finally suite</strong>: block of statements after the finally clause</p>
+<ul>
+<li>Execute whether an exception occurs or not</li>
+<li>Purpose is to perform cleanup before exiting</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-8" class="level2">
+<h2 class="anchored" data-anchor-id="example-8">Example</h2>
+<p>try:</p>
+<p>file = open(“example.txt”, “r”)</p>
+<p>except FileNotFoundError:</p>
+<p>print(“Error: The file does not exist.”)</p>
+<p>finally:</p>
+<p>try:</p>
+<p>file.close()</p>
+<p>except NameError:</p>
+<p>pass</p>
+<blockquote class="blockquote">
+<p>The try block attempts to open and read the file.</p>
+<p>The except block handles the case where the file does not exist.</p>
+<p>The finally block ensures the file is closed if it was successfully opened.</p>
+</blockquote>
+</section>
+<section id="what-if-an-exception-is-not-handled" class="level2">
+<h2 class="anchored" data-anchor-id="what-if-an-exception-is-not-handled">What If an Exception Is Not Handled?</h2>
+<ul>
+<li><p><strong>Two ways for exception to go unhandled:</strong></p>
+<ul>
+<li>No except clause specifying exception of the right type</li>
+<li>Exception raised outside a try suite</li>
+</ul></li>
+<li><p><strong>In both cases, exception will cause the program to halt</strong></p>
+<ul>
+<li>Python documentation provides information about exceptions that can be raised by different functions</li>
+</ul></li>
+</ul>
 
 
 </section>

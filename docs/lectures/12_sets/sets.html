@@ -162,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Strings Lists Tuples</span></a>
+ <span class="menu-text">3: Strings, Lists and Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+ <span class="menu-text">4: Vectors and NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,19 +198,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/09_loops/loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9: For Loops</span></a>
+ <span class="menu-text">9: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/10_matrices/matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12: Matrices</span></a>
+ <span class="menu-text">10: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/11_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
+ <span class="menu-text">11: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,25 +222,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15: Exceptions and Files</span></a>
+ <span class="menu-text">13: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/14_pandas/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16: Pandas</span></a>
+ <span class="menu-text">14: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/15_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
+ <span class="menu-text">15: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">18: Distance and Similarity</span></a>
+ <span class="menu-text">16: Distance and Similarity</span></a>
   </div>
 </li>
       </ul>
@@ -255,8 +255,37 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#sets" id="toc-sets" class="nav-link" data-scroll-target="#sets">Sets</a></li>
+  <li><a href="#sets-1" id="toc-sets-1" class="nav-link" data-scroll-target="#sets-1">Sets</a></li>
+  <li><a href="#creating-a-set" id="toc-creating-a-set" class="nav-link" data-scroll-target="#creating-a-set">Creating a Set</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#getting-the-number-of-and-adding-elements" id="toc-getting-the-number-of-and-adding-elements" class="nav-link" data-scroll-target="#getting-the-number-of-and-adding-elements">Getting the Number of and Adding Elements</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  <li><a href="#deleting-elements-from-a-set" id="toc-deleting-elements-from-a-set" class="nav-link" data-scroll-target="#deleting-elements-from-a-set">Deleting Elements From a Set</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example</a></li>
+  <li><a href="#using-the-for-loop-in-and-not-in-operators-with-a-set" id="toc-using-the-for-loop-in-and-not-in-operators-with-a-set" class="nav-link" data-scroll-target="#using-the-for-loop-in-and-not-in-operators-with-a-set">Using the for Loop, in, and not in Operators With a Set</a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
+  <li><a href="#finding-the-union-of-sets" id="toc-finding-the-union-of-sets" class="nav-link" data-scroll-target="#finding-the-union-of-sets">Finding the Union of Sets</a></li>
+  <li><a href="#example-6" id="toc-example-6" class="nav-link" data-scroll-target="#example-6">Example</a></li>
+  <li><a href="#finding-the-intersection-of-sets" id="toc-finding-the-intersection-of-sets" class="nav-link" data-scroll-target="#finding-the-intersection-of-sets">Finding the Intersection of Sets</a></li>
+  <li><a href="#example-7" id="toc-example-7" class="nav-link" data-scroll-target="#example-7">Example</a></li>
+  <li><a href="#finding-the-difference-of-sets" id="toc-finding-the-difference-of-sets" class="nav-link" data-scroll-target="#finding-the-difference-of-sets">Finding the Difference of Sets</a></li>
+  <li><a href="#example-8" id="toc-example-8" class="nav-link" data-scroll-target="#example-8">Example</a></li>
+  <li><a href="#finding-the-symmetric-difference-of-sets" id="toc-finding-the-symmetric-difference-of-sets" class="nav-link" data-scroll-target="#finding-the-symmetric-difference-of-sets">Finding the Symmetric Difference of Sets</a></li>
+  <li><a href="#example-9" id="toc-example-9" class="nav-link" data-scroll-target="#example-9">Example</a></li>
+  <li><a href="#finding-subsets-and-supersets-1-of-2" id="toc-finding-subsets-and-supersets-1-of-2" class="nav-link" data-scroll-target="#finding-subsets-and-supersets-1-of-2">Finding Subsets and Supersets (1 of 2)</a></li>
+  <li><a href="#example-10" id="toc-example-10" class="nav-link" data-scroll-target="#example-10">Example</a></li>
+  <li><a href="#example-11" id="toc-example-11" class="nav-link" data-scroll-target="#example-11">Example</a></li>
+  <li><a href="#finding-subsets-and-supersets-2-of-2" id="toc-finding-subsets-and-supersets-2-of-2" class="nav-link" data-scroll-target="#finding-subsets-and-supersets-2-of-2">Finding Subsets and Supersets (2 of 2)</a></li>
+  <li><a href="#example-12" id="toc-example-12" class="nav-link" data-scroll-target="#example-12">Example</a></li>
+  <li><a href="#example-13" id="toc-example-13" class="nav-link" data-scroll-target="#example-13">Example</a></li>
+  <li><a href="#set-comprehensions-1-of-4" id="toc-set-comprehensions-1-of-4" class="nav-link" data-scroll-target="#set-comprehensions-1-of-4">Set Comprehensions (1 of 4)</a></li>
+  <li><a href="#set-comprehensions-2-of-4" id="toc-set-comprehensions-2-of-4" class="nav-link" data-scroll-target="#set-comprehensions-2-of-4">Set Comprehensions (2 of 4)</a></li>
+  <li><a href="#set-comprehensions-3-of-4" id="toc-set-comprehensions-3-of-4" class="nav-link" data-scroll-target="#set-comprehensions-3-of-4">Set Comprehensions (3 of 4)</a></li>
+  <li><a href="#set-comprehensions-4-of-4" id="toc-set-comprehensions-4-of-4" class="nav-link" data-scroll-target="#set-comprehensions-4-of-4">Set Comprehensions (4 of 4)</a></li>
   </ul>
 </nav>
     </div>
@@ -282,17 +311,341 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="sets" class="level2">
+<h2 class="anchored" data-anchor-id="sets">Sets</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="sets-1" class="level2">
+<h2 class="anchored" data-anchor-id="sets-1">Sets</h2>
 <ul>
-<li>Writing loops inside loops</li>
-<li>Tracking inner vs outer loop variables</li>
-<li>Generating grids and combinations</li>
+<li><p><strong>Set: object that stores a collection of data in same way as mathematical set</strong></p>
+<ul>
+<li>All items must be unique</li>
+<li>Set is unordered</li>
+<li>Elements can be of different data types</li>
+</ul></li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="creating-a-set" class="level2">
+<h2 class="anchored" data-anchor-id="creating-a-set">Creating a Set</h2>
+<ul>
+<li><p><strong>set function: used to create a set</strong></p>
+<ul>
+<li><p>For empty set, call set()</p></li>
+<li><p>For non-empty set, call set(<em>argument</em>) where <em>argument</em> is an object that contains iterable elements</p>
+<ul>
+<li><p>e.g., <em>argument</em> can be a list, string, or tuple</p></li>
+<li><p>If <em>argument</em> is a string, each character becomes a set element</p>
+<ul>
+<li>For set of strings, pass them to the function as a list</li>
+</ul></li>
+<li><p>If <em>argument</em> contains duplicates, only one of the duplicates will appear in the set</p></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p><em>numbers = set(list(range(1,6)))</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; {1, 2, 3, 4, 5}</em></p>
+</section>
+<section id="getting-the-number-of-and-adding-elements" class="level2">
+<h2 class="anchored" data-anchor-id="getting-the-number-of-and-adding-elements">Getting the Number of and Adding Elements</h2>
+<ul>
+<li><p><strong>len function: returns the number of elements in the set</strong></p></li>
+<li><p><strong>Sets are mutable objects</strong></p></li>
+<li><p><strong>add method: adds an element to a set</strong></p></li>
+<li><p><strong>update method: adds a group of elements to a set</strong></p>
+<ul>
+<li>Argument must be a sequence containing iterable elements, and each of the elements is added to the set</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p><em>numbers = set(list(range(1,6)))</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; {1, 2, 3, 4, 5}</em></p>
+<p><em>numbers.add(’six’)</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; {1, 2, 3, 4, 5, ‘six’}</em></p>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example</h2>
+<p><em>numbers = set(list(range(1,6)))</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; {1, 2, 3, 4, 5}</em></p>
+<p><em>numbers.update([‘six’,‘seven’,8, 9])</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; {1, 2, 3, 4, 5, ‘seven’, 8, 9, ‘six’}</em></p>
+<blockquote class="blockquote">
+<p>The order you see from the print statement will often change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.</p>
+</blockquote>
+</section>
+<section id="deleting-elements-from-a-set" class="level2">
+<h2 class="anchored" data-anchor-id="deleting-elements-from-a-set">Deleting Elements From a Set</h2>
+<ul>
+<li><p><strong>remove and discard methods: remove the specified item from the set</strong></p>
+<ul>
+<li><p>The item that should be removed is passed to both methods as an argument</p></li>
+<li><p>Behave differently when the specified item is not found in the set</p>
+<ul>
+<li>remove method raises a KeyError exception</li>
+<li>discard method does not raise an exception</li>
+</ul></li>
+</ul></li>
+<li><p><strong>clear method: clears all the elements of the set</strong></p></li>
+</ul>
+</section>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example</h2>
+<p><em>numbers = set(list(range(1,6)))</em></p>
+<p><em>numbers.remove(1)</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; {2, 3, 4, 5}</em></p>
+<p><em>numbers.remove(6)</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; KeyError: 6</em></p>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example</h2>
+<p><em>numbers = set(list(range(1,6)))</em></p>
+<p><em>numbers.discard(1)</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt; {2, 3, 4, 5}</em></p>
+<p><em>numbers.discard(6)</em></p>
+<p><em>print(numbers)</em></p>
+<p><em>&gt;</em></p>
+</section>
+<section id="using-the-for-loop-in-and-not-in-operators-with-a-set" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-for-loop-in-and-not-in-operators-with-a-set">Using the for Loop, in, and not in Operators With a Set</h2>
+<ul>
+<li><p><strong>A for loop can be used to iterate over elements in a set</strong></p>
+<ul>
+<li>General format: for <em>item</em> in <em>set</em>:</li>
+<li>The loop iterates once for each element in the set</li>
+</ul></li>
+<li><p><strong>The in operator can be used to test whether a value exists in a set</strong></p>
+<ul>
+<li>Similarly, the not in operator can be used to test whether a value does not exist in a set</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-5" class="level2">
+<h2 class="anchored" data-anchor-id="example-5">Example</h2>
+<p><em>numbers = set(list(range(1,6)))</em></p>
+<p><em>for i in numbers:</em></p>
+<p><em>print(i)</em></p>
+<p><em>&gt; 1</em></p>
+<p><em>&gt; 2</em></p>
+<p><em>&gt; 3</em></p>
+<p><em>&gt; 4</em></p>
+<p><em>&gt; 5</em></p>
+</section>
+<section id="finding-the-union-of-sets" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-union-of-sets">Finding the Union of Sets</h2>
+<ul>
+<li><p><strong>Union of two sets: a set that contains all the elements of both sets</strong></p></li>
+<li><p><strong>To find the union of two sets:</strong></p>
+<ul>
+<li><p>Use the union method</p>
+<ul>
+<li>Format: <em>set1</em>.union(<em>set2</em>)</li>
+</ul></li>
+<li><p>Use the | operator</p>
+<ul>
+<li>Format: <em>set1</em> | <em>set2</em></li>
+</ul></li>
+<li><p>Both techniques return a new set which contains the union of both sets</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-6" class="level2">
+<h2 class="anchored" data-anchor-id="example-6">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {2,3,4}</em></p>
+<p><em>print(A | B)</em></p>
+<p><em>&gt; {1, 2, 3, 4}</em></p>
+</section>
+<section id="finding-the-intersection-of-sets" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-intersection-of-sets">Finding the Intersection of Sets</h2>
+<ul>
+<li><p><strong>Intersection of two sets: a set that contains only the elements found in both sets</strong></p></li>
+<li><p><strong>To find the intersection of two sets:</strong></p>
+<ul>
+<li><p>Use the intersection method</p>
+<ul>
+<li>Format: <em>set1</em>.intersection(<em>set2</em>)</li>
+</ul></li>
+<li><p>Use the &amp; operator</p>
+<ul>
+<li>Format: <em>set1</em> &amp; <em>set2</em></li>
+</ul></li>
+<li><p>Both techniques return a new set which contains the intersection of both sets</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-7" class="level2">
+<h2 class="anchored" data-anchor-id="example-7">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {2,3,4}</em></p>
+<p><em>print(A &amp; B)</em></p>
+<p><em>&gt; {2, 3}</em></p>
+</section>
+<section id="finding-the-difference-of-sets" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-difference-of-sets">Finding the Difference of Sets</h2>
+<ul>
+<li><p><strong>Difference of two sets: a set that contains the elements that appear in the first set but do not appear in the second set</strong></p></li>
+<li><p><strong>To find the difference of two sets:</strong></p>
+<ul>
+<li><p>Use the difference method</p>
+<ul>
+<li>Format: <em>set1</em>.difference(<em>set2</em>)</li>
+</ul></li>
+<li><p>Use the - operator</p>
+<ul>
+<li>Format: <em>set1</em> - <em>set2</em></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-8" class="level2">
+<h2 class="anchored" data-anchor-id="example-8">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {2,3,4}</em></p>
+<p><em>print(A - B)</em></p>
+<p><em>&gt; {1}</em></p>
+</section>
+<section id="finding-the-symmetric-difference-of-sets" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-symmetric-difference-of-sets">Finding the Symmetric Difference of Sets</h2>
+<ul>
+<li><p><strong>Symmetric difference of two sets: a set that contains the elements that are not shared by the two sets</strong></p></li>
+<li><p><strong>To find the symmetric difference of two sets:</strong></p>
+<ul>
+<li><p>Use the symmetric_difference method</p>
+<ul>
+<li>Format: <em>set1</em>.symmetric_difference(<em>set2</em>)</li>
+</ul></li>
+<li><p>Use the ^ operator</p>
+<ul>
+<li>Format: <em>set1</em> ^ <em>set2</em></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-9" class="level2">
+<h2 class="anchored" data-anchor-id="example-9">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {2,3,4}</em></p>
+<p><em>print(A ^ B)</em></p>
+<p><em>&gt; {1, 4}</em></p>
+</section>
+<section id="finding-subsets-and-supersets-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="finding-subsets-and-supersets-1-of-2">Finding Subsets and Supersets (1 of 2)</h2>
+<ul>
+<li><p><strong>Set A is subset of set B if all the elements in set A are included in set B</strong></p></li>
+<li><p><strong>To determine whether set A is subset of set B</strong></p>
+<ul>
+<li><p>Use the issubset method</p>
+<ul>
+<li>Format: <em>setA</em>.issubset(<em>setB</em>)</li>
+</ul></li>
+<li><p>Use the &lt;= operator</p>
+<ul>
+<li>Format: <em>setA</em> &lt;= <em>setB</em></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-10" class="level2">
+<h2 class="anchored" data-anchor-id="example-10">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {3,4}</em></p>
+<p><em>print(B &lt;= A)</em></p>
+<p><em>&gt; False</em></p>
+</section>
+<section id="example-11" class="level2">
+<h2 class="anchored" data-anchor-id="example-11">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {3}</em></p>
+<p><em>print(B &lt;= A)</em></p>
+<p><em>&gt; True</em></p>
+</section>
+<section id="finding-subsets-and-supersets-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="finding-subsets-and-supersets-2-of-2">Finding Subsets and Supersets (2 of 2)</h2>
+<ul>
+<li><p><strong>Set A is superset of set B if it contains all the elements of set B</strong></p></li>
+<li><p><strong>To determine whether set A is superset of set B</strong></p>
+<ul>
+<li><p>Use the issuperset method</p>
+<ul>
+<li>Format: <em>setA</em>.issuperset(<em>setB</em>)</li>
+</ul></li>
+<li><p>Use the &gt;= operator</p>
+<ul>
+<li>Format: <em>setA</em> &gt;= <em>setB</em></li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-12" class="level2">
+<h2 class="anchored" data-anchor-id="example-12">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {3,4}</em></p>
+<p><em>print(A &gt;= B)</em></p>
+<p><em>&gt; False</em></p>
+</section>
+<section id="example-13" class="level2">
+<h2 class="anchored" data-anchor-id="example-13">Example</h2>
+<p><em>A = {1,2,3}</em></p>
+<p><em>B = {3}</em></p>
+<p><em>print(A &gt;= B)</em></p>
+<p><em>&gt; True</em></p>
+</section>
+<section id="set-comprehensions-1-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="set-comprehensions-1-of-4">Set Comprehensions (1 of 4)</h2>
+<ul>
+<li>Set comprehension: a concise expression that creates a new set by iterating over the elements of a sequence</li>
+<li>Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces ({}) instead of brackets ([])</li>
+</ul>
+</section>
+<section id="set-comprehensions-2-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="set-comprehensions-2-of-4">Set Comprehensions (2 of 4)</h2>
+<ul>
+<li><strong>Example: making a copy of a set</strong></li>
+</ul>
+<p>&gt;&gt;&gt; set1 = set([1, 2, 3, 4, 5])</p>
+<p>&gt;&gt;&gt; set2 = {item for item in set1}</p>
+<p>&gt;&gt;&gt; set2</p>
+<p>{1, 2, 3, 4, 5}</p>
+<p>&gt;&gt;&gt;</p>
+</section>
+<section id="set-comprehensions-3-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="set-comprehensions-3-of-4">Set Comprehensions (3 of 4)</h2>
+<ul>
+<li><strong>Example: creating a set that contains the squares of the numbers stored in another set</strong></li>
+</ul>
+<p>&gt;&gt;&gt; set1 = set([1, 2, 3, 4, 5])</p>
+<p>&gt;&gt;&gt; set2 = {item**2 for item in set1}</p>
+<p>&gt;&gt;&gt; set2</p>
+<p>{1, 4, 9, 16, 25}</p>
+<p>&gt;&gt;&gt;</p>
+</section>
+<section id="set-comprehensions-4-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="set-comprehensions-4-of-4">Set Comprehensions (4 of 4)</h2>
+<ul>
+<li><strong>Example: copying the numbers in a set that are less than 10</strong></li>
+</ul>
+<p>&gt;&gt;&gt; set1 = set([1, 20, 2, 40, 3, 50])</p>
+<p>&gt;&gt;&gt; set2 = {item for item in set1 if item &lt; 10}</p>
+<p>&gt;&gt;&gt; set2</p>
+<p>{1, 2, 3}</p>
+<p>&gt;&gt;&gt;</p>
 
 
 </section>

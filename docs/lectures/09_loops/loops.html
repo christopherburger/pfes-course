@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>9: For Loops – Programming for Engineers and Scientists</title>
+<title>9: Loops – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/09_loops/loops.html">9: For Loops</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/09_loops/loops.html">9: Loops</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Strings Lists Tuples</span></a>
+ <span class="menu-text">3: Strings, Lists and Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+ <span class="menu-text">4: Vectors and NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,19 +198,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/09_loops/loops.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">9: For Loops</span></a>
+ <span class="menu-text">9: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/10_matrices/matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12: Matrices</span></a>
+ <span class="menu-text">10: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/11_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
+ <span class="menu-text">11: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,25 +222,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15: Exceptions and Files</span></a>
+ <span class="menu-text">13: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/14_pandas/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16: Pandas</span></a>
+ <span class="menu-text">14: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/15_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
+ <span class="menu-text">15: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">18: Distance and Similarity</span></a>
+ <span class="menu-text">16: Distance and Similarity</span></a>
   </div>
 </li>
       </ul>
@@ -255,17 +255,121 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#for-loops-and-iteration" id="toc-for-loops-and-iteration" class="nav-link" data-scroll-target="#for-loops-and-iteration">For loops and Iteration</a></li>
+  <li><a href="#introduction-to-repetition-structures" id="toc-introduction-to-repetition-structures" class="nav-link" data-scroll-target="#introduction-to-repetition-structures">Introduction to Repetition Structures</a></li>
+  <li><a href="#condition-controlled-and-count-controlled-loops" id="toc-condition-controlled-and-count-controlled-loops" class="nav-link" data-scroll-target="#condition-controlled-and-count-controlled-loops">Condition-Controlled and Count-Controlled Loops</a></li>
+  <li><a href="#the-for-loop-a-count-controlled-loop" id="toc-the-for-loop-a-count-controlled-loop" class="nav-link" data-scroll-target="#the-for-loop-a-count-controlled-loop">The for Loop: a Count-Controlled Loop</a></li>
+  <li><a href="#figure-4-4-the-for-loop" id="toc-figure-4-4-the-for-loop" class="nav-link" data-scroll-target="#figure-4-4-the-for-loop">Figure 4-4 The for Loop</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
+  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1">Practice</a></li>
+  <li><a href="#practice-2" id="toc-practice-2" class="nav-link" data-scroll-target="#practice-2">Practice</a></li>
+  <li><a href="#using-the-range-function-with-the-for-loop" id="toc-using-the-range-function-with-the-for-loop" class="nav-link" data-scroll-target="#using-the-range-function-with-the-for-loop">Using the range Function With the for Loop</a></li>
+  <li><a href="#example-one-argument" id="toc-example-one-argument" class="nav-link" data-scroll-target="#example-one-argument">Example – One Argument</a></li>
+  <li><a href="#example-two-arguments" id="toc-example-two-arguments" class="nav-link" data-scroll-target="#example-two-arguments">Example – Two Arguments</a></li>
+  <li><a href="#example-two-arguments-1" id="toc-example-two-arguments-1" class="nav-link" data-scroll-target="#example-two-arguments-1">Example – Two Arguments</a></li>
+  <li><a href="#example-three-arguments" id="toc-example-three-arguments" class="nav-link" data-scroll-target="#example-three-arguments">Example – Three Arguments</a></li>
+  <li><a href="#practice-3" id="toc-practice-3" class="nav-link" data-scroll-target="#practice-3">Practice</a></li>
+  <li><a href="#practice-4" id="toc-practice-4" class="nav-link" data-scroll-target="#practice-4">Practice</a></li>
+  <li><a href="#using-the-target-variable-inside-the-loop" id="toc-using-the-target-variable-inside-the-loop" class="nav-link" data-scroll-target="#using-the-target-variable-inside-the-loop">Using the Target Variable Inside the Loop</a></li>
+  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
+  <li><a href="#practice-5" id="toc-practice-5" class="nav-link" data-scroll-target="#practice-5">Practice</a></li>
+  <li><a href="#letting-the-user-control-the-loop-iterations" id="toc-letting-the-user-control-the-loop-iterations" class="nav-link" data-scroll-target="#letting-the-user-control-the-loop-iterations">Letting the User Control the Loop Iterations</a></li>
+  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
+  <li><a href="#practice-6" id="toc-practice-6" class="nav-link" data-scroll-target="#practice-6">Practice</a></li>
+  <li><a href="#the-augmented-assignment-operators-1-of-2" id="toc-the-augmented-assignment-operators-1-of-2" class="nav-link" data-scroll-target="#the-augmented-assignment-operators-1-of-2">The Augmented Assignment Operators (1 of 2)</a></li>
+  <li><a href="#the-augmented-assignment-operators-2-of-2" id="toc-the-augmented-assignment-operators-2-of-2" class="nav-link" data-scroll-target="#the-augmented-assignment-operators-2-of-2">The Augmented Assignment Operators (2 of 2)</a></li>
+  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
+  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example</a></li>
+  <li><a href="#practice-7" id="toc-practice-7" class="nav-link" data-scroll-target="#practice-7">Practice</a></li>
+  <li><a href="#the-break-statement" id="toc-the-break-statement" class="nav-link" data-scroll-target="#the-break-statement">The break Statement</a></li>
+  <li><a href="#practice-8" id="toc-practice-8" class="nav-link" data-scroll-target="#practice-8">Practice</a></li>
+  <li><a href="#the-continue-statement-1-of-2" id="toc-the-continue-statement-1-of-2" class="nav-link" data-scroll-target="#the-continue-statement-1-of-2">The continue Statement (1 of 2)</a></li>
+  <li><a href="#the-continue-statement" id="toc-the-continue-statement" class="nav-link" data-scroll-target="#the-continue-statement">The continue Statement</a></li>
+  <li><a href="#practice-9" id="toc-practice-9" class="nav-link" data-scroll-target="#practice-9">Practice</a></li>
+  <li><a href="#accumulators-and-traversal" id="toc-accumulators-and-traversal" class="nav-link" data-scroll-target="#accumulators-and-traversal">Accumulators and Traversal</a></li>
+  <li><a href="#generating-an-iterable-sequence-that-ranges-from-highest-to-lowest" id="toc-generating-an-iterable-sequence-that-ranges-from-highest-to-lowest" class="nav-link" data-scroll-target="#generating-an-iterable-sequence-that-ranges-from-highest-to-lowest">Generating an Iterable Sequence That Ranges From Highest to Lowest</a></li>
+  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
+  <li><a href="#practice-10" id="toc-practice-10" class="nav-link" data-scroll-target="#practice-10">Practice</a></li>
+  <li><a href="#calculating-a-running-total-1-of-2" id="toc-calculating-a-running-total-1-of-2" class="nav-link" data-scroll-target="#calculating-a-running-total-1-of-2">Calculating a Running Total (1 of 2)</a></li>
+  <li><a href="#calculating-a-running-total-2-of-2" id="toc-calculating-a-running-total-2-of-2" class="nav-link" data-scroll-target="#calculating-a-running-total-2-of-2">Calculating a Running Total (2 of 2)</a></li>
+  <li><a href="#example-6" id="toc-example-6" class="nav-link" data-scroll-target="#example-6">Example</a></li>
+  <li><a href="#practice-11" id="toc-practice-11" class="nav-link" data-scroll-target="#practice-11">Practice</a></li>
+  <li><a href="#copying-lists-1-of-3" id="toc-copying-lists-1-of-3" class="nav-link" data-scroll-target="#copying-lists-1-of-3">Copying Lists (1 of 3)</a></li>
+  <li><a href="#copying-lists-2-of-3" id="toc-copying-lists-2-of-3" class="nav-link" data-scroll-target="#copying-lists-2-of-3">Copying Lists (2 of 3)</a></li>
+  <li><a href="#copying-lists-2-of-3-1" id="toc-copying-lists-2-of-3-1" class="nav-link" data-scroll-target="#copying-lists-2-of-3-1">Copying Lists (2 of 3)</a></li>
+  <li><a href="#processing-lists-1-of-2" id="toc-processing-lists-1-of-2" class="nav-link" data-scroll-target="#processing-lists-1-of-2">Processing Lists (1 of 2)</a></li>
+  <li><a href="#processing-lists-2-of-2" id="toc-processing-lists-2-of-2" class="nav-link" data-scroll-target="#processing-lists-2-of-2">Processing Lists (2 of 2)</a></li>
+  <li><a href="#list-comprehensions-1-of-7" id="toc-list-comprehensions-1-of-7" class="nav-link" data-scroll-target="#list-comprehensions-1-of-7">List Comprehensions (1 of 7)</a></li>
+  <li><a href="#list-comprehensions-2-of-7" id="toc-list-comprehensions-2-of-7" class="nav-link" data-scroll-target="#list-comprehensions-2-of-7">List Comprehensions (2 of 7)</a></li>
+  <li><a href="#list-comprehensions-3-of-7" id="toc-list-comprehensions-3-of-7" class="nav-link" data-scroll-target="#list-comprehensions-3-of-7">List Comprehensions (3 of 7)</a></li>
+  <li><a href="#list-comprehensions-4-of-7" id="toc-list-comprehensions-4-of-7" class="nav-link" data-scroll-target="#list-comprehensions-4-of-7">List Comprehensions (4 of 7)</a></li>
+  <li><a href="#list-comprehensions-5-of-7" id="toc-list-comprehensions-5-of-7" class="nav-link" data-scroll-target="#list-comprehensions-5-of-7">List Comprehensions (5 of 7)</a></li>
+  <li><a href="#list-comprehensions-6-of-7" id="toc-list-comprehensions-6-of-7" class="nav-link" data-scroll-target="#list-comprehensions-6-of-7">List Comprehensions (6 of 7)</a></li>
+  <li><a href="#list-comprehensions-7-of-7" id="toc-list-comprehensions-7-of-7" class="nav-link" data-scroll-target="#list-comprehensions-7-of-7">List Comprehensions (7 of 7)</a></li>
+  <li><a href="#accessing-the-individual-characters-in-a-string-1-of-3" id="toc-accessing-the-individual-characters-in-a-string-1-of-3" class="nav-link" data-scroll-target="#accessing-the-individual-characters-in-a-string-1-of-3">Accessing the Individual Characters in a String (1 of 3)</a></li>
+  <li><a href="#figure-8-1-iterating-over-the-string-juliet" id="toc-figure-8-1-iterating-over-the-string-juliet" class="nav-link" data-scroll-target="#figure-8-1-iterating-over-the-string-juliet">Figure 8-1 Iterating Over the String ‘Juliet’</a></li>
+  <li><a href="#accessing-the-individual-characters-in-a-string-2-of-3" id="toc-accessing-the-individual-characters-in-a-string-2-of-3" class="nav-link" data-scroll-target="#accessing-the-individual-characters-in-a-string-2-of-3">Accessing the Individual Characters in a String (2 of 3)</a></li>
+  <li><a href="#accessing-the-individual-characters-in-a-string-3-of-3" id="toc-accessing-the-individual-characters-in-a-string-3-of-3" class="nav-link" data-scroll-target="#accessing-the-individual-characters-in-a-string-3-of-3">Accessing the Individual Characters in a String (3 of 3)</a></li>
+  <li><a href="#while-loops" id="toc-while-loops" class="nav-link" data-scroll-target="#while-loops">While loops</a></li>
+  <li><a href="#the-while-loop-a-condition-controlled-loop-1-of-3" id="toc-the-while-loop-a-condition-controlled-loop-1-of-3" class="nav-link" data-scroll-target="#the-while-loop-a-condition-controlled-loop-1-of-3">The while Loop: a Condition-Controlled Loop (1 of 3)</a></li>
+  <li><a href="#the-while-loop-a-condition-controlled-loop-2-of-3" id="toc-the-while-loop-a-condition-controlled-loop-2-of-3" class="nav-link" data-scroll-target="#the-while-loop-a-condition-controlled-loop-2-of-3">The while Loop: a Condition-Controlled Loop (2 of 3)</a></li>
+  <li><a href="#the-while-loop-a-condition-controlled-loop-3-of-3" id="toc-the-while-loop-a-condition-controlled-loop-3-of-3" class="nav-link" data-scroll-target="#the-while-loop-a-condition-controlled-loop-3-of-3">The while Loop: a Condition-Controlled Loop (3 of 3)</a></li>
+  <li><a href="#example-7" id="toc-example-7" class="nav-link" data-scroll-target="#example-7">Example</a></li>
+  <li><a href="#example-8" id="toc-example-8" class="nav-link" data-scroll-target="#example-8">Example</a></li>
+  <li><a href="#infinite-loops" id="toc-infinite-loops" class="nav-link" data-scroll-target="#infinite-loops">Infinite Loops</a></li>
+  <li><a href="#example-9" id="toc-example-9" class="nav-link" data-scroll-target="#example-9">Example</a></li>
+  <li><a href="#practice-12" id="toc-practice-12" class="nav-link" data-scroll-target="#practice-12">Practice</a></li>
+  <li><a href="#practice-13" id="toc-practice-13" class="nav-link" data-scroll-target="#practice-13">Practice</a></li>
+  <li><a href="#practice-14" id="toc-practice-14" class="nav-link" data-scroll-target="#practice-14">Practice</a></li>
+  <li><a href="#sentinels" id="toc-sentinels" class="nav-link" data-scroll-target="#sentinels">Sentinels</a></li>
+  <li><a href="#using-the-while-loop-as-a-count-controlled-loop-1-of-3" id="toc-using-the-while-loop-as-a-count-controlled-loop-1-of-3" class="nav-link" data-scroll-target="#using-the-while-loop-as-a-count-controlled-loop-1-of-3">Using the while Loop as a Count-Controlled Loop (1 of 3)</a></li>
+  <li><a href="#using-the-while-loop-as-a-count-controlled-loop-2-of-3" id="toc-using-the-while-loop-as-a-count-controlled-loop-2-of-3" class="nav-link" data-scroll-target="#using-the-while-loop-as-a-count-controlled-loop-2-of-3">Using the while Loop as a Count-Controlled Loop (2 of 3)</a></li>
+  <li><a href="#using-the-while-loop-as-a-count-controlled-loop-3-of-3" id="toc-using-the-while-loop-as-a-count-controlled-loop-3-of-3" class="nav-link" data-scroll-target="#using-the-while-loop-as-a-count-controlled-loop-3-of-3">Using the while Loop as a Count-Controlled Loop (3 of 3)</a></li>
+  <li><a href="#example-10" id="toc-example-10" class="nav-link" data-scroll-target="#example-10">Example</a></li>
+  <li><a href="#practice-15" id="toc-practice-15" class="nav-link" data-scroll-target="#practice-15">Practice</a></li>
+  <li><a href="#practice-16" id="toc-practice-16" class="nav-link" data-scroll-target="#practice-16">Practice</a></li>
+  <li><a href="#practice-17" id="toc-practice-17" class="nav-link" data-scroll-target="#practice-17">Practice</a></li>
+  <li><a href="#single-line-while-loops" id="toc-single-line-while-loops" class="nav-link" data-scroll-target="#single-line-while-loops">Single-Line while Loops</a></li>
+  <li><a href="#example-11" id="toc-example-11" class="nav-link" data-scroll-target="#example-11">Example</a></li>
+  <li><a href="#practice-18" id="toc-practice-18" class="nav-link" data-scroll-target="#practice-18">Practice</a></li>
+  <li><a href="#the-continue-statement-1-of-2-1" id="toc-the-continue-statement-1-of-2-1" class="nav-link" data-scroll-target="#the-continue-statement-1-of-2-1">The continue Statement (1 of 2)</a></li>
+  <li><a href="#the-continue-statement-2-of-2" id="toc-the-continue-statement-2-of-2" class="nav-link" data-scroll-target="#the-continue-statement-2-of-2">The continue Statement (2 of 2)</a></li>
+  <li><a href="#practice-19" id="toc-practice-19" class="nav-link" data-scroll-target="#practice-19">Practice</a></li>
+  <li><a href="#practice-20" id="toc-practice-20" class="nav-link" data-scroll-target="#practice-20">Practice</a></li>
+  <li><a href="#the-break-statement-1" id="toc-the-break-statement-1" class="nav-link" data-scroll-target="#the-break-statement-1">The break Statement</a></li>
+  <li><a href="#practice-21" id="toc-practice-21" class="nav-link" data-scroll-target="#practice-21">Practice</a></li>
+  <li><a href="#practice-22" id="toc-practice-22" class="nav-link" data-scroll-target="#practice-22">Practice</a></li>
+  <li><a href="#input-validation-loops-1-of-4" id="toc-input-validation-loops-1-of-4" class="nav-link" data-scroll-target="#input-validation-loops-1-of-4">Input Validation Loops (1 of 4)</a></li>
+  <li><a href="#input-validation-loops-2-of-4" id="toc-input-validation-loops-2-of-4" class="nav-link" data-scroll-target="#input-validation-loops-2-of-4">Input Validation Loops (2 of 4)</a></li>
+  <li><a href="#input-validation-loops-3-of-4" id="toc-input-validation-loops-3-of-4" class="nav-link" data-scroll-target="#input-validation-loops-3-of-4">Input Validation Loops (3 of 4)</a></li>
+  <li><a href="#input-validation-loops-4-of-4" id="toc-input-validation-loops-4-of-4" class="nav-link" data-scroll-target="#input-validation-loops-4-of-4">Input Validation Loops (4 of 4)</a></li>
+  <li><a href="#practice-23" id="toc-practice-23" class="nav-link" data-scroll-target="#practice-23">Practice</a></li>
+  <li><a href="#practice-24" id="toc-practice-24" class="nav-link" data-scroll-target="#practice-24">Practice</a></li>
+  <li><a href="#practice-25" id="toc-practice-25" class="nav-link" data-scroll-target="#practice-25">Practice</a></li>
+  <li><a href="#nested-loops" id="toc-nested-loops" class="nav-link" data-scroll-target="#nested-loops">Nested loops</a></li>
+  <li><a href="#nested-loops-1-of-2" id="toc-nested-loops-1-of-2" class="nav-link" data-scroll-target="#nested-loops-1-of-2">Nested Loops (1 of 2)</a></li>
+  <li><a href="#figure-4-8-flowchart-for-a-clock-simulator" id="toc-figure-4-8-flowchart-for-a-clock-simulator" class="nav-link" data-scroll-target="#figure-4-8-flowchart-for-a-clock-simulator">Figure 4-8 Flowchart for a Clock Simulator</a></li>
+  <li><a href="#nested-loops-2-of-2" id="toc-nested-loops-2-of-2" class="nav-link" data-scroll-target="#nested-loops-2-of-2">Nested Loops (2 of 2)</a></li>
+  <li><a href="#example-12" id="toc-example-12" class="nav-link" data-scroll-target="#example-12">Example</a></li>
+  <li><a href="#example-13" id="toc-example-13" class="nav-link" data-scroll-target="#example-13">Example</a></li>
+  <li><a href="#practice-26" id="toc-practice-26" class="nav-link" data-scroll-target="#practice-26">Practice</a></li>
+  <li><a href="#practice-27" id="toc-practice-27" class="nav-link" data-scroll-target="#practice-27">Practice</a></li>
+  <li><a href="#the-else-clause-with-a-loop-1-of-4" id="toc-the-else-clause-with-a-loop-1-of-4" class="nav-link" data-scroll-target="#the-else-clause-with-a-loop-1-of-4">The else Clause With a Loop (1 of 4)</a></li>
+  <li><a href="#the-else-clause-with-a-loop-2-of-4" id="toc-the-else-clause-with-a-loop-2-of-4" class="nav-link" data-scroll-target="#the-else-clause-with-a-loop-2-of-4">The else Clause With a Loop (2 of 4)</a></li>
+  <li><a href="#the-else-clause-with-a-loop-3-of-4" id="toc-the-else-clause-with-a-loop-3-of-4" class="nav-link" data-scroll-target="#the-else-clause-with-a-loop-3-of-4">The else Clause With a Loop (3 of 4)</a></li>
+  <li><a href="#the-else-clause-with-a-loop-4-of-4" id="toc-the-else-clause-with-a-loop-4-of-4" class="nav-link" data-scroll-target="#the-else-clause-with-a-loop-4-of-4">The else Clause With a Loop (4 of 4)</a></li>
+  <li><a href="#practice-28" id="toc-practice-28" class="nav-link" data-scroll-target="#practice-28">Practice</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/09_loops/loops.html">9: For Loops</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/09_loops/loops.html">9: Loops</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">9: For Loops</h1>
+<h1 class="title">9: Loops</h1>
 </div>
 
 
@@ -282,17 +386,1303 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="for-loops-and-iteration" class="level2">
+<h2 class="anchored" data-anchor-id="for-loops-and-iteration">For loops and Iteration</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="introduction-to-repetition-structures" class="level2">
+<h2 class="anchored" data-anchor-id="introduction-to-repetition-structures">Introduction to Repetition Structures</h2>
 <ul>
-<li>Relational operators (== != &gt; &lt;)</li>
-<li>Logical operators (and or not)</li>
-<li>Evaluating truth tables</li>
+<li><p><strong>Often must write code that performs the same task multiple times</strong></p>
+<ul>
+<li><p>Disadvantages to duplicating code</p>
+<ul>
+<li>Makes program large</li>
+<li>Time consuming</li>
+<li>May need to be corrected in many places</li>
+</ul></li>
+</ul></li>
+<li><p><strong>Repetition structure: makes computer repeat included code as necessary</strong></p></li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="condition-controlled-and-count-controlled-loops" class="level2">
+<h2 class="anchored" data-anchor-id="condition-controlled-and-count-controlled-loops">Condition-Controlled and Count-Controlled Loops</h2>
+<ul>
+<li><p><strong>There are two broad categories of loops:</strong></p>
+<ul>
+<li><p>Condition-controlled</p>
+<ul>
+<li>uses a true/false condition to control the number of times the loop iterates</li>
+</ul></li>
+<li><p>Count-controlled</p>
+<ul>
+<li>repeats a specific number of times</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="the-for-loop-a-count-controlled-loop" class="level2">
+<h2 class="anchored" data-anchor-id="the-for-loop-a-count-controlled-loop">The for Loop: a Count-Controlled Loop</h2>
+<ul>
+<li><p><strong>Count-Controlled loop: iterates a specific number of times</strong></p>
+<ul>
+<li><p>Use a for statement to write count-controlled loop</p>
+<ul>
+<li><p>Designed to work with sequence of data items</p>
+<ul>
+<li>Iterates once for each item in the sequence</li>
+</ul></li>
+<li><p>General format:</p></li>
+</ul></li>
+</ul></li>
+</ul>
+<p>for <em>variable</em> in <em>[val1, val2, etc]</em>:</p>
+<p><em>statements</em></p>
+<ul>
+<li><strong>Target variable</strong>: the variable which is the target of the assignment at the beginning of each iteration</li>
+</ul>
+</section>
+<section id="figure-4-4-the-for-loop" class="level2">
+<h2 class="anchored" data-anchor-id="figure-4-4-the-for-loop">Figure 4-4 The for Loop</h2>
+<p>An illustration depicts for loop. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>The loop reiterates five times as follows.<br>
+First iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 1 to n u m before the left bracket. Second iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 2 to n u m before the left bracket. Third iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 3 to n u m before the left bracket. Fourth iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 4 to n u m before the left bracket. Fifth iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 5 to n u m before the left bracket.</p>
+</blockquote>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<p>for num in [1,2,3,4,5]:</p>
+<p>print(num)</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+</section>
+<section id="practice" class="level2">
+<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<ul>
+<li>Determine the output of the following:</li>
+</ul>
+<p>for i in [2,4,6,8,10]:</p>
+<p>print(i)</p>
+</section>
+<section id="practice-1" class="level2">
+<h2 class="anchored" data-anchor-id="practice-1">Practice</h2>
+<ul>
+<li>Determine the output of the following:</li>
+</ul>
+<p>for i in [2,4,6,8,10]:</p>
+<p>print(i*i)</p>
+</section>
+<section id="practice-2" class="level2">
+<h2 class="anchored" data-anchor-id="practice-2">Practice</h2>
+<ul>
+<li>Create a for loop that iterates through a list of the odd numbers from 1 to 11.</li>
+</ul>
+</section>
+<section id="using-the-range-function-with-the-for-loop" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-range-function-with-the-for-loop">Using the range Function With the for Loop</h2>
+<ul>
+<li><p><strong>The range function simplifies the process of writing a for loop</strong></p>
+<ul>
+<li><p>range returns an iterable object</p>
+<ul>
+<li><strong>Iterable</strong>: contains a sequence of values that can be iterated over</li>
+</ul></li>
+</ul></li>
+<li><p><strong>range characteristics:</strong></p>
+<ul>
+<li>One argument: used as ending limit</li>
+<li>Two arguments: starting value and ending limit</li>
+<li>Three arguments: third argument is step value</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-one-argument" class="level2">
+<h2 class="anchored" data-anchor-id="example-one-argument">Example – One Argument</h2>
+<p>for num in range(5):</p>
+<p>print(num)</p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>for num in [1,2,3,4,5]:</p>
+<p>print(num)</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+</section>
+<section id="example-two-arguments" class="level2">
+<h2 class="anchored" data-anchor-id="example-two-arguments">Example – Two Arguments</h2>
+<p>for num in range(1,5):</p>
+<p>print(num)</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>for num in [1,2,3,4,5]:</p>
+<p>print(num)</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+</section>
+<section id="example-two-arguments-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-two-arguments-1">Example – Two Arguments</h2>
+<p>for num in range(1,6):</p>
+<p>print(num)</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>for num in [1,2,3,4,5]:</p>
+<p>print(num)</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+</section>
+<section id="example-three-arguments" class="level2">
+<h2 class="anchored" data-anchor-id="example-three-arguments">Example – Three Arguments</h2>
+<p>for num in range(2,9,2):</p>
+<p>print(num)</p>
+<p>2</p>
+<p>4</p>
+<p>6</p>
+<p>8</p>
+<p>for num in [2,4,6,8]:</p>
+<p>print(num)</p>
+<p>2</p>
+<p>4</p>
+<p>6</p>
+<p>8</p>
+</section>
+<section id="practice-3" class="level2">
+<h2 class="anchored" data-anchor-id="practice-3">Practice</h2>
+<ul>
+<li>Create a for loop that prints all odd numbers from 1 to 25 inclusive.</li>
+</ul>
+<blockquote class="blockquote">
+<p>for num in range(1,26,2):</p>
+<p>print(num)</p>
+</blockquote>
+</section>
+<section id="practice-4" class="level2">
+<h2 class="anchored" data-anchor-id="practice-4">Practice</h2>
+<ul>
+<li>Create a for loop that prints all positive multiples of three up to and including 60.</li>
+</ul>
+<blockquote class="blockquote">
+<p>for num in range(3,61,3):</p>
+<p>print(num)</p>
+</blockquote>
+</section>
+<section id="using-the-target-variable-inside-the-loop" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-target-variable-inside-the-loop">Using the Target Variable Inside the Loop</h2>
+<ul>
+<li><p><strong>Purpose of target variable is to reference each item in a sequence as the loop iterates</strong></p></li>
+<li><p><strong>Target variable can be used in calculations or tasks in the body of the loop</strong></p>
+<ul>
+<li>Example: calculate square of each number in a range</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-1" class="level2">
+<h2 class="anchored" data-anchor-id="example-1">Example</h2>
+<p>for num in range(5):</p>
+<p>print(num*num)</p>
+<p>0</p>
+<p>1</p>
+<p>4</p>
+<p>9</p>
+<p>16</p>
+</section>
+<section id="practice-5" class="level2">
+<h2 class="anchored" data-anchor-id="practice-5">Practice</h2>
+<ul>
+<li>Create a for loop to calculate and print the cube of the first 5 non-zero multiples of four.</li>
+</ul>
+<blockquote class="blockquote">
+<p>for num in range(4,21,4):</p>
+<p>print(num*num*num)</p>
+</blockquote>
+</section>
+<section id="letting-the-user-control-the-loop-iterations" class="level2">
+<h2 class="anchored" data-anchor-id="letting-the-user-control-the-loop-iterations">Letting the User Control the Loop Iterations</h2>
+<ul>
+<li><p><strong>Sometimes the programmer does not know exactly how many times the loop will execute</strong></p></li>
+<li><p><strong>Can receive range inputs from the user, place them in variables, and call the range function in the for clause using these variables</strong></p>
+<ul>
+<li>Be sure to consider the end cases: range does not include the ending limit</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-2" class="level2">
+<h2 class="anchored" data-anchor-id="example-2">Example</h2>
+<p>x = int(input(“Input an integer:”))</p>
+<p>for i in range(x+1):</p>
+<p>print(i)</p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>…</p>
+<p>x</p>
+</section>
+<section id="practice-6" class="level2">
+<h2 class="anchored" data-anchor-id="practice-6">Practice</h2>
+<ul>
+<li>Create a for loop that uses the input of three different variables to control the starting, ending, and step size of the range function.</li>
+</ul>
+</section>
+<section id="the-augmented-assignment-operators-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-augmented-assignment-operators-1-of-2">The Augmented Assignment Operators (1 of 2)</h2>
+<ul>
+<li><p><strong>In many assignment statements, the variable on the left side of the = operator also appears on the right side of the = operator</strong></p></li>
+<li><p><strong>Augmented assignment operators: special set of operators designed for this type of job</strong></p>
+<ul>
+<li>Shorthand operators</li>
+</ul></li>
+</ul>
+</section>
+<section id="the-augmented-assignment-operators-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-augmented-assignment-operators-2-of-2">The Augmented Assignment Operators (2 of 2)</h2>
+<p><strong>Table 4-2</strong> Augmented assignment operators</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Operator</strong></th>
+<th><strong>Example Usage</strong></th>
+<th><strong>Equivalent To</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>+=</td>
+<td>x += 5</td>
+<td>x = x + 5</td>
+</tr>
+<tr class="even">
+<td>negative equals</td>
+<td>y minus = 2</td>
+<td>y = y minus 2</td>
+</tr>
+<tr class="odd">
+<td>*=</td>
+<td>z *= 10</td>
+<td>z = z * 10</td>
+</tr>
+<tr class="even">
+<td>/=</td>
+<td>a /= b</td>
+<td>a = a / b</td>
+</tr>
+<tr class="odd">
+<td>%=</td>
+<td>c %= 3</td>
+<td>c = c % 3</td>
+</tr>
+</tbody>
+</table>
+<p>Equation</p>
+<p>Equation</p>
+<p>Equation</p>
+</section>
+<section id="example-3" class="level2">
+<h2 class="anchored" data-anchor-id="example-3">Example</h2>
+<p>value = 0</p>
+<p>for num in range(5):</p>
+<p>value += num</p>
+<p>print(value)</p>
+<p>10</p>
+</section>
+<section id="example-4" class="level2">
+<h2 class="anchored" data-anchor-id="example-4">Example</h2>
+<p>value = 1</p>
+<p>for num in range(1,5):</p>
+<p>value *= num</p>
+<p>print(value)</p>
+<p>24</p>
+<blockquote class="blockquote">
+<p>What is this code calculating?</p>
+<p>(5-1)!</p>
+</blockquote>
+</section>
+<section id="practice-7" class="level2">
+<h2 class="anchored" data-anchor-id="practice-7">Practice</h2>
+<ul>
+<li>Take in a positive integer using the input function into a variable named <strong>initial</strong><em>.</em></li>
+<li>Take in a second variable to control the number of iterations of the loop, called <strong>limit</strong>.</li>
+<li>Using a for loop and the augmented decrement operator, reduce the value in initial by 5 for each iteration of the loop.</li>
+</ul>
+<blockquote class="blockquote">
+<p>initial = int(input(“Enter a positive integer:”))</p>
+<p>limit = int(input(“Enter a positive integer:”))</p>
+<p>for i in range(limit):</p>
+<p>initial -= 5</p>
+<p>print(initial)</p>
+<p>Enter a positive integer: 25</p>
+<p>Enter a positive integer: 10</p>
+<p>-25</p>
+</blockquote>
+</section>
+<section id="the-break-statement" class="level2">
+<h2 class="anchored" data-anchor-id="the-break-statement">The break Statement</h2>
+<ul>
+<li><strong>The break statement causes a loop to terminate</strong></li>
+</ul>
+<p><strong>Program Output</strong></p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>for i in range(10):</p>
+<p>if i &gt; 5:</p>
+<p>break</p>
+<p>print(i)</p>
+<blockquote class="blockquote">
+<p>The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 100 colon. Line 3, indented once. print left parenthesis n right parenthesis. Line 4, indented once. if n equals equals 5 colon. Line 5, indented twice. break. This line of code is labeled, this statement causes the loop to stop. Line 6, indented once. n plus equals 1. Line 7. print left parenthesis f single quote The loop stopped and n is left brace n right brace period single quote right parenthesis.</p>
+</blockquote>
+</section>
+<section id="practice-8" class="level2">
+<h2 class="anchored" data-anchor-id="practice-8">Practice</h2>
+<ul>
+<li>Take in a positive integer using the input function into a variable named <strong>initial</strong><em>.</em></li>
+<li>Take in a second variable to control the number of iterations of the loop, called <strong>limit</strong>.</li>
+<li>Using a for loop and the augmented decrement operator, reduce the value in initial by 5 for each iteration of the loop.</li>
+<li>If the variable <strong>initial</strong> would become negative, break the loop before this happens.</li>
+</ul>
+<blockquote class="blockquote">
+<p>initial = int(input(“Enter a positive integer:”))</p>
+<p>limit = int(input(“Enter a positive integer:”))</p>
+<p>for i in range(limit):</p>
+<p>if initial - 5 &gt; 0:</p>
+<p>initial -= 5</p>
+<p>else:</p>
+<p>break</p>
+<p>print(initial)</p>
+</blockquote>
+</section>
+<section id="the-continue-statement-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-continue-statement-1-of-2">The continue Statement (1 of 2)</h2>
+<ul>
+<li>The continue statement causes the current iteration of a loop to end early</li>
+<li>When the continue statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration)</li>
+</ul>
+</section>
+<section id="the-continue-statement" class="level2">
+<h2 class="anchored" data-anchor-id="the-continue-statement">The continue Statement</h2>
+<ul>
+<li><strong>The continue statement causes a loop to immediately move to the next iteration</strong></li>
+</ul>
+<p><strong>Program Output</strong></p>
+<p>1</p>
+<p>2</p>
+<p>4</p>
+<p>5</p>
+<p>7</p>
+<p>8</p>
+<p>for i in range(10):</p>
+<p>if i % 3 == 0:</p>
+<p>continue</p>
+<p>print(i)</p>
+<blockquote class="blockquote">
+<p>The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 100 colon. Line 3, indented once. print left parenthesis n right parenthesis. Line 4, indented once. if n equals equals 5 colon. Line 5, indented twice. break. This line of code is labeled, this statement causes the loop to stop. Line 6, indented once. n plus equals 1. Line 7. print left parenthesis f single quote The loop stopped and n is left brace n right brace period single quote right parenthesis.</p>
+</blockquote>
+</section>
+<section id="practice-9" class="level2">
+<h2 class="anchored" data-anchor-id="practice-9">Practice</h2>
+<ul>
+<li><p>Using the input function, take in a positive integer into the variable <strong>limit</strong>.</p></li>
+<li><p>Then using a for loop iterate to the limit in which the following conditions are satisfied:</p>
+<ul>
+<li>If the current value is divisible by 2, print using a formatted string the number and the statement “Divisible by 2”.</li>
+<li>Repeat the above but for divisibility by 3.</li>
+<li>If the current value is divisible by both 2 and 3, skip the current iteration before anything is printed.</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>limit = int(input(“Enter a positive integer:”))</p>
+<p>for i in range(limit):</p>
+<p>if i%2 ==0 and i%3 == 0:</p>
+<p>continue</p>
+<p>if i% 2 == 0:</p>
+<p>print(f”{i} Divisible by 2”)</p>
+<p>if i % 3 == 0:</p>
+<p>print(f”{i} Divisible by 3”)</p>
+</blockquote>
+</section>
+<section id="accumulators-and-traversal" class="level2">
+<h2 class="anchored" data-anchor-id="accumulators-and-traversal">Accumulators and Traversal</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="generating-an-iterable-sequence-that-ranges-from-highest-to-lowest" class="level2">
+<h2 class="anchored" data-anchor-id="generating-an-iterable-sequence-that-ranges-from-highest-to-lowest">Generating an Iterable Sequence That Ranges From Highest to Lowest</h2>
+<ul>
+<li><p><strong>The range function can be used to generate a sequence with numbers in descending order</strong></p>
+<ul>
+<li>Make sure starting number is larger than end limit, and step value is negative</li>
+</ul></li>
+<li><p>Example:</p></li>
+</ul>
+<p>Equation</p>
+</section>
+<section id="example-5" class="level2">
+<h2 class="anchored" data-anchor-id="example-5">Example</h2>
+<p>for num in range(10,0,-1):</p>
+<p>print(num)</p>
+<p>10</p>
+<p>9</p>
+<p>8</p>
+<p>…</p>
+<p>2</p>
+<p>1</p>
+</section>
+<section id="practice-10" class="level2">
+<h2 class="anchored" data-anchor-id="practice-10">Practice</h2>
+<ul>
+<li>Create a for loop that prints all positive multiples of three from and including 60 down to 3.</li>
+</ul>
+<blockquote class="blockquote">
+<p>for num in range(60,2,-3):</p>
+<p>print(num)</p>
+<p>Note that values of 1 and 0 will also work correctly.</p>
+</blockquote>
+</section>
+<section id="calculating-a-running-total-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-a-running-total-1-of-2">Calculating a Running Total (1 of 2)</h2>
+<ul>
+<li><p><strong>Programs often need to calculate a total of a series of numbers</strong></p>
+<ul>
+<li><p>Typically include two elements:</p>
+<ul>
+<li>A loop that reads each number in series</li>
+<li>An <strong>accumulator</strong> variable</li>
+</ul></li>
+<li><p>Known as program that keeps a running total: accumulates total and reads in series</p></li>
+<li><p>At end of loop, accumulator will reference the total</p></li>
+</ul></li>
+</ul>
+</section>
+<section id="calculating-a-running-total-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-a-running-total-2-of-2">Calculating a Running Total (2 of 2)</h2>
+<p><strong>Figure 4-6</strong> Logic for calculating a running total</p>
+<p>An illustration depicts a logic for calculating a running total. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>The steps in the flowchart are as follows.<br>
+Set accumulator to 0. Therefore, the condition in the diamond symbol is, is there another number to read. If the condition is yes, true, the following statements are followed. Read the next number. Add the number to the accumulator. Then the program goes back to the point above the diamond symbol. If the condition is no, false, the loop ends.</p>
+</blockquote>
+</section>
+<section id="example-6" class="level2">
+<h2 class="anchored" data-anchor-id="example-6">Example</h2>
+<p>value = 0</p>
+<p>for num in range(5):</p>
+<p>value = value + num</p>
+<p>print(value)</p>
+<p>10</p>
+</section>
+<section id="practice-11" class="level2">
+<h2 class="anchored" data-anchor-id="practice-11">Practice</h2>
+<ul>
+<li>Using a for loop, accumulate into a variable <strong>value</strong> the sum of all positive even numbers up to and including 10.</li>
+</ul>
+<blockquote class="blockquote">
+<p>value = 0</p>
+<p>for num in range(2,11,2):</p>
+<p>value = value + num</p>
+<p>print(value)</p>
+</blockquote>
+</section>
+<section id="copying-lists-1-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="copying-lists-1-of-3">Copying Lists (1 of 3)</h2>
+<ul>
+<li><p><strong>To make a copy of a list you must copy each element of the list</strong></p>
+<ul>
+<li><p>Two methods to do this:</p>
+<ul>
+<li>Creating a new empty list and using a for loop to add a copy of each element from the original list to the new list</li>
+<li>Creating a new empty list and concatenating the old list to the new empty list</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="copying-lists-2-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="copying-lists-2-of-3">Copying Lists (2 of 3)</h2>
+<ul>
+<li><p><strong>We cannot just use the assignment operator to set one list to another list.</strong></p></li>
+<li><p><em>list1 = list2</em></p></li>
+<li><p>This just maps two variables names to the same location.</p>
+<ul>
+<li>Any changes to one variable with then be reflected in the other.</li>
+</ul></li>
+</ul>
+</section>
+<section id="copying-lists-2-of-3-1" class="level2">
+<h2 class="anchored" data-anchor-id="copying-lists-2-of-3-1">Copying Lists (2 of 3)</h2>
+<p><strong>Figure 7-4</strong> list1 and list2 reference the same list</p>
+<p>List 1 and list 2 point to the first element of the list, which is depicted as a 1 by 4 array in which the following elements are entered in each of the cells. 1, 2, 3, and 4.</p>
+</section>
+<section id="processing-lists-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="processing-lists-1-of-2">Processing Lists (1 of 2)</h2>
+<ul>
+<li><p><strong>List elements can be used in calculations</strong></p></li>
+<li><p><strong>To calculate total of numeric values in a list use loop with accumulator variable</strong></p></li>
+<li><p><strong>To average numeric values in a list:</strong></p>
+<ul>
+<li>Calculate total of the values</li>
+<li>Divide total of the values by len(list)</li>
+</ul></li>
+<li><p><strong>List can be passed as an argument to a function</strong></p></li>
+</ul>
+</section>
+<section id="processing-lists-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="processing-lists-2-of-2">Processing Lists (2 of 2)</h2>
+<ul>
+<li><p><strong>A function can return a reference to a list</strong></p></li>
+<li><p><strong>To save the contents of a list to a file:</strong></p>
+<ul>
+<li><p>Use the file object’s writelines method</p>
+<ul>
+<li>Does not automatically write \n at then end of each item</li>
+</ul></li>
+<li><p>Use a for loop to write each element and \n</p></li>
+</ul></li>
+<li><p><strong>To read data from a file use the file object’s readlines method</strong></p></li>
+</ul>
+</section>
+<section id="list-comprehensions-1-of-7" class="level2">
+<h2 class="anchored" data-anchor-id="list-comprehensions-1-of-7">List Comprehensions (1 of 7)</h2>
+<ul>
+<li>List comprehension: a concise expression that creates a new list by iterating over the elements of an existing list.</li>
+</ul>
+</section>
+<section id="list-comprehensions-2-of-7" class="level2">
+<h2 class="anchored" data-anchor-id="list-comprehensions-2-of-7">List Comprehensions (2 of 7)</h2>
+<ul>
+<li><strong>The following code uses a for loop to make a copy of a list:</strong></li>
+</ul>
+<p>list1 = [1, 2, 3, 4]</p>
+<p>list2 = []</p>
+<p>for item in list1:</p>
+<p>list2.append(item)</p>
+<ul>
+<li><strong>The following code uses a list comprehension to make a copy of a list:</strong></li>
+</ul>
+<p>list1 = [1, 2, 3, 4]</p>
+<p>list2 = [item for item in list1]</p>
+</section>
+<section id="list-comprehensions-3-of-7" class="level2">
+<h2 class="anchored" data-anchor-id="list-comprehensions-3-of-7">List Comprehensions (3 of 7)</h2>
+<p>list 2 equals left bracket item for item in list 1 right bracket. The result expression is the first part of the expression, item, and the iteration expression is the latter part, for item in list 1.</p>
+<ul>
+<li>The iteration expression works like a for loop</li>
+<li>In this example, it iterates over the elements of list1</li>
+<li>Each time it iterates, the target variable item is assigned the value of an element.</li>
+<li>At the end of each iteration, the value of the result expression is appended to the new list.</li>
+</ul>
+</section>
+<section id="list-comprehensions-4-of-7" class="level2">
+<h2 class="anchored" data-anchor-id="list-comprehensions-4-of-7">List Comprehensions (4 of 7)</h2>
+<p>list1 = [1, 2, 3, 4]</p>
+<p>list2 = [item**2 for item in list1]</p>
+<ul>
+<li>After this code executes, list2 will contain the values [1, 4, 9, 16]</li>
+</ul>
+</section>
+<section id="list-comprehensions-5-of-7" class="level2">
+<h2 class="anchored" data-anchor-id="list-comprehensions-5-of-7">List Comprehensions (5 of 7)</h2>
+<p>str_list = [‘zero’, ‘one’, ‘two’]</p>
+<p>len_list = [len(s) for s in str_list]</p>
+<ul>
+<li>After this code executes, len_list will contain the values [4, 3, 3]</li>
+</ul>
+</section>
+<section id="list-comprehensions-6-of-7" class="level2">
+<h2 class="anchored" data-anchor-id="list-comprehensions-6-of-7">List Comprehensions (6 of 7)</h2>
+<ul>
+<li><strong>You can use an if clause in a list comprehension to select only certain elements when processing a list</strong></li>
+</ul>
+<p>list1 = [1, 12, 2, 20, 3, 15, 4]</p>
+<p>list2 = []</p>
+<p>for n in list1:</p>
+<p>if n &lt; 10:</p>
+<p>list2.append(n)</p>
+<p>Works the same as…</p>
+<p>list1 = [1, 12, 2, 20, 3, 15, 4]</p>
+<p>list2 = [item for item in list1 if item &lt; 10]</p>
+</section>
+<section id="list-comprehensions-7-of-7" class="level2">
+<h2 class="anchored" data-anchor-id="list-comprehensions-7-of-7">List Comprehensions (7 of 7)</h2>
+<p>list1 = [1, 12, 2, 20, 3, 15, 4]</p>
+<p>list2 = [item for item in list1 if item &lt; 10]</p>
+<ul>
+<li>After this code executes, list2 will contain [1, 2, 3, 4]</li>
+</ul>
+</section>
+<section id="accessing-the-individual-characters-in-a-string-1-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-the-individual-characters-in-a-string-1-of-3">Accessing the Individual Characters in a String (1 of 3)</h2>
+<ul>
+<li><p><strong>To access an individual character in a string:</strong></p>
+<ul>
+<li><p>Use a for loop</p>
+<ul>
+<li>Format: for <em>character</em> in <em>string</em>:</li>
+<li>Useful when need to iterate over the whole string, such as to count the occurrences of a specific character</li>
+</ul></li>
+<li><p>Use indexing</p>
+<ul>
+<li>Each character has an index specifying its position in the string, starting at 0</li>
+<li>Format: <em>character</em> = <em>my_string</em>[<em>i</em>]</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="figure-8-1-iterating-over-the-string-juliet" class="level2">
+<h2 class="anchored" data-anchor-id="figure-8-1-iterating-over-the-string-juliet">Figure 8-1 Iterating Over the String ‘Juliet’</h2>
+<p>The six iterations of a loop. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>The iterations are for the following computer code. Line 1. For c h in name colon, Line 2. Print left parenthesis c h right parenthesis. In each iteration, the c h variable references a copy of a character from the string. In all six iterations, the name extends right to a box with a text, single quote Juliet single quote.<br>
+In first iteration, C h variable extends right to a box with text, single quote J single quote. In second iteration, C h variable extends right to a box with text, single quote u single quote. In third iteration, C h variable extends right to a box with text, single quote l single quote. In fourth iteration, C h variable extends right to a box with text, single quote i single quote. In fifth iteration, C h variable extends right to a box with text, single quote e single quote. In sixth iteration, C h variable extends right to a box with text, single quote t single quote.</p>
+</blockquote>
+</section>
+<section id="accessing-the-individual-characters-in-a-string-2-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-the-individual-characters-in-a-string-2-of-3">Accessing the Individual Characters in a String (2 of 3)</h2>
+<p><strong>Figure 8-2</strong> String indexes</p>
+<p>Single quote Roses are red single quote. Each individual in the string is assigned a number as follows. R, 0. o, 1. s, 2. e, 3. s, 4. Space, 5. a, 6. r, 7. e, 8. Space, 9. r, 10. e, 11. d, 12.</p>
+<p><strong>Figure 8-3</strong> Getting a copy of a character from a string</p>
+<p>An illustration depicts a string and c h variable. My underscore string extends right to a box with text that reads, single quote Roses are red single quote. c h extends right to a box with text that reads, single quote a single quote.</p>
+</section>
+<section id="accessing-the-individual-characters-in-a-string-3-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="accessing-the-individual-characters-in-a-string-3-of-3">Accessing the Individual Characters in a String (3 of 3)</h2>
+<ul>
+<li><p><strong>IndexError exception will occur if:</strong></p>
+<ul>
+<li><p>You try to use an index that is out of range for the string</p>
+<ul>
+<li>Likely to happen when loop iterates beyond the end of the string</li>
+</ul></li>
+</ul></li>
+<li><p><strong>len(string) function can be used to obtain the length of a string</strong></p>
+<ul>
+<li>Useful to prevent loops from iterating beyond the end of a string</li>
+</ul></li>
+</ul>
+</section>
+<section id="while-loops" class="level2">
+<h2 class="anchored" data-anchor-id="while-loops">While loops</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="the-while-loop-a-condition-controlled-loop-1-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="the-while-loop-a-condition-controlled-loop-1-of-3">The while Loop: a Condition-Controlled Loop (1 of 3)</h2>
+<ul>
+<li><p><strong>while loop: while condition is true, do something</strong></p>
+<ul>
+<li><p>Two parts:</p>
+<ul>
+<li>Condition tested for true or false value</li>
+<li>Statements repeated as long as condition is true</li>
+</ul></li>
+<li><p>In flow chart, line goes back to previous part</p></li>
+<li><p>General format:</p></li>
+</ul></li>
+</ul>
+<p>while <em>condition</em>:</p>
+<p><em>statements</em></p>
+</section>
+<section id="the-while-loop-a-condition-controlled-loop-2-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="the-while-loop-a-condition-controlled-loop-2-of-3">The while Loop: a Condition-Controlled Loop (2 of 3)</h2>
+<p><strong>Figure 4-1</strong> The logic of a while loop</p>
+<p>An illustration depicts the logic of a while loop. If the condition in the diamond symbol is true, the statements are executed, and the condition is evaluated again. The process goes on until the condition is false.</p>
+</section>
+<section id="the-while-loop-a-condition-controlled-loop-3-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="the-while-loop-a-condition-controlled-loop-3-of-3">The while Loop: a Condition-Controlled Loop (3 of 3)</h2>
+<ul>
+<li><p><strong>In order for a loop to stop executing, something has to happen inside the loop to make the condition false</strong></p></li>
+<li><p><strong>Iteration: one execution of the body of a loop</strong></p></li>
+<li><p><strong>while loop is known as a pretest loop</strong></p>
+<ul>
+<li><p>Tests condition before performing an iteration</p>
+<ul>
+<li>Will never execute if condition is false to start with</li>
+<li>Requires performing some steps prior to the loop</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="example-7" class="level2">
+<h2 class="anchored" data-anchor-id="example-7">Example</h2>
+<p>values = [1,2,3]</p>
+<p>while len(values) !=0:</p>
+<p>print(values.pop())</p>
+</section>
+<section id="example-8" class="level2">
+<h2 class="anchored" data-anchor-id="example-8">Example</h2>
+<p>N = 0</p>
+<p>while N &lt; 10:</p>
+<p>print(N)</p>
+<p>N += 1</p>
+</section>
+<section id="infinite-loops" class="level2">
+<h2 class="anchored" data-anchor-id="infinite-loops">Infinite Loops</h2>
+<ul>
+<li><p><strong>Loops must contain within themselves a way to terminate</strong></p>
+<ul>
+<li>Something inside a while loop must eventually make the condition false</li>
+</ul></li>
+<li><p><strong>Infinite loop: loop that does not have a way of stopping</strong></p>
+<ul>
+<li>Repeats until program is interrupted</li>
+<li>Occurs when programmer forgets to include stopping code in the loop</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-9" class="level2">
+<h2 class="anchored" data-anchor-id="example-9">Example</h2>
+<p>N = 0</p>
+<p>while N &lt; 10:</p>
+<p>print(N)</p>
+</section>
+<section id="practice-12" class="level2">
+<h2 class="anchored" data-anchor-id="practice-12">Practice</h2>
+<ul>
+<li>Write a program that calculates the sum of the first N natural numbers using a while loop.</li>
+</ul>
+<blockquote class="blockquote">
+<p>N = int(input(“Enter a number:”))</p>
+<p>sum_n = 0</p>
+<p>i = 1</p>
+<p>while i &lt;= N:</p>
+<p>sum_n += i</p>
+<p>i += 1</p>
+<p>print(“Sum:”, sum_n)</p>
+</blockquote>
+</section>
+<section id="practice-13" class="level2">
+<h2 class="anchored" data-anchor-id="practice-13">Practice</h2>
+<ul>
+<li>Write a program that prints all even numbers from 1 to N using a while loop.</li>
+</ul>
+<blockquote class="blockquote">
+<p>N = int(input(“Enter a number:”))</p>
+<p>num = 2</p>
+<p>while num &lt;= N:</p>
+<p>print(num, end=” “)</p>
+<p>num += 2</p>
+</blockquote>
+</section>
+<section id="practice-14" class="level2">
+<h2 class="anchored" data-anchor-id="practice-14">Practice</h2>
+<ul>
+<li>Write a program that calculates the factorial of a given number N using a while loop.</li>
+</ul>
+<blockquote class="blockquote">
+<p>N = int(input(“Enter a number:”))</p>
+<p>factorial = 1</p>
+<p>i = 1</p>
+<p>while i &lt;= N:</p>
+<p>factorial *= i</p>
+<p>i += 1</p>
+<p>print(f”{N}! =“, factorial)</p>
+</blockquote>
+</section>
+<section id="sentinels" class="level2">
+<h2 class="anchored" data-anchor-id="sentinels">Sentinels</h2>
+<ul>
+<li><p><strong>Sentinel: special value that marks the end of a sequence of items</strong></p>
+<ul>
+<li>When program reaches a sentinel, it knows that the end of the sequence of items was reached, and the loop terminates</li>
+<li>Must be distinctive enough so as not to be mistaken for a regular value in the sequence</li>
+<li>Example: when reading an input file, empty line can be used as a sentinel</li>
+</ul></li>
+</ul>
+</section>
+<section id="using-the-while-loop-as-a-count-controlled-loop-1-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-while-loop-as-a-count-controlled-loop-1-of-3">Using the while Loop as a Count-Controlled Loop (1 of 3)</h2>
+<ul>
+<li><p><strong>The while loop is inherently a condition-controlled loop</strong></p>
+<ul>
+<li>It repeats as long as a Boolean condition is true</li>
+</ul></li>
+<li><p><strong>However, you can use the while loop as a count-controlled loop by pairing it with a counter variable</strong></p></li>
+<li><p><strong>A counter variable is assigned a unique value during each iteration of a loop.</strong></p></li>
+<li><p><strong>It is called a counter variable because it can be used to count the number of times the loop iterates</strong></p></li>
+</ul>
+</section>
+<section id="using-the-while-loop-as-a-count-controlled-loop-2-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-while-loop-as-a-count-controlled-loop-2-of-3">Using the while Loop as a Count-Controlled Loop (2 of 3)</h2>
+<ul>
+<li><p><strong>A count-controlled while loop must perform three actions:</strong></p>
+<ul>
+<li><strong>Initialization</strong>: The counter variable must be initialized to a suitable starting value before the loop begins.</li>
+<li><strong>Comparison</strong>: The loop must compare the counter variable to a suitable ending value, to determine whether the loop should iterate or not.</li>
+<li><strong>Update</strong>: During each iteration, the loop must update the counter variable with a new value.</li>
+</ul></li>
+</ul>
+</section>
+<section id="using-the-while-loop-as-a-count-controlled-loop-3-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="using-the-while-loop-as-a-count-controlled-loop-3-of-3">Using the while Loop as a Count-Controlled Loop (3 of 3)</h2>
+<ul>
+<li><strong>Example</strong></li>
+</ul>
+<p>A computer code has 4 lines. For long description in Notes pane, press F6.</p>
+<ul>
+<li><strong>Initialization</strong>: The variable n is initialized with 0</li>
+<li><strong>Comparison</strong>: The loop iterates as long as n is less than 5</li>
+<li><strong>Update</strong>: 1 is added to n</li>
+</ul>
+<blockquote class="blockquote">
+<p>The lines read as follows. Line 1. n equals 0. This line is labeled, initialization. Line 2. while n left angle bracket 5 colon. This line of code is labeled, comparison. Line 3, indented once. print left parenthesis f single quote Inside the loop comma the value of n is left brace n right brace period single quote right parenthesis. Line 4, indented once. n plus equals 1. This line of code is labeled, update.</p>
+</blockquote>
+</section>
+<section id="example-10" class="level2">
+<h2 class="anchored" data-anchor-id="example-10">Example</h2>
+<p>n = 0</p>
+<p>while n &lt; 5:</p>
+<p>print(n)</p>
+<p>n += 1</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+</section>
+<section id="practice-15" class="level2">
+<h2 class="anchored" data-anchor-id="practice-15">Practice</h2>
+<ul>
+<li>Write a program that prints numbers from <strong>1 to 10</strong> using a while loop.</li>
+</ul>
+</section>
+<section id="practice-16" class="level2">
+<h2 class="anchored" data-anchor-id="practice-16">Practice</h2>
+<ul>
+<li>Write a program that prints numbers from <strong>10 down to 1</strong>.</li>
+</ul>
+</section>
+<section id="practice-17" class="level2">
+<h2 class="anchored" data-anchor-id="practice-17">Practice</h2>
+<ul>
+<li>Write a program that asks the user for a number <strong>N</strong> and calculates the sum of numbers from <strong>1 to N</strong> using a while loop.</li>
+</ul>
+</section>
+<section id="single-line-while-loops" class="level2">
+<h2 class="anchored" data-anchor-id="single-line-while-loops">Single-Line while Loops</h2>
+<ul>
+<li>If there is only one statement in the body of a while loop, you can write the entire loop on one line.</li>
+<li>General format:</li>
+</ul>
+<p>while <em>condition</em>: <em>statement</em></p>
+<ul>
+<li>Example:</li>
+</ul>
+<p>n = 0<br>
+while n &lt; 10: n += 1</p>
+</section>
+<section id="example-11" class="level2">
+<h2 class="anchored" data-anchor-id="example-11">Example</h2>
+<p>i = 1</p>
+<p>while i &lt;= 5: print(i); i += 1</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+</section>
+<section id="practice-18" class="level2">
+<h2 class="anchored" data-anchor-id="practice-18">Practice</h2>
+<ul>
+<li>Create a single line while loop that sums the numbers in a given list.</li>
+</ul>
+<blockquote class="blockquote">
+<p>nums = [1, 2, 3, 4, 5]</p>
+<p>i, total = 0, 0</p>
+<p>while i &lt; len(nums): total += nums[i]; i += 1</p>
+<p>print(total)</p>
+</blockquote>
+</section>
+<section id="the-continue-statement-1-of-2-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-continue-statement-1-of-2-1">The continue Statement (1 of 2)</h2>
+<ul>
+<li>The continue statement causes the current iteration of a loop to end early</li>
+<li>When the continue statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration)</li>
+</ul>
+</section>
+<section id="the-continue-statement-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="the-continue-statement-2-of-2">The continue Statement (2 of 2)</h2>
+<ul>
+<li><strong>Example:</strong></li>
+</ul>
+<p>A computer code has 6 lines. For long description in Notes pane, press F6.</p>
+<p><strong>Program Output</strong></p>
+<p>1</p>
+<p>2</p>
+<p>4</p>
+<p>5</p>
+<p>7</p>
+<p>8</p>
+<p>10</p>
+<blockquote class="blockquote">
+<p>The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 10 colon. Line 3, indented once. n plus equals 1. Line 4, indented once. if n percent sign 3 equals equals 0 colon. Line 5, indented twice. continue. This line of code is labeled, this statement ends the current iteration and causes the loop to skip to the next iteration. Line 6, indented once. print left parenthesis n right parenthesis.</p>
+</blockquote>
+</section>
+<section id="practice-19" class="level2">
+<h2 class="anchored" data-anchor-id="practice-19">Practice</h2>
+<ul>
+<li>Write a program that prints <strong>only odd numbers</strong> from <strong>1 to 10</strong> using a while loop.</li>
+<li>Use the continue statement to skip even numbers.</li>
+</ul>
+<blockquote class="blockquote">
+<p>i = 0</p>
+<p>while i &lt; 10:</p>
+<p>i += 1</p>
+<p>if i % 2 == 0:</p>
+<p>continue # Skip even numbers</p>
+<p>print(i)</p>
+</blockquote>
+</section>
+<section id="practice-20" class="level2">
+<h2 class="anchored" data-anchor-id="practice-20">Practice</h2>
+<ul>
+<li><p>Write a program that asks the user for numbers and sums them up.</p></li>
+<li><p>If the user enters <strong>non-numeric input</strong>, use continue to ignore it.</p>
+<ul>
+<li>Use the isdigit() function to test if the input is a number.</li>
+</ul></li>
+<li><p>The loop stops when the user enters “done”.</p></li>
+<li><p>Print the sum of valid numbers.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p>total = 0</p>
+<p>while True:</p>
+<p>num = input(“Enter a number:”)</p>
+<p>if num == “done”:</p>
+<p>break # Stop the loop</p>
+<p>if not num.isdigit():</p>
+<p>print(“Invalid input, skipping…”)</p>
+<p>continue # Skip non-numeric input</p>
+<p>total += int(num)</p>
+<p>print(“Total sum:”, total)</p>
+</blockquote>
+</section>
+<section id="the-break-statement-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-break-statement-1">The break Statement</h2>
+<ul>
+<li><strong>The break statement causes a loop to terminate</strong></li>
+</ul>
+<p>A computer code has 7 lines. For long description in Notes pane, press F6.</p>
+<p><strong>Program Output</strong></p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>5</p>
+<p>The loop stopped and n is 5.</p>
+<blockquote class="blockquote">
+<p>The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 100 colon. Line 3, indented once. print left parenthesis n right parenthesis. Line 4, indented once. if n equals equals 5 colon. Line 5, indented twice. break. This line of code is labeled, this statement causes the loop to stop. Line 6, indented once. n plus equals 1. Line 7. print left parenthesis f single quote The loop stopped and n is left brace n right brace period single quote right parenthesis.</p>
+</blockquote>
+</section>
+<section id="practice-21" class="level2">
+<h2 class="anchored" data-anchor-id="practice-21">Practice</h2>
+<ul>
+<li>Write a program that prints numbers from <strong>1 to 10</strong>, but <strong>stops</strong> when it reaches 5 using break.</li>
+</ul>
+<blockquote class="blockquote">
+<p>i = 1</p>
+<p>while i &lt;= 10:</p>
+<p>print(i)</p>
+<p>if i == 5:</p>
+<p>break # Stop at 5</p>
+<p>i += 1</p>
+</blockquote>
+</section>
+<section id="practice-22" class="level2">
+<h2 class="anchored" data-anchor-id="practice-22">Practice</h2>
+<ul>
+<li>Write a program that asks the user to <strong>guess a number between 1 and 10</strong>.</li>
+<li>If they guess the <strong>number (e.g., 7)</strong>, print “Correct!” and stop using break.</li>
+<li>Otherwise, keep asking.</li>
+</ul>
+<blockquote class="blockquote">
+<p>secret = 7</p>
+<p>while True:</p>
+<p>guess = int(input(“Guess a number:”))</p>
+<p>if guess == secret:</p>
+<p>print(“Correct!”)</p>
+<p>break # Stop when the correct number is guessed</p>
+<p>print(“Wrong, try again!”)</p>
+</blockquote>
+</section>
+<section id="input-validation-loops-1-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="input-validation-loops-1-of-4">Input Validation Loops (1 of 4)</h2>
+<ul>
+<li><p><strong>Computer cannot tell the difference between good data and bad data</strong></p>
+<ul>
+<li>If user provides bad input, program will produce bad output</li>
+<li>G I G O: garbage in, garbage out</li>
+<li>It is important to design program such that bad input is never accepted</li>
+</ul></li>
+</ul>
+</section>
+<section id="input-validation-loops-2-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="input-validation-loops-2-of-4">Input Validation Loops (2 of 4)</h2>
+<ul>
+<li><p><strong>Input validation: inspecting input before it is processed by the program</strong></p>
+<ul>
+<li><p>If input is invalid, prompt user to enter correct data</p></li>
+<li><p>Commonly accomplished using a while loop which repeats as long as the input is bad</p>
+<ul>
+<li>If input is bad, display error message and receive another set of data</li>
+<li>If input is good, continue to process the input</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="input-validation-loops-3-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="input-validation-loops-3-of-4">Input Validation Loops (3 of 4)</h2>
+<p><strong>Figure 4-7</strong> Logic containing an input validation loop</p>
+<p>An illustration depicts a logic for calculating a running total. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>The steps in the flowchart are as follows.<br>
+Get input. Therefore, the condition in the decision box is, is the input bad. If the condition is yes, true, the following statements are followed. Display an error message. Get the input again. Then the program goes back to the point above the decision box. If the condition is no, false, the loop ends.</p>
+</blockquote>
+</section>
+<section id="input-validation-loops-4-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="input-validation-loops-4-of-4">Input Validation Loops (4 of 4)</h2>
+<ul>
+<li><p><strong>Using the walrus operator in an input validation loop</strong></p>
+<ul>
+<li>You can use the walrus operator to create an assignment expression that combines the priming read with the input validation loop</li>
+<li><strong>Example</strong>:</li>
+</ul></li>
+</ul>
+<p>while (score := int(input(‘Enter your score:’))) &lt; 0:</p>
+<p>print(‘The score cannot be negative.’</p>
+</section>
+<section id="practice-23" class="level2">
+<h2 class="anchored" data-anchor-id="practice-23">Practice</h2>
+<ul>
+<li><strong>Write a while loop</strong> that keeps asking the user to enter a number. The loop should stop when the user enters -1.</li>
+</ul>
+<blockquote class="blockquote">
+<p>num = int(input(“Enter a number (-1 to stop):”))</p>
+<p>while num != -1:</p>
+<p>print(“You entered:”, num)</p>
+<p>num = int(input(“Enter a number (-1 to stop):”))</p>
+<p>print(“Loop ended.”)</p>
+</blockquote>
+</section>
+<section id="practice-24" class="level2">
+<h2 class="anchored" data-anchor-id="practice-24">Practice</h2>
+<ul>
+<li><strong>Write a while loop</strong> that keeps asking the user to enter numbers. The loop should stop when the user enters -1, then print the sum of all entered numbers.</li>
+</ul>
+<blockquote class="blockquote">
+<p>total = 0</p>
+<p>num = int(input(“Enter a number (-1 to stop):”))</p>
+<p>while num != -1:</p>
+<p>total += num</p>
+<p>num = int(input(“Enter a number (-1 to stop):”))</p>
+<p>print(“Total sum:”, total)</p>
+</blockquote>
+</section>
+<section id="practice-25" class="level2">
+<h2 class="anchored" data-anchor-id="practice-25">Practice</h2>
+<ul>
+<li><strong>Write a program</strong> that ensures the user enters a number between 1 and 100. The loop should continue asking until the user enters -1 to quit.</li>
+</ul>
+<blockquote class="blockquote">
+<p>num = int(input(“Enter a number between 1 and 100 (-1 to quit):”))</p>
+<p>while num != -1:</p>
+<p>if 1 &lt;= num &lt;= 100:</p>
+<p>print(“Valid number:”, num)</p>
+<p>else:</p>
+<p>print(“Out of range! Try again.”)</p>
+<p>num = int(input(“Enter a number between 1 and 100 (-1 to quit):”))</p>
+<p>print(“Exiting program.”)</p>
+</blockquote>
+</section>
+<section id="nested-loops" class="level2">
+<h2 class="anchored" data-anchor-id="nested-loops">Nested loops</h2>
+<p>CSCI – 1056</p>
+<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+</section>
+<section id="nested-loops-1-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="nested-loops-1-of-2">Nested Loops (1 of 2)</h2>
+<ul>
+<li><p><strong>Nested loop: loop that is contained inside another loop</strong></p>
+<ul>
+<li><p>Example: analog clock works like a nested loop</p>
+<ul>
+<li>Hours hand moves once for every twelve movements of the minutes hand: for each iteration of the “hours,” do twelve iterations of “minutes”</li>
+<li>Seconds hand moves 60 times for each movement of the minutes hand: for each iteration of “minutes,” do 60 iterations of “seconds”</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="figure-4-8-flowchart-for-a-clock-simulator" class="level2">
+<h2 class="anchored" data-anchor-id="figure-4-8-flowchart-for-a-clock-simulator">Figure 4-8 Flowchart for a Clock Simulator</h2>
+<p>A flowchart depicts clock simulator. For long description in Notes pane, press F6.</p>
+<blockquote class="blockquote">
+<p>The steps are as follows.<br>
+Start. Therefore, the condition in the diamond symbol is, is there another value in the list of hours. If the condition is yes, true, the following statement is evaluated. Assign the next hour to the hours variable. If the condition is no, false, the loop ends. The statement leads to next loop, where the condition is, is there another value in the list of minutes. If this condition is yes, true, the statement, assign the next minute to the minutes variable, is evaluated. If this condition is no, false, the program goes back to the point above the condition in the first loop. The statement leads to third loop. The condition in the third loop is, is there another value in the list of seconds. If the condition is yes, true, the following statements are evaluated. Assign the next second to the seconds variable. Display hours colon minutes colon seconds. Then the program goes back to the point above the condition in the third loop. If the condition is false, the program goes back to the point above the condition in the second loop.</p>
+</blockquote>
+</section>
+<section id="nested-loops-2-of-2" class="level2">
+<h2 class="anchored" data-anchor-id="nested-loops-2-of-2">Nested Loops (2 of 2)</h2>
+<ul>
+<li><p><strong>Key points about nested loops:</strong></p>
+<ul>
+<li>Inner loop goes through all of its iterations for each iteration of outer loop</li>
+<li>Inner loops complete their iterations faster than outer loops</li>
+<li>Total number of iterations in nested loop:</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-12" class="level2">
+<h2 class="anchored" data-anchor-id="example-12">Example</h2>
+<p>for i in range(2):</p>
+<p>for j in range(2):</p>
+<p>print(j)</p>
+<p>0</p>
+<p>1</p>
+<p>0</p>
+<p>1</p>
+</section>
+<section id="example-13" class="level2">
+<h2 class="anchored" data-anchor-id="example-13">Example</h2>
+<p>values = [1,2,3]</p>
+<p>for i in range(3):</p>
+<p>for j in range(2):</p>
+<p>values[i] += j</p>
+<p>print(values)</p>
+<p>[2, 3, 4]</p>
+</section>
+<section id="practice-26" class="level2">
+<h2 class="anchored" data-anchor-id="practice-26">Practice</h2>
+<ul>
+<li>Write a Python program that uses nested for loops to print a 4x4 table of all ones like below:</li>
+</ul>
+<p>1 1 1 1</p>
+<p>1 1 1 1</p>
+<p>1 1 1 1</p>
+<p>1 1 1 1</p>
+<blockquote class="blockquote">
+<p>for i in range(1, 5): # Rows from 1 to 5</p>
+<p>for j in range(1, 5): # Columns from 1 to 5</p>
+<p>print(1, end=“\t”) # Print product with a tab space</p>
+<p>print() # Newline after each row</p>
+</blockquote>
+</section>
+<section id="practice-27" class="level2">
+<h2 class="anchored" data-anchor-id="practice-27">Practice</h2>
+<ul>
+<li>Write a Python program that uses nested for loops to print a multiplication table from 1 to 4 in the following format:</li>
+</ul>
+<p>1 2 3 4</p>
+<p>2 4 6 8</p>
+<p>3 6 9 12</p>
+<p>4 8 12 16</p>
+<blockquote class="blockquote">
+<p>for i in range(1, 5): # Rows from 1 to 5</p>
+<p>for j in range(1, 5): # Columns from 1 to 5</p>
+<p>print(i * j, end=“\t”) # Print product with a tab space</p>
+<p>print() # Newline after each row</p>
+</blockquote>
+</section>
+<section id="the-else-clause-with-a-loop-1-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-else-clause-with-a-loop-1-of-4">The else Clause With a Loop (1 of 4)</h2>
+<ul>
+<li><strong>Loops in Python can have an optional else clause.</strong></li>
+</ul>
+<p>for <em>variable</em> in <em>[value1, value2, etc.]</em>:</p>
+<p><em>statement</em></p>
+<p><em>statement</em></p>
+<p><em>etc</em>.</p>
+<p>else:</p>
+<p><em>statement</em></p>
+<p><em>statement</em></p>
+<p><em>etc</em>.</p>
+</section>
+<section id="the-else-clause-with-a-loop-2-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-else-clause-with-a-loop-2-of-4">The else Clause With a Loop (2 of 4)</h2>
+<ul>
+<li>An else clause in a loop is useful only when the loop contains a break statement.</li>
+<li>The block of statements that appears after the else clause executes only when the loop terminates normally, without encountering a break statement.</li>
+<li>If the loop terminates because of a break statement, the else clause will not execute its block of statements.</li>
+</ul>
+</section>
+<section id="the-else-clause-with-a-loop-3-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-else-clause-with-a-loop-3-of-4">The else Clause With a Loop (3 of 4)</h2>
+<ul>
+<li><strong>Example:</strong></li>
+</ul>
+<p>for n in range(10):</p>
+<p>if n == 5:</p>
+<p>print(‘Breaking out of the loop.’)</p>
+<p>break</p>
+<p>print(n)</p>
+<p>else:</p>
+<p>print(f’After the loop, n is {n}.’)</p>
+<p><strong>Program Output</strong></p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>3</p>
+<p>4</p>
+<p>Breaking out of the loop.</p>
+<p>The else clause did not execute because the break statement executed</p>
+</section>
+<section id="the-else-clause-with-a-loop-4-of-4" class="level2">
+<h2 class="anchored" data-anchor-id="the-else-clause-with-a-loop-4-of-4">The else Clause With a Loop (4 of 4)</h2>
+<ul>
+<li><strong>Example:</strong></li>
+</ul>
+<p>for n in range(3):</p>
+<p>if n == 5:</p>
+<p>print(‘Breaking out of the loop.’)</p>
+<p>break</p>
+<p>print(n)</p>
+<p>else:</p>
+<p>print(f’After the loop, n is {n}.’)</p>
+<p><strong>Program Output</strong></p>
+<p>0</p>
+<p>1</p>
+<p>2</p>
+<p>After the loop, n is 2.</p>
+<p>The break statement did not execute, so the else clause executed.</p>
+</section>
+<section id="practice-28" class="level2">
+<h2 class="anchored" data-anchor-id="practice-28">Practice</h2>
+<ul>
+<li>Given a list of numbers called <strong>values</strong>, use a for loop to search for a given number called <strong>target</strong>.</li>
+<li>If the number is found, print “Found” and break the loop.</li>
+<li>If the loop completes without finding the number, print “Not Found” using the else clause.</li>
+</ul>
+<blockquote class="blockquote">
+<p>values = [1,2,3,4,5]</p>
+<p>target = 3</p>
+<p>for i in values:</p>
+<p>if i == target:</p>
+<p>print(“Found”)</p>
+<p>break</p>
+<p>else:</p>
+<p>print(“Not Found”)</p>
+</blockquote>
 
 
 </section>

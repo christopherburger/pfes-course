@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>4: Vectors and NumPy Arrays – Programming for Engineers and Scientists</title>
+<title>4: Vectors and NumPy – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html">4: Vectors and NumPy Arrays</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html">4: Vectors and NumPy</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Strings Lists Tuples</span></a>
+ <span class="menu-text">3: Strings, Lists and Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+ <span class="menu-text">4: Vectors and NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,19 +198,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/09_loops/loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9: For Loops</span></a>
+ <span class="menu-text">9: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/10_matrices/matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12: Matrices</span></a>
+ <span class="menu-text">10: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/11_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
+ <span class="menu-text">11: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,25 +222,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15: Exceptions and Files</span></a>
+ <span class="menu-text">13: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/14_pandas/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16: Pandas</span></a>
+ <span class="menu-text">14: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/15_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
+ <span class="menu-text">15: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">18: Distance and Similarity</span></a>
+ <span class="menu-text">16: Distance and Similarity</span></a>
   </div>
 </li>
       </ul>
@@ -255,17 +255,62 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#vectors-and-numpy" id="toc-vectors-and-numpy" class="nav-link" data-scroll-target="#vectors-and-numpy">Vectors and NumPy</a></li>
+  <li><a href="#lists-and-vectors" id="toc-lists-and-vectors" class="nav-link" data-scroll-target="#lists-and-vectors">Lists and Vectors</a></li>
+  <li><a href="#lists-and-vectors-1" id="toc-lists-and-vectors-1" class="nav-link" data-scroll-target="#lists-and-vectors-1">Lists and Vectors</a></li>
+  <li><a href="#libraries" id="toc-libraries" class="nav-link" data-scroll-target="#libraries">Libraries</a></li>
+  <li><a href="#standard-library-functions-and-the-import-statement-1-of-3" id="toc-standard-library-functions-and-the-import-statement-1-of-3" class="nav-link" data-scroll-target="#standard-library-functions-and-the-import-statement-1-of-3">Standard Library Functions and the import Statement (1 of 3)</a></li>
+  <li><a href="#standard-library-functions-and-the-import-statement-2-of-3" id="toc-standard-library-functions-and-the-import-statement-2-of-3" class="nav-link" data-scroll-target="#standard-library-functions-and-the-import-statement-2-of-3">Standard Library Functions and the import Statement (2 of 3)</a></li>
+  <li><a href="#standard-library-functions-and-the-import-statement-3-of-3" id="toc-standard-library-functions-and-the-import-statement-3-of-3" class="nav-link" data-scroll-target="#standard-library-functions-and-the-import-statement-3-of-3">Standard Library Functions and the import Statement (3 of 3)</a></li>
+  <li><a href="#importing-numpy" id="toc-importing-numpy" class="nav-link" data-scroll-target="#importing-numpy">Importing NumPy</a></li>
+  <li><a href="#creating-arrays" id="toc-creating-arrays" class="nav-link" data-scroll-target="#creating-arrays">Creating Arrays</a></li>
+  <li><a href="#vectorization" id="toc-vectorization" class="nav-link" data-scroll-target="#vectorization">Vectorization</a></li>
+  <li><a href="#comparison-between-arrays-and-lists" id="toc-comparison-between-arrays-and-lists" class="nav-link" data-scroll-target="#comparison-between-arrays-and-lists">Comparison Between Arrays and Lists</a></li>
+  <li><a href="#scalars" id="toc-scalars" class="nav-link" data-scroll-target="#scalars">Scalars</a></li>
+  <li><a href="#vectors" id="toc-vectors" class="nav-link" data-scroll-target="#vectors">Vectors</a></li>
+  <li><a href="#vectors-1" id="toc-vectors-1" class="nav-link" data-scroll-target="#vectors-1">Vectors</a></li>
+  <li><a href="#vectors-2" id="toc-vectors-2" class="nav-link" data-scroll-target="#vectors-2">Vectors</a></li>
+  <li><a href="#vector-arithmetic---magnitude" id="toc-vector-arithmetic---magnitude" class="nav-link" data-scroll-target="#vector-arithmetic---magnitude">Vector Arithmetic - Magnitude</a></li>
+  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
+  <li><a href="#vector-arithmetic-addition-and-subtraction" id="toc-vector-arithmetic-addition-and-subtraction" class="nav-link" data-scroll-target="#vector-arithmetic-addition-and-subtraction">Vector Arithmetic – Addition and Subtraction</a></li>
+  <li><a href="#vector-arithmetic-addition-and-subtraction-1" id="toc-vector-arithmetic-addition-and-subtraction-1" class="nav-link" data-scroll-target="#vector-arithmetic-addition-and-subtraction-1">Vector Arithmetic – Addition and Subtraction</a></li>
+  <li><a href="#vector-arithmetic-scalar-multiplication" id="toc-vector-arithmetic-scalar-multiplication" class="nav-link" data-scroll-target="#vector-arithmetic-scalar-multiplication">Vector Arithmetic – Scalar Multiplication</a></li>
+  <li><a href="#vector-arithmetic-scalar-multiplication-1" id="toc-vector-arithmetic-scalar-multiplication-1" class="nav-link" data-scroll-target="#vector-arithmetic-scalar-multiplication-1">Vector Arithmetic – Scalar Multiplication</a></li>
+  <li><a href="#vector-arithmetic-vector-multiplication" id="toc-vector-arithmetic-vector-multiplication" class="nav-link" data-scroll-target="#vector-arithmetic-vector-multiplication">Vector Arithmetic – Vector Multiplication</a></li>
+  <li><a href="#vector-arithmetic-vector-multiplication-1" id="toc-vector-arithmetic-vector-multiplication-1" class="nav-link" data-scroll-target="#vector-arithmetic-vector-multiplication-1">Vector Arithmetic – Vector Multiplication</a></li>
+  <li><a href="#vector-arithmetic-vector-multiplication-2" id="toc-vector-arithmetic-vector-multiplication-2" class="nav-link" data-scroll-target="#vector-arithmetic-vector-multiplication-2">Vector Arithmetic – Vector Multiplication</a></li>
+  <li><a href="#vector-arithmetic-the-hadamard-product" id="toc-vector-arithmetic-the-hadamard-product" class="nav-link" data-scroll-target="#vector-arithmetic-the-hadamard-product">Vector Arithmetic – The Hadamard Product</a></li>
+  <li><a href="#vector-arithmetic-the-hadamard-product-1" id="toc-vector-arithmetic-the-hadamard-product-1" class="nav-link" data-scroll-target="#vector-arithmetic-the-hadamard-product-1">Vector Arithmetic – The Hadamard Product</a></li>
+  <li><a href="#vector-arithmetic-the-dot-product" id="toc-vector-arithmetic-the-dot-product" class="nav-link" data-scroll-target="#vector-arithmetic-the-dot-product">Vector Arithmetic – The Dot Product</a></li>
+  <li><a href="#vector-arithmetic-the-dot-product-1" id="toc-vector-arithmetic-the-dot-product-1" class="nav-link" data-scroll-target="#vector-arithmetic-the-dot-product-1">Vector Arithmetic – The Dot Product</a></li>
+  <li><a href="#vector-arithmetic-the-dot-product-2" id="toc-vector-arithmetic-the-dot-product-2" class="nav-link" data-scroll-target="#vector-arithmetic-the-dot-product-2">Vector Arithmetic – The Dot Product</a></li>
+  <li><a href="#vector-arithmetic-the-cross-product" id="toc-vector-arithmetic-the-cross-product" class="nav-link" data-scroll-target="#vector-arithmetic-the-cross-product">Vector Arithmetic – The Cross Product</a></li>
+  <li><a href="#vector-arithmetic-the-cross-product-1" id="toc-vector-arithmetic-the-cross-product-1" class="nav-link" data-scroll-target="#vector-arithmetic-the-cross-product-1">Vector Arithmetic – The Cross Product</a></li>
+  <li><a href="#vector-arithmetic-the-cross-product-2" id="toc-vector-arithmetic-the-cross-product-2" class="nav-link" data-scroll-target="#vector-arithmetic-the-cross-product-2">Vector Arithmetic – The Cross Product</a></li>
+  <li><a href="#vector-components" id="toc-vector-components" class="nav-link" data-scroll-target="#vector-components">Vector Components</a></li>
+  <li><a href="#important-attributes-in-numpy" id="toc-important-attributes-in-numpy" class="nav-link" data-scroll-target="#important-attributes-in-numpy">Important Attributes in NumPy</a></li>
+  <li><a href="#array.shape" id="toc-array.shape" class="nav-link" data-scroll-target="#array.shape">array.shape</a></li>
+  <li><a href="#array.shape-1" id="toc-array.shape-1" class="nav-link" data-scroll-target="#array.shape-1">array.shape</a></li>
+  <li><a href="#array.ndim" id="toc-array.ndim" class="nav-link" data-scroll-target="#array.ndim">array.ndim</a></li>
+  <li><a href="#array.dtype" id="toc-array.dtype" class="nav-link" data-scroll-target="#array.dtype">array.dtype</a></li>
+  <li><a href="#more-functions-in-numpy---aggregates" id="toc-more-functions-in-numpy---aggregates" class="nav-link" data-scroll-target="#more-functions-in-numpy---aggregates">More Functions in NumPy - Aggregates</a></li>
+  <li><a href="#more-functions-in-numpy---reshape" id="toc-more-functions-in-numpy---reshape" class="nav-link" data-scroll-target="#more-functions-in-numpy---reshape">More Functions in NumPy - Reshape</a></li>
+  <li><a href="#more-functions-in-numpy---reshape-1" id="toc-more-functions-in-numpy---reshape-1" class="nav-link" data-scroll-target="#more-functions-in-numpy---reshape-1">More Functions in NumPy - Reshape</a></li>
+  <li><a href="#more-functions-in-numpy---flatten" id="toc-more-functions-in-numpy---flatten" class="nav-link" data-scroll-target="#more-functions-in-numpy---flatten">More Functions in NumPy - Flatten</a></li>
+  <li><a href="#more-functions-in-numpy---isnan" id="toc-more-functions-in-numpy---isnan" class="nav-link" data-scroll-target="#more-functions-in-numpy---isnan">More Functions in NumPy - isnan</a></li>
+  <li><a href="#more-functions-in-numpy---isnan-1" id="toc-more-functions-in-numpy---isnan-1" class="nav-link" data-scroll-target="#more-functions-in-numpy---isnan-1">More Functions in NumPy - isnan</a></li>
+  <li><a href="#more-functions-in-numpy---astype" id="toc-more-functions-in-numpy---astype" class="nav-link" data-scroll-target="#more-functions-in-numpy---astype">More Functions in NumPy - astype</a></li>
+  <li><a href="#indexing-and-slicing" id="toc-indexing-and-slicing" class="nav-link" data-scroll-target="#indexing-and-slicing">Indexing and Slicing</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html">4: Vectors and NumPy Arrays</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html">4: Vectors and NumPy</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">4: Vectors and NumPy Arrays</h1>
+<h1 class="title">4: Vectors and NumPy</h1>
 </div>
 
 
@@ -282,17 +327,421 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="vectors-and-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="vectors-and-numpy">Vectors and NumPy</h2>
+<p>CSCI – 1056</p>
+</section>
+<section id="lists-and-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="lists-and-vectors">Lists and Vectors</h2>
 <ul>
-<li>Importing NumPy</li>
-<li>Creating 1D arrays</li>
-<li>Basic array operations</li>
+<li>Standard Python is designed for general software development, not math.</li>
+<li>Structures like lists in Python have their own set of rules that makes using them in mathematical operations difficult.</li>
+<li>If we try to perform math on a standard Python list, the results are either completely wrong for our purposes, or they crash the program.</li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="lists-and-vectors-1" class="level2">
+<h2 class="anchored" data-anchor-id="lists-and-vectors-1">Lists and Vectors</h2>
+<ul>
+<li><p>Consider a list of test scores: scores = [85, 90, 78]</p></li>
+<li><p>If we want to double the score of every student, our first instinct is to multiply the list by 2:</p>
+<ul>
+<li>print(scores * 2)</li>
+</ul></li>
+<li><p>But what happens is it repeats the list items: [85, 90, 78, 85, 90, 78]</p></li>
+<li><p>Now, if we try to add 2 bonus points to every score using scores + 2, Python throws a <strong>TypeError</strong> because it does not understand how to combine a list with an integer.</p></li>
+</ul>
+</section>
+<section id="libraries" class="level2">
+<h2 class="anchored" data-anchor-id="libraries">Libraries</h2>
+<ul>
+<li>If we want mathematics to play well with the idea of lists, we need more specialized tools.</li>
+<li>Libraries are <strong>external</strong> toolsets built that we can bring into our Python code.</li>
+<li>For numerical data, the industry standard is <strong>NumPy</strong> (Numerical Python).</li>
+<li>If you are working on a local machine, you likely need to install the library first using <strong>pip install numpy</strong> in your terminal.</li>
+<li>Cloud environments like Colab usually have it pre-installed.</li>
+</ul>
+</section>
+<section id="standard-library-functions-and-the-import-statement-1-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="standard-library-functions-and-the-import-statement-1-of-3">Standard Library Functions and the import Statement (1 of 3)</h2>
+<ul>
+<li><p><strong>Standard library:</strong> library of pre-written functions that comes with Python</p>
+<ul>
+<li><p><strong>Library functions</strong> perform tasks that programmers commonly need</p>
+<ul>
+<li>Example: print, input, range</li>
+<li>Viewed by programmers as a “black box”</li>
+</ul></li>
+</ul></li>
+<li><p>Some library functions built into Python interpreter</p>
+<ul>
+<li>To use, just call the function</li>
+</ul></li>
+</ul>
+</section>
+<section id="standard-library-functions-and-the-import-statement-2-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="standard-library-functions-and-the-import-statement-2-of-3">Standard Library Functions and the import Statement (2 of 3)</h2>
+<ul>
+<li><p><strong>Modules:</strong> files that stores functions of the standard library</p>
+<ul>
+<li>Help organize library functions not built into the interpreter</li>
+<li>Copied to computer when you install Python</li>
+</ul></li>
+<li><p>To call a function stored in a module, need to write an import statement</p>
+<ul>
+<li>Written at the top of the program</li>
+<li>Format: import <em>module_name</em></li>
+</ul></li>
+</ul>
+</section>
+<section id="standard-library-functions-and-the-import-statement-3-of-3" class="level2">
+<h2 class="anchored" data-anchor-id="standard-library-functions-and-the-import-statement-3-of-3">Standard Library Functions and the import Statement (3 of 3)</h2>
+<p><strong>Figure 5-19</strong> A library function viewed as a black box</p>
+<p>An input is given to a library function, which yields an output.</p>
+</section>
+<section id="importing-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="importing-numpy">Importing NumPy</h2>
+<ul>
+<li>Once you have access to NumPy we need to use an import statement:</li>
+</ul>
+<p>import numpy as np</p>
+<ul>
+<li>We use as np as a standard convention.</li>
+<li>It acts as a nickname so we do not have to type “numpy” every time we want to use one of its tools.</li>
+</ul>
+</section>
+<section id="creating-arrays" class="level2">
+<h2 class="anchored" data-anchor-id="creating-arrays">Creating Arrays</h2>
+<ul>
+<li>To use NumPy’s features, we must convert our standard Python list into a specialized NumPy object called a <strong>ndarray</strong> (n-dimensional array).</li>
+</ul>
+<p>scores = [85, 90, 78]</p>
+<p>np_scores = np.array(scores)</p>
+<ul>
+<li>Our data is now stored in a format designed for mathematics.</li>
+</ul>
+</section>
+<section id="vectorization" class="level2">
+<h2 class="anchored" data-anchor-id="vectorization">Vectorization</h2>
+<ul>
+<li>Vectorization allows operations to be applied to every element in the array at the exact same time.</li>
+</ul>
+<p>print(np_scores * 2)</p>
+<p># Result: [170, 180, 156]</p>
+</section>
+<section id="comparison-between-arrays-and-lists" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-between-arrays-and-lists">Comparison Between Arrays and Lists</h2>
+<ul>
+<li><p><strong>Standard Python List:</strong></p>
+<ul>
+<li>Designed to store mixed data types natively.</li>
+<li>Mathematical operators like + concatenate and * repeat.</li>
+<li>Can hold mixed types like [1, “apple”, True].</li>
+</ul></li>
+<li><p><strong>NumPy ndarray:</strong></p>
+<ul>
+<li>Designed for math.</li>
+<li>Must hold uniform data types.</li>
+</ul></li>
+<li><p><strong>Warning:</strong> If you put a string into an array of numbers (e.g., np.array([85, 90, “apple”])), NumPy will silently convert your numbers into strings to maintain uniformity.</p></li>
+</ul>
+</section>
+<section id="scalars" class="level2">
+<h2 class="anchored" data-anchor-id="scalars">Scalars</h2>
+<ul>
+<li><p>The standard textbook definition of a scalar is “<em>a quantity with magnitude but no direction.</em>”</p></li>
+<li><p>Another more useful definition when it comes to dealing with vectors is a scalar is a <strong>scaling factor</strong>.</p>
+<ul>
+<li>It is a quantity that stretches or shrinks something else.</li>
+</ul></li>
+<li><p><strong>In Python:</strong> A scalar is a standard integer or float.</p></li>
+</ul>
+<p>x = 5</p>
+</section>
+<section id="vectors" class="level2">
+<h2 class="anchored" data-anchor-id="vectors">Vectors</h2>
+<p>import numpy as np</p>
+<p>v = np.array([3, 2])</p>
+</section>
+<section id="vectors-1" class="level2">
+<h2 class="anchored" data-anchor-id="vectors-1">Vectors</h2>
+<ul>
+<li><p>Visually, we have:</p>
+<ul>
+<li>Tail at the origin (0, 0)</li>
+<li>Head at (3, 2)</li>
+<li>Length = magnitude</li>
+<li>Orientation = direction</li>
+</ul></li>
+</ul>
+</section>
+<section id="vectors-2" class="level2">
+<h2 class="anchored" data-anchor-id="vectors-2">Vectors</h2>
+<ul>
+<li>Vectors are not tied to a location.</li>
+<li>We can have two vectors be equal (their components are all identical) while having a different origin.</li>
+</ul>
+</section>
+<section id="vector-arithmetic---magnitude" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic---magnitude">Vector Arithmetic - Magnitude</h2>
+</section>
+<section id="example" class="level2">
+<h2 class="anchored" data-anchor-id="example">Example</h2>
+<ul>
+<li>Assume you walk 3m east then 4m north.</li>
+<li>We can find the straight-line distance from your starting point to your destination using the magnitude of the sum of the vectors.</li>
+<li>Since we are working in a 2-dimensional space this is just the Pythagorean theorem.</li>
+</ul>
+<p>east= np.array([3,0])</p>
+<p>north = np.array([0,4])</p>
+<p>np.linalg.norm(east+north)</p>
+<p>#Output = 5.0</p>
+</section>
+<section id="vector-arithmetic-addition-and-subtraction" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-addition-and-subtraction">Vector Arithmetic – Addition and Subtraction</h2>
+</section>
+<section id="vector-arithmetic-addition-and-subtraction-1" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-addition-and-subtraction-1">Vector Arithmetic – Addition and Subtraction</h2>
+<p>a = np.array([2, 1])</p>
+<p>b = np.array([1, 3])</p>
+<p>print(a + b)</p>
+<p># Result: [3, 4]</p>
+</section>
+<section id="vector-arithmetic-scalar-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-scalar-multiplication">Vector Arithmetic – Scalar Multiplication</h2>
+<ul>
+<li>Applying a positive scalar to a vector scales its magnitude (length) without changing its fundamental line of direction.</li>
+<li>Applying a negative scalar scales its magnitude and changes the direction exactly 180 degrees.</li>
+</ul>
+</section>
+<section id="vector-arithmetic-scalar-multiplication-1" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-scalar-multiplication-1">Vector Arithmetic – Scalar Multiplication</h2>
+<p>v = np.array([3, 4])</p>
+<p>print(2 * v)</p>
+<p># Result: [6, 8]</p>
+<p>(The vector is twice as long)</p>
+</section>
+<section id="vector-arithmetic-vector-multiplication" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-vector-multiplication">Vector Arithmetic – Vector Multiplication</h2>
+</section>
+<section id="vector-arithmetic-vector-multiplication-1" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-vector-multiplication-1">Vector Arithmetic – Vector Multiplication</h2>
+</section>
+<section id="vector-arithmetic-vector-multiplication-2" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-vector-multiplication-2">Vector Arithmetic – Vector Multiplication</h2>
+<p>a = np.array([1, 2])</p>
+<p>b = np.array([3, 4])</p>
+<p>print(a * b)</p>
+<p># Result: [3, 8]</p>
+</section>
+<section id="vector-arithmetic-the-hadamard-product" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-hadamard-product">Vector Arithmetic – The Hadamard Product</h2>
+</section>
+<section id="vector-arithmetic-the-hadamard-product-1" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-hadamard-product-1">Vector Arithmetic – The Hadamard Product</h2>
+<p>a = np.array([1, 2])</p>
+<p>b = np.array([3, 4])</p>
+<p># The Hadamard Product: Element-wise multiplication</p>
+<p>print(a * b)</p>
+<p># Result: [3, 8]</p>
+</section>
+<section id="vector-arithmetic-the-dot-product" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-dot-product">Vector Arithmetic – The Dot Product</h2>
+</section>
+<section id="vector-arithmetic-the-dot-product-1" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-dot-product-1">Vector Arithmetic – The Dot Product</h2>
+<p>a = np.array([1, 2])</p>
+<p>b = np.array([3, 4])</p>
+<p># The dot product</p>
+<p>print(np.dot(a, b)) # print(a @ b) is equivalent</p>
+<p># Result: 11</p>
+</section>
+<section id="vector-arithmetic-the-dot-product-2" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-dot-product-2">Vector Arithmetic – The Dot Product</h2>
+<ul>
+<li>We can use the dot product to determine the projection of one vector onto another.</li>
+<li>Note that orthogonal (perpendicular) vectors have a dot product of zero.</li>
+<li>We will use the dot product later in the course as it can be used to calculate the similarity between two objects that have a vector representation.</li>
+</ul>
+</section>
+<section id="vector-arithmetic-the-cross-product" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-cross-product">Vector Arithmetic – The Cross Product</h2>
+<ul>
+<li><p>The cross product finds the unique direction that is perpendicular to both of the vectors and its associated magnitude.</p></li>
+<li><p>The output of the cross product is a vector itself.</p>
+<ul>
+<li>This implies that we need at least a 3-dimensional space to work in.</li>
+</ul></li>
+<li><p>If we take two vectors, they form a flat 2D pane.</p></li>
+<li><p>The cross product produces a new vector completely out of that pane, perpendicular to both.</p></li>
+</ul>
+</section>
+<section id="vector-arithmetic-the-cross-product-1" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-cross-product-1">Vector Arithmetic – The Cross Product</h2>
+<ul>
+<li>The <em>length</em> (magnitude) of this new vector represents the area of the parallelogram formed by the original two vectors.</li>
+<li>If the two vectors point in the exact same direction, their cross product is zero (no area, no leverage).</li>
+<li>If they are perpendicular, the cross product is at its maximum.</li>
+</ul>
+</section>
+<section id="vector-arithmetic-the-cross-product-2" class="level2">
+<h2 class="anchored" data-anchor-id="vector-arithmetic-the-cross-product-2">Vector Arithmetic – The Cross Product</h2>
+<p>a = np.array([4, 1, 0])</p>
+<p>b = np.array([1, 4, 0])</p>
+<p># The cross product</p>
+<p>print(np.cross(a, b))</p>
+<p># Result: 15</p>
+</section>
+<section id="vector-components" class="level2">
+<h2 class="anchored" data-anchor-id="vector-components">Vector Components</h2>
+</section>
+<section id="important-attributes-in-numpy" class="level2">
+<h2 class="anchored" data-anchor-id="important-attributes-in-numpy">Important Attributes in NumPy</h2>
+<ul>
+<li>Arrays in NumPy have certain inherent properties, called <strong>attributes</strong>, that can be useful for diagnosing errors or just inspecting the array.</li>
+<li>Note that attributes are different from functions, so they do not use parentheses () at the end.</li>
+</ul>
+</section>
+<section id="array.shape" class="level2">
+<h2 class="anchored" data-anchor-id="array.shape">array.shape</h2>
+</section>
+<section id="array.shape-1" class="level2">
+<h2 class="anchored" data-anchor-id="array.shape-1">array.shape</h2>
+<ul>
+<li><p>The comma in a 1D shape like (3,) is because Python handles tuples with a trailing comma to distinguish them from regular parentheses.</p>
+<ul>
+<li>It means “3 elements in the first dimension, and no other dimensions exist.”</li>
+</ul></li>
+</ul>
+<p>prices = np.array([10, 20, 30])</p>
+<p>print(prices.shape)<br>
+# Output: (3,) A 1D array with 3 elements</p>
+<p>grid = np.array([[1, 2], [3, 4], [5, 6]])</p>
+<p>print(grid.shape)<br>
+# Output: (3, 2) 3 rows, 2 columns</p>
+</section>
+<section id="array.ndim" class="level2">
+<h2 class="anchored" data-anchor-id="array.ndim">array.ndim</h2>
+</section>
+<section id="array.dtype" class="level2">
+<h2 class="anchored" data-anchor-id="array.dtype">array.dtype</h2>
+<ul>
+<li>array.dtype tells you exactly what kind of data is stored inside.</li>
+<li>This can be very useful as NumPy enforces uniform types.</li>
+<li>If a single string slips into your numbers, the whole array converts to text.</li>
+<li>Checking .dtype reveals if your numbers have become strings.</li>
+</ul>
+</section>
+<section id="more-functions-in-numpy---aggregates" class="level2">
+<h2 class="anchored" data-anchor-id="more-functions-in-numpy---aggregates">More Functions in NumPy - Aggregates</h2>
+<ul>
+<li><p><strong>Average</strong>: Takes the arithmetic mean of the array.</p>
+<ul>
+<li>np.mean()</li>
+</ul></li>
+<li><p><strong>Sum</strong>: Adds up every element in the array.</p>
+<ul>
+<li>np.sum()</li>
+</ul></li>
+<li><p><strong>Max</strong>: Returns the largest element in the array.</p>
+<ul>
+<li>np.max()</li>
+</ul></li>
+<li><p><strong>Min</strong>: Returns the smallest element in the array.</p>
+<ul>
+<li>np.min()</li>
+</ul></li>
+</ul>
+</section>
+<section id="more-functions-in-numpy---reshape" class="level2">
+<h2 class="anchored" data-anchor-id="more-functions-in-numpy---reshape">More Functions in NumPy - Reshape</h2>
+<ul>
+<li><p>array.reshape()</p>
+<ul>
+<li>You cannot reshape an array into dimensions that do not fit the number of elements.</li>
+<li>If you try flat_data.reshape(3, 3), NumPy will throw a:</li>
+</ul></li>
+</ul>
+<p><em>ValueError: cannot reshape array of size 6 into shape (3,3)</em></p>
+<ul>
+<li>The shape (3,3) requires exactly 9 items, and we only have 6.</li>
+</ul>
+<p>flat_data = np.array([1, 2, 3, 4, 5, 6])</p>
+</section>
+<section id="more-functions-in-numpy---reshape-1" class="level2">
+<h2 class="anchored" data-anchor-id="more-functions-in-numpy---reshape-1">More Functions in NumPy - Reshape</h2>
+<p>flat_data = np.array([1, 2, 3, 4, 5, 6])</p>
+<p># Morph it into 3 rows and 2 columns</p>
+<p>grid_data = flat_data.reshape(3, 2)</p>
+<p>print(grid_data)</p>
+<p># Output:</p>
+<p># [[1, 2]</p>
+<p># [3, 4]</p>
+<p># [5, 6]]</p>
+</section>
+<section id="more-functions-in-numpy---flatten" class="level2">
+<h2 class="anchored" data-anchor-id="more-functions-in-numpy---flatten">More Functions in NumPy - Flatten</h2>
+<ul>
+<li><p>array.flatten()</p>
+<ul>
+<li>Takes a multi-dimensional grid and squashes it back down into a single 1D row.</li>
+<li>Useful when a library expects a flat sequence of values, but you currently have them inside a multi-dimensional structure.</li>
+</ul></li>
+</ul>
+<p>grid_data = np.array([[[1, 2],[3, 4],[5, 6]])</p>
+<p># Morph it into 1 row</p>
+<p>flat_data = grid_data.flatten()</p>
+<p>print(flat_data)</p>
+<p># Output: [1, 2, 3, 4, 5, 6]</p>
+<p>#</p>
+</section>
+<section id="more-functions-in-numpy---isnan" class="level2">
+<h2 class="anchored" data-anchor-id="more-functions-in-numpy---isnan">More Functions in NumPy - isnan</h2>
+<ul>
+<li><p>np.isnan()</p>
+<ul>
+<li>Returns a Boolean array (True/False) indicating where missing or corrupted data (NaN or Not a Number) is located.</li>
+<li>If you run np.mean(scores)and the result is just NaN, having just a single broken data point has ruined your calculation.</li>
+<li>Combining this with an aggregate tool allows you to count how many broken points you have.</li>
+</ul></li>
+</ul>
+</section>
+<section id="more-functions-in-numpy---isnan-1" class="level2">
+<h2 class="anchored" data-anchor-id="more-functions-in-numpy---isnan-1">More Functions in NumPy - isnan</h2>
+<p>data = np.array([85, np.nan, 90])</p>
+<p># Find the missing data</p>
+<p>print(np.isnan(data))</p>
+<p># Output: [False, True, False]</p>
+<p># Count how many missing values exist</p>
+<p>print(np.sum(np.isnan(data)))</p>
+<p># Output: 1 (Because True acts as 1, False acts as 0)</p>
+</section>
+<section id="more-functions-in-numpy---astype" class="level2">
+<h2 class="anchored" data-anchor-id="more-functions-in-numpy---astype">More Functions in NumPy - astype</h2>
+<ul>
+<li><p>array.astype()</p>
+<ul>
+<li>Explicitly forces an array to convert from one data type to another.</li>
+<li>If you read data from a file and it imports everything as text strings (e.g., [“10”, “20”, “30”]), you use astype to cast them into actual integers or floats so you can perform vector arithmetic.</li>
+</ul></li>
+</ul>
+<p>string_scores = np.array([“85”, “90”, “78”])</p>
+<p># Fix the type so we can do math</p>
+<p>numeric_scores = string_scores.astype(float)</p>
+<p>print(numeric_scores * 2)</p>
+<p># Output: [170. 180. 156.]</p>
+</section>
+<section id="indexing-and-slicing" class="level2">
+<h2 class="anchored" data-anchor-id="indexing-and-slicing">Indexing and Slicing</h2>
+<ul>
+<li>NumPy arrays use similar rules for accessing data as standard structures like Python lists.</li>
+<li>You do not need to relearn how to extract data. The exact same syntax works:</li>
+<li><strong>Indexing:</strong> scores[0] retrieves the first element.</li>
+<li><strong>Negative Indexing:</strong> scores[-1] retrieves the last element.</li>
+<li><strong>Slicing:</strong> scores[1:3] retrieves the second and third elements.</li>
+</ul>
 
 
 </section>

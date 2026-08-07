@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>18: Distance and Similarity – Programming for Engineers and Scientists</title>
+<title>16: Distance and Similarity – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html">18: Distance and Similarity</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html">16: Distance and Similarity</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -162,13 +162,13 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/03_strings_lists_tuples/strings_lists_tuples.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">3: Strings Lists Tuples</span></a>
+ <span class="menu-text">3: Strings, Lists and Tuples</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/04_vectors_and_numpy/vectors_and_numpy.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">4: Vectors and NumPy Arrays</span></a>
+ <span class="menu-text">4: Vectors and NumPy</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -198,19 +198,19 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/09_loops/loops.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">9: For Loops</span></a>
+ <span class="menu-text">9: Loops</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/10_matrices/matrices.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">12: Matrices</span></a>
+ <span class="menu-text">10: Matrices</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/11_dictionaries/dictionaries.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Dictionaries</span></a>
+ <span class="menu-text">11: Dictionaries</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -222,25 +222,25 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">15: Exceptions and Files</span></a>
+ <span class="menu-text">13: Exceptions and Files</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/14_pandas/pandas.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">16: Pandas</span></a>
+ <span class="menu-text">14: Pandas</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/15_objects_and_classes/objects_and_classes.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">17: Objects and Classes</span></a>
+ <span class="menu-text">15: Objects and Classes</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">18: Distance and Similarity</span></a>
+ <span class="menu-text">16: Distance and Similarity</span></a>
   </div>
 </li>
       </ul>
@@ -255,17 +255,55 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#key-syntax" id="toc-key-syntax" class="nav-link" data-scroll-target="#key-syntax">Key Syntax</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
+  <li><a href="#vector-spaces-and-distance" id="toc-vector-spaces-and-distance" class="nav-link" data-scroll-target="#vector-spaces-and-distance">Vector Spaces and Distance</a></li>
+  <li><a href="#distance-and-the-feature-space" id="toc-distance-and-the-feature-space" class="nav-link" data-scroll-target="#distance-and-the-feature-space">Distance and the Feature Space</a></li>
+  <li><a href="#distance-and-the-feature-space-1" id="toc-distance-and-the-feature-space-1" class="nav-link" data-scroll-target="#distance-and-the-feature-space-1">Distance and the Feature Space</a></li>
+  <li><a href="#distance-and-the-feature-space-2" id="toc-distance-and-the-feature-space-2" class="nav-link" data-scroll-target="#distance-and-the-feature-space-2">Distance and the Feature Space</a></li>
+  <li><a href="#distance-and-the-feature-space-3" id="toc-distance-and-the-feature-space-3" class="nav-link" data-scroll-target="#distance-and-the-feature-space-3">Distance and the Feature Space</a></li>
+  <li><a href="#distance-and-the-feature-space-4" id="toc-distance-and-the-feature-space-4" class="nav-link" data-scroll-target="#distance-and-the-feature-space-4">Distance and the Feature Space</a></li>
+  <li><a href="#how-close-are-two-data-points" id="toc-how-close-are-two-data-points" class="nav-link" data-scroll-target="#how-close-are-two-data-points">How Close Are Two Data Points?</a></li>
+  <li><a href="#distance-measures" id="toc-distance-measures" class="nav-link" data-scroll-target="#distance-measures">Distance Measures</a></li>
+  <li><a href="#euclidean-distance-straight-line-distance" id="toc-euclidean-distance-straight-line-distance" class="nav-link" data-scroll-target="#euclidean-distance-straight-line-distance">Euclidean Distance (Straight-line Distance)</a></li>
+  <li><a href="#euclidean-distance-straight-line-distance-1" id="toc-euclidean-distance-straight-line-distance-1" class="nav-link" data-scroll-target="#euclidean-distance-straight-line-distance-1">Euclidean Distance (Straight-line Distance)</a></li>
+  <li><a href="#manhattan-distance-city-block-distance" id="toc-manhattan-distance-city-block-distance" class="nav-link" data-scroll-target="#manhattan-distance-city-block-distance">Manhattan Distance (City Block Distance)</a></li>
+  <li><a href="#manhattan-distance-city-block-distance-1" id="toc-manhattan-distance-city-block-distance-1" class="nav-link" data-scroll-target="#manhattan-distance-city-block-distance-1">Manhattan Distance (City Block Distance)</a></li>
+  <li><a href="#finding-the-closest-match" id="toc-finding-the-closest-match" class="nav-link" data-scroll-target="#finding-the-closest-match">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-1" id="toc-finding-the-closest-match-1" class="nav-link" data-scroll-target="#finding-the-closest-match-1">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-2" id="toc-finding-the-closest-match-2" class="nav-link" data-scroll-target="#finding-the-closest-match-2">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-3" id="toc-finding-the-closest-match-3" class="nav-link" data-scroll-target="#finding-the-closest-match-3">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-4" id="toc-finding-the-closest-match-4" class="nav-link" data-scroll-target="#finding-the-closest-match-4">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-5" id="toc-finding-the-closest-match-5" class="nav-link" data-scroll-target="#finding-the-closest-match-5">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-6" id="toc-finding-the-closest-match-6" class="nav-link" data-scroll-target="#finding-the-closest-match-6">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-7" id="toc-finding-the-closest-match-7" class="nav-link" data-scroll-target="#finding-the-closest-match-7">Finding the Closest Match</a></li>
+  <li><a href="#finding-the-closest-match-8" id="toc-finding-the-closest-match-8" class="nav-link" data-scroll-target="#finding-the-closest-match-8">Finding the Closest Match</a></li>
+  <li><a href="#not-every-feature-needs-to-count-equally" id="toc-not-every-feature-needs-to-count-equally" class="nav-link" data-scroll-target="#not-every-feature-needs-to-count-equally">Not Every Feature Needs to Count Equally</a></li>
+  <li><a href="#distance-is-everywhere." id="toc-distance-is-everywhere." class="nav-link" data-scroll-target="#distance-is-everywhere.">Distance is everywhere.</a></li>
+  <li><a href="#similarity-measures" id="toc-similarity-measures" class="nav-link" data-scroll-target="#similarity-measures">Similarity Measures</a></li>
+  <li><a href="#everything-can-become-a-vector" id="toc-everything-can-become-a-vector" class="nav-link" data-scroll-target="#everything-can-become-a-vector">Everything Can Become a Vector</a></li>
+  <li><a href="#images-as-vectors" id="toc-images-as-vectors" class="nav-link" data-scroll-target="#images-as-vectors">Images as Vectors</a></li>
+  <li><a href="#direction-and-magnitude" id="toc-direction-and-magnitude" class="nav-link" data-scroll-target="#direction-and-magnitude">Direction and Magnitude</a></li>
+  <li><a href="#direction-and-magnitude-1" id="toc-direction-and-magnitude-1" class="nav-link" data-scroll-target="#direction-and-magnitude-1">Direction and Magnitude</a></li>
+  <li><a href="#direction-and-magnitude-2" id="toc-direction-and-magnitude-2" class="nav-link" data-scroll-target="#direction-and-magnitude-2">Direction and Magnitude</a></li>
+  <li><a href="#direction-and-magnitude-3" id="toc-direction-and-magnitude-3" class="nav-link" data-scroll-target="#direction-and-magnitude-3">Direction and Magnitude</a></li>
+  <li><a href="#the-dot-product" id="toc-the-dot-product" class="nav-link" data-scroll-target="#the-dot-product">The Dot Product</a></li>
+  <li><a href="#the-dot-product-1" id="toc-the-dot-product-1" class="nav-link" data-scroll-target="#the-dot-product-1">The Dot Product</a></li>
+  <li><a href="#cosine-similarity" id="toc-cosine-similarity" class="nav-link" data-scroll-target="#cosine-similarity">Cosine Similarity</a></li>
+  <li><a href="#cosine-similarity-1" id="toc-cosine-similarity-1" class="nav-link" data-scroll-target="#cosine-similarity-1">Cosine Similarity</a></li>
+  <li><a href="#cosine-similarity-2" id="toc-cosine-similarity-2" class="nav-link" data-scroll-target="#cosine-similarity-2">Cosine Similarity</a></li>
+  <li><a href="#cosine-similarity-3" id="toc-cosine-similarity-3" class="nav-link" data-scroll-target="#cosine-similarity-3">Cosine Similarity</a></li>
+  <li><a href="#cosine-similarity-4" id="toc-cosine-similarity-4" class="nav-link" data-scroll-target="#cosine-similarity-4">Cosine Similarity</a></li>
+  <li><a href="#cosine-similarity-5" id="toc-cosine-similarity-5" class="nav-link" data-scroll-target="#cosine-similarity-5">Cosine Similarity</a></li>
+  <li><a href="#comparing-measures" id="toc-comparing-measures" class="nav-link" data-scroll-target="#comparing-measures">Comparing Measures</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html">18: Distance and Similarity</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/16_distance_and_similarity/distance_and_similarity.html">16: Distance and Similarity</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">18: Distance and Similarity</h1>
+<h1 class="title">16: Distance and Similarity</h1>
 </div>
 
 
@@ -282,17 +320,464 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="overview" class="level2">
-<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
+</section>
+<section id="vector-spaces-and-distance" class="level2">
+<h2 class="anchored" data-anchor-id="vector-spaces-and-distance">Vector Spaces and Distance</h2>
+<p>CSCI – 1056</p>
+</section>
+<section id="distance-and-the-feature-space" class="level2">
+<h2 class="anchored" data-anchor-id="distance-and-the-feature-space">Distance and the Feature Space</h2>
 <ul>
-<li>Defining sets and uniqueness</li>
-<li>Set operations (union intersection)</li>
-<li>Checking membership efficiently</li>
+<li>So far, we have viewed vectors as arrows in 2D or 3D physical space.</li>
+<li>In modern computing, a vector is just a list of features.</li>
+<li>If an object has 5 attributes, they can be viewed as a single point in a <strong>5-Dimensional Vector Space</strong>.</li>
+<li>While we cannot draw 5D space, the mathematics work the same.</li>
+<li>The exact same NumPy addition and dot products we used for 2D apply to 5D or 10,000-dimensional data.</li>
 </ul>
 </section>
-<section id="key-syntax" class="level2">
-<h2 class="anchored" data-anchor-id="key-syntax">Key Syntax</h2>
-<p>```python # Add core syntax examples here</p>
+<section id="distance-and-the-feature-space-1" class="level2">
+<h2 class="anchored" data-anchor-id="distance-and-the-feature-space-1">Distance and the Feature Space</h2>
+<ul>
+<li>A row in a DataFrame is just a point in a high-dimensional space.</li>
+<li>The DataFrame below has a dimension of three, since it contains three features.</li>
+</ul>
+<p>patients = pd.DataFrame({</p>
+<p>“Age”: [45, 48, 52, 51],</p>
+<p>“HeartRate”: [72, 75, 68, 77],</p>
+<p>“BloodPressure”: [120, 125, 118, 131]</p>
+<p>})</p>
+</section>
+<section id="distance-and-the-feature-space-2" class="level2">
+<h2 class="anchored" data-anchor-id="distance-and-the-feature-space-2">Distance and the Feature Space</h2>
+<ul>
+<li>We can think of the x-coordinate as age.</li>
+<li>The y-coordinate as heart rate.</li>
+<li>And the z-coordinate as blood pressure.</li>
+<li>We can switch any of these values between axes, the specific choice is not important.</li>
+</ul>
+<p>patients = pd.DataFrame({</p>
+<p>“Age”: [45, 48, 52, 51],</p>
+<p>“HeartRate”: [72, 75, 68, 77],</p>
+<p>“BloodPressure”: [120, 125, 118, 131]</p>
+<p>})</p>
+</section>
+<section id="distance-and-the-feature-space-3" class="level2">
+<h2 class="anchored" data-anchor-id="distance-and-the-feature-space-3">Distance and the Feature Space</h2>
+<p>patients = pd.DataFrame({</p>
+<p>“Age”: [45, 48, 52, 51],</p>
+<p>“HeartRate”: [72, 75, 68, 77],</p>
+<p>“BloodPressure”: [120, 125, 118, 131]</p>
+<p>})</p>
+</section>
+<section id="distance-and-the-feature-space-4" class="level2">
+<h2 class="anchored" data-anchor-id="distance-and-the-feature-space-4">Distance and the Feature Space</h2>
+<ul>
+<li>Every row is one point.</li>
+<li>Every column is one feature.</li>
+</ul>
+<p>patients = pd.DataFrame({</p>
+<p>“Age”: [45, 48, 52, 51],</p>
+<p>“HeartRate”: [72, 75, 68, 77],</p>
+<p>“BloodPressure”: [120, 125, 118, 131]</p>
+<p>})</p>
+<p>print(patients.iloc[0])</p>
+<p>Age 45</p>
+<p>HeartRate 72</p>
+<p>BloodPressure 120</p>
+</section>
+<section id="how-close-are-two-data-points" class="level2">
+<h2 class="anchored" data-anchor-id="how-close-are-two-data-points">How Close Are Two Data Points?</h2>
+<ul>
+<li>To find similar things, we measure the distance between their vectors.</li>
+<li>The closer the distance, the more similar the objects are.</li>
+<li>The question is, how to calculate the distance?</li>
+</ul>
+</section>
+<section id="distance-measures" class="level2">
+<h2 class="anchored" data-anchor-id="distance-measures">Distance Measures</h2>
+<ul>
+<li><p>There are many ways to calculate the distance in a vector space.</p></li>
+<li><p>We will talk about the two most commonly used methods.</p>
+<ul>
+<li>Euclidean Distance (Straight-line Distance)</li>
+<li>Manhattan Distance (City Block Distance)</li>
+</ul></li>
+</ul>
+</section>
+<section id="euclidean-distance-straight-line-distance" class="level2">
+<h2 class="anchored" data-anchor-id="euclidean-distance-straight-line-distance">Euclidean Distance (Straight-line Distance)</h2>
+</section>
+<section id="euclidean-distance-straight-line-distance-1" class="level2">
+<h2 class="anchored" data-anchor-id="euclidean-distance-straight-line-distance-1">Euclidean Distance (Straight-line Distance)</h2>
+<p># Two patients: [Age, Heart_Rate, Blood_Pressure]</p>
+<p>patient_A = np.array([45, 72, 120])</p>
+<p>patient_B = np.array([48, 75, 125])</p>
+<p># Calculate the distance vector, then take its norm</p>
+<p>distance = np.linalg.norm(patient_A - patient_B)</p>
+<p>&gt;&gt;&gt; 6.557438524302</p>
+</section>
+<section id="manhattan-distance-city-block-distance" class="level2">
+<h2 class="anchored" data-anchor-id="manhattan-distance-city-block-distance">Manhattan Distance (City Block Distance)</h2>
+</section>
+<section id="manhattan-distance-city-block-distance-1" class="level2">
+<h2 class="anchored" data-anchor-id="manhattan-distance-city-block-distance-1">Manhattan Distance (City Block Distance)</h2>
+<p># Two patients: [Age, Heart_Rate, Blood_Pressure]</p>
+<p>patient_A = np.array([45, 72, 120])</p>
+<p>patient_B = np.array([48, 75, 125])</p>
+<p>distance = np.linalg.norm(patient_A - patient_B, ord=1)</p>
+<p>&gt;&gt;&gt; 11</p>
+</section>
+<section id="finding-the-closest-match" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match">Finding the Closest Match</h2>
+<ul>
+<li><p>How does a computer classify something new?</p>
+<ul>
+<li>It finds the closest historical data point.</li>
+</ul></li>
+<li><p>We will develop an algorithm to find the closest match in our DataFrame for a given point.</p>
+<ul>
+<li>We need to iterate through every row in the DataFrame, as we will not know if there is a closer pair unless we examine every pair.</li>
+<li>We then need to calculate the distance between each pair.</li>
+<li>We will need to keep track of the smallest distance.</li>
+</ul></li>
+</ul>
+</section>
+<section id="finding-the-closest-match-1" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-1">Finding the Closest Match</h2>
+<p>best_distance = infinity<br>
+</p>
+<p>for every row:<br>
+</p>
+<p>compute distance<br>
+</p>
+<p>if smaller:<br>
+remember row</p>
+</section>
+<section id="finding-the-closest-match-2" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-2">Finding the Closest Match</h2>
+<p>unknown = np.array([46,74,121])</p>
+<p>smallest_distance = np.inf</p>
+<p>for _, row in df.iterrows():</p>
+<p>d = np.linalg.norm(row.to_numpy() - unknown)</p>
+<p>if d &lt; smallest_distance:</p>
+<p>smallest_distance = d</p>
+<p>print(smallest_distance)</p>
+<p>&gt;&gt;&gt; 2.449489742783178</p>
+</section>
+<section id="finding-the-closest-match-3" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-3">Finding the Closest Match</h2>
+<p>unknown = np.array([46,74,121])</p>
+<p>distances = np.linalg.norm(</p>
+<p>patients.to_numpy() - unknown,</p>
+<p>axis=1 #this specifies we calculate across the columns</p>
+<p>)</p>
+<p>print(distances.min()))</p>
+<p>&gt;&gt;&gt; 2.449489742783178</p>
+</section>
+<section id="finding-the-closest-match-4" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-4">Finding the Closest Match</h2>
+<ul>
+<li>What about finding the two closest points?</li>
+<li>Most of our code can be reused, but we will need to keep track of the second smallest distance.</li>
+</ul>
+</section>
+<section id="finding-the-closest-match-5" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-5">Finding the Closest Match</h2>
+<p>smallest_distance, second_smallest_distance = np.inf, np.inf</p>
+<p>for _, row in patients.iterrows():</p>
+<p>d = np.linalg.norm(row.to_numpy() - unknown)</p>
+<p>if d &lt; smallest_distance:</p>
+<p>second_smallest_distance = smallest_distance</p>
+<p>smallest_distance = d</p>
+<p>elif d &lt; second_smallest_distance:</p>
+<p>second_smallest_distance = d</p>
+</section>
+<section id="finding-the-closest-match-6" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-6">Finding the Closest Match</h2>
+<ul>
+<li><p>What about finding the three closest points?</p></li>
+<li><p>We now need to have conditions that handle:</p>
+<ul>
+<li>the observation is the smallest overall</li>
+<li>the observation is the second smallest overall</li>
+<li>the observation is the third smallest overall</li>
+</ul></li>
+<li><p>We need a better solution than continuing to create conditional statements.</p>
+<ul>
+<li>We can collect all the distances in a list, then sort the list.</li>
+</ul></li>
+</ul>
+</section>
+<section id="finding-the-closest-match-7" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-7">Finding the Closest Match</h2>
+<p>unknown = np.array([46,74,121])</p>
+<p>distances = []</p>
+<p>for _, row in patients.iterrows():</p>
+<p>d = np.linalg.norm(row.to_numpy() - unknown)</p>
+<p>distances.append(d)</p>
+<p>distances.sort()</p>
+<p>print(distances)</p>
+<p>&gt;&gt;&gt;[2.4494897, 4.582575, 9.0, 11.5758369]</p>
+</section>
+<section id="finding-the-closest-match-8" class="level2">
+<h2 class="anchored" data-anchor-id="finding-the-closest-match-8">Finding the Closest Match</h2>
+<p>distances = np.linalg.norm(</p>
+<p>df.to_numpy() - unknown,</p>
+<p>axis=1 #this specifies we calculate across the columns</p>
+<p>)</p>
+<p>distances = np.sort(distances)</p>
+<p>print(distances)</p>
+<p>&gt;&gt;&gt; [ 2.44948974 4.58257569 9. 11.5758369 ]</p>
+</section>
+<section id="not-every-feature-needs-to-count-equally" class="level2">
+<h2 class="anchored" data-anchor-id="not-every-feature-needs-to-count-equally">Not Every Feature Needs to Count Equally</h2>
+<ul>
+<li>Suppose we have two data points with the following features:</li>
+</ul>
+<p><strong>Age</strong> = 45 and <strong>Income</strong> = $900,000</p>
+<p><strong>Age</strong> = 46 and <strong>Income</strong> = $901,000</p>
+<ul>
+<li><ul>
+<li>In terms of raw numbers, income dominates because the units are much larger.</li>
+</ul></li>
+<li><p>Does a difference of $1,000 matter more than a year of age?</p>
+<ul>
+<li>It depends, but this is is why we often rescale data before measuring distance.</li>
+</ul></li>
+<li><p>This is outside of the scope of this course but is important in applications.</p></li>
+</ul>
+</section>
+<section id="distance-is-everywhere." class="level2">
+<h2 class="anchored" data-anchor-id="distance-is-everywhere.">Distance is everywhere.</h2>
+<ul>
+<li><p>Finding similar customers</p></li>
+<li><p>Movie recommendations</p></li>
+<li><p>Fraud detection</p></li>
+<li><p>Image search</p></li>
+<li><p>Face recognition</p></li>
+<li><p>Spell checking</p></li>
+<li><p>Most of “AI” involves measuring distance as a core component.</p>
+<ul>
+<li>If you can turn it into a vector, you can measure distance.</li>
+</ul></li>
+</ul>
+</section>
+<section id="similarity-measures" class="level2">
+<h2 class="anchored" data-anchor-id="similarity-measures">Similarity Measures</h2>
+<p>CSCI – 1056</p>
+</section>
+<section id="everything-can-become-a-vector" class="level2">
+<h2 class="anchored" data-anchor-id="everything-can-become-a-vector">Everything Can Become a Vector</h2>
+<ul>
+<li>Once something is represented as a vector, we can compare it mathematically.</li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Data</strong></th>
+<th><strong>Vector</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Patient</td>
+<td>age, pulse, blood pressure</td>
+</tr>
+<tr class="even">
+<td>House</td>
+<td>bedrooms, bathrooms, square feet</td>
+</tr>
+<tr class="odd">
+<td>Image</td>
+<td>pixel brightness values</td>
+</tr>
+<tr class="even">
+<td>Music</td>
+<td>amplitude samples</td>
+</tr>
+<tr class="odd">
+<td>Document</td>
+<td>counts of different words</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="images-as-vectors" class="level2">
+<h2 class="anchored" data-anchor-id="images-as-vectors">Images as Vectors</h2>
+</section>
+<section id="direction-and-magnitude" class="level2">
+<h2 class="anchored" data-anchor-id="direction-and-magnitude">Direction and Magnitude</h2>
+<ul>
+<li>Vector A points in the same direction as B.</li>
+<li>But vectors A and C are much closer using Euclidean distance.</li>
+</ul>
+</section>
+<section id="direction-and-magnitude-1" class="level2">
+<h2 class="anchored" data-anchor-id="direction-and-magnitude-1">Direction and Magnitude</h2>
+<p>A = np.array([1,1])</p>
+<p>B = np.array([4,4])</p>
+<p>C = np.array([-1,1])</p>
+<p>print(np.linalg.norm(A - B))</p>
+<p>&gt;&gt;&gt; 4.242640687119285</p>
+<p>print(np.linalg.norm(A - C))</p>
+<p>&gt;&gt;&gt; 2.0</p>
+</section>
+<section id="direction-and-magnitude-2" class="level2">
+<h2 class="anchored" data-anchor-id="direction-and-magnitude-2">Direction and Magnitude</h2>
+<p>print(np.linalg.norm(A - B), ord = 1)</p>
+<p>&gt;&gt;&gt; 6.0</p>
+<p>print(np.linalg.norm(A - C), ord = 1)</p>
+<p>&gt;&gt;&gt; 2.0</p>
+<blockquote class="blockquote">
+<p>Changing to Manhattan distance, we see that A and B are even further apart than Euclidean.</p>
+</blockquote>
+</section>
+<section id="direction-and-magnitude-3" class="level2">
+<h2 class="anchored" data-anchor-id="direction-and-magnitude-3">Direction and Magnitude</h2>
+<ul>
+<li>A better way to approach this is to avoid distance and instead look at the angle between the two vectors.</li>
+<li>The closer the angle is to zero, the more the vectors point in the same direction.</li>
+<li>So, the closer the angle to zero, the more similar the vectors are.</li>
+</ul>
+</section>
+<section id="the-dot-product" class="level2">
+<h2 class="anchored" data-anchor-id="the-dot-product">The Dot Product</h2>
+</section>
+<section id="the-dot-product-1" class="level2">
+<h2 class="anchored" data-anchor-id="the-dot-product-1">The Dot Product</h2>
+</section>
+<section id="cosine-similarity" class="level2">
+<h2 class="anchored" data-anchor-id="cosine-similarity">Cosine Similarity</h2>
+<ul>
+<li>From this alternative form of the dot product definition, we can then simultaneously both find the angle and have it automatically translated to an extremely convenient range.</li>
+</ul>
+</section>
+<section id="cosine-similarity-1" class="level2">
+<h2 class="anchored" data-anchor-id="cosine-similarity-1">Cosine Similarity</h2>
+</section>
+<section id="cosine-similarity-2" class="level2">
+<h2 class="anchored" data-anchor-id="cosine-similarity-2">Cosine Similarity</h2>
+</section>
+<section id="cosine-similarity-3" class="level2">
+<h2 class="anchored" data-anchor-id="cosine-similarity-3">Cosine Similarity</h2>
+<p>def similarity(A,B):</p>
+<p>return np.dot(A,B) / (</p>
+<p>np.linalg.norm(A) *</p>
+<p>np.linalg.norm(B)</p>
+<p>)</p>
+<p>A = np.array([1,1])</p>
+<p>B = np.array([4,4])</p>
+<p>C = np.array([-1,1])</p>
+<p>print(similarity(A, B))</p>
+<p>&gt;&gt;&gt; 0.9999999999999998</p>
+<p>print(similarity(A, C))</p>
+<p>&gt;&gt;&gt; 0.0</p>
+</section>
+<section id="cosine-similarity-4" class="level2">
+<h2 class="anchored" data-anchor-id="cosine-similarity-4">Cosine Similarity</h2>
+<ul>
+<li><p>Note that a cosine similarity of -1 means the two vectors are closely related, they are just in opposite directions.</p></li>
+<li><p>If we had vectors of words, <strong>good</strong> and <strong>bad</strong> are related words, one is the opposite of the other.</p>
+<ul>
+<li>These would likely have a cosine similarity of -1.</li>
+</ul></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Cosine Similarity</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Same direction</td>
+</tr>
+<tr class="even">
+<td>0.8</td>
+<td>Very similar</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>Unrelated directions</td>
+</tr>
+<tr class="even">
+<td>-1</td>
+<td>Opposite directions</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="cosine-similarity-5" class="level2">
+<h2 class="anchored" data-anchor-id="cosine-similarity-5">Cosine Similarity</h2>
+<ul>
+<li><p>If we had vectors of the words, <strong>good</strong> and <strong>brick</strong>, there is no obvious relationship between the two.</p>
+<ul>
+<li>As these words are unrelated, we would expect a cosine similarity around zero.</li>
+</ul></li>
+</ul>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Cosine Similarity</strong></th>
+<th><strong>Meaning</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>Same direction</td>
+</tr>
+<tr class="even">
+<td>0.8</td>
+<td>Very similar</td>
+</tr>
+<tr class="odd">
+<td>0</td>
+<td>Unrelated directions</td>
+</tr>
+<tr class="even">
+<td>-1</td>
+<td>Opposite directions</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="comparing-measures" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-measures">Comparing Measures</h2>
+<ul>
+<li>Different measures answer different questions.</li>
+<li>One measure is not always better than another.</li>
+</ul>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 71%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Question</th>
+<th>Measure</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>How far apart are these vectors?</td>
+<td>Euclidean Distance</td>
+</tr>
+<tr class="even">
+<td>How much do they differ coordinate-by-coordinate?</td>
+<td>Manhattan Distance</td>
+</tr>
+<tr class="odd">
+<td>Do they point in the same direction?</td>
+<td>Cosine Similarity</td>
+</tr>
+</tbody>
+</table>
 
 
 </section>
