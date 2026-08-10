@@ -1082,7 +1082,7 @@
     "href": "lectures/05_functions/functions.html",
     "title": "5: Functions",
     "section": "",
-    "text": "We have used prebuilt functions repeatedly in this course (like print or input) and now we will look at building our own.\nA function is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.\nThis idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.\n\n\nFunction naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.\n\n\n\n\nDefining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.\n\n\n\nTo use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.\n\n\n\nThe function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass\n\n\n\n\n\nChanges made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.\n\n\n\n\n\n\nIn Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.\n\n\n\n\nWe can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4370280544   Var 2 = 4370280544\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4370280544   Var 2 = 4370280544",
+    "text": "We have used prebuilt functions repeatedly in this course (like print or input) and now we will look at building our own.\nA function is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.\nThis idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.\n\n\nFunction naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.\n\n\n\n\nDefining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.\n\n\n\nTo use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.\n\n\n\nThe function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass\n\n\n\n\n\nChanges made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.\n\n\n\n\n\n\nIn Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.\n\n\n\n\nWe can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4359467104   Var 2 = 4359467104\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4359467104   Var 2 = 4359467104",
     "crumbs": [
       "Lectures",
       "5: Functions"
@@ -1159,7 +1159,7 @@
     "href": "lectures/05_functions/functions.html#the-id-function",
     "title": "5: Functions",
     "section": "",
-    "text": "We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4370280544   Var 2 = 4370280544\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4370280544   Var 2 = 4370280544",
+    "text": "We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4359467104   Var 2 = 4359467104\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4359467104   Var 2 = 4359467104",
     "crumbs": [
       "Lectures",
       "5: Functions"
@@ -1456,260 +1456,51 @@
     "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html",
     "title": "3: Strings, Lists and Tuples",
     "section": "",
-    "text": "CSCI – 1056\nContent Modified from Pearson’s Starting Out with Python 6th Edition",
+    "text": "Recall that a string is sequence of characters that is one of Python’s fundamental data types.\nFor example, name = input(“Enter a name”) the variable name is a string.\nYou might see the term string literal used, which is a string that appears in actual code of a program in contrast to the data type.\nIn the above example “Enter a name” is a string literal.\nOften, the term literal is omitted and the word string is used both for the data type and actual character sequence. It is usually easy enough with context to distinguish between the two.\n\n\n\nTo append one string to the end of another string\nUse the + operator to concatenate strings\n\n\n\nmessage = 'Hello ' + 'world'\n\nprint(message)\n\nHello world\n\n\n\nYou can use string concatenation to break up a long string literal\n\n\nprint('Enter the amount of ' +\n\n'sales for each day and ' +\n\n'press Enter.')\n\nEnter the amount of sales for each day and press Enter.\n\n\nNotice how this statement is printed all on a single line.\n\n\n\n\nStrings are immutable\n\nOnce they are created, they cannot be changed\n\nConcatenation does not change the existing string, but rather creates a new string and assigns the new string to the previously used variable\n\nWe cannot use an expression of the form\nstring[index] = new_character\n\nStatement like this that attempt to overwrite a part of the string will result in an error\n\n\n\n\n\n\n\nAn f-string (formatted string literal) is a special type of string literal that is prefixed with the letter f\n\n\nprint(f'Hello world')\n\nHello world\n\n\n\nf-strings support placeholders for variables\n\n\nname = 'Johnny'\n\nprint(f'Hello {name}.')\n\nHello Johnny.\n\n\n\nPlaceholders can also be expressions that are evaluated\n\n\nprint(f'The value is {10 + 2}.')\n\nThe value is 12.\n\n\n\nval = 10\n\nprint(f'The value is {val + 2}.')\n\nThe value is 12.\n\n\n\nFormat specifiers can be used with placeholders\n\n\nnum = 123.456789\n\nprint(f'{num:.2f}')\n\n123.46\n\n\n\n2f means:\n\nround the value to 2 decimal places\ndisplay the value as a floating-point number\n\nPercentages\n\n\nnum = 1000000.00\n\nprint(f'{num:,.2f}')\n\n1,000,000.00\n\n\n\ndiscount = 0.5\n\nprint(f'{discount:.0%}')\n\n50%\n\n\n\nScientific Notation\n\n\nnum = 123456789\n\nprint(f'{num:,d}')\n\n123,456,789\n\n\n\nnum = 12345.6789\n\nprint(f'{num:.2e}')\n\n1.23e+04\n\n\n\nThe order of designators in a format specifier\n\nWhen using multiple designators in a format specifier, write them in this order:\n[alignment][width][,][.precision][type]\nExample: print(f'{number:^10,.2f}')\n\n\nThere are many other options and ways of formatting strings in Python. The office reference material at https://docs.python.org/3/tutorial/inputoutput.html contains extensive details.\n\n\n\n\nStrings in Python have many types of methods, divided into different types of operations\n\nGeneral format: mystring.method(arguments)\n\nSome methods test a string for specific characteristics\n\nGenerally Boolean methods, that return True if a condition exists, and False otherwise\n\n\nSome String Testing Methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nisalnum()\nReturns true if the string contains only alphabetic letters or digits and is at least one character in length. Returns false otherwise.\n\n\nisalpha()\nReturns true if the string contains only alphabetic letters and is at least one character in length. Returns false otherwise.\n\n\nisdigit()\nReturns true if the string contains only numeric digits and is at least one character in length. Returns false otherwise.\n\n\nislower()\nReturns true if all of the alphabetic letters in the string are lowercase, and the string contains at least one alphabetic letter. Returns false otherwise.\n\n\nisspace()\nReturns true if the string contains only whitespace characters and is at least one character in length. Returns false otherwise. (Whitespace characters are spaces, newlines (\\n), and tabs (\\t).\n\n\nisupper()\nReturns true if all of the alphabetic letters in the string are uppercase, and the string contains at least one alphabetic letter. Returns false otherwise.\n\n\n\n\nSome methods return a copy of the string, to which modifications have been made\n\nSimulate strings as mutable objects\n\nString comparisons are case-sensitive\n\nUppercase characters are distinguished from lowercase characters\nlower and upper methods can be used for making case-insensitive string comparisons\n\n\nSome String Modification Methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nlower()\nReturns a copy of the string with all alphabetic letters converted to lowercase. Any character that is already lowercase, or is not an alphabetic letter, is unchanged.\n\n\nlstrip()\nReturns a copy of the string with all leading whitespace characters removed. Leading whitespace characters are spaces, newlines (\\n), and tabs (\\t) that appear at the beginning of the string.\n\n\nlstrip(char)\nThe char argument is a string containing a character. Returns a copy of the string with all instances of char that appear at the beginning of the string removed.\n\n\nrstrip()\nReturns a copy of the string with all trailing whitespace characters removed. Trailing whitespace characters are spaces, newlines(\\n), and tabs (\\t) that appear at the end of the string.\n\n\nrstrip(char)\nThe char argument is a string containing a character. The method returns a copy of the string with all instances of char that appear at the end of the string removed.\n\n\nstrip()\nReturns a copy of the string with all leading and trailing whitespace characters removed.\n\n\nstrip(char)\nReturns a copy of the string with all instances of char that appear at the beginning and the end of the string removed.\n\n\nupper()\nReturns a copy of the string with all alphabetic letters converted to uppercase. Any character that is already uppercase, or is not an alphabetic letter, is unchanged.\n\n\n\n\nPrograms commonly need to search for substrings\nSeveral methods to accomplish this:\n\nendswith(substring): checks if the string ends with substring\n\nReturns True or False\n\nstartswith(substring): checks if the string starts with substring\n\nReturns True or False\n\nfind(substring): searches for substring within the string\n\nReturns lowest index of the substring, or if the substring is not contained in the string, returns -1\n\nreplace(substring, new_string):\n\nReturns a copy of the string where every occurrence of substring is replaced with new_string\n\n\n\nSome Search and Replace Methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nendswith(substring)\nThe substring argument is a string. The method returns true if the string ends with substring.\n\n\nfind (substring)\nThe substring argument is a string. The method returns the lowest index in the string where substring is found. If substring is not found, the method returns negative 1\n\n\nreplace(old, new)\nThe old and new arguments are both strings. The method returns a copy of the string with all instances of old replaced by new.\n\n\nstartswith (substring)\nThe substring argument is a string. The method returns true if the string starts with substring.\n\n\n\n\n\n\n\nRepetition operator: makes multiple copies of a string and joins them together\n\nThe * symbol is a repetition operator when applied to a string and an integer\n\nString is left operand; number is right\n\nGeneral format: string_to_copy * n\nVariable references a new string which contains multiple copies of the original string\n\n\n\n\n\n\nsplit method: returns a list containing the words in the string\n\nBy default, uses space as separator\nCan specify a different separator by passing it as an argument to the split method\n\n\n\nmy_string = 'One two three four'\n\nword_list = my_string.split()\n\nprint(word_list)\n\n['One', 'two', 'three', 'four']\n\n\n\nmy_string = '1/2/3/4/5'\n\nnumber_list = my_string.split('/')\n\nprint(number_list)\n\n['1', '2', '3', '4', '5']\n\n\n\n\n\n\nSometimes a string contains substrings that are separated by a special character\n\nExample: 'peach raspberry strawberry vanilla'\n\nThis string contains the substrings peach, raspberry, strawberry, and vanilla if we choose the space to be our separator.\n\nThe substrings are separated by the space character\nThe substrings are known as tokens and the separating character is known as the delimiter\n\nThe string '17;92;81;12;46;5' contains the tokens 17, 92, 81, 12, 46, and 5 if we choose the delimiter to be the ; character.\nTokenizing is the process of breaking a string into tokens\n\nWhen you tokenize a string, you extract the tokens and store them as individual items\nIn Python you can use the split method to tokenize a string\n\n\n\nstr = 'peach raspberry strawberry vanilla'\n\ntokens = str.split()\n\nprint(tokens)\n\n['peach', 'raspberry', 'strawberry', 'vanilla']\n\n\n\nmy_address = 'www.example.com'\n\ntokens = my_address.split('.')\n\nprint(tokens)\n\n['www', 'example', 'com']",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
     ]
   },
   {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-lists-and-tuples",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-lists-and-tuples",
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-concatenation",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-concatenation",
     "title": "3: Strings, Lists and Tuples",
     "section": "",
-    "text": "CSCI – 1056\nContent Modified from Pearson’s Starting Out with Python 6th Edition",
+    "text": "To append one string to the end of another string\nUse the + operator to concatenate strings\n\n\n\nmessage = 'Hello ' + 'world'\n\nprint(message)\n\nHello world\n\n\n\nYou can use string concatenation to break up a long string literal\n\n\nprint('Enter the amount of ' +\n\n'sales for each day and ' +\n\n'press Enter.')\n\nEnter the amount of sales for each day and press Enter.\n\n\nNotice how this statement is printed all on a single line.",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
     ]
   },
   {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-and-string-literals",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-and-string-literals",
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-are-immutable",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-are-immutable",
     "title": "3: Strings, Lists and Tuples",
-    "section": "Strings and String Literals",
-    "text": "Strings and String Literals\n\nString: sequence of characters that is used as data\n\nA string is a type of data.\nFor example, name = input(“Enter a name”)the variable name is a string.\n\nString literal: string that appears in actual code of a program\n\nIn the above example “Enter a name” is a string literal.",
+    "section": "",
+    "text": "Strings are immutable\n\nOnce they are created, they cannot be changed\n\nConcatenation does not change the existing string, but rather creates a new string and assigns the new string to the previously used variable\n\nWe cannot use an expression of the form\nstring[index] = new_character\n\nStatement like this that attempt to overwrite a part of the string will result in an error",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
     ]
   },
   {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-concatenation-1-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-concatenation-1-of-2",
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings",
     "title": "3: Strings, Lists and Tuples",
-    "section": "String Concatenation (1 of 2)",
-    "text": "String Concatenation (1 of 2)\n\nTo append one string to the end of another string\nUse the + operator to concatenate strings\n\n&gt;&gt;&gt; message = ‘Hello’ + ‘world’\n&gt;&gt;&gt; print(message)\nHello world\n&gt;&gt;&gt;",
+    "section": "",
+    "text": "An f-string (formatted string literal) is a special type of string literal that is prefixed with the letter f\n\n\nprint(f'Hello world')\n\nHello world\n\n\n\nf-strings support placeholders for variables\n\n\nname = 'Johnny'\n\nprint(f'Hello {name}.')\n\nHello Johnny.\n\n\n\nPlaceholders can also be expressions that are evaluated\n\n\nprint(f'The value is {10 + 2}.')\n\nThe value is 12.\n\n\n\nval = 10\n\nprint(f'The value is {val + 2}.')\n\nThe value is 12.\n\n\n\nFormat specifiers can be used with placeholders\n\n\nnum = 123.456789\n\nprint(f'{num:.2f}')\n\n123.46\n\n\n\n2f means:\n\nround the value to 2 decimal places\ndisplay the value as a floating-point number\n\nPercentages\n\n\nnum = 1000000.00\n\nprint(f'{num:,.2f}')\n\n1,000,000.00\n\n\n\ndiscount = 0.5\n\nprint(f'{discount:.0%}')\n\n50%\n\n\n\nScientific Notation\n\n\nnum = 123456789\n\nprint(f'{num:,d}')\n\n123,456,789\n\n\n\nnum = 12345.6789\n\nprint(f'{num:.2e}')\n\n1.23e+04\n\n\n\nThe order of designators in a format specifier\n\nWhen using multiple designators in a format specifier, write them in this order:\n[alignment][width][,][.precision][type]\nExample: print(f'{number:^10,.2f}')\n\n\nThere are many other options and ways of formatting strings in Python. The office reference material at https://docs.python.org/3/tutorial/inputoutput.html contains extensive details.",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
     ]
   },
   {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-concatenation-2-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-concatenation-2-of-2",
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods",
     "title": "3: Strings, Lists and Tuples",
-    "section": "String Concatenation (2 of 2)",
-    "text": "String Concatenation (2 of 2)\n\nYou can use string concatenation to break up a long string literal\n\nprint(‘Enter the amount of’ +\n‘sales for each day and’ +\n‘press Enter.’)\n\nThis statement will display the following:\n\nEnter the amount of sales for each day and press Enter.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-are-immutable-1-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-are-immutable-1-of-2",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Strings Are Immutable (1 of 2)",
-    "text": "Strings Are Immutable (1 of 2)\n\nStrings are immutable\n\nOnce they are created, they cannot be changed\n\nConcatenation does not change the existing string, but rather creates a new string and assigns the new string to the previously used variable\n\nCannot use an expression of the form\nstring[index] = new_character\n\nStatement of this type will result in an error",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-are-immutable-2-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#strings-are-immutable-2-of-2",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Strings Are Immutable (2 of 2)",
-    "text": "Strings Are Immutable (2 of 2)\nFigure 8-4 The string ‘Carmen’ assigned to name\nName = single quote Carmen single quote. name extends right to a box with text that reads, Carmen.\nFigure 8-5 The string ‘Carmen Brown’ assigned to name\nAn illustration depicts a string assigned to a name. For long description in Notes pane, press F6.\n\nName = name + single quote Brown single quote. name extends right to a box with text that reads, Carmen Brown. Another box above this box contains text that reads, Carmen.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-1-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-1-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (1 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (1 of 8)\n\nAn f-string is a special type of string literal that is prefixed with the letter f\n\n&gt;&gt;&gt; print(f’Hello world’)\nHello world\n\nf-strings support placeholders for variables\n\n&gt;&gt;&gt; name = ‘Johnny’\n&gt;&gt;&gt; print(f’Hello {name}.’)\nHello Johnny.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-2-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-2-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (2 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (2 of 8)\n\nPlaceholders can also be expressions that are evaluated\n\n&gt;&gt;&gt; print(f’The value is {10 + 2}.’)\nThe value is 12.\n&gt;&gt;&gt; val = 10\n&gt;&gt;&gt; print(f’The value is {val + 2}.’)\nThe value is 12.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-3-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-3-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (3 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (3 of 8)\n\nFormat specifiers can be used with placeholders\n\n&gt;&gt; num = 123.456789\n&gt;&gt; print(f’{num:.2f}’)\n123.46\n&gt;&gt;&gt;\n\n.2f means:\n\nround the value to 2 decimal places\ndisplay the value as a floating-point number",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-4-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-4-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (4 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (4 of 8)\n\nOther examples:\n\n&gt;&gt; num = 1000000.00\n&gt;&gt; print(f’{num:,.2f}’)\n1,000,000.00\n&gt;&gt;&gt; discount = 0.5\n&gt;&gt;&gt; print(f’{discount:.0%}’)\n50%",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-5-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-5-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (5 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (5 of 8)\n\nOther examples:\n\n&gt;&gt; num = 123456789\n&gt;&gt; print(f’{num:,d}’)\n123,456,789\n&gt;&gt;&gt; num = 12345.6789\n&gt;&gt;&gt; print(f’{num:.2e}’)\n1.23e+04",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-6-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-6-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (6 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (6 of 8)\n\nSpecifying a minimum field width:\n\nA computer code has 3 lines. For long description in Notes pane, press F6.\n\nThe lines read as follows. Line 1. greater than sign greater than sign greater than sign n u m equals 12345 period 6789. Line 2. greater than sign greater than sign greater than sign print left parenthesis f single quote The number is left brace n u m colon 12 comma period 2 f right brace single quote right parenthesis. The number 12 in this line of code is labeled, field width equals 12. Line 3. The number is 12 comma 345 period 68. The number is 12,345.68, where 12,345.68 is entered in a block of field width equals 12.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Example",
-    "text": "Example\nprint(f’The number is {num:14,.2f}’)\nThe number is 12,345.68\nprint(f’The number is {num:10,.2f}’)\nThe number is 12,345.68",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-7-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-7-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (7 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (7 of 8)\n\nAligning values within a field\n\nUse &lt; for left alignment\nUse &gt; for right alignment\nUse ^ for center alignment\n\nExamples:\n\nprint(f’{num:&lt;20.2f}’)\nprint(f’{num:&gt;20.2f}’)\nprint(f’{num:^20.2f}’)",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example-1",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example-1",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Example",
-    "text": "Example\nprint(f’The number is {num:&lt;15,.2f}’)\nThe number is 12,345.68\nprint(f’The number is {num:&gt;15,.2f}’)\nThe number is 12,345.68___ __\nprint(f’The number is {num:^15,.2f}’)\nThe number is ___ 12,345.68 ___",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-8-of-8",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#displaying-formatted-output-with-f-strings-8-of-8",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Displaying Formatted Output With f-Strings (8 of 8)",
-    "text": "Displaying Formatted Output With f-Strings (8 of 8)\n\nThe order of designators in a format specifier\n\nWhen using multiple designators in a format specifier, write them in this order:\n\n\n[alignment][width][,][.precision][type]\n\nExample:\n\nprint(f’{number:^10,.2f}’)",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-1-of-7",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-1-of-7",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Methods (1 of 7)",
-    "text": "String Methods (1 of 7)\n\nStrings in Python have many types of methods, divided into different types of operations\n\nGeneral format:\n\n\nmystring.method(arguments)\n\nSome methods test a string for specific characteristics\n\nGenerally Boolean methods, that return True if a condition exists, and False otherwise",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-2-of-7",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-2-of-7",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Methods (2 of 7)",
-    "text": "String Methods (2 of 7)\nTable 8-1 Some string testing methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nisalnum()\nReturns true if the string contains only alphabetic letters or digits and is at least one character in length. Returns false otherwise.\n\n\nisalpha()\nReturns true if the string contains only alphabetic letters and is at least one character in length. Returns false otherwise.\n\n\nisdigit()\nReturns true if the string contains only numeric digits and is at least one character in length. Returns false otherwise.\n\n\nislower()\nReturns true if all of the alphabetic letters in the string are lowercase, and the string contains at least one alphabetic letter. Returns false otherwise.\n\n\nisspace()\nReturns true if the string contains only whitespace characters and is at least one character in length. Returns false otherwise. (Whitespace characters are spaces, newlines (\\n), and tabs (\\t).\n\n\nisupper()\nReturns true if all of the alphabetic letters in the string are uppercase, and the string contains at least one alphabetic letter. Returns false otherwise.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-3-of-7",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-3-of-7",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Methods (3 of 7)",
-    "text": "String Methods (3 of 7)\n\nSome methods return a copy of the string, to which modifications have been made\n\nSimulate strings as mutable objects\n\nString comparisons are case-sensitive\n\nUppercase characters are distinguished from lowercase characters\nlower and upper methods can be used for making case-insensitive string comparisons",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-4-of-7",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-4-of-7",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Methods (4 of 7)",
-    "text": "String Methods (4 of 7)\nTable 8-2 String Modification Methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nlower()\nReturns a copy of the string with all alphabetic letters converted to lowercase. Any character that is already lowercase, or is not an alphabetic letter, is unchanged.\n\n\nlstrip()\nReturns a copy of the string with all leading whitespace characters removed. Leading whitespace characters are spaces, newlines (\\n), and tabs (\\t) that appear at the beginning of the string.\n\n\nlstrip(char)\nThe char argument is a string containing a character. Returns a copy of the string with all instances of char that appear at the beginning of the string removed.\n\n\nrstrip()\nReturns a copy of the string with all trailing whitespace characters removed. Trailing whitespace characters are spaces, newlines(\\n), and tabs (\\t) that appear at the end of the string.\n\n\nrstrip(char)\nThe char argument is a string containing a character. The method returns a copy of the string with all instances of char that appear at the end of the string removed.\n\n\nstrip()\nReturns a copy of the string with all leading and trailing whitespace characters removed.\n\n\nstrip(char)\nReturns a copy of the string with all instances of char that appear at the beginning and the end of the string removed.\n\n\nupper()\nReturns a copy of the string with all alphabetic letters converted to uppercase. Any character that is already uppercase, or is not an alphabetic letter, is unchanged.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-5-of-7",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-5-of-7",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Methods (5 of 7)",
-    "text": "String Methods (5 of 7)\n\nPrograms commonly need to search for substrings\nSeveral methods to accomplish this:\n\nendswith(substring): checks if the string ends with substring\n\nReturns True or False\n\nstartswith(substring): checks if the string starts with substring\n\nReturns True or False",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-6-of-7",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-6-of-7",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Methods (6 of 7)",
-    "text": "String Methods (6 of 7)\n\nSeveral methods to accomplish this (cont’d):\n\nfind(substring): searches for substring within the string\n\nReturns lowest index of the substring, or if the\n\n\n\nsubstring is not contained in the string, returns\nEquation\n\nreplace(substring, new_string):\n\nReturns a copy of the string where every occurrence of substring is replaced with new_string",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-7-of-7",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-methods-7-of-7",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Methods (7 of 7)",
-    "text": "String Methods (7 of 7)\nTable 8-3 Search and replace methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nendswith(substring)\nThe substring argument is a string. The method returns true if the string ends with substring.\n\n\nfind (substring)\nThe substring argument is a string. The method returns the lowest index in the string where substring is found. If substring is not found, the method returns negative 1\n\n\nreplace(old, new)\nThe old and new arguments are both strings. The method returns a copy of the string with all instances of old replaced by new.\n\n\nstartswith (substring)\nThe substring argument is a string. The method returns true if the string starts with substring.\n\n\n\nEquation",
+    "section": "",
+    "text": "Strings in Python have many types of methods, divided into different types of operations\n\nGeneral format: mystring.method(arguments)\n\nSome methods test a string for specific characteristics\n\nGenerally Boolean methods, that return True if a condition exists, and False otherwise\n\n\nSome String Testing Methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nisalnum()\nReturns true if the string contains only alphabetic letters or digits and is at least one character in length. Returns false otherwise.\n\n\nisalpha()\nReturns true if the string contains only alphabetic letters and is at least one character in length. Returns false otherwise.\n\n\nisdigit()\nReturns true if the string contains only numeric digits and is at least one character in length. Returns false otherwise.\n\n\nislower()\nReturns true if all of the alphabetic letters in the string are lowercase, and the string contains at least one alphabetic letter. Returns false otherwise.\n\n\nisspace()\nReturns true if the string contains only whitespace characters and is at least one character in length. Returns false otherwise. (Whitespace characters are spaces, newlines (\\n), and tabs (\\t).\n\n\nisupper()\nReturns true if all of the alphabetic letters in the string are uppercase, and the string contains at least one alphabetic letter. Returns false otherwise.\n\n\n\n\nSome methods return a copy of the string, to which modifications have been made\n\nSimulate strings as mutable objects\n\nString comparisons are case-sensitive\n\nUppercase characters are distinguished from lowercase characters\nlower and upper methods can be used for making case-insensitive string comparisons\n\n\nSome String Modification Methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nlower()\nReturns a copy of the string with all alphabetic letters converted to lowercase. Any character that is already lowercase, or is not an alphabetic letter, is unchanged.\n\n\nlstrip()\nReturns a copy of the string with all leading whitespace characters removed. Leading whitespace characters are spaces, newlines (\\n), and tabs (\\t) that appear at the beginning of the string.\n\n\nlstrip(char)\nThe char argument is a string containing a character. Returns a copy of the string with all instances of char that appear at the beginning of the string removed.\n\n\nrstrip()\nReturns a copy of the string with all trailing whitespace characters removed. Trailing whitespace characters are spaces, newlines(\\n), and tabs (\\t) that appear at the end of the string.\n\n\nrstrip(char)\nThe char argument is a string containing a character. The method returns a copy of the string with all instances of char that appear at the end of the string removed.\n\n\nstrip()\nReturns a copy of the string with all leading and trailing whitespace characters removed.\n\n\nstrip(char)\nReturns a copy of the string with all instances of char that appear at the beginning and the end of the string removed.\n\n\nupper()\nReturns a copy of the string with all alphabetic letters converted to uppercase. Any character that is already uppercase, or is not an alphabetic letter, is unchanged.\n\n\n\n\nPrograms commonly need to search for substrings\nSeveral methods to accomplish this:\n\nendswith(substring): checks if the string ends with substring\n\nReturns True or False\n\nstartswith(substring): checks if the string starts with substring\n\nReturns True or False\n\nfind(substring): searches for substring within the string\n\nReturns lowest index of the substring, or if the substring is not contained in the string, returns -1\n\nreplace(substring, new_string):\n\nReturns a copy of the string where every occurrence of substring is replaced with new_string\n\n\n\nSome Search and Replace Methods\n\n\n\n\n\n\n\nMethod\nDescription\n\n\n\n\nendswith(substring)\nThe substring argument is a string. The method returns true if the string ends with substring.\n\n\nfind (substring)\nThe substring argument is a string. The method returns the lowest index in the string where substring is found. If substring is not found, the method returns negative 1\n\n\nreplace(old, new)\nThe old and new arguments are both strings. The method returns a copy of the string with all instances of old replaced by new.\n\n\nstartswith (substring)\nThe substring argument is a string. The method returns true if the string starts with substring.",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -1719,85 +1510,30 @@
     "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#the-repetition-operator",
     "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#the-repetition-operator",
     "title": "3: Strings, Lists and Tuples",
-    "section": "The Repetition Operator",
-    "text": "The Repetition Operator\n\nRepetition operator: makes multiple copies of a string and joins them together\n\nThe * symbol is a repetition operator when applied to a string and an integer\n\nString is left operand; number is right\n\nGeneral format: string_to_copy * n\nVariable references a new string which contains multiple copies of the original string",
+    "section": "",
+    "text": "Repetition operator: makes multiple copies of a string and joins them together\n\nThe * symbol is a repetition operator when applied to a string and an integer\n\nString is left operand; number is right\n\nGeneral format: string_to_copy * n\nVariable references a new string which contains multiple copies of the original string",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
     ]
   },
   {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#splitting-a-string-1-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#splitting-a-string-1-of-2",
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#splitting-a-string",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#splitting-a-string",
     "title": "3: Strings, Lists and Tuples",
-    "section": "Splitting a String (1 of 2)",
-    "text": "Splitting a String (1 of 2)\n\nsplit method: returns a list containing the words in the string\n\nBy default, uses space as separator\nCan specify a different separator by passing it as an argument to the split method",
+    "section": "",
+    "text": "split method: returns a list containing the words in the string\n\nBy default, uses space as separator\nCan specify a different separator by passing it as an argument to the split method\n\n\n\nmy_string = 'One two three four'\n\nword_list = my_string.split()\n\nprint(word_list)\n\n['One', 'two', 'three', 'four']\n\n\n\nmy_string = '1/2/3/4/5'\n\nnumber_list = my_string.split('/')\n\nprint(number_list)\n\n['1', '2', '3', '4', '5']",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
     ]
   },
   {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#splitting-a-string-2-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#splitting-a-string-2-of-2",
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens",
     "title": "3: Strings, Lists and Tuples",
-    "section": "Splitting a String (2 of 2)",
-    "text": "Splitting a String (2 of 2)\n\nExamples:\n\n&gt;&gt;&gt; my_string = ‘One two three four’\n&gt;&gt;&gt; word_list = my_string.split()\n&gt;&gt;&gt; word_list\n[‘One’, ‘two’, ‘three’, ‘four’]\n&gt;&gt;&gt;\n&gt;&gt;&gt; my_string = ‘1/2/3/4/5’\n&gt;&gt;&gt; number_list = my_string.split(‘/’)\n&gt;&gt;&gt; number_list\n[‘1’, ‘2’, ‘3’, ‘4’, ‘5’]\n&gt;&gt;&gt;",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-1-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-1-of-4",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Tokens (1 of 4)",
-    "text": "String Tokens (1 of 4)\n\nSometimes a string contains substrings that are separated by a special character\n\nExample:\n\n\n‘peach raspberry strawberry vanilla’\n\nThis string contains the substrings peach, raspberry, strawberry, and vanilla\nThe substrings are separated by the space character\nThe substrings are known as tokens and the separating character is known as the delimiter",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-2-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-2-of-4",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Tokens (2 of 4)",
-    "text": "String Tokens (2 of 4)\n\nExample:\n\n‘17;92;81;12;46;5’\n\nThis string contains the tokens 17, 92, 81, 12, 46, and 5\nThe delimiter is the ; character",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-3-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-3-of-4",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Tokens (3 of 4)",
-    "text": "String Tokens (3 of 4)\n\nTokenizing is the process of breaking a string into tokens\nWhen you tokenize a string, you extract the tokens and store them as individual items\nIn Python you can use the split method to tokenize a string",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-4-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#string-tokens-4-of-4",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "String Tokens (4 of 4)",
-    "text": "String Tokens (4 of 4)\n\nExamples:\n\n&gt;&gt;&gt; str = ‘peach raspberry strawberry vanilla’\n&gt;&gt;&gt; tokens = str.split()\n&gt;&gt;&gt; tokens\n[‘peach’, ‘raspberry’, ‘strawberry’, ‘vanilla’]\n&gt;&gt;&gt;\n&gt;&gt;&gt; my_address = ‘www.example.com’\n&gt;&gt;&gt; tokens = my_address.split(‘.’)\n&gt;&gt;&gt; tokens\n[‘www’, ‘example’, ‘com’]\n&gt;&gt;&gt;",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#multidimensional-variables",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#multidimensional-variables",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Multidimensional Variables",
-    "text": "Multidimensional Variables\n\nIn Python, variables can store more than a single piece of information.\n\nThese are multidimensional variables.\n\nWe have already seen an example of a multidimensional variable, the string data type.\n\nRecall that a string is a sequence of characters.\n\nEach character in the sequence can be accessed and manipulated independently from any other character.",
+    "section": "",
+    "text": "Sometimes a string contains substrings that are separated by a special character\n\nExample: 'peach raspberry strawberry vanilla'\n\nThis string contains the substrings peach, raspberry, strawberry, and vanilla if we choose the space to be our separator.\n\nThe substrings are separated by the space character\nThe substrings are known as tokens and the separating character is known as the delimiter\n\nThe string '17;92;81;12;46;5' contains the tokens 17, 92, 81, 12, 46, and 5 if we choose the delimiter to be the ; character.\nTokenizing is the process of breaking a string into tokens\n\nWhen you tokenize a string, you extract the tokens and store them as individual items\nIn Python you can use the split method to tokenize a string\n\n\n\nstr = 'peach raspberry strawberry vanilla'\n\ntokens = str.split()\n\nprint(tokens)\n\n['peach', 'raspberry', 'strawberry', 'vanilla']\n\n\n\nmy_address = 'www.example.com'\n\ntokens = my_address.split('.')\n\nprint(tokens)\n\n['www', 'example', 'com']",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -1808,7 +1544,7 @@
     "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#lists",
     "title": "3: Strings, Lists and Tuples",
     "section": "Lists",
-    "text": "Lists\n\nThe most common multidimensional variable in Python is the list.\nLists are ordered collections of values.\n\nDuplicates are allowed.\nYou may have different types of data present in a single list.\n\nWe use the order built into a list to access and alter the different values.",
+    "text": "Lists\n\nThe most common general purpose multidimensional variable in Python is the list.\nLists are ordered collections of values.\n\nDuplicates are allowed.\nYou may have different types of data present in a single list.\n\nWe use the order built into a list to access and alter the different values.",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -1819,7 +1555,7 @@
     "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#creating-a-list",
     "title": "3: Strings, Lists and Tuples",
     "section": "Creating a List",
-    "text": "Creating a List\n\nLists are created using the square brackets [ ]\nSeparate multiple items in a list using a comma.\n\nA_List = [ ] #This is an empty list\nB_List = [ 1 , 2 ] #This list contains integers 1 and 2",
+    "text": "Creating a List\n\nLists are created using the square brackets [ ]\nSeparate multiple items in a list using a comma.\n\n\nA_List = [ ] #This is an empty list\n\nB_List = [ 1 , 2 ] #This list contains integers 1 and 2",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -1830,18 +1566,7 @@
     "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#accessing-elements-in-a-list",
     "title": "3: Strings, Lists and Tuples",
     "section": "Accessing Elements in a List",
-    "text": "Accessing Elements in a List\n\nItems within a list are often referred to as elements.\nUse the square brackets [ ] after the name of the list to reference the location of the desired element.\nWhy ‘b’?\n\nPython starts counting from 0.\nElement 1 is then at the second position.\n\n\nC_List = [ ‘a’ , ‘b’ , ‘c’ ]\nC_List[1]\n&gt;&gt; ‘b’",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#accessing-elements-in-a-list-1",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#accessing-elements-in-a-list-1",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Accessing Elements in a List",
-    "text": "Accessing Elements in a List\nC_List = [ ‘x’ , ‘y’ , ‘z’ ]\nC_List[0]\n&gt;&gt; ‘x’\nC_List[1]\n&gt;&gt; ‘y’\nC_List[2]\n&gt;&gt; ‘z’",
+    "text": "Accessing Elements in a List\n\nItems within a list are often referred to as elements.\nUse the square brackets [ ] after the name of the list to reference the location of the desired element.\nWhy ‘b’?\n\nPython starts counting from 0.\nElement 1 is then at the second position.\n\n\n\nC_List = [ 'a' , 'b' , 'c' ]\n\nprint(C_List[1])\n\nb\n\n\n\nC_List = [ 'x' , 'y' , 'z' ]\n\nprint(C_List[0])\n\nx\n\n\n\nprint(C_List[1])\n\ny\n\n\n\nprint(C_List[2])\n\nz",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -1852,40 +1577,7 @@
     "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#adding-elements-to-a-list",
     "title": "3: Strings, Lists and Tuples",
     "section": "Adding Elements to a List",
-    "text": "Adding Elements to a List\n\nAdding new elements to a list in Python is most often accomplished using one of two ways.\nThe insert function adds an item to a specific index (location).\n\ninsert(index,value)\n\nThe append function adds an item directly to the end of the list.\n\nappend(value)\nAdding an item to the end of a list is a very common operation, so it was given its own dedicated function.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example---insert",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example---insert",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Example - Insert",
-    "text": "Example - Insert\nC_List = [ ‘x’ , ‘y’ , ‘z’ ]\nC_List.insert(0,’a’)\n&gt;&gt; print(C_List)\n[ ‘a’, ‘x’ , ‘y’ , ‘z’ ]",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example---append",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example---append",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Example - Append",
-    "text": "Example - Append\nC_List = [ ‘x’ , ‘y’ , ‘z’ ]\nC_List.append(’a’)\n&gt;&gt; print(C_List)\n[ ‘x’ , ‘y’ , ‘z’, ‘a’ ]",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#practice",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#practice",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Practice",
-    "text": "Practice\n\nDefine a list called items that contains the letters a, b, c, and d.\nAdd the number 1 at index 2 of items.\nAdd the number 7 at the end of items.\nPrint the list items.",
+    "text": "Adding Elements to a List\n\nAdding new elements to a list in Python is often accomplished using two methods.\nThe insert function adds an item to a specific index (location).\n\ninsert(index,value)\n\n\nC_List = [ 'x' , 'y' , 'z' ]\n\nC_List.insert(0,'a')\n\nprint(C_List)\n\n['a', 'x', 'y', 'z']\n\n\nThe append function adds an item directly to the end of the list. Adding an item to the end of a list is a very common operation, so it was given its own dedicated function.\n\nappend(value)\n\n\nC_List = [ 'x' , 'y' , 'z' ]\n\nC_List.append('a')\n\nprint(C_List)\n\n['x', 'y', 'z', 'a']\n\n\n\n\n\nDefine a list called items that contains the letters a, b, c, and d.\nAdd the number 1 at index 2 of items.\nAdd the number 7 at the end of items.\nPrint the list items.",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -1896,40 +1588,7 @@
     "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#removing-elements-from-a-list",
     "title": "3: Strings, Lists and Tuples",
     "section": "Removing Elements from a List",
-    "text": "Removing Elements from a List\n\nRemoving elements from a list can be accomplished by using the pop() function.\nThe pop function can be used in two different ways.\nRemoving an element at a specified index.\n\npop(index)\n\nRemoving an element at the end of the list.\n\npop()\n\nBy omitting the index from the pop function, Python automatically assumes you want to remove the last item in the list.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example-2",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Example",
-    "text": "Example\nC_List = [ ‘x’ , ‘y’ , ‘z’ ]\nC_List.pop(0)\n&gt;&gt; print(C_List)\n[ ‘y’ , ‘z’ ]",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example-3",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#example-3",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Example",
-    "text": "Example\nC_List = [ ‘x’ , ‘y’ , ‘z’ ]\nC_List.pop()\n&gt;&gt; print(C_List)\n[ ‘x’ , ‘y’ ]",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#practice-1",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#practice-1",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Practice",
-    "text": "Practice\n\nDefine a list called items that contains the letters a, b, c, and d.\nRemove letter b from items.\nRemove the last letter from items.\nPrint the list items.",
+    "text": "Removing Elements from a List\n\nRemoving elements from a list can be accomplished by using the pop() method.\nThe pop method can be used in two different ways.\n\nRemoving an element at a specified index.\n\npop(index)\n\nRemoving an element at the end of the list.\n\npop()\n\n\nBy omitting the index from the pop method, Python automatically assumes you want to remove the last item in the list.\n\n\nC_List = [ 'x' , 'y' , 'z' ]\n\nC_List.pop(0)\n\nprint(C_List)\n\n['y', 'z']\n\n\n\nC_List = [ 'x' , 'y' , 'z' ]\n\nC_List.pop()\n\nprint(C_List)\n\n['x', 'y']\n\n\n\n\nDefine a list called items that contains the letters a, b, c, and d.\nRemove letter b from items.\nRemove the last letter from items.\nPrint the list items.",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -1969,66 +1628,11 @@
     ]
   },
   {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-1-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-1-of-4",
+    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#storing-mutable-objects-in-a-tuple",
+    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#storing-mutable-objects-in-a-tuple",
     "title": "3: Strings, Lists and Tuples",
-    "section": "Tuples (1 of 4)",
-    "text": "Tuples (1 of 4)\n\nTuple: an immutable sequence\n\nSimilar to a list\nTuples are immutable. Once a tuple is created:\n\nNew elements cannot be added to the tuple\nElements cannot be removed from the tuple",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-2-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-2-of-4",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Tuples (2 of 4)",
-    "text": "Tuples (2 of 4)\n\nCreating a Tuple\n\nmy_tuple= (item1, item2)\nmy_tuple= (item1,)\n\nTuples support many list operations\n\nSubscript indexing for retrieving elements\nMethods such as index\nBuilt in functions such as len, min, max\nSlicing expressions\nThe in, +, and * operators",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-3-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-3-of-4",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Tuples (3 of 4)",
-    "text": "Tuples (3 of 4)\n\nTuples do not support the methods:\n\nappend\nremove\ninsert\nreverse\nsort",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-4-of-4",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#tuples-4-of-4",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Tuples (4 of 4)",
-    "text": "Tuples (4 of 4)\n\nReasons for using tuples:\n\nProcessing tuples is faster than processing lists\nTuples provide safety:\n\nno elements can be added to or deleted from a tuple\nonce a tuple is created, the elements of the tuple will always refer to the same objects\n\nSome operations in Python require use of tuples\n\nlist() function: converts tuple to list\ntuple() function: converts list to tuple",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#storing-mutable-objects-in-a-tuple-1-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#storing-mutable-objects-in-a-tuple-1-of-2",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Storing Mutable Objects in a Tuple (1 of 2)",
-    "text": "Storing Mutable Objects in a Tuple (1 of 2)\n\nAlthough tuples are immutable, you can store mutable objects in a tuple.\n\nFor example, the following statement creates a tuple that contains a list as its 3rd element:\n\n\nt = (10, 20, [97, 98, 99])\nA computer code and a diagram. For long description in Notes pane, press F6.\n\nA code statement reads, t = left parenthesis 1 comma 20 comma left bracket 97 comma 98 comma 99 right bracket right parenthesis. A diagram illustrates the process of storing mutable objects in a tuple. t references a tuple, which has three parts. The first part stores integer value 10. The second part stores integer value 20. The third part stores a list with integer values, from left to right, 97, 98, 99.",
-    "crumbs": [
-      "Lectures",
-      "3: Strings, Lists and Tuples"
-    ]
-  },
-  {
-    "objectID": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#storing-mutable-objects-in-a-tuple-2-of-2",
-    "href": "lectures/03_strings_lists_tuples/strings_lists_tuples.html#storing-mutable-objects-in-a-tuple-2-of-2",
-    "title": "3: Strings, Lists and Tuples",
-    "section": "Storing Mutable Objects in a Tuple (2 of 2)",
-    "text": "Storing Mutable Objects in a Tuple (2 of 2)\n\nWhen a tuple element refers to a mutable object, that object’s data can be changed.\n\n&gt;&gt;&gt; t = (10, 20, [97, 98, 99])\n&gt;&gt;&gt; print(t)\n(10, 20, [97, 98, 99])\n&gt;&gt;&gt;\n&gt;&gt;&gt; t[2].append(100)\n&gt;&gt;&gt; print(t)\n(10, 20, [97, 98, 99, 100])\n&gt;&gt;&gt;",
+    "section": "Storing Mutable Objects in a Tuple",
+    "text": "Storing Mutable Objects in a Tuple\n\nAlthough tuples are immutable, you can store mutable objects in a tuple.\n\nFor example, the following statement creates a tuple that contains a list as its 3rd element: t = (10, 20, [97, 98, 99])\n\nWhen a tuple element refers to a mutable object, that object’s data can be changed.\n\n\nt = (10, 20, [97, 98, 99])\n\nprint(t)\n\n(10, 20, [97, 98, 99])\n\n\n\n t[2].append(100) # Since the list inside the tuple t is mutable, we can change parts of the list.\n\n print(t)\n\n(10, 20, [97, 98, 99, 100])",
     "crumbs": [
       "Lectures",
       "3: Strings, Lists and Tuples"
@@ -2464,17 +2068,6 @@
     ]
   },
   {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectors-and-numpy",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectors-and-numpy",
-    "title": "4: Vectors and NumPy",
-    "section": "Vectors and NumPy",
-    "text": "Vectors and NumPy\nCSCI – 1056",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
     "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#lists-and-vectors",
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#lists-and-vectors",
     "title": "4: Vectors and NumPy",
@@ -2490,7 +2083,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#lists-and-vectors-1",
     "title": "4: Vectors and NumPy",
     "section": "Lists and Vectors",
-    "text": "Lists and Vectors\n\nConsider a list of test scores: scores = [85, 90, 78]\nIf we want to double the score of every student, our first instinct is to multiply the list by 2:\n\nprint(scores * 2)\n\nBut what happens is it repeats the list items: [85, 90, 78, 85, 90, 78]\nNow, if we try to add 2 bonus points to every score using scores + 2, Python throws a TypeError because it does not understand how to combine a list with an integer.",
+    "text": "Lists and Vectors\nConsider a list of test scores: scores = [85, 90, 78]\nIf we want to double the score of every student, our first instinct is to multiply the list by 2:\n\nprint(scores * 2)\n\nBut what happens is it repeats the list items\n\nscores = [85, 90,  78]\nprint(scores * 2)\n\n[85, 90, 78, 85, 90, 78]\n\n\nNow, if we try to add 2 bonus points to every score using scores + 2, Python throws a TypeError because it does not understand how to combine a list with an integer.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2508,33 +2101,11 @@
     ]
   },
   {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement-1-of-3",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement-1-of-3",
+    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement",
+    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement",
     "title": "4: Vectors and NumPy",
-    "section": "Standard Library Functions and the import Statement (1 of 3)",
-    "text": "Standard Library Functions and the import Statement (1 of 3)\n\nStandard library: library of pre-written functions that comes with Python\n\nLibrary functions perform tasks that programmers commonly need\n\nExample: print, input, range\nViewed by programmers as a “black box”\n\n\nSome library functions built into Python interpreter\n\nTo use, just call the function",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement-2-of-3",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement-2-of-3",
-    "title": "4: Vectors and NumPy",
-    "section": "Standard Library Functions and the import Statement (2 of 3)",
-    "text": "Standard Library Functions and the import Statement (2 of 3)\n\nModules: files that stores functions of the standard library\n\nHelp organize library functions not built into the interpreter\nCopied to computer when you install Python\n\nTo call a function stored in a module, need to write an import statement\n\nWritten at the top of the program\nFormat: import module_name",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement-3-of-3",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#standard-library-functions-and-the-import-statement-3-of-3",
-    "title": "4: Vectors and NumPy",
-    "section": "Standard Library Functions and the import Statement (3 of 3)",
-    "text": "Standard Library Functions and the import Statement (3 of 3)\nFigure 5-19 A library function viewed as a black box\nAn input is given to a library function, which yields an output.",
+    "section": "Standard Library Functions and the import Statement",
+    "text": "Standard Library Functions and the import Statement\n\nStandard library: library of pre-written functions that comes with Python\n\nLibrary functions perform tasks that programmers commonly need\n\nExample: print, input, range\nViewed by programmers as a “black box”\n\n\nSome library functions built into Python interpreter\n\nTo use, just call the function\n\nModules: files that stores functions of the standard library\n\nHelp organize library functions not built into the interpreter\nCopied to computer when you install Python\n\nTo call a function stored in a module, need to write an import statement\n\nWritten at the top of the program\nFormat: import module_name",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2545,7 +2116,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#importing-numpy",
     "title": "4: Vectors and NumPy",
     "section": "Importing NumPy",
-    "text": "Importing NumPy\n\nOnce you have access to NumPy we need to use an import statement:\n\nimport numpy as np\n\nWe use as np as a standard convention.\nIt acts as a nickname so we do not have to type “numpy” every time we want to use one of its tools.",
+    "text": "Importing NumPy\n\nOnce you have access to NumPy we need to use an import statement:\n\n\nimport numpy as np\n\n\nWe use as np as a standard convention.\nIt acts as a nickname so we do not have to type “numpy” every time we want to use one of its tools.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2556,7 +2127,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#creating-arrays",
     "title": "4: Vectors and NumPy",
     "section": "Creating Arrays",
-    "text": "Creating Arrays\n\nTo use NumPy’s features, we must convert our standard Python list into a specialized NumPy object called a ndarray (n-dimensional array).\n\nscores = [85, 90, 78]\nnp_scores = np.array(scores)\n\nOur data is now stored in a format designed for mathematics.",
+    "text": "Creating Arrays\n\nTo use NumPy’s features, we must convert our standard Python list into a specialized NumPy object called a ndarray (n-dimensional array).\n\n\nscores = [85, 90, 78]\n\nnp_scores = np.array(scores)\n\n\nOur data is now stored in a format designed for mathematics.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2567,7 +2138,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectorization",
     "title": "4: Vectors and NumPy",
     "section": "Vectorization",
-    "text": "Vectorization\n\nVectorization allows operations to be applied to every element in the array at the exact same time.\n\nprint(np_scores * 2)\n# Result: [170, 180, 156]",
+    "text": "Vectorization\n\nVectorization allows operations to be applied to every element in the array at the exact same time.\nWe can now multiply our collection by two and get the result that we initially anticipated.\n\n\nprint(np_scores * 2)\n\n[170 180 156]",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2578,7 +2149,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#comparison-between-arrays-and-lists",
     "title": "4: Vectors and NumPy",
     "section": "Comparison Between Arrays and Lists",
-    "text": "Comparison Between Arrays and Lists\n\nStandard Python List:\n\nDesigned to store mixed data types natively.\nMathematical operators like + concatenate and * repeat.\nCan hold mixed types like [1, “apple”, True].\n\nNumPy ndarray:\n\nDesigned for math.\nMust hold uniform data types.\n\nWarning: If you put a string into an array of numbers (e.g., np.array([85, 90, “apple”])), NumPy will silently convert your numbers into strings to maintain uniformity.",
+    "text": "Comparison Between Arrays and Lists\n\nStandard Python List:\n\nDesigned to store mixed data types natively.\nMathematical operators like + concatenate and * repeat.\nCan hold mixed types like [1, \"apple\", True].\n\nNumPy ndarray:\n\nDesigned for math.\nMust hold uniform data types.\n\nWarning: If you put a string into an array of numbers NumPy will silently convert your numbers into strings to maintain uniformity.\n\narr = np.array([85, 90, \"apple\"])\nprint(arr)\n\n['85' '90' 'apple']",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2589,7 +2160,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#scalars",
     "title": "4: Vectors and NumPy",
     "section": "Scalars",
-    "text": "Scalars\n\nThe standard textbook definition of a scalar is “a quantity with magnitude but no direction.”\nAnother more useful definition when it comes to dealing with vectors is a scalar is a scaling factor.\n\nIt is a quantity that stretches or shrinks something else.\n\nIn Python: A scalar is a standard integer or float.\n\nx = 5",
+    "text": "Scalars\n\nThe standard textbook definition of a scalar is “a quantity with magnitude but no direction.”\nAnother more useful definition when it comes to dealing with vectors is a scalar is a scaling factor.\n\nIt is a quantity that stretches or shrinks something else.\n\nIn Python: A scalar is a standard integer or float like x = 5.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2600,29 +2171,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectors",
     "title": "4: Vectors and NumPy",
     "section": "Vectors",
-    "text": "Vectors\nimport numpy as np\nv = np.array([3, 2])",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectors-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectors-1",
-    "title": "4: Vectors and NumPy",
-    "section": "Vectors",
-    "text": "Vectors\n\nVisually, we have:\n\nTail at the origin (0, 0)\nHead at (3, 2)\nLength = magnitude\nOrientation = direction",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectors-2",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vectors-2",
-    "title": "4: Vectors and NumPy",
-    "section": "Vectors",
-    "text": "Vectors\n\nVectors are not tied to a location.\nWe can have two vectors be equal (their components are all identical) while having a different origin.",
+    "text": "Vectors\nA vector is an ordered list of coordinates that gives us instructions on how to move through space. The dimensionality of the space is the number of values in the vector.\nIn math, v = [3, 2] means “start at the origin, go 3 units along the x-axis and 2 units along y-axis.” The vector v here has two elements and so the space the vector is in is 2-dimensional.\nWe can represent this in Python as a 1-dimensional NumPy array.\n\nimport numpy as np\n\nv = np.array([3, 2])\n\n\nVisually, we have:\n\nTail at the origin (0, 0)\nHead at (3, 2)\nLength = magnitude\nOrientation = direction\n\n\nNote that vectors are not tied to a location. We can have two vectors be equal (their components are all identical) while having a different origin.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2633,18 +2182,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic---magnitude",
     "title": "4: Vectors and NumPy",
     "section": "Vector Arithmetic - Magnitude",
-    "text": "Vector Arithmetic - Magnitude",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#example",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#example",
-    "title": "4: Vectors and NumPy",
-    "section": "Example",
-    "text": "Example\n\nAssume you walk 3m east then 4m north.\nWe can find the straight-line distance from your starting point to your destination using the magnitude of the sum of the vectors.\nSince we are working in a 2-dimensional space this is just the Pythagorean theorem.\n\neast= np.array([3,0])\nnorth = np.array([0,4])\nnp.linalg.norm(east+north)\n#Output = 5.0",
+    "text": "Vector Arithmetic - Magnitude\nThe magnitude of a vector is its length.\nWe can find the magnitude of a vector v = [a, b, c, ...] by using the Euclidean distance |v| = \\sqrt{a^2 + b^2 + c^2 + ...}\nFrom the definition of the magnitude we can see that it is always non-negative and is a scalar value.\n\nExample\n\nAssume you walk 3m east then 4m north.\nWe can find the straight-line distance from your starting point to your destination using the magnitude of the sum of the vectors.\nSince we are working in a 2-dimensional space this is just the Pythagorean theorem.\n\n\neast= np.array([3,0])\n\nnorth = np.array([0,4])\n\nnp.linalg.norm(east+north)\n\nnp.float64(5.0)",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2655,18 +2193,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-addition-and-subtraction",
     "title": "4: Vectors and NumPy",
     "section": "Vector Arithmetic – Addition and Subtraction",
-    "text": "Vector Arithmetic – Addition and Subtraction",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-addition-and-subtraction-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-addition-and-subtraction-1",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – Addition and Subtraction",
-    "text": "Vector Arithmetic – Addition and Subtraction\na = np.array([2, 1])\nb = np.array([1, 3])\nprint(a + b)\n# Result: [3, 4]",
+    "text": "Vector Arithmetic – Addition and Subtraction\nAdding (or subtracting) two vectors is combining their instructions.\nThis can be visualized with the “head to tail” method.\n\n\na = np.array([2, 1])\n\nb = np.array([1, 3])\n\nprint(a + b)\n\n[3 4]",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2677,18 +2204,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-scalar-multiplication",
     "title": "4: Vectors and NumPy",
     "section": "Vector Arithmetic – Scalar Multiplication",
-    "text": "Vector Arithmetic – Scalar Multiplication\n\nApplying a positive scalar to a vector scales its magnitude (length) without changing its fundamental line of direction.\nApplying a negative scalar scales its magnitude and changes the direction exactly 180 degrees.",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-scalar-multiplication-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-scalar-multiplication-1",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – Scalar Multiplication",
-    "text": "Vector Arithmetic – Scalar Multiplication\nv = np.array([3, 4])\nprint(2 * v)\n# Result: [6, 8]\n(The vector is twice as long)",
+    "text": "Vector Arithmetic – Scalar Multiplication\nApplying a positive scalar to a vector scales its magnitude (length) without changing its fundamental line of direction.\nApplying a negative scalar scales its magnitude and changes the direction exactly 180 degrees.\n\n\nv = np.array([3, 4])\n\nprint(2 * v)\n\n[6 8]\n\n\nNote that the vector in the code about is twice as long when scaled by 2.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2699,117 +2215,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-vector-multiplication",
     "title": "4: Vectors and NumPy",
     "section": "Vector Arithmetic – Vector Multiplication",
-    "text": "Vector Arithmetic – Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-vector-multiplication-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-vector-multiplication-1",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – Vector Multiplication",
-    "text": "Vector Arithmetic – Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-vector-multiplication-2",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-vector-multiplication-2",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – Vector Multiplication",
-    "text": "Vector Arithmetic – Vector Multiplication\na = np.array([1, 2])\nb = np.array([3, 4])\nprint(a * b)\n# Result: [3, 8]",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-hadamard-product",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-hadamard-product",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Hadamard Product",
-    "text": "Vector Arithmetic – The Hadamard Product",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-hadamard-product-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-hadamard-product-1",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Hadamard Product",
-    "text": "Vector Arithmetic – The Hadamard Product\na = np.array([1, 2])\nb = np.array([3, 4])\n# The Hadamard Product: Element-wise multiplication\nprint(a * b)\n# Result: [3, 8]",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-dot-product",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-dot-product",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Dot Product",
-    "text": "Vector Arithmetic – The Dot Product",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-dot-product-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-dot-product-1",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Dot Product",
-    "text": "Vector Arithmetic – The Dot Product\na = np.array([1, 2])\nb = np.array([3, 4])\n# The dot product\nprint(np.dot(a, b)) # print(a @ b) is equivalent\n# Result: 11",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-dot-product-2",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-dot-product-2",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Dot Product",
-    "text": "Vector Arithmetic – The Dot Product\n\nWe can use the dot product to determine the projection of one vector onto another.\nNote that orthogonal (perpendicular) vectors have a dot product of zero.\nWe will use the dot product later in the course as it can be used to calculate the similarity between two objects that have a vector representation.",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-cross-product",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-cross-product",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Cross Product",
-    "text": "Vector Arithmetic – The Cross Product\n\nThe cross product finds the unique direction that is perpendicular to both of the vectors and its associated magnitude.\nThe output of the cross product is a vector itself.\n\nThis implies that we need at least a 3-dimensional space to work in.\n\nIf we take two vectors, they form a flat 2D pane.\nThe cross product produces a new vector completely out of that pane, perpendicular to both.",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-cross-product-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-cross-product-1",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Cross Product",
-    "text": "Vector Arithmetic – The Cross Product\n\nThe length (magnitude) of this new vector represents the area of the parallelogram formed by the original two vectors.\nIf the two vectors point in the exact same direction, their cross product is zero (no area, no leverage).\nIf they are perpendicular, the cross product is at its maximum.",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-cross-product-2",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-arithmetic-the-cross-product-2",
-    "title": "4: Vectors and NumPy",
-    "section": "Vector Arithmetic – The Cross Product",
-    "text": "Vector Arithmetic – The Cross Product\na = np.array([4, 1, 0])\nb = np.array([1, 4, 0])\n# The cross product\nprint(np.cross(a, b))\n# Result: 15",
+    "text": "Vector Arithmetic – Vector Multiplication\nIt is natural to assume that if you can do a + b then you can do a \\times b. However, when it comes to vectors simply placing an \\times between them is undefined. We need to specify exactly what we are calculating.\nThere are in fact three different ways to “multiply” vectors. These are not different ways to do the same thing, they are entirely different tools design to answer entirely different questions.\n\nThe Hadamard Product\nIn NumPy, the * operator is defined for vectors. That is, a * b will result in output. But it is not likely to be the output you wanted.\n\na = np.array([1, 2])\n\nb = np.array([3, 4])\n\nprint(a * b)\n\n[3 8]\n\n\nThis is the Hadamard product, which is used to scale the corresponding components of two vectors independently. The Hadamard product simply multiples matching elements:\n[a,b] * [c,d] = [a*c, b*d]\nThat is, it performs element-wise multiplication.\nNote that the output is a vector of the same dimensions as the inputs.\nThe Hadamard product is not often used because it depends on the coordinate system chosen (a choice which is often changed due to mathematical convenience).\n\n\nThe Dot Product\nThe dot product (or scalar product) is used to determine how much two vectors point in the same direction.\nThe dot product has two formulations (where |v| is the magnitude of the vector v)\na \\cdot b = |a||b|\\cos(\\theta )\na \\cdot b = a_1b_1 + a_2b_2 + ...\nNote that the output of the dot product is a scalar (hence the term scalar product).\n\na = np.array([1, 2])\n\nb = np.array([3, 4])\n\nprint(np.dot(a, b)) # print(a @ b) is equivalent\n\n11\n\n\nWe can use the dot product to determine the projection of one vector onto another. Note that orthogonal (perpendicular) vectors have a dot product of zero.\n\nWe will use the dot product later in the course as it can be used to calculate the similarity between two objects that have a vector representation.\n\n\nThe Cross Product\nThe cross product finds the unique direction that is perpendicular to both of the vectors and its associated magnitude.\nThe output of the cross product is a vector itself.\n\nThis implies that we need at least a 3-dimensional space to work in.\n\nIf we take two vectors, they form a flat 2D pane. The cross product produces a new vector completely out of that pane, perpendicular to both.\n\nThe length (magnitude) of this new vector represents the area of the parallelogram formed by the original two vectors.\n\nIf the two vectors point in the exact same direction, their cross product is zero (no area, no leverage).\nIf they are perpendicular, the cross product is at its maximum.\n\n\na = np.array([4, 1, 0])\n\nb = np.array([1, 4, 0])\n\n# The cross product\n\nprint(np.cross(a, b))\n\n[ 0  0 15]",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2820,40 +2226,18 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#vector-components",
     "title": "4: Vectors and NumPy",
     "section": "Vector Components",
-    "text": "Vector Components",
+    "text": "Vector Components\nFor a (2-dimensional) vector with magnitude v and angle \\theta:\nx = v\\cos(\\theta)\ny = v\\sin(\\theta)",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
     ]
   },
   {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#important-attributes-in-numpy",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#important-attributes-in-numpy",
+    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#attributes-in-numpy",
+    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#attributes-in-numpy",
     "title": "4: Vectors and NumPy",
-    "section": "Important Attributes in NumPy",
-    "text": "Important Attributes in NumPy\n\nArrays in NumPy have certain inherent properties, called attributes, that can be useful for diagnosing errors or just inspecting the array.\nNote that attributes are different from functions, so they do not use parentheses () at the end.",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#array.shape",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#array.shape",
-    "title": "4: Vectors and NumPy",
-    "section": "array.shape",
-    "text": "array.shape",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#array.shape-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#array.shape-1",
-    "title": "4: Vectors and NumPy",
-    "section": "array.shape",
-    "text": "array.shape\n\nThe comma in a 1D shape like (3,) is because Python handles tuples with a trailing comma to distinguish them from regular parentheses.\n\nIt means “3 elements in the first dimension, and no other dimensions exist.”\n\n\nprices = np.array([10, 20, 30])\nprint(prices.shape)\n# Output: (3,) A 1D array with 3 elements\ngrid = np.array([[1, 2], [3, 4], [5, 6]])\nprint(grid.shape)\n# Output: (3, 2) 3 rows, 2 columns",
+    "section": "Attributes in NumPy",
+    "text": "Attributes in NumPy\nArrays in NumPy have certain inherent properties, called attributes, that can be useful for diagnosing errors or just inspecting the array. Note that attributes are different from functions, so they do not use parentheses () at the end.\n\narray.shape\narray.shape returns a tuple indicating the number of elements along each axis.\n\nFor a 1D array it returns (n,).\nFor a 2D array it returns (number of rows, number of columns).\n\nMany operations involving vectors require equivalent shapes. For example, the dot product is defined only on two vectors of identical length. array.shape can be used to help diagnose or prevent errors like this.\n\nprices = np.array([10, 20, 30])\n\nprint(prices.shape)# Output: (3,) A 1D array with 3 elements\n\ngrid = np.array([[1, 2], [3, 4], [5, 6]])\n\nprint(grid.shape)# Output: (3, 2) 3 rows, 2 columns\n\n(3,)\n(3, 2)\n\n\nNote that the comma in a 1D shape like (3,) is because Python handles tuples with a trailing comma to distinguish them from regular parentheses.\n\nIt means “3 elements in the first dimension, and no other dimensions exist.”",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2864,7 +2248,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#array.ndim",
     "title": "4: Vectors and NumPy",
     "section": "array.ndim",
-    "text": "array.ndim",
+    "text": "array.ndim\narray.ndim returns the total number of dimensions (axes) that the array has.\n\nA scalar has ndim = 0\nA vector has ndim = 1\nA matrix has ndim = 2",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2875,84 +2259,18 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#array.dtype",
     "title": "4: Vectors and NumPy",
     "section": "array.dtype",
-    "text": "array.dtype\n\narray.dtype tells you exactly what kind of data is stored inside.\nThis can be very useful as NumPy enforces uniform types.\nIf a single string slips into your numbers, the whole array converts to text.\nChecking .dtype reveals if your numbers have become strings.",
+    "text": "array.dtype\narray.dtype tells you exactly what kind of data is stored inside.\nThis can be very useful as NumPy enforces uniform types. If a single string slips into your numbers, the whole array converts to text. Checking .dtype reveals if your numbers have become strings.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
     ]
   },
   {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---aggregates",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---aggregates",
+    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#common-functions-in-numpy",
+    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#common-functions-in-numpy",
     "title": "4: Vectors and NumPy",
-    "section": "More Functions in NumPy - Aggregates",
-    "text": "More Functions in NumPy - Aggregates\n\nAverage: Takes the arithmetic mean of the array.\n\nnp.mean()\n\nSum: Adds up every element in the array.\n\nnp.sum()\n\nMax: Returns the largest element in the array.\n\nnp.max()\n\nMin: Returns the smallest element in the array.\n\nnp.min()",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---reshape",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---reshape",
-    "title": "4: Vectors and NumPy",
-    "section": "More Functions in NumPy - Reshape",
-    "text": "More Functions in NumPy - Reshape\n\narray.reshape()\n\nYou cannot reshape an array into dimensions that do not fit the number of elements.\nIf you try flat_data.reshape(3, 3), NumPy will throw a:\n\n\nValueError: cannot reshape array of size 6 into shape (3,3)\n\nThe shape (3,3) requires exactly 9 items, and we only have 6.\n\nflat_data = np.array([1, 2, 3, 4, 5, 6])",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---reshape-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---reshape-1",
-    "title": "4: Vectors and NumPy",
-    "section": "More Functions in NumPy - Reshape",
-    "text": "More Functions in NumPy - Reshape\nflat_data = np.array([1, 2, 3, 4, 5, 6])\n# Morph it into 3 rows and 2 columns\ngrid_data = flat_data.reshape(3, 2)\nprint(grid_data)\n# Output:\n# [[1, 2]\n# [3, 4]\n# [5, 6]]",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---flatten",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---flatten",
-    "title": "4: Vectors and NumPy",
-    "section": "More Functions in NumPy - Flatten",
-    "text": "More Functions in NumPy - Flatten\n\narray.flatten()\n\nTakes a multi-dimensional grid and squashes it back down into a single 1D row.\nUseful when a library expects a flat sequence of values, but you currently have them inside a multi-dimensional structure.\n\n\ngrid_data = np.array([[[1, 2],[3, 4],[5, 6]])\n# Morph it into 1 row\nflat_data = grid_data.flatten()\nprint(flat_data)\n# Output: [1, 2, 3, 4, 5, 6]\n#",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---isnan",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---isnan",
-    "title": "4: Vectors and NumPy",
-    "section": "More Functions in NumPy - isnan",
-    "text": "More Functions in NumPy - isnan\n\nnp.isnan()\n\nReturns a Boolean array (True/False) indicating where missing or corrupted data (NaN or Not a Number) is located.\nIf you run np.mean(scores)and the result is just NaN, having just a single broken data point has ruined your calculation.\nCombining this with an aggregate tool allows you to count how many broken points you have.",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---isnan-1",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---isnan-1",
-    "title": "4: Vectors and NumPy",
-    "section": "More Functions in NumPy - isnan",
-    "text": "More Functions in NumPy - isnan\ndata = np.array([85, np.nan, 90])\n# Find the missing data\nprint(np.isnan(data))\n# Output: [False, True, False]\n# Count how many missing values exist\nprint(np.sum(np.isnan(data)))\n# Output: 1 (Because True acts as 1, False acts as 0)",
-    "crumbs": [
-      "Lectures",
-      "4: Vectors and NumPy"
-    ]
-  },
-  {
-    "objectID": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---astype",
-    "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#more-functions-in-numpy---astype",
-    "title": "4: Vectors and NumPy",
-    "section": "More Functions in NumPy - astype",
-    "text": "More Functions in NumPy - astype\n\narray.astype()\n\nExplicitly forces an array to convert from one data type to another.\nIf you read data from a file and it imports everything as text strings (e.g., [“10”, “20”, “30”]), you use astype to cast them into actual integers or floats so you can perform vector arithmetic.\n\n\nstring_scores = np.array([“85”, “90”, “78”])\n# Fix the type so we can do math\nnumeric_scores = string_scores.astype(float)\nprint(numeric_scores * 2)\n# Output: [170. 180. 156.]",
+    "section": "Common Functions in NumPy",
+    "text": "Common Functions in NumPy\n\nAggregates\n\nAverage: Takes the arithmetic mean of the array.\n\nnp.mean()\n\nSum: Adds up every element in the array.\n\nnp.sum()\n\nMax: Returns the largest element in the array.\n\nnp.max()\n\nMin: Returns the smallest element in the array.\n\nnp.min()\n\n\n\n\nReshape\narray.reshape() changes the dimensions of an array without changing its actual data.\n\nflat_data = np.array([1, 2, 3, 4, 5, 6])\n\n# Morph it into 3 rows and 2 columns\n\ngrid_data = flat_data.reshape(3, 2)\n\nprint(grid_data)\n\n[[1 2]\n [3 4]\n [5 6]]\n\n\nNote that you cannot reshape an array into dimensions that do not fit the number of elements.\nIf you try flat_data.reshape(3, 3) on the above array, NumPy will throw a: ValueError: cannot reshape array of size 6 into shape (3,3). The shape (3,3) requires exactly 9 items, and we only have 6.\n\n\nFlatten\narray.flatten() takes a multi-dimensional grid and squashes it back down into a single 1D row. This iu Useful when a library expects a flat sequence of values, but you currently have them inside a multi-dimensional structure.\n\ngrid_data = np.array([[1, 2],[3, 4],[5, 6]])\n\n# Morph it into 1 row\n\nflat_data = grid_data.flatten()\n\nprint(flat_data)\n\n[1 2 3 4 5 6]\n\n\n\n\nisnan\nnp.isnan() returns a Boolean array (True/False) indicating where missing or corrupted data (NaN or Not a Number) is located.\nIf you run np.mean(scores)and the result is just NaN, having just a single broken data point has ruined your calculation. Combining this with an aggregate tool allows you to count how many broken points you have.\n\ndata = np.array([85, np.nan, 90])\n\n# Find the missing data\n\nprint(np.isnan(data))\n\n# Output: [False, True, False]\n\n# Count how many missing values exist\n\nprint(np.sum(np.isnan(data)))\n\n# Output: 1 (Because True acts as 1, False acts as 0)\n\n[False  True False]\n1\n\n\n\n\nastype\narray.astype() explicitly forces an array to convert from one data type to another.\nIf you read data from a file and it imports everything as text strings (e.g., [\"10\", \"20\", \"30\"]), you use astype to cast them into actual integers or floats so you can perform vector arithmetic.\n\nstring_scores = np.array([\"85\", \"90\", \"78\"])\n\n# Fix the type so we can do math\n\nnumeric_scores = string_scores.astype(float)\n\nprint(numeric_scores * 2)\n\n[170. 180. 156.]",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"
@@ -2963,7 +2281,7 @@
     "href": "lectures/04_vectors_and_numpy/vectors_and_numpy.html#indexing-and-slicing",
     "title": "4: Vectors and NumPy",
     "section": "Indexing and Slicing",
-    "text": "Indexing and Slicing\n\nNumPy arrays use similar rules for accessing data as standard structures like Python lists.\nYou do not need to relearn how to extract data. The exact same syntax works:\nIndexing: scores[0] retrieves the first element.\nNegative Indexing: scores[-1] retrieves the last element.\nSlicing: scores[1:3] retrieves the second and third elements.",
+    "text": "Indexing and Slicing\nNumPy arrays use similar rules for accessing data as standard structures like Python lists. You do not need to relearn how to extract data. The exact same syntax works:\n\nIndexing: scores[0] retrieves the first element.\nNegative Indexing: scores[-1] retrieves the last element.\nSlicing: scores[1:3] retrieves the second and third elements.",
     "crumbs": [
       "Lectures",
       "4: Vectors and NumPy"

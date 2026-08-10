@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -255,58 +290,31 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#strings-lists-and-tuples" id="toc-strings-lists-and-tuples" class="nav-link active" data-scroll-target="#strings-lists-and-tuples">Strings, Lists, and Tuples</a></li>
-  <li><a href="#strings-and-string-literals" id="toc-strings-and-string-literals" class="nav-link" data-scroll-target="#strings-and-string-literals">Strings and String Literals</a></li>
-  <li><a href="#string-concatenation-1-of-2" id="toc-string-concatenation-1-of-2" class="nav-link" data-scroll-target="#string-concatenation-1-of-2">String Concatenation (1 of 2)</a></li>
-  <li><a href="#string-concatenation-2-of-2" id="toc-string-concatenation-2-of-2" class="nav-link" data-scroll-target="#string-concatenation-2-of-2">String Concatenation (2 of 2)</a></li>
-  <li><a href="#strings-are-immutable-1-of-2" id="toc-strings-are-immutable-1-of-2" class="nav-link" data-scroll-target="#strings-are-immutable-1-of-2">Strings Are Immutable (1 of 2)</a></li>
-  <li><a href="#strings-are-immutable-2-of-2" id="toc-strings-are-immutable-2-of-2" class="nav-link" data-scroll-target="#strings-are-immutable-2-of-2">Strings Are Immutable (2 of 2)</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-1-of-8" id="toc-displaying-formatted-output-with-f-strings-1-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-1-of-8">Displaying Formatted Output With f-Strings (1 of 8)</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-2-of-8" id="toc-displaying-formatted-output-with-f-strings-2-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-2-of-8">Displaying Formatted Output With f-Strings (2 of 8)</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-3-of-8" id="toc-displaying-formatted-output-with-f-strings-3-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-3-of-8">Displaying Formatted Output With f-Strings (3 of 8)</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-4-of-8" id="toc-displaying-formatted-output-with-f-strings-4-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-4-of-8">Displaying Formatted Output With f-Strings (4 of 8)</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-5-of-8" id="toc-displaying-formatted-output-with-f-strings-5-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-5-of-8">Displaying Formatted Output With f-Strings (5 of 8)</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-6-of-8" id="toc-displaying-formatted-output-with-f-strings-6-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-6-of-8">Displaying Formatted Output With f-Strings (6 of 8)</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-7-of-8" id="toc-displaying-formatted-output-with-f-strings-7-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-7-of-8">Displaying Formatted Output With f-Strings (7 of 8)</a></li>
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
-  <li><a href="#displaying-formatted-output-with-f-strings-8-of-8" id="toc-displaying-formatted-output-with-f-strings-8-of-8" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings-8-of-8">Displaying Formatted Output With f-Strings (8 of 8)</a></li>
-  <li><a href="#string-methods-1-of-7" id="toc-string-methods-1-of-7" class="nav-link" data-scroll-target="#string-methods-1-of-7">String Methods (1 of 7)</a></li>
-  <li><a href="#string-methods-2-of-7" id="toc-string-methods-2-of-7" class="nav-link" data-scroll-target="#string-methods-2-of-7">String Methods (2 of 7)</a></li>
-  <li><a href="#string-methods-3-of-7" id="toc-string-methods-3-of-7" class="nav-link" data-scroll-target="#string-methods-3-of-7">String Methods (3 of 7)</a></li>
-  <li><a href="#string-methods-4-of-7" id="toc-string-methods-4-of-7" class="nav-link" data-scroll-target="#string-methods-4-of-7">String Methods (4 of 7)</a></li>
-  <li><a href="#string-methods-5-of-7" id="toc-string-methods-5-of-7" class="nav-link" data-scroll-target="#string-methods-5-of-7">String Methods (5 of 7)</a></li>
-  <li><a href="#string-methods-6-of-7" id="toc-string-methods-6-of-7" class="nav-link" data-scroll-target="#string-methods-6-of-7">String Methods (6 of 7)</a></li>
-  <li><a href="#string-methods-7-of-7" id="toc-string-methods-7-of-7" class="nav-link" data-scroll-target="#string-methods-7-of-7">String Methods (7 of 7)</a></li>
+  <li><a href="#strings-and-string-literals" id="toc-strings-and-string-literals" class="nav-link active" data-scroll-target="#strings-and-string-literals">Strings and String Literals</a>
+  <ul class="collapse">
+  <li><a href="#string-concatenation" id="toc-string-concatenation" class="nav-link" data-scroll-target="#string-concatenation">String Concatenation</a></li>
+  <li><a href="#strings-are-immutable" id="toc-strings-are-immutable" class="nav-link" data-scroll-target="#strings-are-immutable">Strings Are Immutable</a></li>
+  <li><a href="#displaying-formatted-output-with-f-strings" id="toc-displaying-formatted-output-with-f-strings" class="nav-link" data-scroll-target="#displaying-formatted-output-with-f-strings">Displaying Formatted Output With f-Strings</a></li>
+  <li><a href="#string-methods" id="toc-string-methods" class="nav-link" data-scroll-target="#string-methods">String Methods</a></li>
   <li><a href="#the-repetition-operator" id="toc-the-repetition-operator" class="nav-link" data-scroll-target="#the-repetition-operator">The Repetition Operator</a></li>
-  <li><a href="#splitting-a-string-1-of-2" id="toc-splitting-a-string-1-of-2" class="nav-link" data-scroll-target="#splitting-a-string-1-of-2">Splitting a String (1 of 2)</a></li>
-  <li><a href="#splitting-a-string-2-of-2" id="toc-splitting-a-string-2-of-2" class="nav-link" data-scroll-target="#splitting-a-string-2-of-2">Splitting a String (2 of 2)</a></li>
-  <li><a href="#string-tokens-1-of-4" id="toc-string-tokens-1-of-4" class="nav-link" data-scroll-target="#string-tokens-1-of-4">String Tokens (1 of 4)</a></li>
-  <li><a href="#string-tokens-2-of-4" id="toc-string-tokens-2-of-4" class="nav-link" data-scroll-target="#string-tokens-2-of-4">String Tokens (2 of 4)</a></li>
-  <li><a href="#string-tokens-3-of-4" id="toc-string-tokens-3-of-4" class="nav-link" data-scroll-target="#string-tokens-3-of-4">String Tokens (3 of 4)</a></li>
-  <li><a href="#string-tokens-4-of-4" id="toc-string-tokens-4-of-4" class="nav-link" data-scroll-target="#string-tokens-4-of-4">String Tokens (4 of 4)</a></li>
-  <li><a href="#multidimensional-variables" id="toc-multidimensional-variables" class="nav-link" data-scroll-target="#multidimensional-variables">Multidimensional Variables</a></li>
+  <li><a href="#splitting-a-string" id="toc-splitting-a-string" class="nav-link" data-scroll-target="#splitting-a-string">Splitting a String</a></li>
+  <li><a href="#string-tokens" id="toc-string-tokens" class="nav-link" data-scroll-target="#string-tokens">String Tokens</a></li>
+  </ul></li>
+  <li><a href="#multidimensional-variables" id="toc-multidimensional-variables" class="nav-link" data-scroll-target="#multidimensional-variables">Multidimensional Variables</a>
+  <ul class="collapse">
   <li><a href="#lists" id="toc-lists" class="nav-link" data-scroll-target="#lists">Lists</a></li>
   <li><a href="#creating-a-list" id="toc-creating-a-list" class="nav-link" data-scroll-target="#creating-a-list">Creating a List</a></li>
   <li><a href="#accessing-elements-in-a-list" id="toc-accessing-elements-in-a-list" class="nav-link" data-scroll-target="#accessing-elements-in-a-list">Accessing Elements in a List</a></li>
-  <li><a href="#accessing-elements-in-a-list-1" id="toc-accessing-elements-in-a-list-1" class="nav-link" data-scroll-target="#accessing-elements-in-a-list-1">Accessing Elements in a List</a></li>
   <li><a href="#adding-elements-to-a-list" id="toc-adding-elements-to-a-list" class="nav-link" data-scroll-target="#adding-elements-to-a-list">Adding Elements to a List</a></li>
-  <li><a href="#example---insert" id="toc-example---insert" class="nav-link" data-scroll-target="#example---insert">Example - Insert</a></li>
-  <li><a href="#example---append" id="toc-example---append" class="nav-link" data-scroll-target="#example---append">Example - Append</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
   <li><a href="#removing-elements-from-a-list" id="toc-removing-elements-from-a-list" class="nav-link" data-scroll-target="#removing-elements-from-a-list">Removing Elements from a List</a></li>
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
-  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
-  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1">Practice</a></li>
   <li><a href="#removing-elements-from-a-list-1" id="toc-removing-elements-from-a-list-1" class="nav-link" data-scroll-target="#removing-elements-from-a-list-1">Removing Elements from a List</a></li>
   <li><a href="#calculating-the-length-of-a-list" id="toc-calculating-the-length-of-a-list" class="nav-link" data-scroll-target="#calculating-the-length-of-a-list">Calculating the Length of a List</a></li>
   <li><a href="#list-slicing" id="toc-list-slicing" class="nav-link" data-scroll-target="#list-slicing">List Slicing</a></li>
-  <li><a href="#tuples-1-of-4" id="toc-tuples-1-of-4" class="nav-link" data-scroll-target="#tuples-1-of-4">Tuples (1 of 4)</a></li>
-  <li><a href="#tuples-2-of-4" id="toc-tuples-2-of-4" class="nav-link" data-scroll-target="#tuples-2-of-4">Tuples (2 of 4)</a></li>
-  <li><a href="#tuples-3-of-4" id="toc-tuples-3-of-4" class="nav-link" data-scroll-target="#tuples-3-of-4">Tuples (3 of 4)</a></li>
-  <li><a href="#tuples-4-of-4" id="toc-tuples-4-of-4" class="nav-link" data-scroll-target="#tuples-4-of-4">Tuples (4 of 4)</a></li>
-  <li><a href="#storing-mutable-objects-in-a-tuple-1-of-2" id="toc-storing-mutable-objects-in-a-tuple-1-of-2" class="nav-link" data-scroll-target="#storing-mutable-objects-in-a-tuple-1-of-2">Storing Mutable Objects in a Tuple (1 of 2)</a></li>
-  <li><a href="#storing-mutable-objects-in-a-tuple-2-of-2" id="toc-storing-mutable-objects-in-a-tuple-2-of-2" class="nav-link" data-scroll-target="#storing-mutable-objects-in-a-tuple-2-of-2">Storing Mutable Objects in a Tuple (2 of 2)</a></li>
+  </ul></li>
+  <li><a href="#tuples" id="toc-tuples" class="nav-link" data-scroll-target="#tuples">Tuples</a>
+  <ul class="collapse">
+  <li><a href="#storing-mutable-objects-in-a-tuple" id="toc-storing-mutable-objects-in-a-tuple" class="nav-link" data-scroll-target="#storing-mutable-objects-in-a-tuple">Storing Mutable Objects in a Tuple</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -332,51 +340,45 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="strings-lists-and-tuples" class="level2">
-<h2 class="anchored" data-anchor-id="strings-lists-and-tuples">Strings, Lists, and Tuples</h2>
-<p>CSCI – 1056</p>
-<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
-</section>
-<section id="strings-and-string-literals" class="level2">
-<h2 class="anchored" data-anchor-id="strings-and-string-literals">Strings and String Literals</h2>
-<ul>
-<li><p><strong>String: sequence of characters that is used as data</strong></p>
-<ul>
-<li>A string is a type of data.</li>
-<li>For example, name = input(“Enter a name”)the variable <strong>name</strong> is a string.</li>
-</ul></li>
-<li><p><strong>String literal: string that appears in actual code of a program</strong></p>
-<ul>
-<li>In the above example “Enter a name” is a string literal.</li>
-</ul></li>
-</ul>
-</section>
-<section id="string-concatenation-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="string-concatenation-1-of-2">String Concatenation (1 of 2)</h2>
+<section id="strings-and-string-literals" class="level1">
+<h1>Strings and String Literals</h1>
+<p>Recall that a <strong>string</strong> is sequence of characters that is one of Python’s fundamental data types.</p>
+<p>For example, <code>name = input(“Enter a name”)</code> the variable <strong>name</strong> is a string.</p>
+<p>You might see the term <strong>string literal</strong> used, which is a string that appears in actual code of a program in contrast to the data type.</p>
+<p>In the above example <code>“Enter a name”</code> is a string literal.</p>
+<p>Often, the term literal is omitted and the word string is used both for the data type and actual character sequence. It is usually easy enough with context to distinguish between the two.</p>
+<section id="string-concatenation" class="level2">
+<h2 class="anchored" data-anchor-id="string-concatenation">String Concatenation</h2>
 <ul>
 <li><strong>To append one string to the end of another string</strong></li>
 <li><strong>Use the + operator to concatenate strings</strong></li>
+<li></li>
 </ul>
-<p>&gt;&gt;&gt; message = ‘Hello’ + ‘world’</p>
-<p>&gt;&gt;&gt; print(message)</p>
-<p>Hello world</p>
-<p>&gt;&gt;&gt;</p>
-</section>
-<section id="string-concatenation-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="string-concatenation-2-of-2">String Concatenation (2 of 2)</h2>
+<div id="dd7c00ee" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">'Hello '</span> <span class="op">+</span> <span class="st">'world'</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello world</code></pre>
+</div>
+</div>
 <ul>
 <li><strong>You can use string concatenation to break up a long string literal</strong></li>
 </ul>
-<p>print(‘Enter the amount of’ +</p>
-<p>‘sales for each day and’ +</p>
-<p>‘press Enter.’)</p>
-<ul>
-<li><strong>This statement will display the following:</strong></li>
-</ul>
-<p>Enter the amount of sales for each day and press Enter.</p>
+<div id="f3927ec3" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Enter the amount of '</span> <span class="op">+</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">'sales for each day and '</span> <span class="op">+</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">'press Enter.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Enter the amount of sales for each day and press Enter.</code></pre>
+</div>
+</div>
+<p>Notice how this statement is printed all on a single line.</p>
 </section>
-<section id="strings-are-immutable-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="strings-are-immutable-1-of-2">Strings Are Immutable (1 of 2)</h2>
+<section id="strings-are-immutable" class="level2">
+<h2 class="anchored" data-anchor-id="strings-are-immutable">Strings Are Immutable</h2>
 <ul>
 <li><p><strong>Strings are immutable</strong></p>
 <ul>
@@ -384,168 +386,130 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Concatenation does not change the existing string, but rather creates a new string and assigns the new string to the previously used variable</li>
 </ul></li>
-<li><p>Cannot use an expression of the form</p></li>
+<li><p>We cannot use an expression of the form</p></li>
 <li><p><em>string</em>[<em>index</em>] = <em>new_character</em></p>
 <ul>
-<li>Statement of this type will result in an error</li>
+<li>Statement like this that attempt to overwrite a part of the string will result in an error</li>
 </ul></li>
 </ul></li>
 </ul>
 </section>
-<section id="strings-are-immutable-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="strings-are-immutable-2-of-2">Strings Are Immutable (2 of 2)</h2>
-<p><strong>Figure 8-4</strong> The string ‘Carmen’ assigned to name</p>
-<p>Name = single quote Carmen single quote. name extends right to a box with text that reads, Carmen.</p>
-<p><strong>Figure 8-5</strong> The string ‘Carmen Brown’ assigned to name</p>
-<p>An illustration depicts a string assigned to a name. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>Name = name + single quote Brown single quote. name extends right to a box with text that reads, Carmen Brown. Another box above this box contains text that reads, Carmen.</p>
-</blockquote>
-</section>
-<section id="displaying-formatted-output-with-f-strings-1-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-1-of-8">Displaying Formatted Output With f-Strings (1 of 8)</h2>
+<section id="displaying-formatted-output-with-f-strings" class="level2">
+<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings">Displaying Formatted Output With f-Strings</h2>
 <ul>
-<li><strong>An f-string is a special type of string literal that is prefixed with the letter f</strong></li>
+<li><strong>An f-string (formatted string literal) is a special type of string literal that is prefixed with the letter f</strong></li>
 </ul>
-<p>&gt;&gt;&gt; print(f’Hello world’)</p>
-<p>Hello world</p>
+<div id="15f24534" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello world</code></pre>
+</div>
+</div>
 <ul>
 <li><strong>f-strings support placeholders for variables</strong></li>
 </ul>
-<p>&gt;&gt;&gt; name = ‘Johnny’</p>
-<p>&gt;&gt;&gt; print(f’Hello {name}.’)</p>
-<p>Hello Johnny.</p>
-</section>
-<section id="displaying-formatted-output-with-f-strings-2-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-2-of-8">Displaying Formatted Output With f-Strings (2 of 8)</h2>
+<div id="ea147861" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Johnny'</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Hello </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Hello Johnny.</code></pre>
+</div>
+</div>
 <ul>
 <li><strong>Placeholders can also be expressions that are evaluated</strong></li>
 </ul>
-<p>&gt;&gt;&gt; print(f’The value is {10 + 2}.’)</p>
-<p>The value is 12.</p>
-<p>&gt;&gt;&gt; val = 10</p>
-<p>&gt;&gt;&gt; print(f’The value is {val + 2}.’)</p>
-<p>The value is 12.</p>
-</section>
-<section id="displaying-formatted-output-with-f-strings-3-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-3-of-8">Displaying Formatted Output With f-Strings (3 of 8)</h2>
+<div id="5dd43e3e" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The value is 12.</code></pre>
+</div>
+</div>
+<div id="3d27b37e" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span>val <span class="op">+</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The value is 12.</code></pre>
+</div>
+</div>
 <ul>
 <li><strong>Format specifiers can be used with placeholders</strong></li>
 </ul>
-<p>&gt;&gt; num = 123.456789</p>
-<p>&gt;&gt; print(f’{num:.2f}’)</p>
-<p>123.46</p>
-<p>&gt;&gt;&gt;</p>
+<div id="6e897b7e" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">123.456789</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>123.46</code></pre>
+</div>
+</div>
 <ul>
-<li><p>.<strong>2f means:</strong></p>
+<li><p><strong><em>2f means:</em></strong></p>
 <ul>
 <li>round the value to 2 decimal places</li>
 <li>display the value as a floating-point number</li>
 </ul></li>
+<li><p><strong>Percentages</strong></p></li>
 </ul>
-</section>
-<section id="displaying-formatted-output-with-f-strings-4-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-4-of-8">Displaying Formatted Output With f-Strings (4 of 8)</h2>
+<div id="7110f58d" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">1000000.00</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:,.2f}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1,000,000.00</code></pre>
+</div>
+</div>
+<div id="d9848b69" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>discount <span class="op">=</span> <span class="fl">0.5</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>discount<span class="sc">:.0%}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>50%</code></pre>
+</div>
+</div>
 <ul>
-<li><strong>Other examples:</strong></li>
+<li><strong>Scientific Notation</strong></li>
 </ul>
-<p>&gt;&gt; num = 1000000.00</p>
-<p>&gt;&gt; print(f’{num:,.2f}’)</p>
-<p>1,000,000.00</p>
-<p>&gt;&gt;&gt; discount = 0.5</p>
-<p>&gt;&gt;&gt; print(f’{discount:.0%}’)</p>
-<p>50%</p>
-</section>
-<section id="displaying-formatted-output-with-f-strings-5-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-5-of-8">Displaying Formatted Output With f-Strings (5 of 8)</h2>
-<ul>
-<li><strong>Other examples:</strong></li>
-</ul>
-<p>&gt;&gt; num = 123456789</p>
-<p>&gt;&gt; print(f’{num:,d}’)</p>
-<p>123,456,789</p>
-<p>&gt;&gt;&gt; num = 12345.6789</p>
-<p>&gt;&gt;&gt; print(f’{num:.2e}’)</p>
-<p>1.23e+04</p>
-</section>
-<section id="displaying-formatted-output-with-f-strings-6-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-6-of-8">Displaying Formatted Output With f-Strings (6 of 8)</h2>
-<ul>
-<li><strong>Specifying a minimum field width:</strong></li>
-</ul>
-<p>A computer code has 3 lines. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The lines read as follows. Line 1. greater than sign greater than sign greater than sign n u m equals 12345 period 6789. Line 2. greater than sign greater than sign greater than sign print left parenthesis f single quote The number is left brace n u m colon 12 comma period 2 f right brace single quote right parenthesis. The number 12 in this line of code is labeled, field width equals 12. Line 3. The number is 12 comma 345 period 68. The number is 12,345.68, where 12,345.68 is entered in a block of field width equals 12.</p>
-</blockquote>
-</section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>print(f’The number is {num:14,.2f}’)</p>
-<p><em>The number is 12,345.68</em></p>
-<p>print(f’The number is {num:10,.2f}’)</p>
-<p><em>The number is 12,345.68</em></p>
-</section>
-<section id="displaying-formatted-output-with-f-strings-7-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-7-of-8">Displaying Formatted Output With f-Strings (7 of 8)</h2>
-<ul>
-<li><p><strong>Aligning values within a field</strong></p>
-<ul>
-<li>Use &lt; for left alignment</li>
-<li>Use &gt; for right alignment</li>
-<li>Use ^ for center alignment</li>
-</ul></li>
-<li><p><strong>Examples:</strong></p>
-<ul>
-<li>print(f’{num:&lt;20.2f}’)</li>
-<li>print(f’{num:&gt;20.2f}’)</li>
-<li>print(f’{num:^20.2f}’)</li>
-</ul></li>
-</ul>
-</section>
-<section id="example-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-1">Example</h2>
-<p>print(f’The number is {num:&lt;15,.2f}’)</p>
-<p><em>The number is 12,345.68</em></p>
-<p>print(f’The number is {num:&gt;15,.2f}’)</p>
-<p><em>The number is 12,345.68___ __</em></p>
-<p>print(f’The number is {num:^15,.2f}’)</p>
-<p><em>The number is ___ 12,345.68 ___</em></p>
-</section>
-<section id="displaying-formatted-output-with-f-strings-8-of-8" class="level2">
-<h2 class="anchored" data-anchor-id="displaying-formatted-output-with-f-strings-8-of-8">Displaying Formatted Output With f-Strings (8 of 8)</h2>
+<div id="3bf1d5c5" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="dv">123456789</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:,d}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>123,456,789</code></pre>
+</div>
+</div>
+<div id="032747d0" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">12345.6789</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2e}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>1.23e+04</code></pre>
+</div>
+</div>
 <ul>
 <li><p><strong>The order of designators in a format specifier</strong></p>
 <ul>
 <li>When using multiple designators in a format specifier, write them in this order:</li>
+<li>[<em>alignment</em>][<em>width</em>][,][.<em>precision</em>][<em>type</em>]</li>
+<li>Example: <code>print(f'{number:^10,.2f}')</code></li>
 </ul></li>
 </ul>
-<p>[<em>alignment</em>][<em>width</em>][,][.<em>precision</em>][<em>type</em>]</p>
-<ul>
-<li><p><strong>Example:</strong></p>
-<ul>
-<li>print(f’{number:^10,.2f}’)</li>
-</ul></li>
-</ul>
+<p>There are many other options and ways of formatting strings in Python. The office reference material at <a href="https://docs.python.org/3/tutorial/inputoutput.html" class="uri">https://docs.python.org/3/tutorial/inputoutput.html</a> contains extensive details.</p>
 </section>
-<section id="string-methods-1-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="string-methods-1-of-7">String Methods (1 of 7)</h2>
+<section id="string-methods" class="level2">
+<h2 class="anchored" data-anchor-id="string-methods">String Methods</h2>
 <ul>
 <li><p><strong>Strings in Python have many types of methods, divided into different types of operations</strong></p>
 <ul>
-<li>General format:</li>
+<li>General format: <em>mystring</em>.<em>method</em>(<em>arguments</em>)</li>
 </ul></li>
-</ul>
-<p><em>mystring</em>.<em>method</em>(<em>arguments</em>)</p>
-<ul>
 <li><p><strong>Some methods test a string for specific characteristics</strong></p>
 <ul>
 <li>Generally Boolean methods, that return True if a condition exists, and False otherwise</li>
 </ul></li>
 </ul>
-</section>
-<section id="string-methods-2-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="string-methods-2-of-7">String Methods (2 of 7)</h2>
-<p><strong>Table 8-1</strong> Some string testing methods</p>
+<p>Some String Testing Methods</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -584,9 +548,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="string-methods-3-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="string-methods-3-of-7">String Methods (3 of 7)</h2>
 <ul>
 <li><p><strong>Some methods return a copy of the string, to which modifications have been made</strong></p>
 <ul>
@@ -594,14 +555,11 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 <li><p><strong>String comparisons are case-sensitive</strong></p>
 <ul>
-<li>Uppercase characters are distinguished from lowercase characters</li>
-<li>lower and upper methods can be used for making case-insensitive string comparisons</li>
+<li><p>Uppercase characters are distinguished from lowercase characters</p></li>
+<li><p><code>lower</code> and <code>upper</code> methods can be used for making case-insensitive string comparisons</p></li>
 </ul></li>
 </ul>
-</section>
-<section id="string-methods-4-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="string-methods-4-of-7">String Methods (4 of 7)</h2>
-<p><strong>Table 8-2</strong> String Modification Methods</p>
+<p>Some String Modification Methods</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -648,9 +606,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="string-methods-5-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="string-methods-5-of-7">String Methods (5 of 7)</h2>
 <ul>
 <li><p><strong>Programs commonly need to search for substrings</strong></p></li>
 <li><p><strong>Several methods to accomplish this:</strong></p>
@@ -663,32 +618,17 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>Returns True or False</li>
 </ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="string-methods-6-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="string-methods-6-of-7">String Methods (6 of 7)</h2>
-<ul>
-<li><p><strong>Several methods to accomplish this (cont’d):</strong></p>
-<ul>
 <li><p><strong>find(<em>substring</em>)</strong>: searches for <em>substring</em> within the string</p>
 <ul>
-<li>Returns lowest index of the substring, or if the</li>
+<li>Returns lowest index of the substring, or if the substring is not contained in the string, returns -1</li>
 </ul></li>
-</ul></li>
-</ul>
-<p>substring is not contained in the string, returns</p>
-<p>Equation</p>
-<ul>
 <li><p><strong>replace(<em>substring</em>,</strong> <strong><em>new_string</em>)</strong>:</p>
 <ul>
 <li>Returns a copy of the string where every occurrence of <em>substring</em> is replaced with <em>new_string</em></li>
 </ul></li>
+</ul></li>
 </ul>
-</section>
-<section id="string-methods-7-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="string-methods-7-of-7">String Methods (7 of 7)</h2>
-<p><strong>Table 8-3</strong> Search and replace methods</p>
+<p>Some Search and Replace Methods</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -719,7 +659,6 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-<p>Equation</p>
 </section>
 <section id="the-repetition-operator" class="level2">
 <h2 class="anchored" data-anchor-id="the-repetition-operator">The Repetition Operator</h2>
@@ -735,8 +674,8 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="splitting-a-string-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="splitting-a-string-1-of-2">Splitting a String (1 of 2)</h2>
+<section id="splitting-a-string" class="level2">
+<h2 class="anchored" data-anchor-id="splitting-a-string">Splitting a String</h2>
 <ul>
 <li><p><strong>split method: returns a list containing the words in the string</strong></p>
 <ul>
@@ -744,91 +683,75 @@ ul.task-list li input[type="checkbox"] {
 <li>Can specify a different separator by passing it as an argument to the split method</li>
 </ul></li>
 </ul>
+<div id="4d4b6ccc" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">'One two three four'</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>word_list <span class="op">=</span> my_string.split()</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(word_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['One', 'two', 'three', 'four']</code></pre>
+</div>
+</div>
+<div id="a2d54a43" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">'1/2/3/4/5'</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>number_list <span class="op">=</span> my_string.split(<span class="st">'/'</span>)</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(number_list)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['1', '2', '3', '4', '5']</code></pre>
+</div>
+</div>
 </section>
-<section id="splitting-a-string-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="splitting-a-string-2-of-2">Splitting a String (2 of 2)</h2>
-<ul>
-<li><strong>Examples:</strong></li>
-</ul>
-<p>&gt;&gt;&gt; my_string = ‘One two three four’</p>
-<p>&gt;&gt;&gt; word_list = my_string.split()</p>
-<p>&gt;&gt;&gt; word_list</p>
-<p>[‘One’, ‘two’, ‘three’, ‘four’]</p>
-<p>&gt;&gt;&gt;</p>
-<p>&gt;&gt;&gt; my_string = ‘1/2/3/4/5’</p>
-<p>&gt;&gt;&gt; number_list = my_string.split(‘/’)</p>
-<p>&gt;&gt;&gt; number_list</p>
-<p>[‘1’, ‘2’, ‘3’, ‘4’, ‘5’]</p>
-<p>&gt;&gt;&gt;</p>
-</section>
-<section id="string-tokens-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="string-tokens-1-of-4">String Tokens (1 of 4)</h2>
+<section id="string-tokens" class="level2">
+<h2 class="anchored" data-anchor-id="string-tokens">String Tokens</h2>
 <ul>
 <li><p><strong>Sometimes a string contains substrings that are separated by a special character</strong></p>
 <ul>
-<li>Example:</li>
+<li>Example: <code>'peach raspberry strawberry vanilla'</code></li>
+</ul></li>
+<li><p>This string contains the substrings <strong>peach</strong>, <strong>raspberry</strong>, <strong>strawberry</strong>, and <strong>vanilla</strong> if we choose the space to be our separator.</p>
+<ul>
+<li><p>The substrings are separated by the space character</p></li>
+<li><p>The substrings are known as <strong>tokens</strong> and the separating character is known as the <strong>delimiter</strong></p></li>
+</ul></li>
+<li><p>The string <code>'17;92;81;12;46;5'</code> contains the tokens 17, 92, 81, 12, 46, and 5 if we choose the delimiter to be the ; character.</p></li>
+<li><p><strong>Tokenizing</strong> is the process of breaking a string into tokens</p>
+<ul>
+<li><p>When you tokenize a string, you extract the tokens and store them as individual items</p></li>
+<li><p>In Python you can use the split method to tokenize a string</p></li>
 </ul></li>
 </ul>
-<p>‘peach raspberry strawberry vanilla’</p>
-<ul>
-<li>This string contains the substrings <strong>peach</strong>, <strong>raspberry</strong>, <strong>strawberry</strong>, and <strong>vanilla</strong></li>
-<li>The substrings are separated by the space character</li>
-<li>The substrings are known as <strong>tokens</strong> and the separating character is known as the <strong>delimiter</strong></li>
-</ul>
+<div id="43537f7d" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span> <span class="op">=</span> <span class="st">'peach raspberry strawberry vanilla'</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> <span class="bu">str</span>.split()</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tokens)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['peach', 'raspberry', 'strawberry', 'vanilla']</code></pre>
+</div>
+</div>
+<div id="8475c2d5" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>my_address <span class="op">=</span> <span class="st">'www.example.com'</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> my_address.split(<span class="st">'.'</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tokens)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['www', 'example', 'com']</code></pre>
+</div>
+</div>
 </section>
-<section id="string-tokens-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="string-tokens-2-of-4">String Tokens (2 of 4)</h2>
-<ul>
-<li><strong>Example:</strong></li>
-</ul>
-<p>‘17;92;81;12;46;5’</p>
-<ul>
-<li>This string contains the tokens 17, 92, 81, 12, 46, and 5</li>
-<li>The delimiter is the ; character</li>
-</ul>
 </section>
-<section id="string-tokens-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="string-tokens-3-of-4">String Tokens (3 of 4)</h2>
-<ul>
-<li><strong>Tokenizing</strong> is the process of breaking a string into tokens</li>
-<li>When you tokenize a string, you extract the tokens and store them as individual items</li>
-<li>In Python you can use the split method to tokenize a string</li>
-</ul>
-</section>
-<section id="string-tokens-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="string-tokens-4-of-4">String Tokens (4 of 4)</h2>
-<ul>
-<li><strong>Examples:</strong></li>
-</ul>
-<p>&gt;&gt;&gt; str = ‘peach raspberry strawberry vanilla’</p>
-<p>&gt;&gt;&gt; tokens = str.split()</p>
-<p>&gt;&gt;&gt; tokens</p>
-<p>[‘peach’, ‘raspberry’, ‘strawberry’, ‘vanilla’]</p>
-<p>&gt;&gt;&gt;</p>
-<p>&gt;&gt;&gt; my_address = ‘www.example.com’</p>
-<p>&gt;&gt;&gt; tokens = my_address.split(‘.’)</p>
-<p>&gt;&gt;&gt; tokens</p>
-<p>[‘www’, ‘example’, ‘com’]</p>
-<p>&gt;&gt;&gt;</p>
-</section>
-<section id="multidimensional-variables" class="level2">
-<h2 class="anchored" data-anchor-id="multidimensional-variables">Multidimensional Variables</h2>
-<ul>
-<li><p>In Python, variables can store more than a single piece of information.</p>
-<ul>
-<li>These are <strong>multidimensional</strong> variables.</li>
-</ul></li>
-<li><p>We have already seen an example of a multidimensional variable, the <strong>string</strong> data type<em>.</em></p>
-<ul>
-<li>Recall that a string is a <strong>sequence of characters.</strong></li>
-</ul></li>
-<li><p>Each character in the sequence can be accessed and manipulated independently from any other character.</p></li>
-</ul>
-</section>
+<section id="multidimensional-variables" class="level1">
+<h1>Multidimensional Variables</h1>
+<p>In Python, variables can store more than a single piece of information. These are <strong>multidimensional</strong> variables. We have already seen an example of a multidimensional variable, the <strong>string</strong> data type<em>.</em> Recall that a string is a <strong>sequence of characters</strong> and <strong>that</strong> each character in the sequence can be accessed and manipulated independently from any other character.</p>
 <section id="lists" class="level2">
 <h2 class="anchored" data-anchor-id="lists">Lists</h2>
 <ul>
-<li><p>The most common multidimensional variable in Python is the list.</p></li>
+<li><p>The most common general purpose multidimensional variable in Python is the <strong>list</strong>.</p></li>
 <li><p>Lists are ordered collections of values.</p>
 <ul>
 <li>Duplicates are allowed.</li>
@@ -843,8 +766,11 @@ ul.task-list li input[type="checkbox"] {
 <li>Lists are created using the <strong>square brackets</strong> [ ]</li>
 <li>Separate multiple items in a list using a comma.</li>
 </ul>
-<p>A_List = [ ] #This is an empty list</p>
-<p>B_List = [ 1 , 2 ] #This list contains integers 1 and 2</p>
+<div id="adc308f9" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>A_List <span class="op">=</span> [ ] <span class="co">#This is an empty list</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>B_List <span class="op">=</span> [ <span class="dv">1</span> , <span class="dv">2</span> ] <span class="co">#This list contains integers 1 and 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="accessing-elements-in-a-list" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-elements-in-a-list">Accessing Elements in a List</h2>
@@ -857,112 +783,138 @@ ul.task-list li input[type="checkbox"] {
 <li>Element 1 is then at the <strong>second</strong> position.</li>
 </ul></li>
 </ul>
-<p>C_List = [ ‘a’ , ‘b’ , ‘c’ ]</p>
-<p>C_List[1]</p>
-<p>&gt;&gt; ‘b’</p>
-</section>
-<section id="accessing-elements-in-a-list-1" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-elements-in-a-list-1">Accessing Elements in a List</h2>
-<p>C_List = [ ‘x’ , ‘y’ , ‘z’ ]</p>
-<p>C_List[0]</p>
-<p>&gt;&gt; ‘x’</p>
-<p>C_List[1]</p>
-<p>&gt;&gt; ‘y’</p>
-<p>C_List[2]</p>
-<p>&gt;&gt; ‘z’</p>
+<div id="e6498105" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'a'</span> , <span class="st">'b'</span> , <span class="st">'c'</span> ]</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>b</code></pre>
+</div>
+</div>
+<div id="773a3e18" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x</code></pre>
+</div>
+</div>
+<div id="a9155424" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>y</code></pre>
+</div>
+</div>
+<div id="db0ec88e" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>z</code></pre>
+</div>
+</div>
 </section>
 <section id="adding-elements-to-a-list" class="level2">
 <h2 class="anchored" data-anchor-id="adding-elements-to-a-list">Adding Elements to a List</h2>
 <ul>
-<li><p>Adding new elements to a list in Python is most often accomplished using one of two ways.</p></li>
+<li><p>Adding new elements to a list in Python is often accomplished using two methods.</p></li>
 <li><p>The <strong>insert</strong> function adds an item to a specific index (location).</p>
 <ul>
-<li><strong>insert(index,value)</strong></li>
-</ul></li>
-<li><p>The append function adds an item directly to the end of the list.</p>
-<ul>
-<li><strong>append(value)</strong></li>
-<li>Adding an item to the end of a list is a very common operation, so it was given its own dedicated function.</li>
-</ul></li>
+<li><code>insert(index,value)</code></li>
 </ul>
-</section>
-<section id="example---insert" class="level2">
-<h2 class="anchored" data-anchor-id="example---insert">Example - Insert</h2>
-<p>C_List = [ ‘x’ , ‘y’ , ‘z’ ]</p>
-<p>C_List.insert(0,’a’)</p>
-<p>&gt;&gt; print(C_List)</p>
-<p>[ ‘a’, ‘x’ , ‘y’ , ‘z’ ]</p>
-</section>
-<section id="example---append" class="level2">
-<h2 class="anchored" data-anchor-id="example---append">Example - Append</h2>
-<p>C_List = [ ‘x’ , ‘y’ , ‘z’ ]</p>
-<p>C_List.append(’a’)</p>
-<p>&gt;&gt; print(C_List)</p>
-<p>[ ‘x’ , ‘y’ , ‘z’, ‘a’ ]</p>
-</section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
+<div id="dba2b40c" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>C_List.insert(<span class="dv">0</span>,<span class="st">'a'</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['a', 'x', 'y', 'z']</code></pre>
+</div>
+</div></li>
+<li><p>The append function adds an item directly to the end of the list. Adding an item to the end of a list is a very common operation, so it was given its own dedicated function.</p>
+<ul>
+<li><code>append(value)</code></li>
+</ul>
+<div id="f883e406" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>C_List.append(<span class="st">'a'</span>)</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['x', 'y', 'z', 'a']</code></pre>
+</div>
+</div></li>
+</ul>
+<div class="practice-box">
 <ul>
 <li>Define a list called <em>items</em> that contains the letters a, b, c, and d.</li>
 <li>Add the number 1 at index 2 of <em>items</em>.</li>
 <li>Add the number 7 at the end of <em>items</em>.</li>
 <li>Print the list <em>items</em>.</li>
 </ul>
+</div>
 </section>
 <section id="removing-elements-from-a-list" class="level2">
 <h2 class="anchored" data-anchor-id="removing-elements-from-a-list">Removing Elements from a List</h2>
 <ul>
-<li><p>Removing elements from a list can be accomplished by using the <strong>pop()</strong> function.</p></li>
-<li><p>The <strong>pop</strong> function can be used in two different ways.</p></li>
+<li><p>Removing elements from a list can be accomplished by using the <code>pop()</code> method.</p></li>
+<li><p>The pop method can be used in two different ways.</p>
+<ul>
 <li><p>Removing an element at a specified index.</p>
 <ul>
-<li><strong>pop(index)</strong></li>
+<li><code>pop(index)</code></li>
 </ul></li>
 <li><p>Removing an element at the end of the list.</p>
 <ul>
-<li><strong>pop()</strong></li>
+<li><code>pop()</code></li>
 </ul></li>
-<li><p>By omitting the index from the <strong>pop</strong> function, Python automatically assumes you want to remove the last item in the list.</p></li>
+</ul></li>
+<li><p>By omitting the index from the pop method, Python automatically assumes you want to remove the last item in the list.</p></li>
 </ul>
-</section>
-<section id="example-2" class="level2">
-<h2 class="anchored" data-anchor-id="example-2">Example</h2>
-<p>C_List = [ ‘x’ , ‘y’ , ‘z’ ]</p>
-<p>C_List.pop(0)</p>
-<p>&gt;&gt; print(C_List)</p>
-<p>[ ‘y’ , ‘z’ ]</p>
-</section>
-<section id="example-3" class="level2">
-<h2 class="anchored" data-anchor-id="example-3">Example</h2>
-<p>C_List = [ ‘x’ , ‘y’ , ‘z’ ]</p>
-<p>C_List.pop()</p>
-<p>&gt;&gt; print(C_List)</p>
-<p>[ ‘x’ , ‘y’ ]</p>
-</section>
-<section id="practice-1" class="level2">
-<h2 class="anchored" data-anchor-id="practice-1">Practice</h2>
+<div id="1f1d005a" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>C_List.pop(<span class="dv">0</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['y', 'z']</code></pre>
+</div>
+</div>
+<div id="c5cf64c6" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>C_List.pop()</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>['x', 'y']</code></pre>
+</div>
+</div>
+<div class="practice-box">
 <ul>
 <li>Define a list called <em>items</em> that contains the letters a, b, c, and d.</li>
 <li>Remove letter b from <em>items</em>.</li>
 <li>Remove the last letter from <em>items</em>.</li>
 <li>Print the list <em>items</em>.</li>
 </ul>
+</div>
 </section>
 <section id="removing-elements-from-a-list-1" class="level2">
 <h2 class="anchored" data-anchor-id="removing-elements-from-a-list-1">Removing Elements from a List</h2>
 <ul>
-<li><p>Removing elements from a list can also be accomplished by using the <strong>del</strong> keyword.</p>
+<li><p>Removing elements from a list can also be accomplished by using the <code>del</code> keyword.</p>
 <ul>
-<li>Unlike <strong>pop()</strong>, <strong>del</strong> does not return the item that was removed.</li>
+<li>Unlike <code>pop()</code>, <code>del</code> does not return the item that was removed.</li>
 </ul></li>
-<li><p>The <strong>del</strong> operation removes an element at a specified index.</p>
+<li><p>The <code>del</code> operation removes an element at a specified index.</p>
 <ul>
-<li><strong>del[index]</strong></li>
+<li><code>del[index]</code></li>
 </ul></li>
-<li><p>Note that the <strong>del</strong> operation uses the square brackets instead of the parenthesis.</p></li>
-<li><p>The del operation can also be used to completely delete a list.</p>
+<li><p>Note that the <code>del</code> operation uses the square brackets instead of the parenthesis.</p></li>
+<li><p>The <code>del</code> operation can also be used to completely delete a list.</p>
 <ul>
-<li><strong>del my_list</strong></li>
+<li><code>del my_list</code></li>
 </ul></li>
 </ul>
 </section>
@@ -993,8 +945,9 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul>
 </section>
-<section id="tuples-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="tuples-1-of-4">Tuples (1 of 4)</h2>
+</section>
+<section id="tuples" class="level1">
+<h1>Tuples</h1>
 <ul>
 <li><p><strong>Tuple: an immutable sequence</strong></p>
 <ul>
@@ -1005,11 +958,6 @@ ul.task-list li input[type="checkbox"] {
 <li>Elements cannot be removed from the tuple</li>
 </ul></li>
 </ul></li>
-</ul>
-</section>
-<section id="tuples-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="tuples-2-of-4">Tuples (2 of 4)</h2>
-<ul>
 <li><p><strong>Creating a Tuple</strong></p>
 <ul>
 <li>my_tuple= (<em>item1</em>, <em>item2</em>)</li>
@@ -1023,11 +971,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Slicing expressions</li>
 <li>The in, +, and * operators</li>
 </ul></li>
-</ul>
-</section>
-<section id="tuples-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="tuples-3-of-4">Tuples (3 of 4)</h2>
-<ul>
+<li><p><code>list()</code> function: converts tuple to list**</p></li>
+<li><p><code>tuple()</code> function: converts list to tuple**</p></li>
 <li><p><strong>Tuples do not support the methods:</strong></p>
 <ul>
 <li>append</li>
@@ -1037,53 +982,44 @@ ul.task-list li input[type="checkbox"] {
 <li>sort</li>
 </ul></li>
 </ul>
-</section>
-<section id="tuples-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="tuples-4-of-4">Tuples (4 of 4)</h2>
+<p>Tuples are used over lists for a few reasons:</p>
 <ul>
-<li><p><strong>Reasons for using tuples:</strong></p>
-<ul>
-<li><p>Processing tuples is faster than processing lists</p></li>
-<li><p>Tuples provide safety:</p>
+<li>Processing tuples is faster than processing lists</li>
+<li>Tuples provide safety:
 <ul>
 <li>no elements can be added to or deleted from a tuple</li>
 <li>once a tuple is created, the elements of the tuple will always refer to the same objects</li>
 </ul></li>
-<li><p>Some operations in Python require use of tuples</p></li>
-</ul></li>
-<li><p><strong>list() function: converts tuple to list</strong></p></li>
-<li><p><strong>tuple() function: converts list to tuple</strong></p></li>
+<li>Some operations in Python require use of tuples</li>
 </ul>
-</section>
-<section id="storing-mutable-objects-in-a-tuple-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="storing-mutable-objects-in-a-tuple-1-of-2">Storing Mutable Objects in a Tuple (1 of 2)</h2>
+<section id="storing-mutable-objects-in-a-tuple" class="level2">
+<h2 class="anchored" data-anchor-id="storing-mutable-objects-in-a-tuple">Storing Mutable Objects in a Tuple</h2>
 <ul>
 <li><p>Although tuples are immutable, you can store mutable objects in a tuple.</p>
 <ul>
-<li>For example, the following statement creates a tuple that contains a list as its 3rd element:</li>
+<li>For example, the following statement creates a tuple that contains a list as its 3rd element: <code>t = (10, 20, [97, 98, 99])</code></li>
 </ul></li>
+<li><p>When a tuple element refers to a mutable object, that object’s data can be changed.</p></li>
 </ul>
-<p>t = (10, 20, [97, 98, 99])</p>
-<p>A computer code and a diagram. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>A code statement reads, t = left parenthesis 1 comma 20 comma left bracket 97 comma 98 comma 99 right bracket right parenthesis. A diagram illustrates the process of storing mutable objects in a tuple. t references a tuple, which has three parts. The first part stores integer value 10. The second part stores integer value 20. The third part stores a list with integer values, from left to right, 97, 98, 99.</p>
-</blockquote>
+<div id="35613a90" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, [<span class="dv">97</span>, <span class="dv">98</span>, <span class="dv">99</span>])</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(10, 20, [97, 98, 99])</code></pre>
+</div>
+</div>
+<div id="42417709" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a> t[<span class="dv">2</span>].append(<span class="dv">100</span>) <span class="co"># Since the list inside the tuple t is mutable, we can change parts of the list.</span></span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(10, 20, [97, 98, 99, 100])</code></pre>
+</div>
+</div>
+
+
 </section>
-<section id="storing-mutable-objects-in-a-tuple-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="storing-mutable-objects-in-a-tuple-2-of-2">Storing Mutable Objects in a Tuple (2 of 2)</h2>
-<ul>
-<li>When a tuple element refers to a mutable object, that object’s data can be changed.</li>
-</ul>
-<p>&gt;&gt;&gt; t = (10, 20, [97, 98, 99])</p>
-<p>&gt;&gt;&gt; print(t)</p>
-<p>(10, 20, [97, 98, 99])</p>
-<p>&gt;&gt;&gt;</p>
-<p>&gt;&gt;&gt; t[2].append(100)</p>
-<p>&gt;&gt;&gt; print(t)</p>
-<p>(10, 20, [97, 98, 99, 100])</p>
-<p>&gt;&gt;&gt;</p>
-
-
 </section>
 
 </main> <!-- /main -->
