@@ -36,7 +36,7 @@ curl -LsSf https://astral.sh/uv/install.sh | sh
 powershell -c "irm https://astral.sh/uv/install.ps1 | more"
 ```
 
-### qua2. Installing Python Versions
+### 2. Installing Python Versions
 
 You do not need to download Python from the official website. `uv` will download and isolate whatever version of Python you need for a project.
 

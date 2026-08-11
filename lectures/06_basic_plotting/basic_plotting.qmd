@@ -17,7 +17,6 @@ Plotting in matplotlib is no different conceptually than using x, y coordinates 
 
 If you give matplotlib an array of X data points and an array of X data points, it pairs them up sequentially: $(𝑥_0, 𝑦_0 ), (𝑥_1, 𝑦_1 ), …$ and draws a line between them.
 
-
 ## Plotting Data
 
 To plot data, we first need some.
@@ -31,14 +30,11 @@ y = x ** 2
 
 ### Figures and Axes
 
-Before we draw anything, we have to set up our canvas. In Matplotlib, this is done using the Object-Oriented API, which separates the window from the chart itself. 
+Before we draw anything, we have to set up our canvas. In Matplotlib, this is done using the Object-Oriented API, which separates the window from the chart itself.
 
--The Figure (fig): The blank canvas that the plots will be drawn on. It controls global settings like size, background color, and layout.
--The Axes (ax): The specific plot inside the figure. This contains the actual x and y axes, tick marks, labels, titles, and the data lines.
+-The Figure (fig): The blank canvas that the plots will be drawn on. It controls global settings like size, background color, and layout. -The Axes (ax): The specific plot inside the figure. This contains the actual x and y axes, tick marks, labels, titles, and the data lines.
 
-Note that there is a substantial number of examples that use the older plt.plot() style, which blends these two concepts together and requires one less line of code. While slightly faster for simple plots, it is much easier to use the figure and axis architecture when you want to customize things. 
-
-
+Note that there is a substantial number of examples that use the older plt.plot() style, which blends these two concepts together and requires one less line of code. While slightly faster for simple plots, it is much easier to use the figure and axis architecture when you want to customize things.
 
 ```{python}
 fig, ax = plt.subplots(figsize=(6, 4))
@@ -49,7 +45,7 @@ We can see that we get a completely blank set of axes of 6 inches in width and 4
 
 It is very important to avoid forgetting plt.show(). If you write all your ax.plot() code but forget plt.show() at the very end, Python will just silently finish running and show you nothing.
 
-We now need to actually apply content to the axes to see our plot. We will use use ax.plot(x, y) to create a line plot. 
+We now need to actually apply content to the axes to see our plot. We will use use ax.plot(x, y) to create a line plot.
 
 ```{python}
 ax.plot(x, y) 
@@ -58,6 +54,7 @@ ax.plot(x, y)
 ## Type of Plots
 
 ### Line Plots
+
 A line plot is good for shwoing tends over time, distance, area, etc.
 
 ```{python}
@@ -73,6 +70,7 @@ plt.show()
 ### Bar Charts
 
 Bar charts are suited for categorical comparisons.
+
 ```{python}
 products = np.array(["Software", "Hardware", "Consulting"])
 revenue = np.array([50000, 35000, 20000])
@@ -99,14 +97,14 @@ plt.show()
 
 All of our previous plots are incomplete, as there is no context for what the visuals mean.
 
-- ax.set_title() 
-    - Sets the overall plot title.
+- ax.set_title()
+  - Sets the overall plot title.
 - ax.set_xlabel()
-    - Sets the title for the x-axis.
+  - Sets the title for the x-axis.
 - ax.set_ylabel()
-    - Sets the title for the y-axis.
+  - Sets the title for the y-axis.
 - ax.legend()
-    - Enables the legend. You need to attach labels to the data form them to be displayed in the legend.
+  - Enables the legend. You need to attach labels to the data form them to be displayed in the legend.
 
 Adding context makes this scatter plot comprehensible.
 
@@ -122,27 +120,26 @@ plt.show()
 Whenever we use methods like ax.set_title()or ax.set_xlabel(), we can pass optional arguments to change how the text looks.
 
 - fontsize : Accepts an integer representing the point size (e.g., 14), or relative text strings like 'small', 'medium', 'large'.
-- fontweight : Sets the thickness of the font. 
-    - Most common choices are 'normal', 'bold', or 'light'.
-- color: Changes the text color. 
-    - Matplotlib accepts standard names ('red', 'black'), hexadecimal strings ('#1e3a8a'), or grayscale floats ('0.5').
+- fontweight : Sets the thickness of the font.
+  - Most common choices are 'normal', 'bold', or 'light'.
+- color: Changes the text color.
+  - Matplotlib accepts standard names ('red', 'black'), hexadecimal strings ('#1e3a8a'), or grayscale floats ('0.5').
 - fontname : Allows changing the font family (e.g., 'serif', 'sans-serif').
 
 These arguments go directly inside the plotting call itself (like ax.plot(), ax.scatter()). They change how the visual representation of the data is drawn.
 
 - color : The color of the line, markers, or bars.
 - linewidth : The thickness of a line plot (e.g., lw=2.5).
-- linestyle : The pattern of the line. 
-    - Common values are:
-        - '-' (solid line)
-        - '--' (dashed line)
-        - ':' (dotted line)
-- alpha: Sets the transparency of the element. 
-    - It ranges from 0.0 (completely invisible) to 1.0 (completely opaque). 
-    - This is very useful when plotting overlapping datasets.
-- label: The name string associated with this specific data line. 
-    - This is what Matplotlib reads automatically when you call ax.legend().
-
+- linestyle : The pattern of the line.
+  - Common values are:
+    - '-' (solid line)
+    - '--' (dashed line)
+    - ':' (dotted line)
+- alpha: Sets the transparency of the element.
+  - It ranges from 0.0 (completely invisible) to 1.0 (completely opaque).
+  - This is very useful when plotting overlapping datasets.
+- label: The name string associated with this specific data line.
+  - This is what Matplotlib reads automatically when you call ax.legend().
 
 There are many more options than what is listed here that can be found in the offical documentation.
 

@@ -12,7 +12,7 @@ These blocks contain the core content of the course. You are expected to be able
 
 ------------------------------------------------------------------------
 
-### 2. Reference Concepts (Functional Familiarity)
+### 2. Reference Concepts
 
 ::: reference-box
 These blocks contain tools, syntax, or concepts that you should recognize and understand when you see them. You do not need to memorize these "cold," but you should know they exist and where to find them.

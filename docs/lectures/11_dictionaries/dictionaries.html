@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -126,14 +161,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Managing a Python Installation</span></a>
+  <a href="../../conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Content Conventions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../conventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Content Conventions</span></a>
+  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Managing a Python Installation</span></a>
   </div>
 </li>
       </ul>
@@ -216,7 +251,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/12_sets/sets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14: Sets</span></a>
+ <span class="menu-text">12: Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,40 +292,15 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
   <li><a href="#dictionaries" id="toc-dictionaries" class="nav-link" data-scroll-target="#dictionaries">Dictionaries</a></li>
-  <li><a href="#dictionaries-1" id="toc-dictionaries-1" class="nav-link" data-scroll-target="#dictionaries-1">Dictionaries</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
   <li><a href="#retrieving-a-value-from-a-dictionary" id="toc-retrieving-a-value-from-a-dictionary" class="nav-link" data-scroll-target="#retrieving-a-value-from-a-dictionary">Retrieving a Value From a Dictionary</a></li>
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
-  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
-  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example</a></li>
   <li><a href="#adding-elements-to-an-existing-dictionary" id="toc-adding-elements-to-an-existing-dictionary" class="nav-link" data-scroll-target="#adding-elements-to-an-existing-dictionary">Adding Elements to an Existing Dictionary</a></li>
-  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
   <li><a href="#deleting-elements-from-an-existing-dictionary" id="toc-deleting-elements-from-an-existing-dictionary" class="nav-link" data-scroll-target="#deleting-elements-from-an-existing-dictionary">Deleting Elements From an Existing Dictionary</a></li>
-  <li><a href="#example-6" id="toc-example-6" class="nav-link" data-scroll-target="#example-6">Example</a></li>
   <li><a href="#getting-the-number-of-elements-and-mixing-data-types" id="toc-getting-the-number-of-elements-and-mixing-data-types" class="nav-link" data-scroll-target="#getting-the-number-of-elements-and-mixing-data-types">Getting the Number of Elements and Mixing Data Types</a></li>
-  <li><a href="#example-7" id="toc-example-7" class="nav-link" data-scroll-target="#example-7">Example</a></li>
-  <li><a href="#example-8" id="toc-example-8" class="nav-link" data-scroll-target="#example-8">Example</a></li>
-  <li><a href="#example-9" id="toc-example-9" class="nav-link" data-scroll-target="#example-9">Example</a></li>
   <li><a href="#creating-an-empty-dictionary-and-using-for-loop-to-iterate-over-a-dictionary" id="toc-creating-an-empty-dictionary-and-using-for-loop-to-iterate-over-a-dictionary" class="nav-link" data-scroll-target="#creating-an-empty-dictionary-and-using-for-loop-to-iterate-over-a-dictionary">Creating an Empty Dictionary and Using for Loop to Iterate Over a Dictionary</a></li>
-  <li><a href="#example-10" id="toc-example-10" class="nav-link" data-scroll-target="#example-10">Example</a></li>
-  <li><a href="#some-dictionary-methods-1-of-5" id="toc-some-dictionary-methods-1-of-5" class="nav-link" data-scroll-target="#some-dictionary-methods-1-of-5">Some Dictionary Methods (1 of 5)</a></li>
-  <li><a href="#example-11" id="toc-example-11" class="nav-link" data-scroll-target="#example-11">Example</a></li>
-  <li><a href="#some-dictionary-methods-2-of-5" id="toc-some-dictionary-methods-2-of-5" class="nav-link" data-scroll-target="#some-dictionary-methods-2-of-5">Some Dictionary Methods (2 of 5)</a></li>
-  <li><a href="#example-12" id="toc-example-12" class="nav-link" data-scroll-target="#example-12">Example</a></li>
-  <li><a href="#some-dictionary-methods-3-of-5" id="toc-some-dictionary-methods-3-of-5" class="nav-link" data-scroll-target="#some-dictionary-methods-3-of-5">Some Dictionary Methods (3 of 5)</a></li>
-  <li><a href="#some-dictionary-methods-4-of-5" id="toc-some-dictionary-methods-4-of-5" class="nav-link" data-scroll-target="#some-dictionary-methods-4-of-5">Some Dictionary Methods (4 of 5)</a></li>
-  <li><a href="#some-dictionary-methods-5-of-5" id="toc-some-dictionary-methods-5-of-5" class="nav-link" data-scroll-target="#some-dictionary-methods-5-of-5">Some Dictionary Methods (5 of 5)</a></li>
-  <li><a href="#the-dictionary-merge-operator-python-3.9" id="toc-the-dictionary-merge-operator-python-3.9" class="nav-link" data-scroll-target="#the-dictionary-merge-operator-python-3.9">The Dictionary Merge Operator (Python 3.9)</a></li>
-  <li><a href="#example-13" id="toc-example-13" class="nav-link" data-scroll-target="#example-13">Example</a></li>
-  <li><a href="#the-dictionary-update-operator-python-3.9" id="toc-the-dictionary-update-operator-python-3.9" class="nav-link" data-scroll-target="#the-dictionary-update-operator-python-3.9">The Dictionary Update Operator (Python 3.9)</a></li>
-  <li><a href="#example-14" id="toc-example-14" class="nav-link" data-scroll-target="#example-14">Example</a></li>
-  <li><a href="#dictionary-comprehensions-1-of-6" id="toc-dictionary-comprehensions-1-of-6" class="nav-link" data-scroll-target="#dictionary-comprehensions-1-of-6">Dictionary Comprehensions (1 of 6)</a></li>
-  <li><a href="#dictionary-comprehensions-2-of-6" id="toc-dictionary-comprehensions-2-of-6" class="nav-link" data-scroll-target="#dictionary-comprehensions-2-of-6">Dictionary Comprehensions (2 of 6)</a></li>
-  <li><a href="#dictionary-comprehensions-3-of-6" id="toc-dictionary-comprehensions-3-of-6" class="nav-link" data-scroll-target="#dictionary-comprehensions-3-of-6">Dictionary Comprehensions (3 of 6)</a></li>
-  <li><a href="#dictionary-comprehensions-4-of-6" id="toc-dictionary-comprehensions-4-of-6" class="nav-link" data-scroll-target="#dictionary-comprehensions-4-of-6">Dictionary Comprehensions (4 of 6)</a></li>
-  <li><a href="#dictionary-comprehensions-5-of-6" id="toc-dictionary-comprehensions-5-of-6" class="nav-link" data-scroll-target="#dictionary-comprehensions-5-of-6">Dictionary Comprehensions (5 of 6)</a></li>
-  <li><a href="#dictionary-comprehensions-6-of-6" id="toc-dictionary-comprehensions-6-of-6" class="nav-link" data-scroll-target="#dictionary-comprehensions-6-of-6">Dictionary Comprehensions (6 of 6)</a></li>
+  <li><a href="#some-common-dictionary-methods" id="toc-some-common-dictionary-methods" class="nav-link" data-scroll-target="#some-common-dictionary-methods">Some Common Dictionary Methods</a></li>
+  <li><a href="#the-dictionary-merge-operator-python-3.9-or-higher" id="toc-the-dictionary-merge-operator-python-3.9-or-higher" class="nav-link" data-scroll-target="#the-dictionary-merge-operator-python-3.9-or-higher">The Dictionary Merge Operator (Python 3.9 or higher)</a></li>
+  <li><a href="#the-dictionary-update-operator-python-3.9-or-higher" id="toc-the-dictionary-update-operator-python-3.9-or-higher" class="nav-link" data-scroll-target="#the-dictionary-update-operator-python-3.9-or-higher">The Dictionary Update Operator (Python 3.9 or higher)</a></li>
+  <li><a href="#dictionary-comprehensions" id="toc-dictionary-comprehensions" class="nav-link" data-scroll-target="#dictionary-comprehensions">Dictionary Comprehensions</a></li>
   </ul>
 </nav>
     </div>
@@ -321,224 +331,240 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="dictionaries" class="level2">
 <h2 class="anchored" data-anchor-id="dictionaries">Dictionaries</h2>
-<p>CSCI – 1056</p>
-<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
-</section>
-<section id="dictionaries-1" class="level2">
-<h2 class="anchored" data-anchor-id="dictionaries-1">Dictionaries</h2>
-<ul>
-<li><p><strong>Dictionary: object that stores a collection of data</strong></p>
-<ul>
-<li><p>Each element consists of a <strong>key</strong> and a <strong>value</strong></p>
+<p>Dictionaries are another type of object that stores a collection of data. What makes them different from the other data structures we have seen so far is that each element is actually two parts: a <strong>key</strong> and a <strong>value.</strong></p>
 <ul>
 <li>Often referred to as <strong>mapping</strong> of key to value</li>
-<li>Key must be an immutable object</li>
-</ul></li>
-<li><p>To retrieve a specific value, use the key associated with it</p></li>
-<li><p>Format for creating a dictionary</p></li>
-</ul></li>
+<li>Key must be an <strong>immutable</strong> object like an integer or a string</li>
 </ul>
-<p><em>dictionary</em> = {<em>key1</em>:<em>val1</em>, <em>key2</em>:<em>val2</em>}</p>
-</section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p><em># Creating a dictionary with fruit names as keys and quantities as values</em></p>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
+<p>To retrieve a specific value, we use the key associated with it.</p>
+<p>The format for creating a dictionary is: <em><code>dictionary</code></em><code>= {key1:val1, key2:val2}</code></p>
+<div id="badb11b8" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating a dictionary with fruit names as keys and quantities as values</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="retrieving-a-value-from-a-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="retrieving-a-value-from-a-dictionary">Retrieving a Value From a Dictionary</h2>
 <ul>
-<li><p><strong>Elements in dictionary are unsorted</strong></p></li>
-<li><p><strong>General format for retrieving value from dictionary:</strong> <strong><em>dictionary</em>[*****key*****]</strong></p>
+<li><p>Elements in a dictionary are <strong>unsorted</strong>. That is, there is no guaranteed order in how the elements exist inside the dictionary.</p></li>
+<li><p>General format for retrieving value from dictionary: <em><code>dictionary</code></em><code>[key]</code></p>
 <ul>
 <li>If key in the dictionary, associated value is returned, otherwise, KeyError exception is raised</li>
 </ul></li>
-<li><p><strong>Test whether a key is in a dictionary using the in and not in operators</strong></p>
-<ul>
-<li>Helps prevent KeyError exceptions</li>
-</ul></li>
+<li><p>You can test whether a key is in a dictionary using the <code>in</code> and <code>not in</code> operators. This can be useful to prevent KeyError exceptions.</p></li>
 </ul>
-</section>
-<section id="example-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-1">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>print(fruit_counts[’apple’])</em></p>
-<p><em>&gt; 4</em></p>
-</section>
-<section id="example-2" class="level2">
-<h2 class="anchored" data-anchor-id="example-2">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>print(fruit_counts[‘mango’])</em></p>
-<p><em>&gt; KeyError: ‘mango’</em></p>
-</section>
-<section id="example-3" class="level2">
-<h2 class="anchored" data-anchor-id="example-3">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>if ‘apple’ in fruit_counts:</em></p>
-<p><em>print(fruit_counts[‘apple’])</em></p>
-<p><em>&gt; 4</em></p>
-</section>
-<section id="example-4" class="level2">
-<h2 class="anchored" data-anchor-id="example-4">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>if ‘mango’ in fruit_counts:</em></p>
-<p><em>print(fruit_counts[’mango’])</em></p>
-<p><em>&gt;</em></p>
+<div id="db82c4d5" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruit_counts[<span class="st">'apple'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="52e37f2c" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(fruit_counts[<span class="st">'mango'</span>])</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>'mango'</code></pre>
+</div>
+</div>
+<div id="7643c2c1" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'apple'</span> <span class="kw">in</span> fruit_counts:</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(fruit_counts[<span class="st">'apple'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4</code></pre>
+</div>
+</div>
+<div id="d549a7db" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="st">'mango'</span> <span class="kw">in</span> fruit_counts:</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(fruit_counts[<span class="st">'mango'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="adding-elements-to-an-existing-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="adding-elements-to-an-existing-dictionary">Adding Elements to an Existing Dictionary</h2>
 <ul>
-<li><strong>Dictionaries are mutable objects</strong></li>
-<li><strong>To add a new key-value pair:</strong></li>
+<li><p>Dictionaries are mutable objects</p></li>
+<li><p>To add a new key-value pair: <em><code>dictionary</code></em><code>[key] = value</code></p></li>
+<li><p>If key exists in the dictionary, the value associated with it will be changed</p></li>
 </ul>
-<p><strong><em>dictionary</em>[*****key*****] =</strong> <strong><em>value</em></strong></p>
-<ul>
-<li>If key exists in the dictionary, the value associated with it will be changed</li>
-</ul>
-</section>
-<section id="example-5" class="level2">
-<h2 class="anchored" data-anchor-id="example-5">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>fruit_counts[‘mango’] = 5</em></p>
-<p><em>print(fruit_counts)</em></p>
-<p><em>&gt; {‘apple’: 4, ‘banana’: 2, ‘cherry’: 10, ‘mango’: 5}</em></p>
+<div id="cfbfb75d" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>fruit_counts[<span class="st">'mango'</span>] <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruit_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'apple': 4, 'banana': 2, 'cherry': 10, 'mango': 5}</code></pre>
+</div>
+</div>
 </section>
 <section id="deleting-elements-from-an-existing-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="deleting-elements-from-an-existing-dictionary">Deleting Elements From an Existing Dictionary</h2>
 <ul>
-<li><strong>To delete a key-value pair:</strong></li>
+<li><p>To delete a key-value pair: <code>del dictionary[key]</code></p></li>
+<li><p>If key is not in the dictionary, KeyError exception is raised</p></li>
 </ul>
-<p><strong>del</strong> <strong><em>dictionary</em>[*****key*****]</strong></p>
-<ul>
-<li>If key is not in the dictionary, KeyError exception is raised</li>
-</ul>
-</section>
-<section id="example-6" class="level2">
-<h2 class="anchored" data-anchor-id="example-6">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>del fruit_counts[‘cherry’]</em></p>
-<p><em>print(fruit_counts)</em></p>
-<p><em>&gt; {‘apple’: 4, ‘banana’: 2}</em></p>
+<div id="75903654" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="kw">del</span> fruit_counts[<span class="st">'cherry'</span>]</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruit_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'apple': 4, 'banana': 2}</code></pre>
+</div>
+</div>
 </section>
 <section id="getting-the-number-of-elements-and-mixing-data-types" class="level2">
 <h2 class="anchored" data-anchor-id="getting-the-number-of-elements-and-mixing-data-types">Getting the Number of Elements and Mixing Data Types</h2>
 <ul>
-<li><p><strong>len function: used to obtain number of elements in a dictionary</strong></p></li>
-<li><p><strong>Keys must be immutable objects, but associated values can be any type of object</strong></p>
+<li>The <code>len</code> function can be used to obtain number of elements in a dictionary just like with lists</li>
+</ul>
+<div id="160e3333" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(fruit_counts))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3</code></pre>
+</div>
+</div>
+<ul>
+<li><p>Keys must be immutable objects, but their associated values can be any type of object</p>
 <ul>
 <li>One dictionary can include keys of several different immutable types</li>
 </ul></li>
-<li><p><strong>Values stored in a single dictionary can be of different types</strong></p></li>
+<li><p>Values stored in a single dictionary can be of different types</p></li>
 </ul>
-</section>
-<section id="example-7" class="level2">
-<h2 class="anchored" data-anchor-id="example-7">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>print(len(fruit_counts))</em></p>
-<p><em>&gt; 3</em></p>
-</section>
-<section id="example-8" class="level2">
-<h2 class="anchored" data-anchor-id="example-8">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: ‘ten’}</em></p>
-<p><em>print(fruit_counts)</em></p>
-<p><em>&gt; {‘apple’: 4, ‘banana’: 2, ‘cherry’: ‘ten’}</em></p>
-</section>
-<section id="example-9" class="level2">
-<h2 class="anchored" data-anchor-id="example-9">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: [1, 5, 7]}</em></p>
-<p><em>print(fruit_counts)</em></p>
-<p><em>&gt; {‘apple’: 4, ‘banana’: 2, ‘cherry’: [1, 5, 7]}</em></p>
+<div id="d92132a3" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="st">'ten'</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruit_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'apple': 4, 'banana': 2, 'cherry': 'ten'}</code></pre>
+</div>
+</div>
+<div id="cd3c495b" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: [<span class="dv">1</span>, <span class="dv">5</span>, <span class="dv">7</span>]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruit_counts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'apple': 4, 'banana': 2, 'cherry': [1, 5, 7]}</code></pre>
+</div>
+</div>
 </section>
 <section id="creating-an-empty-dictionary-and-using-for-loop-to-iterate-over-a-dictionary" class="level2">
 <h2 class="anchored" data-anchor-id="creating-an-empty-dictionary-and-using-for-loop-to-iterate-over-a-dictionary">Creating an Empty Dictionary and Using for Loop to Iterate Over a Dictionary</h2>
 <ul>
-<li><p><strong>To create an empty dictionary:</strong></p>
+<li><p>To create an empty dictionary:</p>
 <ul>
-<li>Use {}</li>
-<li>Use built-in function dict()</li>
+<li>Use <code>{}</code></li>
+<li>Use built-in function <code>dict()</code></li>
 <li>Elements can be added to the dictionary as program executes</li>
 </ul></li>
 <li><p><strong>Use a for loop to iterate over a dictionary</strong></p>
 <ul>
-<li>General format: for <em>key</em> in <em>dictionary</em>:</li>
+<li>General format: <code>for key in dictionary</code></li>
 </ul></li>
 </ul>
+<div id="da5338f1" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key <span class="kw">in</span> fruit_counts:</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(key, end<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>apple   banana  cherry  </code></pre>
+</div>
+</div>
 </section>
-<section id="example-10" class="level2">
-<h2 class="anchored" data-anchor-id="example-10">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>for key in fruit_counts:</em></p>
-<p><em>print(key, end=‘\t’)</em></p>
-<p><em>&gt; apple banana cherry</em></p>
-</section>
-<section id="some-dictionary-methods-1-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="some-dictionary-methods-1-of-5">Some Dictionary Methods (1 of 5)</h2>
+<section id="some-common-dictionary-methods" class="level2">
+<h2 class="anchored" data-anchor-id="some-common-dictionary-methods">Some Common Dictionary Methods</h2>
 <ul>
-<li><p><strong>clear method: deletes all the elements in a dictionary, leaving it empty</strong></p>
+<li><p><code>clear</code> method: deletes all the elements in a dictionary, leaving it empty</p>
 <ul>
-<li>Format: <em>dictionary</em>.clear()</li>
+<li>Format: <code>dictionary.clear()</code></li>
 </ul></li>
-<li><p><strong>get method: gets a value associated with specified key from the dictionary</strong></p>
+<li><p><code>get</code> method: gets a value associated with specified key from the dictionary</p>
 <ul>
-<li><p>Format: <em>dictionary</em>.get(<em>key</em>, <em>default</em>)</p>
+<li><p>Format: <code>dictionary.get(key, default)</code></p>
 <ul>
 <li><em>default</em> is returned if <em>key</em> is not found</li>
 </ul></li>
-<li><p>Alternative to [] operator</p>
+<li><p>Alternative to <code>[]</code> operator</p>
 <ul>
 <li>Cannot raise KeyError exception</li>
 </ul></li>
 </ul></li>
 </ul>
-</section>
-<section id="example-11" class="level2">
-<h2 class="anchored" data-anchor-id="example-11">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>print(fruit_counts.get(‘mango’,-1))</em></p>
-<p><em>&gt; -1</em></p>
-</section>
-<section id="some-dictionary-methods-2-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="some-dictionary-methods-2-of-5">Some Dictionary Methods (2 of 5)</h2>
+<div id="f0fe3d2d" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(fruit_counts.get(<span class="st">'mango'</span>,<span class="op">-</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>-1</code></pre>
+</div>
+</div>
 <ul>
-<li><p><strong>items method: returns all the dictionaries keys and associated values</strong></p>
+<li><p><code>items</code> method: returns all the dictionaries keys and associated values</p>
 <ul>
-<li><p>Format: <em>dictionary</em>.items()</p></li>
+<li><p>Format: <code>dictionary.items()</code></p></li>
 <li><p>Returned as a <strong>dictionary view</strong></p>
 <ul>
 <li><p>Each element in dictionary view is a tuple which contains a key and its associated value</p></li>
@@ -549,51 +575,43 @@ ul.task-list li input[type="checkbox"] {
 </ul></li>
 </ul></li>
 </ul>
-</section>
-<section id="example-12" class="level2">
-<h2 class="anchored" data-anchor-id="example-12">Example</h2>
-<p><em>fruit_counts = {</em></p>
-<p><em>“apple”: 4,</em></p>
-<p><em>“banana”: 2,</em></p>
-<p><em>“cherry”: 10}</em></p>
-<p><em>for key, value in fruit_counts.items():</em></p>
-<p><em>print(key, value, end=‘\t’)</em></p>
-<p><em>&gt; apple 4 banana 2 cherry 10</em></p>
-</section>
-<section id="some-dictionary-methods-3-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="some-dictionary-methods-3-of-5">Some Dictionary Methods (3 of 5)</h2>
+<div id="07280e52" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>fruit_counts <span class="op">=</span> {</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="st">"apple"</span>: <span class="dv">4</span>,</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="st">"banana"</span>: <span class="dv">2</span>,</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="st">"cherry"</span>: <span class="dv">10</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> key, value <span class="kw">in</span> fruit_counts.items():</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="bu">print</span>(key, value, end<span class="op">=</span><span class="st">'</span><span class="ch">\t</span><span class="st">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>apple 4 banana 2    cherry 10   </code></pre>
+</div>
+</div>
 <ul>
-<li><p><strong>keys method: returns all the dictionaries keys as a sequence</strong></p>
+<li><p><code>keys</code> method: returns all the dictionaries keys as a sequence</p>
 <ul>
-<li>Format: <em>dictionary</em>.keys()</li>
+<li>Format: <code>dictionary.keys()</code></li>
 </ul></li>
-<li><p><strong>pop method: returns value associated with specified key and removes that key-value pair from the dictionary</strong></p>
+<li><p><code>pop</code> method: returns value associated with specified key and removes that key-value pair from the dictionary</p>
 <ul>
-<li><p>Format: <em>dictionary</em>.pop(<em>key</em>, <em>default</em>)</p>
+<li><p>Format: <code>dictionary.pop(key, default)</code></p>
 <ul>
 <li><em>default</em> is returned if <em>key</em> is not found</li>
 </ul></li>
 </ul></li>
-</ul>
-</section>
-<section id="some-dictionary-methods-4-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="some-dictionary-methods-4-of-5">Some Dictionary Methods (4 of 5)</h2>
+<li><p><code>popitem</code> method: Returns, as a tuple, the key-value pair that was last added to the dictionary. The method also removes the key-value pair from the dictionary.</p>
 <ul>
-<li><p><strong>popitem method: Returns, as a tuple, the key-value pair that was last added to the dictionary. The method also removes the key-value pair from the dictionary.</strong></p>
-<ul>
-<li>Format: <em>dictionary</em>.popitem()</li>
+<li>Format: <code>dictionary.popitem()</code></li>
 <li>Key-value pair returned as a tuple</li>
 </ul></li>
-<li><p><strong>values method: returns all the dictionaries values as a sequence</strong></p>
+<li><p><code>values</code> method: returns all the dictionaries values as a sequence</p>
 <ul>
-<li>Format: <em>dictionary</em>.values()</li>
+<li>Format: <code>dictionary.values()</code></li>
 <li>Use a for loop to iterate over the values</li>
 </ul></li>
 </ul>
-</section>
-<section id="some-dictionary-methods-5-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="some-dictionary-methods-5-of-5">Some Dictionary Methods (5 of 5)</h2>
-<p><strong>Table 9-1</strong> Some of the dictionary methods</p>
+<p>Table of some common dictionary methods</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 50%">
@@ -637,120 +655,118 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="the-dictionary-merge-operator-python-3.9" class="level2">
-<h2 class="anchored" data-anchor-id="the-dictionary-merge-operator-python-3.9">The Dictionary Merge Operator (Python 3.9)</h2>
+<section id="the-dictionary-merge-operator-python-3.9-or-higher" class="level2">
+<h2 class="anchored" data-anchor-id="the-dictionary-merge-operator-python-3.9-or-higher">The Dictionary Merge Operator (Python 3.9 or higher)</h2>
 <ul>
-<li><strong>The dictionary merge operator is the | symbol</strong></li>
-<li><strong>It merges two dictionaries into a single dictionary that is the combination of the two</strong></li>
-</ul>
-<p>dict3 = dict1 | dict2</p>
+<li>The dictionary merge operator is the <code>|</code> symbol</li>
+<li>It merges two dictionaries into a single dictionary that is the combination of the two</li>
+<li><code>dict3 = dict1 | dict2</code>
 <ul>
-<li><strong>After this statement, dict3 will have all the elements of dict1 and dict2</strong></li>
-<li><strong>If the same key appears in dict1 and dict2, the new dictionary keeps the value from the dictionary on the right-hand side of the | operator (in this case, dict2).</strong></li>
-</ul>
-</section>
-<section id="example-13" class="level2">
-<h2 class="anchored" data-anchor-id="example-13">Example</h2>
-<p><em>d1= {“apple”: 4}</em></p>
-<p><em>d2= {“banana”: 2}</em></p>
-<p><em>d3 = d1 | d2</em></p>
-<p><em>print(d3)</em></p>
-<p><em>&gt;{‘apple’: 4, ‘banana’: 2}</em></p>
-</section>
-<section id="the-dictionary-update-operator-python-3.9" class="level2">
-<h2 class="anchored" data-anchor-id="the-dictionary-update-operator-python-3.9">The Dictionary Update Operator (Python 3.9)</h2>
-<ul>
-<li><strong>The dictionary update operator is the |= symbol</strong></li>
-<li><strong>It works like the dictionary merge operator, but it assigns the new dictionary to the dictionary variable that appears on the left-hand side of the operator.</strong></li>
-</ul>
-<p>dict1 |= dict2</p>
-<ul>
-<li><strong>This statement merges dict1 and dict2, and assigns the resulting dictionary back to dict1</strong></li>
-</ul>
-</section>
-<section id="example-14" class="level2">
-<h2 class="anchored" data-anchor-id="example-14">Example</h2>
-<p><em>d1= {“apple”: 4}</em></p>
-<p><em>d2= {“banana”: 2}</em></p>
-<p><em>d1 |= d2</em></p>
-<p><em>print(d1)</em></p>
-<p><em>&gt;{‘apple’: 4, ‘banana’: 2}</em></p>
-</section>
-<section id="dictionary-comprehensions-1-of-6" class="level2">
-<h2 class="anchored" data-anchor-id="dictionary-comprehensions-1-of-6">Dictionary Comprehensions (1 of 6)</h2>
-<ul>
-<li>Dictionary comprehension: an expression that reads a sequence of input elements and uses those input elements to produce a dictionary</li>
-</ul>
-</section>
-<section id="dictionary-comprehensions-2-of-6" class="level2">
-<h2 class="anchored" data-anchor-id="dictionary-comprehensions-2-of-6">Dictionary Comprehensions (2 of 6)</h2>
-<ul>
-<li><strong>Example: create a dictionary in which the keys are the integers 1 through 4 and the values are the squares of the keys</strong></li>
-</ul>
-<p>Using a for loop</p>
-<p>&gt;&gt;&gt; numbers = [1, 2, 3, 4]</p>
-<p>&gt;&gt;&gt; squares = {}</p>
-<p>&gt;&gt;&gt; for item in numbers:</p>
-<p>… squares[item] = item**2</p>
-<p>…</p>
-<p>&gt;&gt;&gt; squares</p>
-<p>{1: 1, 2: 4, 3: 9, 4: 16}</p>
-<p>&gt;&gt;&gt;</p>
-<p>Using a dictionary comprehension</p>
-<p>&gt;&gt;&gt; squares = {item:item**2 for item in numbers}</p>
-<p>&gt;&gt;&gt; squares</p>
-<p>{1: 1, 2: 4, 3: 9, 4: 16}</p>
-<p>&gt;&gt;&gt;</p>
-</section>
-<section id="dictionary-comprehensions-3-of-6" class="level2">
-<h2 class="anchored" data-anchor-id="dictionary-comprehensions-3-of-6">Dictionary Comprehensions (3 of 6)</h2>
-<p>squares equals left brace item colon item asterisk asterisk 2 for item in numbers right brace. For long description in Notes pane, press F6.</p>
-<ul>
-<li>The iteration expression iterates over the elements of numbers</li>
-<li>Each time it iterates, the target variable item is assigned the value of an element</li>
-<li>At the end of each iteration, an element containing item as the key and item**2 as the value is added to the new dictionary</li>
-</ul>
-<blockquote class="blockquote">
-<p>The result expression is the first part of the expression, item colon item asterisk asterisk 2, and the iteration expression is the latter part, for item in numbers.</p>
-</blockquote>
-</section>
-<section id="dictionary-comprehensions-4-of-6" class="level2">
-<h2 class="anchored" data-anchor-id="dictionary-comprehensions-4-of-6">Dictionary Comprehensions (4 of 6)</h2>
-<ul>
-<li><strong>Example: You have an existing list of strings. Create a dictionary in which the keys are the stings in the list, and the values are the lengths of the strings</strong></li>
-</ul>
-<p>&gt;&gt;&gt; names = [‘Jeremy’, ‘Kate’, ‘Peg’]</p>
-<p>&gt;&gt;&gt; str_lengths = {item:len(item) for item in names}</p>
-<p>&gt;&gt;&gt; str_lengths</p>
-<p>{‘Jeremy’: 6, ‘Kate’: 4, ‘Peg’: 3}</p>
-<p>&gt;&gt;&gt;</p>
-</section>
-<section id="dictionary-comprehensions-5-of-6" class="level2">
-<h2 class="anchored" data-anchor-id="dictionary-comprehensions-5-of-6">Dictionary Comprehensions (5 of 6)</h2>
-<ul>
-<li><strong>Example: making a copy of a dictionary</strong></li>
-</ul>
-<p>&gt;&gt;&gt; dict1 = {‘A’:1, ‘B’:2, ‘C’:3}</p>
-<p>&gt;&gt;&gt; dict2 = {k:v for k,v in dict1.items()}</p>
-<p>&gt;&gt;&gt; dict2</p>
-<p>{‘A’: 1, ‘B’: 2, ‘C’: 3}</p>
-<p>&gt;&gt;&gt;</p>
-</section>
-<section id="dictionary-comprehensions-6-of-6" class="level2">
-<h2 class="anchored" data-anchor-id="dictionary-comprehensions-6-of-6">Dictionary Comprehensions (6 of 6)</h2>
-<ul>
-<li><p><strong>You can use an if clause in a dictionary comprehension to select only certain elements of the input sequence</strong></p>
-<ul>
-<li>Example: A dictionary contains cities and their populations as key-value pairs. Select only the cities with a population greater than 2 million</li>
+<li><p>After this statement, <code>dict3</code> will have all the elements of <code>dict1</code> and <code>dict2</code></p></li>
+<li><p>If the same key appears in <code>dict1</code> and <code>dict2</code>, the new dictionary keeps the value from the dictionary on the right-hand side of the <code>|</code> operator (in this case, <code>dict2</code>).</p></li>
 </ul></li>
 </ul>
-<p>&gt;&gt;&gt; populations = {‘New York’: 8398748, ‘Los Angeles’: 3990456,</p>
-<p>… ‘Chicago’: 2705994, ‘Houston’: 2325502,</p>
-<p>… ‘Phoenix’: 1660272, ‘Philadelphia’: 1584138}</p>
-<p>&gt;&gt;&gt; largest = {k:v for k,v in populations.items() if v &gt; 2000000}</p>
-<p>&gt;&gt;&gt; largest</p>
-<p>{‘New York’: 8398748, ‘Los Angeles’: 3990456, ‘Chicago’: 2705994, ‘Houston’: 2325502}</p>
-<p>&gt;&gt;&gt;</p>
+<div id="c7ecf0ef" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>d1<span class="op">=</span> {<span class="st">"apple"</span>: <span class="dv">4</span>}</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>d2<span class="op">=</span> {<span class="st">"banana"</span>: <span class="dv">2</span>}</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>d3 <span class="op">=</span> d1 <span class="op">|</span> d2</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d3)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'apple': 4, 'banana': 2}</code></pre>
+</div>
+</div>
+</section>
+<section id="the-dictionary-update-operator-python-3.9-or-higher" class="level2">
+<h2 class="anchored" data-anchor-id="the-dictionary-update-operator-python-3.9-or-higher">The Dictionary Update Operator (Python 3.9 or higher)</h2>
+<ul>
+<li>The dictionary update operator is the <code>|=</code> symbol</li>
+<li>It works like the dictionary merge operator, but it assigns the new dictionary to the dictionary variable that appears on the left-hand side of the operator.</li>
+<li><code>dict1 |= dict2</code>
+<ul>
+<li>This statement merges <code>dict1</code> and <code>dict2</code>, and assigns the resulting dictionary back to <code>dict1</code></li>
+</ul></li>
+</ul>
+<div id="b50fa7e4" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>d1<span class="op">=</span> {<span class="st">"apple"</span>: <span class="dv">4</span>}</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>d2<span class="op">=</span> {<span class="st">"banana"</span>: <span class="dv">2</span>}</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>d1 <span class="op">|=</span> d2</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(d1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'apple': 4, 'banana': 2}</code></pre>
+</div>
+</div>
+</section>
+<section id="dictionary-comprehensions" class="level2">
+<h2 class="anchored" data-anchor-id="dictionary-comprehensions">Dictionary Comprehensions</h2>
+<p>A dictionary comprehension is an expression that reads a sequence of input elements and uses those input elements to produce a dictionary. Dictionary comprehensions provide a more efficient way of adding elements to a dictionary over using a for loop.</p>
+<p><strong>Example: create a dictionary in which the keys are the integers 1 through 4 and the values are the squares of the keys</strong></p>
+<p>Using a for loop:</p>
+<div id="ab7ded84" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>]</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> {}</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> item <span class="kw">in</span> numbers:</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    squares[item] <span class="op">=</span> item<span class="op">**</span><span class="dv">2</span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{1: 1, 2: 4, 3: 9, 4: 16}</code></pre>
+</div>
+</div>
+<p>Using a dictionary comprehension:</p>
+<div id="fb184112" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>squares <span class="op">=</span> {item:item<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> item <span class="kw">in</span> numbers}</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(squares)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{1: 1, 2: 4, 3: 9, 4: 16}</code></pre>
+</div>
+</div>
+<ul>
+<li><p>The <strong>iteration expression</strong> <code>for item in numbers</code> iterates over the elements of numbers</p></li>
+<li><p>Each time it iterates, the target variable <code>item</code> is assigned the value of an element</p>
+<ul>
+<li>At the end of each iteration, an element containing item as the key and item**2 as the value is added to the new dictionary, this is the <strong>result expression</strong> <code>item:item**2</code></li>
+</ul></li>
+</ul>
+<p><strong>Example: You have an existing list of strings. Create a dictionary in which the keys are the stings in the list, and the values are the lengths of the strings</strong></p>
+<div id="2d4a9ed6" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> [<span class="st">'Jeremy'</span>, <span class="st">'Kate'</span>, <span class="st">'Peg'</span>]</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>str_lengths <span class="op">=</span> {item:<span class="bu">len</span>(item) <span class="cf">for</span> item <span class="kw">in</span> names}</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(str_lengths)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'Jeremy': 6, 'Kate': 4, 'Peg': 3}</code></pre>
+</div>
+</div>
+<p><strong>Example: making a copy of a dictionary</strong></p>
+<div id="054b0e1a" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>dict1 <span class="op">=</span> {<span class="st">'A'</span>:<span class="dv">1</span>, <span class="st">'B'</span>:<span class="dv">2</span>, <span class="st">'C'</span>:<span class="dv">3</span>}</span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>dict2 <span class="op">=</span> {k:v <span class="cf">for</span> k,v <span class="kw">in</span> dict1.items()}</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(dict2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'A': 1, 'B': 2, 'C': 3}</code></pre>
+</div>
+</div>
+<p>You can use an if clause in a dictionary comprehension to select only certain elements of the input sequence</p>
+<p><strong>Example: A dictionary contains cities and their populations as key-value pairs. Select only the cities with a population greater than 2 million</strong></p>
+<div id="cfa0fe9d" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>populations <span class="op">=</span> {<span class="st">'New York'</span>: <span class="dv">8398748</span>, <span class="st">'Los Angeles'</span>: <span class="dv">3990456</span>, <span class="st">'Chicago'</span>: <span class="dv">2705994</span>, <span class="st">'Houston'</span>: <span class="dv">2325502</span>, <span class="st">'Phoenix'</span>: <span class="dv">1660272</span>, <span class="st">'Philadelphia'</span>: <span class="dv">1584138</span>}</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>largest <span class="op">=</span> {k:v <span class="cf">for</span> k,v <span class="kw">in</span> populations.items() <span class="cf">if</span> v <span class="op">&gt;</span> <span class="dv">2000000</span>}</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(largest)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>{'New York': 8398748, 'Los Angeles': 3990456, 'Chicago': 2705994, 'Houston': 2325502}</code></pre>
+</div>
+</div>
 
 
 </section>

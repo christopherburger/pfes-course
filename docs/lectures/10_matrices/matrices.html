@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -71,6 +106,49 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
 </head>
@@ -126,14 +204,14 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Managing a Python Installation</span></a>
+  <a href="../../conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Content Conventions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../conventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Content Conventions</span></a>
+  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Managing a Python Installation</span></a>
   </div>
 </li>
       </ul>
@@ -216,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/12_sets/sets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14: Sets</span></a>
+ <span class="menu-text">12: Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -257,20 +335,12 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
   <li><a href="#matrices-and-2d-arrays" id="toc-matrices-and-2d-arrays" class="nav-link" data-scroll-target="#matrices-and-2d-arrays">Matrices and 2d Arrays</a></li>
-  <li><a href="#matrices" id="toc-matrices" class="nav-link" data-scroll-target="#matrices">Matrices</a></li>
   <li><a href="#creating-matrices-in-numpy" id="toc-creating-matrices-in-numpy" class="nav-link" data-scroll-target="#creating-matrices-in-numpy">Creating Matrices in NumPy</a></li>
   <li><a href="#dimensions" id="toc-dimensions" class="nav-link" data-scroll-target="#dimensions">Dimensions</a></li>
-  <li><a href="#dimensions-1" id="toc-dimensions-1" class="nav-link" data-scroll-target="#dimensions-1">Dimensions</a></li>
-  <li><a href="#dimensions-2" id="toc-dimensions-2" class="nav-link" data-scroll-target="#dimensions-2">Dimensions</a></li>
   <li><a href="#accessing-elements" id="toc-accessing-elements" class="nav-link" data-scroll-target="#accessing-elements">Accessing Elements</a></li>
-  <li><a href="#accessing-elements-1" id="toc-accessing-elements-1" class="nav-link" data-scroll-target="#accessing-elements-1">Accessing Elements</a></li>
-  <li><a href="#accessing-elements-2" id="toc-accessing-elements-2" class="nav-link" data-scroll-target="#accessing-elements-2">Accessing Elements</a></li>
   <li><a href="#row-and-column-operations" id="toc-row-and-column-operations" class="nav-link" data-scroll-target="#row-and-column-operations">Row and Column Operations</a></li>
-  <li><a href="#row-and-column-operations-1" id="toc-row-and-column-operations-1" class="nav-link" data-scroll-target="#row-and-column-operations-1">Row and Column Operations</a></li>
   <li><a href="#scalar-addition" id="toc-scalar-addition" class="nav-link" data-scroll-target="#scalar-addition">Scalar Addition</a></li>
-  <li><a href="#scalar-addition-1" id="toc-scalar-addition-1" class="nav-link" data-scroll-target="#scalar-addition-1">Scalar Addition</a></li>
   <li><a href="#scalar-multiplication" id="toc-scalar-multiplication" class="nav-link" data-scroll-target="#scalar-multiplication">Scalar Multiplication</a></li>
-  <li><a href="#scalar-addition-2" id="toc-scalar-addition-2" class="nav-link" data-scroll-target="#scalar-addition-2">Scalar Addition</a></li>
   <li><a href="#the-transpose-of-a-matrix" id="toc-the-transpose-of-a-matrix" class="nav-link" data-scroll-target="#the-transpose-of-a-matrix">The Transpose of a Matrix</a></li>
   <li><a href="#matrix-addition" id="toc-matrix-addition" class="nav-link" data-scroll-target="#matrix-addition">Matrix Addition</a></li>
   <li><a href="#matrix-multiplication" id="toc-matrix-multiplication" class="nav-link" data-scroll-target="#matrix-multiplication">Matrix Multiplication</a></li>
@@ -330,87 +400,115 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="matrices-and-2d-arrays" class="level2">
 <h2 class="anchored" data-anchor-id="matrices-and-2d-arrays">Matrices and 2d Arrays</h2>
-<p>CSCI – 1056</p>
-<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
-</section>
-<section id="matrices" class="level2">
-<h2 class="anchored" data-anchor-id="matrices">Matrices</h2>
-<ul>
-<li><p>So far, we have stored one list of numbers:</p>
+<p>So far, we have stored one list of numbers:</p>
 <ul>
 <li>[82, 91, 77, 95]</li>
-</ul></li>
-<li><p>But what if we have several lists?</p>
+</ul>
+<p>But what if we have several lists?</p>
 <ul>
 <li>Alice 82 91 77 95<br>
 Bob 74 83 89 88<br>
 Carol 90 97 92 99</li>
-</ul></li>
-<li><p>Now our data naturally forms a table.</p></li>
-<li><p>A NumPy matrix is a way to store this table efficiently and let us perform mathematical operations on its contents.</p></li>
 </ul>
+<p>Now our data naturally forms a table.</p>
+<table class="caption-top table">
+<tbody>
+<tr class="odd">
+<td>Alice</td>
+<td>82</td>
+<td>91</td>
+<td>77</td>
+<td>95</td>
+</tr>
+<tr class="even">
+<td>Bob</td>
+<td>74</td>
+<td>83</td>
+<td>89</td>
+<td>88</td>
+</tr>
+<tr class="odd">
+<td>Carol</td>
+<td>90</td>
+<td>97</td>
+<td>92</td>
+<td>99</td>
+</tr>
+</tbody>
+</table>
+<p>A NumPy matrix is a way to store this table efficiently and let us perform mathematical operations on its contents.</p>
 </section>
 <section id="creating-matrices-in-numpy" class="level2">
 <h2 class="anchored" data-anchor-id="creating-matrices-in-numpy">Creating Matrices in NumPy</h2>
-<p>import numpy as np</p>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
-<p>print(A)</p>
-<p>Output:</p>
-<p>[[1 2 3]</p>
-<p>[4 5 6]]</p>
+<div id="ba632adb" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]</code></pre>
+</div>
+</div>
 <p>Note that every inner list becomes one row.</p>
 </section>
 <section id="dimensions" class="level2">
 <h2 class="anchored" data-anchor-id="dimensions">Dimensions</h2>
-<ul>
-<li><p>A very useful property of matrices is its <strong>dimensions</strong>.</p>
-<ul>
-<li>The number of rows and the number of columns.</li>
-</ul></li>
-<li><p>Knowing the dimensions of your matrices is necessary to see if certain operations on them are defined at all.</p></li>
-<li><p>Matrix multiplication is unlike scalar multiplication which is commutative.</p>
-<ul>
-<li>Multiplication of two matrices is defined only if both have a relation between their dimensions.</li>
-<li>The first matrix must have the same number of columns as the second matrix has rows.</li>
-</ul></li>
-</ul>
-</section>
-<section id="dimensions-1" class="level2">
-<h2 class="anchored" data-anchor-id="dimensions-1">Dimensions</h2>
-<ul>
-<li><p>In NumPy we can use the <strong>shape</strong> attribute to find the dimensions of a matrix.</p></li>
-<li><p><strong>A.shape</strong> here returns <strong>(2,3)</strong></p>
+<p>An important property of matrices is its <strong>dimensions</strong>, which are the number of rows and the number of columns. Knowing the dimensions of your matrices is necessary to see if certain operations on them are defined at all.</p>
+<p>Matrix multiplication is unlike scalar multiplication which is commutative (order does not matter). Multiplication of two matrices is defined only if both have a relation between their dimensions. Specifically, the first matrix must have the same number of columns as the second matrix has rows.</p>
+<p>In NumPy we can use the <strong>shape</strong> attribute to find the dimensions of a matrix.</p>
+<p><code>A.shape</code> here returns <strong>(2,3)</strong></p>
 <ul>
 <li>Two rows, three columns</li>
-</ul></li>
 </ul>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
-</section>
-<section id="dimensions-2" class="level2">
-<h2 class="anchored" data-anchor-id="dimensions-2">Dimensions</h2>
+<div id="8796b3bc" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(2, 3)</code></pre>
+</div>
+</div>
+<p>These conventions are the same as in linear algebra.</p>
+<ul>
+<li><p>Rows run horizontally</p></li>
+<li><p>Columns run vertically</p></li>
+</ul>
+<p>A <span class="math inline">2\times 3</span> matrix is understood to have <span class="math inline">2</span> rows and <span class="math inline">3</span> columns.</p>
 </section>
 <section id="accessing-elements" class="level2">
 <h2 class="anchored" data-anchor-id="accessing-elements">Accessing Elements</h2>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
-</section>
-<section id="accessing-elements-1" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-elements-1">Accessing Elements</h2>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
-</section>
-<section id="accessing-elements-2" class="level2">
-<h2 class="anchored" data-anchor-id="accessing-elements-2">Accessing Elements</h2>
+<p>In our matrix <span class="math inline">A</span>, if we use standard mathematical conventions the element 5 is located at <span class="math inline">(2,2)</span> or equivalent <span class="math inline">A_{2,2}</span> .</p>
+<p>But with NumPy, we are in Python and indexing is based off of zero. The element 5 is located at <span class="math inline">(1,1)</span>.</p>
+<div id="6f2a6c08" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>])</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(A[<span class="dv">2</span>,<span class="dv">2</span>])</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> e:</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(e)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>index 2 is out of bounds for axis 0 with size 2</code></pre>
+</div>
+</div>
+<div id="be05e879" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A[<span class="dv">1</span>,<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>5</code></pre>
+</div>
+</div>
+<p>Be careful with off-by-one errors, it is a common mistake.</p>
+<p>Here is a table of <span class="math inline">A</span> converted to Python’s indexing:</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -452,87 +550,72 @@ Carol 90 97 92 99</li>
 </tr>
 </tbody>
 </table>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
 </section>
 <section id="row-and-column-operations" class="level2">
 <h2 class="anchored" data-anchor-id="row-and-column-operations">Row and Column Operations</h2>
+<p>A matrix can be viewed as a collection of column vectors. This is a good idea to keep in mind for many future operations on matrices.</p>
+<p>We can select a row in the matrix by using just the first digit of the shape tuple.</p>
 <ul>
-<li><p>A matrix can be viewed as a collection of column vectors.</p>
+<li><code>A[0]</code> selects the first row</li>
+<li>For our matrix <span class="math inline">A</span>, this is <code>[1 2 3]</code></li>
+</ul>
+<div id="34952fa1" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1 2 3]</code></pre>
+</div>
+</div>
+<p>We can select a column in the matrix by using the colon as the first digit of the shape tuple and specifying the column number.</p>
 <ul>
-<li>This is a good idea to keep in mind for many future operations on matrices.</li>
-</ul></li>
-<li><p>We can select a row in the matrix by using just the first digit of the shape tuple.</p>
+<li><code>A[:,0]</code> selects the first column</li>
+<li>For our matrix <span class="math inline">A</span>, this is <code>[1 4]</code></li>
+<li><code>:</code> means “all rows”
 <ul>
-<li><strong>A[0]</strong> selects the first row</li>
-<li>For our matrix A, this is [1 2 3]</li>
+<li><code>A[:,0]</code> is all rows, column 0</li>
 </ul></li>
 </ul>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
-</section>
-<section id="row-and-column-operations-1" class="level2">
-<h2 class="anchored" data-anchor-id="row-and-column-operations-1">Row and Column Operations</h2>
-<ul>
-<li><p>We can select a column in the matrix by using the colon as the first digit of the shape tuple and specifying the column number.</p>
-<ul>
-<li><strong>A[:,0]</strong> selects the first column</li>
-<li>For our matrix A, this is [1 4]</li>
-</ul></li>
-<li><p><strong>:</strong> means “all rows”</p>
-<ul>
-<li><strong>A[:,0]</strong> is all rows, column 0</li>
-</ul></li>
-</ul>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
+<div id="920a5518" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A[:,<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1 4]</code></pre>
+</div>
+</div>
 </section>
 <section id="scalar-addition" class="level2">
 <h2 class="anchored" data-anchor-id="scalar-addition">Scalar Addition</h2>
-</section>
-<section id="scalar-addition-1" class="level2">
-<h2 class="anchored" data-anchor-id="scalar-addition-1">Scalar Addition</h2>
-<ul>
-<li>Adding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.</li>
-</ul>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
-<p>A + 2</p>
-<p>&gt;&gt;&gt; [[3 4 5]</p>
-<p>[6 7 8]]</p>
+<p>Adding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.</p>
+<p><img src="images/paste-1.png" class="img-fluid"></p>
+<div id="febd00f4" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A<span class="op">+</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]
+[[3 4 5]
+ [6 7 8]]</code></pre>
+</div>
+</div>
 </section>
 <section id="scalar-multiplication" class="level2">
 <h2 class="anchored" data-anchor-id="scalar-multiplication">Scalar Multiplication</h2>
-</section>
-<section id="scalar-addition-2" class="level2">
-<h2 class="anchored" data-anchor-id="scalar-addition-2">Scalar Addition</h2>
-<ul>
-<li>Multiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.</li>
-</ul>
-<p>A * 2</p>
-<p>&gt;&gt;&gt; [[2 4 6]</p>
-<p>[8 10 12]]</p>
-<p>A = np.array([</p>
-<p>[1, 2, 3],</p>
-<p>[4, 5, 6]</p>
-<p>])</p>
+<p>Multiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.</p>
+<p><img src="images/paste-2.png" class="img-fluid"></p>
+<div id="83ef62b3" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A<span class="op">*</span><span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1 2 3]
+ [4 5 6]]
+[[ 2  4  6]
+ [ 8 10 12]]</code></pre>
+</div>
+</div>
 </section>
 <section id="the-transpose-of-a-matrix" class="level2">
 <h2 class="anchored" data-anchor-id="the-transpose-of-a-matrix">The Transpose of a Matrix</h2>
-<ul>
-<li><p>The transpose operation on a matrix turns all rows to columns and all columns to rows.</p>
-<ul>
-<li>In NumPy, we use the syntax <strong>A.T</strong> to take the transpose of matrix <strong>A</strong>.</li>
-</ul></li>
-</ul>
+<p>The transpose operation on a matrix turns all rows to columns and all columns to rows.</p>
+<p>In NumPy, we use the syntax <strong>A.T</strong> to take the transpose of matrix <strong>A</strong>.</p>
+<p>```{python}</p>
 <p>A = np.array([</p>
 <p>[1, 2, 3],</p>
 <p>[4, 5, 6]</p>
@@ -551,6 +634,7 @@ Carol 90 97 92 99</li>
 <li>Note that we need a pairing, and so the matrices must be of identical dimensions.</li>
 </ul></li>
 </ul>
+<p>```{python}</p>
 <p>A = np.array([</p>
 <p>[1, 2, 3],</p>
 <p>[4, 5, 6]</p>
@@ -579,6 +663,7 @@ Carol 90 97 92 99</li>
 <ul>
 <li>It is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.</li>
 </ul>
+<p>```{python}</p>
 <p>A = np.array([</p>
 <p>[1, 2, 3],</p>
 <p>[4, 5, 6]</p>
@@ -595,6 +680,7 @@ Carol 90 97 92 99</li>
 </section>
 <section id="matrix-vector-multiplication-2" class="level2">
 <h2 class="anchored" data-anchor-id="matrix-vector-multiplication-2">Matrix-Vector Multiplication</h2>
+<p>```{python}</p>
 <p>A = np.array([</p>
 <p>[1,3],</p>
 <p>[2,1]</p>
@@ -670,6 +756,7 @@ Carol 90 97 92 99</li>
 </section>
 <section id="rotation-matrices-1" class="level2">
 <h2 class="anchored" data-anchor-id="rotation-matrices-1">Rotation Matrices</h2>
+<p>```{python}</p>
 <p>def rotate(theta,vector):</p>
 <p>rotation_matrix = np.array([</p>
 <p>[np.cos(theta), -1*np.sin(theta)],</p>
@@ -714,6 +801,7 @@ Carol 90 97 92 99</li>
 </section>
 <section id="floating-point-approximations" class="level2">
 <h2 class="anchored" data-anchor-id="floating-point-approximations">Floating Point Approximations</h2>
+<p>```{python}</p>
 <p>vector = np.array([1,0])</p>
 <p>theta = np.pi/2</p>
 <p>R = np.array([</p>

@@ -1,5 +1,5 @@
 ---
-title: "14: Sets"
+title: "12: Sets"
 format: html
 ---
 
@@ -7,369 +7,326 @@ format: html
 
 ## Sets
 
-CSCI – 1056
+A set in Python is an object that stores a collection of data much in the same way as a set in mathematics is defined.
 
-Content Modified from Pearson’s Starting Out with Python 6th Edition
-
-## Sets
-
-- **Set: object that stores a collection of data in same way as mathematical set**
-
-  - All items must be unique
-  - Set is unordered
-  - Elements can be of different data types
+- All items must be unique
+- Set is unordered
+- Elements can be of different data types
 
 ## Creating a Set
 
-- **set function: used to create a set**
+- For empty set, call `set()`
 
-  - For empty set, call set()
+- For non-empty set, call `set(argument)` where *argument* is an object that contains iterable elements.
 
-  - For non-empty set, call set(*argument*) where *argument* is an object that contains iterable elements
+  - e.g., *argument* can be a list, string, or tuple
 
-    - e.g., *argument* can be a list, string, or tuple
+  - If *argument* is a string, each character becomes a set element
 
-    - If *argument* is a string, each character becomes a set element
+    - For set of strings, pass them to the function as a list
 
-      - For set of strings, pass them to the function as a list
+  - If *argument* contains duplicates, only one of the duplicates will appear in the set
 
-    - If *argument* contains duplicates, only one of the duplicates will appear in the set
+```{python}
+numbers = set(list(range(1,6)))
 
-## Example
+print(numbers)
+```
 
-*numbers = set(list(range(1,6)))*
+```{python}
+numbers = set([1,1,2,3,5])
 
-*print(numbers)*
+print(numbers)
+```
 
-*\> {1, 2, 3, 4, 5}*
+Like many other objects in Python that we can iterate through, we can find the number of elements in a set using the `len` function.
 
-## Getting the Number of and Adding Elements
+```{python}
+numbers = set(list(range(1,6)))
 
-- **len function: returns the number of elements in the set**
+print(len(numbers))
+```
 
-- **Sets are mutable objects**
+## Mutability
 
-- **add method: adds an element to a set**
+Sets are mutable objects just like lists, so we are able to add and remove elements associated with a set. However, since sets do not have order, there are not quite as many methods to do so since we are unable to use indices to specify a location in the set.
 
-- **update method: adds a group of elements to a set**
+### Adding Elements
+
+- `add`**:** adds an element to a set
+
+- `update`**:** adds multiple elements to a set
 
   - Argument must be a sequence containing iterable elements, and each of the elements is added to the set
 
-## Example
+```{python}
+numbers = set(list(range(1,6)))
 
-*numbers = set(list(range(1,6)))*
+print(numbers)
+```
 
-*print(numbers)*
+```{python}
+numbers.add('six')
 
-*\> {1, 2, 3, 4, 5}*
+print(numbers)
+```
 
-*numbers.add('six’)*
+```{python}
+numbers = set(list(range(1,6)))
 
-*print(numbers)*
+print(numbers)
+```
 
-*\> {1, 2, 3, 4, 5, 'six'}*
+```{python}
+numbers.update(['six','seven',8, 9])
 
-## Example
+print(numbers)
+```
 
-*numbers = set(list(range(1,6)))*
+The order you see from the print statement can change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.
 
-*print(numbers)*
+### Deleting Elements
 
-*\> {1, 2, 3, 4, 5}*
+- `remove`and `discard` methods: delete the specified item from the set
 
-*numbers.update(\['six','seven',8, 9\])*
+  - The item that should be deleted is passed to both methods as an argument
 
-*print(numbers)*
+  - These methods differently when the specified item is not found in the set
 
-*\> {1, 2, 3, 4, 5, 'seven', 8, 9, 'six'}*
+    - `remove` method raises a KeyError exception
+    - `discard` method does not raise an exception
 
-> The order you see from the print statement will often change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.
+- `clear` method: deletes all the elements of the set
 
-## Deleting Elements From a Set
+```{python}
+numbers = set(list(range(1,6)))
 
-- **remove and discard methods: remove the specified item from the set**
+numbers.remove(1)
 
-  - The item that should be removed is passed to both methods as an argument
+print(numbers)
+```
 
-  - Behave differently when the specified item is not found in the set
+```{python}
+try:
+     numbers.remove(6)
+     print(numbers)
 
-    - remove method raises a KeyError exception
-    - discard method does not raise an exception
+except Exception as e:
+     print(e)
+```
 
-- **clear method: clears all the elements of the set**
+```{python}
+numbers = set(list(range(1,6)))
 
-## Example
+numbers.discard(1)
 
-*numbers = set(list(range(1,6)))*
+print(numbers)
+```
 
-*numbers.remove(1)*
+```{python}
+numbers.discard(6)
 
-*print(numbers)*
+print(numbers)
+```
 
-*\> {2, 3, 4, 5}*
-
-*numbers.remove(6)*
-
-*print(numbers)*
-
-*\> KeyError: 6*
-
-## Example
-
-*numbers = set(list(range(1,6)))*
-
-*numbers.discard(1)*
-
-*print(numbers)*
-
-*\> {2, 3, 4, 5}*
-
-*numbers.discard(6)*
-
-*print(numbers)*
-
-*\>*
-
-## Using the for Loop, in, and not in Operators With a Set
+## Using the `for` Loop, `in`, and `not in` Operators with Sets
 
 - **A for loop can be used to iterate over elements in a set**
 
-  - General format: for *item* in *set*:
+  - General format: `for item in set`
   - The loop iterates once for each element in the set
 
 - **The in operator can be used to test whether a value exists in a set**
 
   - Similarly, the not in operator can be used to test whether a value does not exist in a set
 
-## Example
+```{python}
+numbers = set(list(range(1,6)))
 
-*numbers = set(list(range(1,6)))*
+for i in numbers:
+     print(i)
+```
 
-*for i in numbers:*
+## Set Operations
 
-*print(i)*
+For all the following set operations, the output of these methods returns a new set.
 
-*\> 1*
+### Union
 
-*\> 2*
+- The **union** of two sets is the set that contains all the elements of both sets.
 
-*\> 3*
+- To find the union of two sets:
 
-*\> 4*
+  - Use the `union` method
 
-*\> 5*
+    - Format: `set1.union(set2)`
 
-## Finding the Union of Sets
+  - Use the `|` operator
 
-- **Union of two sets: a set that contains all the elements of both sets**
+    - Format: `set1 | set2`
 
-- **To find the union of two sets:**
+```{python}
+A = {1,2,3}
 
-  - Use the union method
+B = {2,3,4}
 
-    - Format: *set1*.union(*set2*)
+print(A | B)
+```
 
-  - Use the \| operator
+### Intersection
 
-    - Format: *set1* \| *set2*
+- The **intersection** of two sets is the set that contains only the elements found in both sets.
 
-  - Both techniques return a new set which contains the union of both sets
+- To find the intersection of two sets:
 
-## Example
+  - Use the `intersection` method
 
-*A = {1,2,3}*
+    - Format: `set1.intersection(set2)`
 
-*B = {2,3,4}*
+  - Use the `&` operator
 
-*print(A \| B)*
+    - Format: `set1 & set2`
 
-*\> {1, 2, 3, 4}*
+```{python}
+A = {1,2,3}
 
-## Finding the Intersection of Sets
+B = {2,3,4}
 
-- **Intersection of two sets: a set that contains only the elements found in both sets**
+print(A & B)
+```
 
-- **To find the intersection of two sets:**
+### Difference
 
-  - Use the intersection method
+- The difference of two sets is the set that contains the elements that appear in the first set but do not appear in the second set.
 
-    - Format: *set1*.intersection(*set2*)
-
-  - Use the & operator
-
-    - Format: *set1* & *set2*
-
-  - Both techniques return a new set which contains the intersection of both sets
-
-## Example
-
-*A = {1,2,3}*
-
-*B = {2,3,4}*
-
-*print(A & B)*
-
-*\> {2, 3}*
-
-## Finding the Difference of Sets
-
-- **Difference of two sets: a set that contains the elements that appear in the first set but do not appear in the second set**
-
-- **To find the difference of two sets:**
+- To find the difference of two sets:
 
   - Use the difference method
 
-    - Format: *set1*.difference(*set2*)
+    - Format: `set1.difference(set2)`
 
-  - Use the - operator
+  - Use the `-` operator
 
-    - Format: *set1* - *set2*
+    - Format: `set1 - set2`
 
-## Example
+```{python}
+A = {1,2,3}
 
-*A = {1,2,3}*
+B = {2,3,4}
 
-*B = {2,3,4}*
+print(A - B)
+```
 
-*print(A - B)*
+### Symmetric Difference
 
-*\> {1}*
+The symmetric difference of two sets is the set that contains the elements that are not shared by the two sets.
 
-## Finding the Symmetric Difference of Sets
+- To find the symmetric difference of two sets:
 
-- **Symmetric difference of two sets: a set that contains the elements that are not shared by the two sets**
+  - Use the `symmetric_difference` method
 
-- **To find the symmetric difference of two sets:**
+    - Format: `set1.symmetric_difference(set2)`
 
-  - Use the symmetric_difference method
+  - Use the `^` operator
 
-    - Format: *set1*.symmetric_difference(*set2*)
+    - Format: `set1 ^ set2`
 
-  - Use the \^ operator
+```{python}
+A = {1,2,3}
 
-    - Format: *set1* \^ *set2*
+B = {2,3,4}
 
-## Example
+print(A ^ B)
+```
 
-*A = {1,2,3}*
+## Subsets and Supersets
 
-*B = {2,3,4}*
+- Set A is **subset** of set B if all the elements in set A are included in set B
 
-*print(A \^ B)*
+- To determine whether set A is subset of set B
 
-*\> {1, 4}*
+  - Use the `issubset` method
 
-## Finding Subsets and Supersets (1 of 2)
+    - Format: `setA.issubset(setB)`
 
-- **Set A is subset of set B if all the elements in set A are included in set B**
+  - Use the \<`=` operator
 
-- **To determine whether set A is subset of set B**
+    - Format: `setA <= setB`
 
-  - Use the issubset method
+```{python}
+A = {1,2,3}
 
-    - Format: *setA*.issubset(*setB*)
+B = {3,4}
 
-  - Use the \<= operator
+print(B <= A)
+```
 
-    - Format: *setA* \<= *setB*
+```{python}
+A = {1,2,3}
 
-## Example
+B = {3}
 
-*A = {1,2,3}*
+print(B <= A)
+```
 
-*B = {3,4}*
+- Set A is **superset** of set B if it contains all the elements of set B
 
-*print(B \<= A)*
+- To determine whether set A is superset of set B
 
-*\> False*
+  - Use the `issuperset` method
 
-## Example
+    - Format: *`setA`*`.issuperset(setB)`
 
-*A = {1,2,3}*
+  - Use the `>=` operator
 
-*B = {3}*
+    - Format: *`setA`*`>= setB`
 
-*print(B \<= A)*
+```{python}
+A = {1,2,3}
 
-*\> True*
+B = {3,4}
 
-## Finding Subsets and Supersets (2 of 2)
+print(A >= B)
+```
 
-- **Set A is superset of set B if it contains all the elements of set B**
+```{python}
+A = {1,2,3}
 
-- **To determine whether set A is superset of set B**
+B = {3}
 
-  - Use the issuperset method
+print(A >= B)
+```
 
-    - Format: *setA*.issuperset(*setB*)
+## Set Comprehensions
 
-  - Use the \>= operator
-
-    - Format: *setA* \>= *setB*
-
-## Example
-
-*A = {1,2,3}*
-
-*B = {3,4}*
-
-*print(A \>= B)*
-
-*\> False*
-
-## Example
-
-*A = {1,2,3}*
-
-*B = {3}*
-
-*print(A \>= B)*
-
-*\> True*
-
-## Set Comprehensions (1 of 4)
-
-- Set comprehension: a concise expression that creates a new set by iterating over the elements of a sequence
-- Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces ({}) instead of brackets (\[\])
-
-## Set Comprehensions (2 of 4)
+Set comprehension: a concise expression that creates a new set by iterating over the elements of a sequence. Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces `{}` instead of brackets `[]`
 
 - **Example: making a copy of a set**
 
-\>\>\> set1 = set(\[1, 2, 3, 4, 5\])
+```{python}
+set1 = set([1, 2, 3, 4, 5])
 
-\>\>\> set2 = {item for item in set1}
+set2 = {item for item in set1}
 
-\>\>\> set2
-
-{1, 2, 3, 4, 5}
-
-\>\>\>
-
-## Set Comprehensions (3 of 4)
+print(id(set1),id(set2))
+```
 
 - **Example: creating a set that contains the squares of the numbers stored in another set**
 
-\>\>\> set1 = set(\[1, 2, 3, 4, 5\])
+```{python}
+set1 = set([1, 2, 3, 4, 5])
 
-\>\>\> set2 = {item\*\*2 for item in set1}
+set2 = {item**2 for item in set1}
 
-\>\>\> set2
-
-{1, 4, 9, 16, 25}
-
-\>\>\>
-
-## Set Comprehensions (4 of 4)
+set2
+```
 
 - **Example: copying the numbers in a set that are less than 10**
 
-\>\>\> set1 = set(\[1, 20, 2, 40, 3, 50\])
+```{python}
+set1 = set([1, 20, 2, 40, 3, 50])
 
-\>\>\> set2 = {item for item in set1 if item \< 10}
+set2 = {item for item in set1 if item < 10}
 
-\>\>\> set2
-
-{1, 2, 3}
-
-\>\>\>
+set2
+```

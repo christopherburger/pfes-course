@@ -7,11 +7,7 @@ format: html
 
 ## Lists and Vectors
 
-- Standard Python is designed for general software development, not math.
-- Structures like lists in Python have their own set of rules that makes using them in mathematical operations difficult.
-- If we try to perform math on a standard Python list, the results are either completely wrong for our purposes, or they crash the program.
-
-## Lists and Vectors
+Standard Python is designed for general software development, not math. Structures like lists in Python have their own set of rules that makes using them in mathematical operations difficult. If we try to perform math on a standard Python list, the results are either completely wrong for our purposes, or they crash the program.
 
 Consider a list of test scores: `scores = [85, 90, 78]`
 
@@ -36,7 +32,7 @@ Now, if we try to add 2 bonus points to every score using `scores + 2`, Python t
 - If you are working on a local machine, you likely need to install the library first using **pip install numpy** in your terminal.
 - Cloud environments like Colab usually have it pre-installed.
 
-## Standard Library Functions and the import Statement 
+### Standard Library Functions and the import Statement
 
 - **Standard library:** library of pre-written functions that comes with Python
 
@@ -59,7 +55,7 @@ Now, if we try to add 2 bonus points to every score using `scores + 2`, Python t
   - Written at the top of the program
   - Format: import *module_name*
 
-## Importing NumPy
+### Importing NumPy
 
 - Once you have access to NumPy we need to use an import statement:
 
@@ -148,9 +144,11 @@ v = np.array([3, 2])
 
   ![](images/paste-5.png)
 
-## Vector Arithmetic - Magnitude
+## Vector Arithmetic
 
-The magnitude of a vector is its length.
+### Magnitude
+
+The **magnitude** of a vector is its length.
 
 We can find the magnitude of a vector $v = [a, b, c, ...]$ by using the Euclidean distance $|v| = \sqrt{a^2 + b^2 + c^2 + ...}$
 
@@ -170,7 +168,7 @@ north = np.array([0,4])
 np.linalg.norm(east+north)
 ```
 
-## Vector Arithmetic – Addition and Subtraction
+### Addition and Subtraction
 
 Adding (or subtracting) two vectors is combining their instructions.
 
@@ -186,7 +184,7 @@ b = np.array([1, 3])
 print(a + b)
 ```
 
-## Vector Arithmetic – Scalar Multiplication
+### Scalar Multiplication
 
 Applying a positive scalar to a vector scales its magnitude (length) without changing its fundamental line of direction.
 
@@ -202,7 +200,7 @@ print(2 * v)
 
 Note that the vector in the code about is twice as long when scaled by 2.
 
-## Vector Arithmetic – Vector Multiplication
+### Vector Multiplication
 
 It is natural to assume that if you can do $a + b$ then you can do $a \times b$. However, when it comes to vectors simply placing an $\times$ between them is undefined. We need to specify exactly what we are calculating.
 
@@ -322,7 +320,7 @@ Note that the comma in a 1D shape like (3,) is because Python handles tuples wit
 
 - It means "3 elements in the first dimension, and no other dimensions exist."
 
-## array.ndim
+### array.ndim
 
 `array.ndim` returns the total number of dimensions (axes) that the array has.
 
@@ -332,7 +330,7 @@ Note that the comma in a 1D shape like (3,) is because Python handles tuples wit
 
 - A matrix has ndim = 2
 
-## array.dtype
+### array.dtype
 
 `array.dtype` tells you exactly what kind of data is stored inside.
 

@@ -106,6 +106,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
 </head>
@@ -161,14 +204,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Managing a Python Installation</span></a>
+  <a href="../../conventions.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Content Conventions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../conventions.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Content Conventions</span></a>
+  <a href="../../Managing Python Installations.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Managing a Python Installation</span></a>
   </div>
 </li>
       </ul>
@@ -251,7 +294,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/12_sets/sets.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">14: Sets</span></a>
+ <span class="menu-text">12: Sets</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -290,8 +333,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#programming" id="toc-programming" class="nav-link active" data-scroll-target="#programming">Programming</a></li>
+  <li><a href="#programming" id="toc-programming" class="nav-link active" data-scroll-target="#programming">Programming</a>
+  <ul class="collapse">
   <li><a href="#algorithms" id="toc-algorithms" class="nav-link" data-scroll-target="#algorithms">Algorithms</a></li>
+  </ul></li>
   <li><a href="#how-computers-store-data" id="toc-how-computers-store-data" class="nav-link" data-scroll-target="#how-computers-store-data">How Computers Store Data</a>
   <ul class="collapse">
   <li><a href="#storing-numbers" id="toc-storing-numbers" class="nav-link" data-scroll-target="#storing-numbers">Storing Numbers</a></li>
@@ -300,22 +345,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#other-types-of-data" id="toc-other-types-of-data" class="nav-link" data-scroll-target="#other-types-of-data">Other Types of Data</a></li>
   </ul></li>
   <li><a href="#keywords-operators-and-syntax-an-overview" id="toc-keywords-operators-and-syntax-an-overview" class="nav-link" data-scroll-target="#keywords-operators-and-syntax-an-overview">Keywords, Operators, and Syntax: An Overview</a></li>
-  <li><a href="#using-python" id="toc-using-python" class="nav-link" data-scroll-target="#using-python">Using Python</a></li>
-  <li><a href="#interactive-mode" id="toc-interactive-mode" class="nav-link" data-scroll-target="#interactive-mode">Interactive Mode</a></li>
-  <li><a href="#writing-python-programs-and-running-them-in-script-mode" id="toc-writing-python-programs-and-running-them-in-script-mode" class="nav-link" data-scroll-target="#writing-python-programs-and-running-them-in-script-mode">Writing Python Programs and Running Them in Script Mode</a></li>
-  <li><a href="#more-about-programs" id="toc-more-about-programs" class="nav-link" data-scroll-target="#more-about-programs">More About Programs</a></li>
-  <li><a href="#basic-programming-instructions" id="toc-basic-programming-instructions" class="nav-link" data-scroll-target="#basic-programming-instructions">Basic Programming Instructions</a></li>
-  <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a></li>
-  <li><a href="#type-of-errors" id="toc-type-of-errors" class="nav-link" data-scroll-target="#type-of-errors">Type of Errors</a>
+  <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a>
   <ul class="collapse">
+  <li><a href="#type-of-errors" id="toc-type-of-errors" class="nav-link" data-scroll-target="#type-of-errors">Type of Errors</a></li>
   <li><a href="#syntax-errors" id="toc-syntax-errors" class="nav-link" data-scroll-target="#syntax-errors">Syntax Errors</a></li>
   <li><a href="#runtime-errors" id="toc-runtime-errors" class="nav-link" data-scroll-target="#runtime-errors">Runtime Errors</a></li>
   <li><a href="#semantic-errors" id="toc-semantic-errors" class="nav-link" data-scroll-target="#semantic-errors">Semantic Errors</a></li>
   </ul></li>
-  <li><a href="#experimental-debugging" id="toc-experimental-debugging" class="nav-link" data-scroll-target="#experimental-debugging">Experimental Debugging</a></li>
-  <li><a href="#formal-and-natural-languages" id="toc-formal-and-natural-languages" class="nav-link" data-scroll-target="#formal-and-natural-languages">Formal and Natural Languages</a></li>
+  <li><a href="#formal-and-natural-languages" id="toc-formal-and-natural-languages" class="nav-link" data-scroll-target="#formal-and-natural-languages">Formal and Natural Languages</a>
+  <ul class="collapse">
   <li><a href="#parsing-and-semantics" id="toc-parsing-and-semantics" class="nav-link" data-scroll-target="#parsing-and-semantics">Parsing and Semantics</a></li>
   <li><a href="#differences-between-formal-and-natural-languages" id="toc-differences-between-formal-and-natural-languages" class="nav-link" data-scroll-target="#differences-between-formal-and-natural-languages">Differences between Formal and Natural Languages</a></li>
+  </ul></li>
+  <li><a href="#using-python" id="toc-using-python" class="nav-link" data-scroll-target="#using-python">Using Python</a>
+  <ul class="collapse">
+  <li><a href="#interactive-mode" id="toc-interactive-mode" class="nav-link" data-scroll-target="#interactive-mode">Interactive Mode</a></li>
+  <li><a href="#writing-python-programs-and-running-them-in-script-mode" id="toc-writing-python-programs-and-running-them-in-script-mode" class="nav-link" data-scroll-target="#writing-python-programs-and-running-them-in-script-mode">Writing Python Programs and Running Them in Script Mode</a></li>
+  <li><a href="#basic-programming-instructions" id="toc-basic-programming-instructions" class="nav-link" data-scroll-target="#basic-programming-instructions">Basic Programming Instructions</a></li>
+  </ul></li>
   <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world">Hello World</a></li>
   <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
   </ul>
@@ -345,19 +392,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="programming" class="level1">
 <h1>Programming</h1>
-<ul>
-<li>This course is about problem solving using computers.</li>
-<li>Having a computer solve a problem requires the creation of a set of instructions, a <strong>program</strong> .
-<ul>
-<li>The process of creating these instructions is <strong>programming</strong> .</li>
-</ul></li>
-<li>Problem solving means the ability to formulate problems, think creatively about solutions, and express a solution clearly and accurately.</li>
-<li>The process of learning to program is an excellent opportunity to practice problem solving skills.</li>
-</ul>
-</section>
-<section id="algorithms" class="level1">
-<h1>Algorithms</h1>
+<p>This course is about problem solving using computers. Problem solving means the ability to formulate problems, think creatively about solutions, and express a solution clearly and accurately. The process of learning to program is an excellent opportunity to practice problem solving skills.</p>
+<p>Having a computer solve a problem requires the creation of a set of instructions, a <strong>program</strong>. A <strong>program</strong> is a sequence of instructions that specifies how to perform a computation.</p>
+<p>The computation might be something as complex as rendering an html page in a web browser or encoding a video and streaming it across the network. It can also be a symbolic computation, such as searching for and replacing text in a document or (strangely enough) compiling a program.</p>
+<p>The process of creating these instructions is <strong>programming</strong> .</p>
+<section id="algorithms" class="level2">
+<h2 class="anchored" data-anchor-id="algorithms">Algorithms</h2>
 <p>If problem solving is a central part of computer science, then the solutions that you create through the problem solving process are also important. In computer science, we refer to these solutions as <strong>algorithms</strong>.&nbsp;An algorithm is a step-by-step list of instructions that if followed exactly will solve the problem under consideration. Our goal is to take a problem and develop an algorithm that can serve as a general solution. Once we have such a solution, we can use our computer to automate the execution. Programming is a skill that allows us to take an algorithm and represent it in a notation (a program) that can be followed by a computer. These programs are written in <strong>programming&nbsp;languages</strong> .</p>
+</section>
 </section>
 <section id="how-computers-store-data" class="level1">
 <h1>How Computers Store Data</h1>
@@ -431,6 +473,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Statement: individual instruction used in high-level language</strong></li>
 </ul>
 </section>
+<section id="debugging" class="level1">
+<h1>Debugging</h1>
+<p>Programming is a complex process. Since it is done by human beings, errors may often occur.</p>
+<p>Programming errors are called&nbsp;<strong>bugs</strong>&nbsp;and the process of tracking them down and correcting them is called&nbsp;<strong>debugging</strong> . Some claim that in 1945, a dead moth caused a problem on relay number 70, panel F, of one of the first computers, and the term&nbsp;<strong>bug</strong> has remained in use since.</p>
+<p>One of the most important skills you will acquire is debugging. Debugging is like an experimental science. Once you have an idea what is going wrong, you modify your program and try again. If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program. If your hypothesis was wrong, you have to come up with a new one.</p>
+<section id="type-of-errors" class="level2">
+<h2 class="anchored" data-anchor-id="type-of-errors">Type of Errors</h2>
+<ul>
+<li>Three kinds of errors can occur in a program:&nbsp;
+<ul>
+<li>Syntax Errors</li>
+<li>Runtime Errors</li>
+<li>Semantic Errors</li>
+</ul></li>
+</ul>
+</section>
+<section id="syntax-errors" class="level2">
+<h2 class="anchored" data-anchor-id="syntax-errors">Syntax Errors</h2>
+<p>Python can only execute a program if the program is syntactically correct ; otherwise, the process fails and returns an error message. &nbsp;<strong>Syntax</strong> refers to the structure of a program and the rules about that structure. For example, in English, a sentence must begin with a capital letter and end with a period. If there is a single syntax error anywhere in your program, Python will display an error message and quit. You will not be able to complete the execution of your program. During the first few weeks of your programming career, you will probably spend a lot of time tracking down syntax errors. However, as you gain experience, you will make fewer errors, and you will also be able to find your errors faster.</p>
+</section>
+<section id="runtime-errors" class="level2">
+<h2 class="anchored" data-anchor-id="runtime-errors">Runtime Errors</h2>
+<p>The second type of error is a runtime error, so called because the error does not appear until you run the program. These errors are also called&nbsp;<strong>exceptions</strong> because they usually indicate that something exceptional (and bad) has happened. Runtime errors are rare in the simple programs you will see in the first few chapters, so it might be a while before you encounter one.</p>
+</section>
+<section id="semantic-errors" class="level2">
+<h2 class="anchored" data-anchor-id="semantic-errors">Semantic Errors</h2>
+<p>If there is a semantic error in your program, it&nbsp;will run successfully in the sense that the computer will not generate any error messages. However, your program will not do the right thing. It will do something else. Specifically, it will do exactly what you told it to do.</p>
+<p>The problem is that the program you wrote is not the program you wanted to write. The meaning of the program (its semantics) is wrong.<br>
+Identifying semantic errors can be tricky because it requires you to work backward by looking at the output of the program and trying to figure out what it is doing.</p>
+</section>
+</section>
+<section id="formal-and-natural-languages" class="level1">
+<h1>Formal and Natural Languages</h1>
+<p><strong>Natural languages</strong> are the languages that people speak, such as English, Spanish, and French. They were not designed by people (although people try to impose some order on them); they evolved naturally.</p>
+<p><strong>Formal languages</strong> are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols.</p>
+<p>Programming languages are formal languages that have been designed to express computations. Formal languages tend to have strict rules about syntax.</p>
+<p>For example,&nbsp;<span class="math inline">3+3=6</span> &nbsp;is a syntactically correct mathematical statement, but&nbsp;<span class="math inline">3=+6</span> is not.</p>
+<p>Syntax rules come in two types, pertaining to&nbsp;<strong>tokens</strong> and structure. <strong>Tokens</strong> are the basic elements of the language, such as words, numbers, and chemical elements. One of the problems with&nbsp;&nbsp;<span class="math inline">3=+6</span> &nbsp;is that&nbsp;<span class="math inline">=+</span>&nbsp;is not a valid token in mathematics (that is, it is not defined for common use).</p>
+<ul>
+<li>The second type of syntax rule pertains to the&nbsp;<strong>structure</strong> of a statement.
+<ul>
+<li>This is the way the tokens are arranged.</li>
+</ul></li>
+<li>The statement&nbsp;<span class="math inline">3=+6</span> is structurally illegal because you cannot place a plus sign immediately after an equal sign.</li>
+</ul>
+<section id="parsing-and-semantics" class="level2">
+<h2 class="anchored" data-anchor-id="parsing-and-semantics">Parsing and Semantics</h2>
+<p>When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is. This process is called&nbsp;<strong>parsing</strong>. For example, when you hear the sentence, “The other shoe fell”, you understand that the other shoe is the subject and fell is the verb. Once you have parsed a sentence, you can figure out what it means, or the&nbsp;<strong>semantics</strong> of the sentence.</p>
+</section>
+<section id="differences-between-formal-and-natural-languages" class="level2">
+<h2 class="anchored" data-anchor-id="differences-between-formal-and-natural-languages">Differences between Formal and Natural Languages</h2>
+<ul>
+<li><p>Although formal and natural languages have many features in common, tokens, structure, syntax, and semantics, there are many differences.</p></li>
+<li><p><strong>Ambiguity</strong></p>
+<ul>
+<li>Natural languages are full of&nbsp;ambiguity, which people deal with by using contextual clues and other information.</li>
+<li>Formal languages are designed to be nearly or completely unambiguous, which means that any statement has exactly one meaning, regardless of context.</li>
+</ul></li>
+<li><p><strong>Redundancy</strong></p>
+<ul>
+<li>In order to make up for ambiguity and reduce misunderstandings, natural languages employ lots of redundancy.</li>
+<li>As a result, natural languages are often verbose. Formal languages are less redundant and more concise.</li>
+</ul></li>
+<li><p><strong>Literalness</strong></p>
+<ul>
+<li>Formal languages mean exactly what they say.</li>
+<li>Natural languages are full of idiom and metaphor.</li>
+<li>If someone says, “The other shoe fell”, there is probably no shoe and nothing falling.</li>
+</ul></li>
+</ul>
+</section>
+</section>
 <section id="using-python" class="level1">
 <h1>Using Python</h1>
 <ul>
@@ -444,9 +558,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Script mode: save statements in Python script</li>
 </ul></li>
 </ul>
-</section>
-<section id="interactive-mode" class="level1">
-<h1>Interactive Mode</h1>
+<section id="interactive-mode" class="level2">
+<h2 class="anchored" data-anchor-id="interactive-mode">Interactive Mode</h2>
 <p><strong>When you start Python in interactive mode, you will see a prompt</strong></p>
 <ul>
 <li>Indicates the interpreter is waiting for a Python statement to be typed</li>
@@ -455,8 +568,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><strong>Good way to learn new parts of Python</strong></li>
 </ul>
 </section>
-<section id="writing-python-programs-and-running-them-in-script-mode" class="level1">
-<h1>Writing Python Programs and Running Them in Script Mode</h1>
+<section id="writing-python-programs-and-running-them-in-script-mode" class="level2">
+<h2 class="anchored" data-anchor-id="writing-python-programs-and-running-them-in-script-mode">Writing Python Programs and Running Them in Script Mode</h2>
 <ul>
 <li><strong>Statements entered in interactive mode are not saved as a program</strong></li>
 <li><strong>To create a program, use script mode</strong>
@@ -469,13 +582,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 </ul>
 </section>
-<section id="more-about-programs" class="level1">
-<h1>More About Programs</h1>
-<p>A&nbsp;<strong>program</strong> is a sequence of instructions that specifies how to perform a computation.</p>
-<p>The computation might be something as complex as rendering an html page in a web browser or encoding a video and streaming it across the network. It can also be a symbolic computation, such as searching for and replacing text in a document or (strangely enough) compiling a program.</p>
-</section>
-<section id="basic-programming-instructions" class="level1">
-<h1>Basic Programming Instructions</h1>
+<section id="basic-programming-instructions" class="level2">
+<h2 class="anchored" data-anchor-id="basic-programming-instructions">Basic Programming Instructions</h2>
 <ul>
 <li><strong>Input</strong>
 <ul>
@@ -502,94 +610,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Every program you have ever used, no matter how complicated, is made up of instructions that look like these.&nbsp;</p>
 <p>We can describe programming as the process of breaking a large, complex task into smaller and smaller subtasks until the subtasks are simple enough to be performed with sequences of these basic instructions.</p>
 </section>
-<section id="debugging" class="level1">
-<h1>Debugging</h1>
-<ul>
-<li>Programming is a complex process.
-<ul>
-<li>Since it is done by human beings, errors may often occur.</li>
-</ul></li>
-<li>Programming errors are called&nbsp;<strong>bugs</strong>&nbsp;and the process of tracking them down and correcting them is called&nbsp;<strong>debugging</strong> &nbsp;.</li>
-<li>Some claim that in 1945, a dead moth caused a problem on relay number 70, panel F, of one of the first computers, and the term&nbsp;<strong>bug</strong> has remained in use since.</li>
-</ul>
-</section>
-<section id="type-of-errors" class="level1">
-<h1>Type of Errors</h1>
-<ul>
-<li>Three kinds of errors can occur in a program:&nbsp;
-<ul>
-<li>Syntax Errors</li>
-<li>Runtime Errors</li>
-<li>Semantic Errors</li>
-</ul></li>
-</ul>
-<section id="syntax-errors" class="level2">
-<h2 class="anchored" data-anchor-id="syntax-errors">Syntax Errors</h2>
-<p>Python can only execute a program if the program is syntactically correct ; otherwise, the process fails and returns an error message. &nbsp;<strong>Syntax</strong> refers to the structure of a program and the rules about that structure. For example, in English, a sentence must begin with a capital letter and end with a period. If there is a single syntax error anywhere in your program, Python will display an error message and quit. You will not be able to complete the execution of your program. During the first few weeks of your programming career, you will probably spend a lot of time tracking down syntax errors. However, as you gain experience, you will make fewer errors, and you will also be able to find your errors faster.</p>
-</section>
-<section id="runtime-errors" class="level2">
-<h2 class="anchored" data-anchor-id="runtime-errors">Runtime Errors</h2>
-<p>The second type of error is a runtime error, so called because the error does not appear until you run the program. These errors are also called&nbsp;<strong>exceptions</strong> because they usually indicate that something exceptional (and bad) has happened. Runtime errors are rare in the simple programs you will see in the first few chapters, so it might be a while before you encounter one.</p>
-</section>
-<section id="semantic-errors" class="level2">
-<h2 class="anchored" data-anchor-id="semantic-errors">Semantic Errors</h2>
-<p>If there is a semantic error in your program, it&nbsp;will run successfully in the sense that the computer will not generate any error messages. However, your program will not do the right thing. It will do something else. Specifically, it will do exactly what you told it to do.<br>
-</p>
-<p>The problem is that the program you wrote is not the program you wanted to write. The meaning of the program (its semantics) is wrong.<br>
-Identifying semantic errors can be tricky because it requires you to work backward by looking at the output of the program and trying to figure out what it is doing.<br>
-</p>
-</section>
-</section>
-<section id="experimental-debugging" class="level1">
-<h1>Experimental Debugging</h1>
-<p>One of the most important skills you will acquire is debugging. Debugging is like an experimental science. Once you have an idea what is going wrong, you modify your program and try again. If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program. If your hypothesis was wrong, you have to come up with a new one.</p>
-</section>
-<section id="formal-and-natural-languages" class="level1">
-<h1>Formal and Natural Languages</h1>
-<p><strong>Natural languages</strong> are the languages that people speak, such as English, Spanish, and French. They were not designed by people (although people try to impose some order on them); they evolved naturally.</p>
-<p><strong>Formal languages</strong> are languages that are designed by people for specific applications. For example, the notation that mathematicians use is a formal language that is particularly good at denoting relationships among numbers and symbols.</p>
-<p>Programming languages are formal languages that have been designed to express computations. Formal languages tend to have strict rules about syntax.</p>
-<p>For example,&nbsp;&nbsp;<strong>3+3=6</strong> &nbsp;is a syntactically correct mathematical statement, but&nbsp;<strong>3=+6$</strong> is not.</p>
-<p>Syntax rules come in two types, pertaining to&nbsp;<strong>tokens</strong> and structure. <strong>Tokens</strong> are the basic elements of the language, such as words, numbers, and chemical elements. One of the problems with&nbsp;&nbsp;3=+6 &nbsp;is that&nbsp;=+&nbsp;is not a valid token in mathematics (that is, it is not defined for common use).</p>
-<ul>
-<li>The second type of syntax rule pertains to the&nbsp;<strong>structure</strong> of a statement.
-<ul>
-<li>This is the way the tokens are arranged.</li>
-</ul></li>
-<li>The statement&nbsp;<strong>3=+6</strong> is structurally illegal because you cannot place a plus sign immediately after an equal sign.</li>
-</ul>
-</section>
-<section id="parsing-and-semantics" class="level1">
-<h1>Parsing and Semantics</h1>
-<p>When you read a sentence in English or a statement in a formal language, you have to figure out what the structure of the sentence is. This process is called&nbsp;<strong>parsing</strong>. For example, when you hear the sentence, “The other shoe fell”, you understand that the other shoe is the subject and fell is the verb. Once you have parsed a sentence, you can figure out what it means, or the&nbsp;<strong>semantics</strong> of the sentence.</p>
-</section>
-<section id="differences-between-formal-and-natural-languages" class="level1">
-<h1>Differences between Formal and Natural Languages</h1>
-<ul>
-<li><p>Although formal and natural languages have many features in common, tokens, structure, syntax, and semantics, there are many differences.</p></li>
-<li><p><strong>Ambiguity</strong></p>
-<ul>
-<li>Natural languages are full of&nbsp;ambiguity, which people deal with by using contextual clues and other information.</li>
-<li>Formal languages are designed to be nearly or completely unambiguous, which means that any statement has exactly one meaning, regardless of context.</li>
-</ul></li>
-<li><p><strong>Redundancy</strong></p>
-<ul>
-<li>In order to make up for ambiguity and reduce misunderstandings, natural languages employ lots of redundancy.</li>
-<li>As a result, natural languages are often verbose. Formal languages are less redundant and more concise.</li>
-</ul></li>
-<li><p><strong>Literalness</strong></p>
-<ul>
-<li>Formal languages mean exactly what they say.</li>
-<li>Natural languages are full of idiom and metaphor.</li>
-<li>If someone says, “The other shoe fell”, there is probably no shoe and nothing falling.</li>
-</ul></li>
-</ul>
 </section>
 <section id="hello-world" class="level1">
 <h1>Hello World</h1>
 <p>Traditionally, the first program written in a new language is called&nbsp;<strong>Hello, World</strong> because all it does is display the words, Hello, World.</p>
-<p>This is an example of using the&nbsp;<strong>print function</strong>, which displays a value on the screen.</p>
-<div id="1045f25e" class="cell" data-execution_count="1">
+<p>This is an example of using the <code>print function</code>, which displays a value on the screen.</p>
+<div id="a65815d8" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
@@ -600,9 +626,9 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 <h1>Comments</h1>
 <p>As programs get bigger and more complicated, they get more difficult to read. Formal languages are dense, and it is often difficult to look at a piece of code and figure out what it is doing, or why.</p>
 <p>For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing. These notes are called comments.</p>
-<p>A&nbsp;<strong>comment</strong> in a computer program is text that is intended only for the human reader - it is completely ignored by the interpreter.</p>
+<p>A <strong>comment</strong> in a computer program is text that is intended only for the human reader - it is completely ignored by the interpreter.</p>
 <p>In Python, the&nbsp;<strong>#</strong> token starts a comment. The rest of the line is ignored. Here is a new version of&nbsp;<strong>Hello, World!</strong>.</p>
-<div id="1f2fc38b" class="cell" data-execution_count="2">
+<div id="ffadf3de" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>) <span class="co">#This is a comment</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>

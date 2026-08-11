@@ -12,6 +12,6 @@ format:
     css: styles.css
 ---
 
-This is the central repository for the lecture notes for CSCI/CISE 1056. These notes provide an overview of the content covered during lecture and will be available as the reference during lab.
+This is the central repository for the lecture notes for CSCI/CISE 1056. These notes provide an overview of the content covered during lecture and will be available as the reference during some labs.
 
 More in-depth information from the official textbook can be found in the supplementary reading folder in each content section of Blackboard.
