@@ -138,6 +138,7 @@ Adding a scalar value to a matrix is defined by adding the scalar value to each 
 
 ```{python}
 print(A)
+
 print(A+2)
 ```
 
@@ -149,6 +150,7 @@ Multiplying a matrix by a scalar value is defined by multiplying the scalar valu
 
 ```{python}
 print(A)
+
 print(A*2)
 ```
 
@@ -160,6 +162,7 @@ In NumPy, we use the syntax `A.T` to take the transpose of matrix $A$.
 
 ```{python}
 print(A)
+
 print(A.T)
 ```
 
@@ -169,6 +172,7 @@ Matrix addition is defined similarly to vector addition where each paired elemen
 
 ```{python}
 print(A)
+
 print(A+A)
 ```
 
@@ -180,177 +184,417 @@ This kind of multiplication is the Hadamard product which we have seen with vect
 
 In NumPy, the Hadamard product is computed using the asterisk.
 
-#### The Hadamard Product
+### The Hadamard Product
 
 - It is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.
 
-\`\`\`{python}
+```{python}
+A = np.array([
+[1, 2, 3],
+[4, 5, 6]
+])
 
-A = np.array(\[
+print(A * A)
+```
 
-\[1, 2, 3\],
+### Matrix-Vector Multiplication
 
-\[4, 5, 6\]
+Let a matrix $A$ be defined by
 
-\])
+$$A =
+\begin{bmatrix}
+1 & 3 \\
+2 & 1
+\end{bmatrix}$$
 
-A \* A
+Let a vector $x$ be defined by
 
-\>\>\> \[\[1, 4, 9\],
+$$x =
+\begin{bmatrix}
+2  \\
+5 
+\end{bmatrix}$$
 
-\[16, 25, 36\]\]
+Then we have
 
-## Matrix-Vector Multiplication
+$$Ax = 2 
+\begin{bmatrix}
+1  \\
+2 
+\end{bmatrix} 
++
+5
+\begin{bmatrix}
+3  \\
+1 
+\end{bmatrix}$$
 
-## Matrix-Vector Multiplication
+What we have here is just an extension of scalar multiplication and vector addition. We can say that the matrix $A$ is just storing column vectors and that the vector $x$ tells us how much of each column to combine.
 
-## Matrix-Vector Multiplication
+```{python}
+A = np.array([
+[1,3],
+[2,1]
+])
 
-\`\`\`{python}
+x = np.array([2,5])
 
-A = np.array(\[
+print(A @ x)
 
-\[1,3\],
+print(2*A[:,0] + 5*A[:,1])
+```
 
-\[2,1\]
+Why not define multiplication some other way? Matrix multiplication was not invented to multiply tables of numbers. It was invented as a compact way to describe transformations of vectors. The chosen definition turns matrices into machines (or rules) that transform vectors.
 
-\])
+Suppose an object has position $(x,y)$ and you want to stretch the $x$-coordinate by $2$ while leaving $y$ unchanged.
 
-x = np.array(\[2,5\])
+What you want is a transformation that performs the following
 
-print(A \@ x)
+$$\begin{bmatrix}
+x  \\
+y 
+\end{bmatrix}
+\rightarrow 
+\begin{bmatrix}
+2x  \\
+y 
+\end{bmatrix}$$
 
-\>\>\> \[17 9\]
+We can go and write one operation that works for any values inside the vector. All we need to do is put the coefficients into a matrix.
 
-print(2\*A\[:,0\] + 5\*A\[:,1\])
+$$\begin{bmatrix}
+2 & 0 \\
+0 & 1 
+\end{bmatrix}
+\begin{bmatrix}
+x  \\
+y 
+\end{bmatrix}
+=
+\begin{bmatrix}
+2x  \\
+y 
+\end{bmatrix}$$
 
-\>\>\> \[17 9\]
+Using NumPy, we can verify this for chosen values of $x$ and $y$ .
 
-## Matrix-Vector Multiplication
+```{python}
+vec = np.array([1,2]) #x = 1 and y = 2, so our scaled vector should be (2,2) if successful
 
-- Why not define multiplication some other way?
-- Matrix multiplication was not invented to multiply tables of numbers.
-- It was invented as a compact way to describe transformations of vectors.
-- The chosen definition turns matrices into machines (or rules) that transform vectors.
+mat = np.array([[2,0],
+               [0,1]])
 
-## Matrix-Vector Multiplication
+print(mat@vec)
+```
 
-## Matrix-Vector Multiplication
+Remember that a matrix a rule that we define whose purpose is to transform vectors.
 
-## Matrix-Vector Multiplication
+We will reuse the matrix $A$ defined earlier:
 
-## Matrix-Vector Multiplication
+$$A =
+\begin{bmatrix}
+1 & 3 \\
+2 & 1
+\end{bmatrix}$$
 
-## Matrix-Vector Multiplication
+And we will define vector $x$ to be
 
-- Matrix columns:
+$$x =
+\begin{bmatrix}
+a  \\
+b 
+\end{bmatrix}$$
 
-  - directions or features
+Let us rewrite $A$ using the substitutions
 
-- Vector entries:
+$$c_1 = 
+\begin{bmatrix}
+1  \\
+2 
+\end{bmatrix}
+ ,\;
+c_2 = 
+\begin{bmatrix}
+3  \\
+1 
+\end{bmatrix}$$
 
-  - how much of each to use
+So we have
 
-- Output:
+$$A =  
+\begin{bmatrix}
+c_1  & c_2 
+\end{bmatrix}$$
 
-  - the resulting combination
+Then
 
-- This is very useful because many problems are linear combinations or can at least be approximated by linear combinations.
+$$Ax = ac_1 + bc_2$$
 
-## Matrix-Matrix Multiplication
+Note that the vector $x$ tells us how much of each column to use. This is the meaning of matrix-vector multiplication, the matrix stores vectors and the input vector provides the weights.
 
-## Matrix-Matrix Multiplication
+Matrix columns can be viewed as directions or features, the entries of our vector is how much of each feature to use, and the output is the resulting combination.
 
-## Matrix-Matrix Multiplication
+This is very useful because many problems are linear combinations or can at least be approximated by linear combinations.
 
-## Matrix-Matrix Multiplication
+### Matrix-Matrix Multiplication
 
-## Matrix-Matrix Multiplication
+If one matrix transforms vectors, what should happen when we apply two transformations in sequence?
 
-## Dimension Rules
+Suppose that the matrix $B$ rotates a vector $x$ , then matrix $A$ stretches it. We would like to have a single matrix that performs both operations at once, that is
 
-## Dimension Rules
+$$A(Bx) = (AB)x$$
+
+This requirement determines how matrix multiplication must work. Matrix multiplication is defined so that composing transformations works as expected.
+
+If matrix $C$ has columns $C = \begin{bmatrix} c_1  & c_2 & c_3 \end{bmatrix}$ then multiplying $C$ by matrix $D$ gives us $DC =\begin{bmatrix}Dc_1  & Dc_2 & Dc_3 \end{bmatrix}$
+
+We can see that $D$ is applied to every column of $C$. Matrix-matrix multiplication ultimately means we transform every column.
+
+Computing the output of matrix multiplication is usually taught as the "row-column" approach.
+
+For matrix
+
+$$A = \begin{bmatrix} a_{11}  & a_{12} \\ a_{21} & a_{22} \end{bmatrix}$$
+
+and vector
+
+$$x = \begin{bmatrix} x_1 \\ x_2 \end{bmatrix}$$
+
+we have
+
+$$Ax = x_1 \begin{bmatrix} a_{11} \\ a_{21} \end{bmatrix} + x_2 \begin{bmatrix} a_{12} \\ a_{22} \end{bmatrix} = \begin{bmatrix} x_1a_{11} + x_2a_{12} \\ x_1a_{21} + x_2a_{22} \end{bmatrix}$$
+
+Note that we are using what amounts to the dot product here.
+
+For matrix
+
+$$ 
+B = \begin{bmatrix} 1  & 2 \\ 3 & 4 \end{bmatrix} $$
+
+and
+
+$$ 
+C = \begin{bmatrix} 5  & 6 \\ 7 & 8 \end{bmatrix} $$
+
+\$\$BC =\
+
+\begin{bmatrix} 
+\begin{bmatrix} 1 & 2 \end{bmatrix} \begin{bmatrix} 5 \\ 7 \end{bmatrix} & \begin{bmatrix} 1 & 2 \end{bmatrix} \begin{bmatrix} 6 \\ 8 \end{bmatrix} 
+\\ 
+\begin{bmatrix} 3 & 4 \end{bmatrix} \begin{bmatrix} 5 \\ 7 \end{bmatrix} & \begin{bmatrix} 3 & 4 \end{bmatrix} \begin{bmatrix} 6 \\ 8 \end{bmatrix} 
+\end{bmatrix}
+
+=
+
+\begin{bmatrix} 1 \times 5 + 2 \times 7 & 3 \times 5 + 4 \times 7 \\ 1 \times 6 + 2 \times 8 & 3 \times 6 + 4 \times 8 \end{bmatrix}
+
+=
+
+\begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}
+
+\$\$
+
+::: practice-box
+Confirm that for matrices $B$ and $C$ above that $BC \neq CB$.
+:::
+
+::: practice-box
+Confirm by hand that the result of the matrix vector product in the Python example in the matrix-vector product subsection is in fact just the $x$ value scaled by $2$.
+:::
+
+### Dimension Rules
+
+Matrix multiplication is not defined for any two arbitrary sized matrices.
+
+An $n \times p$ matrix takes a $p$-dimensional vector and produces an $n$-dimensional vector. Now, if we have an $m \times n$ matix, this takes an $n$-dimensional vector and produces an $m$-dimensional vector.
+
+If we have two transformations, the output dimension of the first transformation must equal the input dimension of the second transformation. We need to connect compatible transformations to have matrix multiplication defined. Looking at our matrices we have the $m \times n$ matrix applied to the $n \times p$ matrix. Writing this as $(m \times n)(n \times p)$ we can see that the "inner" dimensions are equal here, and this is the requirement when it comes to matrix multiplication. The size of the output will be the "outer dimension" $(m \times p)$.
 
 ## Rotation Matrices
 
-## Rotation Matrices
+A rotation matrix turns every vector by the same angle. To keep things simple, we will restrict ourselves to 2 dimensions.
 
-\`\`\`{python}
+The following matrix can rotate every point in our 2D space:
+
+$$\begin{bmatrix} \cos(\theta) & -sin(\theta) \\ \sin(\theta) & \cos(\theta) \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}$$
+
+The simplicity of representing this transformation is one reason why graphics libraries use matrices everywhere.
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show Python Plotting code"
+import matplotlib.pyplot as plt
 
 def rotate(theta,vector):
 
-rotation_matrix = np.array(\[
+  rotation_matrix = np.array([
 
-\[np.cos(theta), -1\*np.sin(theta)\],
+                    [np.cos(theta), -1*np.sin(theta)],
 
-\[np.sin(theta), np.cos(theta)\]
+                    [np.sin(theta), np.cos(theta)]
 
-\])
+                    ])
 
-return rotation_matrix \@ vector
+  return rotation_matrix @ vector
 
-vector = \[1,2\]
-
-theta = np.pi / 2
-
-print(rotate(theta,vector))
-
-\>\>\> \[-2. 1.\]
-
-## Rotation Matrices
-
-vector = \[1,2\]
-
-## Rotation Matrices
+vector = [1,2]
 
 theta = np.pi / 2
 
 print(rotate(theta,vector))
+```
 
-\>\>\> \[-2. 1.\]
+We can visualize the initial vector and its transformed version to confirm that our rotation matrix is working correctly.
 
-## Rotation Matrices
+```{python}
+#| code-fold: true
+#| code-summary: "Show Python Plotting code"
+import matplotlib.pyplot as plt
 
-## Rotation Matrices
+def setup_axes(ax, lim=3):
+    """Create a consistent coordinate system."""
+    ax.set_xlim(-lim, lim)
+    ax.set_ylim(-lim, lim)
 
-- What is actually being rotated?
-- It is not actually the "house."
-- Our matrix is rotating every **vertex** of the house.
-- We just draw the lines after each rotation.
-- This is fundamentally how computer graphics work.
+    ax.set_aspect('equal')
 
-## Rotation Matrices
+    # Draw coordinate axes
+    ax.axhline(0, color='black', linewidth=1)
+    ax.axvline(0, color='black', linewidth=1)
 
-- The rotation matrix operates on a deeper level than just rotating the points that comprise the house.
-- It acts as a transformation of the entire coordinate system.
-- The matrix transforms everything in the plane.
+    ax.grid(True, linestyle='--', alpha=0.4)
 
-## Floating Point Approximations
+    ax.set_xlabel("x")
+    ax.set_ylabel("y")
 
-\`\`\`{python}
+v = np.array([1,2])
 
-vector = np.array(\[1,0\])
+fig, ax = plt.subplots(figsize=(6,6))
 
+setup_axes(ax)
+
+# Vector
+ax.quiver(0,0,v[0],v[1],
+          angles='xy',
+          scale_units='xy',
+          scale=1)
+
+# Components
+ax.plot([0,v[0]],[0,0],'--')
+ax.plot([v[0],v[0]],[0,v[1]],'--')
+
+ax.text(v[0]+0.1,v[1]+0.1,"v = (1,2)")
+plt.show()
+```
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show Python Plotting code"
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(6,6))
+
+setup_axes(ax)
+
+v = np.array([1,2])
+
+angles = np.linspace(0,np.pi/2,2)
+
+for theta in angles:
+
+    R = np.array([
+        [np.cos(theta),-np.sin(theta)],
+        [np.sin(theta), np.cos(theta)]
+    ])
+
+    vr = R @ v
+
+    if theta == 0:
+        color = 'blue'
+    else:
+        color = 'red'
+    ax.quiver(
+        0,0,
+        vr[0],vr[1],
+        angles='xy',
+        scale_units='xy',
+        scale=1,
+        alpha=0.7,
+        color=color
+    )    
+plt.show()
+```
+
+### Basis Vectors
+
+We know we can decompose vectors into a representation based off of their constituent directions. For example, in 2D space we can use the $x$ and $y$ axes to fully describe any vector that lives in that space, that is, every vector in our space can be built from a linear combination of these directions. We then talk of the $x$ and $y$ components of the vector.
+
+These building-block vectors are called **basis vectors**.
+
+```{python}
+#| code-fold: true
+#| code-summary: "Show Python Plotting code"
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(6,6))
+
+setup_axes(ax)
+
+e1 = np.array([1,0])
+e2 = np.array([0,1])
+
+ax.quiver(0,0,*e1,
+          angles='xy',
+          scale_units='xy',
+          scale=1)
+
+ax.quiver(0,0,*e2,
+          angles='xy',
+          scale_units='xy',
+          scale=1)
+
+v = np.array([1,2])
+
+ax.quiver(0,0,*v,
+          angles='xy',
+          scale_units='xy',
+          scale=1)
+
+ax.text(1.05,-0.15,"e₁")
+ax.text(-0.2,1.1,"e₂")
+ax.text(v[0]+0.1,v[1],"v")
+
+plt.show()
+```
+
+The vector $v$ in the plot can be viewed as $1e_1 + 2e_2$.
+
+### Floating Point Approximations
+
+Suppose we use our rotation matrix on the vector $[1,0]$ where we rotate by $\frac{\pi}{2}$.
+
+We would expect our output to be exactly $[0,1]$ but sometimes we may see a slightly different answer.
+
+```{python}
+vector = np.array([1,0])
 theta = np.pi/2
 
-R = np.array(\[
+R = np.array([
+[np.cos(theta), -np.sin(theta)],
+[np.sin(theta), np.cos(theta)]
+])
 
-\[np.cos(theta), -np.sin(theta)\],
+print(R @ vector)
+```
 
-\[np.sin(theta), np.cos(theta)\]
+Because computers cannot store most real numbers exactly, they need to approximate them. This leads to small errors in the result. But, if we know that this is possible, we can work to control it.
 
-\])
+For this example, we can clean up our answer using the `round()` method in NumPy.
 
-print(R \@ vector)
+- `np.round()` takes in a NumPy arrow and an integer that controls the number of digits (the precision).
 
-\>\>\> \[6.123234e-17 1.000000e+00\]
+```{python}
+print(np.round(R @ vector, 10))
+```
 
-## Floating Point Approximations
-
-- We can clean this up using **np.round()**
-- **np.round** takes in a NumPy array and an integer that controls the number of digits (the precision).
-- Here, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.
-
-np.round(R \@ vector, 10)
-
-array(\[0., 1.\])
+Here, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.

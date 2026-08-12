@@ -409,7 +409,7 @@ window.Quarto = {
 <li><code>print(scores * 2)</code></li>
 </ul>
 <p>But what happens is it repeats the list items</p>
-<div id="436559e7" class="cell" data-execution_count="1">
+<div id="5058d857" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> [<span class="dv">85</span>, <span class="dv">90</span>,  <span class="dv">78</span>]</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(scores <span class="op">*</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -459,7 +459,7 @@ window.Quarto = {
 <ul>
 <li>Once you have access to NumPy we need to use an import statement:</li>
 </ul>
-<div id="839403df" class="cell" data-execution_count="2">
+<div id="88130227" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ul>
@@ -473,7 +473,7 @@ window.Quarto = {
 <ul>
 <li>To use NumPy’s features, we must convert our standard Python list into a specialized NumPy object called a <strong>ndarray</strong> (n-dimensional array).</li>
 </ul>
-<div id="8f9a1db9" class="cell" data-execution_count="3">
+<div id="b62973c3" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>scores <span class="op">=</span> [<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">78</span>]</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>np_scores <span class="op">=</span> np.array(scores)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -488,7 +488,7 @@ window.Quarto = {
 <li>Vectorization allows operations to be applied to every element in the array at the exact same time.</li>
 <li>We can now multiply our collection by two and get the result that we initially anticipated.</li>
 </ul>
-<div id="3354c9dc" class="cell" data-execution_count="4">
+<div id="fc2c3b9f" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np_scores <span class="op">*</span> <span class="dv">2</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[170 180 156]</code></pre>
@@ -510,7 +510,7 @@ window.Quarto = {
 <li>Must hold uniform data types.</li>
 </ul></li>
 <li><p><strong>Warning:</strong> If you put a string into an array of numbers NumPy will silently convert your numbers into strings to maintain uniformity.</p>
-<div id="347b140a" class="cell" data-execution_count="5">
+<div id="dbb59d17" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>arr <span class="op">=</span> np.array([<span class="dv">85</span>, <span class="dv">90</span>, <span class="st">"apple"</span>])</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(arr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -535,7 +535,7 @@ window.Quarto = {
 <p>A vector is an ordered list of coordinates that gives us instructions on how to move through space. The dimensionality of the space is the number of values in the vector.</p>
 <p>In math, <span class="math inline">v = [3, 2]</span> means <em>“start at the origin, go 3 units along the x-axis and 2 units along y-axis.”</em> The vector <span class="math inline">v</span> here has two elements and so the space the vector is in is 2-dimensional.</p>
 <p>We can represent this in Python as a 1-dimensional NumPy array.</p>
-<div id="d8e81598" class="cell" data-execution_count="6">
+<div id="419a03c7" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -568,7 +568,7 @@ window.Quarto = {
 <li>We can find the straight-line distance from your starting point to your destination using the magnitude of the sum of the vectors.</li>
 <li>Since we are working in a 2-dimensional space this is just the Pythagorean theorem.</li>
 </ul>
-<div id="1fa38b48" class="cell" data-execution_count="7">
+<div id="889685da" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>east<span class="op">=</span> np.array([<span class="dv">3</span>,<span class="dv">0</span>])</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>north <span class="op">=</span> np.array([<span class="dv">0</span>,<span class="dv">4</span>])</span>
@@ -584,7 +584,7 @@ window.Quarto = {
 <p>Adding (or subtracting) two vectors is combining their instructions.</p>
 <p>This can be visualized with the <em>“head to tail”</em> method.</p>
 <p><img src="images/paste-6.png" class="img-fluid"></p>
-<div id="980035f9" class="cell" data-execution_count="8">
+<div id="13b5f7c2" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">2</span>, <span class="dv">1</span>])</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">3</span>])</span>
@@ -600,7 +600,7 @@ window.Quarto = {
 <p>Applying a positive scalar to a vector scales its magnitude (length) without changing its fundamental line of direction.</p>
 <p>Applying a negative scalar scales its magnitude and changes the direction exactly 180 degrees.</p>
 <p><img src="images/paste-7.png" class="img-fluid"></p>
-<div id="0fdac6bd" class="cell" data-execution_count="9">
+<div id="ce7ee5a3" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>v <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">2</span> <span class="op">*</span> v)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -618,7 +618,7 @@ window.Quarto = {
 <section id="the-hadamard-product" class="level3">
 <h3 class="anchored" data-anchor-id="the-hadamard-product">The Hadamard Product</h3>
 <p>In NumPy, the <span class="math inline">*</span> operator is defined for vectors. That is, <span class="math inline">a * b</span> will result in output. But it is not likely to be the output you wanted.</p>
-<div id="cb2e49a1" class="cell" data-execution_count="10">
+<div id="61d718e4" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>])</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
@@ -641,7 +641,7 @@ window.Quarto = {
 <p><span class="math display">a \cdot b = |a||b|\cos(\theta )</span></p>
 <p><span class="math display">a \cdot b = a_1b_1 + a_2b_2 + ...</span></p>
 <p>Note that the output of the dot product is a scalar (hence the term scalar product).</p>
-<div id="a7a538cc" class="cell" data-execution_count="11">
+<div id="de2eb62d" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>])</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">3</span>, <span class="dv">4</span>])</span>
@@ -669,7 +669,7 @@ window.Quarto = {
 <li><p>If the two vectors point in the exact same direction, their cross product is zero (no area, no leverage).</p></li>
 <li><p>If they are perpendicular, the cross product is at its maximum.</p></li>
 </ul>
-<div id="ebd464f3" class="cell" data-execution_count="12">
+<div id="c3aeeb0b" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> np.array([<span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">0</span>])</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">4</span>, <span class="dv">0</span>])</span>
@@ -701,7 +701,7 @@ window.Quarto = {
 <li><p>For a 2D array it returns <code>(number of rows, number of columns)</code>.</p></li>
 </ul>
 <p>Many operations involving vectors require equivalent shapes. For example, the dot product is defined only on two vectors of identical length. <code>array.shape</code> can be used to help diagnose or prevent errors like this.</p>
-<div id="de9af149" class="cell" data-execution_count="13">
+<div id="879d0a16" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>prices <span class="op">=</span> np.array([<span class="dv">10</span>, <span class="dv">20</span>, <span class="dv">30</span>])</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(prices.shape)<span class="co"># Output: (3,) A 1D array with 3 elements</span></span>
@@ -760,7 +760,7 @@ window.Quarto = {
 <section id="reshape" class="level3">
 <h3 class="anchored" data-anchor-id="reshape">Reshape</h3>
 <p><code>array.reshape()</code> changes the dimensions of an array without changing its actual data.</p>
-<div id="7c14a9cb" class="cell" data-execution_count="14">
+<div id="6cf8accd" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>flat_data <span class="op">=</span> np.array([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>])</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Morph it into 3 rows and 2 columns</span></span>
@@ -780,7 +780,7 @@ window.Quarto = {
 <section id="flatten" class="level3">
 <h3 class="anchored" data-anchor-id="flatten">Flatten</h3>
 <p><code>array.flatten()</code> takes a multi-dimensional grid and squashes it back down into a single 1D row. This iu Useful when a library expects a flat sequence of values, but you currently have them inside a multi-dimensional structure.</p>
-<div id="e0e0f088" class="cell" data-execution_count="15">
+<div id="14c12b7f" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>grid_data <span class="op">=</span> np.array([[<span class="dv">1</span>, <span class="dv">2</span>],[<span class="dv">3</span>, <span class="dv">4</span>],[<span class="dv">5</span>, <span class="dv">6</span>]])</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Morph it into 1 row</span></span>
@@ -797,7 +797,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="isnan">isnan</h3>
 <p><code>np.isnan()</code> returns a Boolean array (True/False) indicating where missing or corrupted data (NaN or Not a Number) is located.</p>
 <p>If you run <code>np.mean(scores)</code>and the result is just NaN, having just a single broken data point has ruined your calculation. Combining this with an aggregate tool allows you to count how many broken points you have.</p>
-<div id="a77597ed" class="cell" data-execution_count="16">
+<div id="2460e37c" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> np.array([<span class="dv">85</span>, np.nan, <span class="dv">90</span>])</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Find the missing data</span></span>
@@ -821,7 +821,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="astype">astype</h3>
 <p><code>array.astype()</code> explicitly forces an array to convert from one data type to another.</p>
 <p>If you read data from a file and it imports everything as text strings (e.g., <code>["10", "20", "30"]</code>), you use <code>astype</code> to cast them into actual integers or floats so you can perform vector arithmetic.</p>
-<div id="609b56c0" class="cell" data-execution_count="17">
+<div id="867fbe3e" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>string_scores <span class="op">=</span> np.array([<span class="st">"85"</span>, <span class="st">"90"</span>, <span class="st">"78"</span>])</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Fix the type so we can do math</span></span>

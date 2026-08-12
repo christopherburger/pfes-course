@@ -807,7 +807,7 @@
     "href": "lectures/05_functions/functions.html",
     "title": "5: Functions",
     "section": "",
-    "text": "We have used prebuilt functions repeatedly in this course (like print or input) and now we will look at building our own.\nA function is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.\nThis idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.\n\n\nFunction naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.\n\n\n\n\nDefining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.\n\n\n\nTo use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.\n\n\n\nThe function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass\n\n\n\n\n\nChanges made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.\n\n\n\n\n\n\nIn Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.\n\n\n\n\nWe can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4390219872   Var 2 = 4390219872\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4390219872   Var 2 = 4390219872",
+    "text": "We have used prebuilt functions repeatedly in this course (like print or input) and now we will look at building our own.\nA function is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.\nThis idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.\n\n\nFunction naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.\n\n\n\n\nDefining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.\n\n\n\nTo use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.\n\n\n\nThe function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass\n\n\n\n\n\nChanges made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.\n\n\n\n\n\n\nIn Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.\n\n\n\n\nWe can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608",
     "crumbs": [
       "Lectures",
       "5: Functions"
@@ -884,7 +884,7 @@
     "href": "lectures/05_functions/functions.html#the-id-function",
     "title": "5: Functions",
     "section": "",
-    "text": "We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4390219872   Var 2 = 4390219872\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4390219872   Var 2 = 4390219872",
+    "text": "We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608",
     "crumbs": [
       "Lectures",
       "5: Functions"
@@ -4283,7 +4283,7 @@
     "href": "lectures/10_matrices/matrices.html#scalar-addition",
     "title": "10: Matrices",
     "section": "Scalar Addition",
-    "text": "Scalar Addition\nAdding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.\n\n\nprint(A)\nprint(A+2)\n\n[[1 2 3]\n [4 5 6]]\n[[3 4 5]\n [6 7 8]]",
+    "text": "Scalar Addition\nAdding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.\n\n\nprint(A)\n\nprint(A+2)\n\n[[1 2 3]\n [4 5 6]]\n[[3 4 5]\n [6 7 8]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4294,7 +4294,7 @@
     "href": "lectures/10_matrices/matrices.html#scalar-multiplication",
     "title": "10: Matrices",
     "section": "Scalar Multiplication",
-    "text": "Scalar Multiplication\nMultiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.\n\n\nprint(A)\nprint(A*2)\n\n[[1 2 3]\n [4 5 6]]\n[[ 2  4  6]\n [ 8 10 12]]",
+    "text": "Scalar Multiplication\nMultiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.\n\n\nprint(A)\n\nprint(A*2)\n\n[[1 2 3]\n [4 5 6]]\n[[ 2  4  6]\n [ 8 10 12]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4305,7 +4305,7 @@
     "href": "lectures/10_matrices/matrices.html#the-transpose-of-a-matrix",
     "title": "10: Matrices",
     "section": "The Transpose of a Matrix",
-    "text": "The Transpose of a Matrix\nThe transpose operation on a matrix turns all rows to columns and all columns to rows.\nIn NumPy, we use the syntax A.T to take the transpose of matrix A.\n```{python}\nA = np.array([\n[1, 2, 3],\n[4, 5, 6]\n])\nA.T\n&gt;&gt;&gt; [[1 4]\n[2 5]\n[3 6]]",
+    "text": "The Transpose of a Matrix\nThe transpose operation on a matrix turns all rows to columns and all columns to rows.\nIn NumPy, we use the syntax A.T to take the transpose of matrix A.\n\nprint(A)\n\nprint(A.T)\n\n[[1 2 3]\n [4 5 6]]\n[[1 4]\n [2 5]\n [3 6]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4316,7 +4316,7 @@
     "href": "lectures/10_matrices/matrices.html#matrix-addition",
     "title": "10: Matrices",
     "section": "Matrix Addition",
-    "text": "Matrix Addition\n\nMatrix addition is defined similarly to vector addition.\nEach paired element is added together.\n\nNote that we need a pairing, and so the matrices must be of identical dimensions.\n\n\n```{python}\nA = np.array([\n[1, 2, 3],\n[4, 5, 6]\n])\nA + A\n&gt;&gt;&gt; [[2, 4, 6],\n[8, 10, 12]]",
+    "text": "Matrix Addition\nMatrix addition is defined similarly to vector addition where each paired element is added together. Note that we need a pairing, and so the matrices must be of identical dimensions.\n\nprint(A)\n\nprint(A+A)\n\n[[1 2 3]\n [4 5 6]]\n[[ 2  4  6]\n [ 8 10 12]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4327,194 +4327,7 @@
     "href": "lectures/10_matrices/matrices.html#matrix-multiplication",
     "title": "10: Matrices",
     "section": "Matrix Multiplication",
-    "text": "Matrix Multiplication\n\nWhen it comes to “multiplication” of matrices, we need to define what multiplication means.\nWithout prior knowledge, most people would define matrix multiplication similarly to scalar multiplication.\n\nThat is, element-wise multiplication\n\nThis kind of multiplication is the Hadamard product which we have seen with vectors.\n\nThis is not generally what people mean when they say matrix multiplication.\n\nIn NumPy the Hadamard product is computed using the asterisk.",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#the-hadamard-product",
-    "href": "lectures/10_matrices/matrices.html#the-hadamard-product",
-    "title": "10: Matrices",
-    "section": "The Hadamard Product",
-    "text": "The Hadamard Product\n\nIt is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.\n\n```{python}\nA = np.array([\n[1, 2, 3],\n[4, 5, 6]\n])\nA * A\n&gt;&gt;&gt; [[1, 4, 9],\n[16, 25, 36]]",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-1",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-1",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-2",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-2",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication\n```{python}\nA = np.array([\n[1,3],\n[2,1]\n])\nx = np.array([2,5])\nprint(A @ x)\n&gt;&gt;&gt; [17 9]\nprint(2*A[:,0] + 5*A[:,1])\n&gt;&gt;&gt; [17 9]",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-3",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-3",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication\n\nWhy not define multiplication some other way?\nMatrix multiplication was not invented to multiply tables of numbers.\nIt was invented as a compact way to describe transformations of vectors.\nThe chosen definition turns matrices into machines (or rules) that transform vectors.",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-4",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-4",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-5",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-5",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-6",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-6",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-7",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-7",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-8",
-    "href": "lectures/10_matrices/matrices.html#matrix-vector-multiplication-8",
-    "title": "10: Matrices",
-    "section": "Matrix-Vector Multiplication",
-    "text": "Matrix-Vector Multiplication\n\nMatrix columns:\n\ndirections or features\n\nVector entries:\n\nhow much of each to use\n\nOutput:\n\nthe resulting combination\n\nThis is very useful because many problems are linear combinations or can at least be approximated by linear combinations.",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication",
-    "href": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication",
-    "title": "10: Matrices",
-    "section": "Matrix-Matrix Multiplication",
-    "text": "Matrix-Matrix Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-1",
-    "href": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-1",
-    "title": "10: Matrices",
-    "section": "Matrix-Matrix Multiplication",
-    "text": "Matrix-Matrix Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-2",
-    "href": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-2",
-    "title": "10: Matrices",
-    "section": "Matrix-Matrix Multiplication",
-    "text": "Matrix-Matrix Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-3",
-    "href": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-3",
-    "title": "10: Matrices",
-    "section": "Matrix-Matrix Multiplication",
-    "text": "Matrix-Matrix Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-4",
-    "href": "lectures/10_matrices/matrices.html#matrix-matrix-multiplication-4",
-    "title": "10: Matrices",
-    "section": "Matrix-Matrix Multiplication",
-    "text": "Matrix-Matrix Multiplication",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#dimension-rules",
-    "href": "lectures/10_matrices/matrices.html#dimension-rules",
-    "title": "10: Matrices",
-    "section": "Dimension Rules",
-    "text": "Dimension Rules",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#dimension-rules-1",
-    "href": "lectures/10_matrices/matrices.html#dimension-rules-1",
-    "title": "10: Matrices",
-    "section": "Dimension Rules",
-    "text": "Dimension Rules",
+    "text": "Matrix Multiplication\nWhen it comes to “multiplication” of matrices, we need to define what multiplication means. Without prior knowledge, most people would define matrix multiplication similarly to scalar multiplication. That is, element-wise multiplication.\nThis kind of multiplication is the Hadamard product which we have seen with vectors. And this is not generally what people mean when they say matrix multiplication.\nIn NumPy, the Hadamard product is computed using the asterisk.\n\nThe Hadamard Product\n\nIt is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.\n\n\nA = np.array([\n[1, 2, 3],\n[4, 5, 6]\n])\n\nprint(A * A)\n\n[[ 1  4  9]\n [16 25 36]]\n\n\n\n\nMatrix-Vector Multiplication\nLet a matrix A be defined by\nA =\n\\begin{bmatrix}\n1 & 3 \\\\\n2 & 1\n\\end{bmatrix}\nLet a vector x be defined by\nx =\n\\begin{bmatrix}\n2  \\\\\n5\n\\end{bmatrix}\nThen we have\nAx = 2\n\\begin{bmatrix}\n1  \\\\\n2\n\\end{bmatrix}\n+\n5\n\\begin{bmatrix}\n3  \\\\\n1\n\\end{bmatrix}\nWhat we have here is just an extension of scalar multiplication and vector addition. We can say that the matrix A is just storing column vectors and that the vector x tells us how much of each column to combine.\n\nA = np.array([\n[1,3],\n[2,1]\n])\n\nx = np.array([2,5])\n\nprint(A @ x)\n\nprint(2*A[:,0] + 5*A[:,1])\n\n[17  9]\n[17  9]\n\n\nWhy not define multiplication some other way? Matrix multiplication was not invented to multiply tables of numbers. It was invented as a compact way to describe transformations of vectors. The chosen definition turns matrices into machines (or rules) that transform vectors.\nSuppose an object has position (x,y) and you want to stretch the x-coordinate by 2 while leaving y unchanged.\nWhat you want is a transformation that performs the following\n\\begin{bmatrix}\nx  \\\\\ny\n\\end{bmatrix}\n\\rightarrow\n\\begin{bmatrix}\n2x  \\\\\ny\n\\end{bmatrix}\nWe can go and write one operation that works for any values inside the vector. All we need to do is put the coefficients into a matrix.\n\\begin{bmatrix}\n2 & 0 \\\\\n0 & 1\n\\end{bmatrix}\n\\begin{bmatrix}\nx  \\\\\ny\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n2x  \\\\\ny\n\\end{bmatrix}\nUsing NumPy, we can verify this for chosen values of x and y .\n\nvec = np.array([1,2]) #x = 1 and y = 2, so our scaled vector should be (2,2) if successful\n\nmat = np.array([[2,0],\n               [0,1]])\n\nprint(mat@vec)\n\n[2 2]\n\n\nRemember that a matrix a rule that we define whose purpose is to transform vectors.\nWe will reuse the matrix A defined earlier:\nA =\n\\begin{bmatrix}\n1 & 3 \\\\\n2 & 1\n\\end{bmatrix}\nAnd we will define vector x to be\nx =\n\\begin{bmatrix}\na  \\\\\nb\n\\end{bmatrix}\nLet us rewrite A using the substitutions\nc_1 =\n\\begin{bmatrix}\n1  \\\\\n2\n\\end{bmatrix}\n,\\;\nc_2 =\n\\begin{bmatrix}\n3  \\\\\n1\n\\end{bmatrix}\nSo we have\nA =  \n\\begin{bmatrix}\nc_1  & c_2\n\\end{bmatrix}\nThen\nAx = ac_1 + bc_2\nNote that the vector x tells us how much of each column to use. This is the meaning of matrix-vector multiplication, the matrix stores vectors and the input vector provides the weights.\nMatrix columns can be viewed as directions or features, the entries of our vector is how much of each feature to use, and the output is the resulting combination.\nThis is very useful because many problems are linear combinations or can at least be approximated by linear combinations.\n\n\nMatrix-Matrix Multiplication\nIf one matrix transforms vectors, what should happen when we apply two transformations in sequence?\nSuppose that the matrix B rotates a vector x , then matrix A stretches it. We would like to have a single matrix that performs both operations at once, that is\nA(Bx) = (AB)x\nThis requirement determines how matrix multiplication must work. Matrix multiplication is defined so that composing transformations works as expected.\nIf matrix C has columns C = \\begin{bmatrix} c_1  & c_2 & c_3 \\end{bmatrix} then multiplying C by matrix D gives us DC =\\begin{bmatrix}Dc_1  & Dc_2 & Dc_3 \\end{bmatrix}\nWe can see that D is applied to every column of C. Matrix-matrix multiplication ultimately means we transform every column.\nComputing the output of matrix multiplication is usually taught as the “row-column” approach.\nFor matrix\nA = \\begin{bmatrix} a_{11}  & a_{12} \\\\ a_{21} & a_{22} \\end{bmatrix}\nand vector\nx = \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix}\nwe have\nAx = x_1 \\begin{bmatrix} a_{11} \\\\ a_{21} \\end{bmatrix} + x_2 \\begin{bmatrix} a_{12} \\\\ a_{22} \\end{bmatrix} = \\begin{bmatrix} x_1a_{11} + x_2a_{12} \\\\ x_1a_{21} + x_2a_{22} \\end{bmatrix}\nNote that we are using what amounts to the dot product here.\nFor matrix\n\nB = \\begin{bmatrix} 1  & 2 \\\\ 3 & 4 \\end{bmatrix} \nand\n\nC = \\begin{bmatrix} 5  & 6 \\\\ 7 & 8 \\end{bmatrix} \n$$BC =\n\n\\begin{bmatrix}\n\\begin{bmatrix} 1 & 2 \\end{bmatrix} \\begin{bmatrix} 5 \\\\ 7 \\end{bmatrix} & \\begin{bmatrix} 1 & 2 \\end{bmatrix} \\begin{bmatrix} 6 \\\\ 8 \\end{bmatrix}\n\\\\\n\\begin{bmatrix} 3 & 4 \\end{bmatrix} \\begin{bmatrix} 5 \\\\ 7 \\end{bmatrix} & \\begin{bmatrix} 3 & 4 \\end{bmatrix} \\begin{bmatrix} 6 \\\\ 8 \\end{bmatrix}\n\\end{bmatrix}\n=\n\\begin{bmatrix} 1 \\times 5 + 2 \\times 7 & 3 \\times 5 + 4 \\times 7 \\\\ 1 \\times 6 + 2 \\times 8 & 3 \\times 6 + 4 \\times 8 \\end{bmatrix}\n=\n\\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}\n$$\n\nConfirm that for matrices B and C above that BC \\neq CB.\n\n\nConfirm by hand that the result of the matrix vector product in the Python example in the matrix-vector product subsection is in fact just the x value scaled by 2.\n\n\n\nDimension Rules\nMatrix multiplication is not defined for any two arbitrary sized matrices.\nAn n \\times p matrix takes a p-dimensional vector and produces an n-dimensional vector. Now, if we have an m \\times n matix, this takes an n-dimensional vector and produces an m-dimensional vector.\nIf we have two transformations, the output dimension of the first transformation must equal the input dimension of the second transformation. We need to connect compatible transformations to have matrix multiplication defined. Looking at our matrices we have the m \\times n matrix applied to the n \\times p matrix. Writing this as (m \\times n)(n \\times p) we can see that the “inner” dimensions are equal here, and this is the requirement when it comes to matrix multiplication. The size of the output will be the “outer dimension” (m \\times p).",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4525,95 +4338,7 @@
     "href": "lectures/10_matrices/matrices.html#rotation-matrices",
     "title": "10: Matrices",
     "section": "Rotation Matrices",
-    "text": "Rotation Matrices",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#rotation-matrices-1",
-    "href": "lectures/10_matrices/matrices.html#rotation-matrices-1",
-    "title": "10: Matrices",
-    "section": "Rotation Matrices",
-    "text": "Rotation Matrices\n```{python}\ndef rotate(theta,vector):\nrotation_matrix = np.array([\n[np.cos(theta), -1*np.sin(theta)],\n[np.sin(theta), np.cos(theta)]\n])\nreturn rotation_matrix @ vector\nvector = [1,2]\ntheta = np.pi / 2\nprint(rotate(theta,vector))\n&gt;&gt;&gt; [-2. 1.]",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#rotation-matrices-2",
-    "href": "lectures/10_matrices/matrices.html#rotation-matrices-2",
-    "title": "10: Matrices",
-    "section": "Rotation Matrices",
-    "text": "Rotation Matrices\nvector = [1,2]",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#rotation-matrices-3",
-    "href": "lectures/10_matrices/matrices.html#rotation-matrices-3",
-    "title": "10: Matrices",
-    "section": "Rotation Matrices",
-    "text": "Rotation Matrices\ntheta = np.pi / 2\nprint(rotate(theta,vector))\n&gt;&gt;&gt; [-2. 1.]",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#rotation-matrices-4",
-    "href": "lectures/10_matrices/matrices.html#rotation-matrices-4",
-    "title": "10: Matrices",
-    "section": "Rotation Matrices",
-    "text": "Rotation Matrices",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#rotation-matrices-5",
-    "href": "lectures/10_matrices/matrices.html#rotation-matrices-5",
-    "title": "10: Matrices",
-    "section": "Rotation Matrices",
-    "text": "Rotation Matrices\n\nWhat is actually being rotated?\nIt is not actually the “house.”\nOur matrix is rotating every vertex of the house.\nWe just draw the lines after each rotation.\nThis is fundamentally how computer graphics work.",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#rotation-matrices-6",
-    "href": "lectures/10_matrices/matrices.html#rotation-matrices-6",
-    "title": "10: Matrices",
-    "section": "Rotation Matrices",
-    "text": "Rotation Matrices\n\nThe rotation matrix operates on a deeper level than just rotating the points that comprise the house.\nIt acts as a transformation of the entire coordinate system.\nThe matrix transforms everything in the plane.",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#floating-point-approximations",
-    "href": "lectures/10_matrices/matrices.html#floating-point-approximations",
-    "title": "10: Matrices",
-    "section": "Floating Point Approximations",
-    "text": "Floating Point Approximations\n```{python}\nvector = np.array([1,0])\ntheta = np.pi/2\nR = np.array([\n[np.cos(theta), -np.sin(theta)],\n[np.sin(theta), np.cos(theta)]\n])\nprint(R @ vector)\n&gt;&gt;&gt; [6.123234e-17 1.000000e+00]",
-    "crumbs": [
-      "Lectures",
-      "10: Matrices"
-    ]
-  },
-  {
-    "objectID": "lectures/10_matrices/matrices.html#floating-point-approximations-1",
-    "href": "lectures/10_matrices/matrices.html#floating-point-approximations-1",
-    "title": "10: Matrices",
-    "section": "Floating Point Approximations",
-    "text": "Floating Point Approximations\n\nWe can clean this up using np.round()\nnp.round takes in a NumPy array and an integer that controls the number of digits (the precision).\nHere, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.\n\nnp.round(R @ vector, 10)\narray([0., 1.])",
+    "text": "Rotation Matrices\nA rotation matrix turns every vector by the same angle. To keep things simple, we will restrict ourselves to 2 dimensions.\nThe following matrix can rotate every point in our 2D space:\n\\begin{bmatrix} \\cos(\\theta) & -sin(\\theta) \\\\ \\sin(\\theta) & \\cos(\\theta) \\end{bmatrix} \\begin{bmatrix} x \\\\ y \\end{bmatrix}\nThe simplicity of representing this transformation is one reason why graphics libraries use matrices everywhere.\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\ndef rotate(theta,vector):\n\n  rotation_matrix = np.array([\n\n                    [np.cos(theta), -1*np.sin(theta)],\n\n                    [np.sin(theta), np.cos(theta)]\n\n                    ])\n\n  return rotation_matrix @ vector\n\nvector = [1,2]\n\ntheta = np.pi / 2\n\nprint(rotate(theta,vector))\n\n\n[-2.  1.]\n\n\nWe can visualize the initial vector and its transformed version to confirm that our rotation matrix is working correctly.\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\ndef setup_axes(ax, lim=3):\n    \"\"\"Create a consistent coordinate system.\"\"\"\n    ax.set_xlim(-lim, lim)\n    ax.set_ylim(-lim, lim)\n\n    ax.set_aspect('equal')\n\n    # Draw coordinate axes\n    ax.axhline(0, color='black', linewidth=1)\n    ax.axvline(0, color='black', linewidth=1)\n\n    ax.grid(True, linestyle='--', alpha=0.4)\n\n    ax.set_xlabel(\"x\")\n    ax.set_ylabel(\"y\")\n\nv = np.array([1,2])\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\n# Vector\nax.quiver(0,0,v[0],v[1],\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\n# Components\nax.plot([0,v[0]],[0,0],'--')\nax.plot([v[0],v[0]],[0,v[1]],'--')\n\nax.text(v[0]+0.1,v[1]+0.1,\"v = (1,2)\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\nv = np.array([1,2])\n\nangles = np.linspace(0,np.pi/2,2)\n\nfor theta in angles:\n\n    R = np.array([\n        [np.cos(theta),-np.sin(theta)],\n        [np.sin(theta), np.cos(theta)]\n    ])\n\n    vr = R @ v\n\n    if theta == 0:\n        color = 'blue'\n    else:\n        color = 'red'\n    ax.quiver(\n        0,0,\n        vr[0],vr[1],\n        angles='xy',\n        scale_units='xy',\n        scale=1,\n        alpha=0.7,\n        color=color\n    )    \nplt.show()\n\n\n\n\n\n\n\n\n\n\nBasis Vectors\nWe know we can decompose vectors into a representation based off of their constituent directions. For example, in 2D space we can use the x and y axes to fully describe any vector that lives in that space, that is, every vector in our space can be built from a linear combination of these directions. We then talk of the x and y components of the vector.\nThese building-block vectors are called basis vectors.\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\ne1 = np.array([1,0])\ne2 = np.array([0,1])\n\nax.quiver(0,0,*e1,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nax.quiver(0,0,*e2,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nv = np.array([1,2])\n\nax.quiver(0,0,*v,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nax.text(1.05,-0.15,\"e₁\")\nax.text(-0.2,1.1,\"e₂\")\nax.text(v[0]+0.1,v[1],\"v\")\n\nplt.show()\n\n\n\n\n\n\n\n\n\nThe vector v in the plot can be viewed as 1e_1 + 2e_2.\n\n\nFloating Point Approximations\nSuppose we use our rotation matrix on the vector [1,0] where we rotate by \\frac{\\pi}{2}.\nWe would expect our output to be exactly [0,1] but sometimes we may see a slightly different answer.\n\nvector = np.array([1,0])\ntheta = np.pi/2\n\nR = np.array([\n[np.cos(theta), -np.sin(theta)],\n[np.sin(theta), np.cos(theta)]\n])\n\nprint(R @ vector)\n\n[6.123234e-17 1.000000e+00]\n\n\nBecause computers cannot store most real numbers exactly, they need to approximate them. This leads to small errors in the result. But, if we know that this is possible, we can work to control it.\nFor this example, we can clean up our answer using the round() method in NumPy.\n\nnp.round() takes in a NumPy arrow and an integer that controls the number of digits (the precision).\n\n\nprint(np.round(R @ vector, 10))\n\n[0. 1.]\n\n\nHere, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -5504,7 +5229,7 @@
     "href": "lectures/12_sets/sets.html#mutability",
     "title": "12: Sets",
     "section": "Mutability",
-    "text": "Mutability\nSets are mutable objects just like lists, so we are able to add and remove elements associated with a set. However, since sets do not have order, there are not quite as many methods to do so since we are unable to use indices to specify a location in the set.\n\nAdding Elements\n\nadd: adds an element to a set\nupdate: adds multiple elements to a set\n\nArgument must be a sequence containing iterable elements, and each of the elements is added to the set\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.add('six')\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 'six'}\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.update(['six','seven',8, 9])\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 8, 9, 'seven', 'six'}\n\n\nThe order you see from the print statement can change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.\n\n\nDeleting Elements\n\nremoveand discard methods: delete the specified item from the set\n\nThe item that should be deleted is passed to both methods as an argument\nThese methods differently when the specified item is not found in the set\n\nremove method raises a KeyError exception\ndiscard method does not raise an exception\n\n\nclear method: deletes all the elements of the set\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.remove(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\ntry:\n     numbers.remove(6)\n     print(numbers)\n\nexcept Exception as e:\n     print(e)\n\n6\n\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.discard(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\nnumbers.discard(6)\n\nprint(numbers)\n\n{2, 3, 4, 5}",
+    "text": "Mutability\nSets are mutable objects just like lists, so we are able to add and remove elements associated with a set. However, since sets do not have order, there are not quite as many methods to do so since we are unable to use indices to specify a location in the set.\n\nAdding Elements\n\nadd: adds an element to a set\nupdate: adds multiple elements to a set\n\nArgument must be a sequence containing iterable elements, and each of the elements is added to the set\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.add('six')\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 'six'}\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.update(['six','seven',8, 9])\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 'seven', 8, 9, 'six'}\n\n\nThe order you see from the print statement can change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.\n\n\nDeleting Elements\n\nremoveand discard methods: delete the specified item from the set\n\nThe item that should be deleted is passed to both methods as an argument\nThese methods differently when the specified item is not found in the set\n\nremove method raises a KeyError exception\ndiscard method does not raise an exception\n\n\nclear method: deletes all the elements of the set\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.remove(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\ntry:\n     numbers.remove(6)\n     print(numbers)\n\nexcept Exception as e:\n     print(e)\n\n6\n\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.discard(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\nnumbers.discard(6)\n\nprint(numbers)\n\n{2, 3, 4, 5}",
     "crumbs": [
       "Lectures",
       "12: Sets"
@@ -5548,7 +5273,7 @@
     "href": "lectures/12_sets/sets.html#set-comprehensions",
     "title": "12: Sets",
     "section": "Set Comprehensions",
-    "text": "Set Comprehensions\nSet comprehension: a concise expression that creates a new set by iterating over the elements of a sequence. Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces {} instead of brackets []\n\nExample: making a copy of a set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item for item in set1}\n\nprint(id(set1),id(set2))\n\n4649322976 4649325664\n\n\n\nExample: creating a set that contains the squares of the numbers stored in another set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item**2 for item in set1}\n\nset2\n\n{1, 4, 9, 16, 25}\n\n\n\nExample: copying the numbers in a set that are less than 10\n\n\nset1 = set([1, 20, 2, 40, 3, 50])\n\nset2 = {item for item in set1 if item &lt; 10}\n\nset2\n\n{1, 2, 3}",
+    "text": "Set Comprehensions\nSet comprehension: a concise expression that creates a new set by iterating over the elements of a sequence. Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces {} instead of brackets []\n\nExample: making a copy of a set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item for item in set1}\n\nprint(id(set1),id(set2))\n\n4619506336 4619506784\n\n\n\nExample: creating a set that contains the squares of the numbers stored in another set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item**2 for item in set1}\n\nset2\n\n{1, 4, 9, 16, 25}\n\n\n\nExample: copying the numbers in a set that are less than 10\n\n\nset1 = set([1, 20, 2, 40, 3, 50])\n\nset2 = {item for item in set1 if item &lt; 10}\n\nset2\n\n{1, 2, 3}",
     "crumbs": [
       "Lectures",
       "12: Sets"
