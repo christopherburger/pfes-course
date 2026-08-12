@@ -137,9 +137,9 @@ Adding a scalar value to a matrix is defined by adding the scalar value to each 
 ![](images/paste-1.png)
 
 ```{python}
-print(A)
+print(f'A = {A}\n')
 
-print(A+2)
+print(f'A+2 = {A+2}')
 ```
 
 ## Scalar Multiplication
@@ -149,9 +149,9 @@ Multiplying a matrix by a scalar value is defined by multiplying the scalar valu
 ![](images/paste-2.png)
 
 ```{python}
-print(A)
+print(f'A = {A}\n')
 
-print(A*2)
+print(f'2A = {2*A}')
 ```
 
 ## The Transpose of a Matrix
@@ -161,9 +161,9 @@ The transpose operation on a matrix turns all rows to columns and all columns to
 In NumPy, we use the syntax `A.T` to take the transpose of matrix $A$.
 
 ```{python}
-print(A)
+print(f'A = {A}\n')
 
-print(A.T)
+print(f'A.T = {A.T}')
 ```
 
 ## Matrix Addition
@@ -171,9 +171,9 @@ print(A.T)
 Matrix addition is defined similarly to vector addition where each paired element is added together. Note that we need a pairing, and so the matrices must be of identical dimensions.
 
 ```{python}
-print(A)
+print(f'A = {A}\n')
 
-print(A+A)
+print(f'A + A = {A+A}')
 ```
 
 ## Matrix Multiplication
@@ -346,7 +346,7 @@ $$A(Bx) = (AB)x$$
 
 This requirement determines how matrix multiplication must work. Matrix multiplication is defined so that composing transformations works as expected.
 
-If matrix $C$ has columns $C = \begin{bmatrix} c_1  & c_2 & c_3 \end{bmatrix}$ then multiplying $C$ by matrix $D$ gives us $DC =\begin{bmatrix}Dc_1  & Dc_2 & Dc_3 \end{bmatrix}$
+If matrix $C$ has columns $C = \begin{bmatrix} c_1  & c_2 & c_3 \end{bmatrix}$ then multiplying $C$ by matrix $D$ gives us $DC =\begin{bmatrix}Dc_1  & Dc_2 & Dc_3 \end{bmatrix}$.
 
 We can see that $D$ is applied to every column of $C$. Matrix-matrix multiplication ultimately means we transform every column.
 
@@ -376,23 +376,16 @@ and
 $$ 
 C = \begin{bmatrix} 5  & 6 \\ 7 & 8 \end{bmatrix} $$
 
-\$\$BC =\
-
+$$BC =
 \begin{bmatrix} 
 \begin{bmatrix} 1 & 2 \end{bmatrix} \begin{bmatrix} 5 \\ 7 \end{bmatrix} & \begin{bmatrix} 1 & 2 \end{bmatrix} \begin{bmatrix} 6 \\ 8 \end{bmatrix} 
 \\ 
 \begin{bmatrix} 3 & 4 \end{bmatrix} \begin{bmatrix} 5 \\ 7 \end{bmatrix} & \begin{bmatrix} 3 & 4 \end{bmatrix} \begin{bmatrix} 6 \\ 8 \end{bmatrix} 
 \end{bmatrix}
-
 =
-
 \begin{bmatrix} 1 \times 5 + 2 \times 7 & 3 \times 5 + 4 \times 7 \\ 1 \times 6 + 2 \times 8 & 3 \times 6 + 4 \times 8 \end{bmatrix}
-
 =
-
-\begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}
-
-\$\$
+\begin{bmatrix} 19 & 22 \\ 43 & 50 \end{bmatrix}$$
 
 ::: practice-box
 Confirm that for matrices $B$ and $C$ above that $BC \neq CB$.
@@ -422,7 +415,7 @@ The simplicity of representing this transformation is one reason why graphics li
 
 ```{python}
 #| code-fold: true
-#| code-summary: "Show Python Plotting code"
+#| code-summary: "Show Python plotting code"
 import matplotlib.pyplot as plt
 
 def rotate(theta,vector):
@@ -448,7 +441,7 @@ We can visualize the initial vector and its transformed version to confirm that 
 
 ```{python}
 #| code-fold: true
-#| code-summary: "Show Python Plotting code"
+#| code-summary: "Show Python plotting code"
 import matplotlib.pyplot as plt
 
 def setup_axes(ax, lim=3):
@@ -489,7 +482,7 @@ plt.show()
 
 ```{python}
 #| code-fold: true
-#| code-summary: "Show Python Plotting code"
+#| code-summary: "Show Python plotting code"
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(6,6))
@@ -533,7 +526,7 @@ These building-block vectors are called **basis vectors**.
 
 ```{python}
 #| code-fold: true
-#| code-summary: "Show Python Plotting code"
+#| code-summary: "Show Python plotting code"
 import matplotlib.pyplot as plt
 
 fig, ax = plt.subplots(figsize=(6,6))
@@ -591,7 +584,7 @@ Because computers cannot store most real numbers exactly, they need to approxima
 
 For this example, we can clean up our answer using the `round()` method in NumPy.
 
-- `np.round()` takes in a NumPy arrow and an integer that controls the number of digits (the precision).
+- `np.round()` takes in a NumPy array and an integer that controls the number of digits (the precision).
 
 ```{python}
 print(np.round(R @ vector, 10))
