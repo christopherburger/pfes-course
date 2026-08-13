@@ -807,7 +807,7 @@
     "href": "lectures/05_functions/functions.html",
     "title": "5: Functions",
     "section": "",
-    "text": "We have used prebuilt functions repeatedly in this course (like print or input) and now we will look at building our own.\nA function is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.\nThis idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.\n\n\nFunction naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.\n\n\n\n\nDefining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.\n\n\n\nTo use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.\n\n\n\nThe function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass\n\n\n\n\n\nChanges made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.\n\n\n\n\n\n\nIn Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.\n\n\n\n\nWe can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608",
+    "text": "We have used prebuilt functions repeatedly in this course (like print or input) and now we will look at building our own.\nA function is a group of statements within a program that performs a specific task. This collection of statements is attached to a name, and the name can be used to perform those statements repeatedly without having to duplicate the underlying code.\nThis idea of code reuse is a primary benefit of functions. We get to write the code once then call it as many times as needed. This appreciably simplifies our codebase as it reduces duplicate code and this results in superior testing and debugged as we only need to test and debug just a single block of code, the function itself.\n\n\nFunction naming rules are very similar to those of variables:\n\nCannot use keywords as a function name\nCannot contain spaces\nFirst character must be a letter or underscore\nAll other characters must be a letter, number or underscore\nUppercase and lowercase characters are distinct\n\nAnd like variables, the function name should be descriptive of the task carried out by the function.\n\n\n\n\nDefining a function:\ndef function_name(parameter_1,parameter_2, ...):\n    statement_1\n    statement_2\n    ...\n\nThe function header is the first line of the function and includes the keyword def and the name of the function. This is followed by parentheses where the (optional) parameters needed by the function are placed and then ended with a colon.\nInside the function we have the statement or statements that you want the function to perform. Note that the statements inside the function must be indented.\n\n\n\nTo use a function, we call it by invoking its name.\n\ndef add(x,y):\n    print(x + y)\n\nadd(2,3)\n\n5\n\n\nThe simple function add above takes in two parameters, x and y then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation add(2,3). Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to x and 3 is the second argument so it is assigned to y.\nFunctions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.\n\n\n\nThe function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a void function.\nIn contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The input and int functions are example of value-returning functions that you have used.\nTo return a value from a function, you need only use the return keyword.\n\ndef add(x,y):\n    return x + y\n\nresult = add(2,3)\nprint(result)\n\n5\n\n\nWe can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the result variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.\n\n\nWe can return multiple values by separating the values by commas.\n\ndef add(x,y):\n    return x + y, x, y\n\nresult = add(2,3)\nprint(result)\n\n(5, 2, 3)\n\n\nOur add function now returns the sum, then the value associated with parameter x and finally the value associated with parameter y. Note that the values are returned in the order they are specified. Also note that the variable result is now a tuple containing three objects, which is what we would expect since we returned three individual values.\nWe can assign these values immediately using the convention for multiple assignment:\n\ndef add(x,y):\n    return x + y, x, y\n\nresult, x, y = add(2,3)\nprint(result)\nprint(x)\nprint(y)\n\n5\n2\n3\n\n\nIf you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.\n\n\n\nYou can use the pass keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.\n\ndef a_function():\n    pass\n\n\n\n\n\nChanges made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.\n\ndef function_1():\n    value = 5\n    print(f'The value is {value}')\n    function_2(value)\n    print(f'The value is {value}')\n\ndef function_2(x):\n    print(f'The value is {x}')\n    x = 0\n    print(f'The value is now {x}')\n\nNote that in this example the value in the first function is passed to the second function, but the change is not reflected in the first function. The second function gets a copy of data in the first value and not the actual variable itself.\n\n\nA keyword argument is an argument that specifies which parameter the value should be passed to.\nfunction_name(parameter=value)\nNote that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.\nKeyword arguments are often used to provide a default argument for a parameter. A default argument is a value that will be there by default unless explicitly overwritten when the function is called.\nIn the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.\n\ndef show_tax(price, tax_rate=0.08):\n    tax = price * tax_rate\n    print(f'The tax is {tax}.')\n\nshow_tax(10)\n\nshow_tax(10,tax_rate=0.10)\n\nThe tax is 0.8.\nThe tax is 1.0.\n\n\n\n\n\n\nIn Python, scope determines the visibility and lifetime of a variable. That is, scope is the part of a program in which a variable may be accessed.\nPython follows the LEGB rule, which defines the order in which the interpreter searches for a variable name.\n\nLocal\nEnclosing\nGlobal\nBuilt-in\n\n\n\nA local variable is variable that is assigned a value inside a function. It belongs to the function in which it was created.\nOnly statements inside that function can access it, an error will occur if another function tries to access the variable. The scope of a local variable is the function where it was created and any local variables are destroyed when their associated function ends.\nA local variable cannot be accessed by statements inside its function which precede its creation. You also cannot access a local variable after the function ends as it no longer exists.\nNote that because the scope of a local variable is constrained to its associated function, different functions may have local variables with the same name. Each function does not see the other function’s local variables, so there is no ambiguity to the Python interpreter.\ndef my_func():\n    x = 10  # Local scope\n    print(x)\n\nmy_func()\n# print(x)  # Throws NameError: name 'x' is not defined\nNotice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.\n\nx = 10\n\ndef function_1():\n        x = 4\n        print(x)\n\ndef function_2():\n        print(x)\n\nfunction_1()\nfunction_2()\n\n4\n10\n\n\n\n\n\nEnclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.\nBy default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the nonlocal keyword if you intend to mutate an enclosing variable.\nHowever, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.\n\ndef outer_function():\n    message = \"Hello\"  # Enclosing scope\n    \n    def inner_function():\n        nonlocal message\n        message = \"Hi\"  # Modifies the enclosing variable\n        \n    inner_function()\n    print(message)  # Outputs: Hi\n\n\n\n\nGlobal scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.\nGlobal variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.\n\ncounter = 0  # Global scope\n\ndef increment():\n    global counter\n    counter += 1\n\nGlobal variables should generally be avoided as they make debugging difficult. Many portions of the program can change the value of a global variable and as a program becomes larger, finding which location is changing the variable becomes difficult.\n\n\n\nBuilt-in scope is the widest scope. It contains all of Python’s built-in objects, functions, and exceptions (things like print(), len(), list, int, etc.). This scope is automatically loaded whenever you run Python.\nPython allows you to reuse built-in names for your own variables like naming a variable list = [1, 2, 3]. This is called shadowing.\nsum = 10\na_list = [1,2,3]\n\nprint(sum(a_list)) # TypeError: 'int' object is not callable\nOnce you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.\n\n\n\n\nWe can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4387090528   Var 2 = 4387090528\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4387090528   Var 2 = 4387090528",
     "crumbs": [
       "Lectures",
       "5: Functions"
@@ -884,7 +884,7 @@
     "href": "lectures/05_functions/functions.html#the-id-function",
     "title": "5: Functions",
     "section": "",
-    "text": "We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4321472608   Var 2 = 4321472608",
+    "text": "We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.\n\nIf two variables are stored at the same memory address, they must refer to the same data.\nIf two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.\n\n\nvar1 = 5\nvar2 = 5\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4387090528   Var 2 = 4387090528\n\n\n\nvar1 = 5\nvar2 = var1\n\nprint(f'Var 1 = {id(var1)} \\t Var 2 = {id(var2)}')\n\nVar 1 = 4387090528   Var 2 = 4387090528",
     "crumbs": [
       "Lectures",
       "5: Functions"
@@ -895,282 +895,62 @@
     "href": "lectures/08_control_structures/control_structures.html#control-structures",
     "title": "8: Control Structures",
     "section": "Control Structures",
-    "text": "Control Structures\nCSCI – 1056\nContent Modified from Pearson’s Starting Out with Python 6th Edition",
+    "text": "Control Structures\nA control structure is a logical design that controls the order in which a set of statements executes.\nSo far, we have been dealing with what is known as a sequence structure, where our set of statements executes in the order they appear. What we will learn now is how to implement decision (or selection) structures, where specific action(s) are performed only if some condition exists.",
     "crumbs": [
       "Lectures",
       "8: Control Structures"
     ]
   },
   {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-statement-1-of-4",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-statement-1-of-4",
+    "objectID": "lectures/08_control_structures/control_structures.html#the-if-statement",
+    "href": "lectures/08_control_structures/control_structures.html#the-if-statement",
     "title": "8: Control Structures",
-    "section": "The if Statement (1 of 4)",
-    "text": "The if Statement (1 of 4)\n\nControl structure: logical design that controls order in which set of statements execute\nSequence structure: set of statements that execute in the order they appear\nDecision structure: specific action(s) performed only if a condition exists\n\nAlso known as selection structure",
+    "section": "The if Statement",
+    "text": "The if Statement\nThe if statement is the fundamental statement when it comes to creating a decision structure in Python (and in most other languages). It is a single alternative decision. Action(s) are performed should the condition be True and the program continues on the same after the block regardless of state of the condition.\nPython syntax:\nif condition:\n\n    Statement\n\n    Statement\n\n    ...\nThe first line is known as the if clause. This is the keyword if followed by the condition that needs to be True for the statement(s) below to be executed. If the condition is False then all the statements inside the block are skipped.\n\nx = 6\n\nif x &gt; 5:\n    print(f'The value of x is: {x}')\n    print(\"x is greater than five\")\n\nprint(\"Continuing on...\")   \n\nThe value of x is: 6\nx is greater than five\nContinuing on...\n\n\n\nx = 5\n\nif x &gt; 5:\n    print(f'The value of x is: {x}')\n    print(\"x is greater than five\")  \n\nprint(\"Continuing on...\")   \n\nContinuing on...\n\n\nNote that the statements must be indented inside the block. If left on the same level, you will have a syntax error, or worse, they will be evaluated after the block ends.\n\nx = 5\n\nif x &gt; 5:\n    print(f'The value of x is: {x}')\nprint(\"x is greater than five\")\n\nprint(\"Continuing on...\")   \n\nx is greater than five\nContinuing on...\n\n\nThe example above is missing the indent on the second print statement and so what is printed to the console is not reflective of what the value of x actually is.\n\nSingle-Line if Statements\nAn if statement can be written on a single line if it executes only one statement.\n\nscore = 70\n\nif score &gt; 60: print('You passed!')\n\nYou passed!\n\n\nMultiple statements require you to use the standard if structure.",
     "crumbs": [
       "Lectures",
       "8: Control Structures"
     ]
   },
   {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-statement-2-of-4",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-statement-2-of-4",
+    "objectID": "lectures/08_control_structures/control_structures.html#the-if-else-statement",
+    "href": "lectures/08_control_structures/control_structures.html#the-if-else-statement",
     "title": "8: Control Structures",
-    "section": "The if Statement (2 of 4)",
-    "text": "The if Statement (2 of 4)\n\nIn flowchart, diamond represents true/false condition that must be tested\nActions can be conditionally executed\n\nPerformed only when a condition is true\n\nSingle alternative decision structure: provides only one alternative path of execution\n\nIf condition is not true, exit the structure",
+    "section": "The if-else Statement",
+    "text": "The if-else Statement\nThe if-else statement is a dual alternative decision structure. Now, there are two possible paths of execution, one path is taken if the condition is Trueand the second path if the condition is False.\nNote that the if clause and else clause must be aligned and that all the statements must be consistently indented.\n\nx = 5\n\nif x &gt; 5:\n    print(\"x is greater than five\")\nelse:\n    print(\"x is not greater than five\")\n\nx is not greater than five\n\n\n\nConvert the following scenario to Python code.\nIf the temperature is below 40 degrees, print “It is cold outside.” Otherwise, print “The weather is nice.”\n\n\nClick to show answer\n\nif temperature &lt; 40:\n    print(\"It is cold outside.\")\nelse:\n    print(\"The weather is nice.\")\n\n\n\nConditional Expressions\nA conditional expression is a terse way of performing a conditional assignment on a single line.\nThe general format is:\nvalue_1 if condition else value_2\n\ncondition is a Boolean expression that is tested\nIf condition is True, the expression gives us value_1\nIf condition is False, the expression gives us value_2\n\nThe following conditional expression reads: if score is greater than 59, grade is assigned ‘Pass’. Otherwise, grade is assigned ‘Fail’.\n\nscore = 50\n\ngrade = 'Pass' if score &gt; 59 else 'Fail'\n\nprint(grade)\n\nFail\n\n\nWhich is equivalent to:\n\nscore = 50\n\nif score &gt; 59:\n    grade = 'Pass'\nelse:\n    grade = 'Fail'\n\nprint(grade)\n\nFail\n\n\n\nWrite a conditional expression to assign the larger of two numbers to a variable named “max”.\n\n\nClick to show answer\n\nmax = num1 if num1 &gt; num2 else num2",
     "crumbs": [
       "Lectures",
       "8: Control Structures"
     ]
   },
   {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-statement-3-of-4",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-statement-3-of-4",
+    "objectID": "lectures/08_control_structures/control_structures.html#nested-and-compound-decision-structures",
+    "href": "lectures/08_control_structures/control_structures.html#nested-and-compound-decision-structures",
     "title": "8: Control Structures",
-    "section": "The if Statement (3 of 4)",
-    "text": "The if Statement (3 of 4)\nFigure 3-1 A simple decision structure\nA flowchart illustrates the decision to wear a coat. For long description in Notes pane, press F6.\n\nA decision box, cold outside, indicates the conditions true and false. If the condition is true, the action, wear a coat, is implemented. If the condition is false, the action is skipped.\nThe flow exits after both the false and the true statements.",
+    "section": "Nested and Compound Decision Structures",
+    "text": "Nested and Compound Decision Structures\nOften we need to test multiple simultaneous conditions.\nFor example, we need to determine if someone qualifies for a loan and they must meet two conditions:\n\nMust earn at least $30,000/year\nMust have been employed for at least two years\n\nWe have to approaches here, we can use a compound Boolean expression:\nif income &gt;= 30000 and length_employment &gt;= 2:\n    print('Qualified')\nWhere the and operator enforces that both expressions must be True for the overall expression to be True.\nOr, we can nest a decision structure inside of another:\nif income &gt;= 30000:\n    if length_employment &gt;= 2:\n        print('Qualified')\nWe check the first (outer) condition to see if it is True, and if so, we then move inside the first statement and now test the second condition (the inner condition) to see if it is True.\nNote that it is very important to use proper indentation in a nested decision structure. It can be easy to write code that is syntax-correct, but logically invalid due to misplaced indentation.",
     "crumbs": [
       "Lectures",
       "8: Control Structures"
     ]
   },
   {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-statement-4-of-4",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-statement-4-of-4",
+    "objectID": "lectures/08_control_structures/control_structures.html#the-if-elif-else-statement",
+    "href": "lectures/08_control_structures/control_structures.html#the-if-elif-else-statement",
     "title": "8: Control Structures",
-    "section": "The if Statement (4 of 4)",
-    "text": "The if Statement (4 of 4)\n\nPython syntax:\n\nif condition:\nStatement\nStatement\n\nFirst line known as the if clause\n\nIncludes the keyword if followed by condition\n\nThe condition can be true or false\nWhen the if statement executes, the condition is tested, and if it is true the block statements are executed. otherwise, block statements are skipped",
+    "section": "The if-elif-else Statement",
+    "text": "The if-elif-else Statement\nThe logic of many nested decision structures can be difficult to implement without error. Python has a special statement that makes writing nested decision structures simpler.\nThe if-elif-else statement links multiple if statements together in a chain of exclusive conditions.\n\nx = 5\n\nif x &gt; 5:\n    print(\"x is greater than five\")\nelif x &lt; 5:\n    print(\"x is less than five\")\nelse:\n    print(\"x is equal to five\")\n\nx is equal to five\n\n\nNote that the if, elif, and else clauses are all aligned and conditionally executed blocks are consistently indented.\nAn if-elif-else statement is never required, but the logic is often easier to write and to follow.\nConsider the previous example converted into a purely nested decision structure using standard if-else statements.\n\nx = 5\n\nif x &gt; 5:\n    print(\"x is greater than five\")\nelse:\n    if x &lt; 5:\n        print(\"x is less than five\")\n    else:\n        if x == 5:\n            print(\"x is equal to five\")\n\nx is equal to five\n\n\nThis code accomplishes the same thing, but is more prone to error due to its increased size and complexity.\n\nConstruct a decision structure that takes in a grade (assumed to be an integer from 0 to 100) and prints the associated letter grade based on the following correspondence: A (at least 90), B (at least 80), C (at least 70), D (at least 60), F (otherwise).\n\n\nClick to show answer\n\ngrade = int(input(\"Enter a grade: \"))\n\nif grade &gt;= 90:\n    print(\"A\")\nelif grade &gt;= 80:\n    print(\"B\")\nelif grade &gt;= 70:\n    print(\"C\")\nelif grade &gt;= 60:\n    print(\"D\")\nelse:\n    print(\"F\")\n\n\n\nGiven a year stored in variable year, write a Python conditional statement to determine if the year is a leap year. Note that a leap year is divisible by 4 but not by 100, unless also divisible by 400. Then, store “Leap Year” or “Not a Leap Year” in a variable called result.\n\n\nClick to show answer\n\nif year % 400 == 0:\n    result = \"Leap Year\"\nelif (year % 4 == 0) and (year % 100 != 0):\n    result = \"Leap Year\"\nelse:\n    result = \"Not a Leap Year\"\nprint(result)",
     "crumbs": [
       "Lectures",
       "8: Control Structures"
     ]
   },
   {
-    "objectID": "lectures/08_control_structures/control_structures.html#single-line-if-statements",
-    "href": "lectures/08_control_structures/control_structures.html#single-line-if-statements",
+    "objectID": "lectures/08_control_structures/control_structures.html#assignment-expressions-and-the-walrus-operator",
+    "href": "lectures/08_control_structures/control_structures.html#assignment-expressions-and-the-walrus-operator",
     "title": "8: Control Structures",
-    "section": "Single-Line if Statements",
-    "text": "Single-Line if Statements\nAn if statement can be written on a single line if it executes only one statement.\n\nPython syntax:\n\nif condition: statement\n\nExample:\n\nif score &gt; 60: print(‘You passed!’)",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-else-statement-1-of-3",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-else-statement-1-of-3",
-    "title": "8: Control Structures",
-    "section": "The if-else Statement (1 of 3)",
-    "text": "The if-else Statement (1 of 3)\n\nDual alternative decision structure: two possible paths of execution\n\nOne is taken if the condition is true, and the other if the condition is false\nSyntax: if condition:\n\n\nstatements\nelse:\nother statements\n\nif clause and else clause must be aligned\nStatements must be consistently indented",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-else-statement-2-of-3",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-else-statement-2-of-3",
-    "title": "8: Control Structures",
-    "section": "The if-else Statement (2 of 3)",
-    "text": "The if-else Statement (2 of 3)\nFigure 3-5 A dual alternative decision structure\nA flowchart illustrates the dual alternative decision structure. For long description in Notes pane, press F6.\n\nIn the flowchart, a decision box, temperature less than 40, indicates the conditions true and false. If the condition is true, display, a little cold, isn’t it. If the condition is false, display, nice weather we’re having. The flow exits after both the false and the true statements.",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-else-statement-3-of-3",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-else-statement-3-of-3",
-    "title": "8: Control Structures",
-    "section": "The if-else Statement (3 of 3)",
-    "text": "The if-else Statement (3 of 3)\nFigure 3-6 Conditional execution in an if-else statement\nA conditional execution displays the alignment of the if and else clauses. For long description in Notes pane, press F6.\n\nThe syntax for the if else clause is as follows. Line 1. if condition semicolon. Line 2. Indented once, statement. Line 3. Indented once, statement. Line 4. Indented once, et cetera. Line 5. else semicolon. Line 6. Indented once, statement. Line 7. Indented once, statement. Line 8. Indented once, et cetera. If the condition is true, the following block of statements is executed. The syntax is as follows. Line 1. if condition semicolon. Line 2. Indented once, statement. Line 3. Indented once, statement. Line 4. Indented once, et cetera. Then, control jumps to the statement following the if else statement. If the condition is false, the following block of statements is executed. The syntax is as follows. Line 5. Else semicolon. Line 6. Indented once, statement. Line 7. Indented once, statement. Line 8. et cetera. Then, control jumps to the statement following the if else statement.",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice",
-    "href": "lectures/08_control_structures/control_structures.html#practice",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\nConvert the flowchart below to Python code:\nA flowchart illustrates the dual alternative decision structure. For long description in Notes pane, press F6.\n\nIn the flowchart, a decision box, temperature less than 40, indicates the conditions true and false. If the condition is true, display, a little cold, isn’t it. If the condition is false, display, nice weather we’re having. The flow exits after both the false and the true statements.",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#nested-decision-structures-and-the-if-elif-else-statement-1-of-2",
-    "href": "lectures/08_control_structures/control_structures.html#nested-decision-structures-and-the-if-elif-else-statement-1-of-2",
-    "title": "8: Control Structures",
-    "section": "Nested Decision Structures and the if-elif-else Statement (1 of 2)",
-    "text": "Nested Decision Structures and the if-elif-else Statement (1 of 2)\n\nA decision structure can be nested inside another decision structure\n\nCommonly needed in programs\nExample:\n\nDetermine if someone qualifies for a loan, they must meet two conditions:\n\nMust earn at least $30,000/year\nMust have been employed for at least two years\n\nCheck first condition, and if it is true, check second condition",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#figure-3-12-a-nested-decision-structure",
-    "href": "lectures/08_control_structures/control_structures.html#figure-3-12-a-nested-decision-structure",
-    "title": "8: Control Structures",
-    "section": "Figure 3-12 A Nested Decision Structure",
-    "text": "Figure 3-12 A Nested Decision Structure\nA flowchart with a nested decision structure. For long description in Notes pane, press F6.\n\nA decision box, salary greater than or equal to 30000 has the conditions, true and false. If the condition is false, the action box reads, display you must earn at least $30,000 per year to qualify. If the condition is true, the flow leads to a nested decision box, years on job greater than or equal to 2. This decision box also has the conditions, true and false. If the condition is true, the action box reads, display you qualify for the loan. If the condition is false, the action box reads, display you must have been on your current job for at least two years to qualify. The flow exits from both the false statements and from the last true statement.\nConvert this flow chart to Python code",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#nested-decision-structures-and-the-if-elif-else-statement-2-of-2",
-    "href": "lectures/08_control_structures/control_structures.html#nested-decision-structures-and-the-if-elif-else-statement-2-of-2",
-    "title": "8: Control Structures",
-    "section": "Nested Decision Structures and the if-elif-else Statement (2 of 2)",
-    "text": "Nested Decision Structures and the if-elif-else Statement (2 of 2)\n\nImportant to use proper indentation in a nested decision structure\n\nImportant for Python interpreter\nMakes code more readable for programmer\nRules for writing nested if statements:\n\nelse clause should align with matching if clause\nStatements in each block must be consistently indented",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-elif-else-statement-1-of-2",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-elif-else-statement-1-of-2",
-    "title": "8: Control Structures",
-    "section": "The if-elif-else Statement (1 of 2)",
-    "text": "The if-elif-else Statement (1 of 2)\n\nif-elif-else statement: special version of a decision structure\n\nMakes logic of nested decision structures simpler to write\n\nCan include multiple elif statements\n\nSyntax:\n\n\nAn if el if else statement syntax. For long description in Notes pane, press F6.\n\nThe lines read as follows. Line 1. if condition underscore 1 colon. Line 2, indented once. statement left parenthesis s right parenthesis. Line 3. el if condition underscore 2 colon. Line 4, indented once. statement left parenthesis s right parenthesis. Line 5. el if condition underscore 3 colon. Line 6, indented once. statement left parenthesis s right parenthesis. The lines of code 3, 4, 5, and 6, are labeled, insert as many el if clauses as necessary. Line 7. else. Line 8, indented once. statement left parenthesis s right parenthesis.",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#the-if-elif-else-statement-2-of-2",
-    "href": "lectures/08_control_structures/control_structures.html#the-if-elif-else-statement-2-of-2",
-    "title": "8: Control Structures",
-    "section": "The if-elif-else Statement (2 of 2)",
-    "text": "The if-elif-else Statement (2 of 2)\n\nAlignment used with if-elif-else statement:\n\nif, elif, and else clauses are all aligned\nConditionally executed blocks are consistently indented\n\nif-elif-else statement is never required, but logic easier to follow\n\nCan be accomplished by nested if-else\n\nCode can become complex, and indentation can cause problematic long lines",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#figure-3-15-nested-decision-structure-to-determine-a-grade",
-    "href": "lectures/08_control_structures/control_structures.html#figure-3-15-nested-decision-structure-to-determine-a-grade",
-    "title": "8: Control Structures",
-    "section": "Figure 3-15 Nested Decision Structure to Determine a Grade",
-    "text": "Figure 3-15 Nested Decision Structure to Determine a Grade\nA flowchart for nested decision structure to determine a grade. For long description in Notes pane, press F6.\n\nThe steps are as follows. A decision box, score is greater than or equal to 90, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is A period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 80, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is B period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 70, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is C period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 60, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is D period single quote right parenthesis. If the condition is false, the action box displays print left parenthesis single quote your grade is F period single quote right parenthesis. The flow exits from all the true statements and from the last false statement.",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice-1",
-    "href": "lectures/08_control_structures/control_structures.html#practice-1",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\nA flowchart for nested decision structure to determine a grade. For long description in Notes pane, press F6.\nConvert the flowchart below to Python code:\n\nThe steps are as follows. A decision box, score is greater than or equal to 90, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is A period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 80, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is B period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 70, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is C period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 60, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is D period single quote right parenthesis. If the condition is false, the action box displays print left parenthesis single quote your grade is F period single quote right parenthesis. The flow exits from all the true statements and from the last false statement.",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#conditional-expressions-1-of-3",
-    "href": "lectures/08_control_structures/control_structures.html#conditional-expressions-1-of-3",
-    "title": "8: Control Structures",
-    "section": "Conditional Expressions (1 of 3)",
-    "text": "Conditional Expressions (1 of 3)\n\nSyntax:\n\nvalue_1 if condition else value_2\n\ncondition is a Boolean expression that is tested\nIf condition is true, the expression gives us value_1\nIf condition is false, the expression gives us value_2",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#conditional-expressions-2-of-3",
-    "href": "lectures/08_control_structures/control_structures.html#conditional-expressions-2-of-3",
-    "title": "8: Control Structures",
-    "section": "Conditional Expressions (2 of 3)",
-    "text": "Conditional Expressions (2 of 3)\n\nExample:\n\ngrade = ‘Pass’ if score &gt; 59 else ‘Fail’\n\nIf score is greater than 59, grade is assigned ‘Pass’. Otherwise, grade is assigned ‘Fail’.\nEquivalent to:\n\nif score &gt; 59:\ngrade = ‘Pass’\nelse:\ngrade = ‘Fail’",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#conditional-expressions-3-of-3",
-    "href": "lectures/08_control_structures/control_structures.html#conditional-expressions-3-of-3",
-    "title": "8: Control Structures",
-    "section": "Conditional Expressions (3 of 3)",
-    "text": "Conditional Expressions (3 of 3)\n\nExample:\n\nmax = num1 if num1 &gt; num2 else num2\n\nIf num1 is greater than num2, max is assigned num1. Otherwise, max is assigned num2.\nEquivalent to:\n\nif num1 &gt; num2:\nmax = num1\nelse:\nmax = num2",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice-2",
-    "href": "lectures/08_control_structures/control_structures.html#practice-2",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\n\nWhat is printed by the following code:\n\nnum = 5\nprint(“E” if num % 2 == 0 else “O”)",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice-3",
-    "href": "lectures/08_control_structures/control_structures.html#practice-3",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\n\nWhat is the purpose of the conditional expression below?\n\nresult = “E” if s == “” else “F”",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice-4",
-    "href": "lectures/08_control_structures/control_structures.html#practice-4",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\n\nWhat is the purpose of the conditional expression below?\n\nresult = “E” if len(s) == 0 else “F”",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice-5",
-    "href": "lectures/08_control_structures/control_structures.html#practice-5",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\n\nWrite a conditional expression to find the greater of two numbers, a and b.\nUse the input function to assign values to the variables above.\nStore the result in a variable called greater.\nPrint the variables a, b, and greater.\n\n\na = float(input(“Enter a number:”))\nb = float(input(“Enter a number:”))\ngreater = None\nif a &gt; b:\ngreater = a\nelif b &gt; a:\ngreater = b\nelse:\nprint(“Both numbers are equal.”)\noutput = f’a = {a} \\t b = {b} \\t greater = {greater}’ if greater != None else f’a = {a}\\t b = {b}’\nprint(output)",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice-6",
-    "href": "lectures/08_control_structures/control_structures.html#practice-6",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\n\nGiven three numbers a, b, and c, write a conditional expression to determine the largest number and store it in a variable named largest.",
-    "crumbs": [
-      "Lectures",
-      "8: Control Structures"
-    ]
-  },
-  {
-    "objectID": "lectures/08_control_structures/control_structures.html#practice-7",
-    "href": "lectures/08_control_structures/control_structures.html#practice-7",
-    "title": "8: Control Structures",
-    "section": "Practice",
-    "text": "Practice\n\nGiven a year stored in variable year, write a Python conditional expression to determine if the year is a leap year.\nA leap year is divisible by 4 but not by 100, unless also divisible by 400.\nStore “Leap Year” or “Not a Leap Year” in a variable called result.\n\n\nyear = 2100\nresult = None\nif year % 400 == 0:\nresult = “Leap Year”\nelif (year % 4 == 0) and (year % 100 != 0):\nresult = “Leap Year”\nelse:\nresult = “Not a Leap Year”\nprint(result)",
+    "section": "Assignment Expressions and the Walrus Operator",
+    "text": "Assignment Expressions and the Walrus Operator\nThe walrus operator := is a combination operator that assigns a value to a variable and returns the value that was assigned to the variable. These are known as assignment expressions.\n\nprint(num := 99)\n\n99\n\n\nThis statement does two things:\n\nIt assigns 99 to the num variable\nIt prints the value that was assigned to the num variable, 99\n\nImportantly, num now exists as a variable and can be referred to in future sections of code.\nif (area := width * height) &gt; 100:\n    print('The area is too large')\nThis statement does the following:\n\nThe area variable is assigned the value of width * height\nIf the value that was assigned to area is greater than 100, the message The area is too large is displayed.\n\nNote that an assignment expression is not a complete statement. All of our examples used the assignment expression as a component of some other statement. This is a requirement in Python as an assignment expression alone will cause an error:\nnum := 15\nThe code above is invalid, and the expression must be written as part of a larger statement like\nprint(num:= 15)\n\nPrecedence of the walrus operator\nThe walrus operator has the lowest precedence of all the operators in Python. When using the walrus operator in a larger expression that also uses other operators, the walrus operator will work last. In most cases, you need to put parentheses around the assignment expression to make sure the walrus operator assigns the correct value to its variable",
     "crumbs": [
       "Lectures",
       "8: Control Structures"
@@ -1364,66 +1144,11 @@
     ]
   },
   {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#vector-spaces-and-distance",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#vector-spaces-and-distance",
-    "title": "16: Distance and Similarity",
-    "section": "Vector Spaces and Distance",
-    "text": "Vector Spaces and Distance\nCSCI – 1056",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
     "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space",
     "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space",
     "title": "16: Distance and Similarity",
     "section": "Distance and the Feature Space",
-    "text": "Distance and the Feature Space\n\nSo far, we have viewed vectors as arrows in 2D or 3D physical space.\nIn modern computing, a vector is just a list of features.\nIf an object has 5 attributes, they can be viewed as a single point in a 5-Dimensional Vector Space.\nWhile we cannot draw 5D space, the mathematics work the same.\nThe exact same NumPy addition and dot products we used for 2D apply to 5D or 10,000-dimensional data.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-1",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-1",
-    "title": "16: Distance and Similarity",
-    "section": "Distance and the Feature Space",
-    "text": "Distance and the Feature Space\n\nA row in a DataFrame is just a point in a high-dimensional space.\nThe DataFrame below has a dimension of three, since it contains three features.\n\npatients = pd.DataFrame({\n“Age”: [45, 48, 52, 51],\n“HeartRate”: [72, 75, 68, 77],\n“BloodPressure”: [120, 125, 118, 131]\n})",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-2",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-2",
-    "title": "16: Distance and Similarity",
-    "section": "Distance and the Feature Space",
-    "text": "Distance and the Feature Space\n\nWe can think of the x-coordinate as age.\nThe y-coordinate as heart rate.\nAnd the z-coordinate as blood pressure.\nWe can switch any of these values between axes, the specific choice is not important.\n\npatients = pd.DataFrame({\n“Age”: [45, 48, 52, 51],\n“HeartRate”: [72, 75, 68, 77],\n“BloodPressure”: [120, 125, 118, 131]\n})",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-3",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-3",
-    "title": "16: Distance and Similarity",
-    "section": "Distance and the Feature Space",
-    "text": "Distance and the Feature Space\npatients = pd.DataFrame({\n“Age”: [45, 48, 52, 51],\n“HeartRate”: [72, 75, 68, 77],\n“BloodPressure”: [120, 125, 118, 131]\n})",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-4",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-and-the-feature-space-4",
-    "title": "16: Distance and Similarity",
-    "section": "Distance and the Feature Space",
-    "text": "Distance and the Feature Space\n\nEvery row is one point.\nEvery column is one feature.\n\npatients = pd.DataFrame({\n“Age”: [45, 48, 52, 51],\n“HeartRate”: [72, 75, 68, 77],\n“BloodPressure”: [120, 125, 118, 131]\n})\nprint(patients.iloc[0])\nAge 45\nHeartRate 72\nBloodPressure 120",
+    "text": "Distance and the Feature Space\nSo far, we have viewed vectors as arrows in 2D or 3D physical space. In modern computing, a vector is just a list of features.\nIf an object has 5 attributes, they can be viewed as a single point in a 5-Dimensional Vector Space. While we cannot draw 5D space, the mathematics work the same. The exact same NumPy addition and dot products we used for 2D apply to 5D or 10,000-dimensional data.\nA row in a DataFrame is just a point in a high-dimensional space.\nThe DataFrame below has a dimension of three, since it contains three features.\n\nimport pandas as pd\n\npatients = pd.DataFrame({\n    \"Age\": [45, 48, 52, 51],\n    \"HeartRate\": [72, 75, 68, 77],\n    \"BloodPressure\": [120, 125, 118, 131]\n})\n\nWe can think of the x-coordinate as age, the y-coordinate as heart rate, and the z-coordinate as blood pressure.\n\n\nShow Python plotting code\nimport pandas as pd\n\ndf = pd.DataFrame({\n    \"Age\": [45, 48, 52, 51 ],\n    \"HeartRate\": [72, 75, 68, 77],\n    \"BloodPressure\": [120, 125, 118, 131]\n})\n\nimport matplotlib.pyplot as plt\n\nfig = plt.figure(figsize=(7,7))\nax = fig.add_subplot(projection=\"3d\")\n\nax.scatter(df[\"Age\"], df[\"HeartRate\"], df[\"BloodPressure\"], s=60)\n\nax.set_xlabel(\"Age\")\nax.set_ylabel(\"Heart Rate\")\nax.set_zlabel(\"Blood Pressure\")\n\nax.view_init(elev=30, azim=105)\n\nax.xaxis.pane.fill = False\nax.yaxis.pane.fill = False\nax.zaxis.pane.fill = False\n\nplt.show()\n\n\n\n\n\n\n\n\n\nNote that we can switch any of these labels between axes, the specific choice is not important for calculations.\nWe can also see that every row is one point and every column is one feature.\n\nprint(patients.iloc[0])\n\nAge               45\nHeartRate         72\nBloodPressure    120\nName: 0, dtype: int64",
     "crumbs": [
       "Lectures",
       "16: Distance and Similarity"
@@ -1434,194 +1159,7 @@
     "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#how-close-are-two-data-points",
     "title": "16: Distance and Similarity",
     "section": "How Close Are Two Data Points?",
-    "text": "How Close Are Two Data Points?\n\nTo find similar things, we measure the distance between their vectors.\nThe closer the distance, the more similar the objects are.\nThe question is, how to calculate the distance?",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-measures",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-measures",
-    "title": "16: Distance and Similarity",
-    "section": "Distance Measures",
-    "text": "Distance Measures\n\nThere are many ways to calculate the distance in a vector space.\nWe will talk about the two most commonly used methods.\n\nEuclidean Distance (Straight-line Distance)\nManhattan Distance (City Block Distance)",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#euclidean-distance-straight-line-distance",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#euclidean-distance-straight-line-distance",
-    "title": "16: Distance and Similarity",
-    "section": "Euclidean Distance (Straight-line Distance)",
-    "text": "Euclidean Distance (Straight-line Distance)",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#euclidean-distance-straight-line-distance-1",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#euclidean-distance-straight-line-distance-1",
-    "title": "16: Distance and Similarity",
-    "section": "Euclidean Distance (Straight-line Distance)",
-    "text": "Euclidean Distance (Straight-line Distance)\n# Two patients: [Age, Heart_Rate, Blood_Pressure]\npatient_A = np.array([45, 72, 120])\npatient_B = np.array([48, 75, 125])\n# Calculate the distance vector, then take its norm\ndistance = np.linalg.norm(patient_A - patient_B)\n&gt;&gt;&gt; 6.557438524302",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#manhattan-distance-city-block-distance",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#manhattan-distance-city-block-distance",
-    "title": "16: Distance and Similarity",
-    "section": "Manhattan Distance (City Block Distance)",
-    "text": "Manhattan Distance (City Block Distance)",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#manhattan-distance-city-block-distance-1",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#manhattan-distance-city-block-distance-1",
-    "title": "16: Distance and Similarity",
-    "section": "Manhattan Distance (City Block Distance)",
-    "text": "Manhattan Distance (City Block Distance)\n# Two patients: [Age, Heart_Rate, Blood_Pressure]\npatient_A = np.array([45, 72, 120])\npatient_B = np.array([48, 75, 125])\ndistance = np.linalg.norm(patient_A - patient_B, ord=1)\n&gt;&gt;&gt; 11",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\n\nHow does a computer classify something new?\n\nIt finds the closest historical data point.\n\nWe will develop an algorithm to find the closest match in our DataFrame for a given point.\n\nWe need to iterate through every row in the DataFrame, as we will not know if there is a closer pair unless we examine every pair.\nWe then need to calculate the distance between each pair.\nWe will need to keep track of the smallest distance.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-1",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-1",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\nbest_distance = infinity\n\nfor every row:\n\ncompute distance\n\nif smaller:\nremember row",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-2",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-2",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\nunknown = np.array([46,74,121])\nsmallest_distance = np.inf\nfor _, row in df.iterrows():\nd = np.linalg.norm(row.to_numpy() - unknown)\nif d &lt; smallest_distance:\nsmallest_distance = d\nprint(smallest_distance)\n&gt;&gt;&gt; 2.449489742783178",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-3",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-3",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\nunknown = np.array([46,74,121])\ndistances = np.linalg.norm(\npatients.to_numpy() - unknown,\naxis=1 #this specifies we calculate across the columns\n)\nprint(distances.min()))\n&gt;&gt;&gt; 2.449489742783178",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-4",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-4",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\n\nWhat about finding the two closest points?\nMost of our code can be reused, but we will need to keep track of the second smallest distance.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-5",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-5",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\nsmallest_distance, second_smallest_distance = np.inf, np.inf\nfor _, row in patients.iterrows():\nd = np.linalg.norm(row.to_numpy() - unknown)\nif d &lt; smallest_distance:\nsecond_smallest_distance = smallest_distance\nsmallest_distance = d\nelif d &lt; second_smallest_distance:\nsecond_smallest_distance = d",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-6",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-6",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\n\nWhat about finding the three closest points?\nWe now need to have conditions that handle:\n\nthe observation is the smallest overall\nthe observation is the second smallest overall\nthe observation is the third smallest overall\n\nWe need a better solution than continuing to create conditional statements.\n\nWe can collect all the distances in a list, then sort the list.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-7",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-7",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\nunknown = np.array([46,74,121])\ndistances = []\nfor _, row in patients.iterrows():\nd = np.linalg.norm(row.to_numpy() - unknown)\ndistances.append(d)\ndistances.sort()\nprint(distances)\n&gt;&gt;&gt;[2.4494897, 4.582575, 9.0, 11.5758369]",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-8",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#finding-the-closest-match-8",
-    "title": "16: Distance and Similarity",
-    "section": "Finding the Closest Match",
-    "text": "Finding the Closest Match\ndistances = np.linalg.norm(\ndf.to_numpy() - unknown,\naxis=1 #this specifies we calculate across the columns\n)\ndistances = np.sort(distances)\nprint(distances)\n&gt;&gt;&gt; [ 2.44948974 4.58257569 9. 11.5758369 ]",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#not-every-feature-needs-to-count-equally",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#not-every-feature-needs-to-count-equally",
-    "title": "16: Distance and Similarity",
-    "section": "Not Every Feature Needs to Count Equally",
-    "text": "Not Every Feature Needs to Count Equally\n\nSuppose we have two data points with the following features:\n\nAge = 45 and Income = $900,000\nAge = 46 and Income = $901,000\n\n\nIn terms of raw numbers, income dominates because the units are much larger.\n\nDoes a difference of $1,000 matter more than a year of age?\n\nIt depends, but this is is why we often rescale data before measuring distance.\n\nThis is outside of the scope of this course but is important in applications.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-is-everywhere.",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#distance-is-everywhere.",
-    "title": "16: Distance and Similarity",
-    "section": "Distance is everywhere.",
-    "text": "Distance is everywhere.\n\nFinding similar customers\nMovie recommendations\nFraud detection\nImage search\nFace recognition\nSpell checking\nMost of “AI” involves measuring distance as a core component.\n\nIf you can turn it into a vector, you can measure distance.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#similarity-measures",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#similarity-measures",
-    "title": "16: Distance and Similarity",
-    "section": "Similarity Measures",
-    "text": "Similarity Measures\nCSCI – 1056",
+    "text": "How Close Are Two Data Points?\nTo find similar things, we measure the distance between their vectors. The closer the distance, the more similar the objects are.\nThe question is, how to calculate the distance?\n\nDistance Measures\nThere are many ways to calculate the distance in a vector space.\nWe will talk about the two most commonly used methods.\n\nEuclidean Distance (Straight-line Distance)\nManhattan Distance (City Block Distance)\n\n\n\nEuclidean Distance (Straight-line Distance)\nEuclidean distance is defined as\nD_E(x,y) = \\sqrt{(x_1 - y_1)^2 + (x_2 - y_2)^2 + ... + (x_n - y_n)^2}\nand is used for measurements that are numerical and continuous.\nNote that this is just an application of familiar Pythagorean theorem.\n\n# Two patients: [Age, Heart_Rate, Blood_Pressure]\nimport numpy as np\n\npatient_A = np.array([45, 72, 120])\npatient_B = np.array([48, 75, 125])\n\n# Calculate the distance vector, then take its norm\n\ndistance = np.linalg.norm(patient_A - patient_B)\n\n\n\nManhattan Distance (City Block Distance)\nSometimes a straight line is impossible or gives too much weight to certain large differences. Manhattan distance can then be used, which is the sum of the absolute differences.\nD_M(x,y) = |x_1 - y_1| + |x_2 - y_2| + ... + |x_n - y_n|\n\n# Two patients: [Age, Heart_Rate, Blood_Pressure]\n\npatient_A = np.array([45, 72, 120])\npatient_B = np.array([48, 75, 125])\n\ndistance = np.linalg.norm(patient_A - patient_B, ord=1)\n\n\n\nFinding the Closest Match\nHow does a computer classify something new?\n\nIt finds the closest historical data point.\n\nWe will develop an algorithm to find the closest match in our DataFrame for a given point.\n\nWe need to iterate through every row in the DataFrame, as we will not know if there is a closer pair unless we examine every pair.\nWe then need to calculate the distance between each pair.\nWe will need to keep track of the smallest distance.\n\n\nbest_distance = infinity\nfor every row:     compute distance\nif smaller:          remember row\n\nTry converting the pseudocode above before looking at this solution.\n\n\nShow Solution\nunknown = np.array([46,74,121])\nsmallest_distance = np.inf\n\nfor _, row in df.iterrows():\n    d = np.linalg.norm(row.to_numpy() - unknown)\n\n    if d &lt; smallest_distance:\n        smallest_distance = d\n\nprint(smallest_distance)\n\n\n2.449489742783178\n\n\n\nWe can find the same answer by using the min() method if we calculate all the distances beforehand. One of the benefits of arrays in NumPy is the ability to perform operations on every object in the array.\n\nunknown = np.array([46,74,121])\n\ndistances = np.linalg.norm( patients.to_numpy() - unknown,\n                            axis=1 #this specifies we calculate across the columns\n                          )\nprint(distances.min())\n\n2.449489742783178\n\n\nWhat about finding the two closest points?\nMost of our code can be reused, but we will need to keep track of the second smallest distance.\n\nTry developing this on your own using the solution to the single closest point.\n\n\nShow Solution\nsmallest_distance, second_smallest_distance = np.inf, np.inf\n\nfor _, row in patients.iterrows():\n    d = np.linalg.norm(row.to_numpy() - unknown)\n\n    if d &lt; smallest_distance:\n        second_smallest_distance = smallest_distance\n        smallest_distance = d\n\n    elif d &lt; second_smallest_distance:\n        second_smallest_distance = d\n\n\n\nWhat about finding the three closest points?\nWe now need to have conditions that handle:\n\nthe observation is the smallest overall\nthe observation is the second smallest overall\nthe observation is the third smallest overall\n\nWe need a better solution than continuing to create conditional statements. What we can do is collect all the distances in a list, then sort the list.\n\nunknown = np.array([46,74,121])\n\ndistances = []\n\nfor _, row in patients.iterrows():\n    d = np.linalg.norm(row.to_numpy() - unknown)\n    distances.append(d)\n\ndistances.sort()\n\nprint(distances)\n\n[np.float64(2.449489742783178), np.float64(4.58257569495584), np.float64(9.0), np.float64(11.575836902790225)]\n\n\nAgain, we can simply the code needed by leveraging the capability in NumPy to operate across an entire array.\n\ndistances = np.linalg.norm( df.to_numpy() - unknown,\n                            axis=1 #this specifies we calculate across the columns\n                            )\n\ndistances = np.sort(distances)\n\nprint(distances)\n\n[ 2.44948974  4.58257569  9.         11.5758369 ]\n\n\n\n\nNot Every Feature Needs to Count Equally\nSuppose we have two data points with the following features:\n\nAge = 45 and Income = $900,000\nAge = 46 and Income = $901,000\n\nIn terms of raw numbers, income dominates because the units are much larger.\nDoes a difference of $1,000 matter more than a year of age? It depends, but this is is why we often rescale data before measuring distance. This is outside of the scope of this course but is important in applications.\n\n\nDistance is everywhere.\nFinding similar customers, movie recommendations, fraud detection, facial recognition, spell checking are all calculating distances. Most of “AI” involves measuring distance as a core component. If you can turn it into a vector, you can measure distance.",
     "crumbs": [
       "Lectures",
       "16: Distance and Similarity"
@@ -1632,7 +1170,7 @@
     "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#everything-can-become-a-vector",
     "title": "16: Distance and Similarity",
     "section": "Everything Can Become a Vector",
-    "text": "Everything Can Become a Vector\n\nOnce something is represented as a vector, we can compare it mathematically.\n\n\n\n\nData\nVector\n\n\n\n\nPatient\nage, pulse, blood pressure\n\n\nHouse\nbedrooms, bathrooms, square feet\n\n\nImage\npixel brightness values\n\n\nMusic\namplitude samples\n\n\nDocument\ncounts of different words",
+    "text": "Everything Can Become a Vector\nOnce something is represented as a vector, we can compare it mathematically.\n\n\n\nData\nVector\n\n\n\n\nPatient\nage, pulse, blood pressure\n\n\nHouse\nbedrooms, bathrooms, square feet\n\n\nImage\npixel brightness values\n\n\nMusic\namplitude samples\n\n\nDocument\ncounts of different words",
     "crumbs": [
       "Lectures",
       "16: Distance and Similarity"
@@ -1643,7 +1181,7 @@
     "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#images-as-vectors",
     "title": "16: Distance and Similarity",
     "section": "Images as Vectors",
-    "text": "Images as Vectors",
+    "text": "Images as Vectors\nFor example, we can represent images as vectors fairly easily. Each image exists in two dimensions and we need some value to indicate the color or intensity. So something like a 3-tuple x, y, i can be used to specify an individual pixel value.\nBut a more convenient representation from a programming perspective is to flatten these values down into a single vector. If we keep a consistent way of ordering the values in the vector, then this directly corresponds to the pixel location and we only need to keep track of the intensity.\nThe image below holds a (fairly crude) version of the number seven. We then can transform it into a flattened vector simply by merging all the individual arrays into one large array.\n\n\nShow Python plotting code\nimport numpy as np\nimport matplotlib.pyplot as plt\n\n# Simple \"7\"\nimage = np.array([\n    [1,1,1,1,1,1,1,1],\n    [0,0,0,0,0,0,1,0],\n    [0,0,0,0,0,1,0,0],\n    [0,0,0,0,1,0,0,0],\n    [0,0,0,1,0,0,0,0],\n    [0,0,1,0,0,0,0,0],\n    [0,1,0,0,0,0,0,0],\n    [1,0,0,0,0,0,0,0]\n])\n\nvector = image.flatten()\n\nfig = plt.figure(figsize=(10,5))\n\nplt.subplot(1,2,1)\nplt.imshow(image, cmap=\"gray_r\")\nplt.title(\"8×8 Image\",fontsize=20)\nplt.xticks([])\nplt.yticks([])\n\nplt.subplot(1,2,2)\nplt.plot(vector, 'o')\nplt.title(\"Flattened Vector\", fontsize=20)\nplt.xlabel(\"Index\", fontsize=18)\nplt.ylabel(\"Pixel Value\", fontsize=18)\n\nplt.tight_layout()\nplt.show()",
     "crumbs": [
       "Lectures",
       "16: Distance and Similarity"
@@ -1654,128 +1192,7 @@
     "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#direction-and-magnitude",
     "title": "16: Distance and Similarity",
     "section": "Direction and Magnitude",
-    "text": "Direction and Magnitude\n\nVector A points in the same direction as B.\nBut vectors A and C are much closer using Euclidean distance.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#direction-and-magnitude-1",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#direction-and-magnitude-1",
-    "title": "16: Distance and Similarity",
-    "section": "Direction and Magnitude",
-    "text": "Direction and Magnitude\nA = np.array([1,1])\nB = np.array([4,4])\nC = np.array([-1,1])\nprint(np.linalg.norm(A - B))\n&gt;&gt;&gt; 4.242640687119285\nprint(np.linalg.norm(A - C))\n&gt;&gt;&gt; 2.0",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#direction-and-magnitude-2",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#direction-and-magnitude-2",
-    "title": "16: Distance and Similarity",
-    "section": "Direction and Magnitude",
-    "text": "Direction and Magnitude\nprint(np.linalg.norm(A - B), ord = 1)\n&gt;&gt;&gt; 6.0\nprint(np.linalg.norm(A - C), ord = 1)\n&gt;&gt;&gt; 2.0\n\nChanging to Manhattan distance, we see that A and B are even further apart than Euclidean.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#direction-and-magnitude-3",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#direction-and-magnitude-3",
-    "title": "16: Distance and Similarity",
-    "section": "Direction and Magnitude",
-    "text": "Direction and Magnitude\n\nA better way to approach this is to avoid distance and instead look at the angle between the two vectors.\nThe closer the angle is to zero, the more the vectors point in the same direction.\nSo, the closer the angle to zero, the more similar the vectors are.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#the-dot-product",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#the-dot-product",
-    "title": "16: Distance and Similarity",
-    "section": "The Dot Product",
-    "text": "The Dot Product",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#the-dot-product-1",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#the-dot-product-1",
-    "title": "16: Distance and Similarity",
-    "section": "The Dot Product",
-    "text": "The Dot Product",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity",
-    "title": "16: Distance and Similarity",
-    "section": "Cosine Similarity",
-    "text": "Cosine Similarity\n\nFrom this alternative form of the dot product definition, we can then simultaneously both find the angle and have it automatically translated to an extremely convenient range.",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-1",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-1",
-    "title": "16: Distance and Similarity",
-    "section": "Cosine Similarity",
-    "text": "Cosine Similarity",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-2",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-2",
-    "title": "16: Distance and Similarity",
-    "section": "Cosine Similarity",
-    "text": "Cosine Similarity",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-3",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-3",
-    "title": "16: Distance and Similarity",
-    "section": "Cosine Similarity",
-    "text": "Cosine Similarity\ndef similarity(A,B):\nreturn np.dot(A,B) / (\nnp.linalg.norm(A) *\nnp.linalg.norm(B)\n)\nA = np.array([1,1])\nB = np.array([4,4])\nC = np.array([-1,1])\nprint(similarity(A, B))\n&gt;&gt;&gt; 0.9999999999999998\nprint(similarity(A, C))\n&gt;&gt;&gt; 0.0",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-4",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-4",
-    "title": "16: Distance and Similarity",
-    "section": "Cosine Similarity",
-    "text": "Cosine Similarity\n\nNote that a cosine similarity of -1 means the two vectors are closely related, they are just in opposite directions.\nIf we had vectors of words, good and bad are related words, one is the opposite of the other.\n\nThese would likely have a cosine similarity of -1.\n\n\n\n\n\nCosine Similarity\nMeaning\n\n\n\n\n1\nSame direction\n\n\n0.8\nVery similar\n\n\n0\nUnrelated directions\n\n\n-1\nOpposite directions",
-    "crumbs": [
-      "Lectures",
-      "16: Distance and Similarity"
-    ]
-  },
-  {
-    "objectID": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-5",
-    "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#cosine-similarity-5",
-    "title": "16: Distance and Similarity",
-    "section": "Cosine Similarity",
-    "text": "Cosine Similarity\n\nIf we had vectors of the words, good and brick, there is no obvious relationship between the two.\n\nAs these words are unrelated, we would expect a cosine similarity around zero.\n\n\n\n\n\nCosine Similarity\nMeaning\n\n\n\n\n1\nSame direction\n\n\n0.8\nVery similar\n\n\n0\nUnrelated directions\n\n\n-1\nOpposite directions",
+    "text": "Direction and Magnitude\nLooking at the plot we can see that vector A points in the same direction as vector B. But vectors A and C are much closer according to Euclidean distance.\n\n\nShow Python plotting code\nimport numpy as np\nimport matplotlib.pyplot as plt\n\nA = np.array([1,1])\nB = np.array([4,4])\nC = np.array([-1,1])\n\nfig, ax = plt.subplots(figsize=(6,6))\n\ncolors = {'A':'red', \n          'B':'blue',\n          'C':'green'}\n\nfor vec, label in zip([B,A,C],[\"B\", \"A\", \"C\"]):\n    ax.quiver(\n        0,0,\n        vec[0],vec[1],\n        angles='xy',\n        scale_units='xy',\n        scale=1,\n        width=0.008,\n        color=colors[label]\n        \n    )\n    ax.text(vec[0]-0.5, vec[1]-0.0, label, fontsize=22)\n\nax.set_xlim(-2,5)\nax.set_ylim(-1,5)\n\nax.grid(True)\nax.set_aspect(\"equal\")\n\nplt.show()\n\n\n\n\n\n\n\n\n\n\nA = np.array([1,1])\nB = np.array([4,4])\nC = np.array([-1,1])\n\nprint(f'A - B = {np.linalg.norm(A - B)}')\nprint(f'A - C = {np.linalg.norm(A - C)}')\n\nA - B = 4.242640687119285\nA - C = 2.0\n\n\nChanging to Manhattan distance, we see that A and B are even further apart than Euclidean.\n\nprint(f'A - B = {np.linalg.norm((A - B), ord = 1)}')\nprint(f'A - C = {np.linalg.norm((A - C), ord = 1)}')\n\nA - B = 6.0\nA - C = 2.0\n\n\nA better way to approach this is to avoid distance and instead look at the angle between the two vectors. The closer the angle is to zero, the more the vectors point in the same direction. So, the closer the angle to zero, the more similar the vectors are.\n\n\nShow Python plotting code\nfig, ax = plt.subplots(figsize=(6,6))\nax.quiver(0,0,A[0],A[1],\n          angles='xy',scale_units='xy',scale=1)\n\nax.quiver(0,0,B[0],B[1],\n          angles='xy',scale_units='xy',scale=1)\n\nax.plot([A[0],B[0]],\n        [A[1],B[1]],\n        linewidth=3)\n\nax.scatter(*A,s=100)\nax.scatter(*B,s=100)\n\nax.text(2.5,2.7,\"Large Euclidean\\nDistance\",\n        ha='right',\n        bbox=dict(facecolor='white'))\n\nax.set_xlim(0,5)\nax.set_ylim(0,5)\n\nax.grid(True)\nax.set_aspect(\"equal\")\n\nplt.show()\n\n\n\n\n\n\n\n\n\n\nThe Dot Product\nRecall that the dot product (scalar product) measures how much one vector is aligned in the direction of another.\nThis is best seen with the definition that uses the lengths of the vectors and the cosine of the angle between them:\nu \\cdot v = |u| |v| \\cos{\\theta}\n\n\nCosine Similarity\nFrom this form of the dot product definition, we can simultaneously find the angle between the vectors and translate it to a convenient range.\n\n\nShow Python plotting code\ntheta = np.linspace(-0.5,0.5,100)\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nax.quiver(0,0,A[0],A[1],\n          angles='xy',scale_units='xy',scale=1,color='red')\n\nax.quiver(0,0,C[0],C[1],\n          angles='xy',scale_units='xy',scale=1,color='green')\n\nax.plot(\n    [-0.5,0.5],\n    [0.5,0.5],\n    linewidth=3\n)\n\nax.text(-0.05,0.20,r\"$\\theta$\",\n        fontsize=18)\n\nax.set_xlim(-2,2)\nax.set_ylim(-0.5,2)\n\nax.grid(True)\nax.set_aspect(\"equal\")\n\nplt.show()\n\n\n\n\n\n\n\n\n\nBy a simple rearrangement of the dot product definition we have:\n\\cos(\\theta) = \\frac{u \\cdot v}{|u||v|}\nWith our cosine similarity definition, we can now calculate the similarity between two vectors in a way that ignores differences in magnitude and considers only direction.\nLooking at our original vectors, we see that the results of cosine similarity are better matched to our intuition of how far the vectors are apart.\n\ndef similarity(A,B):\n    return np.dot(A,B) / (np.linalg.norm(A) * np.linalg.norm(B))\n\nA = np.array([1,1])\nB = np.array([4,4])\nC = np.array([-1,1])\n\nprint(f'Cosine similarity between A and B: {similarity(A, B)}\\n')\n\nprint(f'Cosine similarity between A and C: {similarity(A, C)}')\n\nCosine similarity between A and B: 0.9999999999999998\n\nCosine similarity between A and C: 0.0\n\n\nNote that a cosine similarity of -1 means the two vectors are closely related, they are just in opposite directions.\nIf we had vectors of words, good and bad are related words, one is the opposite of the other.\n\nThese would likely have a cosine similarity of -1.\n\n\n\n\nCosine Similarity\nMeaning\n\n\n\n\n1\nSame direction\n\n\n0.8\nVery similar\n\n\n0\nUnrelated directions\n\n\n-1\nOpposite directions\n\n\n\nIf we had vectors of the words, good and brick, there is no obvious relationship between the two.\n\nAs these words are unrelated, we would expect a cosine similarity around zero.\n\n\n\n\nCosine Similarity\nMeaning\n\n\n\n\n1\nSame direction\n\n\n0.8\nVery similar\n\n\n0\nUnrelated directions\n\n\n-1\nOpposite directions",
     "crumbs": [
       "Lectures",
       "16: Distance and Similarity"
@@ -1786,7 +1203,7 @@
     "href": "lectures/16_distance_and_similarity/distance_and_similarity.html#comparing-measures",
     "title": "16: Distance and Similarity",
     "section": "Comparing Measures",
-    "text": "Comparing Measures\n\nDifferent measures answer different questions.\nOne measure is not always better than another.\n\n\n\n\n\n\n\n\nQuestion\nMeasure\n\n\n\n\nHow far apart are these vectors?\nEuclidean Distance\n\n\nHow much do they differ coordinate-by-coordinate?\nManhattan Distance\n\n\nDo they point in the same direction?\nCosine Similarity",
+    "text": "Comparing Measures\nDifferent measures answer different questions and one measure is not always better than another.\n\n\n\n\n\n\n\nQuestion\nMeasure\n\n\n\n\nHow far apart are these vectors?\nEuclidean Distance\n\n\nHow much do they differ coordinate-by-coordinate?\nManhattan Distance\n\n\nDo they point in the same direction?\nCosine Similarity",
     "crumbs": [
       "Lectures",
       "16: Distance and Similarity"
@@ -1991,11 +1408,11 @@
     ]
   },
   {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#boolean-logic-and-comparisons",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#boolean-logic-and-comparisons",
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html",
+    "href": "lectures/07_boolean_logic/boolean_logic.html",
     "title": "7: Boolean Logic",
-    "section": "Boolean Logic and Comparisons",
-    "text": "Boolean Logic and Comparisons\nCSCI – 1056\nContent Modified from Pearson’s Starting Out with Python 6th Edition",
+    "section": "",
+    "text": "A Boolean variable is a special type of variable that references one of two values, True or False. In Python it is represented by the bool data type.\nBoolean variables are commonly used as flags which is a variable whose purpose is to signal when some condition exists in a program.\n\nFlag set to False means the condition does not exist\nFlag set to True means the condition exists",
     "crumbs": [
       "Lectures",
       "7: Boolean Logic"
@@ -2005,140 +1422,30 @@
     "objectID": "lectures/07_boolean_logic/boolean_logic.html#boolean-variables",
     "href": "lectures/07_boolean_logic/boolean_logic.html#boolean-variables",
     "title": "7: Boolean Logic",
-    "section": "Boolean Variables",
-    "text": "Boolean Variables\n\nBoolean variable: references one of two values, True or False\n\nRepresented by bool data type\n\nCommonly used as flags\n\nFlag: variable that signals when some condition exists in a program\n\nFlag set to False  condition does not exist\nFlag set to True  condition exists",
+    "section": "",
+    "text": "A Boolean variable is a special type of variable that references one of two values, True or False. In Python it is represented by the bool data type.\nBoolean variables are commonly used as flags which is a variable whose purpose is to signal when some condition exists in a program.\n\nFlag set to False means the condition does not exist\nFlag set to True means the condition exists",
     "crumbs": [
       "Lectures",
       "7: Boolean Logic"
     ]
   },
   {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-1-of-4",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-1-of-4",
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators",
+    "href": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators",
     "title": "7: Boolean Logic",
-    "section": "Boolean Expressions and Relational Operators (1 of 4)",
-    "text": "Boolean Expressions and Relational Operators (1 of 4)\n\nBoolean expression: expression tested to determine if it is true or false\n\nExample: a &gt; b\n\ntrue if a is greater than b; false otherwise\n\n\nRelational operator: determines whether a specific relationship exists between two values\n\nExample: greater than (&gt;)",
+    "section": "Boolean Expressions and Relational Operators",
+    "text": "Boolean Expressions and Relational Operators\nA Boolean expression is expression tested to determine if it is True or False.\n\nExample: a &gt; b\n\nTrue if a is greater than b; False otherwise\n\n\nA Relational operator determines whether a specific relationship exists between two values\n\nExample: greater than (&gt;)\n\nThe &gt;= and &lt;= operators test more than one relationship\n\nIt is enough for one of the relationships to exist for the expression to be true\n\nThe == operator determines whether the two operands are equal to one another\n\nMake sure not confuse it with the assignment operator (=)\n\nThe != operator determines whether the two operands are not equal\nBoolean expressions using relational operators\n\n\n\nExpression\nMeaning\n\n\n\n\nx &gt; y\nIs x greater than y?\n\n\nx &lt; y\nIs x less than y?\n\n\nx &gt;= y\nIs x greater than or equal to y?\n\n\nx &lt;= y\nIs x less than or equal to y?\n\n\nx == y\nIs x equal to y?\n\n\nx != y\nIs x not equal to y?\n\n\n\n\nExamples\n\nx = 10\ny = 5\n\nprint(x &gt; y)\n\nTrue\n\n\n\na = 3\nb = 5\n\nprint(a != b)\n\nTrue\n\n\n\na = 5\nb = 10\nc = 15\n\nprint(a &lt; b &lt; c)\n\nTrue\n\n\n\nWhat is the output of the following code?\nx = \"10\"\ny = 10\n\nprint(x == y)\n\n\nClick to show answer\n\nFalse\n\n\n\nWhat is the output of the following code?\nx = \"10\"\ny = 10\n\nprint(x == int(y))\n\n\nClick to show answer\n\nTrue",
     "crumbs": [
       "Lectures",
       "7: Boolean Logic"
     ]
   },
   {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-2-of-4",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-2-of-4",
+    "objectID": "lectures/07_boolean_logic/boolean_logic.html#comparing-strings",
+    "href": "lectures/07_boolean_logic/boolean_logic.html#comparing-strings",
     "title": "7: Boolean Logic",
-    "section": "Boolean Expressions and Relational Operators (2 of 4)",
-    "text": "Boolean Expressions and Relational Operators (2 of 4)\n\n&gt;= and &lt;= operators test more than one relationship\n\nIt is enough for one of the relationships to exist for the expression to be true\n\n== operator determines whether the two operands are equal to one another\n\nDo not confuse with assignment operator (=)\n\n!= operator determines whether the two operands are not equal",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-3-of-4",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-3-of-4",
-    "title": "7: Boolean Logic",
-    "section": "Boolean Expressions and Relational Operators (3 of 4)",
-    "text": "Boolean Expressions and Relational Operators (3 of 4)\nTable 3-2 Boolean expressions using relational operators\n\n\n\nExpression\nMeaning\n\n\n\n\nx &gt; y\nIs x greater than y?\n\n\nx &lt; y\nIs x less than y?\n\n\nx &gt;= y\nIs x greater than or equal to y?\n\n\nx &lt;= y\nIs x less than or equal to y?\n\n\nx == y\nIs x equal to y?\n\n\nx != y\nIs x not equal to y?",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-4-of-4",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#boolean-expressions-and-relational-operators-4-of-4",
-    "title": "7: Boolean Logic",
-    "section": "Boolean Expressions and Relational Operators (4 of 4)",
-    "text": "Boolean Expressions and Relational Operators (4 of 4)\n\nUsing a Boolean expression with the &gt; relational operator\n\nFigure 3-3 Example decision structure\nA flowchart illustrates the use of Boolean expressions and relational operators. For long description in Notes pane, press F6.\n\nIn a flowchart, a decision box, sales greater than 50000, indicates the conditions true and false. If the condition is true, the action, bonus = 500.0, is implemented. If the condition is false, the action is skipped. The flow exits after both the false and the true statements.",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\nx = 10\ny = 5\nprint(x &gt; y)\n&gt;&gt; True",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example-1",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example-1",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\na = 3\nb = 5\nprint(a != b)\n&gt;&gt; True",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example-2",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example-2",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\na = 5\nb = 10\nc = 15\nprint(a &lt; b &lt; c)\n&gt;&gt; True",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#practice",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#practice",
-    "title": "7: Boolean Logic",
-    "section": "Practice",
-    "text": "Practice\nx = “10”\ny = 10\nprint(x == y)",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#practice-1",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#practice-1",
-    "title": "7: Boolean Logic",
-    "section": "Practice",
-    "text": "Practice\nx = 10\ny = “10”\nprint(x == int(y))",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#comparing-strings-1-of-2",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#comparing-strings-1-of-2",
-    "title": "7: Boolean Logic",
-    "section": "Comparing Strings (1 of 2)",
-    "text": "Comparing Strings (1 of 2)\n\nStrings can be compared using the == and != operators\nString comparisons are case sensitive\nStrings can be compared using &gt;, &lt;, &gt;=, and &lt;=\n\nCompared character by character based on the ASCII values for each character\nIf shorter word is substring of longer word, longer word is greater than shorter word",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#comparing-strings-2-of-2",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#comparing-strings-2-of-2",
-    "title": "7: Boolean Logic",
-    "section": "Comparing Strings (2 of 2)",
-    "text": "Comparing Strings (2 of 2)\nFigure 3-9 Comparing each character in a string\nAn illustration displays the comparison of the character codes for the strings Mary and Mark using A S C I I codes. For long description in Notes pane, press F6.\n\nThe A S C I I codes for each letter in the strings are displayed within a cell of an array. Since Mary and Mark both have four letters each, a 1 cross 4 array is used for each of the strings. The character codes for the letters in Mary are as follows. Upper M 77, Lower a 97, Lower r 114, Lower y 121. The character codes for the letters in Mark are as follows. Upper M 77, Lower a 97, Lower r 114, Lower k 107. The arrays are aligned one below the other, such that the double headed arrow is present between each pair of cells indicates a comparison. The first cells of both strings is compared, the second cells of both strings is compared, the third cells of both strings is compared, and the fourth cells of both strings is compared.",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#practice-2",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#practice-2",
-    "title": "7: Boolean Logic",
-    "section": "Practice",
-    "text": "Practice\nDefine the names below as strings and test the relational operators =, !=, &lt;, &gt; on them.\nAn illustration displays the comparison of the character codes for the strings Mary and Mark using A S C I I codes. For long description in Notes pane, press F6.\n\nThe A S C I I codes for each letter in the strings are displayed within a cell of an array. Since Mary and Mark both have four letters each, a 1 cross 4 array is used for each of the strings. The character codes for the letters in Mary are as follows. Upper M 77, Lower a 97, Lower r 114, Lower y 121. The character codes for the letters in Mark are as follows. Upper M 77, Lower a 97, Lower r 114, Lower k 107. The arrays are aligned one below the other, such that the double headed arrow is present between each pair of cells indicates a comparison. The first cells of both strings is compared, the second cells of both strings is compared, the third cells of both strings is compared, and the fourth cells of both strings is compared.",
+    "section": "Comparing Strings",
+    "text": "Comparing Strings\nStrings can be compared using all of the operators seen in the table above. Note that string comparisons are case sensitive. Strings are compared character by character based on the ASCII values for each character.\nThe ord() function can be used to see the ASCII value for each character in a string.\n\ns1 = \"Mary\"\ns2 = \"Mark\"\n\nfor i,j in zip(s1,s2):\n    print(ord(i),ord(j))\n\n77 77\n97 97\n114 114\n121 107\n\n\nWe can see that the values above differ only on the last character, and that y has a greater ASCII value than k . Python will then determine s1 to be larger than s2.\nIf shorter word is substring of longer word, longer word is greater than shorter word.\n\ns1 = \"Mat\"\ns2 = \"Matt\"\n\nprint(s2 &gt; s1)\n\nTrue\n\n\n\nDefine the names Mary and Mark as strings and test the relational operators ==, !=, &lt;, &gt; on them.",
     "crumbs": [
       "Lectures",
       "7: Boolean Logic"
@@ -2149,117 +1456,7 @@
     "href": "lectures/07_boolean_logic/boolean_logic.html#logical-operators",
     "title": "7: Boolean Logic",
     "section": "Logical Operators",
-    "text": "Logical Operators\n\nLogical operators: operators that can be used to create complex Boolean expressions\n\nand operator and or operator: binary operators, connect two Boolean expressions into a compound Boolean expression\nnot operator: unary operator, reverses the truth of its Boolean operand",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#the-and-operator",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#the-and-operator",
-    "title": "7: Boolean Logic",
-    "section": "The and Operator",
-    "text": "The and Operator\n\nTakes two Boolean expressions as operands\n\nCreates compound Boolean expression that is true only when both sub expressions are true\nCan be used to simplify nested decision structures\n\nTruth table for the and operator\n\n\n\n\nExpression\nValue of the Expression\n\n\n\n\nfalse and false\nfalse\n\n\nfalse and true\nfalse\n\n\ntrue and false\nfalse\n\n\ntrue and true\ntrue",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example-3",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example-3",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\nx = True\ny = False\nprint(x and y) #y and x is the same here\n&gt;&gt; False\nprint(y and y)\n&gt;&gt; False\nprint(x and x)\n&gt;&gt; True",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#the-or-operator",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#the-or-operator",
-    "title": "7: Boolean Logic",
-    "section": "The or Operator",
-    "text": "The or Operator\n\nTakes two Boolean expressions as operands\n\nCreates compound Boolean expression that is true when either of the sub expressions is true\nCan be used to simplify nested decision structures\n\nTruth table for the or operator\n\n\n\n\nExpression\nValue of the Expression\n\n\n\n\nFalse or False\nFalse\n\n\nFalse or True\nTrue\n\n\nTrue or False\nTrue\n\n\nTrue or True\nTrue",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example-4",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example-4",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\nx = True\ny = False\nprint(x or y) #y and x is the same here\n&gt;&gt; True\nprint(y or y)\n&gt;&gt; False\nprint(x or x)\n&gt;&gt; True",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#short-circuit-evaluation",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#short-circuit-evaluation",
-    "title": "7: Boolean Logic",
-    "section": "Short-Circuit Evaluation",
-    "text": "Short-Circuit Evaluation\n\nShort circuit evaluation: deciding the value of a compound Boolean expression after evaluating only one sub expression\n\nPerformed by the or and and operators\n\nFor or operator: If left operand is true, compound expression is true. Otherwise, evaluate right operand\nFor and operator: If left operand is false, compound expression is false. Otherwise, evaluate right operand",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example-5",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example-5",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\nx = True\ny = False\nz = True\nprint(x and y and z)\n&gt;&gt; False\nprint(x or y or z)\n&gt;&gt; True",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#the-not-operator",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#the-not-operator",
-    "title": "7: Boolean Logic",
-    "section": "The not Operator",
-    "text": "The not Operator\n\nTakes one Boolean expressions as operand and reverses its logical value\n\nSometimes it may be necessary to place parentheses around an expression to clarify to what you are applying the not operator\n\nTruth table for the not operator\n\n\n\n\nExpression\nValue of the Expression\n\n\n\n\ntrue\nfalse\n\n\nfalse\ntrue",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example-6",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example-6",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\nx = True\ny = False\nprint(x and y)\n&gt;&gt; False\nprint(not (x and y))\n&gt;&gt; True\nprint(not x and y)\n&gt;&gt; False\n\nNote the operator precedence on the last expression, not acts before and so converts x to false immediately, then x and y is evaluated.",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#checking-numeric-ranges-with-logical-operators",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#checking-numeric-ranges-with-logical-operators",
-    "title": "7: Boolean Logic",
-    "section": "Checking Numeric Ranges With Logical Operators",
-    "text": "Checking Numeric Ranges With Logical Operators\n\nTo determine whether a numeric value is within a specific range of values, use and\n\nExample: x &gt;= 10 and x &lt;= 20\n\nTo determine whether a numeric value is outside of a specific range of values, use or\n\nExample: x &lt; 10 or x &gt; 20",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#example-7",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#example-7",
-    "title": "7: Boolean Logic",
-    "section": "Example",
-    "text": "Example\nx = 25\nprint(x &gt;= 10 and x &lt;= 20)\n&gt;&gt; False\nprint(x &lt; 10 or x &gt; 20)\n&gt;&gt; True",
+    "text": "Logical Operators\nLogical operators are constructs that can be used to create complex Boolean expressions. While there are many logical operators, we will only talk about the three most fundamental ones.\n\nThe and operator and or operator are binary operators which connect two Boolean expressions into a compound Boolean expression\nThe not operator is a unary operator which operates on only a single Boolean expression.\n\n\nThe and Operator\nCreates a compound Boolean expression that is True only when both sub-expressions are True\nTruth table for the and operator\n\n\n\nExpression\nValue of the Expression\n\n\n\n\nFalse and False\nFalse\n\n\nFalse and True\nFalse\n\n\nTrue and False\nFalse\n\n\nTrue and True\nTrue\n\n\n\n\nx = True\ny = False\n\nprint(x and y) \nprint()\nprint(y and y)\nprint()\nprint(x and x)\n\nFalse\n\nFalse\n\nTrue\n\n\n\n\nThe or Operator\nCreates a compound Boolean expression that is True when either of the sub-expressions is True\nTruth table for the or operator\n\n\n\nExpression\nValue of the Expression\n\n\n\n\nFalse or False\nFalse\n\n\nFalse or True\nTrue\n\n\nTrue or False\nTrue\n\n\nTrue or True\nTrue\n\n\n\n\nx = True\ny = False\n\nprint(x or y) #y and x is the same here\nprint()\nprint(y or y)\nprint()\nprint(x or x)\n\nTrue\n\nFalse\n\nTrue\n\n\n\n\nShort-Circuit Evaluation\nA short circuit evaluation is an optimization done to decide the value of a compound Boolean expression after evaluating only one sub-expression.\n\nPerformed by the or and and operators\n\nFor or operator: If left operand is True, compound expression is True. Otherwise, evaluate right operand\nFor and operator: If left operand is False, compound expression is False. Otherwise, evaluate right operand\n\n\n\nx = True\ny = False\nz = True\n\nprint(x and y and z)\nprint()\nprint(x or y or z)\n\nFalse\n\nTrue\n\n\n\n\nThe not Operator\nTakes one Boolean expression as operand and reverses its logical value\n\nSometimes it may be necessary to place parentheses around an expression to clarify to what you are applying the not operator\n\nTruth table for the not operator\n\n\n\nExpression\nValue of the Expression\n\n\n\n\nTrue\nFalse\n\n\nFalse\nTrue\n\n\n\n\nx = True\ny = False\n\nprint(x and y)\nprint()\nprint(not (x and y))\nprint()\nprint(not x and y)\n\nFalse\n\nTrue\n\nFalse\n\n\nNote the operator precedence on the last expression, not acts first and so converts x to False immediately, then x and y is evaluated.\n\n\nChecking Numeric Ranges With Logical Operators\nTo determine whether a numeric value is within a specific range of values, use and\n\nExample: x &gt;= 10 and x &lt;= 20\n\nTo determine whether a numeric value is outside of a specific range of values, use or\n\nExample: x &lt; 10 or x &gt; 20\n\n\nx = 25\n\nprint(x &gt;= 10 and x &lt;= 20)\nprint()\nprint(x &lt; 10 or x &gt; 20)\n\nFalse\n\nTrue",
     "crumbs": [
       "Lectures",
       "7: Boolean Logic"
@@ -2270,62 +1467,7 @@
     "href": "lectures/07_boolean_logic/boolean_logic.html#the-in-keyword-membership-test",
     "title": "7: Boolean Logic",
     "section": "The in Keyword (Membership Test)",
-    "text": "The in Keyword (Membership Test)\n\nThe in keyword checks whether a value exists inside a collection, such as a list.\n\nReturns True or False\nCommonly used with lists (also works with strings)\nDoes not change the list\n\n\nnumbers = [3, 8, 12, 20]\n12 in numbers # True\n5 in numbers # False",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-1-of-5",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-1-of-5",
-    "title": "7: Boolean Logic",
-    "section": "Assignment Expressions and the Walrus Operator (1 of 5)",
-    "text": "Assignment Expressions and the Walrus Operator (1 of 5)\n\nThe walrus operator := is an enhanced assignment operator\nYou use the walrus operator to create assignment expressions\nAn assignment expression does two things:\n\nIt assigns a value to a variable\nIt returns the value that was assigned to the variable",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-2-of-5",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-2-of-5",
-    "title": "7: Boolean Logic",
-    "section": "Assignment Expressions and the Walrus Operator (2 of 5)",
-    "text": "Assignment Expressions and the Walrus Operator (2 of 5)\n\nExample:\nprint(num := 99)\nThis statement does two things:\n\nIt assigns 99 to the num variable\nIt prints the value that was assigned to the num variable, 99",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-3-of-5",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-3-of-5",
-    "title": "7: Boolean Logic",
-    "section": "Assignment Expressions and the Walrus Operator (3 of 5)",
-    "text": "Assignment Expressions and the Walrus Operator (3 of 5)\n\nExample:\nif (area := width * height) &gt; 100:\nprint(‘The area is too large’)\nThis if statement does the following:\n\nThe area variable is assigned the value of width * height\nIf the value that was assigned to area is greater than 100, the message The area is too large is displayed.",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-4-of-5",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-4-of-5",
-    "title": "7: Boolean Logic",
-    "section": "Assignment Expressions and the Walrus Operator (4 of 5)",
-    "text": "Assignment Expressions and the Walrus Operator (4 of 5)\n\nPrecedence of the walrus operator\n\nThe walrus operator has the lowest precedence of all the operators in Python\nWhen using the walrus operator in a larger expression that also uses other operators, the walrus operator will work last\nIn most cases, you need to put parentheses around the assignment expression to make sure the walrus operator assigns the correct value to its variable",
-    "crumbs": [
-      "Lectures",
-      "7: Boolean Logic"
-    ]
-  },
-  {
-    "objectID": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-5-of-5",
-    "href": "lectures/07_boolean_logic/boolean_logic.html#assignment-expressions-and-the-walrus-operator-5-of-5",
-    "title": "7: Boolean Logic",
-    "section": "Assignment Expressions and the Walrus Operator (5 of 5)",
-    "text": "Assignment Expressions and the Walrus Operator (5 of 5)\n\nAn assignment expression is not a complete statement\n\nFor example, this alone causes an error:\nnum := 99\n\nIt must be written as part of a larger statement\n\nprint(num := 99)",
+    "text": "The in Keyword (Membership Test)\nThe in keyword checks whether a value exists inside a collection, such as a list.\n\nReturns True or False\nCommonly used with lists (also works with strings and other iterable sequences).\nDoes not change the original data\n\n\nnumbers = [3, 8, 12, 20]\n\nprint(12 in numbers) # True\nprint()\nprint(5 in numbers) # False\n\nTrue\n\nFalse",
     "crumbs": [
       "Lectures",
       "7: Boolean Logic"
@@ -4283,7 +3425,7 @@
     "href": "lectures/10_matrices/matrices.html#scalar-addition",
     "title": "10: Matrices",
     "section": "Scalar Addition",
-    "text": "Scalar Addition\nAdding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.\n\n\nprint(A)\n\nprint(A+2)\n\n[[1 2 3]\n [4 5 6]]\n[[3 4 5]\n [6 7 8]]",
+    "text": "Scalar Addition\nAdding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.\n\n\nprint(f'A = {A}\\n')\n\nprint(f'A+2 = {A+2}')\n\nA = [[1 2 3]\n [4 5 6]]\n\nA+2 = [[3 4 5]\n [6 7 8]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4294,7 +3436,7 @@
     "href": "lectures/10_matrices/matrices.html#scalar-multiplication",
     "title": "10: Matrices",
     "section": "Scalar Multiplication",
-    "text": "Scalar Multiplication\nMultiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.\n\n\nprint(A)\n\nprint(A*2)\n\n[[1 2 3]\n [4 5 6]]\n[[ 2  4  6]\n [ 8 10 12]]",
+    "text": "Scalar Multiplication\nMultiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.\n\n\nprint(f'A = {A}\\n')\n\nprint(f'2A = {2*A}')\n\nA = [[1 2 3]\n [4 5 6]]\n\n2A = [[ 2  4  6]\n [ 8 10 12]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4305,7 +3447,7 @@
     "href": "lectures/10_matrices/matrices.html#the-transpose-of-a-matrix",
     "title": "10: Matrices",
     "section": "The Transpose of a Matrix",
-    "text": "The Transpose of a Matrix\nThe transpose operation on a matrix turns all rows to columns and all columns to rows.\nIn NumPy, we use the syntax A.T to take the transpose of matrix A.\n\nprint(A)\n\nprint(A.T)\n\n[[1 2 3]\n [4 5 6]]\n[[1 4]\n [2 5]\n [3 6]]",
+    "text": "The Transpose of a Matrix\nThe transpose operation on a matrix turns all rows to columns and all columns to rows.\nIn NumPy, we use the syntax A.T to take the transpose of matrix A.\n\nprint(f'A = {A}\\n')\n\nprint(f'A.T = {A.T}')\n\nA = [[1 2 3]\n [4 5 6]]\n\nA.T = [[1 4]\n [2 5]\n [3 6]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4316,7 +3458,7 @@
     "href": "lectures/10_matrices/matrices.html#matrix-addition",
     "title": "10: Matrices",
     "section": "Matrix Addition",
-    "text": "Matrix Addition\nMatrix addition is defined similarly to vector addition where each paired element is added together. Note that we need a pairing, and so the matrices must be of identical dimensions.\n\nprint(A)\n\nprint(A+A)\n\n[[1 2 3]\n [4 5 6]]\n[[ 2  4  6]\n [ 8 10 12]]",
+    "text": "Matrix Addition\nMatrix addition is defined similarly to vector addition where each paired element is added together. Note that we need a pairing, and so the matrices must be of identical dimensions.\n\nprint(f'A = {A}\\n')\n\nprint(f'A + A = {A+A}')\n\nA = [[1 2 3]\n [4 5 6]]\n\nA + A = [[ 2  4  6]\n [ 8 10 12]]",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4327,7 +3469,7 @@
     "href": "lectures/10_matrices/matrices.html#matrix-multiplication",
     "title": "10: Matrices",
     "section": "Matrix Multiplication",
-    "text": "Matrix Multiplication\nWhen it comes to “multiplication” of matrices, we need to define what multiplication means. Without prior knowledge, most people would define matrix multiplication similarly to scalar multiplication. That is, element-wise multiplication.\nThis kind of multiplication is the Hadamard product which we have seen with vectors. And this is not generally what people mean when they say matrix multiplication.\nIn NumPy, the Hadamard product is computed using the asterisk.\n\nThe Hadamard Product\n\nIt is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.\n\n\nA = np.array([\n[1, 2, 3],\n[4, 5, 6]\n])\n\nprint(A * A)\n\n[[ 1  4  9]\n [16 25 36]]\n\n\n\n\nMatrix-Vector Multiplication\nLet a matrix A be defined by\nA =\n\\begin{bmatrix}\n1 & 3 \\\\\n2 & 1\n\\end{bmatrix}\nLet a vector x be defined by\nx =\n\\begin{bmatrix}\n2  \\\\\n5\n\\end{bmatrix}\nThen we have\nAx = 2\n\\begin{bmatrix}\n1  \\\\\n2\n\\end{bmatrix}\n+\n5\n\\begin{bmatrix}\n3  \\\\\n1\n\\end{bmatrix}\nWhat we have here is just an extension of scalar multiplication and vector addition. We can say that the matrix A is just storing column vectors and that the vector x tells us how much of each column to combine.\n\nA = np.array([\n[1,3],\n[2,1]\n])\n\nx = np.array([2,5])\n\nprint(A @ x)\n\nprint(2*A[:,0] + 5*A[:,1])\n\n[17  9]\n[17  9]\n\n\nWhy not define multiplication some other way? Matrix multiplication was not invented to multiply tables of numbers. It was invented as a compact way to describe transformations of vectors. The chosen definition turns matrices into machines (or rules) that transform vectors.\nSuppose an object has position (x,y) and you want to stretch the x-coordinate by 2 while leaving y unchanged.\nWhat you want is a transformation that performs the following\n\\begin{bmatrix}\nx  \\\\\ny\n\\end{bmatrix}\n\\rightarrow\n\\begin{bmatrix}\n2x  \\\\\ny\n\\end{bmatrix}\nWe can go and write one operation that works for any values inside the vector. All we need to do is put the coefficients into a matrix.\n\\begin{bmatrix}\n2 & 0 \\\\\n0 & 1\n\\end{bmatrix}\n\\begin{bmatrix}\nx  \\\\\ny\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n2x  \\\\\ny\n\\end{bmatrix}\nUsing NumPy, we can verify this for chosen values of x and y .\n\nvec = np.array([1,2]) #x = 1 and y = 2, so our scaled vector should be (2,2) if successful\n\nmat = np.array([[2,0],\n               [0,1]])\n\nprint(mat@vec)\n\n[2 2]\n\n\nRemember that a matrix a rule that we define whose purpose is to transform vectors.\nWe will reuse the matrix A defined earlier:\nA =\n\\begin{bmatrix}\n1 & 3 \\\\\n2 & 1\n\\end{bmatrix}\nAnd we will define vector x to be\nx =\n\\begin{bmatrix}\na  \\\\\nb\n\\end{bmatrix}\nLet us rewrite A using the substitutions\nc_1 =\n\\begin{bmatrix}\n1  \\\\\n2\n\\end{bmatrix}\n,\\;\nc_2 =\n\\begin{bmatrix}\n3  \\\\\n1\n\\end{bmatrix}\nSo we have\nA =  \n\\begin{bmatrix}\nc_1  & c_2\n\\end{bmatrix}\nThen\nAx = ac_1 + bc_2\nNote that the vector x tells us how much of each column to use. This is the meaning of matrix-vector multiplication, the matrix stores vectors and the input vector provides the weights.\nMatrix columns can be viewed as directions or features, the entries of our vector is how much of each feature to use, and the output is the resulting combination.\nThis is very useful because many problems are linear combinations or can at least be approximated by linear combinations.\n\n\nMatrix-Matrix Multiplication\nIf one matrix transforms vectors, what should happen when we apply two transformations in sequence?\nSuppose that the matrix B rotates a vector x , then matrix A stretches it. We would like to have a single matrix that performs both operations at once, that is\nA(Bx) = (AB)x\nThis requirement determines how matrix multiplication must work. Matrix multiplication is defined so that composing transformations works as expected.\nIf matrix C has columns C = \\begin{bmatrix} c_1  & c_2 & c_3 \\end{bmatrix} then multiplying C by matrix D gives us DC =\\begin{bmatrix}Dc_1  & Dc_2 & Dc_3 \\end{bmatrix}\nWe can see that D is applied to every column of C. Matrix-matrix multiplication ultimately means we transform every column.\nComputing the output of matrix multiplication is usually taught as the “row-column” approach.\nFor matrix\nA = \\begin{bmatrix} a_{11}  & a_{12} \\\\ a_{21} & a_{22} \\end{bmatrix}\nand vector\nx = \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix}\nwe have\nAx = x_1 \\begin{bmatrix} a_{11} \\\\ a_{21} \\end{bmatrix} + x_2 \\begin{bmatrix} a_{12} \\\\ a_{22} \\end{bmatrix} = \\begin{bmatrix} x_1a_{11} + x_2a_{12} \\\\ x_1a_{21} + x_2a_{22} \\end{bmatrix}\nNote that we are using what amounts to the dot product here.\nFor matrix\n\nB = \\begin{bmatrix} 1  & 2 \\\\ 3 & 4 \\end{bmatrix} \nand\n\nC = \\begin{bmatrix} 5  & 6 \\\\ 7 & 8 \\end{bmatrix} \n$$BC =\n\n\\begin{bmatrix}\n\\begin{bmatrix} 1 & 2 \\end{bmatrix} \\begin{bmatrix} 5 \\\\ 7 \\end{bmatrix} & \\begin{bmatrix} 1 & 2 \\end{bmatrix} \\begin{bmatrix} 6 \\\\ 8 \\end{bmatrix}\n\\\\\n\\begin{bmatrix} 3 & 4 \\end{bmatrix} \\begin{bmatrix} 5 \\\\ 7 \\end{bmatrix} & \\begin{bmatrix} 3 & 4 \\end{bmatrix} \\begin{bmatrix} 6 \\\\ 8 \\end{bmatrix}\n\\end{bmatrix}\n=\n\\begin{bmatrix} 1 \\times 5 + 2 \\times 7 & 3 \\times 5 + 4 \\times 7 \\\\ 1 \\times 6 + 2 \\times 8 & 3 \\times 6 + 4 \\times 8 \\end{bmatrix}\n=\n\\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}\n$$\n\nConfirm that for matrices B and C above that BC \\neq CB.\n\n\nConfirm by hand that the result of the matrix vector product in the Python example in the matrix-vector product subsection is in fact just the x value scaled by 2.\n\n\n\nDimension Rules\nMatrix multiplication is not defined for any two arbitrary sized matrices.\nAn n \\times p matrix takes a p-dimensional vector and produces an n-dimensional vector. Now, if we have an m \\times n matix, this takes an n-dimensional vector and produces an m-dimensional vector.\nIf we have two transformations, the output dimension of the first transformation must equal the input dimension of the second transformation. We need to connect compatible transformations to have matrix multiplication defined. Looking at our matrices we have the m \\times n matrix applied to the n \\times p matrix. Writing this as (m \\times n)(n \\times p) we can see that the “inner” dimensions are equal here, and this is the requirement when it comes to matrix multiplication. The size of the output will be the “outer dimension” (m \\times p).",
+    "text": "Matrix Multiplication\nWhen it comes to “multiplication” of matrices, we need to define what multiplication means. Without prior knowledge, most people would define matrix multiplication similarly to scalar multiplication. That is, element-wise multiplication.\nThis kind of multiplication is the Hadamard product which we have seen with vectors. And this is not generally what people mean when they say matrix multiplication.\nIn NumPy, the Hadamard product is computed using the asterisk.\n\nThe Hadamard Product\n\nIt is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.\n\n\nA = np.array([\n[1, 2, 3],\n[4, 5, 6]\n])\n\nprint(A * A)\n\n[[ 1  4  9]\n [16 25 36]]\n\n\n\n\nMatrix-Vector Multiplication\nLet a matrix A be defined by\nA =\n\\begin{bmatrix}\n1 & 3 \\\\\n2 & 1\n\\end{bmatrix}\nLet a vector x be defined by\nx =\n\\begin{bmatrix}\n2  \\\\\n5\n\\end{bmatrix}\nThen we have\nAx = 2\n\\begin{bmatrix}\n1  \\\\\n2\n\\end{bmatrix}\n+\n5\n\\begin{bmatrix}\n3  \\\\\n1\n\\end{bmatrix}\nWhat we have here is just an extension of scalar multiplication and vector addition. We can say that the matrix A is just storing column vectors and that the vector x tells us how much of each column to combine.\n\nA = np.array([\n[1,3],\n[2,1]\n])\n\nx = np.array([2,5])\n\nprint(A @ x)\n\nprint(2*A[:,0] + 5*A[:,1])\n\n[17  9]\n[17  9]\n\n\nWhy not define multiplication some other way? Matrix multiplication was not invented to multiply tables of numbers. It was invented as a compact way to describe transformations of vectors. The chosen definition turns matrices into machines (or rules) that transform vectors.\nSuppose an object has position (x,y) and you want to stretch the x-coordinate by 2 while leaving y unchanged.\nWhat you want is a transformation that performs the following\n\\begin{bmatrix}\nx  \\\\\ny\n\\end{bmatrix}\n\\rightarrow\n\\begin{bmatrix}\n2x  \\\\\ny\n\\end{bmatrix}\nWe can go and write one operation that works for any values inside the vector. All we need to do is put the coefficients into a matrix.\n\\begin{bmatrix}\n2 & 0 \\\\\n0 & 1\n\\end{bmatrix}\n\\begin{bmatrix}\nx  \\\\\ny\n\\end{bmatrix}\n=\n\\begin{bmatrix}\n2x  \\\\\ny\n\\end{bmatrix}\nUsing NumPy, we can verify this for chosen values of x and y .\n\nvec = np.array([1,2]) #x = 1 and y = 2, so our scaled vector should be (2,2) if successful\n\nmat = np.array([[2,0],\n               [0,1]])\n\nprint(mat@vec)\n\n[2 2]\n\n\nRemember that a matrix a rule that we define whose purpose is to transform vectors.\nWe will reuse the matrix A defined earlier:\nA =\n\\begin{bmatrix}\n1 & 3 \\\\\n2 & 1\n\\end{bmatrix}\nAnd we will define vector x to be\nx =\n\\begin{bmatrix}\na  \\\\\nb\n\\end{bmatrix}\nLet us rewrite A using the substitutions\nc_1 =\n\\begin{bmatrix}\n1  \\\\\n2\n\\end{bmatrix}\n,\\;\nc_2 =\n\\begin{bmatrix}\n3  \\\\\n1\n\\end{bmatrix}\nSo we have\nA =  \n\\begin{bmatrix}\nc_1  & c_2\n\\end{bmatrix}\nThen\nAx = ac_1 + bc_2\nNote that the vector x tells us how much of each column to use. This is the meaning of matrix-vector multiplication, the matrix stores vectors and the input vector provides the weights.\nMatrix columns can be viewed as directions or features, the entries of our vector is how much of each feature to use, and the output is the resulting combination.\nThis is very useful because many problems are linear combinations or can at least be approximated by linear combinations.\n\n\nMatrix-Matrix Multiplication\nIf one matrix transforms vectors, what should happen when we apply two transformations in sequence?\nSuppose that the matrix B rotates a vector x , then matrix A stretches it. We would like to have a single matrix that performs both operations at once, that is\nA(Bx) = (AB)x\nThis requirement determines how matrix multiplication must work. Matrix multiplication is defined so that composing transformations works as expected.\nIf matrix C has columns C = \\begin{bmatrix} c_1  & c_2 & c_3 \\end{bmatrix} then multiplying C by matrix D gives us DC =\\begin{bmatrix}Dc_1  & Dc_2 & Dc_3 \\end{bmatrix}.\nWe can see that D is applied to every column of C. Matrix-matrix multiplication ultimately means we transform every column.\nComputing the output of matrix multiplication is usually taught as the “row-column” approach.\nFor matrix\nA = \\begin{bmatrix} a_{11}  & a_{12} \\\\ a_{21} & a_{22} \\end{bmatrix}\nand vector\nx = \\begin{bmatrix} x_1 \\\\ x_2 \\end{bmatrix}\nwe have\nAx = x_1 \\begin{bmatrix} a_{11} \\\\ a_{21} \\end{bmatrix} + x_2 \\begin{bmatrix} a_{12} \\\\ a_{22} \\end{bmatrix} = \\begin{bmatrix} x_1a_{11} + x_2a_{12} \\\\ x_1a_{21} + x_2a_{22} \\end{bmatrix}\nNote that we are using what amounts to the dot product here.\nFor matrix\n\nB = \\begin{bmatrix} 1  & 2 \\\\ 3 & 4 \\end{bmatrix} \nand\n\nC = \\begin{bmatrix} 5  & 6 \\\\ 7 & 8 \\end{bmatrix} \nBC =\n\\begin{bmatrix}\n\\begin{bmatrix} 1 & 2 \\end{bmatrix} \\begin{bmatrix} 5 \\\\ 7 \\end{bmatrix} & \\begin{bmatrix} 1 & 2 \\end{bmatrix} \\begin{bmatrix} 6 \\\\ 8 \\end{bmatrix}\n\\\\\n\\begin{bmatrix} 3 & 4 \\end{bmatrix} \\begin{bmatrix} 5 \\\\ 7 \\end{bmatrix} & \\begin{bmatrix} 3 & 4 \\end{bmatrix} \\begin{bmatrix} 6 \\\\ 8 \\end{bmatrix}\n\\end{bmatrix}\n=\n\\begin{bmatrix} 1 \\times 5 + 2 \\times 7 & 3 \\times 5 + 4 \\times 7 \\\\ 1 \\times 6 + 2 \\times 8 & 3 \\times 6 + 4 \\times 8 \\end{bmatrix}\n=\n\\begin{bmatrix} 19 & 22 \\\\ 43 & 50 \\end{bmatrix}\n\nConfirm that for matrices B and C above that BC \\neq CB.\n\n\nConfirm by hand that the result of the matrix vector product in the Python example in the matrix-vector product subsection is in fact just the x value scaled by 2.\n\n\n\nDimension Rules\nMatrix multiplication is not defined for any two arbitrary sized matrices.\nAn n \\times p matrix takes a p-dimensional vector and produces an n-dimensional vector. Now, if we have an m \\times n matix, this takes an n-dimensional vector and produces an m-dimensional vector.\nIf we have two transformations, the output dimension of the first transformation must equal the input dimension of the second transformation. We need to connect compatible transformations to have matrix multiplication defined. Looking at our matrices we have the m \\times n matrix applied to the n \\times p matrix. Writing this as (m \\times n)(n \\times p) we can see that the “inner” dimensions are equal here, and this is the requirement when it comes to matrix multiplication. The size of the output will be the “outer dimension” (m \\times p).",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -4338,7 +3480,7 @@
     "href": "lectures/10_matrices/matrices.html#rotation-matrices",
     "title": "10: Matrices",
     "section": "Rotation Matrices",
-    "text": "Rotation Matrices\nA rotation matrix turns every vector by the same angle. To keep things simple, we will restrict ourselves to 2 dimensions.\nThe following matrix can rotate every point in our 2D space:\n\\begin{bmatrix} \\cos(\\theta) & -sin(\\theta) \\\\ \\sin(\\theta) & \\cos(\\theta) \\end{bmatrix} \\begin{bmatrix} x \\\\ y \\end{bmatrix}\nThe simplicity of representing this transformation is one reason why graphics libraries use matrices everywhere.\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\ndef rotate(theta,vector):\n\n  rotation_matrix = np.array([\n\n                    [np.cos(theta), -1*np.sin(theta)],\n\n                    [np.sin(theta), np.cos(theta)]\n\n                    ])\n\n  return rotation_matrix @ vector\n\nvector = [1,2]\n\ntheta = np.pi / 2\n\nprint(rotate(theta,vector))\n\n\n[-2.  1.]\n\n\nWe can visualize the initial vector and its transformed version to confirm that our rotation matrix is working correctly.\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\ndef setup_axes(ax, lim=3):\n    \"\"\"Create a consistent coordinate system.\"\"\"\n    ax.set_xlim(-lim, lim)\n    ax.set_ylim(-lim, lim)\n\n    ax.set_aspect('equal')\n\n    # Draw coordinate axes\n    ax.axhline(0, color='black', linewidth=1)\n    ax.axvline(0, color='black', linewidth=1)\n\n    ax.grid(True, linestyle='--', alpha=0.4)\n\n    ax.set_xlabel(\"x\")\n    ax.set_ylabel(\"y\")\n\nv = np.array([1,2])\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\n# Vector\nax.quiver(0,0,v[0],v[1],\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\n# Components\nax.plot([0,v[0]],[0,0],'--')\nax.plot([v[0],v[0]],[0,v[1]],'--')\n\nax.text(v[0]+0.1,v[1]+0.1,\"v = (1,2)\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\nv = np.array([1,2])\n\nangles = np.linspace(0,np.pi/2,2)\n\nfor theta in angles:\n\n    R = np.array([\n        [np.cos(theta),-np.sin(theta)],\n        [np.sin(theta), np.cos(theta)]\n    ])\n\n    vr = R @ v\n\n    if theta == 0:\n        color = 'blue'\n    else:\n        color = 'red'\n    ax.quiver(\n        0,0,\n        vr[0],vr[1],\n        angles='xy',\n        scale_units='xy',\n        scale=1,\n        alpha=0.7,\n        color=color\n    )    \nplt.show()\n\n\n\n\n\n\n\n\n\n\nBasis Vectors\nWe know we can decompose vectors into a representation based off of their constituent directions. For example, in 2D space we can use the x and y axes to fully describe any vector that lives in that space, that is, every vector in our space can be built from a linear combination of these directions. We then talk of the x and y components of the vector.\nThese building-block vectors are called basis vectors.\n\n\nShow Python Plotting code\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\ne1 = np.array([1,0])\ne2 = np.array([0,1])\n\nax.quiver(0,0,*e1,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nax.quiver(0,0,*e2,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nv = np.array([1,2])\n\nax.quiver(0,0,*v,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nax.text(1.05,-0.15,\"e₁\")\nax.text(-0.2,1.1,\"e₂\")\nax.text(v[0]+0.1,v[1],\"v\")\n\nplt.show()\n\n\n\n\n\n\n\n\n\nThe vector v in the plot can be viewed as 1e_1 + 2e_2.\n\n\nFloating Point Approximations\nSuppose we use our rotation matrix on the vector [1,0] where we rotate by \\frac{\\pi}{2}.\nWe would expect our output to be exactly [0,1] but sometimes we may see a slightly different answer.\n\nvector = np.array([1,0])\ntheta = np.pi/2\n\nR = np.array([\n[np.cos(theta), -np.sin(theta)],\n[np.sin(theta), np.cos(theta)]\n])\n\nprint(R @ vector)\n\n[6.123234e-17 1.000000e+00]\n\n\nBecause computers cannot store most real numbers exactly, they need to approximate them. This leads to small errors in the result. But, if we know that this is possible, we can work to control it.\nFor this example, we can clean up our answer using the round() method in NumPy.\n\nnp.round() takes in a NumPy arrow and an integer that controls the number of digits (the precision).\n\n\nprint(np.round(R @ vector, 10))\n\n[0. 1.]\n\n\nHere, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.",
+    "text": "Rotation Matrices\nA rotation matrix turns every vector by the same angle. To keep things simple, we will restrict ourselves to 2 dimensions.\nThe following matrix can rotate every point in our 2D space:\n\\begin{bmatrix} \\cos(\\theta) & -sin(\\theta) \\\\ \\sin(\\theta) & \\cos(\\theta) \\end{bmatrix} \\begin{bmatrix} x \\\\ y \\end{bmatrix}\nThe simplicity of representing this transformation is one reason why graphics libraries use matrices everywhere.\n\n\nShow Python plotting code\nimport matplotlib.pyplot as plt\n\ndef rotate(theta,vector):\n\n  rotation_matrix = np.array([\n\n                    [np.cos(theta), -1*np.sin(theta)],\n\n                    [np.sin(theta), np.cos(theta)]\n\n                    ])\n\n  return rotation_matrix @ vector\n\nvector = [1,2]\n\ntheta = np.pi / 2\n\nprint(rotate(theta,vector))\n\n\n[-2.  1.]\n\n\nWe can visualize the initial vector and its transformed version to confirm that our rotation matrix is working correctly.\n\n\nShow Python plotting code\nimport matplotlib.pyplot as plt\n\ndef setup_axes(ax, lim=3):\n    \"\"\"Create a consistent coordinate system.\"\"\"\n    ax.set_xlim(-lim, lim)\n    ax.set_ylim(-lim, lim)\n\n    ax.set_aspect('equal')\n\n    # Draw coordinate axes\n    ax.axhline(0, color='black', linewidth=1)\n    ax.axvline(0, color='black', linewidth=1)\n\n    ax.grid(True, linestyle='--', alpha=0.4)\n\n    ax.set_xlabel(\"x\")\n    ax.set_ylabel(\"y\")\n\nv = np.array([1,2])\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\n# Vector\nax.quiver(0,0,v[0],v[1],\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\n# Components\nax.plot([0,v[0]],[0,0],'--')\nax.plot([v[0],v[0]],[0,v[1]],'--')\n\nax.text(v[0]+0.1,v[1]+0.1,\"v = (1,2)\")\nplt.show()\n\n\n\n\n\n\n\n\n\n\n\nShow Python plotting code\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\nv = np.array([1,2])\n\nangles = np.linspace(0,np.pi/2,2)\n\nfor theta in angles:\n\n    R = np.array([\n        [np.cos(theta),-np.sin(theta)],\n        [np.sin(theta), np.cos(theta)]\n    ])\n\n    vr = R @ v\n\n    if theta == 0:\n        color = 'blue'\n    else:\n        color = 'red'\n    ax.quiver(\n        0,0,\n        vr[0],vr[1],\n        angles='xy',\n        scale_units='xy',\n        scale=1,\n        alpha=0.7,\n        color=color\n    )    \nplt.show()\n\n\n\n\n\n\n\n\n\n\nBasis Vectors\nWe know we can decompose vectors into a representation based off of their constituent directions. For example, in 2D space we can use the x and y axes to fully describe any vector that lives in that space, that is, every vector in our space can be built from a linear combination of these directions. We then talk of the x and y components of the vector.\nThese building-block vectors are called basis vectors.\n\n\nShow Python plotting code\nimport matplotlib.pyplot as plt\n\nfig, ax = plt.subplots(figsize=(6,6))\n\nsetup_axes(ax)\n\ne1 = np.array([1,0])\ne2 = np.array([0,1])\n\nax.quiver(0,0,*e1,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nax.quiver(0,0,*e2,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nv = np.array([1,2])\n\nax.quiver(0,0,*v,\n          angles='xy',\n          scale_units='xy',\n          scale=1)\n\nax.text(1.05,-0.15,\"e₁\")\nax.text(-0.2,1.1,\"e₂\")\nax.text(v[0]+0.1,v[1],\"v\")\n\nplt.show()\n\n\n\n\n\n\n\n\n\nThe vector v in the plot can be viewed as 1e_1 + 2e_2.\n\n\nFloating Point Approximations\nSuppose we use our rotation matrix on the vector [1,0] where we rotate by \\frac{\\pi}{2}.\nWe would expect our output to be exactly [0,1] but sometimes we may see a slightly different answer.\n\nvector = np.array([1,0])\ntheta = np.pi/2\n\nR = np.array([\n[np.cos(theta), -np.sin(theta)],\n[np.sin(theta), np.cos(theta)]\n])\n\nprint(R @ vector)\n\n[6.123234e-17 1.000000e+00]\n\n\nBecause computers cannot store most real numbers exactly, they need to approximate them. This leads to small errors in the result. But, if we know that this is possible, we can work to control it.\nFor this example, we can clean up our answer using the round() method in NumPy.\n\nnp.round() takes in a NumPy array and an integer that controls the number of digits (the precision).\n\n\nprint(np.round(R @ vector, 10))\n\n[0. 1.]\n\n\nHere, we set the precision to 10 digits, which are all zeroes and so our rounded result is zero.",
     "crumbs": [
       "Lectures",
       "10: Matrices"
@@ -5229,7 +4371,7 @@
     "href": "lectures/12_sets/sets.html#mutability",
     "title": "12: Sets",
     "section": "Mutability",
-    "text": "Mutability\nSets are mutable objects just like lists, so we are able to add and remove elements associated with a set. However, since sets do not have order, there are not quite as many methods to do so since we are unable to use indices to specify a location in the set.\n\nAdding Elements\n\nadd: adds an element to a set\nupdate: adds multiple elements to a set\n\nArgument must be a sequence containing iterable elements, and each of the elements is added to the set\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.add('six')\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 'six'}\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.update(['six','seven',8, 9])\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 'seven', 8, 9, 'six'}\n\n\nThe order you see from the print statement can change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.\n\n\nDeleting Elements\n\nremoveand discard methods: delete the specified item from the set\n\nThe item that should be deleted is passed to both methods as an argument\nThese methods differently when the specified item is not found in the set\n\nremove method raises a KeyError exception\ndiscard method does not raise an exception\n\n\nclear method: deletes all the elements of the set\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.remove(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\ntry:\n     numbers.remove(6)\n     print(numbers)\n\nexcept Exception as e:\n     print(e)\n\n6\n\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.discard(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\nnumbers.discard(6)\n\nprint(numbers)\n\n{2, 3, 4, 5}",
+    "text": "Mutability\nSets are mutable objects just like lists, so we are able to add and remove elements associated with a set. However, since sets do not have order, there are not quite as many methods to do so since we are unable to use indices to specify a location in the set.\n\nAdding Elements\n\nadd: adds an element to a set\nupdate: adds multiple elements to a set\n\nArgument must be a sequence containing iterable elements, and each of the elements is added to the set\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.add('six')\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 'six'}\n\n\n\nnumbers = set(list(range(1,6)))\n\nprint(numbers)\n\n{1, 2, 3, 4, 5}\n\n\n\nnumbers.update(['six','seven',8, 9])\n\nprint(numbers)\n\n{1, 2, 3, 4, 5, 8, 9, 'seven', 'six'}\n\n\nThe order you see from the print statement can change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.\n\n\nDeleting Elements\n\nremoveand discard methods: delete the specified item from the set\n\nThe item that should be deleted is passed to both methods as an argument\nThese methods differently when the specified item is not found in the set\n\nremove method raises a KeyError exception\ndiscard method does not raise an exception\n\n\nclear method: deletes all the elements of the set\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.remove(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\ntry:\n     numbers.remove(6)\n     print(numbers)\n\nexcept Exception as e:\n     print(e)\n\n6\n\n\n\nnumbers = set(list(range(1,6)))\n\nnumbers.discard(1)\n\nprint(numbers)\n\n{2, 3, 4, 5}\n\n\n\nnumbers.discard(6)\n\nprint(numbers)\n\n{2, 3, 4, 5}",
     "crumbs": [
       "Lectures",
       "12: Sets"
@@ -5273,7 +4415,7 @@
     "href": "lectures/12_sets/sets.html#set-comprehensions",
     "title": "12: Sets",
     "section": "Set Comprehensions",
-    "text": "Set Comprehensions\nSet comprehension: a concise expression that creates a new set by iterating over the elements of a sequence. Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces {} instead of brackets []\n\nExample: making a copy of a set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item for item in set1}\n\nprint(id(set1),id(set2))\n\n4619506336 4619506784\n\n\n\nExample: creating a set that contains the squares of the numbers stored in another set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item**2 for item in set1}\n\nset2\n\n{1, 4, 9, 16, 25}\n\n\n\nExample: copying the numbers in a set that are less than 10\n\n\nset1 = set([1, 20, 2, 40, 3, 50])\n\nset2 = {item for item in set1 if item &lt; 10}\n\nset2\n\n{1, 2, 3}",
+    "text": "Set Comprehensions\nSet comprehension: a concise expression that creates a new set by iterating over the elements of a sequence. Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces {} instead of brackets []\n\nExample: making a copy of a set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item for item in set1}\n\nprint(id(set1),id(set2))\n\n4679536640 4679537760\n\n\n\nExample: creating a set that contains the squares of the numbers stored in another set\n\n\nset1 = set([1, 2, 3, 4, 5])\n\nset2 = {item**2 for item in set1}\n\nset2\n\n{1, 4, 9, 16, 25}\n\n\n\nExample: copying the numbers in a set that are less than 10\n\n\nset1 = set([1, 20, 2, 40, 3, 50])\n\nset2 = {item for item in set1 if item &lt; 10}\n\nset2\n\n{1, 2, 3}",
     "crumbs": [
       "Lectures",
       "12: Sets"

@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -257,31 +292,20 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
   <li><a href="#control-structures" id="toc-control-structures" class="nav-link" data-scroll-target="#control-structures">Control Structures</a></li>
-  <li><a href="#the-if-statement-1-of-4" id="toc-the-if-statement-1-of-4" class="nav-link" data-scroll-target="#the-if-statement-1-of-4">The if Statement (1 of 4)</a></li>
-  <li><a href="#the-if-statement-2-of-4" id="toc-the-if-statement-2-of-4" class="nav-link" data-scroll-target="#the-if-statement-2-of-4">The if Statement (2 of 4)</a></li>
-  <li><a href="#the-if-statement-3-of-4" id="toc-the-if-statement-3-of-4" class="nav-link" data-scroll-target="#the-if-statement-3-of-4">The if Statement (3 of 4)</a></li>
-  <li><a href="#the-if-statement-4-of-4" id="toc-the-if-statement-4-of-4" class="nav-link" data-scroll-target="#the-if-statement-4-of-4">The if Statement (4 of 4)</a></li>
+  <li><a href="#the-if-statement" id="toc-the-if-statement" class="nav-link" data-scroll-target="#the-if-statement">The <code>if</code> Statement</a>
+  <ul class="collapse">
   <li><a href="#single-line-if-statements" id="toc-single-line-if-statements" class="nav-link" data-scroll-target="#single-line-if-statements">Single-Line if Statements</a></li>
-  <li><a href="#the-if-else-statement-1-of-3" id="toc-the-if-else-statement-1-of-3" class="nav-link" data-scroll-target="#the-if-else-statement-1-of-3">The if-else Statement (1 of 3)</a></li>
-  <li><a href="#the-if-else-statement-2-of-3" id="toc-the-if-else-statement-2-of-3" class="nav-link" data-scroll-target="#the-if-else-statement-2-of-3">The if-else Statement (2 of 3)</a></li>
-  <li><a href="#the-if-else-statement-3-of-3" id="toc-the-if-else-statement-3-of-3" class="nav-link" data-scroll-target="#the-if-else-statement-3-of-3">The if-else Statement (3 of 3)</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#nested-decision-structures-and-the-if-elif-else-statement-1-of-2" id="toc-nested-decision-structures-and-the-if-elif-else-statement-1-of-2" class="nav-link" data-scroll-target="#nested-decision-structures-and-the-if-elif-else-statement-1-of-2">Nested Decision Structures and the if-elif-else Statement (1 of 2)</a></li>
-  <li><a href="#figure-3-12-a-nested-decision-structure" id="toc-figure-3-12-a-nested-decision-structure" class="nav-link" data-scroll-target="#figure-3-12-a-nested-decision-structure">Figure 3-12 A Nested Decision Structure</a></li>
-  <li><a href="#nested-decision-structures-and-the-if-elif-else-statement-2-of-2" id="toc-nested-decision-structures-and-the-if-elif-else-statement-2-of-2" class="nav-link" data-scroll-target="#nested-decision-structures-and-the-if-elif-else-statement-2-of-2">Nested Decision Structures and the if-elif-else Statement (2 of 2)</a></li>
-  <li><a href="#the-if-elif-else-statement-1-of-2" id="toc-the-if-elif-else-statement-1-of-2" class="nav-link" data-scroll-target="#the-if-elif-else-statement-1-of-2">The if-elif-else Statement (1 of 2)</a></li>
-  <li><a href="#the-if-elif-else-statement-2-of-2" id="toc-the-if-elif-else-statement-2-of-2" class="nav-link" data-scroll-target="#the-if-elif-else-statement-2-of-2">The if-elif-else Statement (2 of 2)</a></li>
-  <li><a href="#figure-3-15-nested-decision-structure-to-determine-a-grade" id="toc-figure-3-15-nested-decision-structure-to-determine-a-grade" class="nav-link" data-scroll-target="#figure-3-15-nested-decision-structure-to-determine-a-grade">Figure 3-15 Nested Decision Structure to Determine a Grade</a></li>
-  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1">Practice</a></li>
-  <li><a href="#conditional-expressions-1-of-3" id="toc-conditional-expressions-1-of-3" class="nav-link" data-scroll-target="#conditional-expressions-1-of-3">Conditional Expressions (1 of 3)</a></li>
-  <li><a href="#conditional-expressions-2-of-3" id="toc-conditional-expressions-2-of-3" class="nav-link" data-scroll-target="#conditional-expressions-2-of-3">Conditional Expressions (2 of 3)</a></li>
-  <li><a href="#conditional-expressions-3-of-3" id="toc-conditional-expressions-3-of-3" class="nav-link" data-scroll-target="#conditional-expressions-3-of-3">Conditional Expressions (3 of 3)</a></li>
-  <li><a href="#practice-2" id="toc-practice-2" class="nav-link" data-scroll-target="#practice-2">Practice</a></li>
-  <li><a href="#practice-3" id="toc-practice-3" class="nav-link" data-scroll-target="#practice-3">Practice</a></li>
-  <li><a href="#practice-4" id="toc-practice-4" class="nav-link" data-scroll-target="#practice-4">Practice</a></li>
-  <li><a href="#practice-5" id="toc-practice-5" class="nav-link" data-scroll-target="#practice-5">Practice</a></li>
-  <li><a href="#practice-6" id="toc-practice-6" class="nav-link" data-scroll-target="#practice-6">Practice</a></li>
-  <li><a href="#practice-7" id="toc-practice-7" class="nav-link" data-scroll-target="#practice-7">Practice</a></li>
+  </ul></li>
+  <li><a href="#the-if-else-statement" id="toc-the-if-else-statement" class="nav-link" data-scroll-target="#the-if-else-statement">The <code>if-else</code> Statement</a>
+  <ul class="collapse">
+  <li><a href="#conditional-expressions" id="toc-conditional-expressions" class="nav-link" data-scroll-target="#conditional-expressions">Conditional Expressions</a></li>
+  </ul></li>
+  <li><a href="#nested-and-compound-decision-structures" id="toc-nested-and-compound-decision-structures" class="nav-link" data-scroll-target="#nested-and-compound-decision-structures">Nested and Compound Decision Structures</a></li>
+  <li><a href="#the-if-elif-else-statement" id="toc-the-if-elif-else-statement" class="nav-link" data-scroll-target="#the-if-elif-else-statement">The <code>if-elif-else</code> Statement</a></li>
+  <li><a href="#assignment-expressions-and-the-walrus-operator" id="toc-assignment-expressions-and-the-walrus-operator" class="nav-link" data-scroll-target="#assignment-expressions-and-the-walrus-operator">Assignment Expressions and the Walrus Operator</a>
+  <ul class="collapse">
+  <li><a href="#precedence-of-the-walrus-operator" id="toc-precedence-of-the-walrus-operator" class="nav-link" data-scroll-target="#precedence-of-the-walrus-operator"><strong>Precedence of the walrus operator</strong></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -312,317 +336,273 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="control-structures" class="level2">
 <h2 class="anchored" data-anchor-id="control-structures">Control Structures</h2>
-<p>CSCI – 1056</p>
-<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
+<p>A <strong>control structure</strong> is a logical design that controls the order in which a set of statements executes.</p>
+<p>So far, we have been dealing with what is known as a <strong>sequence structure</strong>, where our set of statements executes in the order they appear. What we will learn now is how to implement <strong>decision</strong> (or <strong>selection</strong>) structures, where specific action(s) are performed only if some condition exists.</p>
 </section>
-<section id="the-if-statement-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-statement-1-of-4">The if Statement (1 of 4)</h2>
+<section id="the-if-statement" class="level2">
+<h2 class="anchored" data-anchor-id="the-if-statement">The <code>if</code> Statement</h2>
+<p>The <code>if</code> statement is the fundamental statement when it comes to creating a decision structure in Python (and in most other languages). It is a single alternative decision. Action(s) are performed should the condition be <code>True</code> and the program continues on the same after the block regardless of state of the condition.</p>
+<p>Python syntax:</p>
+<pre><code>if condition:
+
+    Statement
+
+    Statement
+
+    ...</code></pre>
+<p>The first line is known as the <strong>if clause</strong>. This is the keyword <code>if</code> followed by the condition that needs to be <code>True</code> for the statement(s) below to be executed. If the condition is <code>False</code> then all the statements inside the block are skipped.</p>
+<div id="f0146a6f" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">6</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value of x is: </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is greater than five"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Continuing on..."</span>)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>The value of x is: 6
+x is greater than five
+Continuing on...</code></pre>
+</div>
+</div>
+<div id="72c51df1" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value of x is: </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is greater than five"</span>)  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Continuing on..."</span>)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Continuing on...</code></pre>
+</div>
+</div>
+<p>Note that the statements must be indented inside the block. If left on the same level, you will have a syntax error, or worse, they will be evaluated after the block ends.</p>
+<div id="b7915c03" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value of x is: </span><span class="sc">{</span>x<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"x is greater than five"</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Continuing on..."</span>)   </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is greater than five
+Continuing on...</code></pre>
+</div>
+</div>
+<p>The example above is missing the indent on the second print statement and so what is printed to the console is not reflective of what the value of <code>x</code> actually is.</p>
+<section id="single-line-if-statements" class="level3">
+<h3 class="anchored" data-anchor-id="single-line-if-statements">Single-Line if Statements</h3>
+<p>An <code>if</code> statement can be written on a single line if it executes <strong>only one</strong> statement.</p>
+<div id="8db8d474" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="dv">70</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">60</span>: <span class="bu">print</span>(<span class="st">'You passed!'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>You passed!</code></pre>
+</div>
+</div>
+<p>Multiple statements require you to use the standard <code>if</code> structure.</p>
+</section>
+</section>
+<section id="the-if-else-statement" class="level2">
+<h2 class="anchored" data-anchor-id="the-if-else-statement">The <code>if-else</code> Statement</h2>
+<p>The <code>if-else</code> statement is a dual alternative decision structure. Now, there are two possible paths of execution, one path is taken if the condition is <code>True</code>and the second path if the condition is <code>False</code>.</p>
+<p>Note that the <code>if</code> clause and <code>else</code> clause must be aligned and that all the statements must be consistently indented.</p>
+<div id="6dd409b4" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is greater than five"</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is not greater than five"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is not greater than five</code></pre>
+</div>
+</div>
+<div class="practice-box">
+<p>Convert the following scenario to Python code.</p>
+<p>If the temperature is below 40 degrees, print “It is cold outside.” Otherwise, print “The weather is nice.”</p>
+<details>
+<summary>
+Click to show answer
+</summary>
+<pre class="text"><code>if temperature &lt; 40:
+    print("It is cold outside.")
+else:
+    print("The weather is nice.")</code></pre>
+</details>
+</div>
+<section id="conditional-expressions" class="level3">
+<h3 class="anchored" data-anchor-id="conditional-expressions">Conditional Expressions</h3>
+<p>A conditional expression is a terse way of performing a conditional assignment on a single line.</p>
+<p>The general format is:</p>
+<pre><code>value_1 if condition else value_2</code></pre>
 <ul>
-<li><p><strong>Control structure: logical design that controls order in which set of statements execute</strong></p></li>
-<li><p><strong>Sequence structure: set of statements that execute in the order they appear</strong></p></li>
-<li><p><strong>Decision structure: specific action(s) performed only if a condition exists</strong></p>
-<ul>
-<li>Also known as selection structure</li>
-</ul></li>
+<li><p><code>condition</code> is a Boolean expression that is tested</p></li>
+<li><p>If <code>condition</code> is <code>True</code>, the expression gives us <code>value_1</code></p></li>
+<li><p>If <code>condition</code> is <code>False</code>, the expression gives us <code>value_2</code></p></li>
 </ul>
+<p>The following conditional expression reads: if score is greater than 59, grade is assigned ‘Pass’. Otherwise, grade is assigned ‘Fail’.</p>
+<div id="dd21e675" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>grade <span class="op">=</span> <span class="st">'Pass'</span> <span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">59</span> <span class="cf">else</span> <span class="st">'Fail'</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grade)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fail</code></pre>
+</div>
+</div>
+<p>Which is equivalent to:</p>
+<div id="fd6f7671" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>score <span class="op">=</span> <span class="dv">50</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> score <span class="op">&gt;</span> <span class="dv">59</span>:</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>    grade <span class="op">=</span> <span class="st">'Pass'</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>    grade <span class="op">=</span> <span class="st">'Fail'</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(grade)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Fail</code></pre>
+</div>
+</div>
+<div class="practice-box">
+<p>Write a conditional expression to assign the larger of two numbers to a variable named “max”.</p>
+<details>
+<summary>
+Click to show answer
+</summary>
+<pre class="text"><code>max = num1 if num1 &gt; num2 else num2</code></pre>
+</details>
+</div>
 </section>
-<section id="the-if-statement-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-statement-2-of-4">The if Statement (2 of 4)</h2>
-<ul>
-<li><p><strong>In flowchart, diamond represents true/false condition that must be tested</strong></p></li>
-<li><p><strong>Actions can be conditionally executed</strong></p>
-<ul>
-<li>Performed only when a condition is true</li>
-</ul></li>
-<li><p><strong>Single alternative decision structure: provides only one alternative path of execution</strong></p>
-<ul>
-<li>If condition is not true, exit the structure</li>
-</ul></li>
-</ul>
 </section>
-<section id="the-if-statement-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-statement-3-of-4">The if Statement (3 of 4)</h2>
-<p><strong>Figure 3-1</strong> A simple decision structure</p>
-<p>A flowchart illustrates the decision to wear a coat. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>A decision box, cold outside, indicates the conditions true and false. If the condition is true, the action, wear a coat, is implemented. If the condition is false, the action is skipped.<br>
-The flow exits after both the false and the true statements.</p>
-</blockquote>
-</section>
-<section id="the-if-statement-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-statement-4-of-4">The if Statement (4 of 4)</h2>
-<ul>
-<li><strong>Python syntax:</strong></li>
-</ul>
-<p>if <em>condition</em>:</p>
-<p><em>Statement</em></p>
-<p><em>Statement</em></p>
-<ul>
-<li><p><strong>First line known as the if clause</strong></p>
-<ul>
-<li><p>Includes the keyword if followed by condition</p>
-<ul>
-<li>The condition can be true or false</li>
-<li>When the if statement executes, the condition is tested, and if it is true the block statements are executed. otherwise, block statements are skipped</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="single-line-if-statements" class="level2">
-<h2 class="anchored" data-anchor-id="single-line-if-statements">Single-Line if Statements</h2>
-<p>An if statement can be written on a single line if it executes only one statement.</p>
-<ul>
-<li><strong>Python syntax:</strong></li>
-</ul>
-<p>if <em>condition</em>: <em>statement</em></p>
-<ul>
-<li><strong>Example:</strong></li>
-</ul>
-<p>if score &gt; 60: print(‘You passed!’)</p>
-</section>
-<section id="the-if-else-statement-1-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-else-statement-1-of-3">The if-else Statement (1 of 3)</h2>
-<ul>
-<li><p><strong>Dual alternative decision structure: two possible paths of execution</strong></p>
-<ul>
-<li>One is taken if the condition is true, and the other if the condition is false</li>
-<li>Syntax: if <em>condition</em>:</li>
-</ul></li>
-</ul>
-<p><em>statements</em></p>
-<p>else:</p>
-<p><em>other statements</em></p>
-<ul>
-<li>if clause and else clause must be aligned</li>
-<li>Statements must be consistently indented</li>
-</ul>
-</section>
-<section id="the-if-else-statement-2-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-else-statement-2-of-3">The if-else Statement (2 of 3)</h2>
-<p><strong>Figure 3-5</strong> A dual alternative decision structure</p>
-<p>A flowchart illustrates the dual alternative decision structure. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>In the flowchart, a decision box, temperature less than 40, indicates the conditions true and false. If the condition is true, display, a little cold, isn’t it. If the condition is false, display, nice weather we’re having. The flow exits after both the false and the true statements.</p>
-</blockquote>
-</section>
-<section id="the-if-else-statement-3-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-else-statement-3-of-3">The if-else Statement (3 of 3)</h2>
-<p><strong>Figure 3-6</strong> Conditional execution in an if-else statement</p>
-<p>A conditional execution displays the alignment of the if and else clauses. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The syntax for the if else clause is as follows. Line 1. if condition semicolon. Line 2. Indented once, statement. Line 3. Indented once, statement. Line 4. Indented once, et cetera. Line 5. else semicolon. Line 6. Indented once, statement. Line 7. Indented once, statement. Line 8. Indented once, et cetera. If the condition is true, the following block of statements is executed. The syntax is as follows. Line 1. if condition semicolon. Line 2. Indented once, statement. Line 3. Indented once, statement. Line 4. Indented once, et cetera. Then, control jumps to the statement following the if else statement. If the condition is false, the following block of statements is executed. The syntax is as follows. Line 5. Else semicolon. Line 6. Indented once, statement. Line 7. Indented once, statement. Line 8. et cetera. Then, control jumps to the statement following the if else statement.</p>
-</blockquote>
-</section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<p>Convert the flowchart below to Python code:</p>
-<p>A flowchart illustrates the dual alternative decision structure. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>In the flowchart, a decision box, temperature less than 40, indicates the conditions true and false. If the condition is true, display, a little cold, isn’t it. If the condition is false, display, nice weather we’re having. The flow exits after both the false and the true statements.</p>
-</blockquote>
-</section>
-<section id="nested-decision-structures-and-the-if-elif-else-statement-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="nested-decision-structures-and-the-if-elif-else-statement-1-of-2">Nested Decision Structures and the if-elif-else Statement (1 of 2)</h2>
-<ul>
-<li><p><strong>A decision structure can be nested inside another decision structure</strong></p>
-<ul>
-<li><p>Commonly needed in programs</p></li>
-<li><p>Example:</p>
-<ul>
-<li><p>Determine if someone qualifies for a loan, they must meet two conditions:</p>
+<section id="nested-and-compound-decision-structures" class="level2">
+<h2 class="anchored" data-anchor-id="nested-and-compound-decision-structures">Nested and Compound Decision Structures</h2>
+<p>Often we need to test multiple simultaneous conditions.</p>
+<p>For example, we need to determine if someone qualifies for a loan and they must meet two conditions:</p>
 <ul>
 <li>Must earn at least $30,000/year</li>
 <li>Must have been employed for at least two years</li>
-</ul></li>
-<li><p>Check first condition, and if it is true, check second condition</p></li>
-</ul></li>
-</ul></li>
 </ul>
+<p>We have to approaches here, we can use a compound Boolean expression:</p>
+<pre><code>if income &gt;= 30000 and length_employment &gt;= 2:
+    print('Qualified')</code></pre>
+<p>Where the <code>and</code> operator enforces that both expressions must be <code>True</code> for the overall expression to be <code>True</code>.</p>
+<p>Or, we can nest a decision structure inside of another:</p>
+<pre><code>if income &gt;= 30000:
+    if length_employment &gt;= 2:
+        print('Qualified')</code></pre>
+<p>We check the first (outer) condition to see if it is <code>True</code>, and if so, we then move inside the first statement and now test the second condition (the inner condition) to see if it is <code>True</code>.</p>
+<p>Note that it is very important to use proper indentation in a nested decision structure. It can be easy to write code that is syntax-correct, but logically invalid due to misplaced indentation.</p>
 </section>
-<section id="figure-3-12-a-nested-decision-structure" class="level2">
-<h2 class="anchored" data-anchor-id="figure-3-12-a-nested-decision-structure">Figure 3-12 A Nested Decision Structure</h2>
-<p>A flowchart with a nested decision structure. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>A decision box, salary greater than or equal to 30000 has the conditions, true and false. If the condition is false, the action box reads, display you must earn at least $30,000 per year to qualify. If the condition is true, the flow leads to a nested decision box, years on job greater than or equal to 2. This decision box also has the conditions, true and false. If the condition is true, the action box reads, display you qualify for the loan. If the condition is false, the action box reads, display you must have been on your current job for at least two years to qualify. The flow exits from both the false statements and from the last true statement.</p>
-<p>Convert this flow chart to Python code</p>
-</blockquote>
+<section id="the-if-elif-else-statement" class="level2">
+<h2 class="anchored" data-anchor-id="the-if-elif-else-statement">The <code>if-elif-else</code> Statement</h2>
+<p>The logic of many nested decision structures can be difficult to implement without error. Python has a special statement that makes writing nested decision structures simpler.</p>
+<p>The <code>if-elif-else</code> statement links multiple <code>if</code> statements together in a chain of exclusive conditions.</p>
+<div id="827b4c37" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is greater than five"</span>)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is less than five"</span>)</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is equal to five"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is equal to five</code></pre>
+</div>
+</div>
+<p>Note that the <code>if</code>, <code>elif</code>, and <code>else</code> clauses are all aligned and conditionally executed blocks are consistently indented.</p>
+<p>An <code>if-elif-else</code> statement is never required, but the logic is often easier to write and to follow.</p>
+<p>Consider the previous example converted into a purely nested decision structure using standard <code>if-else</code> statements.</p>
+<div id="a7f88964" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> x <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"x is greater than five"</span>)</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> x <span class="op">&lt;</span> <span class="dv">5</span>:</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="st">"x is less than five"</span>)</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> x <span class="op">==</span> <span class="dv">5</span>:</span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>            <span class="bu">print</span>(<span class="st">"x is equal to five"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x is equal to five</code></pre>
+</div>
+</div>
+<p>This code accomplishes the same thing, but is more prone to error due to its increased size and complexity.</p>
+<div class="practice-box">
+<p>Construct a decision structure that takes in a grade (assumed to be an integer from 0 to 100) and prints the associated letter grade based on the following correspondence: A (at least 90), B (at least 80), C (at least 70), D (at least 60), F (otherwise).</p>
+<details>
+<summary>
+Click to show answer
+</summary>
+<pre class="text"><code>grade = int(input("Enter a grade: "))
+
+if grade &gt;= 90:
+    print("A")
+elif grade &gt;= 80:
+    print("B")
+elif grade &gt;= 70:
+    print("C")
+elif grade &gt;= 60:
+    print("D")
+else:
+    print("F")</code></pre>
+</details>
+</div>
+<div class="practice-box">
+<p>Given a year stored in variable <code>year</code>, write a Python conditional statement to determine if the year is a leap year. Note that a leap year is divisible by 4 but not by 100, unless also divisible by 400. Then, store “Leap Year” or “Not a Leap Year” in a variable called <code>result</code>.</p>
+<details>
+<summary>
+Click to show answer
+</summary>
+<pre class="text"><code>if year % 400 == 0:
+    result = "Leap Year"
+elif (year % 4 == 0) and (year % 100 != 0):
+    result = "Leap Year"
+else:
+    result = "Not a Leap Year"
+print(result)</code></pre>
+</details>
+</div>
 </section>
-<section id="nested-decision-structures-and-the-if-elif-else-statement-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="nested-decision-structures-and-the-if-elif-else-statement-2-of-2">Nested Decision Structures and the if-elif-else Statement (2 of 2)</h2>
+<section id="assignment-expressions-and-the-walrus-operator" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-expressions-and-the-walrus-operator">Assignment Expressions and the Walrus Operator</h2>
+<p>The walrus operator <code>:=</code> is a combination operator that assigns a value to a variable and returns the value that was assigned to the variable. These are known as <code>assignment expressions</code>.</p>
+<div id="aa7319ef" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(num <span class="op">:=</span> <span class="dv">99</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>99</code></pre>
+</div>
+</div>
+<p>This statement does two things:</p>
 <ul>
-<li><p><strong>Important to use proper indentation in a nested decision structure</strong></p>
-<ul>
-<li><p>Important for Python interpreter</p></li>
-<li><p>Makes code more readable for programmer</p></li>
-<li><p>Rules for writing nested if statements:</p>
-<ul>
-<li>else clause should align with matching if clause</li>
-<li>Statements in each block must be consistently indented</li>
-</ul></li>
-</ul></li>
+<li>It assigns 99 to the <code>num</code> variable</li>
+<li>It prints the value that was assigned to the <code>num</code> variable, 99</li>
 </ul>
-</section>
-<section id="the-if-elif-else-statement-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-elif-else-statement-1-of-2">The if-elif-else Statement (1 of 2)</h2>
+<p>Importantly, <code>num</code> now exists as a variable and can be referred to in future sections of code.</p>
+<pre><code>if (area := width * height) &gt; 100:
+    print('The area is too large')</code></pre>
+<p>This statement does the following:</p>
 <ul>
-<li><p><strong>if-elif-else statement: special version of a decision structure</strong></p>
-<ul>
-<li><p>Makes logic of nested decision structures simpler to write</p>
-<ul>
-<li>Can include multiple elif statements</li>
-</ul></li>
-<li><p>Syntax:</p></li>
-</ul></li>
+<li>The area variable is assigned the value of <code>width * height</code></li>
+<li>If the value that was assigned to area is greater than 100, the message <code>The area is too large</code> is displayed.</li>
 </ul>
-<p>An if el if else statement syntax. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The lines read as follows. Line 1. if condition underscore 1 colon. Line 2, indented once. statement left parenthesis s right parenthesis. Line 3. el if condition underscore 2 colon. Line 4, indented once. statement left parenthesis s right parenthesis. Line 5. el if condition underscore 3 colon. Line 6, indented once. statement left parenthesis s right parenthesis. The lines of code 3, 4, 5, and 6, are labeled, insert as many el if clauses as necessary. Line 7. else. Line 8, indented once. statement left parenthesis s right parenthesis.</p>
-</blockquote>
-</section>
-<section id="the-if-elif-else-statement-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="the-if-elif-else-statement-2-of-2">The if-elif-else Statement (2 of 2)</h2>
-<ul>
-<li><p><strong>Alignment used with if-elif-else statement:</strong></p>
-<ul>
-<li>if, elif, and else clauses are all aligned</li>
-<li>Conditionally executed blocks are consistently indented</li>
-</ul></li>
-<li><p><strong>if-elif-else statement is never required, but logic easier to follow</strong></p>
-<ul>
-<li><p>Can be accomplished by nested if-else</p>
-<ul>
-<li>Code can become complex, and indentation can cause problematic long lines</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="figure-3-15-nested-decision-structure-to-determine-a-grade" class="level2">
-<h2 class="anchored" data-anchor-id="figure-3-15-nested-decision-structure-to-determine-a-grade">Figure 3-15 Nested Decision Structure to Determine a Grade</h2>
-<p>A flowchart for nested decision structure to determine a grade. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The steps are as follows. A decision box, score is greater than or equal to 90, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is A period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 80, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is B period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 70, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is C period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 60, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is D period single quote right parenthesis. If the condition is false, the action box displays print left parenthesis single quote your grade is F period single quote right parenthesis. The flow exits from all the true statements and from the last false statement.</p>
-</blockquote>
-</section>
-<section id="practice-1" class="level2">
-<h2 class="anchored" data-anchor-id="practice-1">Practice</h2>
-<p>A flowchart for nested decision structure to determine a grade. For long description in Notes pane, press F6.</p>
-<p>Convert the flowchart below to Python code:</p>
-<blockquote class="blockquote">
-<p>The steps are as follows. A decision box, score is greater than or equal to 90, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is A period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 80, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is B period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 70, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is C period single quote right parenthesis. If the condition is false, the flow moves to the next decision box. A decision box, score is greater than or equal to 60, has the conditions, false and true. If the condition is true, the action box displays print left parenthesis single quote your grade is D period single quote right parenthesis. If the condition is false, the action box displays print left parenthesis single quote your grade is F period single quote right parenthesis. The flow exits from all the true statements and from the last false statement.</p>
-</blockquote>
-</section>
-<section id="conditional-expressions-1-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-expressions-1-of-3">Conditional Expressions (1 of 3)</h2>
-<ul>
-<li><strong>Syntax:</strong></li>
-</ul>
-<p><em>value_1</em> if <em>condition</em> else <em>value_2</em></p>
-<ul>
-<li><em>condition</em> <strong>is a Boolean expression that is tested</strong></li>
-<li><strong>If</strong> <em>condition</em> <strong>is true, the expression gives us</strong> <em>value_1</em></li>
-<li><strong>If</strong> <em>condition</em> <strong>is false, the expression gives us</strong> <em>value_2</em></li>
-</ul>
-</section>
-<section id="conditional-expressions-2-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-expressions-2-of-3">Conditional Expressions (2 of 3)</h2>
-<ul>
-<li><strong>Example:</strong></li>
-</ul>
-<p>grade = ‘Pass’ if score &gt; 59 else ‘Fail’</p>
-<ul>
-<li><strong>If score is greater than 59, grade is assigned ‘Pass’. Otherwise, grade is assigned ‘Fail’.</strong></li>
-<li><strong>Equivalent to:</strong></li>
-</ul>
-<p>if score &gt; 59:<br>
-grade = ‘Pass’</p>
-<p>else:</p>
-<p>grade = ‘Fail’</p>
-</section>
-<section id="conditional-expressions-3-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="conditional-expressions-3-of-3">Conditional Expressions (3 of 3)</h2>
-<ul>
-<li><strong>Example:</strong></li>
-</ul>
-<p>max = num1 if num1 &gt; num2 else num2</p>
-<ul>
-<li><strong>If num1 is greater than num2, max is assigned num1. Otherwise, max is assigned num2.</strong></li>
-<li><strong>Equivalent to:</strong></li>
-</ul>
-<p>if num1 &gt; num2:<br>
-max = num1</p>
-<p>else:</p>
-<p>max = num2</p>
-</section>
-<section id="practice-2" class="level2">
-<h2 class="anchored" data-anchor-id="practice-2">Practice</h2>
-<ul>
-<li>What is printed by the following code:</li>
-</ul>
-<p>num = 5</p>
-<p>print(“E” if num % 2 == 0 else “O”)</p>
-</section>
-<section id="practice-3" class="level2">
-<h2 class="anchored" data-anchor-id="practice-3">Practice</h2>
-<ul>
-<li>What is the purpose of the conditional expression below?</li>
-</ul>
-<p>result = “E” if s == “” else “F”</p>
-</section>
-<section id="practice-4" class="level2">
-<h2 class="anchored" data-anchor-id="practice-4">Practice</h2>
-<ul>
-<li>What is the purpose of the conditional expression below?</li>
-</ul>
-<p>result = “E” if len(s) == 0 else “F”</p>
-</section>
-<section id="practice-5" class="level2">
-<h2 class="anchored" data-anchor-id="practice-5">Practice</h2>
-<ul>
-<li>Write a conditional expression to find the greater of two numbers, <strong>a</strong> and <strong>b</strong>.</li>
-<li>Use the input function to assign values to the variables above.</li>
-<li>Store the result in a variable called <strong>greater</strong>.</li>
-<li>Print the variables <strong>a</strong>, <strong>b</strong>, and <strong>greater</strong>.</li>
-</ul>
-<blockquote class="blockquote">
-<p>a = float(input(“Enter a number:”))</p>
-<p>b = float(input(“Enter a number:”))</p>
-<p>greater = None</p>
-<p>if a &gt; b:</p>
-<p>greater = a</p>
-<p>elif b &gt; a:</p>
-<p>greater = b</p>
-<p>else:</p>
-<p>print(“Both numbers are equal.”)</p>
-<p>output = f’a = {a} \t b = {b} \t greater = {greater}’ if greater != None else f’a = {a}\t b = {b}’</p>
-<p>print(output)</p>
-</blockquote>
-</section>
-<section id="practice-6" class="level2">
-<h2 class="anchored" data-anchor-id="practice-6">Practice</h2>
-<ul>
-<li>Given three numbers a, b, and c, write a conditional expression to determine the largest number and store it in a variable named <strong>largest</strong>.</li>
-</ul>
-</section>
-<section id="practice-7" class="level2">
-<h2 class="anchored" data-anchor-id="practice-7">Practice</h2>
-<ul>
-<li>Given a year stored in variable <strong>year</strong>, write a Python conditional expression to determine if the year is a leap year.</li>
-<li>A leap year is divisible by 4 but not by 100, unless also divisible by 400.</li>
-<li>Store “Leap Year” or “Not a Leap Year” in a variable called <strong>result</strong>.</li>
-</ul>
-<blockquote class="blockquote">
-<p>year = 2100</p>
-<p>result = None</p>
-<p>if year % 400 == 0:</p>
-<p>result = “Leap Year”</p>
-<p>elif (year % 4 == 0) and (year % 100 != 0):</p>
-<p>result = “Leap Year”</p>
-<p>else:</p>
-<p>result = “Not a Leap Year”</p>
-<p>print(result)</p>
-</blockquote>
+<p>Note that an assignment expression is not a complete statement. All of our examples used the assignment expression as a component of some other statement. This is a requirement in Python as an assignment expression alone will cause an error:</p>
+<pre><code>num := 15</code></pre>
+<p>The code above is invalid, and the expression must be written as part of a larger statement like</p>
+<pre><code>print(num:= 15)</code></pre>
+<section id="precedence-of-the-walrus-operator" class="level3">
+<h3 class="anchored" data-anchor-id="precedence-of-the-walrus-operator"><strong>Precedence of the walrus operator</strong></h3>
+<p>The walrus operator has the lowest precedence of all the operators in Python. When using the walrus operator in a larger expression that also uses other operators, the walrus operator will work last. In most cases, you need to put parentheses around the assignment expression to make sure the walrus operator assigns the correct value to its variable</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

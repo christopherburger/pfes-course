@@ -291,7 +291,7 @@ This statement does two things:
 
 Importantly, `num` now exists as a variable and can be referred to in future sections of code.
 
-```{python}
+```         
 if (area := width * height) > 100:
     print('The area is too large')
 ```

@@ -18,6 +18,8 @@ A row in a DataFrame is just a point in a high-dimensional space.
 The DataFrame below has a dimension of three, since it contains three features.
 
 ```{python}
+import pandas as pd
+
 patients = pd.DataFrame({
     "Age": [45, 48, 52, 51],
     "HeartRate": [72, 75, 68, 77],
@@ -94,6 +96,7 @@ Note that this is just an application of familiar Pythagorean theorem.
 
 ```{python}
 # Two patients: [Age, Heart_Rate, Blood_Pressure]
+import numpy as np
 
 patient_A = np.array([45, 72, 120])
 patient_B = np.array([48, 75, 125])
@@ -165,7 +168,7 @@ unknown = np.array([46,74,121])
 distances = np.linalg.norm( patients.to_numpy() - unknown,
                             axis=1 #this specifies we calculate across the columns
                           )
-print(distances.min()))
+print(distances.min())
 ```
 
 What about finding the two closest points?
@@ -359,8 +362,8 @@ print(f'A - C = {np.linalg.norm(A - C)}')
 Changing to Manhattan distance, we see that A and B are even further apart than Euclidean.
 
 ```{python}
-print(f'A - B = {np.linalg.norm(A - B), ord = 1}')
-print(f'A - C = {np.linalg.norm(A - C), ord = 1}')
+print(f'A - B = {np.linalg.norm((A - B), ord = 1)}')
+print(f'A - C = {np.linalg.norm((A - C), ord = 1)}')
 ```
 
 A better way to approach this is to avoid distance and instead look at the angle between the two vectors. The closer the angle is to zero, the more the vectors point in the same direction. So, the closer the angle to zero, the more similar the vectors are.

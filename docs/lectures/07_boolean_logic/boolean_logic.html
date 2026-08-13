@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -255,38 +290,22 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
-  <li><a href="#boolean-logic-and-comparisons" id="toc-boolean-logic-and-comparisons" class="nav-link" data-scroll-target="#boolean-logic-and-comparisons">Boolean Logic and Comparisons</a></li>
-  <li><a href="#boolean-variables" id="toc-boolean-variables" class="nav-link" data-scroll-target="#boolean-variables">Boolean Variables</a></li>
-  <li><a href="#boolean-expressions-and-relational-operators-1-of-4" id="toc-boolean-expressions-and-relational-operators-1-of-4" class="nav-link" data-scroll-target="#boolean-expressions-and-relational-operators-1-of-4">Boolean Expressions and Relational Operators (1 of 4)</a></li>
-  <li><a href="#boolean-expressions-and-relational-operators-2-of-4" id="toc-boolean-expressions-and-relational-operators-2-of-4" class="nav-link" data-scroll-target="#boolean-expressions-and-relational-operators-2-of-4">Boolean Expressions and Relational Operators (2 of 4)</a></li>
-  <li><a href="#boolean-expressions-and-relational-operators-3-of-4" id="toc-boolean-expressions-and-relational-operators-3-of-4" class="nav-link" data-scroll-target="#boolean-expressions-and-relational-operators-3-of-4">Boolean Expressions and Relational Operators (3 of 4)</a></li>
-  <li><a href="#boolean-expressions-and-relational-operators-4-of-4" id="toc-boolean-expressions-and-relational-operators-4-of-4" class="nav-link" data-scroll-target="#boolean-expressions-and-relational-operators-4-of-4">Boolean Expressions and Relational Operators (4 of 4)</a></li>
-  <li><a href="#example" id="toc-example" class="nav-link" data-scroll-target="#example">Example</a></li>
-  <li><a href="#example-1" id="toc-example-1" class="nav-link" data-scroll-target="#example-1">Example</a></li>
-  <li><a href="#example-2" id="toc-example-2" class="nav-link" data-scroll-target="#example-2">Example</a></li>
-  <li><a href="#practice" id="toc-practice" class="nav-link" data-scroll-target="#practice">Practice</a></li>
-  <li><a href="#practice-1" id="toc-practice-1" class="nav-link" data-scroll-target="#practice-1">Practice</a></li>
-  <li><a href="#comparing-strings-1-of-2" id="toc-comparing-strings-1-of-2" class="nav-link" data-scroll-target="#comparing-strings-1-of-2">Comparing Strings (1 of 2)</a></li>
-  <li><a href="#comparing-strings-2-of-2" id="toc-comparing-strings-2-of-2" class="nav-link" data-scroll-target="#comparing-strings-2-of-2">Comparing Strings (2 of 2)</a></li>
-  <li><a href="#practice-2" id="toc-practice-2" class="nav-link" data-scroll-target="#practice-2">Practice</a></li>
-  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">Logical Operators</a></li>
-  <li><a href="#the-and-operator" id="toc-the-and-operator" class="nav-link" data-scroll-target="#the-and-operator">The and Operator</a></li>
-  <li><a href="#example-3" id="toc-example-3" class="nav-link" data-scroll-target="#example-3">Example</a></li>
-  <li><a href="#the-or-operator" id="toc-the-or-operator" class="nav-link" data-scroll-target="#the-or-operator">The or Operator</a></li>
-  <li><a href="#example-4" id="toc-example-4" class="nav-link" data-scroll-target="#example-4">Example</a></li>
+  <li><a href="#boolean-variables" id="toc-boolean-variables" class="nav-link active" data-scroll-target="#boolean-variables">Boolean Variables</a></li>
+  <li><a href="#boolean-expressions-and-relational-operators" id="toc-boolean-expressions-and-relational-operators" class="nav-link" data-scroll-target="#boolean-expressions-and-relational-operators">Boolean Expressions and Relational Operators</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul></li>
+  <li><a href="#comparing-strings" id="toc-comparing-strings" class="nav-link" data-scroll-target="#comparing-strings">Comparing Strings</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">Logical Operators</a>
+  <ul class="collapse">
+  <li><a href="#the-and-operator" id="toc-the-and-operator" class="nav-link" data-scroll-target="#the-and-operator">The <strong><code>and</code></strong> Operator</a></li>
+  <li><a href="#the-or-operator" id="toc-the-or-operator" class="nav-link" data-scroll-target="#the-or-operator">The <strong><code>or</code></strong> Operator</a></li>
   <li><a href="#short-circuit-evaluation" id="toc-short-circuit-evaluation" class="nav-link" data-scroll-target="#short-circuit-evaluation">Short-Circuit Evaluation</a></li>
-  <li><a href="#example-5" id="toc-example-5" class="nav-link" data-scroll-target="#example-5">Example</a></li>
-  <li><a href="#the-not-operator" id="toc-the-not-operator" class="nav-link" data-scroll-target="#the-not-operator">The not Operator</a></li>
-  <li><a href="#example-6" id="toc-example-6" class="nav-link" data-scroll-target="#example-6">Example</a></li>
+  <li><a href="#the-not-operator" id="toc-the-not-operator" class="nav-link" data-scroll-target="#the-not-operator">The <code>not</code> Operator</a></li>
   <li><a href="#checking-numeric-ranges-with-logical-operators" id="toc-checking-numeric-ranges-with-logical-operators" class="nav-link" data-scroll-target="#checking-numeric-ranges-with-logical-operators">Checking Numeric Ranges With Logical Operators</a></li>
-  <li><a href="#example-7" id="toc-example-7" class="nav-link" data-scroll-target="#example-7">Example</a></li>
+  </ul></li>
   <li><a href="#the-in-keyword-membership-test" id="toc-the-in-keyword-membership-test" class="nav-link" data-scroll-target="#the-in-keyword-membership-test">The in Keyword (Membership Test)</a></li>
-  <li><a href="#assignment-expressions-and-the-walrus-operator-1-of-5" id="toc-assignment-expressions-and-the-walrus-operator-1-of-5" class="nav-link" data-scroll-target="#assignment-expressions-and-the-walrus-operator-1-of-5">Assignment Expressions and the Walrus Operator (1 of 5)</a></li>
-  <li><a href="#assignment-expressions-and-the-walrus-operator-2-of-5" id="toc-assignment-expressions-and-the-walrus-operator-2-of-5" class="nav-link" data-scroll-target="#assignment-expressions-and-the-walrus-operator-2-of-5">Assignment Expressions and the Walrus Operator (2 of 5)</a></li>
-  <li><a href="#assignment-expressions-and-the-walrus-operator-3-of-5" id="toc-assignment-expressions-and-the-walrus-operator-3-of-5" class="nav-link" data-scroll-target="#assignment-expressions-and-the-walrus-operator-3-of-5">Assignment Expressions and the Walrus Operator (3 of 5)</a></li>
-  <li><a href="#assignment-expressions-and-the-walrus-operator-4-of-5" id="toc-assignment-expressions-and-the-walrus-operator-4-of-5" class="nav-link" data-scroll-target="#assignment-expressions-and-the-walrus-operator-4-of-5">Assignment Expressions and the Walrus Operator (4 of 5)</a></li>
-  <li><a href="#assignment-expressions-and-the-walrus-operator-5-of-5" id="toc-assignment-expressions-and-the-walrus-operator-5-of-5" class="nav-link" data-scroll-target="#assignment-expressions-and-the-walrus-operator-5-of-5">Assignment Expressions and the Walrus Operator (5 of 5)</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"></a></li>
   </ul>
 </nav>
     </div>
@@ -312,64 +331,38 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="section" class="level2">
-<h2 class="anchored" data-anchor-id="section"></h2>
-</section>
-<section id="boolean-logic-and-comparisons" class="level2">
-<h2 class="anchored" data-anchor-id="boolean-logic-and-comparisons">Boolean Logic and Comparisons</h2>
-<p>CSCI – 1056</p>
-<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
-</section>
 <section id="boolean-variables" class="level2">
 <h2 class="anchored" data-anchor-id="boolean-variables">Boolean Variables</h2>
+<p>A Boolean variable is a special type of variable that references one of two values, <code>True</code> or <code>False</code>. In Python it is represented by the bool data type.</p>
+<p>Boolean variables are commonly used as <strong>flags</strong> which is a variable whose purpose is to signal when some condition exists in a program.</p>
 <ul>
-<li><p><strong>Boolean variable: references one of two values, True or False</strong></p>
-<ul>
-<li>Represented by bool data type</li>
-</ul></li>
-<li><p><strong>Commonly used as flags</strong></p>
-<ul>
-<li><p><strong>Flag</strong>: variable that signals when some condition exists in a program</p>
-<ul>
-<li>Flag set to False  condition does not exist</li>
-<li>Flag set to True  condition exists</li>
-</ul></li>
-</ul></li>
+<li>Flag set to <code>False</code> means the condition does not exist</li>
+<li>Flag set to <code>True</code> means the condition exists</li>
 </ul>
 </section>
-<section id="boolean-expressions-and-relational-operators-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="boolean-expressions-and-relational-operators-1-of-4">Boolean Expressions and Relational Operators (1 of 4)</h2>
-<ul>
-<li><p><strong>Boolean expression: expression tested to determine if it is true or false</strong></p>
+<section id="boolean-expressions-and-relational-operators" class="level2">
+<h2 class="anchored" data-anchor-id="boolean-expressions-and-relational-operators">Boolean Expressions and Relational Operators</h2>
+<p>A <strong>Boolean expression</strong> is expression tested to determine if it is <code>True</code> or <code>False</code>.</p>
 <ul>
 <li><p>Example: a &gt; b</p>
 <ul>
-<li>true if a is greater than b; false otherwise</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Relational operator: determines whether a specific relationship exists between two values</strong></p>
-<ul>
-<li>Example: greater than (&gt;)</li>
+<li><code>True</code> if a is greater than b; <code>False</code> otherwise</li>
 </ul></li>
 </ul>
-</section>
-<section id="boolean-expressions-and-relational-operators-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="boolean-expressions-and-relational-operators-2-of-4">Boolean Expressions and Relational Operators (2 of 4)</h2>
+<p>A <strong>Relational operator</strong> determines whether a specific relationship exists between two values</p>
 <ul>
-<li><p><strong>&gt;= and &lt;= operators test more than one relationship</strong></p>
+<li>Example: greater than (<code>&gt;</code>)</li>
+</ul>
+<p>The <code>&gt;=</code> and <code>&lt;=</code> operators test more than one relationship</p>
 <ul>
 <li>It is enough for one of the relationships to exist for the expression to be true</li>
-</ul></li>
-<li><p><strong>== operator determines whether the two operands are equal to one another</strong></p>
-<ul>
-<li>Do not confuse with assignment operator (=)</li>
-</ul></li>
-<li><p><strong>!= operator determines whether the two operands are not equal</strong></p></li>
 </ul>
-</section>
-<section id="boolean-expressions-and-relational-operators-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="boolean-expressions-and-relational-operators-3-of-4">Boolean Expressions and Relational Operators (3 of 4)</h2>
-<p><strong>Table 3-2</strong> Boolean expressions using relational operators</p>
+<p>The <code>==</code> operator determines whether the two operands are equal to one another</p>
+<ul>
+<li>Make sure not confuse it with the assignment operator (<code>=</code>)</li>
+</ul>
+<p>The <code>!=</code> operator determines whether the two operands are not equal</p>
+<p>Boolean expressions using relational operators</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -404,100 +397,107 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<div id="8e0c08d1" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&gt;</span> y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="56d64350" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">3</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">!=</span> b)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div id="602eb1cd" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b <span class="op">=</span> <span class="dv">10</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>c <span class="op">=</span> <span class="dv">15</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(a <span class="op">&lt;</span> b <span class="op">&lt;</span> c)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="practice-box">
+<p>What is the output of the following code?</p>
+<pre><code>x = "10"
+y = 10
+
+print(x == y)</code></pre>
+<details>
+<summary>
+Click to show answer
+</summary>
+<pre class="text"><code>False</code></pre>
+</details>
+</div>
+<div class="practice-box">
+<p>What is the output of the following code?</p>
+<pre><code>x = "10"
+y = 10
+
+print(x == int(y))</code></pre>
+<details>
+<summary>
+Click to show answer
+</summary>
+<pre class="text"><code>True</code></pre>
+</details>
+</div>
 </section>
-<section id="boolean-expressions-and-relational-operators-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="boolean-expressions-and-relational-operators-4-of-4">Boolean Expressions and Relational Operators (4 of 4)</h2>
-<ul>
-<li><strong>Using a Boolean expression with the &gt; relational operator</strong></li>
-</ul>
-<p><strong>Figure 3-3</strong> Example decision structure</p>
-<p>A flowchart illustrates the use of Boolean expressions and relational operators. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>In a flowchart, a decision box, sales greater than 50000, indicates the conditions true and false. If the condition is true, the action, bonus = 500.0, is implemented. If the condition is false, the action is skipped. The flow exits after both the false and the true statements.</p>
-</blockquote>
 </section>
-<section id="example" class="level2">
-<h2 class="anchored" data-anchor-id="example">Example</h2>
-<p>x = 10</p>
-<p>y = 5</p>
-<p>print(x &gt; y)</p>
-<p>&gt;&gt; True</p>
-</section>
-<section id="example-1" class="level2">
-<h2 class="anchored" data-anchor-id="example-1">Example</h2>
-<p>a = 3</p>
-<p>b = 5</p>
-<p>print(a != b)</p>
-<p>&gt;&gt; True</p>
-</section>
-<section id="example-2" class="level2">
-<h2 class="anchored" data-anchor-id="example-2">Example</h2>
-<p>a = 5</p>
-<p>b = 10</p>
-<p>c = 15</p>
-<p>print(a &lt; b &lt; c)</p>
-<p>&gt;&gt; True</p>
-</section>
-<section id="practice" class="level2">
-<h2 class="anchored" data-anchor-id="practice">Practice</h2>
-<p>x = “10”</p>
-<p>y = 10</p>
-<p>print(x == y)</p>
-</section>
-<section id="practice-1" class="level2">
-<h2 class="anchored" data-anchor-id="practice-1">Practice</h2>
-<p>x = 10</p>
-<p>y = “10”</p>
-<p>print(x == int(y))</p>
-</section>
-<section id="comparing-strings-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-strings-1-of-2">Comparing Strings (1 of 2)</h2>
-<ul>
-<li><p><strong>Strings can be compared using the == and != operators</strong></p></li>
-<li><p><strong>String comparisons are case sensitive</strong></p></li>
-<li><p><strong>Strings can be compared using &gt;, &lt;, &gt;=, and &lt;=</strong></p>
-<ul>
-<li>Compared character by character based on the ASCII values for each character</li>
-<li>If shorter word is substring of longer word, longer word is greater than shorter word</li>
-</ul></li>
-</ul>
-</section>
-<section id="comparing-strings-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="comparing-strings-2-of-2">Comparing Strings (2 of 2)</h2>
-<p><strong>Figure 3-9</strong> Comparing each character in a string</p>
-<p>An illustration displays the comparison of the character codes for the strings Mary and Mark using A S C I I codes. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The A S C I I codes for each letter in the strings are displayed within a cell of an array. Since Mary and Mark both have four letters each, a 1 cross 4 array is used for each of the strings. The character codes for the letters in Mary are as follows. Upper M 77, Lower a 97, Lower r 114, Lower y 121. The character codes for the letters in Mark are as follows. Upper M 77, Lower a 97, Lower r 114, Lower k 107. The arrays are aligned one below the other, such that the double headed arrow is present between each pair of cells indicates a comparison. The first cells of both strings is compared, the second cells of both strings is compared, the third cells of both strings is compared, and the fourth cells of both strings is compared.</p>
-</blockquote>
-</section>
-<section id="practice-2" class="level2">
-<h2 class="anchored" data-anchor-id="practice-2">Practice</h2>
-<p>Define the names below as strings and test the relational operators =, !=, &lt;, &gt; on them.</p>
-<p>An illustration displays the comparison of the character codes for the strings Mary and Mark using A S C I I codes. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The A S C I I codes for each letter in the strings are displayed within a cell of an array. Since Mary and Mark both have four letters each, a 1 cross 4 array is used for each of the strings. The character codes for the letters in Mary are as follows. Upper M 77, Lower a 97, Lower r 114, Lower y 121. The character codes for the letters in Mark are as follows. Upper M 77, Lower a 97, Lower r 114, Lower k 107. The arrays are aligned one below the other, such that the double headed arrow is present between each pair of cells indicates a comparison. The first cells of both strings is compared, the second cells of both strings is compared, the third cells of both strings is compared, and the fourth cells of both strings is compared.</p>
-</blockquote>
+<section id="comparing-strings" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-strings">Comparing Strings</h2>
+<p>Strings can be compared using all of the operators seen in the table above. Note that string comparisons are <strong>case sensitive</strong>. Strings are compared character by character based on the ASCII values for each character.</p>
+<p>The <code>ord()</code> function can be used to see the ASCII value for each character in a string.</p>
+<div id="6360c358" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="st">"Mary"</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="st">"Mark"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i,j <span class="kw">in</span> <span class="bu">zip</span>(s1,s2):</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="bu">ord</span>(i),<span class="bu">ord</span>(j))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>77 77
+97 97
+114 114
+121 107</code></pre>
+</div>
+</div>
+<p>We can see that the values above differ only on the last character, and that <code>y</code> has a greater ASCII value than <code>k</code> . Python will then determine <code>s1</code> to be larger than <code>s2</code>.</p>
+<p>If shorter word is substring of longer word, longer word is greater than shorter word.</p>
+<div id="0bdeaf70" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> <span class="st">"Mat"</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> <span class="st">"Matt"</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s2 <span class="op">&gt;</span> s1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<div class="practice-box">
+<p>Define the names <code>Mary</code> and <code>Mark</code> as strings and test the relational operators <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&gt;</code> on them.</p>
+</div>
 </section>
 <section id="logical-operators" class="level2">
 <h2 class="anchored" data-anchor-id="logical-operators">Logical Operators</h2>
+<p>Logical operators are constructs that can be used to create complex Boolean expressions. While there are many logical operators, we will only talk about the three most fundamental ones.</p>
 <ul>
-<li><p><strong>Logical operators: operators that can be used to create complex Boolean expressions</strong></p>
-<ul>
-<li>and operator and or operator: binary operators, connect two Boolean expressions into a compound Boolean expression</li>
-<li>not operator: unary operator, reverses the truth of its Boolean operand</li>
-</ul></li>
+<li>The <code>and</code> operator and <code>or</code> operator are binary operators which connect two Boolean expressions into a compound Boolean expression</li>
+<li>The <code>not</code> operator is a unary operator which operates on only a single Boolean expression.</li>
 </ul>
-</section>
-<section id="the-and-operator" class="level2">
-<h2 class="anchored" data-anchor-id="the-and-operator">The and Operator</h2>
-<ul>
-<li><p><strong>Takes two Boolean expressions as operands</strong></p>
-<ul>
-<li>Creates compound Boolean expression that is true only when both sub expressions are true</li>
-<li>Can be used to simplify nested decision structures</li>
-</ul></li>
-<li><p><strong>Truth table for the and operator</strong></p></li>
-</ul>
+<section id="the-and-operator" class="level3">
+<h3 class="anchored" data-anchor-id="the-and-operator">The <strong><code>and</code></strong> Operator</h3>
+<p>Creates a compound Boolean expression that is <code>True</code> only when both sub-expressions are <code>True</code></p>
+<p>Truth table for the <code>and</code> operator</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -507,115 +507,45 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>false and false</td>
-<td>false</td>
-</tr>
-<tr class="even">
-<td>false and true</td>
-<td>false</td>
-</tr>
-<tr class="odd">
-<td>true and false</td>
-<td>false</td>
-</tr>
-<tr class="even">
-<td>true and true</td>
-<td>true</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="example-3" class="level2">
-<h2 class="anchored" data-anchor-id="example-3">Example</h2>
-<p>x = True</p>
-<p>y = False</p>
-<p>print(x and y) #y and x is the same here</p>
-<p>&gt;&gt; False</p>
-<p>print(y and y)</p>
-<p>&gt;&gt; False</p>
-<p>print(x and x)</p>
-<p>&gt;&gt; True</p>
-</section>
-<section id="the-or-operator" class="level2">
-<h2 class="anchored" data-anchor-id="the-or-operator">The or Operator</h2>
-<ul>
-<li><p><strong>Takes two Boolean expressions as operands</strong></p>
-<ul>
-<li>Creates compound Boolean expression that is true when either of the sub expressions is true</li>
-<li>Can be used to simplify nested decision structures</li>
-</ul></li>
-<li><p><strong>Truth table for the or operator</strong></p></li>
-</ul>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><strong>Expression</strong></th>
-<th><strong>Value of the Expression</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>False <strong>or</strong> False</td>
+<td>False and False</td>
 <td>False</td>
 </tr>
 <tr class="even">
-<td>False <strong>or</strong> True</td>
-<td>True</td>
+<td>False and True</td>
+<td>False</td>
 </tr>
 <tr class="odd">
-<td>True <strong>or</strong> False</td>
-<td>True</td>
+<td>True and False</td>
+<td>False</td>
 </tr>
 <tr class="even">
-<td>True <strong>or</strong> True</td>
+<td>True and True</td>
 <td>True</td>
 </tr>
 </tbody>
 </table>
+<div id="541a04de" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="kw">and</span> y) </span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y <span class="kw">and</span> y)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="kw">and</span> x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False
+
+False
+
+True</code></pre>
+</div>
+</div>
 </section>
-<section id="example-4" class="level2">
-<h2 class="anchored" data-anchor-id="example-4">Example</h2>
-<p>x = True</p>
-<p>y = False</p>
-<p>print(x or y) #y and x is the same here</p>
-<p>&gt;&gt; True</p>
-<p>print(y or y)</p>
-<p>&gt;&gt; False</p>
-<p>print(x or x)</p>
-<p>&gt;&gt; True</p>
-</section>
-<section id="short-circuit-evaluation" class="level2">
-<h2 class="anchored" data-anchor-id="short-circuit-evaluation">Short-Circuit Evaluation</h2>
-<ul>
-<li><p><strong>Short circuit evaluation: deciding the value of a compound Boolean expression after evaluating only one sub expression</strong></p>
-<ul>
-<li><p>Performed by the or and and operators</p>
-<ul>
-<li>For or operator: If left operand is true, compound expression is true. Otherwise, evaluate right operand</li>
-<li>For and operator: If left operand is false, compound expression is false. Otherwise, evaluate right operand</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="example-5" class="level2">
-<h2 class="anchored" data-anchor-id="example-5">Example</h2>
-<p>x = True</p>
-<p>y = False</p>
-<p>z = True</p>
-<p>print(x and y and z)</p>
-<p>&gt;&gt; False</p>
-<p>print(x or y or z)</p>
-<p>&gt;&gt; True</p>
-</section>
-<section id="the-not-operator" class="level2">
-<h2 class="anchored" data-anchor-id="the-not-operator">The not Operator</h2>
-<ul>
-<li><p><strong>Takes one Boolean expressions as operand and reverses its logical value</strong></p>
-<ul>
-<li>Sometimes it may be necessary to place parentheses around an expression to clarify to what you are applying the not operator</li>
-</ul></li>
-<li><p><strong>Truth table for the not operator</strong></p></li>
-</ul>
+<section id="the-or-operator" class="level3">
+<h3 class="anchored" data-anchor-id="the-or-operator">The <strong><code>or</code></strong> Operator</h3>
+<p>Creates a compound Boolean expression that is <code>True</code> when either of the sub-expressions is <code>True</code></p>
+<p>Truth table for the <code>or</code> operator</p>
 <table class="caption-top table">
 <thead>
 <tr class="header">
@@ -625,124 +555,157 @@ ul.task-list li input[type="checkbox"] {
 </thead>
 <tbody>
 <tr class="odd">
-<td>true</td>
-<td>false</td>
+<td>False or False</td>
+<td>False</td>
 </tr>
 <tr class="even">
-<td>false</td>
-<td>true</td>
+<td>False or True</td>
+<td>True</td>
+</tr>
+<tr class="odd">
+<td>True or False</td>
+<td>True</td>
+</tr>
+<tr class="even">
+<td>True or True</td>
+<td>True</td>
 </tr>
 </tbody>
 </table>
+<div id="e82436cb" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="kw">or</span> y) <span class="co">#y and x is the same here</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(y <span class="kw">or</span> y)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="kw">or</span> x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True
+
+False
+
+True</code></pre>
+</div>
+</div>
 </section>
-<section id="example-6" class="level2">
-<h2 class="anchored" data-anchor-id="example-6">Example</h2>
-<p>x = True</p>
-<p>y = False</p>
-<p>print(x and y)</p>
-<p>&gt;&gt; False</p>
-<p>print(not (x and y))</p>
-<p>&gt;&gt; True</p>
-<p>print(not x and y)</p>
-<p>&gt;&gt; False</p>
-<blockquote class="blockquote">
-<p>Note the operator precedence on the last expression, not acts before and so converts x to false immediately, then x and y is evaluated.</p>
-</blockquote>
-</section>
-<section id="checking-numeric-ranges-with-logical-operators" class="level2">
-<h2 class="anchored" data-anchor-id="checking-numeric-ranges-with-logical-operators">Checking Numeric Ranges With Logical Operators</h2>
+<section id="short-circuit-evaluation" class="level3">
+<h3 class="anchored" data-anchor-id="short-circuit-evaluation">Short-Circuit Evaluation</h3>
+<p>A short circuit evaluation is an optimization done to decide the value of a compound Boolean expression after evaluating only one sub-expression.</p>
 <ul>
-<li><p><strong>To determine whether a numeric value is within a specific range of values, use and</strong></p>
+<li><p>Performed by the <code>or</code> and <code>and</code> operators</p>
 <ul>
-<li>Example: x &gt;= 10 and x &lt;= 20</li>
-</ul></li>
-<li><p><strong>To determine whether a numeric value is outside of a specific range of values, use or</strong></p>
-<ul>
-<li>Example: x &lt; 10 or x &gt; 20</li>
+<li>For <code>or</code> operator: If left operand is <code>True</code>, compound expression is <code>True</code>. Otherwise, evaluate right operand</li>
+<li>For and operator: If left operand is <code>False</code>, compound expression is <code>False</code>. Otherwise, evaluate right operand</li>
 </ul></li>
 </ul>
+<div id="550e9691" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="kw">and</span> y <span class="kw">and</span> z)</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="kw">or</span> y <span class="kw">or</span> z)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False
+
+True</code></pre>
+</div>
+</div>
 </section>
-<section id="example-7" class="level2">
-<h2 class="anchored" data-anchor-id="example-7">Example</h2>
-<p>x = 25</p>
-<p>print(x &gt;= 10 and x &lt;= 20)</p>
-<p>&gt;&gt; False</p>
-<p>print(x &lt; 10 or x &gt; 20)</p>
-<p>&gt;&gt; True</p>
+<section id="the-not-operator" class="level3">
+<h3 class="anchored" data-anchor-id="the-not-operator">The <code>not</code> Operator</h3>
+<p>Takes one Boolean expression as operand and reverses its logical value</p>
+<ul>
+<li>Sometimes it may be necessary to place parentheses around an expression to clarify to what you are applying the <code>not</code> operator</li>
+</ul>
+<p>Truth table for the <code>not</code> operator</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th><strong>Expression</strong></th>
+<th><strong>Value of the Expression</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>True</td>
+<td>False</td>
+</tr>
+<tr class="even">
+<td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<div id="209fdaa0" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="va">True</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="va">False</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="kw">and</span> y)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="kw">not</span> (x <span class="kw">and</span> y))</span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="kw">not</span> x <span class="kw">and</span> y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False
+
+True
+
+False</code></pre>
+</div>
+</div>
+<p>Note the operator precedence on the last expression, <code>not</code> acts first and so converts <code>x</code> to <code>False</code> immediately, then <code>x and y</code> is evaluated.</p>
+</section>
+<section id="checking-numeric-ranges-with-logical-operators" class="level3">
+<h3 class="anchored" data-anchor-id="checking-numeric-ranges-with-logical-operators">Checking Numeric Ranges With Logical Operators</h3>
+<p>To determine whether a numeric value is within a specific range of values, use <code>and</code></p>
+<ul>
+<li>Example: <code>x &gt;= 10 and x &lt;= 20</code></li>
+</ul>
+<p>To determine whether a numeric value is outside of a specific range of values, use <code>or</code></p>
+<ul>
+<li>Example: <code>x &lt; 10 or x &gt; 20</code></li>
+</ul>
+<div id="dd3a7674" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">25</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&gt;=</span> <span class="dv">10</span> <span class="kw">and</span> x <span class="op">&lt;=</span> <span class="dv">20</span>)</span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x <span class="op">&lt;</span> <span class="dv">10</span> <span class="kw">or</span> x <span class="op">&gt;</span> <span class="dv">20</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False
+
+True</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="the-in-keyword-membership-test" class="level2">
 <h2 class="anchored" data-anchor-id="the-in-keyword-membership-test">The in Keyword (Membership Test)</h2>
+<p>The <code>in</code> keyword checks whether a value exists inside a collection, such as a list.</p>
 <ul>
-<li><p>The <strong>in</strong> keyword checks whether a value exists inside a collection, such as a list.</p>
-<ul>
-<li>Returns <strong>True</strong> or <strong>False</strong></li>
-<li>Commonly used with lists (also works with strings)</li>
-<li>Does not change the list</li>
-</ul></li>
+<li>Returns <code>True</code> or <code>False</code></li>
+<li>Commonly used with lists (also works with strings and other iterable sequences).</li>
+<li>Does not change the original data</li>
 </ul>
-<p>numbers = [3, 8, 12, 20]</p>
-<p>12 in numbers # True</p>
-<p>5 in numbers # False</p>
+<div id="1742f899" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> [<span class="dv">3</span>, <span class="dv">8</span>, <span class="dv">12</span>, <span class="dv">20</span>]</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">12</span> <span class="kw">in</span> numbers) <span class="co"># True</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="dv">5</span> <span class="kw">in</span> numbers) <span class="co"># False</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True
+
+False</code></pre>
+</div>
+</div>
 </section>
-<section id="assignment-expressions-and-the-walrus-operator-1-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-expressions-and-the-walrus-operator-1-of-5">Assignment Expressions and the Walrus Operator (1 of 5)</h2>
-<ul>
-<li><p><strong>The walrus operator := is an enhanced assignment operator</strong></p></li>
-<li><p><strong>You use the walrus operator to create assignment expressions</strong></p></li>
-<li><p><strong>An assignment expression does two things:</strong></p>
-<ul>
-<li>It assigns a value to a variable</li>
-<li>It returns the value that was assigned to the variable</li>
-</ul></li>
-</ul>
-</section>
-<section id="assignment-expressions-and-the-walrus-operator-2-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-expressions-and-the-walrus-operator-2-of-5">Assignment Expressions and the Walrus Operator (2 of 5)</h2>
-<ul>
-<li><p><strong>Example:</strong><br>
-print(num := 99)</p></li>
-<li><p><strong>This statement does two things:</strong></p>
-<ul>
-<li>It assigns 99 to the num variable</li>
-<li>It prints the value that was assigned to the num variable, 99</li>
-</ul></li>
-</ul>
-</section>
-<section id="assignment-expressions-and-the-walrus-operator-3-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-expressions-and-the-walrus-operator-3-of-5">Assignment Expressions and the Walrus Operator (3 of 5)</h2>
-<ul>
-<li><p><strong>Example:</strong><br>
-if (area := width * height) &gt; 100:<br>
-print(‘The area is too large’)</p></li>
-<li><p><strong>This if statement does the following:</strong></p>
-<ul>
-<li>The area variable is assigned the value of width * height</li>
-<li>If the value that was assigned to area is greater than 100, the message <strong>The area is too large</strong> is displayed.</li>
-</ul></li>
-</ul>
-</section>
-<section id="assignment-expressions-and-the-walrus-operator-4-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-expressions-and-the-walrus-operator-4-of-5">Assignment Expressions and the Walrus Operator (4 of 5)</h2>
-<ul>
-<li><p><strong>Precedence of the walrus operator</strong></p>
-<ul>
-<li>The walrus operator has the lowest precedence of all the operators in Python</li>
-<li>When using the walrus operator in a larger expression that also uses other operators, the walrus operator will work last</li>
-<li>In most cases, you need to put parentheses around the assignment expression to make sure the walrus operator assigns the correct value to its variable</li>
-</ul></li>
-</ul>
-</section>
-<section id="assignment-expressions-and-the-walrus-operator-5-of-5" class="level2">
-<h2 class="anchored" data-anchor-id="assignment-expressions-and-the-walrus-operator-5-of-5">Assignment Expressions and the Walrus Operator (5 of 5)</h2>
-<ul>
-<li><p><strong>An assignment expression is not a complete statement</strong></p>
-<ul>
-<li>For example, this alone causes an error:<br>
-num := 99</li>
-</ul></li>
-<li><p><strong>It must be written as part of a larger statement</strong></p></li>
-</ul>
-<p>print(num := 99)</p>
+<section id="section" class="level2">
+<h2 class="anchored" data-anchor-id="section"></h2>
 
 
 </section>
