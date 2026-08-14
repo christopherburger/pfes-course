@@ -3,39 +3,31 @@ title: "14: Pandas"
 format: html
 ---
 
-## Pandas
+# Pandas
 
-CSCI – 1056
+We have seen that NumPy requires pure, homogeneous numbers. Remember that if we put a word into a NumPy array, it converts our numbers to text. But real data is messy, labeled, and heterogeneous.
 
-## Heterogenous Data
+We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy). This solution is Pandas, which is an industry-standard library for data ingestion and cleaning.
 
-- NumPy requires pure, homogeneous numbers.
-- Real data is messy, labeled, and heterogeneous.
-- Remember that if we put a word into a NumPy array, it converts our math to text.
-- We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy).
-
-## Pandas
-
-- Pandas is an industry-standard library for data ingestion and cleaning.
-
-- Pandas does not replace NumPy; they serve different roles.
-
+Pandas does not replace NumPy; they serve different roles.
   - Pandas prepares the data.
   - NumPy solves the equations.
 
+
+As Pandas is an external library, we will need to import it to use it (and depending on your environment, it may need to be installed first). 
+
+```{python}
 import pandas as pd
+```
+
 
 ## DataFrames
 
-- The core component of Pandas is the **DataFrame**.
+The core component of Pandas is the **DataFrame** which is a 2D array (a matrix) with attached row and column labels. Each column can hold a *different* type of data without breaking the others.
 
-  - A 2D array (matrix) with attached row and column labels.
+We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.
 
-- Each column can hold a *different* type of data without breaking the others.
-
-- We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.
-
-## DataFrames
+An example of the first few items a DataFrame
 
 |     | Row ID | Order ID       | Order Date | ... | Quantity | Discount | Profit    |
 |-----|--------|----------------|------------|-----|----------|----------|-----------|
@@ -45,33 +37,30 @@ import pandas as pd
 | 3   | 4      | US-2016-108966 | 10/11/2016 | …   | 5.0      | 0.45     | -383.0310 |
 | 4   | 5      | US-2016-108966 | 10/11/2016 | …   | 2.0      | 0.20     | 2.5164    |
 
-## DataFrames
+### Loading Data
 
-- To load data into a DataFrame, we first need to know what file type we are working with.
+To load data into a DataFrame, we first need to know what file type we are working with. Commonly, this is a CSV file (Comma Separated Values)
 
-  - Commonly, this is a CSV file (Comma Separated Values)
+We then need to know where the file is located. This could be a file path on your computer or even a URL.
 
-- We then need to know where the file is located.
-
-  - This could be a file path on your computer or even a URL.
-
+```{}
 import pandas as pd
 
 url = "[https://website/data.csv"](https://website/data.csv%22)
 
 df = pd.read_csv(url)
+```
 
-## DataFrames
 
-- For our work in this course, we will use a CSV file that has been included in the Lab IDE automatically.
-- This is Tableau’s Sample Superstore dataset.
-- If you are using a different IDE, you will need to download the dataset and remember the file location.
+For many of our examples we will use a CSV file (Tableau’s Sample Superstore dataset) that can be found on Blackboard. Assuming we have named the file `superstore.csv` we can use the following code to load the data into a DataFrame named `df`.
 
+```{python}
 import pandas as pd
 
 df = pd.read_csv('superstore.csv')
+```
 
-## Inspecting Data
+### Inspecting Data
 
 - The example DataFrame from earlier was from the superstore dataset.
 
@@ -87,7 +76,6 @@ df = pd.read_csv('superstore.csv’)
 
 print(df.head())
 
-## Inspecting Data
 
 - We can see not all the columns are visible (…) due to visual size limitations.
 
@@ -99,7 +87,6 @@ print(df.head())
 | 3   | 4      | US-2016-108966 | 10/11/2016 | …   | 5.0      | 0.45     | -383.0310 |
 | 4   | 5      | US-2016-108966 | 10/11/2016 | …   | 2.0      | 0.20     | 2.5164    |
 
-## Inspecting Data
 
 - The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas.
 - However, some datasets will be large enough that you will not have enough display space to visually inspect everything.
@@ -113,7 +100,7 @@ Row ID Order ID Order Date ... Quantity Discount Profit
 
 \[5 rows x 21 columns\]
 
-## Inspecting Data
+
 
 - While head / tail give us the total number of columns, they do not provide the total number of rows.
 - We can use the **shape** attribute to return both the number of rows and number of columns.
@@ -126,7 +113,7 @@ print(df.shape)
 
 \>\>\> (10800, 21)
 
-## Inspecting Data
+
 
 - **dtypes** tells us the data type of each column
 
@@ -160,7 +147,7 @@ df = pd.read_csv('superstore.csv’)
 
 print(df.dtypes)
 
-## Inspecting Data
+
 
 - **describe()** gives us summary statistics on columns with a numeric data type.
 
@@ -181,7 +168,7 @@ print(df.dtypes)
 
   - max (largest value)
 
-## Inspecting Data
+
 
 - **describe()** gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).
 
@@ -203,13 +190,15 @@ min 1040.000000 0.444000 1.000000 0.000000 -6599.978000
 
 max 99301.000000 22638.480000 14.000000 0.800000 8399.976000
 
-## Inspecting Data
+
 
 - **describe()** is very useful for finding impossible values.
 - For example, assume we have a DataFrame of sensor readings with one of the columns being temperature.
 - If we see negative values in the temperature column, we know the data is erroneous.
 
-## Extracting Columns
+## Extracting and Manipulating Data
+
+### Extracting Columns
 
 - Extract a single column (1D Series) using one set of brackets:
 
@@ -253,7 +242,7 @@ Discount Profit
 
 \[10800 rows x 2 columns\]
 
-## Renaming Columns
+### Renaming Columns
 
 - Raw data often has terrible names (e.g., "Temp (C) - Sensor 1!").
 - Use .rename() and a dictionary to fix them before writing logic.
@@ -264,7 +253,7 @@ df = df.rename(columns={'Temp (C)': 'Temp',
 
 'Press_kpa': 'Pressure'})
 
-## Filtering Rows (Boolean Masking)
+### Filtering Rows (Boolean Masking)
 
 - We can apply the exact same relational logic (\>, \<, ==) to a Pandas column.
 - This creates a "mask" of True/False values to filter the DataFrame.
@@ -281,7 +270,7 @@ danger_data = df\[danger_mask\]
 
 danger_data = df\[df\['Temp'\] \> 100\]
 
-## Combining Logic (AND / OR)
+### Combining Logic (AND / OR)
 
 - To find specific overlaps, use & (AND) and \| (OR).
 - **Very Important:** You *must* put parentheses around each condition.
@@ -298,7 +287,7 @@ Row ID Order ID Order Date ... Quantity Discount Profit
 
 …
 
-## Sorting
+### Sorting
 
 - Sorting data sequentially in Pandas is very simple.
 
@@ -315,7 +304,7 @@ sorted_data = df.sort_values(by=‘Profit', ascending=False)
 
 print(sorted_data.head(3))
 
-## Handling Missing Data
+### Handling Missing Data
 
 - **NaN** stands for "Not a Number" (a blank cell in the CSV).
 
@@ -328,7 +317,7 @@ print(sorted_data.head(3))
 
 - **.dropna()** removes any row containing a **NaN**.
 
-## Handling Missing Data
+
 
 - The safest decision is to drop the corrupted observation entirely.
 - There exist methods to interpolate the missing value(s), but these should be used cautiously.
