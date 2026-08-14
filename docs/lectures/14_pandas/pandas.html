@@ -300,9 +300,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#extracting-and-manipulating-data" id="toc-extracting-and-manipulating-data" class="nav-link" data-scroll-target="#extracting-and-manipulating-data">Extracting and Manipulating Data</a>
   <ul class="collapse">
   <li><a href="#extracting-columns" id="toc-extracting-columns" class="nav-link" data-scroll-target="#extracting-columns">Extracting Columns</a></li>
-  </ul></li>
-  <li><a href="#extracting-columns-1" id="toc-extracting-columns-1" class="nav-link" data-scroll-target="#extracting-columns-1">Extracting Columns</a>
-  <ul class="collapse">
   <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns">Renaming Columns</a></li>
   <li><a href="#filtering-rows-boolean-masking" id="toc-filtering-rows-boolean-masking" class="nav-link" data-scroll-target="#filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</a></li>
   <li><a href="#combining-logic-and-or" id="toc-combining-logic-and-or" class="nav-link" data-scroll-target="#combining-logic-and-or">Combining Logic (AND / OR)</a></li>
@@ -310,56 +307,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling Missing Data</a></li>
   </ul></li>
   <li><a href="#calculated-columns-pandas-vectorization" id="toc-calculated-columns-pandas-vectorization" class="nav-link" data-scroll-target="#calculated-columns-pandas-vectorization">Calculated Columns (Pandas Vectorization)</a></li>
-  <li><a href="#calculated-columns-pandas-vectorization-1" id="toc-calculated-columns-pandas-vectorization-1" class="nav-link" data-scroll-target="#calculated-columns-pandas-vectorization-1">Calculated Columns (Pandas Vectorization)</a></li>
   <li><a href="#text-scrubbing" id="toc-text-scrubbing" class="nav-link" data-scroll-target="#text-scrubbing">Text Scrubbing</a></li>
   <li><a href="#time-and-dates" id="toc-time-and-dates" class="nav-link" data-scroll-target="#time-and-dates">Time and Dates</a></li>
   <li><a href="#aggregation" id="toc-aggregation" class="nav-link" data-scroll-target="#aggregation">Aggregation</a></li>
-  <li><a href="#aggregation-1" id="toc-aggregation-1" class="nav-link" data-scroll-target="#aggregation-1">Aggregation</a></li>
-  <li><a href="#aggregation-2" id="toc-aggregation-2" class="nav-link" data-scroll-target="#aggregation-2">Aggregation</a></li>
-  <li><a href="#aggregation-3" id="toc-aggregation-3" class="nav-link" data-scroll-target="#aggregation-3">Aggregation</a></li>
-  <li><a href="#aggregation-4" id="toc-aggregation-4" class="nav-link" data-scroll-target="#aggregation-4">Aggregation</a></li>
-  <li><a href="#aggregation-5" id="toc-aggregation-5" class="nav-link" data-scroll-target="#aggregation-5">Aggregation</a></li>
   <li><a href="#useful-distinctions" id="toc-useful-distinctions" class="nav-link" data-scroll-target="#useful-distinctions">Useful Distinctions</a></li>
   <li><a href="#performing-mathematics-on-dataframes" id="toc-performing-mathematics-on-dataframes" class="nav-link" data-scroll-target="#performing-mathematics-on-dataframes">Performing Mathematics on DataFrames</a></li>
-  <li><a href="#performing-mathematics-on-dataframes-1" id="toc-performing-mathematics-on-dataframes-1" class="nav-link" data-scroll-target="#performing-mathematics-on-dataframes-1">Performing Mathematics on DataFrames</a></li>
-  <li><a href="#performing-mathematics-on-dataframes-2" id="toc-performing-mathematics-on-dataframes-2" class="nav-link" data-scroll-target="#performing-mathematics-on-dataframes-2">Performing Mathematics on DataFrames</a></li>
-  <li><a href="#pandas---continued" id="toc-pandas---continued" class="nav-link" data-scroll-target="#pandas---continued">Pandas - Continued</a></li>
   <li><a href="#multiple-aggregations" id="toc-multiple-aggregations" class="nav-link" data-scroll-target="#multiple-aggregations">Multiple Aggregations</a></li>
   <li><a href="#different-aggregations-for-different-columns" id="toc-different-aggregations-for-different-columns" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns">Different Aggregations for Different Columns</a></li>
-  <li><a href="#different-aggregations-for-different-columns-1" id="toc-different-aggregations-for-different-columns-1" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns-1">Different Aggregations for Different Columns</a></li>
-  <li><a href="#different-aggregations-for-different-columns-2" id="toc-different-aggregations-for-different-columns-2" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns-2">Different Aggregations for Different Columns</a></li>
-  <li><a href="#different-aggregations-for-different-columns-3" id="toc-different-aggregations-for-different-columns-3" class="nav-link" data-scroll-target="#different-aggregations-for-different-columns-3">Different Aggregations for Different Columns</a></li>
   <li><a href="#named-aggregations" id="toc-named-aggregations" class="nav-link" data-scroll-target="#named-aggregations">Named Aggregations</a></li>
-  <li><a href="#named-aggregations-1" id="toc-named-aggregations-1" class="nav-link" data-scroll-target="#named-aggregations-1">Named Aggregations</a></li>
   <li><a href="#several-statistics-for-several-columns" id="toc-several-statistics-for-several-columns" class="nav-link" data-scroll-target="#several-statistics-for-several-columns">Several Statistics for Several Columns</a></li>
-  <li><a href="#several-statistics-for-several-columns-1" id="toc-several-statistics-for-several-columns-1" class="nav-link" data-scroll-target="#several-statistics-for-several-columns-1">Several Statistics for Several Columns</a></li>
   <li><a href="#two-level-groupby-with-multiple-aggregations" id="toc-two-level-groupby-with-multiple-aggregations" class="nav-link" data-scroll-target="#two-level-groupby-with-multiple-aggregations">Two-level groupby with Multiple Aggregations</a></li>
-  <li><a href="#two-level-groupby-with-multiple-aggregations-1" id="toc-two-level-groupby-with-multiple-aggregations-1" class="nav-link" data-scroll-target="#two-level-groupby-with-multiple-aggregations-1">Two-level groupby with Multiple Aggregations</a></li>
-  <li><a href="#which-category-is-most-profitable-in-each-region" id="toc-which-category-is-most-profitable-in-each-region" class="nav-link" data-scroll-target="#which-category-is-most-profitable-in-each-region">Which category is most profitable in each region?</a></li>
-  <li><a href="#which-category-is-most-profitable-in-each-region-1" id="toc-which-category-is-most-profitable-in-each-region-1" class="nav-link" data-scroll-target="#which-category-is-most-profitable-in-each-region-1">Which category is most profitable in each region?</a></li>
   <li><a href="#reshaping-pivot-tables" id="toc-reshaping-pivot-tables" class="nav-link" data-scroll-target="#reshaping-pivot-tables">Reshaping: Pivot Tables</a></li>
-  <li><a href="#reshaping-pivot-tables-1" id="toc-reshaping-pivot-tables-1" class="nav-link" data-scroll-target="#reshaping-pivot-tables-1">Reshaping: Pivot Tables</a></li>
-  <li><a href="#reshaping-pivot-tables-2" id="toc-reshaping-pivot-tables-2" class="nav-link" data-scroll-target="#reshaping-pivot-tables-2">Reshaping: Pivot Tables</a></li>
-  <li><a href="#reshaping-pivot-tables-3" id="toc-reshaping-pivot-tables-3" class="nav-link" data-scroll-target="#reshaping-pivot-tables-3">Reshaping: Pivot Tables</a></li>
-  <li><a href="#reshaping-pivot-tables-4" id="toc-reshaping-pivot-tables-4" class="nav-link" data-scroll-target="#reshaping-pivot-tables-4">Reshaping: Pivot Tables</a></li>
-  <li><a href="#reshaping-pivot-tables-5" id="toc-reshaping-pivot-tables-5" class="nav-link" data-scroll-target="#reshaping-pivot-tables-5">Reshaping: Pivot Tables</a></li>
   <li><a href="#reshaping-melt" id="toc-reshaping-melt" class="nav-link" data-scroll-target="#reshaping-melt">Reshaping: Melt</a></li>
-  <li><a href="#reshaping-melt-1" id="toc-reshaping-melt-1" class="nav-link" data-scroll-target="#reshaping-melt-1">Reshaping: Melt</a></li>
-  <li><a href="#reshaping-melt-2" id="toc-reshaping-melt-2" class="nav-link" data-scroll-target="#reshaping-melt-2">Reshaping: Melt</a></li>
-  <li><a href="#reshaping-melt-3" id="toc-reshaping-melt-3" class="nav-link" data-scroll-target="#reshaping-melt-3">Reshaping: Melt</a></li>
   <li><a href="#concatenation" id="toc-concatenation" class="nav-link" data-scroll-target="#concatenation">Concatenation</a></li>
-  <li><a href="#merging-joins" id="toc-merging-joins" class="nav-link" data-scroll-target="#merging-joins">Merging &amp; Joins</a></li>
-  <li><a href="#merging-joins-1" id="toc-merging-joins-1" class="nav-link" data-scroll-target="#merging-joins-1">Merging &amp; Joins</a></li>
-  <li><a href="#merging-joins-2" id="toc-merging-joins-2" class="nav-link" data-scroll-target="#merging-joins-2">Merging &amp; Joins</a></li>
-  <li><a href="#merging-joins-3" id="toc-merging-joins-3" class="nav-link" data-scroll-target="#merging-joins-3">Merging &amp; Joins</a></li>
+  <li><a href="#merging-joins" id="toc-merging-joins" class="nav-link" data-scroll-target="#merging-joins">Merging &amp; Joins</a>
+  <ul class="collapse">
   <li><a href="#inner-join" id="toc-inner-join" class="nav-link" data-scroll-target="#inner-join">Inner Join</a></li>
-  <li><a href="#inner-join-1" id="toc-inner-join-1" class="nav-link" data-scroll-target="#inner-join-1">Inner Join</a></li>
   <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join">Left Join</a></li>
-  <li><a href="#left-join-1" id="toc-left-join-1" class="nav-link" data-scroll-target="#left-join-1">Left Join</a></li>
   <li><a href="#right-join" id="toc-right-join" class="nav-link" data-scroll-target="#right-join">Right Join</a></li>
-  <li><a href="#right-join-1" id="toc-right-join-1" class="nav-link" data-scroll-target="#right-join-1">Right Join</a></li>
   <li><a href="#outer-join" id="toc-outer-join" class="nav-link" data-scroll-target="#outer-join">Outer Join</a></li>
-  <li><a href="#outer-join-1" id="toc-outer-join-1" class="nav-link" data-scroll-target="#outer-join-1">Outer Join</a></li>
+  </ul></li>
   <li><a href="#merging-on-different-column-names" id="toc-merging-on-different-column-names" class="nav-link" data-scroll-target="#merging-on-different-column-names">Merging on Different Column Names</a></li>
   <li><a href="#multi-key-joins" id="toc-multi-key-joins" class="nav-link" data-scroll-target="#multi-key-joins">Multi-Key Joins</a></li>
   <li><a href="#concatenation-is-different-from-merging" id="toc-concatenation-is-different-from-merging" class="nav-link" data-scroll-target="#concatenation-is-different-from-merging">Concatenation is Different from Merging</a></li>
@@ -395,7 +362,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy). This solution is Pandas, which is an industry-standard library for data ingestion and cleaning.</p>
 <p>Pandas does not replace NumPy; they serve different roles. - Pandas prepares the data. - NumPy solves the equations.</p>
 <p>As Pandas is an external library, we will need to import it to use it (and depending on your environment, it may need to be installed first).</p>
-<div id="0d020652" class="cell" data-execution_count="1">
+<div id="25e5cdba" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="dataframes" class="level2">
@@ -485,11 +452,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We then need to know where the file is located. This could be a file path on your computer or even a URL.</p>
 <pre><code>import pandas as pd
 
-url = "[https://website/data.csv"](https://website/data.csv%22)
+url = "https://website/data.csv"
 
 df = pd.read_csv(url)</code></pre>
 <p>For many of our examples we will use a CSV file (Tableau’s Sample Superstore dataset) that can be found on Blackboard. Assuming we have named the file <code>superstore.csv</code> we can use the following code to load the data into a DataFrame named <code>df</code>.</p>
-<div id="79d48119" class="cell" data-execution_count="2">
+<div id="92b4efc4" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'superstore.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -499,10 +466,8 @@ df = pd.read_csv(url)</code></pre>
 <h3 class="anchored" data-anchor-id="inspecting-data">Inspecting Data</h3>
 <p>The example DataFrame from earlier was from the superstore dataset and the data we saw was output from the <code>head()</code> method which returns (by default) the first 5 rows of the data in the DataFrame.</p>
 <p>The <code>head</code> method (and its counterpart, <code>tail</code>) are important first steps after you load data using Pandas. You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.</p>
-<div id="1163803d" class="cell" data-execution_count="3">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'superstore.csv'</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="aaeacfca" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Row ID        Order ID  Order Date   Ship Date       Ship Mode Customer ID  \
 0      1  CA-2017-152156   11/8/2017  11/11/2017    Second Class    CG-12520   
@@ -542,9 +507,7 @@ df = pd.read_csv(url)</code></pre>
 [5 rows x 21 columns]</code></pre>
 </div>
 </div>
-<ul>
-<li>We can see not all the columns are visible (…) due to visual size limitations.</li>
-</ul>
+<p>We can see not all the columns are visible (…) due to visual size limitations.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -622,42 +585,62 @@ df = pd.read_csv(url)</code></pre>
 </tbody>
 </table>
 <p>The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas. However, some datasets will be large enough that you will not have enough display space to visually inspect everything. The <code>head</code> and <code>tail</code> provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.</p>
-<p>Row ID Order ID Order Date … Quantity Discount Profit</p>
-<p>0 1 CA-2017-152156 11/8/2017 … 2.0 0.00 41.9136</p>
-<p>…</p>
-<p>[5 rows x 21 columns]</p>
+<p><code>[5 rows x 21 columns]</code></p>
 <p>While <code>head</code> / <code>tail</code> give us the total number of columns, they do not provide the total number of rows. We can use the <code>shape</code> attribute to return both the number of rows and number of columns.</p>
-<div id="ee8b949f" class="cell" data-execution_count="4">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'superstore.csv'</span>)</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div id="96dfaec9" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(10800, 21)</code></pre>
 </div>
 </div>
-<p>&gt;&gt;&gt; (10800, 21)</p>
+<p><code>dtypes</code> tells us the data type of each column:</p>
+<div id="1d124aed" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Row ID               str
+Order ID             str
+Order Date           str
+Ship Date            str
+Ship Mode            str
+Customer ID          str
+Customer Name        str
+Segment              str
+Country              str
+City                 str
+State                str
+Postal Code      float64
+Region               str
+Product ID           str
+Category             str
+Sub-Category         str
+Product Name         str
+Sales            float64
+Quantity         float64
+Discount         float64
+Profit           float64
+dtype: object</code></pre>
+</div>
+</div>
 <ul>
-<li><p><strong>dtypes</strong> tells us the data type of each column</p></li>
 <li><p>Float64 specifies a floating-point number.</p></li>
 <li><p>Object is a general non-numeric type (often a string).</p></li>
 </ul>
-<p>Row ID object</p>
-<p>Order ID object</p>
-<p>Order Date object</p>
-<p>… …</p>
-<p>Sub-Category object</p>
-<p>Product Name object</p>
-<p>Sales float64</p>
-<p>Quantity float64</p>
-<p>Discount float64</p>
-<p>Profit float64</p>
-<p>import pandas as pd</p>
-<p>df = pd.read_csv(’superstore.csv’)</p>
-<p>print(df.dtypes)</p>
+<p><code>describe()</code> gives us summary statistics on columns with a numeric data type:</p>
+<div id="823aa70b" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>        Postal Code         Sales     Quantity     Discount       Profit
+count   9983.000000   9994.000000  9994.000000  9994.000000  9994.000000
+mean   55245.233297    229.858001     3.789574     0.156203    28.656896
+std    32038.715955    623.245101     2.225110     0.206452   234.260108
+min     1040.000000      0.444000     1.000000     0.000000 -6599.978000
+25%    23223.000000     17.280000     2.000000     0.000000     1.728750
+50%    57103.000000     54.490000     3.000000     0.200000     8.666500
+75%    90008.000000    209.940000     5.000000     0.200000    29.364000
+max    99301.000000  22638.480000    14.000000     0.800000  8399.976000</code></pre>
+</div>
+</div>
 <ul>
-<li><p><strong>describe()</strong> gives us summary statistics on columns with a numeric data type.</p></li>
 <li><p>The statistics are:</p>
 <ul>
 <li><p>count (the number of non-empty cells)</p>
@@ -671,838 +654,822 @@ df = pd.read_csv(url)</code></pre>
 <li><p>25%, 50%, 75% (percentiles)</p></li>
 <li><p>max (largest value)</p></li>
 </ul></li>
-<li><p><strong>describe()</strong> gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).</p></li>
 </ul>
-<p>Postal Code Sales Quantity Discount Profit</p>
-<p>count 9983.000000 9994.000000 9994.000000 9994.000000 9994.000000</p>
-<p>mean 55245.233297 229.858001 3.789574 0.156203 28.656896</p>
-<p>std 32038.715955 623.245101 2.225110 0.206452 234.260108</p>
-<p>min 1040.000000 0.444000 1.000000 0.000000 -6599.978000</p>
-<p>25% 23223.000000 17.280000 2.000000 0.000000 1.728750</p>
-<p>50% 57103.000000 54.490000 3.000000 0.200000 8.666500</p>
-<p>75% 90008.000000 209.940000 5.000000 0.200000 29.364000</p>
-<p>max 99301.000000 22638.480000 14.000000 0.800000 8399.976000</p>
-<ul>
-<li><strong>describe()</strong> is very useful for finding impossible values.</li>
-<li>For example, assume we have a DataFrame of sensor readings with one of the columns being temperature.</li>
-<li>If we see negative values in the temperature column, we know the data is erroneous.</li>
-</ul>
+<p>Note that <code>describe()</code> gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).</p>
+<p><code>describe()</code> is very useful for finding impossible values. For example, assume we have a DataFrame of sensor readings with one of the columns being temperature in Kelvin. If we see negative values in the temperature column, we know the data is erroneous.</p>
 </section>
 </section>
 <section id="extracting-and-manipulating-data" class="level2">
 <h2 class="anchored" data-anchor-id="extracting-and-manipulating-data">Extracting and Manipulating Data</h2>
 <section id="extracting-columns" class="level3">
 <h3 class="anchored" data-anchor-id="extracting-columns">Extracting Columns</h3>
-<ul>
-<li>Extract a single column (1D Series) using one set of brackets:</li>
-</ul>
-<p>[‘Column_Name’]</p>
-<ul>
-<li>Extract a sub-matrix (2D DataFrame) using a list of columns:</li>
-</ul>
-<p>[[‘Column_Name_1’, ‘Column_Name_2’]]</p>
-<ul>
-<li>A DataFrame is a dictionary of column vectors, so case matters for the column names.</li>
-</ul>
+<p>We can extract a single column (1D Series) using one set of brackets: <code>[‘Column_Name’]</code></p>
+<p>And can extract a sub-matrix (2D DataFrame) using a list of columns: <code>[[‘Column_Name_1’, ‘Column_Name_2’]]</code></p>
+<p>Note that a DataFrame is a dictionary of column vectors, so case matters for the column names.</p>
+<div id="07a02b8a" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'Discount'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0        0.00
+1        0.00
+2        0.00
+3        0.45
+4        0.20
+         ... 
+10795     NaN
+10796     NaN
+10797     NaN
+10798     NaN
+10799     NaN
+Name: Discount, Length: 10800, dtype: float64</code></pre>
+</div>
+</div>
 </section>
-</section>
-<section id="extracting-columns-1" class="level2">
-<h2 class="anchored" data-anchor-id="extracting-columns-1">Extracting Columns</h2>
-<p>df[‘Discount’]</p>
-<p>0 0.00</p>
-<p>1 0.00</p>
-<p>… …</p>
-<p>10798 NaN</p>
-<p>10799 NaN</p>
-<p>Name: Discount, Length: 10800, dtype: float64</p>
-<p>df[‘Discount’,’Profit’]</p>
-<p>Discount Profit</p>
-<p>0 0.00 41.9136</p>
-<p>1 0.00 219.5820</p>
-<p>… …</p>
-<p>10798 NaN NaN</p>
-<p>10799 NaN NaN<br>
-</p>
-<p>[10800 rows x 2 columns]</p>
 <section id="renaming-columns" class="level3">
 <h3 class="anchored" data-anchor-id="renaming-columns">Renaming Columns</h3>
-<ul>
-<li>Raw data often has terrible names (e.g., “Temp (C) - Sensor 1!”).</li>
-<li>Use .rename() and a dictionary to fix them before writing logic.</li>
-</ul>
-<p># Syntax: columns={‘old_name’: ’new_name’}</p>
-<p>df = df.rename(columns={‘Temp (C)’: ‘Temp’,</p>
-<p>‘Press_kpa’: ‘Pressure’})</p>
+<p>Raw data often has terrible names (e.g., “Temp (C) - Sensor 1!”). We can use <code>.rename()</code> and a dictionary to fix them before writing logic.</p>
+<p>The syntax is: <code>columns={'old_name': 'new_name’}</code></p>
+<p>For example: <code>df = df.rename(columns={'Discount': 'Proportional Discount'})</code></p>
 </section>
 <section id="filtering-rows-boolean-masking" class="level3">
 <h3 class="anchored" data-anchor-id="filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</h3>
-<ul>
-<li>We can apply the exact same relational logic (&gt;, &lt;, ==) to a Pandas column.</li>
-<li>This creates a “mask” of True/False values to filter the DataFrame.</li>
-</ul>
-<p># Find all rows where Temperature is over 100</p>
-<p>danger_mask = df[‘Temp’] &gt; 100</p>
-<p># Apply the mask to the DataFrame</p>
-<p>danger_data = df[danger_mask]</p>
-<p># Do it in one line:</p>
-<p>danger_data = df[df[‘Temp’] &gt; 100]</p>
+<p>We can apply the exact same relational logic we have seen and used before (<code>&gt;</code>, <code>&lt;</code>, <code>==</code>) to a Pandas column. This creates a “mask” of <code>True</code>/<code>False</code> values to filter the DataFrame.</p>
+<div id="fa4bdb81" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find all rows where the discount is greater than 20%</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>discount_mask <span class="op">=</span> df[<span class="st">'Discount'</span>] <span class="op">&gt;</span> <span class="fl">0.2</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Apply the mask to the DataFrame</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>discount_data <span class="op">=</span> df[discount_mask]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can also do this all in a single line:</p>
+<div id="a5806910" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>discount_data <span class="op">=</span> df[df[<span class="st">'Discount'</span>] <span class="op">&gt;</span> <span class="fl">0.2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="combining-logic-and-or" class="level3">
 <h3 class="anchored" data-anchor-id="combining-logic-and-or">Combining Logic (AND / OR)</h3>
+<p>To find specific overlaps, use <code>&amp;</code> (AND) and <code>|</code> (OR).</p>
 <ul>
-<li>To find specific overlaps, use &amp; (AND) and | (OR).</li>
 <li><strong>Very Important:</strong> You <em>must</em> put parentheses around each condition.</li>
 </ul>
-<p># Find Discounts AND Negative Profit</p>
-<p>losses = df[(df[‘Discount’] &gt; 0) &amp; (df[‘Profit’] &lt; 0)]</p>
-<p>Row ID Order ID Order Date … Quantity Discount Profit</p>
-<p>3 4 US-2016-108966 10/11/2016 … 5.0 0.45 -383.0310</p>
-<p>14 15 US-2016-118983 11/22/2016 … 5.0 0.80 -123.8580</p>
-<p>…</p>
+<div id="8c728a2c" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find Discounts AND Negative Profit</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>losses <span class="op">=</span> df[(df[<span class="st">'Discount'</span>] <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (df[<span class="st">'Profit'</span>] <span class="op">&lt;</span> <span class="dv">0</span>)]</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(losses.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Row ID        Order ID  Order Date   Ship Date       Ship Mode Customer ID  \
+3       4  US-2016-108966  10/11/2016  10/18/2016  Standard Class    SO-20335   
+14     15  US-2016-118983  11/22/2016  11/26/2016  Standard Class    HP-14815   
+15     16  US-2016-118983  11/22/2016  11/26/2016  Standard Class    HP-14815   
+23     24  US-2018-156909   7/16/2018   7/18/2018    Second Class    SF-20065   
+27     28  US-2016-150630   9/17/2016   9/21/2016  Standard Class    TB-21520   
+
+      Customer Name      Segment        Country             City  ...  \
+3    Sean O'Donnell     Consumer  United States  Fort Lauderdale  ...   
+14    Harold Pawlan  Home Office  United States       Fort Worth  ...   
+15    Harold Pawlan  Home Office  United States       Fort Worth  ...   
+23  Sandra Flanagan     Consumer  United States     Philadelphia  ...   
+27  Tracy Blumstein     Consumer  United States     Philadelphia  ...   
+
+   Postal Code   Region       Product ID         Category Sub-Category  \
+3      33311.0    South  FUR-TA-10000577        Furniture       Tables   
+14     76106.0  Central  OFF-AP-10002311  Office Supplies   Appliances   
+15     76106.0  Central  OFF-BI-10000756  Office Supplies      Binders   
+23     19140.0     East  FUR-CH-10002774        Furniture       Chairs   
+27     19140.0     East  FUR-BO-10004834        Furniture    Bookcases   
+
+                                         Product Name      Sales  Quantity  \
+3       Bretford CR4500 Series Slim Rectangular Table   957.5775       5.0   
+14  Holmes Replacement Filter for HEPA Air Cleaner...    68.8100       5.0   
+15   Storex DuraTech Recycled Plastic Frosted Binders     2.5440       3.0   
+23                 Global Deluxe Stacking Chair, Gray    71.3720       2.0   
+27  Riverside Palais Royal Lawyers Bookcase, Royal...  3083.4300       7.0   
+
+    Discount     Profit  
+3       0.45  -383.0310  
+14      0.80  -123.8580  
+15      0.80    -3.8160  
+23      0.30    -1.0196  
+27      0.50 -1665.0522  
+
+[5 rows x 21 columns]</code></pre>
+</div>
+</div>
 </section>
 <section id="sorting" class="level3">
 <h3 class="anchored" data-anchor-id="sorting">Sorting</h3>
+<p>Sorting data sequentially in Pandas is very simple.</p>
 <ul>
-<li><p>Sorting data sequentially in Pandas is very simple.</p></li>
 <li><p><strong>.sort_values()</strong> orders the matrix by a specific column.</p>
 <ul>
 <li>The column is specified using the <strong>by</strong> parameter</li>
 <li>You can adjust sorting by ascending/descending order by setting the Boolean on the <strong>ascending</strong> parameter.</li>
 </ul></li>
 </ul>
-<p># Sort from highest profit to lowest</p>
-<p>sorted_data = df.sort_values(by=‘Profit’, ascending=False)</p>
-<p># View the top 3 most profitable rows</p>
-<p>print(sorted_data.head(3))</p>
+<div id="ae55f86d" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort from highest profit to lowest</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sorted_data <span class="op">=</span> df.sort_values(by<span class="op">=</span><span class="st">'Profit'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># View the top 3 most profitable rows</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sorted_data.head(<span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Row ID        Order ID  Order Date   Ship Date       Ship Mode  \
+6826   6827  CA-2017-118689   10/2/2017   10/9/2017  Standard Class   
+8153   8154  CA-2018-140151   3/23/2018   3/25/2018     First Class   
+4190   4191  CA-2018-166709  11/17/2018  11/22/2018  Standard Class   
+
+     Customer ID Customer Name    Segment        Country       City  ...  \
+6826    TC-20980  Tamara Chand  Corporate  United States  Lafayette  ...   
+8153    RB-19360  Raymond Buch   Consumer  United States    Seattle  ...   
+4190    HL-15040  Hunter Lopez   Consumer  United States     Newark  ...   
+
+     Postal Code   Region       Product ID    Category Sub-Category  \
+6826     47905.0  Central  TEC-CO-10004722  Technology      Copiers   
+8153     98115.0     West  TEC-CO-10004722  Technology      Copiers   
+4190     19711.0     East  TEC-CO-10004722  Technology      Copiers   
+
+                               Product Name     Sales  Quantity  Discount  \
+6826  Canon imageCLASS 2200 Advanced Copier  17499.95       5.0       0.0   
+8153  Canon imageCLASS 2200 Advanced Copier  13999.96       4.0       0.0   
+4190  Canon imageCLASS 2200 Advanced Copier  10499.97       3.0       0.0   
+
+         Profit  
+6826  8399.9760  
+8153  6719.9808  
+4190  5039.9856  
+
+[3 rows x 21 columns]</code></pre>
+</div>
+</div>
 </section>
 <section id="handling-missing-data" class="level3">
 <h3 class="anchored" data-anchor-id="handling-missing-data">Handling Missing Data</h3>
-<ul>
-<li><p><strong>NaN</strong> stands for “Not a Number” (a blank cell in the CSV).</p>
-<ul>
-<li>We mentioned other versions earlier like <strong>NaT</strong> (Not a Time)</li>
-</ul></li>
-<li><p>In general, you cannot do mathematics with missing data.</p>
+<p><code>NaN</code> stands for “Not a Number” (a blank cell in the CSV). We mentioned other versions earlier like <code>NaT</code> (Not a Time)</p>
+<p>In general, you cannot do mathematics with missing data.</p>
 <ul>
 <li>Calculations that involve <strong>NaN</strong> resolve to <strong>NaN</strong>.</li>
 <li>Calculations that involve <strong>None</strong> throw an exception.</li>
-</ul></li>
-<li><p><strong>.dropna()</strong> removes any row containing a <strong>NaN</strong>.</p></li>
-<li><p>The safest decision is to drop the corrupted observation entirely.</p></li>
-<li><p>There exist methods to interpolate the missing value(s), but these should be used cautiously.</p></li>
 </ul>
-<p># See how many missing values exist</p>
-<p>print(df.isna().sum())</p>
-<p># Drop the corrupted rows permanently</p>
-<p>df = df.dropna()</p>
+<p><code>.dropna()</code> removes any row containing a <strong>NaN</strong>.</p>
+<p>The safest decision is to drop the corrupted observation entirely.</p>
+<p>There exist methods to interpolate the missing value(s), but these should be used cautiously.</p>
+<div id="db572133" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See how many missing values exist</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isna().<span class="bu">sum</span>())</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop the corrupted rows permanently</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Row ID             0
+Order ID           0
+Order Date       806
+Ship Date        806
+Ship Mode        806
+Customer ID      806
+Customer Name    806
+Segment          806
+Country          806
+City             806
+State            806
+Postal Code      817
+Region           806
+Product ID       806
+Category         806
+Sub-Category     806
+Product Name     806
+Sales            806
+Quantity         806
+Discount         806
+Profit           806
+dtype: int64</code></pre>
+</div>
+</div>
 </section>
 </section>
 <section id="calculated-columns-pandas-vectorization" class="level2">
 <h2 class="anchored" data-anchor-id="calculated-columns-pandas-vectorization">Calculated Columns (Pandas Vectorization)</h2>
-<ul>
-<li>We can create brand new columns using the data we already have.</li>
-<li>Pandas handles the row-by-row iteration automatically (just like NumPy).</li>
-</ul>
-<p># Calculate Power (P = V * I)</p>
-<p>df[‘Power_Watts’] = df[‘Voltage’] * df[‘Current’]</p>
-</section>
-<section id="calculated-columns-pandas-vectorization-1" class="level2">
-<h2 class="anchored" data-anchor-id="calculated-columns-pandas-vectorization-1">Calculated Columns (Pandas Vectorization)</h2>
-<ul>
-<li>Using calculated columns is much cleaner than writing a for loop to iterate through thousands of rows.</li>
-</ul>
-<p>df[‘Profit_Per_Unit’] = df[‘Profit’] / df[’Quantity’]</p>
-<p>print(df.head())</p>
-<p>Row ID Order ID Order Date … Discount Profit Profit_Per_Unit</p>
-<p>0 1 CA-2017-152156 11/8/2017 … 0.00 41.9136 20.9568</p>
-<p>1 2 CA-2017-152156 11/8/2017 … 0.00 219.5820 73.1940</p>
-<p>2 3 CA-2017-138688 6/12/2017 … 0.00 6.8714 3.4357</p>
-<p>3 4 US-2016-108966 10/11/2016 … 0.45 -383.0310 -76.6062</p>
-<p>4 5 US-2016-108966 10/11/2016 … 0.20 2.5164 1.2582</p>
+<p>We can create brand new columns using the data we already have. Pandas handles the row-by-row iteration automatically (just like NumPy).</p>
+<pre><code># Calculate Power (P = V * I)
+
+df['Power_Watts'] = df['Voltage'] * df['Current']</code></pre>
+<p>Using calculated columns is much cleaner than writing a for loop to iterate through thousands of rows.</p>
+<div id="e952f405" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Profit_Per_Unit'</span>] <span class="op">=</span> df[<span class="st">'Profit'</span>] <span class="op">/</span> df[<span class="st">'Quantity'</span>]</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Row ID        Order ID  Order Date   Ship Date       Ship Mode Customer ID  \
+0      1  CA-2017-152156   11/8/2017  11/11/2017    Second Class    CG-12520   
+1      2  CA-2017-152156   11/8/2017  11/11/2017    Second Class    CG-12520   
+2      3  CA-2017-138688   6/12/2017   6/16/2017    Second Class    DV-13045   
+3      4  US-2016-108966  10/11/2016  10/18/2016  Standard Class    SO-20335   
+4      5  US-2016-108966  10/11/2016  10/18/2016  Standard Class    SO-20335   
+
+     Customer Name    Segment        Country             City  ... Region  \
+0      Claire Gute   Consumer  United States        Henderson  ...  South   
+1      Claire Gute   Consumer  United States        Henderson  ...  South   
+2  Darrin Van Huff  Corporate  United States      Los Angeles  ...   West   
+3   Sean O'Donnell   Consumer  United States  Fort Lauderdale  ...  South   
+4   Sean O'Donnell   Consumer  United States  Fort Lauderdale  ...  South   
+
+        Product ID         Category Sub-Category  \
+0  FUR-BO-10001798        Furniture    Bookcases   
+1  FUR-CH-10000454        Furniture       Chairs   
+2  OFF-LA-10000240  Office Supplies       Labels   
+3  FUR-TA-10000577        Furniture       Tables   
+4  OFF-ST-10000760  Office Supplies      Storage   
+
+                                        Product Name     Sales Quantity  \
+0                  Bush Somerset Collection Bookcase  261.9600      2.0   
+1  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400      3.0   
+2  Self-Adhesive Address Labels for Typewriters b...   14.6200      2.0   
+3      Bretford CR4500 Series Slim Rectangular Table  957.5775      5.0   
+4                     Eldon Fold 'N Roll Cart System   22.3680      2.0   
+
+   Discount    Profit  Profit_Per_Unit  
+0      0.00   41.9136          20.9568  
+1      0.00  219.5820          73.1940  
+2      0.00    6.8714           3.4357  
+3      0.45 -383.0310         -76.6062  
+4      0.20    2.5164           1.2582  
+
+[5 rows x 22 columns]</code></pre>
+</div>
+</div>
 </section>
 <section id="text-scrubbing" class="level2">
 <h2 class="anchored" data-anchor-id="text-scrubbing">Text Scrubbing</h2>
-<ul>
-<li>Sometimes numbers are accidentally imported as strings because of symbols (e.g., “$1,000”).</li>
-<li>We use <strong>.str</strong> to access string methods, and <strong>.astype()</strong> to cast them back to numbers.</li>
-</ul>
-<p># 1. Replace the comma with nothing</p>
-<p>df[‘Cost’] = df[‘Cost’].str.replace(‘,’, ’’)</p>
-<p># 2. Strip accidental blank spaces</p>
-<p>df[‘Cost’] = df[‘Cost’].str.strip()</p>
-<p># 3. Convert the clean text back into a float for math</p>
-<p>df[‘Cost’] = df[‘Cost’].astype(float)</p>
+<p>Sometimes numbers are accidentally imported as strings because of symbols (e.g., “$1,000”).</p>
+<p>We use <code>.str</code> to access string methods, and <code>.astype()</code> to cast them back to numbers.</p>
+<pre><code>1. Replace the comma with nothing
+
+df['Cost'] = df['Cost'].str.replace(',', '')
+
+2. Strip accidental blank spaces
+
+df['Cost'] = df['Cost'].str.strip()
+
+3. Convert the clean text back into a float for math
+
+df['Cost'] = df['Cost'].astype(float) </code></pre>
 </section>
 <section id="time-and-dates" class="level2">
 <h2 class="anchored" data-anchor-id="time-and-dates">Time and Dates</h2>
-<ul>
-<li>Python reads dates as “dumb” strings by default.</li>
-<li><strong>pd.to_datetime()</strong> converts them into “smart” timestamps.</li>
-<li>The <strong>.dt</strong> accessor extracts specific features (month, year, day of week).</li>
-</ul>
-<p># Convert the string column to datetime objects</p>
-<p>df[‘Date’] = pd.to_datetime(df[‘Date_String’])</p>
-<p># Extract the month as a new numeric column (1-12)</p>
-<p>df[‘Month’] = df[‘Date’].dt.month</p>
+<p>Python reads dates as “dumb” strings by default. <code>pd.to_datetime()</code> converts them into “smart” timestamps. The <code>.dt</code> accessor extracts specific features. (month, year, day of week).</p>
+<pre><code>1. Convert the string column to datetime objects
+
+df['Date'] = pd.to_datetime(df['Date_String'])
+
+2. Extract the month as a new numeric column (1-12)
+
+df['Month'] = df['Date'].dt.month `</code></pre>
 </section>
 <section id="aggregation" class="level2">
 <h2 class="anchored" data-anchor-id="aggregation">Aggregation</h2>
-<ul>
-<li><p>How do we find the average profit per day?</p></li>
-<li><p>Or the postal code with the highest number of total sales?</p></li>
-<li><p>We can use the <strong>groupby()</strong> method, likely the most powerful single tool in Pandas<strong>.</strong></p></li>
-<li><p>The process has three steps:</p>
-<ul>
+<p>How do we find the average profit per day?</p>
+<p>Or the postal code with the highest number of total sales?</p>
+<p>We can use the <code>groupby()</code> method, likely the most powerful single tool in Pandas<strong>.</strong></p>
+<p>The process has three steps:</p>
+<ol type="1">
 <li>Split the data into categories.</li>
 <li>Apply math.</li>
 <li>Combine the results.</li>
-</ul></li>
-</ul>
-</section>
-<section id="aggregation-1" class="level2">
-<h2 class="anchored" data-anchor-id="aggregation-1">Aggregation</h2>
-<p># Drop rows where the date column is NaT</p>
-<p>df = df.dropna(subset=[’Order Date’])</p>
-<p>appd = df.groupby(‘Order Date’)[‘Profit’].mean() #average profit per day</p>
-<p>print(appd.head())</p>
-<p>Order Date</p>
-<p>2015-01-03 5.551200</p>
-<p>2015-01-04 -21.996700</p>
-<p>2015-01-05 4.884000</p>
-<p>Name: Profit, dtype: float64</p>
-</section>
-<section id="aggregation-2" class="level2">
-<h2 class="anchored" data-anchor-id="aggregation-2">Aggregation</h2>
-<p>#Find the top 3 area codes by total sales</p>
-<p>appd = df.groupby(‘Postal Code’)[‘Sales’].sum().nlargest(3)</p>
-<p>print(appd.head())</p>
-<p>Postal Code</p>
-<p>10024.0 78697.182</p>
-<p>10035.0 77357.885</p>
-<p>10009.0 54761.496</p>
-<p>Name: Sales, dtype: float64</p>
-</section>
-<section id="aggregation-3" class="level2">
-<h2 class="anchored" data-anchor-id="aggregation-3">Aggregation</h2>
-<ul>
-<li><p>We see that the Postal Codes here are floats.</p>
-<ul>
-<li>It is an identifier and not a quantity, so it is a good idea to change the type.</li>
-</ul></li>
-<li><p>We can fix this using the <strong>astype</strong> function and casting as an integer.</p></li>
-</ul>
-<p>Postal Code</p>
-<p>0 42420.0</p>
-<p>1 42420.0</p>
-<p>2 90036.0</p>
-<p>Name: Postal Code, dtype: float64</p>
-</section>
-<section id="aggregation-4" class="level2">
-<h2 class="anchored" data-anchor-id="aggregation-4">Aggregation</h2>
-<ul>
-<li><p>We see that the Postal Codes here are floats.</p>
-<ul>
-<li>It is an identifier and not a quantity, so it is a good idea to change the type.</li>
-</ul></li>
-<li><p>We can fix this using the <strong>astype</strong> function and casting as an integer.</p></li>
-</ul>
-<p>df[‘Postal Code’] = df[‘Postal Code’].astype(‘Int64’)</p>
-<p>Postal Code</p>
-<p>0 42420</p>
-<p>1 42420</p>
-<p>2 90036</p>
-<p>Name: Postal Code, dtype: Int64</p>
-</section>
-<section id="aggregation-5" class="level2">
-<h2 class="anchored" data-anchor-id="aggregation-5">Aggregation</h2>
-<ul>
-<li><p># Convert a string column to datetime objects</p></li>
-<li><p>df[‘Date’] = pd.to_datetime(df[‘Date_String’])</p></li>
-<li><p># Extract the month as a new numeric column (1-12)</p></li>
-<li><p>df[‘Month’] = df[‘Date’].dt.month</p></li>
-</ul>
+</ol>
+<div id="4cf28efb" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where the date column is NaT</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Order Date'</span>])</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>appd <span class="op">=</span> df.groupby(<span class="st">'Order Date'</span>)[<span class="st">'Profit'</span>].mean() <span class="co">#average profit per day</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(appd.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Order Date
+1/1/2018     -18.14109
+1/10/2015     11.32685
+1/10/2016   -373.30480
+1/10/2017     18.45510
+1/11/2015      3.08140
+Name: Profit, dtype: float64</code></pre>
+</div>
+</div>
+<div id="cd97f858" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find the top 3 area codes by total sales</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>appd <span class="op">=</span> df.groupby(<span class="st">'Postal Code'</span>)[<span class="st">'Sales'</span>].<span class="bu">sum</span>().nlargest(<span class="dv">3</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(appd.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Postal Code
+10024.0    78697.182
+10035.0    77357.885
+10009.0    54761.496
+Name: Sales, dtype: float64</code></pre>
+</div>
+</div>
+<p>We see that the Postal Codes here are floats. But these are an identifier and not a quantity, so it is a good idea to change the type. We can fix this using the <code>astype</code> method and casting as an integer.</p>
+<div id="854a05c4" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Postal Code'</span>] <span class="op">=</span> df[<span class="st">'Postal Code'</span>].astype(<span class="st">'Int64'</span>)</span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'Postal Code'</span>].head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>0    42420
+1    42420
+2    90036
+3    33311
+4    33311
+Name: Postal Code, dtype: Int64</code></pre>
+</div>
+</div>
+<pre><code>
+# Convert a string column to datetime objects
+
+df['Date'] = pd.to_datetime(df['Date_String'])
+
+# Extract the month as a new numeric column (1-12)
+
+df['Month'] = df['Date'].dt.month</code></pre>
 </section>
 <section id="useful-distinctions" class="level2">
 <h2 class="anchored" data-anchor-id="useful-distinctions">Useful Distinctions</h2>
 <ul>
-<li><p><strong>Aggregation</strong> (sum(), mean(), count()) computes one value per group.</p></li>
-<li><p><strong>Reduction</strong> (max(), min()) computes one value from the entire Series.</p>
+<li><p><strong>Aggregation</strong> (<code>sum()</code>, <code>mean()</code>, <code>count()</code>) computes one value per group.</p></li>
+<li><p><strong>Reduction</strong> (<code>max()</code>, <code>min()</code>) computes one value from the entire Series.</p>
 <ul>
-<li>A series can be viewed as a single column in the DataFrame.</li>
+<li>A <strong>series</strong> can be viewed as a single column in the DataFrame.</li>
 </ul></li>
-<li><p><strong>Index retrieval</strong> (idxmax(), idxmin()) tells you <em>which label</em> produced that maximum or minimum.</p></li>
+<li><p><strong>Index retrieval</strong> (<code>idxmax()</code>, <code>idxmin()</code>) tells you <em>which label</em> produced that maximum or minimum.</p></li>
 </ul>
 </section>
 <section id="performing-mathematics-on-dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="performing-mathematics-on-dataframes">Performing Mathematics on DataFrames</h2>
-<ul>
-<li>More complicated mathematical operations will require you to cast the DataFrame to a NumPy array.</li>
-<li>This is done using the <strong>.to_numpy()</strong> method.</li>
-<li>Note that there can be no text or NaN values in the columns that are cast into an array if you want to receive valid output.</li>
-</ul>
-<p>data = df[‘Sales’].to_numpy()</p>
-<p>print(data.mean())</p>
-</section>
-<section id="performing-mathematics-on-dataframes-1" class="level2">
-<h2 class="anchored" data-anchor-id="performing-mathematics-on-dataframes-1">Performing Mathematics on DataFrames</h2>
-<ul>
-<li>Simple operations can be done on the DataFrame itself, especially a single series associated with it.</li>
-</ul>
-<p>print(df[“Sales”].mean())</p>
-<p>&gt;&gt;&gt;229.85800083049827</p>
-</section>
-<section id="performing-mathematics-on-dataframes-2" class="level2">
-<h2 class="anchored" data-anchor-id="performing-mathematics-on-dataframes-2">Performing Mathematics on DataFrames</h2>
-<ul>
-<li>We can also iterate through using the standard Python for loop syntax.</li>
-<li>However, Pandas specific operations are both shorter to write and more efficient.</li>
-</ul>
-<p>#Also the mean of the sales series</p>
-<p>s = 0</p>
-<p>for i in df[‘Sales’]:</p>
-<p>s += i</p>
-<p>print(s/len(df[’Sales’]))</p>
-<p>&gt;&gt;&gt; 229.8580008304938</p>
-</section>
-<section id="pandas---continued" class="level2">
-<h2 class="anchored" data-anchor-id="pandas---continued">Pandas - Continued</h2>
-<p>CSCI – 1056</p>
+<p>More complicated mathematical operations will require you to cast the DataFrame to a NumPy array. This is done using the <code>.to_numpy()</code> method.</p>
+<p>Note that there can be no text or <code>NaN</code> values in the columns that are cast into an array if you want to receive valid output.</p>
+<div id="0d474cb8" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> df[<span class="st">'Sales'</span>].to_numpy()</span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>229.21681761995393</code></pre>
+</div>
+</div>
+<p>Simple operations can be done on the DataFrame itself, especially a single series associated with it.</p>
+<div id="2e6a71ee" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Sales"</span>].mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>229.21681761995393</code></pre>
+</div>
+</div>
+<p>We can also iterate through using the standard Python for loop syntax. However, Pandas specific operations are both shorter to write and more efficient.</p>
+<div id="989f306f" class="cell" data-execution_count="19">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Also the mean of the sales series</span></span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> df[<span class="st">'Sales'</span>]:</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>    s <span class="op">+=</span> i</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(s<span class="op">/</span><span class="bu">len</span>(df[<span class="st">'Sales'</span>]))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>229.21681761994947</code></pre>
+</div>
+</div>
 </section>
 <section id="multiple-aggregations" class="level2">
 <h2 class="anchored" data-anchor-id="multiple-aggregations">Multiple Aggregations</h2>
-<ul>
-<li>Often, we need different math for different columns at the same time.</li>
-<li>The <strong>.agg()</strong> method takes a dictionary: <strong>{ ‘ColumnName’: ‘math_operation’ }</strong>.</li>
-<li>This can complete enormous tasks in a single computational pass.</li>
-</ul>
-<p>#Find the total, average, maximum, and minimum sales by region.</p>
-<p>summary = (</p>
-<p>df.groupby(‘Region’)[‘Sales’]</p>
-<p>.agg([‘sum’, ‘mean’, ‘max’, ‘min’])</p>
-<p>)</p>
-<p>print(summary)</p>
+<p>Often, we need different math for different columns at the same time. The <code>.agg()</code> method takes a dictionary: <code>{ 'ColumnName': 'math_operation' }</code>.</p>
+<p>This can complete enormous tasks in a single computational pass.</p>
+<div id="194c98fd" class="cell" data-execution_count="20">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find the total, average, maximum, and minimum sales by region.</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Region'</span>)[<span class="st">'Sales'</span>].agg([<span class="st">'sum'</span>, <span class="st">'mean'</span>, <span class="st">'max'</span>, <span class="st">'min'</span>]))</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 sum        mean        max    min
+Region                                            
+Central  501239.8908  215.772661  17499.950  0.444
+East     669851.8700  236.112749  11199.968  0.852
+South    391721.9050  241.803645  22638.480  1.167
+West     725457.8245  226.493233  13999.960  0.990</code></pre>
+</div>
+</div>
 </section>
 <section id="different-aggregations-for-different-columns" class="level2">
 <h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns">Different Aggregations for Different Columns</h2>
-<ul>
-<li><p>We can run simultaneous aggregations by passing a dictionary into the <strong>.agg</strong> method.</p>
+<p>We can run simultaneous aggregations by passing a dictionary into the <code>.agg</code> method.</p>
 <ul>
 <li>The key is the name of the column, and its value is the operation.</li>
 <li>Operations used must accept a series and return a single value.</li>
-</ul></li>
 </ul>
-<p>summary = (</p>
-<p>df.groupby(‘Region’)</p>
-<p>.agg({</p>
-<p>‘Sales’: ‘sum’,</p>
-<p>‘Profit’: ‘mean’,</p>
-<p>‘Discount’: ‘max’,</p>
-<p>‘Quantity’: ’sum’}))</p>
-</section>
-<section id="different-aggregations-for-different-columns-1" class="level2">
-<h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns-1">Different Aggregations for Different Columns</h2>
-<p>summary = (</p>
-<p>df.groupby(‘Region’)</p>
-<p>.agg({</p>
-<p>‘Sales’: ‘sum’,</p>
-<p>‘Profit’: ‘mean’,</p>
-<p>‘Discount’: ‘max’,</p>
-<p>‘Quantity’: ’sum’}))</p>
-<p>Sales Profit Discount Quantity</p>
-<p>Region</p>
-<p>Central 501239.8908 17.092709 0.8 8780.0</p>
-<p>East 678781.2400 32.135808 0.7 10618.0</p>
-<p>South 391721.9050 28.857673 0.7 6209.0</p>
-<p>West 725457.8245 33.849032 0.7 12266.0</p>
-</section>
-<section id="different-aggregations-for-different-columns-2" class="level2">
-<h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns-2">Different Aggregations for Different Columns</h2>
-<ul>
-<li>You are not limited to pre-built aggregation functions.</li>
-<li>You can define operations yourself by creating a function that accepts a Pandas series and returns a single value.</li>
-</ul>
-<p>def range(series):</p>
-<p>return series.max() – series.min()</p>
-</section>
-<section id="different-aggregations-for-different-columns-3" class="level2">
-<h2 class="anchored" data-anchor-id="different-aggregations-for-different-columns-3">Different Aggregations for Different Columns</h2>
-<ul>
-<li>The issue here is that “Sales” is ambiguous for what we are performing by the aggregation.</li>
-<li>To make our operations obvious, we can use named aggregations to rename the displayed column names.</li>
-</ul>
-<p>summary = (</p>
-<p>df.groupby(‘Region’)</p>
-<p>.agg({</p>
-<p>‘Sales’: range,</p>
-<p>}))</p>
-<p>Sales</p>
-<p>Region</p>
-<p>Central 17499.506</p>
-<p>East 11199.116</p>
-<p>South 22637.313</p>
-<p>West 13998.970</p>
+<div id="3c8ff83a" class="cell" data-execution_count="21">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Region'</span>).agg({</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Sales'</span>: <span class="st">'sum'</span>,</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Profit'</span>: <span class="st">'mean'</span>,</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Discount'</span>: <span class="st">'max'</span>,</span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Quantity'</span>: <span class="st">'sum'</span>}))</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               Sales     Profit  Discount  Quantity
+Region                                             
+Central  501239.8908  17.092709       0.8    8780.0
+East     669851.8700  31.469088       0.7   10568.0
+South    391721.9050  28.857673       0.7    6209.0
+West     725457.8245  33.849032       0.7   12266.0</code></pre>
+</div>
+</div>
+<p>Note that you are not limited to pre-built aggregation functions. You can define operations yourself by creating a function that accepts a Pandas series and returns a single value.</p>
+<div id="d1b6ec51" class="cell" data-execution_count="22">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="bu">range</span>(series):</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> series.<span class="bu">max</span>() <span class="op">-</span> series.<span class="bu">min</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We have an issue here is that “Sales” is ambiguous for what we are performing by the aggregation. To make our operations obvious, we can use named aggregations to rename the displayed column names.</p>
+<div id="1436dbcd" class="cell" data-execution_count="23">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Region'</span>).agg({<span class="st">'Sales'</span>: <span class="bu">range</span>,}))</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Sales
+Region            
+Central  17499.506
+East     11199.116
+South    22637.313
+West     13998.970</code></pre>
+</div>
+</div>
 </section>
 <section id="named-aggregations" class="level2">
 <h2 class="anchored" data-anchor-id="named-aggregations">Named Aggregations</h2>
-<ul>
-<li><p>We can rename the displayed column names using a variable assignment inside the aggregation.</p></li>
-<li><p><strong>TotalSales=(”Sales”, sum)</strong></p>
-<ul>
-<li>The resulting column name of the sum of sales by category is <strong>TotalSales</strong>.</li>
-</ul></li>
-</ul>
-<p>summary = (</p>
-<p>df.groupby(‘Category’)</p>
-<p>.agg(</p>
-<p>TotalSales=(‘Sales’, ‘sum’),</p>
-<p>AvgSale=(‘Sales’, ‘mean’),</p>
-<p>TotalProfit=(‘Profit’, ‘sum’),</p>
-<p>AvgProfit=(‘Profit’, ‘mean’),</p>
-<p>Orders=(‘Sales’, ’count’)</p>
-<p>)).round(2)</p>
-</section>
-<section id="named-aggregations-1" class="level2">
-<h2 class="anchored" data-anchor-id="named-aggregations-1">Named Aggregations</h2>
-<p>summary = (</p>
-<p>df.groupby(‘Category’)</p>
-<p>.agg(</p>
-<p>TotalSales=(‘Sales’, ‘sum’),</p>
-<p>AvgSale=(‘Sales’, ‘mean’),</p>
-<p>TotalProfit=(‘Profit’, ‘sum’),</p>
-<p>AvgProfit=(‘Profit’, ‘mean’),</p>
-<p>Orders=(‘Sales’, ’count’)</p>
-<p>)).round(2)</p>
-<p>TotalSales AvgSale TotalProfit AvgProfit Orders</p>
-<p>Category</p>
-<p>Furniture 741999.80 349.83 18451.27 8.70 2121</p>
-<p>Office Supplies 719047.03 119.32 122490.80 20.33 6026</p>
-<p>Technology 836154.03 452.71 145454.95 78.75 1847</p>
+<p>We can rename the displayed column names using a variable assignment inside the aggregation.</p>
+<p>For <code>TotalSales=(”Sales”, sum)</code>the resulting column name of the sum of sales by category is <strong>TotalSales</strong>.</p>
+<div id="6160ff71" class="cell" data-execution_count="24">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Category'</span>).agg(</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>            TotalSales<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>            AvgSale<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>            TotalProfit<span class="op">=</span>(<span class="st">'Profit'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>            AvgProfit<span class="op">=</span>(<span class="st">'Profit'</span>, <span class="st">'mean'</span>),</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>            Orders<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'count'</span>))</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>          ).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 TotalSales  AvgSale  TotalProfit  AvgProfit  Orders
+Category                                                            
+Furniture         736879.70   347.75     17259.35       8.15    2119
+Office Supplies   716837.52   119.08    121885.04      20.25    6020
+Technology        834554.27   452.58    145007.66      78.64    1844</code></pre>
+</div>
+</div>
 </section>
 <section id="several-statistics-for-several-columns" class="level2">
 <h2 class="anchored" data-anchor-id="several-statistics-for-several-columns">Several Statistics for Several Columns</h2>
-<ul>
-<li>We can produce multiple statistics across multiple columns.</li>
-<li>The same dictionary format is used for the <strong>.agg</strong> method and the value is now a list of operations.</li>
-</ul>
-<p>summary = (</p>
-<p>df.groupby(‘Category’)</p>
-<p>.agg({</p>
-<p>‘Sales’: [‘sum’, ‘mean’],</p>
-<p>‘Profit’: [‘sum’, ‘mean’],</p>
-<p>‘Quantity’: [‘sum’, ‘max’]</p>
-<p>})).round(2)</p>
-</section>
-<section id="several-statistics-for-several-columns-1" class="level2">
-<h2 class="anchored" data-anchor-id="several-statistics-for-several-columns-1">Several Statistics for Several Columns</h2>
-<p>summary = (</p>
-<p>df.groupby(‘Category’)</p>
-<p>.agg({</p>
-<p>‘Sales’: [‘sum’, ‘mean’],</p>
-<p>‘Profit’: [‘sum’, ‘mean’],</p>
-<p>‘Quantity’: [‘sum’, ‘max’]</p>
-<p>})).round(2)</p>
-<p>Sales Profit</p>
-<p>sum mean sum mean Category</p>
-<p>Furniture 741999.80 349.83 18451.27 8.70</p>
-<p>Office Supplies 719047.03 119.32 122490.80 20.33</p>
-<p>Technology 836154.03 452.71 145454.95 78.75</p>
+<p>We can produce multiple statistics across multiple columns. The same dictionary format is used for the <code>.agg</code> method and the value is now a list of operations.</p>
+<div id="675f8e0d" class="cell" data-execution_count="25">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Category'</span>).agg({</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Sales'</span>: [<span class="st">'sum'</span>, <span class="st">'mean'</span>],</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Profit'</span>: [<span class="st">'sum'</span>, <span class="st">'mean'</span>],</span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Quantity'</span>: [<span class="st">'sum'</span>, <span class="st">'max'</span>]})</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>          ).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                     Sales             Profit        Quantity      
+                       sum    mean        sum   mean      sum   max
+Category                                                           
+Furniture        736879.70  347.75   17259.35   8.15   8020.0  14.0
+Office Supplies  716837.52  119.08  121885.04  20.25  22878.0  14.0
+Technology       834554.27  452.58  145007.66  78.64   6925.0  14.0</code></pre>
+</div>
+</div>
 </section>
 <section id="two-level-groupby-with-multiple-aggregations" class="level2">
 <h2 class="anchored" data-anchor-id="two-level-groupby-with-multiple-aggregations">Two-level groupby with Multiple Aggregations</h2>
-<ul>
-<li>We want to evaluate the profit, sales, and average discount across the different categories of goods by region.</li>
-<li>We can include multiple levels in the groupby simply by using a list of series names.</li>
-</ul>
-<p>summary = (</p>
-<p>df.groupby([‘Region’, ‘Category’])</p>
-<p>.agg(</p>
-<p>Sales=(‘Sales’, ‘sum’),</p>
-<p>Profit=(‘Profit’, ‘sum’),</p>
-<p>AvgDiscount=(‘Discount’, ‘mean’)</p>
-<p>)</p>
-<p>).round(2)</p>
-</section>
-<section id="two-level-groupby-with-multiple-aggregations-1" class="level2">
-<h2 class="anchored" data-anchor-id="two-level-groupby-with-multiple-aggregations-1">Two-level groupby with Multiple Aggregations</h2>
-<p>summary = (</p>
-<p>df.groupby([‘Region’, ‘Category’])</p>
-<p>.agg(</p>
-<p>Sales=(‘Sales’, ‘sum’),</p>
-<p>Profit=(‘Profit’, ‘sum’),</p>
-<p>AvgDiscount=(‘Discount’, ‘mean’)</p>
-<p>)</p>
-<p>).round(2)</p>
-<p>Region Category</p>
-<p>Central Furniture 163797.16 -2871.05 0.30</p>
-<p>Office Supplies 167026.42 8879.98 0.25</p>
-<p>Technology 170416.31 33697.43 0.13</p>
-<p>East Furniture 208291.20 3046.17 0.15</p>
-<p>Office Supplies 205516.06 41014.58 0.14</p>
-<p>Technology 264973.98 47462.04 0.14</p>
-</section>
-<section id="which-category-is-most-profitable-in-each-region" class="level2">
-<h2 class="anchored" data-anchor-id="which-category-is-most-profitable-in-each-region">Which category is most profitable in each region?</h2>
-<p>summary = (</p>
-<p>df.groupby([‘Region’, ‘Category’])</p>
-<p>.agg(</p>
-<p>TotalSales=(‘Sales’, ‘sum’),</p>
-<p>TotalProfit=(‘Profit’, ‘sum’)</p>
-<p>)</p>
-<p>.sort_values(‘TotalProfit’, ascending=False)</p>
-<p>)</p>
-</section>
-<section id="which-category-is-most-profitable-in-each-region-1" class="level2">
-<h2 class="anchored" data-anchor-id="which-category-is-most-profitable-in-each-region-1">Which category is most profitable in each region?</h2>
-<p>Region Category</p>
-<p>West Office Supplies 220853.25 52609.85</p>
-<p>East Technology 264973.98 47462.04</p>
-<p>West Technology 251991.83 44303.65</p>
-<p>East Office Supplies 205516.06 41014.58</p>
-<p>Central Technology 170416.31 33697.43</p>
-<p>South Technology 148771.91 19991.8</p>
-<p>Office Supplies 125651.31 19986.39</p>
-<p>West Furniture 252612.74 11504.95</p>
-<p>Central Office Supplies 167026.42 8879.98</p>
-<p>South Furniture 117298.68 6771.21</p>
-<p>East Furniture 208291.20 3046.17</p>
-<p>Central Furniture 163797.16 -2871.05</p>
-<blockquote class="blockquote">
-<p>The empty space by office supplies is Pandas omitting the identical region name (south) to prevent repeats.</p>
-</blockquote>
+<p>What if we want to evaluate the profit, sales, and average discount across the different categories of goods by region?</p>
+<p>We can include multiple levels in the groupby simply by using a list of series names.</p>
+<div id="f1622cea" class="cell" data-execution_count="26">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby([<span class="st">'Region'</span>, <span class="st">'Category'</span>]).agg(</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>            Sales<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>            Profit<span class="op">=</span>(<span class="st">'Profit'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>            AvgDiscount<span class="op">=</span>(<span class="st">'Discount'</span>, <span class="st">'mean'</span>))</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>          ).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                             Sales    Profit  AvgDiscount
+Region  Category                                         
+Central Furniture        163797.16  -2871.05         0.30
+        Office Supplies  167026.42   8879.98         0.25
+        Technology       170416.31  33697.43         0.13
+East    Furniture        203171.10   1854.24         0.15
+        Office Supplies  203306.54  40408.81         0.14
+        Technology       263374.22  47014.75         0.14
+South   Furniture        117298.68   6771.21         0.12
+        Office Supplies  125651.31  19986.39         0.17
+        Technology       148771.91  19991.83         0.11
+West    Furniture        252612.74  11504.95         0.13
+        Office Supplies  220853.25  52609.85         0.09
+        Technology       251991.83  44303.65         0.13</code></pre>
+</div>
+</div>
+<p>What if we wish to find which category is most profitable in each region?</p>
+<div id="0c8608c2" class="cell" data-execution_count="27">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby([<span class="st">'Region'</span>, <span class="st">'Category'</span>]).agg(</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>            TotalSales<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'sum'</span>),</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>            TotalProfit<span class="op">=</span>(<span class="st">'Profit'</span>, <span class="st">'sum'</span>)).sort_values(<span class="st">'TotalProfit'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>           )</span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                          TotalSales  TotalProfit
+Region  Category                                 
+West    Office Supplies  220853.2490   52609.8490
+East    Technology       263374.2210   47014.7488
+West    Technology       251991.8320   44303.6496
+East    Office Supplies  203306.5450   40408.8141
+Central Technology       170416.3120   33697.4320
+South   Technology       148771.9080   19991.8314
+        Office Supplies  125651.3130   19986.3928
+West    Furniture        252612.7435   11504.9503
+Central Office Supplies  167026.4150    8879.9799
+South   Furniture        117298.6840    6771.2061
+East    Furniture        203171.1040    1854.2388
+Central Furniture        163797.1638   -2871.0494</code></pre>
+</div>
+</div>
+<p>Note that the empty space by office supplies is Pandas omitting the identical region name (south) to prevent repeats.</p>
 </section>
 <section id="reshaping-pivot-tables" class="level2">
 <h2 class="anchored" data-anchor-id="reshaping-pivot-tables">Reshaping: Pivot Tables</h2>
+<p>Sometimes data is too “tall” to read easily. <code>pivot_table</code> reshapes data to look exactly like an Excel pivot table, turning unique row values into new columns.</p>
+<pre><code>monthly_view = df.pivot_table(
+    
+        index='', # What stays as rows
+        columns='', # What becomes the new columns
+        values='', # What fills the cells
+        aggfunc='' # How to handle duplicates
+    )</code></pre>
+<p>We can use pivot tables much the same way as groupby.</p>
+<p>Both below compute the same summary.</p>
+<div id="cdb4e08a" class="cell" data-execution_count="28">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pt <span class="op">=</span> df.pivot_table(</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Sales'</span>,</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Region'</span>,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'Category'</span>,</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'sum'</span></span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pt)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Category    Furniture  Office Supplies  Technology
+Region                                            
+Central   163797.1638       167026.415  170416.312
+East      203171.1040       203306.545  263374.221
+South     117298.6840       125651.313  148771.908
+West      252612.7435       220853.249  251991.832</code></pre>
+</div>
+</div>
+<div id="b30eda8e" class="cell" data-execution_count="29">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>gb <span class="op">=</span> df.groupby([<span class="st">'Region'</span>, <span class="st">'Category'</span>])[<span class="st">'Sales'</span>].<span class="bu">sum</span>()</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Region   Category       
+Central  Furniture          163797.1638
+         Office Supplies    167026.4150
+         Technology         170416.3120
+East     Furniture          203171.1040
+         Office Supplies    203306.5450
+         Technology         263374.2210
+South    Furniture          117298.6840
+         Office Supplies    125651.3130
+         Technology         148771.9080
+West     Furniture          252612.7435
+         Office Supplies    220853.2490
+         Technology         251991.8320
+Name: Sales, dtype: float64</code></pre>
+</div>
+</div>
+<p>The difference is in how the result is arranged:</p>
 <ul>
-<li>Sometimes data is too “tall” to read easily.</li>
-<li><strong>pivot_table</strong> reshapes data to look exactly like an Excel pivot table, turning unique row values into new columns.</li>
+<li><p><code>groupby()</code> leaves both grouping variables in the index (or MultiIndex).</p></li>
+<li><p><code>pivot_table()</code> places one grouping variable into columns, producing a cross-tab that resembles an Excel pivot table.</p></li>
 </ul>
-<p>monthly_view = df.pivot_table(</p>
-<p>index=’’, # What stays as rows</p>
-<p>columns=’’, # What becomes the new columns</p>
-<p>values=’’, # What fills the cells</p>
-<p>aggfunc=’’ # How to handle duplicates</p>
-<p>)</p>
-</section>
-<section id="reshaping-pivot-tables-1" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-1">Reshaping: Pivot Tables</h2>
-<ul>
-<li>We can use pivot tables much the same way as groupby.</li>
-<li>Both below compute the same summary.</li>
-</ul>
-<p>df.pivot_table(</p>
-<p>values=‘Sales’,</p>
-<p>index=‘Region’,</p>
-<p>columns=‘Category’,</p>
-<p>aggfunc=’sum’</p>
-<p>)</p>
-<p>df.groupby([‘Region’, ‘Category’])[‘Sales’].sum()</p>
-</section>
-<section id="reshaping-pivot-tables-2" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-2">Reshaping: Pivot Tables</h2>
-<ul>
-<li>The difference is in how the result is arranged:</li>
-<li><strong>groupby()</strong> leaves both grouping variables in the index (or MultiIndex).</li>
-<li><strong>pivot_table()</strong> places one grouping variable into columns, producing a cross-tab that resembles an Excel pivot table.</li>
-</ul>
-<p>df.pivot_table(</p>
-<p>values=‘Sales’,</p>
-<p>index=‘Region’,</p>
-<p>columns=‘Category’,</p>
-<p>aggfunc=’sum’</p>
-<p>)</p>
-<p>df.groupby([‘Region’, ‘Category’])[‘Sales’].sum()</p>
-</section>
-<section id="reshaping-pivot-tables-3" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-3">Reshaping: Pivot Tables</h2>
-<p>Region Category</p>
-<p>Central Furniture 163797.1638</p>
-<p>Office Supplies 167026.4150</p>
-<p>Technology 170416.3120</p>
-<p>East Furniture 208291.2040</p>
-<p>Office Supplies 205516.0550</p>
-<p>Technology 264973.9810</p>
-<p>South Furniture 117298.6840</p>
-<p>Office Supplies 125651.3130</p>
-<p>Technology 148771.9080</p>
-<p>West Furniture 252612.7435</p>
-<p>Office Supplies 220853.2490</p>
-<p>Technology 251991.8320</p>
-<p>Name: Sales, dtype: float64</p>
-<p>Category Furniture Office Supplies Technology</p>
-<p>Region</p>
-<p>Central 163797.1638 167026.415 170416.312</p>
-<p>East 208291.2040 205516.055 264973.981</p>
-<p>South 117298.6840 125651.313 148771.908</p>
-<p>West 252612.7435 220853.249 251991.832</p>
-<ul>
-<li><p>The <strong>pivot table</strong> below is functionally equivalent to the <strong>groupby</strong> to the right.</p></li>
-<li><p>Only the visual presentation differs.</p></li>
-</ul>
-</section>
-<section id="reshaping-pivot-tables-4" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-4">Reshaping: Pivot Tables</h2>
-<ul>
-<li>Multiple values can be used by passing in a list.</li>
-</ul>
-<p>pivot = df.pivot_table(</p>
-<p>values=[‘Sales’, ‘Profit’],</p>
-<p>index=‘Region’,</p>
-<p>columns=‘Category’,</p>
-<p>aggfunc=’sum’</p>
-<p>)</p>
-<p>Profit Sales</p>
-<p>Category Furniture Office Supplies Technology Furniture Office Supplies Technology</p>
-<p>Region</p>
-<p>Central -2871.05 8879.98 33697.43 163797.16 167026.42 170416.31</p>
-<p>East 3046.17 41014.58 47462.04 208291.20 205516.06 264973.98</p>
-<p>South 6771.21 19986.39 19991.83 117298.68 125651.31 148771.91</p>
-<p>West 11504.95 52609.85 44303.65 252612.74 220853.25 251991.83</p>
-</section>
-<section id="reshaping-pivot-tables-5" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-pivot-tables-5">Reshaping: Pivot Tables</h2>
-<ul>
-<li>Passing the margins flag generates an all column and row.</li>
-</ul>
-<p>pivot = df.pivot_table(</p>
-<p>values=‘Sales’,</p>
-<p>index=‘Region’,</p>
-<p>columns=‘Category’,</p>
-<p>aggfunc=‘sum’,</p>
-<p>margins=True</p>
-<p>).round(2)</p>
-<p>Category Furniture Office Supplies Technology All</p>
-<p>Region</p>
-<p>Central 163797.16 167026.42 170416.31 501239.89</p>
-<p>East 208291.20 205516.06 264973.98 678781.24</p>
-<p>South 117298.68 125651.31 148771.91 391721.90</p>
-<p>West 252612.74 220853.25 251991.83 725457.82</p>
-<p>All 741999.80 719047.03 836154.03 2297200.86</p>
+<p>Multiple values can be used by passing in a list.</p>
+<div id="7bc4e500" class="cell" data-execution_count="30">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>pivot <span class="op">=</span> df.pivot_table(</span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span>[<span class="st">'Sales'</span>, <span class="st">'Profit'</span>],</span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Region'</span>,</span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'Category'</span>,</span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'sum'</span></span>
+<span id="cb60-6"><a href="#cb60-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb60-7"><a href="#cb60-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-8"><a href="#cb60-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pivot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Profit                                    Sales                  \
+Category   Furniture Office Supplies  Technology    Furniture Office Supplies   
+Region                                                                          
+Central   -2871.0494       8879.9799  33697.4320  163797.1638      167026.415   
+East       1854.2388      40408.8141  47014.7488  203171.1040      203306.545   
+South      6771.2061      19986.3928  19991.8314  117298.6840      125651.313   
+West      11504.9503      52609.8490  44303.6496  252612.7435      220853.249   
+
+                      
+Category  Technology  
+Region                
+Central   170416.312  
+East      263374.221  
+South     148771.908  
+West      251991.832  </code></pre>
+</div>
+</div>
+<p>Passing the margins flag generates an all column and row.</p>
+<div id="812adc0a" class="cell" data-execution_count="31">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>pivot <span class="op">=</span> df.pivot_table(</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Sales'</span>,</span>
+<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Region'</span>,</span>
+<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'Category'</span>,</span>
+<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'sum'</span>,</span>
+<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>    margins<span class="op">=</span><span class="va">True</span></span>
+<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>).<span class="bu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(pivot)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Category  Furniture  Office Supplies  Technology         All
+Region                                                      
+Central   163797.16        167026.42   170416.31   501239.89
+East      203171.10        203306.54   263374.22   669851.87
+South     117298.68        125651.31   148771.91   391721.90
+West      252612.74        220853.25   251991.83   725457.82
+All       736879.70        716837.52   834554.27  2288271.49</code></pre>
+</div>
+</div>
 </section>
 <section id="reshaping-melt" class="level2">
 <h2 class="anchored" data-anchor-id="reshaping-melt">Reshaping: Melt</h2>
-<ul>
-<li>Human generated data is often “wide” (e.g., Jan, Feb, Mar as separate columns).</li>
-<li><strong>pd.melt()</strong> unpivots data, collapsing multiple columns down into two generic columns: “Variable” and “Value”.</li>
-<li>Many plotting libraries, statistical tools and SQL databases expect data in the melt format, not the pivot format.</li>
-</ul>
-<p>tall_df = pd.melt(</p>
-<p>wide_df,</p>
-<p>id_vars=[’’], # Columns to lock in place</p>
-<p>var_name=’’, # Name for the columns</p>
-<p>value_name=’’ # Name for the values</p>
-<p>)</p>
-</section>
-<section id="reshaping-melt-1" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-melt-1">Reshaping: Melt</h2>
-<ul>
-<li>The DataFrame resulting from the pivot_table below looks like:</li>
-</ul>
-<p>sales = df.pivot_table(</p>
-<p>values=‘Sales’,</p>
-<p>index=‘Region’,</p>
-<p>columns=‘Category’,</p>
-<p>aggfunc=‘sum’</p>
-<p>).reset_index()</p>
-<p>Category Region Furniture Office Supplies Technology</p>
-<p>0 Central 163797.1638 167026.415 170416.312</p>
-<p>1 East 208291.2040 205516.055 264973.981</p>
-<p>2 South 117298.6840 125651.313 148771.908</p>
-<p>3 West 252612.7435 220853.249 251991.832</p>
-</section>
-<section id="reshaping-melt-2" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-melt-2">Reshaping: Melt</h2>
-<ul>
-<li><p>If we wanted one row per Region–Category combination instead:</p></li>
-<li><p><strong>melt()</strong> takes multiple columns and stacks them into two columns: one for the former column names and one for their values.</p></li>
-</ul>
-<p>long = sales.melt(</p>
-<p>id_vars=‘Region’,</p>
-<p>var_name=‘Category’,</p>
-<p>value_name=‘Sales’</p>
-<p>)</p>
-</section>
-<section id="reshaping-melt-3" class="level2">
-<h2 class="anchored" data-anchor-id="reshaping-melt-3">Reshaping: Melt</h2>
-<p>Region Category Sales</p>
-<p>0 Central Furniture 163797.1638</p>
-<p>1 East Furniture 208291.2040</p>
-<p>2 South Furniture 117298.6840</p>
-<p>3 West Furniture 252612.7435</p>
-<p>4 Central Office Supplies 167026.4150</p>
-<p>5 East Office Supplies 205516.0550</p>
-<p>6 South Office Supplies 125651.3130</p>
-<p>7 West Office Supplies 220853.2490</p>
-<p>8 Central Technology 170416.3120</p>
-<p>9 East Technology 264973.9810</p>
-<p>10 South Technology 148771.9080</p>
-<p>11 West Technology 251991.8320</p>
+<p>Human generated data is often “wide” (e.g., Jan, Feb, Mar as separate columns). <code>pd.melt()</code> unpivots data, collapsing multiple columns down into two generic columns: “Variable” and “Value”.</p>
+<p>melt() takes multiple columns and stacks them into two columns: one for the former column names and one for their values.</p>
+<p>Many plotting libraries, statistical tools and SQL databases expect data in the melt format, not the pivot format.</p>
+<p><code>{tall_df = pd.melt(}         wide_df,         id_vars=[’’], # Columns to lock in place         var_name='', # Name for the columns         value_name='' # Name for the values )</code></p>
+<div id="8b743a12" class="cell" data-execution_count="32">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> df.pivot_table(</span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Sales'</span>,</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Region'</span>,</span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>    columns<span class="op">=</span><span class="st">'Category'</span>,</span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>    aggfunc<span class="op">=</span><span class="st">'sum'</span></span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>).reset_index() <span class="co">#Returns the index column back to consecutive values</span></span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(sales)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Category   Region    Furniture  Office Supplies  Technology
+0         Central  163797.1638       167026.415  170416.312
+1            East  203171.1040       203306.545  263374.221
+2           South  117298.6840       125651.313  148771.908
+3            West  252612.7435       220853.249  251991.832</code></pre>
+</div>
+</div>
+<p>If we wanted one row per Region–Category combination instead:</p>
+<div id="eaf461fb" class="cell" data-execution_count="33">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">long</span> <span class="op">=</span> sales.melt(</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span><span class="st">'Region'</span>,</span>
+<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>    var_name<span class="op">=</span><span class="st">'Category'</span>,</span>
+<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>    value_name<span class="op">=</span><span class="st">'Sales'</span></span>
+<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">long</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Region         Category        Sales
+0   Central        Furniture  163797.1638
+1      East        Furniture  203171.1040
+2     South        Furniture  117298.6840
+3      West        Furniture  252612.7435
+4   Central  Office Supplies  167026.4150
+5      East  Office Supplies  203306.5450
+6     South  Office Supplies  125651.3130
+7      West  Office Supplies  220853.2490
+8   Central       Technology  170416.3120
+9      East       Technology  263374.2210
+10    South       Technology  148771.9080
+11     West       Technology  251991.8320</code></pre>
+</div>
+</div>
 </section>
 <section id="concatenation" class="level2">
 <h2 class="anchored" data-anchor-id="concatenation">Concatenation</h2>
-<ul>
-<li><strong>pd.concat()</strong> is used when you have the exact same columns, but new rows of data.</li>
-<li>Perfect for stacking multiple months, quarters, or batches of data together.</li>
-<li>Important to reset the index to prevent repeated row numbers.</li>
-</ul>
-<p># Stacking Q1 and Q2 data vertically</p>
+<p><code>pd.concat()</code> is used when you have the exact same columns, but new rows of data. This works well for stacking multiple months, quarters, or batches of data together.</p>
+<p>Note that it is important to reset the index to prevent repeated row numbers.</p>
+<p>```{# Stacking Q1 and Q2 data vertically}</p>
 <p>full_year_df = pd.concat([q1_data, q2_data], axis=0)</p>
-<p># Reset the index so row numbers don’t repeat</p>
-<p>full_year_df = full_year_df.reset_index(drop=True)</p>
+<pre><code>
+```{# Reset the index so row numbers don't repeat}
+
+full_year_df = full_year_df.reset_index(drop=True)</code></pre>
 </section>
 <section id="merging-joins" class="level2">
 <h2 class="anchored" data-anchor-id="merging-joins">Merging &amp; Joins</h2>
+<p>Merges and joins are among the most important operations in pandas because they allow you to combine information from multiple DataFrames.</p>
+<p>The important question when combining two DataFrames is: How do we know which rows belong together?</p>
+<p>Pandas answers this by matching values in one or more columns. It can also match on an index, which is the term row label. Columns contain the actual data values; the index is just for identification.</p>
+<p><code>pd.merge()</code> combines two <em>different</em> DataFrames based on a shared column (a “Key”). This is identical to a SQL JOIN.</p>
 <ul>
-<li><p>Merges and joins are among the most important operations in pandas because they allow you to combine information from multiple DataFrames.</p></li>
-<li><p>The important question when combining two DataFrames is:</p></li>
-<li><p><strong>How do we know which rows belong together?</strong></p></li>
-<li><p>Pandas answers this by matching values in one or more columns.</p>
-<ul>
-<li>It can also match on an index, which is the term row label.</li>
-<li>Columns contain the actual data values; the index is just for identification.</li>
-</ul></li>
-</ul>
-</section>
-<section id="merging-joins-1" class="level2">
-<h2 class="anchored" data-anchor-id="merging-joins-1">Merging &amp; Joins</h2>
-<ul>
-<li><p><strong>pd.merge()</strong> combines two <em>different</em> DataFrames based on a shared column (a “Key”).</p>
-<ul>
-<li>This is identical to a SQL JOIN.</li>
-</ul></li>
 <li><p><strong>Left Join:</strong> Keep everything in the left table, attach data from the right table if it matches.</p></li>
 <li><p><strong>Right Join:</strong> Keep everything in the right table, attach data from the left table if it matches.</p></li>
 <li><p><strong>Inner Join:</strong> Keep only rows that appear in both tables.</p></li>
 <li><p><strong>Outer Join:</strong> Keep everything from both tables.</p></li>
 </ul>
+<p>The basic syntax is:</p>
+<pre><code>pd.merge(left_df, #Left DataFrame
+
+right_df, #Right DataFrame
+
+on="ColumnName", #Column used for matching
+
+how="inner") #Type of join</code></pre>
+<p>Suppose we have two DataFrames, <code>customers</code> and <code>accounts</code>.</p>
+<div id="cb377215" class="cell" data-execution_count="34">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> {</span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CustomerID'</span>:[<span class="dv">101</span>,<span class="dv">102</span>,<span class="dv">103</span>,<span class="dv">104</span>],</span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Name'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>, <span class="st">'David'</span>]</span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-5"><a href="#cb70-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-6"><a href="#cb70-6" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> pd.DataFrame(customers)</span>
+<span id="cb70-7"><a href="#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-8"><a href="#cb70-8" aria-hidden="true" tabindex="-1"></a>accounts <span class="op">=</span> {</span>
+<span id="cb70-9"><a href="#cb70-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CustomerID'</span>:[<span class="dv">101</span>,<span class="dv">101</span>,<span class="dv">103</span>,<span class="dv">105</span>],</span>
+<span id="cb70-10"><a href="#cb70-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Name'</span>: [<span class="st">'2500'</span>, <span class="st">'1200'</span>, <span class="st">'8000'</span>, <span class="st">'500'</span>]</span>
+<span id="cb70-11"><a href="#cb70-11" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb70-12"><a href="#cb70-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-13"><a href="#cb70-13" aria-hidden="true" tabindex="-1"></a>accounts <span class="op">=</span> pd.DataFrame(accounts)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<section id="inner-join" class="level3">
+<h3 class="anchored" data-anchor-id="inner-join">Inner Join</h3>
+<p>An <strong>inner join</strong> keeps only rows that appear in both tables.</p>
+<div id="06900a08" class="cell" data-execution_count="35">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"inner"</span>)</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   CustomerID   Name_x Name_y
+0         101    Alice   2500
+1         101    Alice   1200
+2         103  Charlie   8000</code></pre>
+</div>
+</div>
+<p>Notice that Alice appears twice. This is because there are two matching rows in the Accounts table. Inner join is matching every possible pair.</p>
 </section>
-<section id="merging-joins-2" class="level2">
-<h2 class="anchored" data-anchor-id="merging-joins-2">Merging &amp; Joins</h2>
-<ul>
-<li>The basic syntax is:</li>
-</ul>
-<p>pd.merge(left_df, #Left DataFrame</p>
-<p>right_df, #Right DataFrame</p>
-<p>on=“ColumnName”, #Column used for matching</p>
-<p>how=“inner”) #Type of join</p>
+<section id="left-join" class="level3">
+<h3 class="anchored" data-anchor-id="left-join">Left Join</h3>
+<p>A left join keeps <strong>everything from the left table</strong>.</p>
+<div id="80e9151b" class="cell" data-execution_count="36">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   CustomerID   Name_x Name_y
+0         101    Alice   2500
+1         101    Alice   1200
+2         102      Bob    NaN
+3         103  Charlie   8000
+4         104    David    NaN</code></pre>
+</div>
+</div>
+<p>Since Bob and David have no entry in the right table (accounts) Pandas will insert NaN to fill the empty balance value.</p>
 </section>
-<section id="merging-joins-3" class="level2">
-<h2 class="anchored" data-anchor-id="merging-joins-3">Merging &amp; Joins</h2>
-<ul>
-<li>Suppose we have two DataFrames, Customers and Accounts.</li>
-</ul>
-<p><strong>Customers</strong><br>
-CustomerID Name<br>
-0 101 Alice<br>
-1 102 Bob<br>
-2 103 Charlie<br>
-3 104 David</p>
-<p><strong>Accounts</strong><br>
-CustomerID Balance</p>
-<p>0 101 2500</p>
-<p>1 101 1200</p>
-<p>2 103 8000</p>
-<p>3 105 500</p>
+<section id="right-join" class="level3">
+<h3 class="anchored" data-anchor-id="right-join">Right Join</h3>
+<p>A <strong>right join</strong> keeps everything from the right table.</p>
+<div id="1b1596db" class="cell" data-execution_count="37">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"right"</span>)</span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   CustomerID   Name_x Name_y
+0         101    Alice   2500
+1         101    Alice   1200
+2         103  Charlie   8000
+3         105      NaN    500</code></pre>
+</div>
+</div>
+<p>Note that customer 105 only exists in the accounts table; Pandas will insert <code>NaN</code> to fill the empty name value.</p>
 </section>
-<section id="inner-join" class="level2">
-<h2 class="anchored" data-anchor-id="inner-join">Inner Join</h2>
-<ul>
-<li>An <strong>inner join</strong> keeps only rows that appear in both tables.</li>
-</ul>
-<p>merged = pd.merge(customers,</p>
-<p>accounts,</p>
-<p>on=“CustomerID”,</p>
-<p>how=“inner”)<br>
-</p>
-<p>CustomerID Name Balance</p>
-<p>0 101 Alice 2500</p>
-<p>1 101 Alice 1200</p>
-<p>2 103 Charlie 8000</p>
+<section id="outer-join" class="level3">
+<h3 class="anchored" data-anchor-id="outer-join">Outer Join</h3>
+<p>An <strong>outer join</strong> keeps everything from both tables.</p>
+<div id="e271b809" class="cell" data-execution_count="38">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"outer"</span>)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   CustomerID   Name_x Name_y
+0         101    Alice   2500
+1         101    Alice   1200
+2         102      Bob    NaN
+3         103  Charlie   8000
+4         104    David    NaN
+5         105      NaN    500</code></pre>
+</div>
+</div>
+<p>Notice that nothing in either table is discarded.</p>
 </section>
-<section id="inner-join-1" class="level2">
-<h2 class="anchored" data-anchor-id="inner-join-1">Inner Join</h2>
-<ul>
-<li>Notice that Alice appears twice.</li>
-<li>This is because there are two matching rows in the Accounts table.</li>
-<li>Inner join is matching every possible pair.</li>
-</ul>
-<p><strong>Customers</strong><br>
-CustomerID Name<br>
-0 101 Alice<br>
-1 102 Bob<br>
-2 103 Charlie<br>
-3 104 David</p>
-<p><strong>Accounts</strong><br>
-CustomerID Balance</p>
-<p>0 101 2500</p>
-<p>1 101 1200</p>
-<p>2 103 8000</p>
-<p>3 105 500</p>
-</section>
-<section id="left-join" class="level2">
-<h2 class="anchored" data-anchor-id="left-join">Left Join</h2>
-<ul>
-<li>A left join keeps <strong>everything from the left table</strong>.</li>
-</ul>
-<p>merged = pd.merge(customers,</p>
-<p>accounts,</p>
-<p>on=“CustomerID”,</p>
-<p>how=“left”)</p>
-</section>
-<section id="left-join-1" class="level2">
-<h2 class="anchored" data-anchor-id="left-join-1">Left Join</h2>
-<ul>
-<li>Since Bob and David have no entry in the right table (accounts) Pandas will insert NaN to fill the empty balance value.</li>
-</ul>
-<p>CustomerID Name Balance</p>
-<p>0 101 Alice 2500.0</p>
-<p>1 101 Alice 1200.0</p>
-<p>2 102 Bob NaN</p>
-<p>3 103 Charlie 8000.0</p>
-<p>4 104 David NaN</p>
-</section>
-<section id="right-join" class="level2">
-<h2 class="anchored" data-anchor-id="right-join">Right Join</h2>
-<ul>
-<li>A <strong>right join</strong> keeps everything from the right table.</li>
-</ul>
-<p>merged = pd.merge(customers,</p>
-<p>accounts,</p>
-<p>on=“CustomerID”,</p>
-<p>how=”right”)</p>
-</section>
-<section id="right-join-1" class="level2">
-<h2 class="anchored" data-anchor-id="right-join-1">Right Join</h2>
-<ul>
-<li>Customer 105 only exists in the accounts table; Pandas will insert NaN to fill the empty name value.</li>
-</ul>
-<p>CustomerID Name Balance</p>
-<p>0 101 Alice 2500</p>
-<p>1 101 Alice 1200</p>
-<p>2 103 Charlie 8000</p>
-<p>3 105 NaN 500</p>
-</section>
-<section id="outer-join" class="level2">
-<h2 class="anchored" data-anchor-id="outer-join">Outer Join</h2>
-<ul>
-<li>An <strong>outer join</strong> keeps everything from both tables.</li>
-</ul>
-<p>merged = pd.merge(customers,</p>
-<p>accounts,</p>
-<p>on=“CustomerID”,</p>
-<p>how=”outer”)</p>
-</section>
-<section id="outer-join-1" class="level2">
-<h2 class="anchored" data-anchor-id="outer-join-1">Outer Join</h2>
-<ul>
-<li>Nothing in either table is discarded.</li>
-</ul>
-<p>CustomerID Name Balance</p>
-<p>0 101 Alice 2500.0</p>
-<p>1 101 Alice 1200.0</p>
-<p>2 102 Bob NaN</p>
-<p>3 103 Charlie 8000.0</p>
-<p>4 104 David NaN</p>
-<p>5 105 NaN 500.0</p>
 </section>
 <section id="merging-on-different-column-names" class="level2">
 <h2 class="anchored" data-anchor-id="merging-on-different-column-names">Merging on Different Column Names</h2>
@@ -1510,37 +1477,20 @@ CustomerID Balance</p>
 <li>Sometimes the key columns have different names.</li>
 <li>This is easily handled using the <strong>left_on</strong> and <strong>right_on</strong> parameters.</li>
 </ul>
-<p>pd.merge(customers,</p>
-<p>transactions,</p>
-<p>left_on=“CustomerID”,</p>
-<p>right_on=“CustID”)</p>
+<pre><code>pd.merge(customers, transactions, left_on="CustomerID", right_on="CustID")</code></pre>
 </section>
 <section id="multi-key-joins" class="level2">
 <h2 class="anchored" data-anchor-id="multi-key-joins">Multi-Key Joins</h2>
-<ul>
-<li>Sometimes one column is not enough to guarantee a unique match.</li>
-<li>For example, an Account Number might repeat across different Processing Dates.</li>
-<li>We can pass a list of columns to the <strong>on</strong> parameter to match on multiple keys simultaneously.</li>
-</ul>
-<p>pd.merge(df1,</p>
-<p>df2,</p>
-<p>on=[“CustomerID”, “Type”])</p>
+<p>Sometimes one column is not enough to guarantee a unique match.</p>
+<p>For example, an Account Number might repeat across different Processing Dates. We can pass a list of columns to the <strong>on</strong> parameter to match on multiple keys simultaneously.</p>
+<pre><code>pd.merge(df1, df2, on=["CustomerID", "Type"])</code></pre>
 </section>
 <section id="concatenation-is-different-from-merging" class="level2">
 <h2 class="anchored" data-anchor-id="concatenation-is-different-from-merging">Concatenation is Different from Merging</h2>
-<ul>
-<li><p>A common mistake is confusing <strong>merge()</strong> with <strong>concat()</strong>.</p></li>
-<li><p><strong>concat()</strong> stacks DataFrames together.</p>
-<ul>
-<li>It does <strong>not</strong> match rows.</li>
-</ul></li>
-<li><p>If you need to match rows, use <strong>merge()</strong> and specify the type of join.</p>
-<ul>
-<li>If you want to match by the index (and not the data in the column) use the <strong>join()</strong> method instead.</li>
-<li>Matching by index is uncommon, most situations will be by matching columns.</li>
-</ul></li>
-<li><p>If you do not need to match rows, use <strong>concat()</strong>.</p></li>
-</ul>
+<p>A common mistake is confusing <code>merge()</code> with <code>concat()</code>.</p>
+<p><code>concat()</code> stacks DataFrames together, it does <strong>not</strong> match rows. If you need to match rows, use <code>merge()</code> and specify the type of join.</p>
+<p>If you want to match by the index (and not the data in the column) use the <code>join()</code> method instead. Matching by index is uncommon, most situations will be by matching columns.</p>
+<p>If you do not need to match rows, use <code>concat()</code>.</p>
 
 
 </section>
