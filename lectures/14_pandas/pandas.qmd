@@ -43,7 +43,7 @@ To load data into a DataFrame, we first need to know what file type we are worki
 
 We then need to know where the file is located. This could be a file path on your computer or even a URL.
 
-```{}
+```
 import pandas as pd
 
 url = "[https://website/data.csv"](https://website/data.csv%22)
@@ -62,20 +62,15 @@ df = pd.read_csv('superstore.csv')
 
 ### Inspecting Data
 
-- The example DataFrame from earlier was from the superstore dataset.
+The example DataFrame from earlier was from the superstore dataset and the data we saw was output from the `head()` method which returns (by default) the first 5 rows of the data in the DataFrame.
 
-- The data we saw was output from the **head()** method.
+The `head` method (and its counterpart, `tail`) are important first steps after you load data using Pandas. You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.
 
-  - This returns the first 5 rows of the data in the DataFrame.
-
-- The **head** method (and its counterpart, **tail**) are important first steps after you load data using Pandas.
-
-- You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.
-
+```{python}
 df = pd.read_csv('superstore.csv’)
 
 print(df.head())
-
+```
 
 - We can see not all the columns are visible (…) due to visual size limitations.
 
@@ -87,10 +82,7 @@ print(df.head())
 | 3   | 4      | US-2016-108966 | 10/11/2016 | …   | 5.0      | 0.45     | -383.0310 |
 | 4   | 5      | US-2016-108966 | 10/11/2016 | …   | 2.0      | 0.20     | 2.5164    |
 
-
-- The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas.
-- However, some datasets will be large enough that you will not have enough display space to visually inspect everything.
-- head / tail provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.
+The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas. However, some datasets will be large enough that you will not have enough display space to visually inspect everything. The `head` and `tail` provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.
 
 Row ID Order ID Order Date ... Quantity Discount Profit
 
@@ -102,14 +94,15 @@ Row ID Order ID Order Date ... Quantity Discount Profit
 
 
 
-- While head / tail give us the total number of columns, they do not provide the total number of rows.
-- We can use the **shape** attribute to return both the number of rows and number of columns.
+While `head` / `tail` give us the total number of columns, they do not provide the total number of rows. We can use the `shape` attribute to return both the number of rows and number of columns.
 
+```{python}
 import pandas as pd
 
 df = pd.read_csv('superstore.csv’)
 
 print(df.shape)
+```
 
 \>\>\> (10800, 21)
 
