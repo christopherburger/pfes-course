@@ -3,98 +3,71 @@ title: "9: Loops"
 format: html
 ---
 
-## 
+# Repetition Structures
 
-## For loops and Iteration
+We often need to write code that performs the same task multiple times. There are many possible problems when it comes to duplicating code, most of which center around the increased likelihood of making mistakes. The program becomes larger, the time needed to construct the program becomes longer, mistakes that are noticed early may need to be corrected in many places, etc.
 
-CSCI – 1056
-
-Content Modified from Pearson’s Starting Out with Python 6th Edition
-
-## Introduction to Repetition Structures
-
-- **Often must write code that performs the same task multiple times**
-
-  - Disadvantages to duplicating code
-
-    - Makes program large
-    - Time consuming
-    - May need to be corrected in many places
-
-- **Repetition structure: makes computer repeat included code as necessary**
+We can ease these issues by using **repetition structures**, which make the computer repeat a set of code.
 
 ## Condition-Controlled and Count-Controlled Loops
 
-- **There are two broad categories of loops:**
+Repetition structures are generally implemented in what are called loops. There are two broad categories of loops:
 
-  - Condition-controlled
+- Condition-controlled which uses a True/False condition to control the number of times the loop iterates
 
-    - uses a true/false condition to control the number of times the loop iterates
+- Count-controlled which repeats a specific number of times
 
-  - Count-controlled
+## The `for` Loop
 
-    - repeats a specific number of times
+A `for` loop is a count-controlled loop. During initialization, it is set to iterate a fixed maximum number of times. We will see later on how we can skip iterations or end the loop prematurely but we can never increase the number of times the loop iterates. This is `not` much of a limitation as for loops are designed to work with a sequence of data items and so the loop needs to iterate for each item in the sequence.
 
-## The for Loop: a Count-Controlled Loop
+General format:
 
-- **Count-Controlled loop: iterates a specific number of times**
+```         
+for variable in sequence:
 
-  - Use a for statement to write count-controlled loop
+    statement
+    statement
+    ...
+```
 
-    - Designed to work with sequence of data items
+We say that the target variable is the variable which is the target of the assignment at the beginning of each iteration. In the code below, the target variable is `num`.
 
-      - Iterates once for each item in the sequence
+```{python}
+for num in [1,2,3,4,5]:
+    print(num)
+```
 
-    - General format:
+::: practice-box
+Create a for loop that iterates through and prints the numbers from 1 to 10 inclusive.
 
-for *variable* in *\[val1, val2, etc\]*:
+<details>
 
-*statements*
+<summary>Click to show answer</summary>
 
-- **Target variable**: the variable which is the target of the assignment at the beginning of each iteration
+``` text
+for i in [1,2,3,4,5,6,7,8,9,10]:
+    print(i)
+```
 
-## Figure 4-4 The for Loop
+</details>
+:::
 
-An illustration depicts for loop. For long description in Notes pane, press F6.
+::: practice-box
+Alter the solution above to use a conditional statement to iterate through and print the **odd** numbers from 1 to 10 inclusive.
 
-> The loop reiterates five times as follows.\
-> First iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 1 to n u m before the left bracket. Second iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 2 to n u m before the left bracket. Third iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 3 to n u m before the left bracket. Fourth iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 4 to n u m before the left bracket. Fifth iteration. For n u m in left bracket 1 comma 2 comma 3 comma 4 comma 5 right bracket colon print left parenthesis n u m right parenthesis. An arrow points from 5 to n u m before the left bracket.
+<details>
 
-## Example
+<summary>Click to show answer</summary>
 
-for num in \[1,2,3,4,5\]:
+``` text
+for i in [1,2,3,4,5,6,7,8,9,10]:
+    if i%2 == 1:
+        print(i)
+```
 
-print(num)
-
-1
-
-2
-
-3
-
-4
-
-5
-
-## Practice
-
-- Determine the output of the following:
-
-for i in \[2,4,6,8,10\]:
-
-print(i)
-
-## Practice
-
-- Determine the output of the following:
-
-for i in \[2,4,6,8,10\]:
-
-print(i\*i)
-
-## Practice
-
-- Create a for loop that iterates through a list of the odd numbers from 1 to 11.
+</details>
+:::
 
 ## Using the range Function With the for Loop
 

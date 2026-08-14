@@ -5,233 +5,205 @@ format: html
 
 ## 
 
-## Introduction to Objects and Classes
+# Introduction to Objects and Classes
 
-CSCI – 1056
+**Object-oriented programming** is a paradigm that is focused on creating **objects**. Objects are entities that contain data and procedures. This data is known as **attributes** and the procedures are known as **methods**.
 
-Content Modified from Pearson’s Starting Out with Python 6th Edition
+We have been using objects consistently throughout the entire semester as most everything in Python is fundamentally some kind of object.
 
-## Procedural Programming
+The reasoning behind using objects is the idea of **encapsulation**, which is combining both data and code into a single entity. We can then leverage the benefit of **data hiding**, which is where the objet's data attributes are hidden from code outside the object.
 
-- **Procedural programming: writing programs made of functions that perform specific tasks**
+By restricting access to some components of the object we can protect from accidental corruption and have the benefit that outside code does not need to know anything about the object's internal structure. This means we are free to change the code inside of the object as long as it still produces the same output.
 
-  - Procedures typically operate on data items that are separate from the procedures
-  - Data items commonly passed from one procedure to another
-  - Focus: to create procedures that operate on the program’s data
-
-## Object-Oriented Programming (1 of 4)
-
-- **Object-oriented programming: focused on creating objects**
-
-- **Object: entity that contains data and procedures**
-
-  - Data is known as data attributes and procedures are known as methods
-
-    - Methods perform operations on the data attributes
-
-- **Encapsulation: combining data and code into a single object**
-
-## Object-Oriented Programming (2 of 4)
-
-**Figure 10-1** An object contains data attributes and methods
-
-An illustration depicts the components of an object. For long description in Notes pane, press F6.
-
-> An object contains data attributes and methods that operate on the data attributes. The data attributes is depicted as small squares and the methods are depicted as circular loops, within the object. Double headed arrows indicate the interaction between the data attributes and the methods.
-
-## Object-Oriented Programming (3 of 4)
-
-- **Data hiding: object’s data attributes are hidden from code outside the object**
-
-  - Access restricted to the object’s methods
-
-    - Protects from accidental corruption
-    - Outside code does not need to know internal structure of the object
-
-- **Object reusability: the same object can be used in different programs**
-
-  - Example: 3D image object can be used for architecture and game programming
-
-## Object-Oriented Programming (4 of 4)
-
-**Figure 10-2** Code outside the object interacts with the object's methods
-
-An illustration depicts the components of an object and how a code interacts with them from the outside. For long description in Notes pane, press F6.
-
-> An object contains data attributes and methods that operate on the data attributes. The data attributes is depicted as small squares and the methods are depicted as circular loops, within the object. Double headed arrows indicate the interaction between the data attributes and the methods. The interaction between the code outside the object and the methods is also depicted by double headed arrows.
+Object oriented design also focuses on the idea of reusability, where the same object can then be used in different programs.
 
 ## An Everyday Example of an Object
 
-- **Data attributes: define the state of an object**
+Consider the idea of a clock.
 
-  - Example: clock object would have second, minute, and hour data attributes
+When it comes to defining the state of our clock its **data attributes** would be things like second, minute, hour, day, month, etc.
 
-- **Public methods: allow external code to manipulate the object**
+We need the ability to manipulate the object, and so we will need methods to do so. The question is, which methods should be accessible to outside code (**public methods**) and which should be exclusive to the object's internal workings (**private methods**)?
 
-  - Example: set_time, set_alarm_time
+Public methods would be common tasks that someone could expect to do to use the clock, like setting the time, setting the date, creating an alarm, etc.
 
-- **Private methods: used for object’s inner workings**
+Private methods would be things like how exactly the alarm functions to produce the sound at the correct time. This is not something one needs to know to **use** the clock, so it would be best off as a private method.
 
-## Classes (1 of 3)
+## Classes
 
-- **Class: code that specifies the data attributes and methods of a particular type of object**
+If we have an idea that we can represent as an object, we can specify a blueprint for it. This is a **class**, which is a collection of specific data attributes and methods for a particular type of object.
 
-  - Similar to a blueprint of a house or a cookie cutter
+When using a class to create an object, we call the created version an **instance** of the class. The process of creating the object associated with a specific class is called **instantiation**. Since a class is designed to be a blueprint for an object that will be used repeatedly, then it is reasonable to expect that there can be many instances of one class at the same time. This is a true assumption, and Python differentiates different instances of a class by their memory location.
 
-- **Instance: an object created from a class**
+### Class Definitions
 
-  - Similar to a specific house built according to the blueprint or a specific cookie
-  - There can be many instances of one class
+To create a class, we need to define it. A **class definition** is a set of statements that define a class's methods and data attributes.
 
-## Classes (2 of 3)
+Defining a class is similar to defining a function, we need the appropriate keyword `class` and the name of the class (by convention this starts with an uppercase letter).
 
-**Figure 10-3** A blueprint and houses built from the blueprint
+```{class Clock:}
+```
 
-A blueprint that describes a house includes a house plan with a bedroom and a living room. Below the blueprint, similar front views of three instances of the house described by the blueprint are displayed one beside the other.
+To use initial parameters and define methods we need to use the `self` parameter. This is a special reference to the specific instance of the class.
 
-## Classes (3 of 3)
+```{python}
+class Clock:
+    
+    def __init__(self, seconds, minutes, hours):
+        self.seconds = seconds
+        self.minutes = minutes
+        self.hours = hours
+```
 
-**Figure 10-5** The housefly and mosquito objects are instances of the Insect class
+We can see a special initializer method, the constructor for the class. This takes in a single required parameter, `self`, and for our example, three other parameters passed in during instantiation of the class to the data attributes associated with our specific instance of the class `Clock`.
 
-The insect class points to the housefly object and the mosquito object. The insect class is denoted by a dashed rectangle, while the two objects are denoted by rectangles with solid lines. For long description in Notes pane, press F6.
+This initializer method is automatically executed when an instance of the class is created and is usually the very first method in a class definition.
 
-> The following notes are present beside the insect class and the housefly and mosquito objects. The Insect class describes the data attributes and methods that a particular type of object may have. The housefly object is an instance of the Insect class. It has the data attributes and methods described by the Insect class. The mosquito object is an instance of the Insect class. It has the data attributes and methods described by the Insect class.
+Consider the following class designed to simulate a coin and the ability to toss it. Note that each method in the class has the `self` parameter.
 
-## Class Definitions (1 of 7)
-
-- **Class definition: set of statements that define a class’s methods and data attributes**
-
-  - Format: begin with class *Class_name*:
-
-    - Class names often start with uppercase letter
-
-  - Method definition like any other python function definition
-
-    - **self parameter**: required in every method in the class – references the specific object that the method is working on
-
-## Class Definitions (2 of 7)
-
-- **Initializer method: automatically executed when an instance of the class is created**
-
-  - Initializes object’s data attributes and assigns self parameter to the object that was just created
-  - Format: def \_\_init\_\_ (self):
-  - Usually the first method in a class definition
-
-## Class Definitions (3 of 7)
-
+```{python}
 import random
 
 class Coin:
 
-def \_\_init\_\_(self):
+    def __init__(self):
+        self.sideup = 'Heads'
+    
+    def toss(self):
+        if random.randint(0, 1) == 0:
+            self.sideup = 'Heads'
+        else:
+            self.sideup = 'Tails'
+        
+    def get_sideup(self):
+        return self.sideup
+```
 
-self.sideup = 'Heads'
+To create a new instance of a class we use the format `variable_name = ClassName().`
 
-def toss(self):
-
-if random.randint(0, 1) == 0:
-
-self.sideup = 'Heads'
-
-else:
-
-self.sideup = 'Tails'
-
-def get_sideup(self):
-
-return self.sideup
-
-## Class Definitions (4 of 7)
-
-- **To create a new instance of a class**
-
-  - Format: *variable_name* = *ClassName*()
-
-- **Example:**
-
+```{python}
 my_coin = Coin()
+```
 
-- **This creates an instance of the class and calls the class's \_\_init\_\_ method**
+To call any of the class methods using the created instance we use the dot notation like `my_instance.method()`. Because the `self` parameter references the specific instance of the object, the method will affect this instance.
 
-## Class Definitions (5 of 7)
+```{python}
+print(my_coin.get_sideup())
+```
 
-**Figure 10-6** Actions caused by the coin() expression
+```{python}
+my_coin.toss()
+print(my_coin.get_sideup())
+```
 
-An illustration of the actions caused by the coin class. For long description in Notes pane, press F6.
+Note that we do not pass in `self` as an argument. It is implicit in the structure of the method definition. It needs to be there, but we do not need to concern ourselves with it when using the class.
 
-> The steps in the illustration are as follows. Step 1. An object is created in memory from the Coin class. A Coin object that is represented by an empty rectangle points to the pseudo code in the second step. Step 2. The Coin class’s underscore underscore i n i t underscore underscore method is called, and the self parameter is set to the newly created object. The adjoining pseudo code is as follows. Line 1. d e f underscore underscore i n i t underscore underscore left parenthesis self right parenthesis colon. Line 2, indented once. self period side up = open quote Heads close quote. Step 3. After these steps take place, a Coin object will exist with its sideup attribute set to open quote Heads close quote. The empty rectangle of the coin object now contains an arrow that points from side up to open quote Heads close quote.
+### Hiding Attributes and Methods
 
-## Class Definitions (6 of 7)
+A key idea in object oriented programming is that certain components of an object data should be private.
 
-- **To call any of the class methods using the created instance, use dot notation**
+In Python, this is indicated by placing two underscores (`__`) in front of an attribute name or a method definition.
 
-  - Format: *My_instance*.*method*()
+This is our coin class redesigned to better indicate that the data attributes should not be accessed directly from outside the class.
 
-  - Because the self parameter references the specific instance of the object, the method will affect this instance
+```{python}
+import random
 
-    - Reference to self is passed automatically
+class Coin:
 
-## Class Definitions (7 of 7)
+    def __init__(self):
+        self.__sideup = 'Heads'
+    
+    def toss(self):
+        if random.randint(0, 1) == 0:
+            self.__sideup = 'Heads'
+        else:
+            self.__sideup = 'Tails'
+        
+    def get_sideup(self):
+        return self.__sideup
+```
 
-| 1   | my_coin = Coin()            |
-|-----|-----------------------------|
-| 2   | my_coin.toss()              |
-| 3   | print(my_coin.get_sideup()) |
+Note that we did not apply the double underscores to the `toss()` and `get_sideup()` methods. That is because these are designed to be used outside of the class. That is, they are the expected way of interacting with the data attribute `__sideup` .
 
-| Line 1: | Creates an instance of the Coin class and executes the \_\_init\_\_ method. A reference to the object is assigned to the my_coin variable. |
-|------------------------------------|------------------------------------|
-| Line 2: | Calls the my_coin object's toss method. |
-| Line 3: | Calls the the my_coin object's get_sideup method and displays the value it returns. |
+### Accessor and Mutator Methods
 
-## Hiding Attributes and Storing Classes in Modules
+Typically, all of a class’s data attributes are private and provide methods to access and change them. This is a safer way for code outside the class to retrieve or edit the value of attributes.
 
-- **An object’s data attributes should be private**
+**Accessor methods** return a value from a class’s attribute without changing it. In our above example, the `get_sideup()` method is an accessor.
 
-  - To make sure of this, place two underscores (\_\_) in front of attribute name
+**Mutator methods** store or change the value of a data attribute. In our above example, the `toss()` method is a mutator.
 
-    - Example: \_\_sideup
+Note that class methods can have multiple parameters in addition to `self`. This is common with mutator methods where we need to provide the new value of an attribute. We also saw this with the initalizer for our Clock class, it took in three different parameters apart from `self`.
 
-- Classes can be stored in modules
+### Passing Objects as Arguments
 
-  - Filename for module must end in .py
-  - Module can be imported to programs that use the class
+Methods and functions often need to accept objects as arguments. When you pass an object as an argument, you are actually passing a reference to the object. The receiving method or function has access to the actual object Methods of the object can be called within the receiving function or method, and data attributes may be changed using mutator methods.
 
-## The BankAccount Class – More About Classes
+### Identifying a Class’s Responsibilities
 
-- **Class methods can have multiple parameters in addition to self**
+When it comes to creating a class, a good first step is thinking about what the responsibilities of the class are.
 
-  - For \_\_init\_\_, parameters needed to create an instance of the class
+A classes responsibilities are:
 
-    - Example: a BankAccount object is created with a balance
+- The things the class is responsible for knowing which helps identify the class’s data attributes.
 
-      - When called, the initializer method receives a value to be assigned to a \_\_balance attribute
+- The actions the class is responsible for doing which helps identify the class's methods.
 
-  - For other methods, parameters needed to perform required task
+To find out a class’s responsibilities look at the problem domain and deduce required information and actions.
 
-    - Example: deposit method amount to be deposited
+### Storing Classes in Modules
 
-## The \_\_str\_\_ method
+Classes can be stored in modules for future use using the import statement.
 
-- **Object’s state: the values of the object’s attribute at a given moment**
+The rules for doing so are simple and similar to that of variable naming conventions. Additionally, the filename for the module must end in `.py`
 
-- **\_\_str\_\_ method: displays the object’s state**
-
-  - Automatically called when the object is passed as an argument to the print function
-  - Automatically called when the object is passed as an argument to the str function
+## 
 
 ## Operator Overloading
 
-- Python has a powerful feature that allows a designer of a class to decide what an operation like == or \< should mean.
+Python has a powerful feature that allows a designer of a class to decide what an operation like =`=` or `<` should mean. This is called **operator overloading**. With operator overloading, you can define what these operators do for objects of your own class.
 
-- With operator overloading, you can define what these operators do for objects of your own class.
+For example, the =`=` operator calls the special method `__eq__()` behind the scenes. You can override this method in your class to change the behavior of the `==` operator. This is useful for classes representing mathematical or data structures.
 
-- For example, the == operator calls the special method \_\_eq\_\_() behind the scenes.
+### The \_\_str\_\_ method
 
-  - You can override this method in your class to change the behavior of the == operator.
+The \_\_`str__` method is one of the most commonly overloaded methods. This method is automatically called when the object is passed as an argument to the `print` function or the `str` function.
 
-- This is useful for classes representing mathematical or data structures like our Fraction class.
+```{python}
+my_coin = Coin()
+print(my_coin)
+```
 
-## Common Operators and Their Methods
+Note that the output of the print function for this instance of the `Coin` class is just a memory address. This may not be what we want for the default string representation of our coin.
+
+Instead, we could use the value of the `sideup` attribute to see what the coin represents.
+
+```{python}
+import random
+
+class Coin:
+
+    def __init__(self):
+        self.__sideup = 'Heads'
+    
+    def toss(self):
+        if random.randint(0, 1) == 0:
+            self.__sideup = 'Heads'
+        else:
+            self.__sideup = 'Tails'
+        
+    def get_sideup(self):
+        return self.__sideup
+
+    def __str__(self):
+        return self.get_sideup()
+
+my_coin = Coin()
+print(my_coin)
+```
+
+### Common Operators and Their Methods
 
 | **Operator** | **Method**      | **Description**                      |
 |--------------|-----------------|--------------------------------------|
@@ -247,372 +219,170 @@ An illustration of the actions caused by the coin class. For long description in
 | ()           | \_\_call\_\_    | Call object like a function          |
 | str()        | \_\_str\_\_     | Human-readable string representation |
 
-## Working With Instances
+# Object Oriented Programming
 
-- **Instance attribute: belongs to a specific instance of a class**
+## A Fraction Class
 
-  - Created when a method uses the self parameter to create an attribute
+We can change the state of an object by making an assignment to one of its instance variables.
 
-- **If many instances of a class are created, each would have its own set of attributes**
+Consider the fraction class seen in 18.1 of our text.
 
-## Three Coin Objects
-
-**Figure 10-8** The coin1 , coin2, and coin3 variables reference three coin objects
-
-Three variables point to three coin objects, respectively. For long description in Notes pane, press F6.
-
-**Figure 10-9** The objects after the toss method
-
-Three variables point to three coin objects, respectively. For long description in Notes pane, press F6.
-
-> coin 1 points to a coin object, in which underscore underscore side up points to open quote Heads close quote. coin 2 points to a coin object, in which underscore underscore side up points to open quote Heads close quote. coin 3 points to a coin object, in which underscore underscore side up points to open quote Heads close quote.
->
-> coin 1 points to a coin object, in which underscore underscore side up points to open quote Tails close quote. coin 2 points to a coin object, in which underscore underscore side up points to open quote Tails close quote. coin 3 points to a coin object, in which underscore underscore side up points to open quote Heads close quote.
-
-## Accessor and Mutator Methods
-
-- **Typically, all of a class’s data attributes are private and provide methods to access and change them**
-
-- **Accessor methods: return a value from a class’s attribute without changing it**
-
-  - Safe way for code outside the class to retrieve the value of attributes
-
-- **Mutator methods: store or change the value of a data attribute**
-
-## Passing Objects as Arguments
-
-- **Methods and functions often need to accept objects as arguments**
-
-- **When you pass an object as an argument, you are actually passing a reference to the object**
-
-  - The receiving method or function has access to the actual object
-
-    - Methods of the object can be called within the receiving function or method, and data attributes may be changed using mutator methods
-
-## Techniques for Designing Classes
-
-- **U M L diagram: standard diagrams for graphically depicting object-oriented systems**
-
-  - Stands for Unified Modeling Language
-
-- **General layout: box divided into three sections:**
-
-  - Top section: name of the class
-  - Middle section: list of data attributes
-  - Bottom section: list of class methods
-
-## U M L Diagrams
-
-**Figure 10-10** General layout of a U M L diagram for a class
-
-The U M L class diagram is depicted as a table with a single column, without a header, and three rows. The class name goes in the first row, the data attributes are listed in the second row, and the methods are listed in the third row.
-
-**Figure 10-11** U M L diagram for the coin class
-
-The U M L diagram for the coin class. For long description in Notes pane, press F6.
-
-> The U M L class diagram is depicted as a table with a single column, without a header, and three rows. The class name, coin, is present in the first row. The attribute listed in the second row is underscore underscore side up. The methods listed in the third row are underscore underscore i n i t underscore underscore left parenthesis right parenthesis, toss left parenthesis right parenthesis, and get underscore side up left parenthesis right parenthesis.
-
-## Identifying a Class’s Responsibilities
-
-- **A classes responsibilities are:**
-
-  - The things the class is responsible for knowing
-
-    - Identifying these helps identify the class’s data attributes
-
-  - The actions the class is responsible for doing
-
-    - Identifying these helps identify the class’s methods
-
-- **To find out a class’s responsibilities look at the problem domain**
-
-  - Deduce required information and actions
-
-## Object Oriented Programming
-
-CSCI – 1056
-
-Content Modified from Pearson’s Starting Out with Python 6th Edition
-
-## A Fraction Class (1 of 4)
-
-- We can change the state of an object by making an assignment to one of its instance variables.
-- Consider the fraction class seen in 18.1 of the text.
-
+```{python}
 class Fraction:
 
-def \_\_init\_\_(self, top, bottom):
+    def __init__(self, top, bottom):
+        self.num = top # the numerator is on top
+        self.den = bottom # the denominator is on the bottom
+    
+    def __str__(self):
+        return str(self.num) + "/" + str(self.den)
+    
+    def getNum(self):
+        return self.num
+    
+    def getDen(self):
+        return self.den
+```
 
-self.num = top \# the numerator is on top
+The **state** of a fraction object can be completely described by representing two integers, the numerator and the denominator
 
-self.den = bottom \# the denominator is on the bottom
-
-def \_\_str\_\_(self):
-
-return str(self.num) + "/" + str(self.den)
-
-def getNum(self):
-
-return self.num
-
-def getDen(self):
-
-return self.den
-
-## A Fraction Class (2 of 4)
-
-- The *state* of a fraction object can be completely described by representing two integers, the numerator and the denominator
-
-class Fraction:
-
-def \_\_init\_\_(self, top, bottom):
-
-self.num = top \# the numerator is on top
-
-self.den = bottom \# the denominator is on the bottom
-
-def \_\_str\_\_(self):
-
-return str(self.num) + "/" + str(self.den)
-
-def getNum(self):
-
-return self.num
-
-def getDen(self):
-
-return self.den
-
-## A Fraction Class (3 of 4)
-
+```{python}
 myfraction = Fraction(3, 4)
-
 print(myfraction)
+```
 
-\>\>\> 3 / 4
-
+```{python}
 print(myfraction.getNum())
+```
 
-\>\>\> 3
-
+```{python}
 print(myfraction.getDen())
+```
 
-\>\>\> 4
-
-## A Fraction Class (4 of 4)
-
-- Note that the \_\_str\_\_ method provides a “typical” looking fraction using a slash between the numerator and denominator.
-- The figure below shows the state of **myfraction**. The accessor methods, **getNum** and **getDen**, can return the state values for the fraction.
+Note that the `__str__` method provides a “typical” looking fraction using a slash between the numerator and denominator.
 
 ## Mutability
 
-- We can change the state of an object by making an assignment to one of its instance variables.
-- For example, we could change the numerator of the fraction by assigning a new value to self.num.
-- Likewise, we could do the same thing for self.den.
-- These methods are **mutators** because they mutate or change the internal state of our Fraction object.
+We can change the state of an object by making an assignment to one of its instance variables. For example, we could change the numerator of the fraction by assigning a new value to `self.num`. Likewise, we could do the same thing for `self.den`.
 
-## Sameness (1 of 4)
+These methods are **mutators** because they mutate or change the internal state of our `Fraction` object.
 
-- If two Fraction objects are the same, what does that actually mean?
+## Sameness
 
-  - Do they represent the same number?
-  - Are they both the same object?
+If two `Fraction` objects are the same, what does that actually mean?
 
-- We can use the **is** operator to find out if two references refer to the same object.
+- Do they represent the same number?
+- Are they both the same object?
 
-## Sameness (2 of 4)
+We can use the `is` operator to find out if two references refer to the same object.
 
+```{python}
 myfraction = Fraction(3, 4)
-
 yourfraction = Fraction(3, 4)
 
 print(myfraction is yourfraction)
+```
 
-\>\>\> False
-
+```{python}
 ourfraction = myfraction
 
 print(myfraction is ourfraction)
+```
 
-\>\>\> True
-
-## Sameness (3 of 4)
-
-- Even though **myfraction** and **yourfraction** refer to the same rational number, they are not the same object.
-
-## Sameness (4 of 4)
-
-- If we assign **myfraction** to **ourfraction**, then the two variables are aliases of the same object.
+Even though `myfraction` and `yourfraction` refer to the same rational number, they are not the same object. If we assign `myfraction` to `ourfraction`, then the two variables are aliases of the same object.
 
 ## Shallow Equality
 
-- This type of equality is called **shallow equality** because it compares only the references (i.e., the memory locations), not the contents of the objects.
-- Using the == operator to check equality between two user defined objects will return the shallow equality result.
-- In other words, the Fraction objects are equal (==) if they are the same object.
+This type of equality is called **shallow equality** because it compares only the references (i.e., the memory locations), not the contents of the objects.
+
+Using the =`=` operator to check equality between two user defined objects will return the shallow equality result. In other words, the `Fraction` objects are equal (`==`) if they are the same object.
 
 ## Deep Equality
 
-- We could define equality to mean the fractions are the same in that they represent the same rational number.
-- This type of equality is known as **deep equality** since it compares the values “deep” in the object, not just the reference to the object.
-- If two variables refer to the same object, they have both shallow and deep equality.
+We could define equality to mean the fractions are the same in that they represent the same rational number. This type of equality is known as **deep equality** since it compares the values “deep” in the object, not just the reference to the object.
+
+If two variables refer to the same object, they have both shallow and deep equality.
 
 ## Object-oriented Programming
 
-- Object-oriented programming involves four key ideas: encapsulation, information hiding, inheritance, and polymorphism.
+Object-oriented programming involves four key ideas: encapsulation, information hiding, inheritance, and polymorphism. We have already discussed encapsulation and information hiding and will now cover inheritance and polymorphism.
 
-- **Encapsulation** is the idea that a class can package some data together with the methods that manipulate the data.
+**Inheritance** and **polymorphism** are mechanisms that help to enable code reuse and contract-based programming.
 
-  - This is a powerful capability, and the chief idea that distinguishes OOP from structured programming.
+## Inheritance
 
-## Object-oriented Programming
+Recall the `Point` class from earlier in our textbook:
 
-- **Information Hiding** promotes quality code by allowing objects to protect their state against direct manipulation by code using the object.
-- Python, like many languages, provides mechanisms to achieve information hiding, but we do not cover them in this course.
-- **Inheritance** and **polymorphism** are mechanisms that help to enable code reuse and contract-based programming.
-
-## Inheritance (1 of 4)
-
-- Recall the Point class from earlier in the textbook:
-
+```{python}
 class Point:
 
-def \_\_init\_\_(self, initX, initY):
+    def __init__(self, initX, initY):
+        self.x = initX
+        self.y = initY
+    
+    def distanceFromOrigin(self):
+        return ((self.x ** 2) + (self.y ** 2)) ** 0.5
+    
+    def __str__(self):
+        return "x=" + str(self.x) + ", y=" + str(self.y)
+```
 
-self.x = initX
+Now, suppose we want to create a class that works like `Point` in every respect, but also keeps track of a short description for the point.
 
-self.y = initY
+We could create a `LabeledPoint` class by copying and pasting the definition for `Point`, changing the name to `LabeledPoint`, and modifying the class to suit our purposes. However, any time you copy and paste code, keep in mind that you are copying and pasting bugs that may exist in the code. Inheritance provides a way to reuse the definition of `Point` without having to copy and paste.
 
-def distanceFromOrigin(self):
+This example defines a class named `LabeledPoint` that inherits from the `Point` class.
 
-return ((self.x \*\* 2) + (self.y \*\* 2)) \*\* 0.5
-
-def \_\_str\_\_(self):
-
-return "x=" + str(self.x) + ", y=" + str(self.y)
-
-## Inheritance (2 of 4)
-
-- Now, suppose we want to create a class that works like **Point** in every respect, but also keeps track of a short description for the point.
-- We could create a **LabeledPoint** class by copying and pasting the definition for Point, changing the name to **LabeledPoint**, and modifying the class to suit our purposes.
-- However, any time you copy and paste code, keep in mind that you are copying and pasting bugs that may exist in the code.
-- Inheritance provides a way to reuse the definition of **Point** without having to copy and paste.
-
+```{python}
 class LabeledPoint(Point):
 
-def \_\_init\_\_(self, initX, initY, label):
+    def __init__(self, initX, initY, label):
+        self.x = initX
+        self.y = initY
+        self.label = label
+    
+    def __str__(self):
+        return "x=" + str(self.x) + ", y=" + str(self.y) + " (" + self.label + ")"
+```
 
-self.x = initX
+Putting the name `Point` in parenthesis tells Python that the new class, `LabeledPoint`, begins with all of the methods defined in its parent, `Point`.
 
-self.y = initY
+`class LabeledPoint(Point):`
 
-self.label = label
+We have also redefined two of the methods that `LabeledPoint` inherits from `Point`: `__init__()` and `__str__()`. This is called **overriding**. When a child class redefines methods that are defined in its parent, we say that the child **overrides** the functionality inherited from its parent.
 
-def \_\_str\_\_(self):
+## Extending Classes
 
-return "x=" + str(self.x) + ", y=" + str(self.y) + " (" + self.label + ")"
+For the `__init__` methods of `Point` and `LabeledPoint`, there is some duplication, the initialization of `x` and `y`.
 
-## Inheritance (3 of 4)
+We can eliminate the duplication by having `LabeledPoint`’s `__init__()` method invoke Point’s `__init__()` method. That way, each class will be responsible for initializing its own instance variables.
 
-- This example defines a class named **LabeledPoint** that inherits from the **Point** class.
+A method in a child class that overrides a method in the parent can invoke the overridden method using `super()`.
 
+In this example, line 4 invokes the `__init__()` method in Point, passing the values of `initX` and `initY` to be used in initializing the `x` and `y` instance variables.
+
+```{python}
 class LabeledPoint(Point):
 
-- Putting the name **Point** in parenthesis tells Python that the new class, **LabeledPoint**, begins with all of the methods defined in its parent, **Point**.
-
-## Inheritance (4 of 4)
-
-- Here, we have redefined two of the methods that LabeledPoint inherits from Point: \_\_init\_\_() and \_\_str\_\_().
-
-  - This is called *overriding*.
-
-- When a child class redefines methods that are defined in its parent, we say that the child *overrides* the functionality inherited from its parent.
-
-def \_\_init\_\_(self, initX, initY, label):
-
-self.x = initX
-
-self.y = initY
-
-self.label = label
-
-## Extending Classes (1 of 2)
-
-- For the \_\_init\_\_ methods of Point and LabeledPoint, there is some duplication–the initialization of x and y.
-- We can eliminate the duplication by having LabeledPoint’s \_\_init\_\_() method invoke Point’s \_\_init\_\_() method.
-- That way, each class will be responsible for initializing its own instance variables.
-
-## Extending Classes (2 of 2)
-
-- A method in a child class that overrides a method in the parent can invoke the overridden method using super(), like this:
-
-- In this example, line 4 invokes the \_\_init\_\_() method in Point, passing the values of initX and initY to be used in initializing the x and y instance variables.
-
-class LabeledPoint(Point):
-
-def \_\_init\_\_(self, initX, initY, label):
-
-super().\_\_init\_\_(initX, initY)
-
-self.label = label
+    def __init__(self, initX, initY, label):
+        super().__init__(initX, initY)
+        self.label = label
+```
 
 ## Composition
 
-- Inheritance is not the only way to reuse code.
-- **Composition** occurs when an object stores a reference to one or more objects in one of its instance variables.
-- The object is thus able to reuse code in the objects it embeds within itself.
+Inheritance is not the only way to reuse code. **Composition** occurs when an object stores a reference to one or more objects in one of its instance variables. The object is then able to reuse code in the objects it embeds within itself.
 
+```{python}
 class LabeledPoint(Point):
 
-def \_\_init\_\_(self, initX, initY, label):
-
-self.point = Point(initX, initY)
-
-self.label = label
-
-## Class Diagrams (1 of 4)
-
-- When two classes are involved in an inheritance or composition relationship, we say that an association exists between them.
-- Often it is helpful to depict the associations between classes on a graphical diagram, so that developers working on the code can see immediately how the classes are related to each other.
-
-## Class Diagrams (2 of 4)
-
-- The ***Unified Modeling Language*** (UML) is a graphical notation that provides a standard for depicting classes and their associations on various types of diagrams.
-
-  - Class diagrams are one of the most common UML diagrams.
-
-- Class diagrams can contain several different elements, but we will focus on the basics: depicting classes with their instance variables and methods, and relationships to other classes.
-
-## **Class Diagrams** (3 of 4)
-
-- On a UML class diagram, a class is depicted as a rectangle with three sections.
-
-  - The top section contains the class name
-  - The middle section, the instance variables
-  - The bottom section, the methods.
-
-- The diagram shows the classes **Point** and **LabeledPoint** in their original inheritance relationship.
-
-UML diagram showing class inheritance
-
-## Class Diagrams (4 of 4)
-
-- To depict composition, UML uses a different type of association, as shown in this figure:
-
-UML diagram showing composition
+    def __init__(self, initX, initY, label):
+        self.point = Point(initX, initY) #The class Point is referenced in the LabelPoint class instance variable point
+        self.label = label
+```
 
 ## Composition vs. Inheritance
 
-- Now you have seen two ways for a class to reuse code in another class.
+We have seen two ways for a class to reuse code in another class. But hen do you use inheritance, and when is composition the better choice?
 
-- When do you use inheritance, and when is composition the better choice?
-
-- Composition is usually a better choice than inheritance to reuse code.
-
-- Inheritance is appropriate when the proposed child class (the one reusing the functionality in its parent) represents a *specialization* of its parent.
-
-- Class A is a specialization of Class B if class A represents a specific type of class B.
-
-- This is generally the case if you can fill in the following sentence with the names of the proposed child and parent classes.
-
-  - **(child class) is a type of (parent class).**
+Composition, in general, is usually a better choice than inheritance to reuse code. Inheritance is appropriate when the proposed child class (the one reusing the functionality in its parent) represents a *specialization* of its parent. That is, class A is a specialization of class B if class A represents a specific type of class B. This is generally the case if you can fill in the following sentence with the names of the proposed child and parent classes: **(child class) is a type of (parent class)**.

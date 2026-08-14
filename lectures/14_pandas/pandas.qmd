@@ -9,17 +9,13 @@ We have seen that NumPy requires pure, homogeneous numbers. Remember that if we 
 
 We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy). This solution is Pandas, which is an industry-standard library for data ingestion and cleaning.
 
-Pandas does not replace NumPy; they serve different roles.
-  - Pandas prepares the data.
-  - NumPy solves the equations.
+Pandas does not replace NumPy; they serve different roles. - Pandas prepares the data. - NumPy solves the equations.
 
-
-As Pandas is an external library, we will need to import it to use it (and depending on your environment, it may need to be installed first). 
+As Pandas is an external library, we will need to import it to use it (and depending on your environment, it may need to be installed first).
 
 ```{python}
 import pandas as pd
 ```
-
 
 ## DataFrames
 
@@ -43,14 +39,13 @@ To load data into a DataFrame, we first need to know what file type we are worki
 
 We then need to know where the file is located. This could be a file path on your computer or even a URL.
 
-```
+```         
 import pandas as pd
 
-url = "[https://website/data.csv"](https://website/data.csv%22)
+url = "https://website/data.csv"
 
 df = pd.read_csv(url)
 ```
-
 
 For many of our examples we will use a CSV file (Tableau’s Sample Superstore dataset) that can be found on Blackboard. Assuming we have named the file `superstore.csv` we can use the following code to load the data into a DataFrame named `df`.
 
@@ -67,12 +62,12 @@ The example DataFrame from earlier was from the superstore dataset and the data 
 The `head` method (and its counterpart, `tail`) are important first steps after you load data using Pandas. You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.
 
 ```{python}
-df = pd.read_csv('superstore.csv’)
+df = pd.read_csv('superstore.csv')
 
 print(df.head())
 ```
 
-- We can see not all the columns are visible (…) due to visual size limitations.
+We can see not all the columns are visible (…) due to visual size limitations.
 
 |     | Row ID | Order ID       | Order Date | ... | Quantity | Discount | Profit    |
 |-----|--------|----------------|------------|-----|----------|----------|-----------|
@@ -92,21 +87,17 @@ Row ID Order ID Order Date ... Quantity Discount Profit
 
 \[5 rows x 21 columns\]
 
-
-
 While `head` / `tail` give us the total number of columns, they do not provide the total number of rows. We can use the `shape` attribute to return both the number of rows and number of columns.
 
 ```{python}
 import pandas as pd
 
-df = pd.read_csv('superstore.csv’)
+df = pd.read_csv('superstore.csv')
 
 print(df.shape)
 ```
 
 \>\>\> (10800, 21)
-
-
 
 - **dtypes** tells us the data type of each column
 
@@ -140,8 +131,6 @@ df = pd.read_csv('superstore.csv’)
 
 print(df.dtypes)
 
-
-
 - **describe()** gives us summary statistics on columns with a numeric data type.
 
 - The statistics are:
@@ -160,8 +149,6 @@ print(df.dtypes)
   - 25%, 50%, 75% (percentiles)
 
   - max (largest value)
-
-
 
 - **describe()** gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).
 
@@ -182,8 +169,6 @@ min 1040.000000 0.444000 1.000000 0.000000 -6599.978000
 75% 90008.000000 209.940000 5.000000 0.200000 29.364000
 
 max 99301.000000 22638.480000 14.000000 0.800000 8399.976000
-
-
 
 - **describe()** is very useful for finding impossible values.
 - For example, assume we have a DataFrame of sensor readings with one of the columns being temperature.
@@ -310,9 +295,8 @@ print(sorted_data.head(3))
 
 - **.dropna()** removes any row containing a **NaN**.
 
-
-
 - The safest decision is to drop the corrupted observation entirely.
+
 - There exist methods to interpolate the missing value(s), but these should be used cautiously.
 
 \# See how many missing values exist

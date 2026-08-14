@@ -201,8 +201,8 @@ A short circuit evaluation is an optimization done to decide the value of a comp
 
 - Performed by the `or` and `and` operators
 
-  - For `or` operator: If left operand is `True`, compound expression is `True`. Otherwise, evaluate right operand
-  - For and operator: If left operand is `False`, compound expression is `False`. Otherwise, evaluate right operand
+  - For `or` operator: If the left operand is `True`, then the compound expression is `True`. Otherwise, evaluate right operand
+  - For `and` operator: If the left operand is `False`, then the compound expression is `False`. Otherwise, evaluate right operand
 
 ```{python}
 x = True

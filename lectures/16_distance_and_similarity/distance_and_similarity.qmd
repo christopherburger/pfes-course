@@ -136,9 +136,13 @@ We will develop an algorithm to find the closest match in our DataFrame for a gi
 
 `best_distance = infinity`
 
-`for every row:     compute distance`
+`for every row:`
 
-`if smaller:          remember row`
+`compute distance`
+
+`if smaller:`
+
+`remember row`
 
 ::: practice-box
 Try converting the pseudocode above before looking at this solution.

@@ -425,7 +425,7 @@ Carol 90 97 92 99</li>
 </section>
 <section id="creating-matrices-in-numpy" class="level2">
 <h2 class="anchored" data-anchor-id="creating-matrices-in-numpy">Creating Matrices in NumPy</h2>
-<div id="f5b7f3c3" class="cell" data-execution_count="1">
+<div id="6466a96c" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
@@ -450,7 +450,7 @@ Carol 90 97 92 99</li>
 <ul>
 <li>Two rows, three columns</li>
 </ul>
-<div id="3ccafe1c" class="cell" data-execution_count="2">
+<div id="346ddd85" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
@@ -472,7 +472,7 @@ Carol 90 97 92 99</li>
 <h2 class="anchored" data-anchor-id="accessing-elements">Accessing Elements</h2>
 <p>In our matrix <span class="math inline">A</span>, if we use standard mathematical conventions the element 5 is located at <span class="math inline">(2,2)</span> or equivalent <span class="math inline">A_{2,2}</span> .</p>
 <p>But with NumPy, we are in Python and indexing is based off of zero. The element 5 is located at <span class="math inline">(1,1)</span>.</p>
-<div id="52b3edb7" class="cell" data-execution_count="3">
+<div id="fa0e79b8" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
@@ -486,7 +486,7 @@ Carol 90 97 92 99</li>
 <pre><code>index 2 is out of bounds for axis 0 with size 2</code></pre>
 </div>
 </div>
-<div id="5f1f4864" class="cell" data-execution_count="4">
+<div id="dc01d39c" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A[<span class="dv">1</span>,<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>5</code></pre>
@@ -544,7 +544,7 @@ Carol 90 97 92 99</li>
 <li><code>A[0]</code> selects the first row</li>
 <li>For our matrix <span class="math inline">A</span>, this is <code>[1 2 3]</code></li>
 </ul>
-<div id="41e91ac3" class="cell" data-execution_count="5">
+<div id="30e72879" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1 2 3]</code></pre>
@@ -559,7 +559,7 @@ Carol 90 97 92 99</li>
 <li><code>A[:,0]</code> is all rows, column 0</li>
 </ul></li>
 </ul>
-<div id="1284b0bd" class="cell" data-execution_count="6">
+<div id="f6f59ebe" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(A[:,<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1 4]</code></pre>
@@ -570,7 +570,7 @@ Carol 90 97 92 99</li>
 <h2 class="anchored" data-anchor-id="scalar-addition">Scalar Addition</h2>
 <p>Adding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.</p>
 <p><img src="images/paste-1.png" class="img-fluid"></p>
-<div id="d0f5fa8a" class="cell" data-execution_count="7">
+<div id="9844a4e3" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A = </span><span class="sc">{</span>A<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A+2 = </span><span class="sc">{</span>A<span class="op">+</span><span class="dv">2</span><span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -587,7 +587,7 @@ A+2 = [[3 4 5]
 <h2 class="anchored" data-anchor-id="scalar-multiplication">Scalar Multiplication</h2>
 <p>Multiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.</p>
 <p><img src="images/paste-2.png" class="img-fluid"></p>
-<div id="be2d2df8" class="cell" data-execution_count="8">
+<div id="702d3af0" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A = </span><span class="sc">{</span>A<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'2A = </span><span class="sc">{</span><span class="dv">2</span><span class="op">*</span>A<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -604,7 +604,7 @@ A+2 = [[3 4 5]
 <h2 class="anchored" data-anchor-id="the-transpose-of-a-matrix">The Transpose of a Matrix</h2>
 <p>The transpose operation on a matrix turns all rows to columns and all columns to rows.</p>
 <p>In NumPy, we use the syntax <code>A.T</code> to take the transpose of matrix <span class="math inline">A</span>.</p>
-<div id="e2335fd7" class="cell" data-execution_count="9">
+<div id="b4c46271" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A = </span><span class="sc">{</span>A<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A.T = </span><span class="sc">{</span>A<span class="sc">.</span>T<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -621,7 +621,7 @@ A.T = [[1 4]
 <section id="matrix-addition" class="level2">
 <h2 class="anchored" data-anchor-id="matrix-addition">Matrix Addition</h2>
 <p>Matrix addition is defined similarly to vector addition where each paired element is added together. Note that we need a pairing, and so the matrices must be of identical dimensions.</p>
-<div id="33e5406f" class="cell" data-execution_count="10">
+<div id="e696b4dd" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A = </span><span class="sc">{</span>A<span class="sc">}</span><span class="ch">\n</span><span class="ss">'</span>)</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'A + A = </span><span class="sc">{</span>A<span class="op">+</span>A<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -644,7 +644,7 @@ A + A = [[ 2  4  6]
 <ul>
 <li>It is a very common beginner’s mistake to use the Hadamard product when you instead needed standard matrix multiplication.</li>
 </ul>
-<div id="badf92fe" class="cell" data-execution_count="11">
+<div id="5f0e6404" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>],</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>]</span>
@@ -684,7 +684,7 @@ A + A = [[ 2  4  6]
 1
 \end{bmatrix}</span></p>
 <p>What we have here is just an extension of scalar multiplication and vector addition. We can say that the matrix <span class="math inline">A</span> is just storing column vectors and that the vector <span class="math inline">x</span> tells us how much of each column to combine.</p>
-<div id="413d7875" class="cell" data-execution_count="12">
+<div id="bb204253" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> np.array([</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">1</span>,<span class="dv">3</span>],</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>[<span class="dv">2</span>,<span class="dv">1</span>]</span>
@@ -727,7 +727,7 @@ y
 y
 \end{bmatrix}</span></p>
 <p>Using NumPy, we can verify this for chosen values of <span class="math inline">x</span> and <span class="math inline">y</span> .</p>
-<div id="78db66a8" class="cell" data-execution_count="13">
+<div id="7463b4ea" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>vec <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">2</span>]) <span class="co">#x = 1 and y = 2, so our scaled vector should be (2,2) if successful</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>mat <span class="op">=</span> np.array([[<span class="dv">2</span>,<span class="dv">0</span>],</span>
@@ -826,7 +826,7 @@ C = \begin{bmatrix} 5  &amp; 6 \\ 7 &amp; 8 \end{bmatrix} </span></p>
 <p>The following matrix can rotate every point in our 2D space:</p>
 <p><span class="math display">\begin{bmatrix} \cos(\theta) &amp; -sin(\theta) \\ \sin(\theta) &amp; \cos(\theta) \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix}</span></p>
 <p>The simplicity of representing this transformation is one reason why graphics libraries use matrices everywhere.</p>
-<div id="7e1e48aa" class="cell" data-execution_count="14">
+<div id="e36ffcd7" class="cell" data-execution_count="14">
 <details class="code-fold">
 <summary>Show Python plotting code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -854,7 +854,7 @@ C = \begin{bmatrix} 5  &amp; 6 \\ 7 &amp; 8 \end{bmatrix} </span></p>
 </div>
 </div>
 <p>We can visualize the initial vector and its transformed version to confirm that our rotation matrix is working correctly.</p>
-<div id="b259b912" class="cell" data-execution_count="15">
+<div id="74d529a5" class="cell" data-execution_count="15">
 <details class="code-fold">
 <summary>Show Python plotting code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -902,7 +902,7 @@ C = \begin{bmatrix} 5  &amp; 6 \\ 7 &amp; 8 \end{bmatrix} </span></p>
 </div>
 </div>
 </div>
-<div id="f43fe2e6" class="cell" data-execution_count="16">
+<div id="5244f13c" class="cell" data-execution_count="16">
 <details class="code-fold">
 <summary>Show Python plotting code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -951,7 +951,7 @@ C = \begin{bmatrix} 5  &amp; 6 \\ 7 &amp; 8 \end{bmatrix} </span></p>
 <h3 class="anchored" data-anchor-id="basis-vectors">Basis Vectors</h3>
 <p>We know we can decompose vectors into a representation based off of their constituent directions. For example, in 2D space we can use the <span class="math inline">x</span> and <span class="math inline">y</span> axes to fully describe any vector that lives in that space, that is, every vector in our space can be built from a linear combination of these directions. We then talk of the <span class="math inline">x</span> and <span class="math inline">y</span> components of the vector.</p>
 <p>These building-block vectors are called <strong>basis vectors</strong>.</p>
-<div id="e5488f73" class="cell" data-execution_count="17">
+<div id="fcc84136" class="cell" data-execution_count="17">
 <details class="code-fold">
 <summary>Show Python plotting code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
@@ -1000,7 +1000,7 @@ C = \begin{bmatrix} 5  &amp; 6 \\ 7 &amp; 8 \end{bmatrix} </span></p>
 <h3 class="anchored" data-anchor-id="floating-point-approximations">Floating Point Approximations</h3>
 <p>Suppose we use our rotation matrix on the vector <span class="math inline">[1,0]</span> where we rotate by <span class="math inline">\frac{\pi}{2}</span>.</p>
 <p>We would expect our output to be exactly <span class="math inline">[0,1]</span> but sometimes we may see a slightly different answer.</p>
-<div id="d777359b" class="cell" data-execution_count="18">
+<div id="e3f12e83" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>vector <span class="op">=</span> np.array([<span class="dv">1</span>,<span class="dv">0</span>])</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>theta <span class="op">=</span> np.pi<span class="op">/</span><span class="dv">2</span></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -1019,7 +1019,7 @@ C = \begin{bmatrix} 5  &amp; 6 \\ 7 &amp; 8 \end{bmatrix} </span></p>
 <ul>
 <li><code>np.round()</code> takes in a NumPy array and an integer that controls the number of digits (the precision).</li>
 </ul>
-<div id="726a3243" class="cell" data-execution_count="19">
+<div id="61af2251" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(np.<span class="bu">round</span>(R <span class="op">@</span> vector, <span class="dv">10</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[0. 1.]</code></pre>

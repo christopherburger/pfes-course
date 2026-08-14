@@ -370,7 +370,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="calling-functions" class="level2">
 <h2 class="anchored" data-anchor-id="calling-functions">Calling Functions</h2>
 <p>To use a function, we call it by invoking its name.</p>
-<div id="6ed97e9e" class="cell" data-execution_count="1">
+<div id="c2a81f8a" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(x <span class="op">+</span> y)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -387,7 +387,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a <strong>void</strong> function.</p>
 <p>In contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The <em>input</em> and <em>int</em> functions are example of value-returning functions that you have used.</p>
 <p>To return a value from a function, you need only use the <strong>return</strong> keyword.</p>
-<div id="7a4a03e1" class="cell" data-execution_count="2">
+<div id="a0de3dee" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -401,7 +401,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="returning-multiple-values" class="level3">
 <h3 class="anchored" data-anchor-id="returning-multiple-values">Returning Multiple Values</h3>
 <p>We can return multiple values by separating the values by commas.</p>
-<div id="11856198" class="cell" data-execution_count="3">
+<div id="a96495dd" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y, x, y</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -413,7 +413,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Our add function now returns the sum, then the value associated with parameter <em>x</em> and finally the value associated with parameter <em>y</em>. Note that the values are returned in the order they are specified. Also note that the variable <em>result</em> is now a tuple containing three objects, which is what we would expect since we returned three individual values.</p>
 <p>We can assign these values immediately using the convention for multiple assignment:</p>
-<div id="05d86a97" class="cell" data-execution_count="4">
+<div id="722a3de2" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> add(x,y):</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> x <span class="op">+</span> y, x, y</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -432,7 +432,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-pass-keyword" class="level3">
 <h3 class="anchored" data-anchor-id="the-pass-keyword">The pass Keyword</h3>
 <p>You can use the <strong>pass</strong> keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.</p>
-<div id="737927ab" class="cell" data-execution_count="5">
+<div id="78ae9a06" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> a_function():</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
@@ -441,7 +441,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="more-on-parameters-and-arguments" class="level2">
 <h2 class="anchored" data-anchor-id="more-on-parameters-and-arguments">More on Parameters and Arguments</h2>
 <p>Changes made to a parameter value within the function do not affect the argument. This is known as pass by value and it provides a way for unidirectional communication between one function and another function.</p>
-<div id="28f335b6" class="cell" data-execution_count="6">
+<div id="e3be3f83" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_1():</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    value <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span>value<span class="sc">}</span><span class="ss">'</span>)</span>
@@ -461,7 +461,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Note that the position when calling the function is not relevant. It is also possible to mix keyword arguments and positional arguments when calling a function but all positional arguments must appear first.</p>
 <p>Keyword arguments are often used to provide a default argument for a parameter. A <strong>default argument</strong> is a value that will be there by default unless explicitly overwritten when the function is called.</p>
 <p>In the following example we can omit passing a value into the tax rate parameter because a default argument is provided. We are still free to overwrite it whenever we need.</p>
-<div id="90a68c83" class="cell" data-execution_count="7">
+<div id="394bc450" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> show_tax(price, tax_rate<span class="op">=</span><span class="fl">0.08</span>):</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    tax <span class="op">=</span> price <span class="op">*</span> tax_rate</span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f'The tax is </span><span class="sc">{</span>tax<span class="sc">}</span><span class="ss">.'</span>)</span>
@@ -499,7 +499,7 @@ The tax is 1.0.</code></pre>
 my_func()
 # print(x)  # Throws NameError: name 'x' is not defined</code></pre>
 <p>Notice how in the example below that despite having the same name, the variables in function 1 and function 2 are different.</p>
-<div id="42c4c01f" class="cell" data-execution_count="8">
+<div id="e2a466f9" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> function_1():</span>
@@ -522,7 +522,7 @@ my_func()
 <p>Enclosing (or nonlocal) scope occurs in nested functions. It represents the scope of the outer (enclosing) function from the perspective of the inner function.</p>
 <p>By default, an inner function can read variables in the enclosing scope, but attempting to modify them will create a new local variable in the inner function instead. You must use the <strong>nonlocal</strong> keyword if you intend to mutate an enclosing variable.</p>
 <p>However, heavy use of nested functions and nonlocal state can make code difficult to debug and reason about.</p>
-<div id="4a96b07b" class="cell" data-execution_count="9">
+<div id="f1752bc6" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> outer_function():</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    message <span class="op">=</span> <span class="st">"Hello"</span>  <span class="co"># Enclosing scope</span></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    </span>
@@ -538,7 +538,7 @@ my_func()
 <h3 class="anchored" data-anchor-id="global-scope">Global Scope</h3>
 <p>Global scope comprises variables defined at the top level of a script, module, or notebook cell. They are accessible anywhere within that specific module. A global variable is created by assignment statement written outside all the functions.</p>
 <p>Global variables can be accessed by any statement in the program file, including from within a function. If a function needs to assign a value to the global variable, the global variable must be redeclared within the function.</p>
-<div id="7f024456" class="cell" data-execution_count="10">
+<div id="9a37db69" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>counter <span class="op">=</span> <span class="dv">0</span>  <span class="co"># Global scope</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> increment():</span>
@@ -565,22 +565,22 @@ print(sum(a_list)) # TypeError: 'int' object is not callable</code></pre>
 <li>If two variables are stored at the same memory address, they must refer to the same data.</li>
 <li>If two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.</li>
 </ul>
-<div id="6193c460" class="cell" data-execution_count="11">
+<div id="bc8a3eed" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Var 1 = </span><span class="sc">{</span><span class="bu">id</span>(var1)<span class="sc">}</span><span class="ss"> </span><span class="ch">\t</span><span class="ss"> Var 2 = </span><span class="sc">{</span><span class="bu">id</span>(var2)<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Var 1 = 4387090528   Var 2 = 4387090528</code></pre>
+<pre><code>Var 1 = 4355944544   Var 2 = 4355944544</code></pre>
 </div>
 </div>
-<div id="0238d48c" class="cell" data-execution_count="12">
+<div id="7828cf1e" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="op">=</span> <span class="dv">5</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>var2 <span class="op">=</span> var1</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Var 1 = </span><span class="sc">{</span><span class="bu">id</span>(var1)<span class="sc">}</span><span class="ss"> </span><span class="ch">\t</span><span class="ss"> Var 2 = </span><span class="sc">{</span><span class="bu">id</span>(var2)<span class="sc">}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Var 1 = 4387090528   Var 2 = 4387090528</code></pre>
+<pre><code>Var 1 = 4355944544   Var 2 = 4355944544</code></pre>
 </div>
 </div>
 

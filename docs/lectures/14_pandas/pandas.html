@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -255,29 +290,25 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#pandas" id="toc-pandas" class="nav-link active" data-scroll-target="#pandas">Pandas</a></li>
-  <li><a href="#heterogenous-data" id="toc-heterogenous-data" class="nav-link" data-scroll-target="#heterogenous-data">Heterogenous Data</a></li>
-  <li><a href="#pandas-1" id="toc-pandas-1" class="nav-link" data-scroll-target="#pandas-1">Pandas</a></li>
-  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes">DataFrames</a></li>
-  <li><a href="#dataframes-1" id="toc-dataframes-1" class="nav-link" data-scroll-target="#dataframes-1">DataFrames</a></li>
-  <li><a href="#dataframes-2" id="toc-dataframes-2" class="nav-link" data-scroll-target="#dataframes-2">DataFrames</a></li>
-  <li><a href="#dataframes-3" id="toc-dataframes-3" class="nav-link" data-scroll-target="#dataframes-3">DataFrames</a></li>
+  <li><a href="#pandas" id="toc-pandas" class="nav-link active" data-scroll-target="#pandas">Pandas</a>
+  <ul class="collapse">
+  <li><a href="#dataframes" id="toc-dataframes" class="nav-link" data-scroll-target="#dataframes">DataFrames</a>
+  <ul class="collapse">
+  <li><a href="#loading-data" id="toc-loading-data" class="nav-link" data-scroll-target="#loading-data">Loading Data</a></li>
   <li><a href="#inspecting-data" id="toc-inspecting-data" class="nav-link" data-scroll-target="#inspecting-data">Inspecting Data</a></li>
-  <li><a href="#inspecting-data-1" id="toc-inspecting-data-1" class="nav-link" data-scroll-target="#inspecting-data-1">Inspecting Data</a></li>
-  <li><a href="#inspecting-data-2" id="toc-inspecting-data-2" class="nav-link" data-scroll-target="#inspecting-data-2">Inspecting Data</a></li>
-  <li><a href="#inspecting-data-3" id="toc-inspecting-data-3" class="nav-link" data-scroll-target="#inspecting-data-3">Inspecting Data</a></li>
-  <li><a href="#inspecting-data-4" id="toc-inspecting-data-4" class="nav-link" data-scroll-target="#inspecting-data-4">Inspecting Data</a></li>
-  <li><a href="#inspecting-data-5" id="toc-inspecting-data-5" class="nav-link" data-scroll-target="#inspecting-data-5">Inspecting Data</a></li>
-  <li><a href="#inspecting-data-6" id="toc-inspecting-data-6" class="nav-link" data-scroll-target="#inspecting-data-6">Inspecting Data</a></li>
-  <li><a href="#inspecting-data-7" id="toc-inspecting-data-7" class="nav-link" data-scroll-target="#inspecting-data-7">Inspecting Data</a></li>
+  </ul></li>
+  <li><a href="#extracting-and-manipulating-data" id="toc-extracting-and-manipulating-data" class="nav-link" data-scroll-target="#extracting-and-manipulating-data">Extracting and Manipulating Data</a>
+  <ul class="collapse">
   <li><a href="#extracting-columns" id="toc-extracting-columns" class="nav-link" data-scroll-target="#extracting-columns">Extracting Columns</a></li>
-  <li><a href="#extracting-columns-1" id="toc-extracting-columns-1" class="nav-link" data-scroll-target="#extracting-columns-1">Extracting Columns</a></li>
+  </ul></li>
+  <li><a href="#extracting-columns-1" id="toc-extracting-columns-1" class="nav-link" data-scroll-target="#extracting-columns-1">Extracting Columns</a>
+  <ul class="collapse">
   <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns">Renaming Columns</a></li>
   <li><a href="#filtering-rows-boolean-masking" id="toc-filtering-rows-boolean-masking" class="nav-link" data-scroll-target="#filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</a></li>
   <li><a href="#combining-logic-and-or" id="toc-combining-logic-and-or" class="nav-link" data-scroll-target="#combining-logic-and-or">Combining Logic (AND / OR)</a></li>
   <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
   <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling Missing Data</a></li>
-  <li><a href="#handling-missing-data-1" id="toc-handling-missing-data-1" class="nav-link" data-scroll-target="#handling-missing-data-1">Handling Missing Data</a></li>
+  </ul></li>
   <li><a href="#calculated-columns-pandas-vectorization" id="toc-calculated-columns-pandas-vectorization" class="nav-link" data-scroll-target="#calculated-columns-pandas-vectorization">Calculated Columns (Pandas Vectorization)</a></li>
   <li><a href="#calculated-columns-pandas-vectorization-1" id="toc-calculated-columns-pandas-vectorization-1" class="nav-link" data-scroll-target="#calculated-columns-pandas-vectorization-1">Calculated Columns (Pandas Vectorization)</a></li>
   <li><a href="#text-scrubbing" id="toc-text-scrubbing" class="nav-link" data-scroll-target="#text-scrubbing">Text Scrubbing</a></li>
@@ -332,6 +363,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#merging-on-different-column-names" id="toc-merging-on-different-column-names" class="nav-link" data-scroll-target="#merging-on-different-column-names">Merging on Different Column Names</a></li>
   <li><a href="#multi-key-joins" id="toc-multi-key-joins" class="nav-link" data-scroll-target="#multi-key-joins">Multi-Key Joins</a></li>
   <li><a href="#concatenation-is-different-from-merging" id="toc-concatenation-is-different-from-merging" class="nav-link" data-scroll-target="#concatenation-is-different-from-merging">Concatenation is Different from Merging</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -357,44 +389,20 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="pandas" class="level2">
-<h2 class="anchored" data-anchor-id="pandas">Pandas</h2>
-<p>CSCI – 1056</p>
-</section>
-<section id="heterogenous-data" class="level2">
-<h2 class="anchored" data-anchor-id="heterogenous-data">Heterogenous Data</h2>
-<ul>
-<li>NumPy requires pure, homogeneous numbers.</li>
-<li>Real data is messy, labeled, and heterogeneous.</li>
-<li>Remember that if we put a word into a NumPy array, it converts our math to text.</li>
-<li>We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy).</li>
-</ul>
-</section>
-<section id="pandas-1" class="level2">
-<h2 class="anchored" data-anchor-id="pandas-1">Pandas</h2>
-<ul>
-<li><p>Pandas is an industry-standard library for data ingestion and cleaning.</p></li>
-<li><p>Pandas does not replace NumPy; they serve different roles.</p>
-<ul>
-<li>Pandas prepares the data.</li>
-<li>NumPy solves the equations.</li>
-</ul></li>
-</ul>
-<p>import pandas as pd</p>
-</section>
+<section id="pandas" class="level1">
+<h1>Pandas</h1>
+<p>We have seen that NumPy requires pure, homogeneous numbers. Remember that if we put a word into a NumPy array, it converts our numbers to text. But real data is messy, labeled, and heterogeneous.</p>
+<p>We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy). This solution is Pandas, which is an industry-standard library for data ingestion and cleaning.</p>
+<p>Pandas does not replace NumPy; they serve different roles. - Pandas prepares the data. - NumPy solves the equations.</p>
+<p>As Pandas is an external library, we will need to import it to use it (and depending on your environment, it may need to be installed first).</p>
+<div id="0d020652" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <section id="dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="dataframes">DataFrames</h2>
-<ul>
-<li><p>The core component of Pandas is the <strong>DataFrame</strong>.</p>
-<ul>
-<li>A 2D array (matrix) with attached row and column labels.</li>
-</ul></li>
-<li><p>Each column can hold a <em>different</em> type of data without breaking the others.</p></li>
-<li><p>We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.</p></li>
-</ul>
-</section>
-<section id="dataframes-1" class="level2">
-<h2 class="anchored" data-anchor-id="dataframes-1">DataFrames</h2>
+<p>The core component of Pandas is the <strong>DataFrame</strong> which is a 2D array (a matrix) with attached row and column labels. Each column can hold a <em>different</em> type of data without breaking the others.</p>
+<p>We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.</p>
+<p>An example of the first few items a DataFrame</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -471,49 +479,69 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
+<section id="loading-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-data">Loading Data</h3>
+<p>To load data into a DataFrame, we first need to know what file type we are working with. Commonly, this is a CSV file (Comma Separated Values)</p>
+<p>We then need to know where the file is located. This could be a file path on your computer or even a URL.</p>
+<pre><code>import pandas as pd
+
+url = "[https://website/data.csv"](https://website/data.csv%22)
+
+df = pd.read_csv(url)</code></pre>
+<p>For many of our examples we will use a CSV file (Tableau’s Sample Superstore dataset) that can be found on Blackboard. Assuming we have named the file <code>superstore.csv</code> we can use the following code to load the data into a DataFrame named <code>df</code>.</p>
+<div id="79d48119" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'superstore.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="dataframes-2" class="level2">
-<h2 class="anchored" data-anchor-id="dataframes-2">DataFrames</h2>
-<ul>
-<li><p>To load data into a DataFrame, we first need to know what file type we are working with.</p>
-<ul>
-<li>Commonly, this is a CSV file (Comma Separated Values)</li>
-</ul></li>
-<li><p>We then need to know where the file is located.</p>
-<ul>
-<li>This could be a file path on your computer or even a URL.</li>
-</ul></li>
-</ul>
-<p>import pandas as pd</p>
-<p>url = “<a href="https://website/data.csv%22">https://website/data.csv”</a></p>
-<p>df = pd.read_csv(url)</p>
-</section>
-<section id="dataframes-3" class="level2">
-<h2 class="anchored" data-anchor-id="dataframes-3">DataFrames</h2>
-<ul>
-<li>For our work in this course, we will use a CSV file that has been included in the Lab IDE automatically.</li>
-<li>This is Tableau’s Sample Superstore dataset.</li>
-<li>If you are using a different IDE, you will need to download the dataset and remember the file location.</li>
-</ul>
-<p>import pandas as pd</p>
-<p>df = pd.read_csv(‘superstore.csv’)</p>
-</section>
-<section id="inspecting-data" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data">Inspecting Data</h2>
-<ul>
-<li><p>The example DataFrame from earlier was from the superstore dataset.</p></li>
-<li><p>The data we saw was output from the <strong>head()</strong> method.</p>
-<ul>
-<li>This returns the first 5 rows of the data in the DataFrame.</li>
-</ul></li>
-<li><p>The <strong>head</strong> method (and its counterpart, <strong>tail</strong>) are important first steps after you load data using Pandas.</p></li>
-<li><p>You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.</p></li>
-</ul>
-<p>df = pd.read_csv(’superstore.csv’)</p>
-<p>print(df.head())</p>
-</section>
-<section id="inspecting-data-1" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data-1">Inspecting Data</h2>
+<section id="inspecting-data" class="level3">
+<h3 class="anchored" data-anchor-id="inspecting-data">Inspecting Data</h3>
+<p>The example DataFrame from earlier was from the superstore dataset and the data we saw was output from the <code>head()</code> method which returns (by default) the first 5 rows of the data in the DataFrame.</p>
+<p>The <code>head</code> method (and its counterpart, <code>tail</code>) are important first steps after you load data using Pandas. You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.</p>
+<div id="1163803d" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'superstore.csv'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Row ID        Order ID  Order Date   Ship Date       Ship Mode Customer ID  \
+0      1  CA-2017-152156   11/8/2017  11/11/2017    Second Class    CG-12520   
+1      2  CA-2017-152156   11/8/2017  11/11/2017    Second Class    CG-12520   
+2      3  CA-2017-138688   6/12/2017   6/16/2017    Second Class    DV-13045   
+3      4  US-2016-108966  10/11/2016  10/18/2016  Standard Class    SO-20335   
+4      5  US-2016-108966  10/11/2016  10/18/2016  Standard Class    SO-20335   
+
+     Customer Name    Segment        Country             City  ...  \
+0      Claire Gute   Consumer  United States        Henderson  ...   
+1      Claire Gute   Consumer  United States        Henderson  ...   
+2  Darrin Van Huff  Corporate  United States      Los Angeles  ...   
+3   Sean O'Donnell   Consumer  United States  Fort Lauderdale  ...   
+4   Sean O'Donnell   Consumer  United States  Fort Lauderdale  ...   
+
+  Postal Code  Region       Product ID         Category Sub-Category  \
+0     42420.0   South  FUR-BO-10001798        Furniture    Bookcases   
+1     42420.0   South  FUR-CH-10000454        Furniture       Chairs   
+2     90036.0    West  OFF-LA-10000240  Office Supplies       Labels   
+3     33311.0   South  FUR-TA-10000577        Furniture       Tables   
+4     33311.0   South  OFF-ST-10000760  Office Supplies      Storage   
+
+                                        Product Name     Sales  Quantity  \
+0                  Bush Somerset Collection Bookcase  261.9600       2.0   
+1  Hon Deluxe Fabric Upholstered Stacking Chairs,...  731.9400       3.0   
+2  Self-Adhesive Address Labels for Typewriters b...   14.6200       2.0   
+3      Bretford CR4500 Series Slim Rectangular Table  957.5775       5.0   
+4                     Eldon Fold 'N Roll Cart System   22.3680       2.0   
+
+   Discount    Profit  
+0      0.00   41.9136  
+1      0.00  219.5820  
+2      0.00    6.8714  
+3      0.45 -383.0310  
+4      0.20    2.5164  
+
+[5 rows x 21 columns]</code></pre>
+</div>
+</div>
 <ul>
 <li>We can see not all the columns are visible (…) due to visual size limitations.</li>
 </ul>
@@ -593,32 +621,23 @@ ul.task-list li input[type="checkbox"] {
 </tr>
 </tbody>
 </table>
-</section>
-<section id="inspecting-data-2" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data-2">Inspecting Data</h2>
-<ul>
-<li>The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas.</li>
-<li>However, some datasets will be large enough that you will not have enough display space to visually inspect everything.</li>
-<li>head / tail provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.</li>
-</ul>
+<p>The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas. However, some datasets will be large enough that you will not have enough display space to visually inspect everything. The <code>head</code> and <code>tail</code> provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.</p>
 <p>Row ID Order ID Order Date … Quantity Discount Profit</p>
 <p>0 1 CA-2017-152156 11/8/2017 … 2.0 0.00 41.9136</p>
 <p>…</p>
 <p>[5 rows x 21 columns]</p>
-</section>
-<section id="inspecting-data-3" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data-3">Inspecting Data</h2>
-<ul>
-<li>While head / tail give us the total number of columns, they do not provide the total number of rows.</li>
-<li>We can use the <strong>shape</strong> attribute to return both the number of rows and number of columns.</li>
-</ul>
-<p>import pandas as pd</p>
-<p>df = pd.read_csv(’superstore.csv’)</p>
-<p>print(df.shape)</p>
+<p>While <code>head</code> / <code>tail</code> give us the total number of columns, they do not provide the total number of rows. We can use the <code>shape</code> attribute to return both the number of rows and number of columns.</p>
+<div id="ee8b949f" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'superstore.csv'</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(10800, 21)</code></pre>
+</div>
+</div>
 <p>&gt;&gt;&gt; (10800, 21)</p>
-</section>
-<section id="inspecting-data-4" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data-4">Inspecting Data</h2>
 <ul>
 <li><p><strong>dtypes</strong> tells us the data type of each column</p></li>
 <li><p>Float64 specifies a floating-point number.</p></li>
@@ -637,9 +656,6 @@ ul.task-list li input[type="checkbox"] {
 <p>import pandas as pd</p>
 <p>df = pd.read_csv(’superstore.csv’)</p>
 <p>print(df.dtypes)</p>
-</section>
-<section id="inspecting-data-5" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data-5">Inspecting Data</h2>
 <ul>
 <li><p><strong>describe()</strong> gives us summary statistics on columns with a numeric data type.</p></li>
 <li><p>The statistics are:</p>
@@ -655,12 +671,7 @@ ul.task-list li input[type="checkbox"] {
 <li><p>25%, 50%, 75% (percentiles)</p></li>
 <li><p>max (largest value)</p></li>
 </ul></li>
-</ul>
-</section>
-<section id="inspecting-data-6" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data-6">Inspecting Data</h2>
-<ul>
-<li><strong>describe()</strong> gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).</li>
+<li><p><strong>describe()</strong> gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).</p></li>
 </ul>
 <p>Postal Code Sales Quantity Discount Profit</p>
 <p>count 9983.000000 9994.000000 9994.000000 9994.000000 9994.000000</p>
@@ -671,17 +682,17 @@ ul.task-list li input[type="checkbox"] {
 <p>50% 57103.000000 54.490000 3.000000 0.200000 8.666500</p>
 <p>75% 90008.000000 209.940000 5.000000 0.200000 29.364000</p>
 <p>max 99301.000000 22638.480000 14.000000 0.800000 8399.976000</p>
-</section>
-<section id="inspecting-data-7" class="level2">
-<h2 class="anchored" data-anchor-id="inspecting-data-7">Inspecting Data</h2>
 <ul>
 <li><strong>describe()</strong> is very useful for finding impossible values.</li>
 <li>For example, assume we have a DataFrame of sensor readings with one of the columns being temperature.</li>
 <li>If we see negative values in the temperature column, we know the data is erroneous.</li>
 </ul>
 </section>
-<section id="extracting-columns" class="level2">
-<h2 class="anchored" data-anchor-id="extracting-columns">Extracting Columns</h2>
+</section>
+<section id="extracting-and-manipulating-data" class="level2">
+<h2 class="anchored" data-anchor-id="extracting-and-manipulating-data">Extracting and Manipulating Data</h2>
+<section id="extracting-columns" class="level3">
+<h3 class="anchored" data-anchor-id="extracting-columns">Extracting Columns</h3>
 <ul>
 <li>Extract a single column (1D Series) using one set of brackets:</li>
 </ul>
@@ -693,6 +704,7 @@ ul.task-list li input[type="checkbox"] {
 <ul>
 <li>A DataFrame is a dictionary of column vectors, so case matters for the column names.</li>
 </ul>
+</section>
 </section>
 <section id="extracting-columns-1" class="level2">
 <h2 class="anchored" data-anchor-id="extracting-columns-1">Extracting Columns</h2>
@@ -712,9 +724,8 @@ ul.task-list li input[type="checkbox"] {
 <p>10799 NaN NaN<br>
 </p>
 <p>[10800 rows x 2 columns]</p>
-</section>
-<section id="renaming-columns" class="level2">
-<h2 class="anchored" data-anchor-id="renaming-columns">Renaming Columns</h2>
+<section id="renaming-columns" class="level3">
+<h3 class="anchored" data-anchor-id="renaming-columns">Renaming Columns</h3>
 <ul>
 <li>Raw data often has terrible names (e.g., “Temp (C) - Sensor 1!”).</li>
 <li>Use .rename() and a dictionary to fix them before writing logic.</li>
@@ -723,8 +734,8 @@ ul.task-list li input[type="checkbox"] {
 <p>df = df.rename(columns={‘Temp (C)’: ‘Temp’,</p>
 <p>‘Press_kpa’: ‘Pressure’})</p>
 </section>
-<section id="filtering-rows-boolean-masking" class="level2">
-<h2 class="anchored" data-anchor-id="filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</h2>
+<section id="filtering-rows-boolean-masking" class="level3">
+<h3 class="anchored" data-anchor-id="filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</h3>
 <ul>
 <li>We can apply the exact same relational logic (&gt;, &lt;, ==) to a Pandas column.</li>
 <li>This creates a “mask” of True/False values to filter the DataFrame.</li>
@@ -736,8 +747,8 @@ ul.task-list li input[type="checkbox"] {
 <p># Do it in one line:</p>
 <p>danger_data = df[df[‘Temp’] &gt; 100]</p>
 </section>
-<section id="combining-logic-and-or" class="level2">
-<h2 class="anchored" data-anchor-id="combining-logic-and-or">Combining Logic (AND / OR)</h2>
+<section id="combining-logic-and-or" class="level3">
+<h3 class="anchored" data-anchor-id="combining-logic-and-or">Combining Logic (AND / OR)</h3>
 <ul>
 <li>To find specific overlaps, use &amp; (AND) and | (OR).</li>
 <li><strong>Very Important:</strong> You <em>must</em> put parentheses around each condition.</li>
@@ -749,8 +760,8 @@ ul.task-list li input[type="checkbox"] {
 <p>14 15 US-2016-118983 11/22/2016 … 5.0 0.80 -123.8580</p>
 <p>…</p>
 </section>
-<section id="sorting" class="level2">
-<h2 class="anchored" data-anchor-id="sorting">Sorting</h2>
+<section id="sorting" class="level3">
+<h3 class="anchored" data-anchor-id="sorting">Sorting</h3>
 <ul>
 <li><p>Sorting data sequentially in Pandas is very simple.</p></li>
 <li><p><strong>.sort_values()</strong> orders the matrix by a specific column.</p>
@@ -764,8 +775,8 @@ ul.task-list li input[type="checkbox"] {
 <p># View the top 3 most profitable rows</p>
 <p>print(sorted_data.head(3))</p>
 </section>
-<section id="handling-missing-data" class="level2">
-<h2 class="anchored" data-anchor-id="handling-missing-data">Handling Missing Data</h2>
+<section id="handling-missing-data" class="level3">
+<h3 class="anchored" data-anchor-id="handling-missing-data">Handling Missing Data</h3>
 <ul>
 <li><p><strong>NaN</strong> stands for “Not a Number” (a blank cell in the CSV).</p>
 <ul>
@@ -777,18 +788,14 @@ ul.task-list li input[type="checkbox"] {
 <li>Calculations that involve <strong>None</strong> throw an exception.</li>
 </ul></li>
 <li><p><strong>.dropna()</strong> removes any row containing a <strong>NaN</strong>.</p></li>
-</ul>
-</section>
-<section id="handling-missing-data-1" class="level2">
-<h2 class="anchored" data-anchor-id="handling-missing-data-1">Handling Missing Data</h2>
-<ul>
-<li>The safest decision is to drop the corrupted observation entirely.</li>
-<li>There exist methods to interpolate the missing value(s), but these should be used cautiously.</li>
+<li><p>The safest decision is to drop the corrupted observation entirely.</p></li>
+<li><p>There exist methods to interpolate the missing value(s), but these should be used cautiously.</p></li>
 </ul>
 <p># See how many missing values exist</p>
 <p>print(df.isna().sum())</p>
 <p># Drop the corrupted rows permanently</p>
 <p>df = df.dropna()</p>
+</section>
 </section>
 <section id="calculated-columns-pandas-vectorization" class="level2">
 <h2 class="anchored" data-anchor-id="calculated-columns-pandas-vectorization">Calculated Columns (Pandas Vectorization)</h2>
@@ -1536,6 +1543,7 @@ CustomerID Balance</p>
 </ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

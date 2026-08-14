@@ -23,6 +23,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -256,61 +291,38 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#section" id="toc-section" class="nav-link active" data-scroll-target="#section"></a></li>
-  <li><a href="#introduction-to-objects-and-classes" id="toc-introduction-to-objects-and-classes" class="nav-link" data-scroll-target="#introduction-to-objects-and-classes">Introduction to Objects and Classes</a></li>
-  <li><a href="#procedural-programming" id="toc-procedural-programming" class="nav-link" data-scroll-target="#procedural-programming">Procedural Programming</a></li>
-  <li><a href="#object-oriented-programming-1-of-4" id="toc-object-oriented-programming-1-of-4" class="nav-link" data-scroll-target="#object-oriented-programming-1-of-4">Object-Oriented Programming (1 of 4)</a></li>
-  <li><a href="#object-oriented-programming-2-of-4" id="toc-object-oriented-programming-2-of-4" class="nav-link" data-scroll-target="#object-oriented-programming-2-of-4">Object-Oriented Programming (2 of 4)</a></li>
-  <li><a href="#object-oriented-programming-3-of-4" id="toc-object-oriented-programming-3-of-4" class="nav-link" data-scroll-target="#object-oriented-programming-3-of-4">Object-Oriented Programming (3 of 4)</a></li>
-  <li><a href="#object-oriented-programming-4-of-4" id="toc-object-oriented-programming-4-of-4" class="nav-link" data-scroll-target="#object-oriented-programming-4-of-4">Object-Oriented Programming (4 of 4)</a></li>
+  <li><a href="#introduction-to-objects-and-classes" id="toc-introduction-to-objects-and-classes" class="nav-link" data-scroll-target="#introduction-to-objects-and-classes">Introduction to Objects and Classes</a>
+  <ul class="collapse">
   <li><a href="#an-everyday-example-of-an-object" id="toc-an-everyday-example-of-an-object" class="nav-link" data-scroll-target="#an-everyday-example-of-an-object">An Everyday Example of an Object</a></li>
-  <li><a href="#classes-1-of-3" id="toc-classes-1-of-3" class="nav-link" data-scroll-target="#classes-1-of-3">Classes (1 of 3)</a></li>
-  <li><a href="#classes-2-of-3" id="toc-classes-2-of-3" class="nav-link" data-scroll-target="#classes-2-of-3">Classes (2 of 3)</a></li>
-  <li><a href="#classes-3-of-3" id="toc-classes-3-of-3" class="nav-link" data-scroll-target="#classes-3-of-3">Classes (3 of 3)</a></li>
-  <li><a href="#class-definitions-1-of-7" id="toc-class-definitions-1-of-7" class="nav-link" data-scroll-target="#class-definitions-1-of-7">Class Definitions (1 of 7)</a></li>
-  <li><a href="#class-definitions-2-of-7" id="toc-class-definitions-2-of-7" class="nav-link" data-scroll-target="#class-definitions-2-of-7">Class Definitions (2 of 7)</a></li>
-  <li><a href="#class-definitions-3-of-7" id="toc-class-definitions-3-of-7" class="nav-link" data-scroll-target="#class-definitions-3-of-7">Class Definitions (3 of 7)</a></li>
-  <li><a href="#class-definitions-4-of-7" id="toc-class-definitions-4-of-7" class="nav-link" data-scroll-target="#class-definitions-4-of-7">Class Definitions (4 of 7)</a></li>
-  <li><a href="#class-definitions-5-of-7" id="toc-class-definitions-5-of-7" class="nav-link" data-scroll-target="#class-definitions-5-of-7">Class Definitions (5 of 7)</a></li>
-  <li><a href="#class-definitions-6-of-7" id="toc-class-definitions-6-of-7" class="nav-link" data-scroll-target="#class-definitions-6-of-7">Class Definitions (6 of 7)</a></li>
-  <li><a href="#class-definitions-7-of-7" id="toc-class-definitions-7-of-7" class="nav-link" data-scroll-target="#class-definitions-7-of-7">Class Definitions (7 of 7)</a></li>
-  <li><a href="#hiding-attributes-and-storing-classes-in-modules" id="toc-hiding-attributes-and-storing-classes-in-modules" class="nav-link" data-scroll-target="#hiding-attributes-and-storing-classes-in-modules">Hiding Attributes and Storing Classes in Modules</a></li>
-  <li><a href="#the-bankaccount-class-more-about-classes" id="toc-the-bankaccount-class-more-about-classes" class="nav-link" data-scroll-target="#the-bankaccount-class-more-about-classes">The BankAccount Class – More About Classes</a></li>
-  <li><a href="#the-__str__-method" id="toc-the-__str__-method" class="nav-link" data-scroll-target="#the-__str__-method">The __str__ method</a></li>
-  <li><a href="#operator-overloading" id="toc-operator-overloading" class="nav-link" data-scroll-target="#operator-overloading">Operator Overloading</a></li>
-  <li><a href="#common-operators-and-their-methods" id="toc-common-operators-and-their-methods" class="nav-link" data-scroll-target="#common-operators-and-their-methods">Common Operators and Their Methods</a></li>
-  <li><a href="#working-with-instances" id="toc-working-with-instances" class="nav-link" data-scroll-target="#working-with-instances">Working With Instances</a></li>
-  <li><a href="#three-coin-objects" id="toc-three-coin-objects" class="nav-link" data-scroll-target="#three-coin-objects">Three Coin Objects</a></li>
+  <li><a href="#classes" id="toc-classes" class="nav-link" data-scroll-target="#classes">Classes</a>
+  <ul class="collapse">
+  <li><a href="#class-definitions" id="toc-class-definitions" class="nav-link" data-scroll-target="#class-definitions">Class Definitions</a></li>
+  <li><a href="#hiding-attributes-and-methods" id="toc-hiding-attributes-and-methods" class="nav-link" data-scroll-target="#hiding-attributes-and-methods">Hiding Attributes and Methods</a></li>
   <li><a href="#accessor-and-mutator-methods" id="toc-accessor-and-mutator-methods" class="nav-link" data-scroll-target="#accessor-and-mutator-methods">Accessor and Mutator Methods</a></li>
   <li><a href="#passing-objects-as-arguments" id="toc-passing-objects-as-arguments" class="nav-link" data-scroll-target="#passing-objects-as-arguments">Passing Objects as Arguments</a></li>
-  <li><a href="#techniques-for-designing-classes" id="toc-techniques-for-designing-classes" class="nav-link" data-scroll-target="#techniques-for-designing-classes">Techniques for Designing Classes</a></li>
-  <li><a href="#u-m-l-diagrams" id="toc-u-m-l-diagrams" class="nav-link" data-scroll-target="#u-m-l-diagrams">U M L Diagrams</a></li>
   <li><a href="#identifying-a-classs-responsibilities" id="toc-identifying-a-classs-responsibilities" class="nav-link" data-scroll-target="#identifying-a-classs-responsibilities">Identifying a Class’s Responsibilities</a></li>
-  <li><a href="#object-oriented-programming" id="toc-object-oriented-programming" class="nav-link" data-scroll-target="#object-oriented-programming">Object Oriented Programming</a></li>
-  <li><a href="#a-fraction-class-1-of-4" id="toc-a-fraction-class-1-of-4" class="nav-link" data-scroll-target="#a-fraction-class-1-of-4">A Fraction Class (1 of 4)</a></li>
-  <li><a href="#a-fraction-class-2-of-4" id="toc-a-fraction-class-2-of-4" class="nav-link" data-scroll-target="#a-fraction-class-2-of-4">A Fraction Class (2 of 4)</a></li>
-  <li><a href="#a-fraction-class-3-of-4" id="toc-a-fraction-class-3-of-4" class="nav-link" data-scroll-target="#a-fraction-class-3-of-4">A Fraction Class (3 of 4)</a></li>
-  <li><a href="#a-fraction-class-4-of-4" id="toc-a-fraction-class-4-of-4" class="nav-link" data-scroll-target="#a-fraction-class-4-of-4">A Fraction Class (4 of 4)</a></li>
+  <li><a href="#storing-classes-in-modules" id="toc-storing-classes-in-modules" class="nav-link" data-scroll-target="#storing-classes-in-modules">Storing Classes in Modules</a></li>
+  </ul></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
+  <li><a href="#operator-overloading" id="toc-operator-overloading" class="nav-link" data-scroll-target="#operator-overloading">Operator Overloading</a>
+  <ul class="collapse">
+  <li><a href="#the-__str__-method" id="toc-the-__str__-method" class="nav-link" data-scroll-target="#the-__str__-method">The __str__ method</a></li>
+  <li><a href="#common-operators-and-their-methods" id="toc-common-operators-and-their-methods" class="nav-link" data-scroll-target="#common-operators-and-their-methods">Common Operators and Their Methods</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#object-oriented-programming" id="toc-object-oriented-programming" class="nav-link" data-scroll-target="#object-oriented-programming">Object Oriented Programming</a>
+  <ul class="collapse">
+  <li><a href="#a-fraction-class" id="toc-a-fraction-class" class="nav-link" data-scroll-target="#a-fraction-class">A Fraction Class</a></li>
   <li><a href="#mutability" id="toc-mutability" class="nav-link" data-scroll-target="#mutability">Mutability</a></li>
-  <li><a href="#sameness-1-of-4" id="toc-sameness-1-of-4" class="nav-link" data-scroll-target="#sameness-1-of-4">Sameness (1 of 4)</a></li>
-  <li><a href="#sameness-2-of-4" id="toc-sameness-2-of-4" class="nav-link" data-scroll-target="#sameness-2-of-4">Sameness (2 of 4)</a></li>
-  <li><a href="#sameness-3-of-4" id="toc-sameness-3-of-4" class="nav-link" data-scroll-target="#sameness-3-of-4">Sameness (3 of 4)</a></li>
-  <li><a href="#sameness-4-of-4" id="toc-sameness-4-of-4" class="nav-link" data-scroll-target="#sameness-4-of-4">Sameness (4 of 4)</a></li>
+  <li><a href="#sameness" id="toc-sameness" class="nav-link" data-scroll-target="#sameness">Sameness</a></li>
   <li><a href="#shallow-equality" id="toc-shallow-equality" class="nav-link" data-scroll-target="#shallow-equality">Shallow Equality</a></li>
   <li><a href="#deep-equality" id="toc-deep-equality" class="nav-link" data-scroll-target="#deep-equality">Deep Equality</a></li>
   <li><a href="#object-oriented-programming-1" id="toc-object-oriented-programming-1" class="nav-link" data-scroll-target="#object-oriented-programming-1">Object-oriented Programming</a></li>
-  <li><a href="#object-oriented-programming-2" id="toc-object-oriented-programming-2" class="nav-link" data-scroll-target="#object-oriented-programming-2">Object-oriented Programming</a></li>
-  <li><a href="#inheritance-1-of-4" id="toc-inheritance-1-of-4" class="nav-link" data-scroll-target="#inheritance-1-of-4">Inheritance (1 of 4)</a></li>
-  <li><a href="#inheritance-2-of-4" id="toc-inheritance-2-of-4" class="nav-link" data-scroll-target="#inheritance-2-of-4">Inheritance (2 of 4)</a></li>
-  <li><a href="#inheritance-3-of-4" id="toc-inheritance-3-of-4" class="nav-link" data-scroll-target="#inheritance-3-of-4">Inheritance (3 of 4)</a></li>
-  <li><a href="#inheritance-4-of-4" id="toc-inheritance-4-of-4" class="nav-link" data-scroll-target="#inheritance-4-of-4">Inheritance (4 of 4)</a></li>
-  <li><a href="#extending-classes-1-of-2" id="toc-extending-classes-1-of-2" class="nav-link" data-scroll-target="#extending-classes-1-of-2">Extending Classes (1 of 2)</a></li>
-  <li><a href="#extending-classes-2-of-2" id="toc-extending-classes-2-of-2" class="nav-link" data-scroll-target="#extending-classes-2-of-2">Extending Classes (2 of 2)</a></li>
+  <li><a href="#inheritance" id="toc-inheritance" class="nav-link" data-scroll-target="#inheritance">Inheritance</a></li>
+  <li><a href="#extending-classes" id="toc-extending-classes" class="nav-link" data-scroll-target="#extending-classes">Extending Classes</a></li>
   <li><a href="#composition" id="toc-composition" class="nav-link" data-scroll-target="#composition">Composition</a></li>
-  <li><a href="#class-diagrams-1-of-4" id="toc-class-diagrams-1-of-4" class="nav-link" data-scroll-target="#class-diagrams-1-of-4">Class Diagrams (1 of 4)</a></li>
-  <li><a href="#class-diagrams-2-of-4" id="toc-class-diagrams-2-of-4" class="nav-link" data-scroll-target="#class-diagrams-2-of-4">Class Diagrams (2 of 4)</a></li>
-  <li><a href="#class-diagrams-3-of-4" id="toc-class-diagrams-3-of-4" class="nav-link" data-scroll-target="#class-diagrams-3-of-4"><strong>Class Diagrams</strong> (3 of 4)</a></li>
-  <li><a href="#class-diagrams-4-of-4" id="toc-class-diagrams-4-of-4" class="nav-link" data-scroll-target="#class-diagrams-4-of-4">Class Diagrams (4 of 4)</a></li>
   <li><a href="#composition-vs.-inheritance" id="toc-composition-vs.-inheritance" class="nav-link" data-scroll-target="#composition-vs.-inheritance">Composition vs.&nbsp;Inheritance</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -339,290 +351,178 @@ ul.task-list li input[type="checkbox"] {
 <section id="section" class="level2">
 <h2 class="anchored" data-anchor-id="section"></h2>
 </section>
-<section id="introduction-to-objects-and-classes" class="level2">
-<h2 class="anchored" data-anchor-id="introduction-to-objects-and-classes">Introduction to Objects and Classes</h2>
-<p>CSCI – 1056</p>
-<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
-</section>
-<section id="procedural-programming" class="level2">
-<h2 class="anchored" data-anchor-id="procedural-programming">Procedural Programming</h2>
-<ul>
-<li><p><strong>Procedural programming: writing programs made of functions that perform specific tasks</strong></p>
-<ul>
-<li>Procedures typically operate on data items that are separate from the procedures</li>
-<li>Data items commonly passed from one procedure to another</li>
-<li>Focus: to create procedures that operate on the program’s data</li>
-</ul></li>
-</ul>
-</section>
-<section id="object-oriented-programming-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="object-oriented-programming-1-of-4">Object-Oriented Programming (1 of 4)</h2>
-<ul>
-<li><p><strong>Object-oriented programming: focused on creating objects</strong></p></li>
-<li><p><strong>Object: entity that contains data and procedures</strong></p>
-<ul>
-<li><p>Data is known as data attributes and procedures are known as methods</p>
-<ul>
-<li>Methods perform operations on the data attributes</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Encapsulation: combining data and code into a single object</strong></p></li>
-</ul>
-</section>
-<section id="object-oriented-programming-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="object-oriented-programming-2-of-4">Object-Oriented Programming (2 of 4)</h2>
-<p><strong>Figure 10-1</strong> An object contains data attributes and methods</p>
-<p>An illustration depicts the components of an object. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>An object contains data attributes and methods that operate on the data attributes. The data attributes is depicted as small squares and the methods are depicted as circular loops, within the object. Double headed arrows indicate the interaction between the data attributes and the methods.</p>
-</blockquote>
-</section>
-<section id="object-oriented-programming-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="object-oriented-programming-3-of-4">Object-Oriented Programming (3 of 4)</h2>
-<ul>
-<li><p><strong>Data hiding: object’s data attributes are hidden from code outside the object</strong></p>
-<ul>
-<li><p>Access restricted to the object’s methods</p>
-<ul>
-<li>Protects from accidental corruption</li>
-<li>Outside code does not need to know internal structure of the object</li>
-</ul></li>
-</ul></li>
-<li><p><strong>Object reusability: the same object can be used in different programs</strong></p>
-<ul>
-<li>Example: 3D image object can be used for architecture and game programming</li>
-</ul></li>
-</ul>
-</section>
-<section id="object-oriented-programming-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="object-oriented-programming-4-of-4">Object-Oriented Programming (4 of 4)</h2>
-<p><strong>Figure 10-2</strong> Code outside the object interacts with the object’s methods</p>
-<p>An illustration depicts the components of an object and how a code interacts with them from the outside. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>An object contains data attributes and methods that operate on the data attributes. The data attributes is depicted as small squares and the methods are depicted as circular loops, within the object. Double headed arrows indicate the interaction between the data attributes and the methods. The interaction between the code outside the object and the methods is also depicted by double headed arrows.</p>
-</blockquote>
-</section>
+<section id="introduction-to-objects-and-classes" class="level1">
+<h1>Introduction to Objects and Classes</h1>
+<p><strong>Object-oriented programming</strong> is a paradigm that is focused on creating <strong>objects</strong>. Objects are entities that contain data and procedures. This data is known as <strong>attributes</strong> and the procedures are known as <strong>methods</strong>.</p>
+<p>We have been using objects consistently throughout the entire semester as most everything in Python is fundamentally some kind of object.</p>
+<p>The reasoning behind using objects is the idea of <strong>encapsulation</strong>, which is combining both data and code into a single entity. We can then leverage the benefit of <strong>data hiding</strong>, which is where the objet’s data attributes are hidden from code outside the object.</p>
+<p>By restricting access to some components of the object we can protect from accidental corruption and have the benefit that outside code does not need to know anything about the object’s internal structure. This means we are free to change the code inside of the object as long as it still produces the same output.</p>
+<p>Object oriented design also focuses on the idea of reusability, where the same object can then be used in different programs.</p>
 <section id="an-everyday-example-of-an-object" class="level2">
 <h2 class="anchored" data-anchor-id="an-everyday-example-of-an-object">An Everyday Example of an Object</h2>
+<p>Consider the idea of a clock.</p>
+<p>When it comes to defining the state of our clock its <strong>data attributes</strong> would be things like second, minute, hour, day, month, etc.</p>
+<p>We need the ability to manipulate the object, and so we will need methods to do so. The question is, which methods should be accessible to outside code (<strong>public methods</strong>) and which should be exclusive to the object’s internal workings (<strong>private methods</strong>)?</p>
+<p>Public methods would be common tasks that someone could expect to do to use the clock, like setting the time, setting the date, creating an alarm, etc.</p>
+<p>Private methods would be things like how exactly the alarm functions to produce the sound at the correct time. This is not something one needs to know to <strong>use</strong> the clock, so it would be best off as a private method.</p>
+</section>
+<section id="classes" class="level2">
+<h2 class="anchored" data-anchor-id="classes">Classes</h2>
+<p>If we have an idea that we can represent as an object, we can specify a blueprint for it. This is a <strong>class</strong>, which is a collection of specific data attributes and methods for a particular type of object.</p>
+<p>When using a class to create an object, we call the created version an <strong>instance</strong> of the class. The process of creating the object associated with a specific class is called <strong>instantiation</strong>. Since a class is designed to be a blueprint for an object that will be used repeatedly, then it is reasonable to expect that there can be many instances of one class at the same time. This is a true assumption, and Python differentiates different instances of a class by their memory location.</p>
+<section id="class-definitions" class="level3">
+<h3 class="anchored" data-anchor-id="class-definitions">Class Definitions</h3>
+<p>To create a class, we need to define it. A <strong>class definition</strong> is a set of statements that define a class’s methods and data attributes.</p>
+<p>Defining a class is similar to defining a function, we need the appropriate keyword <code>class</code> and the name of the class (by convention this starts with an uppercase letter).</p>
+<pre class="{class Clock:}"><code></code></pre>
+<p>To use initial parameters and define methods we need to use the <code>self</code> parameter. This is a special reference to the specific instance of the class.</p>
+<div id="f82ccb4a" class="cell" data-execution_count="1">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Clock:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, seconds, minutes, hours):</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.seconds <span class="op">=</span> seconds</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.minutes <span class="op">=</span> minutes</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.hours <span class="op">=</span> hours</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>We can see a special initializer method, the constructor for the class. This takes in a single required parameter, <code>self</code>, and for our example, three other parameters passed in during instantiation of the class to the data attributes associated with our specific instance of the class <code>Clock</code>.</p>
+<p>This initializer method is automatically executed when an instance of the class is created and is usually the very first method in a class definition.</p>
+<p>Consider the following class designed to simulate a coin and the ability to toss it. Note that each method in the class has the <code>self</code> parameter.</p>
+<div id="764c6e9a" class="cell" data-execution_count="2">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Coin:</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.sideup <span class="op">=</span> <span class="st">'Heads'</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> toss(<span class="va">self</span>):</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random.randint(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.sideup <span class="op">=</span> <span class="st">'Heads'</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.sideup <span class="op">=</span> <span class="st">'Tails'</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_sideup(<span class="va">self</span>):</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.sideup</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To create a new instance of a class we use the format <code>variable_name = ClassName().</code></p>
+<div id="4c6a76d1" class="cell" data-execution_count="3">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_coin <span class="op">=</span> Coin()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>To call any of the class methods using the created instance we use the dot notation like <code>my_instance.method()</code>. Because the <code>self</code> parameter references the specific instance of the object, the method will affect this instance.</p>
+<div id="c26b7fb3" class="cell" data-execution_count="4">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_coin.get_sideup())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Heads</code></pre>
+</div>
+</div>
+<div id="8fa024a2" class="cell" data-execution_count="5">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_coin.toss()</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_coin.get_sideup())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Tails</code></pre>
+</div>
+</div>
+<p>Note that we do not pass in <code>self</code> as an argument. It is implicit in the structure of the method definition. It needs to be there, but we do not need to concern ourselves with it when using the class.</p>
+</section>
+<section id="hiding-attributes-and-methods" class="level3">
+<h3 class="anchored" data-anchor-id="hiding-attributes-and-methods">Hiding Attributes and Methods</h3>
+<p>A key idea in object oriented programming is that certain components of an object data should be private.</p>
+<p>In Python, this is indicated by placing two underscores (<code>__</code>) in front of an attribute name or a method definition.</p>
+<p>This is our coin class redesigned to better indicate that the data attributes should not be accessed directly from outside the class.</p>
+<div id="8d7b75be" class="cell" data-execution_count="6">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Coin:</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__sideup <span class="op">=</span> <span class="st">'Heads'</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> toss(<span class="va">self</span>):</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random.randint(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.__sideup <span class="op">=</span> <span class="st">'Heads'</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.__sideup <span class="op">=</span> <span class="st">'Tails'</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_sideup(<span class="va">self</span>):</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.__sideup</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Note that we did not apply the double underscores to the <code>toss()</code> and <code>get_sideup()</code> methods. That is because these are designed to be used outside of the class. That is, they are the expected way of interacting with the data attribute <code>__sideup</code> .</p>
+</section>
+<section id="accessor-and-mutator-methods" class="level3">
+<h3 class="anchored" data-anchor-id="accessor-and-mutator-methods">Accessor and Mutator Methods</h3>
+<p>Typically, all of a class’s data attributes are private and provide methods to access and change them. This is a safer way for code outside the class to retrieve or edit the value of attributes.</p>
+<p><strong>Accessor methods</strong> return a value from a class’s attribute without changing it. In our above example, the <code>get_sideup()</code> method is an accessor.</p>
+<p><strong>Mutator methods</strong> store or change the value of a data attribute. In our above example, the <code>toss()</code> method is a mutator.</p>
+<p>Note that class methods can have multiple parameters in addition to <code>self</code>. This is common with mutator methods where we need to provide the new value of an attribute. We also saw this with the initalizer for our Clock class, it took in three different parameters apart from <code>self</code>.</p>
+</section>
+<section id="passing-objects-as-arguments" class="level3">
+<h3 class="anchored" data-anchor-id="passing-objects-as-arguments">Passing Objects as Arguments</h3>
+<p>Methods and functions often need to accept objects as arguments. When you pass an object as an argument, you are actually passing a reference to the object. The receiving method or function has access to the actual object Methods of the object can be called within the receiving function or method, and data attributes may be changed using mutator methods.</p>
+</section>
+<section id="identifying-a-classs-responsibilities" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-a-classs-responsibilities">Identifying a Class’s Responsibilities</h3>
+<p>When it comes to creating a class, a good first step is thinking about what the responsibilities of the class are.</p>
+<p>A classes responsibilities are:</p>
 <ul>
-<li><p><strong>Data attributes: define the state of an object</strong></p>
-<ul>
-<li>Example: clock object would have second, minute, and hour data attributes</li>
-</ul></li>
-<li><p><strong>Public methods: allow external code to manipulate the object</strong></p>
-<ul>
-<li>Example: set_time, set_alarm_time</li>
-</ul></li>
-<li><p><strong>Private methods: used for object’s inner workings</strong></p></li>
+<li><p>The things the class is responsible for knowing which helps identify the class’s data attributes.</p></li>
+<li><p>The actions the class is responsible for doing which helps identify the class’s methods.</p></li>
 </ul>
+<p>To find out a class’s responsibilities look at the problem domain and deduce required information and actions.</p>
 </section>
-<section id="classes-1-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="classes-1-of-3">Classes (1 of 3)</h2>
-<ul>
-<li><p><strong>Class: code that specifies the data attributes and methods of a particular type of object</strong></p>
-<ul>
-<li>Similar to a blueprint of a house or a cookie cutter</li>
-</ul></li>
-<li><p><strong>Instance: an object created from a class</strong></p>
-<ul>
-<li>Similar to a specific house built according to the blueprint or a specific cookie</li>
-<li>There can be many instances of one class</li>
-</ul></li>
-</ul>
+<section id="storing-classes-in-modules" class="level3">
+<h3 class="anchored" data-anchor-id="storing-classes-in-modules">Storing Classes in Modules</h3>
+<p>Classes can be stored in modules for future use using the import statement.</p>
+<p>The rules for doing so are simple and similar to that of variable naming conventions. Additionally, the filename for the module must end in <code>.py</code></p>
 </section>
-<section id="classes-2-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="classes-2-of-3">Classes (2 of 3)</h2>
-<p><strong>Figure 10-3</strong> A blueprint and houses built from the blueprint</p>
-<p>A blueprint that describes a house includes a house plan with a bedroom and a living room. Below the blueprint, similar front views of three instances of the house described by the blueprint are displayed one beside the other.</p>
 </section>
-<section id="classes-3-of-3" class="level2">
-<h2 class="anchored" data-anchor-id="classes-3-of-3">Classes (3 of 3)</h2>
-<p><strong>Figure 10-5</strong> The housefly and mosquito objects are instances of the Insect class</p>
-<p>The insect class points to the housefly object and the mosquito object. The insect class is denoted by a dashed rectangle, while the two objects are denoted by rectangles with solid lines. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The following notes are present beside the insect class and the housefly and mosquito objects. The Insect class describes the data attributes and methods that a particular type of object may have. The housefly object is an instance of the Insect class. It has the data attributes and methods described by the Insect class. The mosquito object is an instance of the Insect class. It has the data attributes and methods described by the Insect class.</p>
-</blockquote>
-</section>
-<section id="class-definitions-1-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="class-definitions-1-of-7">Class Definitions (1 of 7)</h2>
-<ul>
-<li><p><strong>Class definition: set of statements that define a class’s methods and data attributes</strong></p>
-<ul>
-<li><p>Format: begin with class <em>Class_name</em>:</p>
-<ul>
-<li>Class names often start with uppercase letter</li>
-</ul></li>
-<li><p>Method definition like any other python function definition</p>
-<ul>
-<li><strong>self parameter</strong>: required in every method in the class – references the specific object that the method is working on</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="class-definitions-2-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="class-definitions-2-of-7">Class Definitions (2 of 7)</h2>
-<ul>
-<li><p><strong>Initializer method: automatically executed when an instance of the class is created</strong></p>
-<ul>
-<li>Initializes object’s data attributes and assigns self parameter to the object that was just created</li>
-<li>Format: def __init__ (self):</li>
-<li>Usually the first method in a class definition</li>
-</ul></li>
-</ul>
-</section>
-<section id="class-definitions-3-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="class-definitions-3-of-7">Class Definitions (3 of 7)</h2>
-<p>import random</p>
-<p>class Coin:</p>
-<p>def __init__(self):</p>
-<p>self.sideup = ‘Heads’</p>
-<p>def toss(self):</p>
-<p>if random.randint(0, 1) == 0:</p>
-<p>self.sideup = ‘Heads’</p>
-<p>else:</p>
-<p>self.sideup = ‘Tails’</p>
-<p>def get_sideup(self):</p>
-<p>return self.sideup</p>
-</section>
-<section id="class-definitions-4-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="class-definitions-4-of-7">Class Definitions (4 of 7)</h2>
-<ul>
-<li><p><strong>To create a new instance of a class</strong></p>
-<ul>
-<li>Format: <em>variable_name</em> = <em>ClassName</em>()</li>
-</ul></li>
-<li><p><strong>Example:</strong></p></li>
-</ul>
-<p>my_coin = Coin()</p>
-<ul>
-<li><strong>This creates an instance of the class and calls the class’s __init__ method</strong></li>
-</ul>
-</section>
-<section id="class-definitions-5-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="class-definitions-5-of-7">Class Definitions (5 of 7)</h2>
-<p><strong>Figure 10-6</strong> Actions caused by the coin() expression</p>
-<p>An illustration of the actions caused by the coin class. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The steps in the illustration are as follows. Step 1. An object is created in memory from the Coin class. A Coin object that is represented by an empty rectangle points to the pseudo code in the second step. Step 2. The Coin class’s underscore underscore i n i t underscore underscore method is called, and the self parameter is set to the newly created object. The adjoining pseudo code is as follows. Line 1. d e f underscore underscore i n i t underscore underscore left parenthesis self right parenthesis colon. Line 2, indented once. self period side up = open quote Heads close quote. Step 3. After these steps take place, a Coin object will exist with its sideup attribute set to open quote Heads close quote. The empty rectangle of the coin object now contains an arrow that points from side up to open quote Heads close quote.</p>
-</blockquote>
-</section>
-<section id="class-definitions-6-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="class-definitions-6-of-7">Class Definitions (6 of 7)</h2>
-<ul>
-<li><p><strong>To call any of the class methods using the created instance, use dot notation</strong></p>
-<ul>
-<li><p>Format: <em>My_instance</em>.<em>method</em>()</p></li>
-<li><p>Because the self parameter references the specific instance of the object, the method will affect this instance</p>
-<ul>
-<li>Reference to self is passed automatically</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="class-definitions-7-of-7" class="level2">
-<h2 class="anchored" data-anchor-id="class-definitions-7-of-7">Class Definitions (7 of 7)</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>1</th>
-<th>my_coin = Coin()</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>2</td>
-<td>my_coin.toss()</td>
-</tr>
-<tr class="even">
-<td>3</td>
-<td>print(my_coin.get_sideup())</td>
-</tr>
-</tbody>
-</table>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Line 1:</th>
-<th>Creates an instance of the Coin class and executes the __init__ method. A reference to the object is assigned to the my_coin variable.</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Line 2:</td>
-<td>Calls the my_coin object’s toss method.</td>
-</tr>
-<tr class="even">
-<td>Line 3:</td>
-<td>Calls the the my_coin object’s get_sideup method and displays the value it returns.</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="hiding-attributes-and-storing-classes-in-modules" class="level2">
-<h2 class="anchored" data-anchor-id="hiding-attributes-and-storing-classes-in-modules">Hiding Attributes and Storing Classes in Modules</h2>
-<ul>
-<li><p><strong>An object’s data attributes should be private</strong></p>
-<ul>
-<li><p>To make sure of this, place two underscores (__) in front of attribute name</p>
-<ul>
-<li>Example: __sideup</li>
-</ul></li>
-</ul></li>
-<li><p>Classes can be stored in modules</p>
-<ul>
-<li>Filename for module must end in .py</li>
-<li>Module can be imported to programs that use the class</li>
-</ul></li>
-</ul>
-</section>
-<section id="the-bankaccount-class-more-about-classes" class="level2">
-<h2 class="anchored" data-anchor-id="the-bankaccount-class-more-about-classes">The BankAccount Class – More About Classes</h2>
-<ul>
-<li><p><strong>Class methods can have multiple parameters in addition to self</strong></p>
-<ul>
-<li><p>For __init__, parameters needed to create an instance of the class</p>
-<ul>
-<li><p>Example: a BankAccount object is created with a balance</p>
-<ul>
-<li>When called, the initializer method receives a value to be assigned to a __balance attribute</li>
-</ul></li>
-</ul></li>
-<li><p>For other methods, parameters needed to perform required task</p>
-<ul>
-<li>Example: deposit method amount to be deposited</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="the-__str__-method" class="level2">
-<h2 class="anchored" data-anchor-id="the-__str__-method">The __str__ method</h2>
-<ul>
-<li><p><strong>Object’s state: the values of the object’s attribute at a given moment</strong></p></li>
-<li><p><strong>__str__ method: displays the object’s state</strong></p>
-<ul>
-<li>Automatically called when the object is passed as an argument to the print function</li>
-<li>Automatically called when the object is passed as an argument to the str function</li>
-</ul></li>
-</ul>
+<section id="section-1" class="level2">
+<h2 class="anchored" data-anchor-id="section-1"></h2>
 </section>
 <section id="operator-overloading" class="level2">
 <h2 class="anchored" data-anchor-id="operator-overloading">Operator Overloading</h2>
-<ul>
-<li><p>Python has a powerful feature that allows a designer of a class to decide what an operation like == or &lt; should mean.</p></li>
-<li><p>With operator overloading, you can define what these operators do for objects of your own class.</p></li>
-<li><p>For example, the == operator calls the special method __eq__() behind the scenes.</p>
-<ul>
-<li>You can override this method in your class to change the behavior of the == operator.</li>
-</ul></li>
-<li><p>This is useful for classes representing mathematical or data structures like our Fraction class.</p></li>
-</ul>
+<p>Python has a powerful feature that allows a designer of a class to decide what an operation like =<code>=</code> or <code>&lt;</code> should mean. This is called <strong>operator overloading</strong>. With operator overloading, you can define what these operators do for objects of your own class.</p>
+<p>For example, the =<code>=</code> operator calls the special method <code>__eq__()</code> behind the scenes. You can override this method in your class to change the behavior of the <code>==</code> operator. This is useful for classes representing mathematical or data structures.</p>
+<section id="the-__str__-method" class="level3">
+<h3 class="anchored" data-anchor-id="the-__str__-method">The __str__ method</h3>
+<p>The __<code>str__</code> method is one of the most commonly overloaded methods. This method is automatically called when the object is passed as an argument to the <code>print</code> function or the <code>str</code> function.</p>
+<div id="bbc1c7f3" class="cell" data-execution_count="7">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>my_coin <span class="op">=</span> Coin()</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_coin)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;__main__.Coin object at 0x10e8081a0&gt;</code></pre>
+</div>
+</div>
+<p>Note that the output of the print function for this instance of the <code>Coin</code> class is just a memory address. This may not be what we want for the default string representation of our coin.</p>
+<p>Instead, we could use the value of the <code>sideup</code> attribute to see what the coin represents.</p>
+<div id="968ec43c" class="cell" data-execution_count="8">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Coin:</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>):</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.__sideup <span class="op">=</span> <span class="st">'Heads'</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> toss(<span class="va">self</span>):</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> random.randint(<span class="dv">0</span>, <span class="dv">1</span>) <span class="op">==</span> <span class="dv">0</span>:</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.__sideup <span class="op">=</span> <span class="st">'Heads'</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            <span class="va">self</span>.__sideup <span class="op">=</span> <span class="st">'Tails'</span></span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> get_sideup(<span class="va">self</span>):</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.__sideup</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.get_sideup()</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>my_coin <span class="op">=</span> Coin()</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_coin)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Heads</code></pre>
+</div>
+</div>
 </section>
-<section id="common-operators-and-their-methods" class="level2">
-<h2 class="anchored" data-anchor-id="common-operators-and-their-methods">Common Operators and Their Methods</h2>
+<section id="common-operators-and-their-methods" class="level3">
+<h3 class="anchored" data-anchor-id="common-operators-and-their-methods">Common Operators and Their Methods</h3>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 20%">
@@ -695,364 +595,165 @@ ul.task-list li input[type="checkbox"] {
 </tbody>
 </table>
 </section>
-<section id="working-with-instances" class="level2">
-<h2 class="anchored" data-anchor-id="working-with-instances">Working With Instances</h2>
-<ul>
-<li><p><strong>Instance attribute: belongs to a specific instance of a class</strong></p>
-<ul>
-<li>Created when a method uses the self parameter to create an attribute</li>
-</ul></li>
-<li><p><strong>If many instances of a class are created, each would have its own set of attributes</strong></p></li>
-</ul>
 </section>
-<section id="three-coin-objects" class="level2">
-<h2 class="anchored" data-anchor-id="three-coin-objects">Three Coin Objects</h2>
-<p><strong>Figure 10-8</strong> The coin1 , coin2, and coin3 variables reference three coin objects</p>
-<p>Three variables point to three coin objects, respectively. For long description in Notes pane, press F6.</p>
-<p><strong>Figure 10-9</strong> The objects after the toss method</p>
-<p>Three variables point to three coin objects, respectively. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>coin 1 points to a coin object, in which underscore underscore side up points to open quote Heads close quote. coin 2 points to a coin object, in which underscore underscore side up points to open quote Heads close quote. coin 3 points to a coin object, in which underscore underscore side up points to open quote Heads close quote.</p>
-<p>coin 1 points to a coin object, in which underscore underscore side up points to open quote Tails close quote. coin 2 points to a coin object, in which underscore underscore side up points to open quote Tails close quote. coin 3 points to a coin object, in which underscore underscore side up points to open quote Heads close quote.</p>
-</blockquote>
 </section>
-<section id="accessor-and-mutator-methods" class="level2">
-<h2 class="anchored" data-anchor-id="accessor-and-mutator-methods">Accessor and Mutator Methods</h2>
-<ul>
-<li><p><strong>Typically, all of a class’s data attributes are private and provide methods to access and change them</strong></p></li>
-<li><p><strong>Accessor methods: return a value from a class’s attribute without changing it</strong></p>
-<ul>
-<li>Safe way for code outside the class to retrieve the value of attributes</li>
-</ul></li>
-<li><p><strong>Mutator methods: store or change the value of a data attribute</strong></p></li>
-</ul>
-</section>
-<section id="passing-objects-as-arguments" class="level2">
-<h2 class="anchored" data-anchor-id="passing-objects-as-arguments">Passing Objects as Arguments</h2>
-<ul>
-<li><p><strong>Methods and functions often need to accept objects as arguments</strong></p></li>
-<li><p><strong>When you pass an object as an argument, you are actually passing a reference to the object</strong></p>
-<ul>
-<li><p>The receiving method or function has access to the actual object</p>
-<ul>
-<li>Methods of the object can be called within the receiving function or method, and data attributes may be changed using mutator methods</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="techniques-for-designing-classes" class="level2">
-<h2 class="anchored" data-anchor-id="techniques-for-designing-classes">Techniques for Designing Classes</h2>
-<ul>
-<li><p><strong>U M L diagram: standard diagrams for graphically depicting object-oriented systems</strong></p>
-<ul>
-<li>Stands for Unified Modeling Language</li>
-</ul></li>
-<li><p><strong>General layout: box divided into three sections:</strong></p>
-<ul>
-<li>Top section: name of the class</li>
-<li>Middle section: list of data attributes</li>
-<li>Bottom section: list of class methods</li>
-</ul></li>
-</ul>
-</section>
-<section id="u-m-l-diagrams" class="level2">
-<h2 class="anchored" data-anchor-id="u-m-l-diagrams">U M L Diagrams</h2>
-<p><strong>Figure 10-10</strong> General layout of a U M L diagram for a class</p>
-<p>The U M L class diagram is depicted as a table with a single column, without a header, and three rows. The class name goes in the first row, the data attributes are listed in the second row, and the methods are listed in the third row.</p>
-<p><strong>Figure 10-11</strong> U M L diagram for the coin class</p>
-<p>The U M L diagram for the coin class. For long description in Notes pane, press F6.</p>
-<blockquote class="blockquote">
-<p>The U M L class diagram is depicted as a table with a single column, without a header, and three rows. The class name, coin, is present in the first row. The attribute listed in the second row is underscore underscore side up. The methods listed in the third row are underscore underscore i n i t underscore underscore left parenthesis right parenthesis, toss left parenthesis right parenthesis, and get underscore side up left parenthesis right parenthesis.</p>
-</blockquote>
-</section>
-<section id="identifying-a-classs-responsibilities" class="level2">
-<h2 class="anchored" data-anchor-id="identifying-a-classs-responsibilities">Identifying a Class’s Responsibilities</h2>
-<ul>
-<li><p><strong>A classes responsibilities are:</strong></p>
-<ul>
-<li><p>The things the class is responsible for knowing</p>
-<ul>
-<li>Identifying these helps identify the class’s data attributes</li>
-</ul></li>
-<li><p>The actions the class is responsible for doing</p>
-<ul>
-<li>Identifying these helps identify the class’s methods</li>
-</ul></li>
-</ul></li>
-<li><p><strong>To find out a class’s responsibilities look at the problem domain</strong></p>
-<ul>
-<li>Deduce required information and actions</li>
-</ul></li>
-</ul>
-</section>
-<section id="object-oriented-programming" class="level2">
-<h2 class="anchored" data-anchor-id="object-oriented-programming">Object Oriented Programming</h2>
-<p>CSCI – 1056</p>
-<p>Content Modified from Pearson’s Starting Out with Python 6th Edition</p>
-</section>
-<section id="a-fraction-class-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="a-fraction-class-1-of-4">A Fraction Class (1 of 4)</h2>
-<ul>
-<li>We can change the state of an object by making an assignment to one of its instance variables.</li>
-<li>Consider the fraction class seen in 18.1 of the text.</li>
-</ul>
-<p>class Fraction:</p>
-<p>def __init__(self, top, bottom):</p>
-<p>self.num = top # the numerator is on top</p>
-<p>self.den = bottom # the denominator is on the bottom</p>
-<p>def __str__(self):</p>
-<p>return str(self.num) + “/” + str(self.den)</p>
-<p>def getNum(self):</p>
-<p>return self.num</p>
-<p>def getDen(self):</p>
-<p>return self.den</p>
-</section>
-<section id="a-fraction-class-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="a-fraction-class-2-of-4">A Fraction Class (2 of 4)</h2>
-<ul>
-<li>The <em>state</em> of a fraction object can be completely described by representing two integers, the numerator and the denominator</li>
-</ul>
-<p>class Fraction:</p>
-<p>def __init__(self, top, bottom):</p>
-<p>self.num = top # the numerator is on top</p>
-<p>self.den = bottom # the denominator is on the bottom</p>
-<p>def __str__(self):</p>
-<p>return str(self.num) + “/” + str(self.den)</p>
-<p>def getNum(self):</p>
-<p>return self.num</p>
-<p>def getDen(self):</p>
-<p>return self.den</p>
-</section>
-<section id="a-fraction-class-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="a-fraction-class-3-of-4">A Fraction Class (3 of 4)</h2>
-<p>myfraction = Fraction(3, 4)</p>
-<p>print(myfraction)</p>
-<p>&gt;&gt;&gt; 3 / 4</p>
-<p>print(myfraction.getNum())</p>
-<p>&gt;&gt;&gt; 3</p>
-<p>print(myfraction.getDen())</p>
-<p>&gt;&gt;&gt; 4</p>
-</section>
-<section id="a-fraction-class-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="a-fraction-class-4-of-4">A Fraction Class (4 of 4)</h2>
-<ul>
-<li>Note that the __str__ method provides a “typical” looking fraction using a slash between the numerator and denominator.</li>
-<li>The figure below shows the state of <strong>myfraction</strong>. The accessor methods, <strong>getNum</strong> and <strong>getDen</strong>, can return the state values for the fraction.</li>
-</ul>
+<section id="object-oriented-programming" class="level1">
+<h1>Object Oriented Programming</h1>
+<section id="a-fraction-class" class="level2">
+<h2 class="anchored" data-anchor-id="a-fraction-class">A Fraction Class</h2>
+<p>We can change the state of an object by making an assignment to one of its instance variables.</p>
+<p>Consider the fraction class seen in 18.1 of our text.</p>
+<div id="1f195138" class="cell" data-execution_count="9">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Fraction:</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, top, bottom):</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.num <span class="op">=</span> top <span class="co"># the numerator is on top</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.den <span class="op">=</span> bottom <span class="co"># the denominator is on the bottom</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">str</span>(<span class="va">self</span>.num) <span class="op">+</span> <span class="st">"/"</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.den)</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> getNum(<span class="va">self</span>):</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.num</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> getDen(<span class="va">self</span>):</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.den</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <strong>state</strong> of a fraction object can be completely described by representing two integers, the numerator and the denominator</p>
+<div id="5c541cc7" class="cell" data-execution_count="10">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>myfraction <span class="op">=</span> Fraction(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3/4</code></pre>
+</div>
+</div>
+<div id="60b30fb7" class="cell" data-execution_count="11">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction.getNum())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>3</code></pre>
+</div>
+</div>
+<div id="3d777ef5" class="cell" data-execution_count="12">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction.getDen())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>4</code></pre>
+</div>
+</div>
+<p>Note that the <code>__str__</code> method provides a “typical” looking fraction using a slash between the numerator and denominator.</p>
 </section>
 <section id="mutability" class="level2">
 <h2 class="anchored" data-anchor-id="mutability">Mutability</h2>
-<ul>
-<li>We can change the state of an object by making an assignment to one of its instance variables.</li>
-<li>For example, we could change the numerator of the fraction by assigning a new value to self.num.</li>
-<li>Likewise, we could do the same thing for self.den.</li>
-<li>These methods are <strong>mutators</strong> because they mutate or change the internal state of our Fraction object.</li>
-</ul>
+<p>We can change the state of an object by making an assignment to one of its instance variables. For example, we could change the numerator of the fraction by assigning a new value to <code>self.num</code>. Likewise, we could do the same thing for <code>self.den</code>.</p>
+<p>These methods are <strong>mutators</strong> because they mutate or change the internal state of our <code>Fraction</code> object.</p>
 </section>
-<section id="sameness-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="sameness-1-of-4">Sameness (1 of 4)</h2>
-<ul>
-<li><p>If two Fraction objects are the same, what does that actually mean?</p>
+<section id="sameness" class="level2">
+<h2 class="anchored" data-anchor-id="sameness">Sameness</h2>
+<p>If two <code>Fraction</code> objects are the same, what does that actually mean?</p>
 <ul>
 <li>Do they represent the same number?</li>
 <li>Are they both the same object?</li>
-</ul></li>
-<li><p>We can use the <strong>is</strong> operator to find out if two references refer to the same object.</p></li>
 </ul>
-</section>
-<section id="sameness-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="sameness-2-of-4">Sameness (2 of 4)</h2>
-<p>myfraction = Fraction(3, 4)</p>
-<p>yourfraction = Fraction(3, 4)</p>
-<p>print(myfraction is yourfraction)</p>
-<p>&gt;&gt;&gt; False</p>
-<p>ourfraction = myfraction</p>
-<p>print(myfraction is ourfraction)</p>
-<p>&gt;&gt;&gt; True</p>
-</section>
-<section id="sameness-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="sameness-3-of-4">Sameness (3 of 4)</h2>
-<ul>
-<li>Even though <strong>myfraction</strong> and <strong>yourfraction</strong> refer to the same rational number, they are not the same object.</li>
-</ul>
-</section>
-<section id="sameness-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="sameness-4-of-4">Sameness (4 of 4)</h2>
-<ul>
-<li>If we assign <strong>myfraction</strong> to <strong>ourfraction</strong>, then the two variables are aliases of the same object.</li>
-</ul>
+<p>We can use the <code>is</code> operator to find out if two references refer to the same object.</p>
+<div id="77d2e5a7" class="cell" data-execution_count="13">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>myfraction <span class="op">=</span> Fraction(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>yourfraction <span class="op">=</span> Fraction(<span class="dv">3</span>, <span class="dv">4</span>)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction <span class="kw">is</span> yourfraction)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>False</code></pre>
+</div>
+</div>
+<div id="23afdd2b" class="cell" data-execution_count="14">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ourfraction <span class="op">=</span> myfraction</span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction <span class="kw">is</span> ourfraction)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>True</code></pre>
+</div>
+</div>
+<p>Even though <code>myfraction</code> and <code>yourfraction</code> refer to the same rational number, they are not the same object. If we assign <code>myfraction</code> to <code>ourfraction</code>, then the two variables are aliases of the same object.</p>
 </section>
 <section id="shallow-equality" class="level2">
 <h2 class="anchored" data-anchor-id="shallow-equality">Shallow Equality</h2>
-<ul>
-<li>This type of equality is called <strong>shallow equality</strong> because it compares only the references (i.e., the memory locations), not the contents of the objects.</li>
-<li>Using the == operator to check equality between two user defined objects will return the shallow equality result.</li>
-<li>In other words, the Fraction objects are equal (==) if they are the same object.</li>
-</ul>
+<p>This type of equality is called <strong>shallow equality</strong> because it compares only the references (i.e., the memory locations), not the contents of the objects.</p>
+<p>Using the =<code>=</code> operator to check equality between two user defined objects will return the shallow equality result. In other words, the <code>Fraction</code> objects are equal (<code>==</code>) if they are the same object.</p>
 </section>
 <section id="deep-equality" class="level2">
 <h2 class="anchored" data-anchor-id="deep-equality">Deep Equality</h2>
-<ul>
-<li>We could define equality to mean the fractions are the same in that they represent the same rational number.</li>
-<li>This type of equality is known as <strong>deep equality</strong> since it compares the values “deep” in the object, not just the reference to the object.</li>
-<li>If two variables refer to the same object, they have both shallow and deep equality.</li>
-</ul>
+<p>We could define equality to mean the fractions are the same in that they represent the same rational number. This type of equality is known as <strong>deep equality</strong> since it compares the values “deep” in the object, not just the reference to the object.</p>
+<p>If two variables refer to the same object, they have both shallow and deep equality.</p>
 </section>
 <section id="object-oriented-programming-1" class="level2">
 <h2 class="anchored" data-anchor-id="object-oriented-programming-1">Object-oriented Programming</h2>
-<ul>
-<li><p>Object-oriented programming involves four key ideas: encapsulation, information hiding, inheritance, and polymorphism.</p></li>
-<li><p><strong>Encapsulation</strong> is the idea that a class can package some data together with the methods that manipulate the data.</p>
-<ul>
-<li>This is a powerful capability, and the chief idea that distinguishes OOP from structured programming.</li>
-</ul></li>
-</ul>
+<p>Object-oriented programming involves four key ideas: encapsulation, information hiding, inheritance, and polymorphism. We have already discussed encapsulation and information hiding and will now cover inheritance and polymorphism.</p>
+<p><strong>Inheritance</strong> and <strong>polymorphism</strong> are mechanisms that help to enable code reuse and contract-based programming.</p>
 </section>
-<section id="object-oriented-programming-2" class="level2">
-<h2 class="anchored" data-anchor-id="object-oriented-programming-2">Object-oriented Programming</h2>
-<ul>
-<li><strong>Information Hiding</strong> promotes quality code by allowing objects to protect their state against direct manipulation by code using the object.</li>
-<li>Python, like many languages, provides mechanisms to achieve information hiding, but we do not cover them in this course.</li>
-<li><strong>Inheritance</strong> and <strong>polymorphism</strong> are mechanisms that help to enable code reuse and contract-based programming.</li>
-</ul>
+<section id="inheritance" class="level2">
+<h2 class="anchored" data-anchor-id="inheritance">Inheritance</h2>
+<p>Recall the <code>Point</code> class from earlier in our textbook:</p>
+<div id="286c8547" class="cell" data-execution_count="15">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY):</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> initX</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> initY</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> distanceFromOrigin(<span class="va">self</span>):</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> ((<span class="va">self</span>.x <span class="op">**</span> <span class="dv">2</span>) <span class="op">+</span> (<span class="va">self</span>.y <span class="op">**</span> <span class="dv">2</span>)) <span class="op">**</span> <span class="fl">0.5</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"x="</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.x) <span class="op">+</span> <span class="st">", y="</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.y)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Now, suppose we want to create a class that works like <code>Point</code> in every respect, but also keeps track of a short description for the point.</p>
+<p>We could create a <code>LabeledPoint</code> class by copying and pasting the definition for <code>Point</code>, changing the name to <code>LabeledPoint</code>, and modifying the class to suit our purposes. However, any time you copy and paste code, keep in mind that you are copying and pasting bugs that may exist in the code. Inheritance provides a way to reuse the definition of <code>Point</code> without having to copy and paste.</p>
+<p>This example defines a class named <code>LabeledPoint</code> that inherits from the <code>Point</code> class.</p>
+<div id="45b2f81e" class="cell" data-execution_count="16">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LabeledPoint(Point):</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY, label):</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.x <span class="op">=</span> initX</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.y <span class="op">=</span> initY</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.label <span class="op">=</span> label</span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__str__</span>(<span class="va">self</span>):</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">"x="</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.x) <span class="op">+</span> <span class="st">", y="</span> <span class="op">+</span> <span class="bu">str</span>(<span class="va">self</span>.y) <span class="op">+</span> <span class="st">" ("</span> <span class="op">+</span> <span class="va">self</span>.label <span class="op">+</span> <span class="st">")"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Putting the name <code>Point</code> in parenthesis tells Python that the new class, <code>LabeledPoint</code>, begins with all of the methods defined in its parent, <code>Point</code>.</p>
+<p><code>class LabeledPoint(Point):</code></p>
+<p>We have also redefined two of the methods that <code>LabeledPoint</code> inherits from <code>Point</code>: <code>__init__()</code> and <code>__str__()</code>. This is called <strong>overriding</strong>. When a child class redefines methods that are defined in its parent, we say that the child <strong>overrides</strong> the functionality inherited from its parent.</p>
 </section>
-<section id="inheritance-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="inheritance-1-of-4">Inheritance (1 of 4)</h2>
-<ul>
-<li>Recall the Point class from earlier in the textbook:</li>
-</ul>
-<p>class Point:</p>
-<p>def __init__(self, initX, initY):</p>
-<p>self.x = initX</p>
-<p>self.y = initY</p>
-<p>def distanceFromOrigin(self):</p>
-<p>return ((self.x ** 2) + (self.y ** 2)) ** 0.5</p>
-<p>def __str__(self):</p>
-<p>return “x=” + str(self.x) + “, y=” + str(self.y)</p>
-</section>
-<section id="inheritance-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="inheritance-2-of-4">Inheritance (2 of 4)</h2>
-<ul>
-<li>Now, suppose we want to create a class that works like <strong>Point</strong> in every respect, but also keeps track of a short description for the point.</li>
-<li>We could create a <strong>LabeledPoint</strong> class by copying and pasting the definition for Point, changing the name to <strong>LabeledPoint</strong>, and modifying the class to suit our purposes.</li>
-<li>However, any time you copy and paste code, keep in mind that you are copying and pasting bugs that may exist in the code.</li>
-<li>Inheritance provides a way to reuse the definition of <strong>Point</strong> without having to copy and paste.</li>
-</ul>
-<p>class LabeledPoint(Point):</p>
-<p>def __init__(self, initX, initY, label):</p>
-<p>self.x = initX</p>
-<p>self.y = initY</p>
-<p>self.label = label</p>
-<p>def __str__(self):</p>
-<p>return “x=” + str(self.x) + “, y=” + str(self.y) + ” (” + self.label + “)”</p>
-</section>
-<section id="inheritance-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="inheritance-3-of-4">Inheritance (3 of 4)</h2>
-<ul>
-<li>This example defines a class named <strong>LabeledPoint</strong> that inherits from the <strong>Point</strong> class.</li>
-</ul>
-<p>class LabeledPoint(Point):</p>
-<ul>
-<li>Putting the name <strong>Point</strong> in parenthesis tells Python that the new class, <strong>LabeledPoint</strong>, begins with all of the methods defined in its parent, <strong>Point</strong>.</li>
-</ul>
-</section>
-<section id="inheritance-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="inheritance-4-of-4">Inheritance (4 of 4)</h2>
-<ul>
-<li><p>Here, we have redefined two of the methods that LabeledPoint inherits from Point: __init__() and __str__().</p>
-<ul>
-<li>This is called <em>overriding</em>.</li>
-</ul></li>
-<li><p>When a child class redefines methods that are defined in its parent, we say that the child <em>overrides</em> the functionality inherited from its parent.</p></li>
-</ul>
-<p>def __init__(self, initX, initY, label):</p>
-<p>self.x = initX</p>
-<p>self.y = initY</p>
-<p>self.label = label</p>
-</section>
-<section id="extending-classes-1-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="extending-classes-1-of-2">Extending Classes (1 of 2)</h2>
-<ul>
-<li>For the __init__ methods of Point and LabeledPoint, there is some duplication–the initialization of x and y.</li>
-<li>We can eliminate the duplication by having LabeledPoint’s __init__() method invoke Point’s __init__() method.</li>
-<li>That way, each class will be responsible for initializing its own instance variables.</li>
-</ul>
-</section>
-<section id="extending-classes-2-of-2" class="level2">
-<h2 class="anchored" data-anchor-id="extending-classes-2-of-2">Extending Classes (2 of 2)</h2>
-<ul>
-<li><p>A method in a child class that overrides a method in the parent can invoke the overridden method using super(), like this:</p></li>
-<li><p>In this example, line 4 invokes the __init__() method in Point, passing the values of initX and initY to be used in initializing the x and y instance variables.</p></li>
-</ul>
-<p>class LabeledPoint(Point):</p>
-<p>def __init__(self, initX, initY, label):</p>
-<p>super().__init__(initX, initY)</p>
-<p>self.label = label</p>
+<section id="extending-classes" class="level2">
+<h2 class="anchored" data-anchor-id="extending-classes">Extending Classes</h2>
+<p>For the <code>__init__</code> methods of <code>Point</code> and <code>LabeledPoint</code>, there is some duplication, the initialization of <code>x</code> and <code>y</code>.</p>
+<p>We can eliminate the duplication by having <code>LabeledPoint</code>’s <code>__init__()</code> method invoke Point’s <code>__init__()</code> method. That way, each class will be responsible for initializing its own instance variables.</p>
+<p>A method in a child class that overrides a method in the parent can invoke the overridden method using <code>super()</code>.</p>
+<p>In this example, line 4 invokes the <code>__init__()</code> method in Point, passing the values of <code>initX</code> and <code>initY</code> to be used in initializing the <code>x</code> and <code>y</code> instance variables.</p>
+<div id="2ec1c81a" class="cell" data-execution_count="17">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LabeledPoint(Point):</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY, label):</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">super</span>().<span class="fu">__init__</span>(initX, initY)</span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.label <span class="op">=</span> label</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="composition" class="level2">
 <h2 class="anchored" data-anchor-id="composition">Composition</h2>
-<ul>
-<li>Inheritance is not the only way to reuse code.</li>
-<li><strong>Composition</strong> occurs when an object stores a reference to one or more objects in one of its instance variables.</li>
-<li>The object is thus able to reuse code in the objects it embeds within itself.</li>
-</ul>
-<p>class LabeledPoint(Point):</p>
-<p>def __init__(self, initX, initY, label):</p>
-<p>self.point = Point(initX, initY)</p>
-<p>self.label = label</p>
-</section>
-<section id="class-diagrams-1-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="class-diagrams-1-of-4">Class Diagrams (1 of 4)</h2>
-<ul>
-<li>When two classes are involved in an inheritance or composition relationship, we say that an association exists between them.</li>
-<li>Often it is helpful to depict the associations between classes on a graphical diagram, so that developers working on the code can see immediately how the classes are related to each other.</li>
-</ul>
-</section>
-<section id="class-diagrams-2-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="class-diagrams-2-of-4">Class Diagrams (2 of 4)</h2>
-<ul>
-<li><p>The <strong><em>Unified Modeling Language</em></strong> (UML) is a graphical notation that provides a standard for depicting classes and their associations on various types of diagrams.</p>
-<ul>
-<li>Class diagrams are one of the most common UML diagrams.</li>
-</ul></li>
-<li><p>Class diagrams can contain several different elements, but we will focus on the basics: depicting classes with their instance variables and methods, and relationships to other classes.</p></li>
-</ul>
-</section>
-<section id="class-diagrams-3-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="class-diagrams-3-of-4"><strong>Class Diagrams</strong> (3 of 4)</h2>
-<ul>
-<li><p>On a UML class diagram, a class is depicted as a rectangle with three sections.</p>
-<ul>
-<li>The top section contains the class name</li>
-<li>The middle section, the instance variables</li>
-<li>The bottom section, the methods.</li>
-</ul></li>
-<li><p>The diagram shows the classes <strong>Point</strong> and <strong>LabeledPoint</strong> in their original inheritance relationship.</p></li>
-</ul>
-<p>UML diagram showing class inheritance</p>
-</section>
-<section id="class-diagrams-4-of-4" class="level2">
-<h2 class="anchored" data-anchor-id="class-diagrams-4-of-4">Class Diagrams (4 of 4)</h2>
-<ul>
-<li>To depict composition, UML uses a different type of association, as shown in this figure:</li>
-</ul>
-<p>UML diagram showing composition</p>
+<p>Inheritance is not the only way to reuse code. <strong>Composition</strong> occurs when an object stores a reference to one or more objects in one of its instance variables. The object is then able to reuse code in the objects it embeds within itself.</p>
+<div id="2c7f14ed" class="cell" data-execution_count="18">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LabeledPoint(Point):</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY, label):</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.point <span class="op">=</span> Point(initX, initY) <span class="co">#The class Point is referenced in the LabelPoint class instance variable point</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.label <span class="op">=</span> label</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
 <section id="composition-vs.-inheritance" class="level2">
 <h2 class="anchored" data-anchor-id="composition-vs.-inheritance">Composition vs.&nbsp;Inheritance</h2>
-<ul>
-<li><p>Now you have seen two ways for a class to reuse code in another class.</p></li>
-<li><p>When do you use inheritance, and when is composition the better choice?</p></li>
-<li><p>Composition is usually a better choice than inheritance to reuse code.</p></li>
-<li><p>Inheritance is appropriate when the proposed child class (the one reusing the functionality in its parent) represents a <em>specialization</em> of its parent.</p></li>
-<li><p>Class A is a specialization of Class B if class A represents a specific type of class B.</p></li>
-<li><p>This is generally the case if you can fill in the following sentence with the names of the proposed child and parent classes.</p>
-<ul>
-<li><strong>(child class) is a type of (parent class).</strong></li>
-</ul></li>
-</ul>
+<p>We have seen two ways for a class to reuse code in another class. But hen do you use inheritance, and when is composition the better choice?</p>
+<p>Composition, in general, is usually a better choice than inheritance to reuse code. Inheritance is appropriate when the proposed child class (the one reusing the functionality in its parent) represents a <em>specialization</em> of its parent. That is, class A is a specialization of class B if class A represents a specific type of class B. This is generally the case if you can fill in the following sentence with the names of the proposed child and parent classes: <strong>(child class) is a type of (parent class)</strong>.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
