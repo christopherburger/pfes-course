@@ -17,7 +17,7 @@ Repetition structures are generally implemented in what are called loops. There 
 
 - Count-controlled which repeats a specific number of times
 
-## The `for` Loop
+## The `for` Loop$
 
 A `for` loop is a count-controlled loop. During initialization, it is set to iterate a fixed maximum number of times. We will see later on how we can skip iterations or end the loop prematurely but we can never increase the number of times the loop iterates. This is `not` much of a limitation as for loops are designed to work with a sequence of data items and so the loop needs to iterate for each item in the sequence.
 
@@ -71,131 +71,56 @@ for i in [1,2,3,4,5,6,7,8,9,10]:
 
 ## Using the range Function With the for Loop
 
-- **The range function simplifies the process of writing a for loop**
+The range function returns an **iterable** object, which is a type of object that contains a sequence of values that can be stepped through value by value (iterated over).
 
-  - range returns an iterable object
+In the most fundamental case, the range function produces an object that is mapped to the integers 0 to $n-1$ where $n$ is the ending limit that is specified by the user.
 
-    - **Iterable**: contains a sequence of values that can be iterated over
+When we think back to indexing of lists and similar structures, this ordering is exactly how we progress from the first element to the last.
 
-- **range characteristics:**
+The range function has the capacity to alter its progression and this is controlled by the number of arguments passed into the function.
 
   - One argument: used as ending limit
   - Two arguments: starting value and ending limit
   - Three arguments: third argument is step value
 
-## Example – One Argument
+### One Argument
 
+```{python}
 for num in range(5):
+  print(num)
+```
 
-print(num)
 
-0
+Note that the ending limit is excluded in the output of the code above.
 
-1
 
-2
+### Two Arguments
 
-3
+The starting value is by default 0 and by specifying a second argument, the first argument passed in will become the new starting value.
 
-4
-
-for num in \[1,2,3,4,5\]:
-
-print(num)
-
-1
-
-2
-
-3
-
-4
-
-5
-
-## Example – Two Arguments
-
+```{python}
 for num in range(1,5):
+  print(num)
+```
 
-print(num)
 
-1
+While we always start at the value specified, if we want to include the ending limit, we need to go one step further.
 
-2
-
-3
-
-4
-
-for num in \[1,2,3,4,5\]:
-
-print(num)
-
-1
-
-2
-
-3
-
-4
-
-5
-
-## Example – Two Arguments
-
+```{python}
 for num in range(1,6):
+  print(num)
+```
 
-print(num)
 
-1
+### Three Arguments
 
-2
+If we specify a third argument, the final arguement becomes the step size. By default this is set to 1.
 
-3
-
-4
-
-5
-
-for num in \[1,2,3,4,5\]:
-
-print(num)
-
-1
-
-2
-
-3
-
-4
-
-5
-
-## Example – Three Arguments
-
+```{python} 
 for num in range(2,9,2):
+  print(num)
+```
 
-print(num)
-
-2
-
-4
-
-6
-
-8
-
-for num in \[2,4,6,8\]:
-
-print(num)
-
-2
-
-4
-
-6
-
-8
 
 ## Practice
 
