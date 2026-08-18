@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2: Variables Arithmetic Basic I/O – Programming for Engineers and Scientists</title>
+<title>2: Variable, Arithmeti and Basic I/O – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -106,6 +106,49 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css">
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../custom.css">
 </head>
@@ -119,7 +162,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variables Arithmetic Basic I/O</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variable, Arithmeti and Basic I/O</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -191,7 +234,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2: Variables Arithmetic Basic I/O</span></a>
+ <span class="menu-text">2: Variable, Arithmeti and Basic I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -309,15 +352,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#input-processing-and-output" id="toc-input-processing-and-output" class="nav-link" data-scroll-target="#input-processing-and-output">Input, Processing and Output</a>
   <ul class="collapse">
-  <li><a href="#the-print-function" id="toc-the-print-function" class="nav-link" data-scroll-target="#the-print-function">The Print Function</a>
+  <li><a href="#the-print-function" id="toc-the-print-function" class="nav-link" data-scroll-target="#the-print-function">The <code>print</code> Function</a>
   <ul class="collapse">
   <li><a href="#program-execution-order" id="toc-program-execution-order" class="nav-link" data-scroll-target="#program-execution-order">Program Execution Order</a></li>
   <li><a href="#displaying-multiple-items-with-the-print-function" id="toc-displaying-multiple-items-with-the-print-function" class="nav-link" data-scroll-target="#displaying-multiple-items-with-the-print-function">Displaying Multiple Items with the Print Function</a></li>
   <li><a href="#newlines-and-tabs" id="toc-newlines-and-tabs" class="nav-link" data-scroll-target="#newlines-and-tabs">Newlines and Tabs</a></li>
   </ul></li>
-  <li><a href="#the-input-function" id="toc-the-input-function" class="nav-link" data-scroll-target="#the-input-function">The Input Function</a>
+  <li><a href="#the-input-function" id="toc-the-input-function" class="nav-link" data-scroll-target="#the-input-function">The <code>input</code> Function</a>
   <ul class="collapse">
-  <li><a href="#reading-numbers-with-the-input-function" id="toc-reading-numbers-with-the-input-function" class="nav-link" data-scroll-target="#reading-numbers-with-the-input-function">Reading Numbers with the Input Function</a></li>
+  <li><a href="#reading-numbers-with-the-input-function" id="toc-reading-numbers-with-the-input-function" class="nav-link" data-scroll-target="#reading-numbers-with-the-input-function">Reading Numbers with the <code>input</code> Function</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#arithmetic-calculations" id="toc-arithmetic-calculations" class="nav-link" data-scroll-target="#arithmetic-calculations">Arithmetic Calculations</a>
@@ -335,9 +378,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variables Arithmetic Basic I/O</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variable, Arithmeti and Basic I/O</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">2: Variables Arithmetic Basic I/O</h1>
+<h1 class="title">2: Variable, Arithmeti and Basic I/O</h1>
 </div>
 
 
@@ -366,11 +409,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>variable_name = expression</code></pre>
 </div>
 <p>For example:</p>
-<div id="507316db" class="cell" data-execution_count="1">
+<div id="fab074b6" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> <span class="dv">50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>This sets the variable <em>mass</em> to the value <em>50</em>.</p>
-<p>Be careful not to confuse the assignment operator <strong>=</strong> with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign <strong>==</strong>.</p>
+<p>This sets the variable <em><code>mass</code></em> to the value <em><code>50</code></em>.</p>
+<p>Be careful not to confuse the assignment operator <code>=</code> with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign <code>==</code>.</p>
 <p>Note that in our examples, the variable receiving the value is always on the left side. This is a general rule in Python, the variable that takes on the value must be on the left.</p>
 <p>We also can only use a variable if there is a value actually assigned to it.</p>
 <pre><code>number = </code></pre>
@@ -379,10 +422,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h3 class="anchored" data-anchor-id="multiple-assignment">Multiple Assignment</h3>
 <p>You can also assign values to multiple variables in a single statement. This is known as multiple assignment.</p>
 <p>The following code blocks are functionally equivalent:</p>
-<div id="aec7c179" class="cell" data-execution_count="2">
+<div id="677dac92" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x, y, z <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="a42d298b" class="cell" data-execution_count="3">
+<div id="d3618934" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -392,13 +435,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="data-types" class="level2">
 <h2 class="anchored" data-anchor-id="data-types">Data Types</h2>
 <p>The purpose of data types is to categorize the value located in memory.</p>
-<p>The major types in Python are: - <strong>int</strong> for integer - <strong>float</strong> for a real number - <strong>str</strong> for sequences of characters (these can be any kind of symbol from letters to numbers to punctuation and more) - <strong>bool</strong> for Boolean values (True or False)</p>
-<p>Some operations behave differently depending on the data type (or may not even be defined at all). For example, the <strong>+</strong> operator performs standard addition when used on ints and floats but instead performs concatenation when used with two strs.</p>
+<p>The major types in Python are:</p>
+<ul>
+<li><p><code>int</code> for integer</p></li>
+<li><p><code>float</code> for a real number</p></li>
+<li><p><code>str</code> for sequences of characters called strings</p>
+<ul>
+<li>These can be any kind of symbol from letters to numbers to punctuation and more</li>
+</ul></li>
+<li><p><code>bool</code> for Boolean values (<code>True</code> or <code>False</code>)</p></li>
+</ul>
+<p>Some operations behave differently depending on the data type (or may not even be defined at all). For example, the <code>+</code> operator performs standard addition when used on integers and floats but instead performs concatenation when used with two strings.</p>
 </section>
 <section id="copying-by-value-and-copying-by-reference" class="level2">
 <h2 class="anchored" data-anchor-id="copying-by-value-and-copying-by-reference">Copying by Value and Copying by Reference</h2>
 <p>This example demonstrates the idea of copying by value.</p>
-<div id="607010db" class="cell" data-execution_count="4">
+<div id="ce96e9fa" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
@@ -415,8 +467,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For simple data types (numbers, strings, Booleans), assignment behaves like copying a value.</p>
 <p>With more complex data types (like lists which will be introduced soon), variables behave differently.</p>
 <p>The assignment shares access to the same data. The variable names point to a location that holds a single instance of the data. If you change the data through one variable, it will be reflected to all the other variables that point at the same underlying data.</p>
-<p>For simple types (int, float, str, bool) assignment copies the value.</p>
-<p>For complex types (lists and many others) assignment shares access to the same data.</p>
+<ul>
+<li><p>For simple types (<code>int</code>, <code>float</code>, <code>str</code>, <code>bool</code>) assignment copies the value.</p></li>
+<li><p>For complex types (lists and many others which will be seen in the future) assignment shares access to the same data.</p></li>
+</ul>
 </section>
 <section id="variable-naming-rules" class="level2">
 <h2 class="anchored" data-anchor-id="variable-naming-rules">Variable Naming Rules</h2>
@@ -428,7 +482,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>After first character may use letters, digits, or underscores</li>
 <li>Variable names are case sensitive</li>
 </ul>
-<p>In general, a variable’s name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (i, j, k, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.</p>
+<p>In general, a variable’s name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (<code>i</code>, <code>j</code>, <code>k</code>, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.</p>
 </section>
 <section id="reassigning-variables-to-a-different-type" class="level2">
 <h2 class="anchored" data-anchor-id="reassigning-variables-to-a-different-type">Reassigning Variables to a Different Type</h2>
@@ -481,30 +535,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </tr>
 </tbody>
 </table>
-<p>There are certain restrictions on casting in Python that will cause a runtime error if ignored. - Non-Numeric Strings to Numeric Types - Attempting to cast a string that does not look like a number will raise a ValueError. - int(“apple”) - Casting Float-like Strings to Integers - Python cannot directly cast a string containing a decimal point straight into an integer. - score = int(“98.6”)</p>
+<p>There are certain restrictions on casting in Python that will cause a runtime error if ignored.</p>
+<ul>
+<li><p>Non-Numeric Strings to Numeric Types</p>
+<ul>
+<li><p>Attempting to cast a string that does not look like a number will raise a ValueError.</p>
+<ul>
+<li><code>int("apple")</code></li>
+</ul></li>
+</ul></li>
+<li><p>Casting Float-like Strings to Integers</p>
+<ul>
+<li><p>Python cannot directly cast a string containing a decimal point straight into an integer.</p>
+<ul>
+<li><code>score = int("98.6")</code></li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
 <section id="avoiding-magic-numbers" class="level2">
 <h2 class="anchored" data-anchor-id="avoiding-magic-numbers">Avoiding Magic Numbers</h2>
 <p>A <strong>magic number</strong> is an unexplained numeric value that appears in a program’s code.</p>
 <p>For example:</p>
 <pre><code>amount = balance * 0.065</code></pre>
-<p>The value <em>0.065</em> is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).</p>
+<p>The value <em><code>0.065</code></em> is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).</p>
 <p>If a magic number is used in many places in a program it can take substantial effort to find and change the number in each location. You take the risk of making a mistake each type you type the magic number the program’s code. This can be the source of difficult to find and frustrating errors.</p>
 <section id="named-constants" class="level3">
 <h3 class="anchored" data-anchor-id="named-constants">Named Constants</h3>
 <p>Rather than using magic numbers, you should used a variable whose purpose is to represent the value. This variable is not intended to be changed during the program and so is called a <em>constant</em>. In practice, Python will allow you to change the value, so it is important to remember that this variable is supposed to be static. The common convention in Python is to use all caps to indicate a constant variable.</p>
-<div id="7dd22035" class="cell" data-execution_count="5">
+<div id="7164f872" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>INTEREST_RATE <span class="op">=</span> <span class="fl">0.051</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
 <section id="the-none-type" class="level2">
 <h2 class="anchored" data-anchor-id="the-none-type">The None Type</h2>
-<p><strong>None</strong> is a special Python value that represents no value assigned yet. Note that <strong>None</strong> is a value (not an error). Its data type is a unique <strong>NoneType</strong>.</p>
-<p><strong>None</strong> is used as a placeholder when a value is unknown or not available.</p>
-<p><strong>None</strong> is not the same as: - 0 (a number) - “” (an empty string) - False (a Boolean)</p>
-<p>We use None to: - Initialize a variable before it has a real value - Represent missing or unknown information - Indicate that a result has not been computed yet</p>
-<p>Rule to remember: Do not perform math or string operations on None. - Any of these operations causes an error.</p>
+<p><code>None</code> is a special Python value that represents no value assigned yet. Note that <code>None</code> is a value (not an error). Its data type is a unique <code>NoneType</code>.</p>
+<p><code>None</code> is used as a placeholder when a value is unknown or not available.</p>
+<p><code>None</code> is not the same as:</p>
+<ul>
+<li><p><code>0</code> (a number)</p></li>
+<li><p><code>""</code> (an empty string)</p></li>
+<li><p><code>False</code> (a Boolean)</p></li>
+</ul>
+<p>We use <code>None</code> to:</p>
+<ul>
+<li><p>Initialize a variable before it has a real value</p></li>
+<li><p>Represent missing or unknown information</p></li>
+<li><p>Indicate that a result has not been computed yet</p></li>
+</ul>
+<p>Rule to remember: Do not perform math or string operations on <code>None</code>. Any of these operations causes an error.</p>
 </section>
 </section>
 <section id="input-processing-and-output" class="level1">
@@ -522,13 +602,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Produce output</li>
 </ul>
 <section id="the-print-function" class="level2">
-<h2 class="anchored" data-anchor-id="the-print-function">The Print Function</h2>
-<p>We have already seen the print function in the <em>Hello World</em> example. The print function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.</p>
+<h2 class="anchored" data-anchor-id="the-print-function">The <code>print</code> Function</h2>
+<p>We have already seen the <code>print</code> function in the <em>Hello World</em> example. The <code>print</code> function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.</p>
 <section id="program-execution-order" class="level3">
 <h3 class="anchored" data-anchor-id="program-execution-order">Program Execution Order</h3>
 <p>In general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.</p>
-<p>The output of the following example is ‘one’ then ‘two’ then ‘three’.</p>
-<div id="b14501ce" class="cell" data-execution_count="6">
+<p>The output of the following example is ‘<code>one</code>’ then ‘<code>two</code>’ then ‘<code>three</code>’.</p>
+<div id="f3666052" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'two'</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'three'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -541,8 +621,13 @@ three</code></pre>
 </section>
 <section id="displaying-multiple-items-with-the-print-function" class="level3">
 <h3 class="anchored" data-anchor-id="displaying-multiple-items-with-the-print-function">Displaying Multiple Items with the Print Function</h3>
-<p>Python allows one to display multiple items with a single call to print. - Items are separated by commas when passed as arguments. - Arguments displayed in the order they are passed to the function. - Items are automatically separated by a space when displayed on screen.</p>
-<div id="3113b7bf" class="cell" data-execution_count="7">
+<p>Python allows one to display multiple items with a single call to print.</p>
+<ul>
+<li><p>Items are separated by commas when passed as arguments.</p></li>
+<li><p>Arguments displayed in the order they are passed to the function.</p></li>
+<li><p>Items are automatically separated by a space when displayed on screen.</p></li>
+</ul>
+<div id="a32fecaa" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>one two three</code></pre>
@@ -550,7 +635,7 @@ three</code></pre>
 </div>
 <p>Based off the previous examples we can see that successive print statements place their value(s) on different lines. This is because the print function puts a newline character at the end of printed data. We can change this default newline to a value of our choice using the special argument <em>end</em>.</p>
 <p>The following example changes the default newline to a space.</p>
-<div id="4cb83427" class="cell" data-execution_count="8">
+<div id="01c8d9c9" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>,end<span class="op">=</span><span class="st">' '</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'two'</span>,end<span class="op">=</span><span class="st">' '</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'three'</span>,end<span class="op">=</span><span class="st">' '</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -560,7 +645,7 @@ three</code></pre>
 </div>
 <p>Similarly, for multiple items displayed on the same line, we can use the separator argument <em>sep</em> to change the default space to something else.</p>
 <p>The following example changes the default space to a dash.</p>
-<div id="bb3e6fdd" class="cell" data-execution_count="9">
+<div id="40684d2d" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>,sep<span class="op">=</span><span class="st">'-'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>one-two-three</code></pre>
@@ -570,11 +655,11 @@ three</code></pre>
 </section>
 <section id="newlines-and-tabs" class="level3">
 <h3 class="anchored" data-anchor-id="newlines-and-tabs">Newlines and Tabs</h3>
-<p>Certain special characters are preceded by a backslash <strong>\</strong>.</p>
+<p>Certain special characters are preceded by a backslash <code>\</code>.</p>
 <p>These characters are treated as commands inside a string.</p>
-<p>To create a newline, we use the character <strong>\n</strong>.</p>
+<p>To create a newline, we use the character <code>\n</code>.</p>
 <p>Note the extra new line in the following example.</p>
-<div id="524bd8f6" class="cell" data-execution_count="10">
+<div id="0486fa7a" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -583,16 +668,16 @@ three</code></pre>
 Hello world</code></pre>
 </div>
 </div>
-<p>To create a tab, we use <strong>\t</strong>.</p>
+<p>To create a tab, we use <code>\t</code>.</p>
 <p>Note the increased whitespace (the tab character) between the words <em>Hello</em> and <em>world</em>.</p>
-<div id="3138b5e2" class="cell" data-execution_count="11">
+<div id="5e88842e" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello</span><span class="ch">\t</span><span class="st">world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello   world</code></pre>
 </div>
 </div>
-<p>We can also see that there is no additional space here in the string <em>Hello\tworld</em> and yet the tab is still correctly placed. If we included space between the tab and the other parts of the string like:</p>
-<div id="fbbdd56a" class="cell" data-execution_count="12">
+<p>We can also see that there is no additional space here in the string <em><code>Hello\tworld</code></em> and yet the tab is still correctly placed. If we included space between the tab and the other parts of the string like:</p>
+<div id="a0907612" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello </span><span class="ch">\t</span><span class="st"> world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello    world</code></pre>
@@ -602,15 +687,14 @@ Hello world</code></pre>
 </section>
 </section>
 <section id="the-input-function" class="level2">
-<h2 class="anchored" data-anchor-id="the-input-function">The Input Function</h2>
+<h2 class="anchored" data-anchor-id="the-input-function">The <code>input</code> Function</h2>
 <p>Many programs need to read input from the user. While many kinds of data can be used as input, we will largely be dealing with the simple input function and working with text data. More complicated kinds of input tend to require more effort to both read and process, so we will avoid these in an introductory course.</p>
 <p>The input function displays an optional prompt and then reads input from the keyboard.</p>
 <div class="core-box">
 <pre><code>variable_name = input("Your Prompt Here")</code></pre>
 </div>
-<p>Note that the input function always returns the data as a <em>string</em>.</p>
-<p>The prompt is typically a string instructing user to enter a value.</p>
-<p>The input function also does not automatically display a space after the prompt.</p>
+<p>Note that the input function always returns the data as a <em>string</em>. The prompt is typically a string instructing user to enter a value.</p>
+<p>Note that the input function also does not automatically display a space after the prompt.</p>
 <p>For example:</p>
 <pre><code>name = input("What is your name?  ")</code></pre>
 <p>The above does the following:</p>
@@ -620,8 +704,8 @@ Hello world</code></pre>
 <li>Assigns the string that was read from the keyboard to the name variable</li>
 </ul>
 <section id="reading-numbers-with-the-input-function" class="level3">
-<h3 class="anchored" data-anchor-id="reading-numbers-with-the-input-function">Reading Numbers with the Input Function</h3>
-<p>Since the input function always returns a string, if we want to use the input as a number in calculations we will need to cast the string to the appropriate numerical type.</p>
+<h3 class="anchored" data-anchor-id="reading-numbers-with-the-input-function">Reading Numbers with the <code>input</code> Function</h3>
+<p>Since the <code>input</code> function always returns a string, if we want to use the input as a number in calculations we will need to cast the string to the appropriate numerical type.</p>
 <pre><code>number = int(input('Enter a number: '))</code></pre>
 <p>The above does the following:</p>
 <ul>
@@ -706,12 +790,24 @@ Hello world</code></pre>
 </section>
 <section id="converting-math-formulas-into-python" class="level3">
 <h3 class="anchored" data-anchor-id="converting-math-formulas-into-python">Converting Math Formulas into Python</h3>
-<p>In Python, an operator is required for any mathematical operation. Standard mathematical notation like <strong>xy</strong> which is implicitly understood that <strong>x</strong> and <strong>y</strong> are multiplied together is not allowed in Python. Any mathematical operation needs to be explicitly defined using operators.</p>
+<p>In Python, an operator is required for any mathematical operation.</p>
+<p>Standard mathematical notation like <span class="math inline">xy</span> where it is implicitly understood that <span class="math inline">x</span> and <span class="math inline">y</span> are multiplied together is not allowed in Python. Any mathematical operation needs to be explicitly defined using operators.</p>
 <p>In general, converting math formulas into Python tends to require adding multiplication operators and the insertion of parentheses.</p>
 </section>
 <section id="mixed-type-expressions-and-automatic-type-conversion" class="level3">
 <h3 class="anchored" data-anchor-id="mixed-type-expressions-and-automatic-type-conversion">Mixed-Type Expressions and Automatic Type Conversion</h3>
-<p>The data type resulting from mathematical operations depends on the type of operands. - Two <em>int</em> operands results in another <em>int</em> - Two <em>float</em> operands results in another <em>float</em> - One <em>int</em> operands and one <em>float</em> operand results in a <em>float</em></p>
+<p>The data type resulting from mathematical operations depends on the type of operands.</p>
+<ul>
+<li>Two <code>int</code> operands results in another <code>int</code></li>
+</ul>
+<!-- -->
+<ul>
+<li>Two <code>float</code> operands results in another <code>float</code></li>
+</ul>
+<!-- -->
+<ul>
+<li>One <code>int</code> operands and one <code>float</code> operand results in a <code>float</code></li>
+</ul>
 
 
 </section>

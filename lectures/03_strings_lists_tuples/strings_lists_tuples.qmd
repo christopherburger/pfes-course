@@ -17,9 +17,9 @@ Often, the term literal is omitted and the word string is used both for the data
 
 ## String Concatenation
 
-- **To append one string to the end of another string**
-- **Use the + operator to concatenate strings**
-- 
+String **concatenation** is the process of appending one string to another string.
+
+We can use the `+` operator to concatenate strings.
 
 ```{python}
 message = 'Hello ' + 'world'
@@ -27,7 +27,7 @@ message = 'Hello ' + 'world'
 print(message)
 ```
 
-- **You can use string concatenation to break up a long string literal**
+We can use string concatenation to break up a long string literal. This is especially useful if you are writing code on a device with limited screen width.
 
 ```{python}
 print('Enter the amount of ' +

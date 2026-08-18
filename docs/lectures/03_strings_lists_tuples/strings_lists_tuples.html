@@ -191,7 +191,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Variables Arithmetic Basic I/O</span></a>
+ <span class="menu-text">2: Variable, Arithmeti and Basic I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -349,12 +349,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Often, the term literal is omitted and the word string is used both for the data type and actual character sequence. It is usually easy enough with context to distinguish between the two.</p>
 <section id="string-concatenation" class="level2">
 <h2 class="anchored" data-anchor-id="string-concatenation">String Concatenation</h2>
-<ul>
-<li><strong>To append one string to the end of another string</strong></li>
-<li><strong>Use the + operator to concatenate strings</strong></li>
-<li></li>
-</ul>
-<div id="cade761b" class="cell" data-execution_count="1">
+<p>String <strong>concatenation</strong> is the process of appending one string to another string.</p>
+<p>We can use the <code>+</code> operator to concatenate strings.</p>
+<div id="4c968773" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>message <span class="op">=</span> <span class="st">'Hello '</span> <span class="op">+</span> <span class="st">'world'</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(message)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -362,10 +359,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Hello world</code></pre>
 </div>
 </div>
-<ul>
-<li><strong>You can use string concatenation to break up a long string literal</strong></li>
-</ul>
-<div id="671e50a3" class="cell" data-execution_count="2">
+<p>We can use string concatenation to break up a long string literal. This is especially useful if you are writing code on a device with limited screen width.</p>
+<div id="9d458651" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Enter the amount of '</span> <span class="op">+</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="st">'sales for each day and '</span> <span class="op">+</span></span>
@@ -399,7 +394,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>An f-string (formatted string literal) is a special type of string literal that is prefixed with the letter f</strong></li>
 </ul>
-<div id="88ad7e56" class="cell" data-execution_count="3">
+<div id="58ba9161" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
@@ -408,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>f-strings support placeholders for variables</strong></li>
 </ul>
-<div id="3a27f719" class="cell" data-execution_count="4">
+<div id="6a259f6e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>name <span class="op">=</span> <span class="st">'Johnny'</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'Hello </span><span class="sc">{</span>name<span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -419,13 +414,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Placeholders can also be expressions that are evaluated</strong></li>
 </ul>
-<div id="401af4a6" class="cell" data-execution_count="5">
+<div id="fafc1b00" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span><span class="dv">10</span> <span class="op">+</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>The value is 12.</code></pre>
 </div>
 </div>
-<div id="e803abf6" class="cell" data-execution_count="6">
+<div id="7d95e2dd" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>val <span class="op">=</span> <span class="dv">10</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'The value is </span><span class="sc">{</span>val <span class="op">+</span> <span class="dv">2</span><span class="sc">}</span><span class="ss">.'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -436,7 +431,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Format specifiers can be used with placeholders</strong></li>
 </ul>
-<div id="a9900068" class="cell" data-execution_count="7">
+<div id="a6363d55" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">123.456789</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2f}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -452,7 +447,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p><strong>Percentages</strong></p></li>
 </ul>
-<div id="1b0f28bf" class="cell" data-execution_count="8">
+<div id="34405cd4" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">1000000.00</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:,.2f}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -460,7 +455,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>1,000,000.00</code></pre>
 </div>
 </div>
-<div id="084c77ee" class="cell" data-execution_count="9">
+<div id="658be17a" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>discount <span class="op">=</span> <span class="fl">0.5</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>discount<span class="sc">:.0%}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -471,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><strong>Scientific Notation</strong></li>
 </ul>
-<div id="eb89d077" class="cell" data-execution_count="10">
+<div id="edbebc09" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="dv">123456789</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:,d}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -479,7 +474,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>123,456,789</code></pre>
 </div>
 </div>
-<div id="068e8d16" class="cell" data-execution_count="11">
+<div id="8c81bda1" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>num <span class="op">=</span> <span class="fl">12345.6789</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f'</span><span class="sc">{</span>num<span class="sc">:.2e}</span><span class="ss">'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -683,7 +678,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Can specify a different separator by passing it as an argument to the split method</li>
 </ul></li>
 </ul>
-<div id="cf297886" class="cell" data-execution_count="12">
+<div id="b3fdd960" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">'One two three four'</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>word_list <span class="op">=</span> my_string.split()</span>
@@ -693,7 +688,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>['One', 'two', 'three', 'four']</code></pre>
 </div>
 </div>
-<div id="3d69c565" class="cell" data-execution_count="13">
+<div id="b938508f" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>my_string <span class="op">=</span> <span class="st">'1/2/3/4/5'</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>number_list <span class="op">=</span> my_string.split(<span class="st">'/'</span>)</span>
@@ -723,7 +718,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>In Python you can use the split method to tokenize a string</p></li>
 </ul></li>
 </ul>
-<div id="2e38eb1a" class="cell" data-execution_count="14">
+<div id="592e9ea9" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="bu">str</span> <span class="op">=</span> <span class="st">'peach raspberry strawberry vanilla'</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> <span class="bu">str</span>.split()</span>
@@ -733,7 +728,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>['peach', 'raspberry', 'strawberry', 'vanilla']</code></pre>
 </div>
 </div>
-<div id="fed839d1" class="cell" data-execution_count="15">
+<div id="28cab85c" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>my_address <span class="op">=</span> <span class="st">'www.example.com'</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>tokens <span class="op">=</span> my_address.split(<span class="st">'.'</span>)</span>
@@ -766,7 +761,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Lists are created using the <strong>square brackets</strong> [ ]</li>
 <li>Separate multiple items in a list using a comma.</li>
 </ul>
-<div id="fb10599d" class="cell" data-execution_count="16">
+<div id="f4eea275" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>A_List <span class="op">=</span> [ ] <span class="co">#This is an empty list</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>B_List <span class="op">=</span> [ <span class="dv">1</span> , <span class="dv">2</span> ] <span class="co">#This list contains integers 1 and 2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -783,7 +778,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Element 1 is then at the <strong>second</strong> position.</li>
 </ul></li>
 </ul>
-<div id="29e4f651" class="cell" data-execution_count="17">
+<div id="5a126f4c" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'a'</span> , <span class="st">'b'</span> , <span class="st">'c'</span> ]</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -791,7 +786,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>b</code></pre>
 </div>
 </div>
-<div id="7eb46776" class="cell" data-execution_count="18">
+<div id="7afd70ce" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">0</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -799,13 +794,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>x</code></pre>
 </div>
 </div>
-<div id="8fd65353" class="cell" data-execution_count="19">
+<div id="68b5f700" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">1</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>y</code></pre>
 </div>
 </div>
-<div id="2615284b" class="cell" data-execution_count="20">
+<div id="fe5eb611" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(C_List[<span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>z</code></pre>
@@ -820,7 +815,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>insert(index,value)</code></li>
 </ul>
-<div id="96ea543d" class="cell" data-execution_count="21">
+<div id="94d0dc3a" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>C_List.insert(<span class="dv">0</span>,<span class="st">'a'</span>)</span>
@@ -834,7 +829,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li><code>append(value)</code></li>
 </ul>
-<div id="9481beee" class="cell" data-execution_count="22">
+<div id="a4191659" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>C_List.append(<span class="st">'a'</span>)</span>
@@ -871,7 +866,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p>By omitting the index from the pop method, Python automatically assumes you want to remove the last item in the list.</p></li>
 </ul>
-<div id="98c79541" class="cell" data-execution_count="23">
+<div id="40ef2f04" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>C_List.pop(<span class="dv">0</span>)</span>
@@ -881,7 +876,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>['y', 'z']</code></pre>
 </div>
 </div>
-<div id="5ca99dea" class="cell" data-execution_count="24">
+<div id="3cdbe1a4" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>C_List <span class="op">=</span> [ <span class="st">'x'</span> , <span class="st">'y'</span> , <span class="st">'z'</span> ]</span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>C_List.pop()</span>
@@ -1001,7 +996,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p>When a tuple element refers to a mutable object, that object’s data can be changed.</p></li>
 </ul>
-<div id="09673445" class="cell" data-execution_count="25">
+<div id="a4c50e67" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>t <span class="op">=</span> (<span class="dv">10</span>, <span class="dv">20</span>, [<span class="dv">97</span>, <span class="dv">98</span>, <span class="dv">99</span>])</span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1009,7 +1004,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>(10, 20, [97, 98, 99])</code></pre>
 </div>
 </div>
-<div id="966797ee" class="cell" data-execution_count="26">
+<div id="5ceb33b3" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a> t[<span class="dv">2</span>].append(<span class="dv">100</span>) <span class="co"># Since the list inside the tuple t is mutable, we can change parts of the list.</span></span>
 <span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a> <span class="bu">print</span>(t)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>

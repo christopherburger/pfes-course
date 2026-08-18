@@ -234,7 +234,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">2: Variables Arithmetic Basic I/O</span></a>
+ <span class="menu-text">2: Variable, Arithmeti and Basic I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -339,12 +339,10 @@ window.Quarto = {
   </ul></li>
   <li><a href="#how-computers-store-data" id="toc-how-computers-store-data" class="nav-link" data-scroll-target="#how-computers-store-data">How Computers Store Data</a>
   <ul class="collapse">
-  <li><a href="#storing-numbers" id="toc-storing-numbers" class="nav-link" data-scroll-target="#storing-numbers">Storing Numbers</a></li>
   <li><a href="#storing-characters" id="toc-storing-characters" class="nav-link" data-scroll-target="#storing-characters">Storing Characters</a></li>
-  <li><a href="#advanced-number-storage" id="toc-advanced-number-storage" class="nav-link" data-scroll-target="#advanced-number-storage">Advanced Number Storage</a></li>
   <li><a href="#other-types-of-data" id="toc-other-types-of-data" class="nav-link" data-scroll-target="#other-types-of-data">Other Types of Data</a></li>
   </ul></li>
-  <li><a href="#keywords-operators-and-syntax-an-overview" id="toc-keywords-operators-and-syntax-an-overview" class="nav-link" data-scroll-target="#keywords-operators-and-syntax-an-overview">Keywords, Operators, and Syntax: An Overview</a></li>
+  <li><a href="#keywords-operators-and-syntax" id="toc-keywords-operators-and-syntax" class="nav-link" data-scroll-target="#keywords-operators-and-syntax">Keywords, Operators, and Syntax</a></li>
   <li><a href="#debugging" id="toc-debugging" class="nav-link" data-scroll-target="#debugging">Debugging</a>
   <ul class="collapse">
   <li><a href="#type-of-errors" id="toc-type-of-errors" class="nav-link" data-scroll-target="#type-of-errors">Type of Errors</a></li>
@@ -362,9 +360,9 @@ window.Quarto = {
   <li><a href="#interactive-mode" id="toc-interactive-mode" class="nav-link" data-scroll-target="#interactive-mode">Interactive Mode</a></li>
   <li><a href="#writing-python-programs-and-running-them-in-script-mode" id="toc-writing-python-programs-and-running-them-in-script-mode" class="nav-link" data-scroll-target="#writing-python-programs-and-running-them-in-script-mode">Writing Python Programs and Running Them in Script Mode</a></li>
   <li><a href="#basic-programming-instructions" id="toc-basic-programming-instructions" class="nav-link" data-scroll-target="#basic-programming-instructions">Basic Programming Instructions</a></li>
-  </ul></li>
   <li><a href="#hello-world" id="toc-hello-world" class="nav-link" data-scroll-target="#hello-world">Hello World</a></li>
   <li><a href="#comments" id="toc-comments" class="nav-link" data-scroll-target="#comments">Comments</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -393,85 +391,44 @@ window.Quarto = {
 <section id="programming" class="level1">
 <h1>Programming</h1>
 <p>This course is about problem solving using computers. Problem solving means the ability to formulate problems, think creatively about solutions, and express a solution clearly and accurately. The process of learning to program is an excellent opportunity to practice problem solving skills.</p>
-<p>Having a computer solve a problem requires the creation of a set of instructions, a <strong>program</strong>. A <strong>program</strong> is a sequence of instructions that specifies how to perform a computation.</p>
+<p>Having a computer solve a problem requires the creation of a set of instructions, a <strong>program</strong>. A <strong>program</strong> is a sequence of instructions that specifies how to perform a computation. An individual instruction is referred to as a <strong>statement</strong>. And so a program is a collection of statements.</p>
 <p>The computation might be something as complex as rendering an html page in a web browser or encoding a video and streaming it across the network. It can also be a symbolic computation, such as searching for and replacing text in a document or (strangely enough) compiling a program.</p>
 <p>The process of creating these instructions is <strong>programming</strong> .</p>
 <section id="algorithms" class="level2">
 <h2 class="anchored" data-anchor-id="algorithms">Algorithms</h2>
-<p>If problem solving is a central part of computer science, then the solutions that you create through the problem solving process are also important. In computer science, we refer to these solutions as <strong>algorithms</strong>.&nbsp;An algorithm is a step-by-step list of instructions that if followed exactly will solve the problem under consideration. Our goal is to take a problem and develop an algorithm that can serve as a general solution. Once we have such a solution, we can use our computer to automate the execution. Programming is a skill that allows us to take an algorithm and represent it in a notation (a program) that can be followed by a computer. These programs are written in <strong>programming&nbsp;languages</strong> .</p>
+<p>If problem solving is a central part of computer science, then the solutions that you create through the problem solving process are also important. In computer science, we refer to these solutions as <strong>algorithms</strong>.&nbsp;</p>
+<p>An algorithm is a step-by-step list of instructions that if followed exactly will solve the problem under consideration. Our goal is to take a problem and develop an algorithm that can serve as a general solution. Once we have such a solution, we can use our computer to automate the execution.</p>
+<p>Programming is a skill that allows us to take an algorithm and represent it in a notation (a program) that can be followed by a computer. These programs are written in <strong>programming&nbsp;languages</strong> .</p>
 </section>
 </section>
 <section id="how-computers-store-data" class="level1">
 <h1>How Computers Store Data</h1>
+<p>All data in a computer is stored in sequences of 0s and 1s. This is the binary number system.</p>
+<p>A <strong>bit</strong> represents one of two values, 0 or 1 and is the most basic unit of the binary number system.</p>
+<p>A <strong>byte</strong> stores eight bits and is just enough memory to store a letter or small number. To store larger data, we use multiple bytes.</p>
+<p>To store negative numbers and real numbers, computers use special encoding schemes to represent the added complexity.</p>
 <ul>
-<li><strong>All data in a computer is stored in sequences of 0s and 1s</strong></li>
-<li><strong>Byte: just enough memory to store letter or small number</strong>
-<ul>
-<li>Divided into eight bits</li>
-<li><strong>Bit</strong> : electrical component that can hold positive or negative charge, like on/off switch</li>
-<li>The on/off pattern of bits in a byte represents data stored in the byte</li>
-</ul></li>
+<li>Numbers are often encoded using one bit to determine if the number is positive or negative.</li>
+<li>Real numbers are encoded using floating-point notation.</li>
 </ul>
-<section id="storing-numbers" class="level2">
-<h2 class="anchored" data-anchor-id="storing-numbers">Storing Numbers</h2>
-<p><strong>Bit represents two values, 0 and 1</strong></p>
-<p><strong>Computers use binary numbering system</strong></p>
-<ul>
-<li>Position of digit j is assigned the value</li>
-<li>To determine the value of binary number sum position values of the 1s</li>
-<li><strong>Byte size limits are 0 and 255</strong>
-<ul>
-<li>0 = all bits off; 255 = all bits on</li>
-<li>To store larger numbers, use several bytes</li>
-</ul></li>
-</ul>
-</section>
 <section id="storing-characters" class="level2">
 <h2 class="anchored" data-anchor-id="storing-characters">Storing Characters</h2>
-<ul>
-<li><strong>Data stored in computer must be stored as binary number</strong></li>
-<li><strong>Characters are converted to numeric code, numeric code stored in memory</strong></li>
-<li>Most important coding scheme is ASCII</li>
-<li>ASCII is limited: defines codes for only 128 characters</li>
-<li>Unicode coding scheme becoming standard</li>
-<li>Compatible with ASCII</li>
-<li>Can represent characters for other languages</li>
-</ul>
-</section>
-<section id="advanced-number-storage" class="level2">
-<h2 class="anchored" data-anchor-id="advanced-number-storage">Advanced Number Storage</h2>
-<ul>
-<li><strong>To store negative numbers and real numbers, computers use binary numbering and encoding schemes</strong>
-<ul>
-<li>Negative numbers encoded using two’s complement</li>
-<li>Real numbers encoded using floating-point notation</li>
-</ul></li>
-</ul>
+<p>All characters are converted to a numeric code and this numeric code is stored in memory.</p>
+<p>The most fundamental coding scheme is ASCII but it is limited to only 128 different characters.</p>
+<p>A more modern replacement is called Unicode which is both compatible with ASCII and can represent many more characters.</p>
 </section>
 <section id="other-types-of-data" class="level2">
 <h2 class="anchored" data-anchor-id="other-types-of-data">Other Types of Data</h2>
-<ul>
-<li><strong>Digital: describes any device that stores data as binary numbers</strong></li>
-<li><strong>Digital images are composed of pixels</strong></li>
-<li>To store images, each pixel is converted to a binary number representing the pixel’s color <strong>Digital music is composed of sections called samples</strong></li>
-<li>To store music, each sample is converted to a binary number</li>
-</ul>
+<p>The word digital describes anything that stores data as binary numbers</p>
+<p>For example digital images are composed of pixels. And to store these images, each pixel is converted to a binary number representing the pixel’s color.</p>
+<p>Similarly, digital music is composed of sections called samples. To store this music, each sample is converted to a binary number.</p>
 </section>
 </section>
-<section id="keywords-operators-and-syntax-an-overview" class="level1">
-<h1>Keywords, Operators, and Syntax: An Overview</h1>
-<ul>
-<li><strong>Keywords: predefined words used to write program in high-level language</strong>
-<ul>
-<li>Each keyword has specific meaning</li>
-</ul></li>
-<li><strong>Operators: perform operations on data</strong>
-<ul>
-<li>Example: math operators to perform arithmetic</li>
-</ul></li>
-<li><strong>Syntax: set of rules to be followed when writing program</strong></li>
-<li><strong>Statement: individual instruction used in high-level language</strong></li>
-</ul>
+<section id="keywords-operators-and-syntax" class="level1">
+<h1>Keywords, Operators, and Syntax</h1>
+<p><strong>Keywords</strong> are predefined words used to write a program in a high-level language (a language like Python). Each keyword has specific meaning.</p>
+<p><strong>Operators</strong> perform operations on data. For example, math operators like <code>+</code> perform arithmetic (addition in this case).</p>
+<p><strong>Syntax</strong> is a set of rules to be followed when writing program. These rules define how and when keywords and operators can be used to actually construct a program.</p>
 </section>
 <section id="debugging" class="level1">
 <h1>Debugging</h1>
@@ -480,18 +437,18 @@ window.Quarto = {
 <p>One of the most important skills you will acquire is debugging. Debugging is like an experimental science. Once you have an idea what is going wrong, you modify your program and try again. If your hypothesis was correct, then you can predict the result of the modification, and you take a step closer to a working program. If your hypothesis was wrong, you have to come up with a new one.</p>
 <section id="type-of-errors" class="level2">
 <h2 class="anchored" data-anchor-id="type-of-errors">Type of Errors</h2>
-<ul>
-<li>Three kinds of errors can occur in a program:&nbsp;
+<p>Three kinds of errors can occur in a program:&nbsp;</p>
 <ul>
 <li>Syntax Errors</li>
 <li>Runtime Errors</li>
 <li>Semantic Errors</li>
-</ul></li>
 </ul>
 </section>
 <section id="syntax-errors" class="level2">
 <h2 class="anchored" data-anchor-id="syntax-errors">Syntax Errors</h2>
-<p>Python can only execute a program if the program is syntactically correct ; otherwise, the process fails and returns an error message. &nbsp;<strong>Syntax</strong> refers to the structure of a program and the rules about that structure. For example, in English, a sentence must begin with a capital letter and end with a period. If there is a single syntax error anywhere in your program, Python will display an error message and quit. You will not be able to complete the execution of your program. During the first few weeks of your programming career, you will probably spend a lot of time tracking down syntax errors. However, as you gain experience, you will make fewer errors, and you will also be able to find your errors faster.</p>
+<p>Python can only execute a program if the program is syntactically correct ; otherwise, the process fails and returns an error message. &nbsp;<strong>Syntax</strong> refers to the structure of a program and the rules about that structure.</p>
+<p>For example, in English, a sentence must begin with a capital letter and end with a period. If there is a single syntax error anywhere in your program, Python will display an error message and quit. You will not be able to complete the execution of your program.</p>
+<p>During the first few weeks of your programming career, you will probably spend a lot of time tracking down syntax errors. However, as you gain experience, you will make fewer errors, and you will also be able to find your errors faster.</p>
 </section>
 <section id="runtime-errors" class="level2">
 <h2 class="anchored" data-anchor-id="runtime-errors">Runtime Errors</h2>
@@ -524,8 +481,8 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 </section>
 <section id="differences-between-formal-and-natural-languages" class="level2">
 <h2 class="anchored" data-anchor-id="differences-between-formal-and-natural-languages">Differences between Formal and Natural Languages</h2>
+<p>Although formal and natural languages have many features in common like tokens, structure, syntax, and semantics, there are substantial differences.</p>
 <ul>
-<li><p>Although formal and natural languages have many features in common, tokens, structure, syntax, and semantics, there are many differences.</p></li>
 <li><p><strong>Ambiguity</strong></p>
 <ul>
 <li>Natural languages are full of&nbsp;ambiguity, which people deal with by using contextual clues and other information.</li>
@@ -547,39 +504,26 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 </section>
 <section id="using-python" class="level1">
 <h1>Using Python</h1>
+<p>Python must be installed and configured prior to use.</p>
+<p>One of the items installed is the Python interpreter which has two modes of use:</p>
 <ul>
-<li><strong>Python must be installed and configured prior to use</strong>
-<ul>
-<li>One of the items installed is the Python interpreter</li>
-</ul></li>
-<li><strong>Python interpreter can be used in two modes:</strong>
-<ul>
-<li>Interactive mode: enter statements on keyboard</li>
+<li>Interactive mode: enter statements step-by-step like you would on a calculator</li>
 <li>Script mode: save statements in Python script</li>
-</ul></li>
 </ul>
 <section id="interactive-mode" class="level2">
 <h2 class="anchored" data-anchor-id="interactive-mode">Interactive Mode</h2>
-<p><strong>When you start Python in interactive mode, you will see a prompt</strong></p>
-<ul>
-<li>Indicates the interpreter is waiting for a Python statement to be typed</li>
-<li>Prompt reappears after previous statement is executed</li>
-<li>Error message displayed If you incorrectly type a statement</li>
-<li><strong>Good way to learn new parts of Python</strong></li>
-</ul>
+<p>When you start Python in interactive mode, you will see a prompt. This indicates the interpreter is waiting for a Python statement to be typed.</p>
+<p>The prompt reappears after previous statement is executed and (in general) an error message displayed if you incorrectly type a statement.</p>
+<p>Interactive mode is a good way to quickly practice simple new parts of Python but becomes cumbersome quickly for more complicated tasks.</p>
 </section>
 <section id="writing-python-programs-and-running-them-in-script-mode" class="level2">
 <h2 class="anchored" data-anchor-id="writing-python-programs-and-running-them-in-script-mode">Writing Python Programs and Running Them in Script Mode</h2>
-<ul>
-<li><strong>Statements entered in interactive mode are not saved as a program</strong></li>
-<li><strong>To create a program, use script mode</strong>
+<p>For our course we will use script mode which allows us to save programs for future purposes.</p>
+<p>To create a program, use script mode:</p>
 <ul>
 <li>Save a set of Python statements in a file</li>
-<li>The filename should have the .py extension</li>
-<li>To run the file, or script, type</li>
-<li>python <em>filename</em></li>
-<li>at the operating system command line</li>
-</ul></li>
+<li>The filename should have the <code>.py</code> extension</li>
+<li>To run the file, or script, type <code>python filename</code>at the operating system command line or open the file through your IDE</li>
 </ul>
 </section>
 <section id="basic-programming-instructions" class="level2">
@@ -610,32 +554,37 @@ Identifying semantic errors can be tricky because it requires you to work backwa
 <p>Every program you have ever used, no matter how complicated, is made up of instructions that look like these.&nbsp;</p>
 <p>We can describe programming as the process of breaking a large, complex task into smaller and smaller subtasks until the subtasks are simple enough to be performed with sequences of these basic instructions.</p>
 </section>
-</section>
-<section id="hello-world" class="level1">
-<h1>Hello World</h1>
+<section id="hello-world" class="level2">
+<h2 class="anchored" data-anchor-id="hello-world">Hello World</h2>
 <p>Traditionally, the first program written in a new language is called&nbsp;<strong>Hello, World</strong> because all it does is display the words, Hello, World.</p>
-<p>This is an example of using the <code>print function</code>, which displays a value on the screen.</p>
-<div id="5e1de098" class="cell" data-execution_count="1">
+<div class="core-box">
+<p>This is an example of using the <code>print</code> function, which displays a value on the screen.</p>
+<div id="f0f893a1" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
 </div>
 </div>
+</div>
+<p>The print function will be one of the most common functions we use in this course as it is extremely useful for seeing what it happening step-by-step as your program executes.</p>
 </section>
-<section id="comments" class="level1">
-<h1>Comments</h1>
+<section id="comments" class="level2">
+<h2 class="anchored" data-anchor-id="comments">Comments</h2>
 <p>As programs get bigger and more complicated, they get more difficult to read. Formal languages are dense, and it is often difficult to look at a piece of code and figure out what it is doing, or why.</p>
 <p>For this reason, it is a good idea to add notes to your programs to explain in natural language what the program is doing. These notes are called comments.</p>
-<p>A <strong>comment</strong> in a computer program is text that is intended only for the human reader - it is completely ignored by the interpreter.</p>
+<p>A <strong>comment</strong> in a computer program is text that is intended only for the human reader, it is completely ignored by the interpreter.</p>
+<div class="core-box">
 <p>In Python, the&nbsp;<strong>#</strong> token starts a comment. The rest of the line is ignored. Here is a new version of&nbsp;<strong>Hello, World!</strong>.</p>
-<div id="173b0c1d" class="cell" data-execution_count="2">
+<div id="1dee1814" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>) <span class="co">#This is a comment</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello world</code></pre>
 </div>
 </div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

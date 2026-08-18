@@ -1,5 +1,5 @@
 ---
-title: "2: Variables Arithmetic Basic I/O"
+title: "2: Variable, Arithmeti and Basic I/O"
 format: html
 ---
 
@@ -27,9 +27,9 @@ For example:
 mass = 50
 ```
 
-This sets the variable *mass* to the value *50*.
+This sets the variable *`mass`* to the value *`50`*.
 
-Be careful not to confuse the assignment operator **=** with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign **==**.
+Be careful not to confuse the assignment operator `=` with the equals sign. In Python, this symbol is used for assignment. When we reach conditional statements in the future, we will see that the equality operator (which asks the questions are two objects equal) is the double equals sign `==`.
 
 Note that in our examples, the variable receiving the value is always on the left side. This is a general rule in Python, the variable that takes on the value must be on the left.
 
@@ -61,9 +61,19 @@ z = 2
 
 The purpose of data types is to categorize the value located in memory.
 
-The major types in Python are: - **int** for integer - **float** for a real number - **str** for sequences of characters (these can be any kind of symbol from letters to numbers to punctuation and more) - **bool** for Boolean values (True or False)
+The major types in Python are:
 
-Some operations behave differently depending on the data type (or may not even be defined at all). For example, the **+** operator performs standard addition when used on ints and floats but instead performs concatenation when used with two strs.
+- `int` for integer
+
+- `float` for a real number
+
+- `str` for sequences of characters called strings
+
+  - These can be any kind of symbol from letters to numbers to punctuation and more
+
+- `bool` for Boolean values (`True` or `False`)
+
+Some operations behave differently depending on the data type (or may not even be defined at all). For example, the `+` operator performs standard addition when used on integers and floats but instead performs concatenation when used with two strings.
 
 ## Copying by Value and Copying by Reference
 
@@ -86,9 +96,9 @@ With more complex data types (like lists which will be introduced soon), variabl
 
 The assignment shares access to the same data. The variable names point to a location that holds a single instance of the data. If you change the data through one variable, it will be reflected to all the other variables that point at the same underlying data.
 
-For simple types (int, float, str, bool) assignment copies the value.
+- For simple types (`int`, `float`, `str`, `bool`) assignment copies the value.
 
-For complex types (lists and many others) assignment shares access to the same data.
+- For complex types (lists and many others which will be seen in the future) assignment shares access to the same data.
 
 ## Variable Naming Rules
 
@@ -100,7 +110,7 @@ Python has a set of rules for naming variables. Most of these if ignored will re
 - After first character may use letters, digits, or underscores
 - Variable names are case sensitive
 
-In general, a variable's name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (i, j, k, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.
+In general, a variable's name should reflect its use. This makes finding and fixing problems in your code much easier. Note that it is common for certain variables to have very simple names (`i`, `j`, `k`, etc.) when they are used for certain common operations. When starting out, you may want to use a more descriptive name to help your understanding.
 
 ## Reassigning Variables to a Different Type
 
@@ -121,7 +131,19 @@ Casting is the process of converting on type of data to another. In Python this 
 | str() | Converts almost any object into its string representation. | str(100) | "100" |
 | bool() | Converts to a boolean (True or False). | bool(1)<br>bool("") | True<br>False |
 
-There are certain restrictions on casting in Python that will cause a runtime error if ignored. - Non-Numeric Strings to Numeric Types - Attempting to cast a string that does not look like a number will raise a ValueError. - int("apple") - Casting Float-like Strings to Integers - Python cannot directly cast a string containing a decimal point straight into an integer. - score = int("98.6")
+There are certain restrictions on casting in Python that will cause a runtime error if ignored.
+
+- Non-Numeric Strings to Numeric Types
+
+  - Attempting to cast a string that does not look like a number will raise a ValueError.
+
+    - `int("apple")`
+
+- Casting Float-like Strings to Integers
+
+  - Python cannot directly cast a string containing a decimal point straight into an integer.
+
+    - `score = int("98.6")`
 
 ## Avoiding Magic Numbers
 
@@ -133,7 +155,7 @@ For example:
 amount = balance * 0.065
 ```
 
-The value *0.065* is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).
+The value *`0.065`* is not specified as to what it actually is. It could be an interest rate, or a fee percentage, or many other possible things. Only the person who wrote the code knows for sure (assuming they remember).
 
 If a magic number is used in many places in a program it can take substantial effort to find and change the number in each location. You take the risk of making a mistake each type you type the magic number the program's code. This can be the source of difficult to find and frustrating errors.
 
@@ -147,15 +169,27 @@ INTEREST_RATE = 0.051
 
 ## The None Type
 
-**None** is a special Python value that represents no value assigned yet. Note that **None** is a value (not an error). Its data type is a unique **NoneType**.
+`None` is a special Python value that represents no value assigned yet. Note that `None` is a value (not an error). Its data type is a unique `NoneType`.
 
-**None** is used as a placeholder when a value is unknown or not available.
+`None` is used as a placeholder when a value is unknown or not available.
 
-**None** is not the same as: - 0 (a number) - "" (an empty string) - False (a Boolean)
+`None` is not the same as:
 
-We use None to: - Initialize a variable before it has a real value - Represent missing or unknown information - Indicate that a result has not been computed yet
+- `0` (a number)
 
-Rule to remember: Do not perform math or string operations on None. - Any of these operations causes an error.
+-  `""` (an empty string)
+
+- `False` (a Boolean)
+
+We use `None` to:
+
+- Initialize a variable before it has a real value
+
+- Represent missing or unknown information
+
+- Indicate that a result has not been computed yet
+
+Rule to remember: Do not perform math or string operations on `None`. Any of these operations causes an error.
 
 # Input, Processing and Output
 
@@ -167,15 +201,15 @@ Typically, a computer performs a three-step process:
   - Example: mathematical calculation
 - Produce output
 
-## The Print Function
+## The `print` Function
 
-We have already seen the print function in the *Hello World* example. The print function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.
+We have already seen the `print` function in the *Hello World* example. The `print` function will be one of the most commonly used functions throughout this course. It is extremely useful when trying to debug code, as you can see the contents of variables as your program progresses through its instructions.
 
 ### Program Execution Order
 
 In general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.
 
-The output of the following example is 'one' then 'two' then 'three'.
+The output of the following example is '`one`' then '`two`' then '`three`'.
 
 ```{python}
 print('one')
@@ -185,7 +219,13 @@ print('three')
 
 ### Displaying Multiple Items with the Print Function
 
-Python allows one to display multiple items with a single call to print. - Items are separated by commas when passed as arguments. - Arguments displayed in the order they are passed to the function. - Items are automatically separated by a space when displayed on screen.
+Python allows one to display multiple items with a single call to print.
+
+-  Items are separated by commas when passed as arguments.
+
+- Arguments displayed in the order they are passed to the function.
+
+- Items are automatically separated by a space when displayed on screen.
 
 ```{python}
 print('one', 'two', 'three')
@@ -213,11 +253,11 @@ Both of these options can be useful to help format printed values to make readin
 
 ### Newlines and Tabs
 
-Certain special characters are preceded by a backslash **\\**.
+Certain special characters are preceded by a backslash `\`.
 
 These characters are treated as commands inside a string.
 
-To create a newline, we use the character **\\n**.
+To create a newline, we use the character `\n`.
 
 Note the extra new line in the following example.
 
@@ -227,7 +267,7 @@ print('Hello world')
 
 ```
 
-To create a tab, we use **\\t**.
+To create a tab, we use `\t`.
 
 Note the increased whitespace (the tab character) between the words *Hello* and *world*.
 
@@ -236,18 +276,16 @@ print('Hello\tworld')
 
 ```
 
-We can also see that there is no additional space here in the string *Hello\\tworld* and yet the tab is still correctly placed. If we included space between the tab and the other parts of the string like:
-
+We can also see that there is no additional space here in the string *`Hello\tworld`* and yet the tab is still correctly placed. If we included space between the tab and the other parts of the string like:
 
 ```{python}
 print('Hello \t world')
 
 ```
 
-
 We see that there is additional space in the printed output. This is an important feature of printing strings in that anything inside the string is printed exactly as it is written. By adding the spaces to make things easier for us to read inside the string, we altered the output.
 
-## The Input Function
+## The `input` Function
 
 Many programs need to read input from the user. While many kinds of data can be used as input, we will largely be dealing with the simple input function and working with text data. More complicated kinds of input tend to require more effort to both read and process, so we will avoid these in an introductory course.
 
@@ -259,11 +297,9 @@ variable_name = input("Your Prompt Here")
 ```
 :::
 
-Note that the input function always returns the data as a *string*.
+Note that the input function always returns the data as a *string*. The prompt is typically a string instructing user to enter a value.
 
-The prompt is typically a string instructing user to enter a value.
-
-The input function also does not automatically display a space after the prompt.
+Note that the input function also does not automatically display a space after the prompt.
 
 For example:
 
@@ -277,9 +313,9 @@ The above does the following:
 - Reads input, as a string, from the keyboard
 - Assigns the string that was read from the keyboard to the name variable
 
-### Reading Numbers with the Input Function
+### Reading Numbers with the `input` Function
 
-Since the input function always returns a string, if we want to use the input as a number in calculations we will need to cast the string to the appropriate numerical type.
+Since the `input` function always returns a string, if we want to use the input as a number in calculations we will need to cast the string to the appropriate numerical type.
 
 ```         
 number = int(input('Enter a number: '))
@@ -331,10 +367,22 @@ Python has rules for operator precedence that are very close to that of normal a
 
 ### Converting Math Formulas into Python
 
-In Python, an operator is required for any mathematical operation. Standard mathematical notation like **xy** which is implicitly understood that **x** and **y** are multiplied together is not allowed in Python. Any mathematical operation needs to be explicitly defined using operators.
+In Python, an operator is required for any mathematical operation.
+
+Standard mathematical notation like $xy$ where it is implicitly understood that $x$ and $y$ are multiplied together is not allowed in Python. Any mathematical operation needs to be explicitly defined using operators.
 
 In general, converting math formulas into Python tends to require adding multiplication operators and the insertion of parentheses.
 
 ### Mixed-Type Expressions and Automatic Type Conversion
 
-The data type resulting from mathematical operations depends on the type of operands. - Two *int* operands results in another *int* - Two *float* operands results in another *float* - One *int* operands and one *float* operand results in a *float*
+The data type resulting from mathematical operations depends on the type of operands.
+
+- Two `int` operands results in another `int`
+
+<!-- -->
+
+- Two `float` operands results in another `float`
+
+<!-- -->
+
+- One `int` operands and one `float` operand results in a `float`
