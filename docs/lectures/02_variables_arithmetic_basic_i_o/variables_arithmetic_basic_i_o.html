@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>2: Variable, Arithmeti and Basic I/O – Programming for Engineers and Scientists</title>
+<title>2: Variables, Arithmetic and Basic I/O – Programming for Engineers and Scientists</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -162,7 +162,7 @@ window.Quarto = {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variable, Arithmeti and Basic I/O</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variables, Arithmetic and Basic I/O</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -234,7 +234,7 @@ window.Quarto = {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">2: Variable, Arithmeti and Basic I/O</span></a>
+ <span class="menu-text">2: Variables, Arithmetic and Basic I/O</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -378,9 +378,9 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variable, Arithmeti and Basic I/O</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../lectures/01_course_introduction/course_intro_and_python_environment.html">Lectures</a></li><li class="breadcrumb-item"><a href="../../lectures/02_variables_arithmetic_basic_i_o/variables_arithmetic_basic_i_o.html">2: Variables, Arithmetic and Basic I/O</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">2: Variable, Arithmeti and Basic I/O</h1>
+<h1 class="title">2: Variables, Arithmetic and Basic I/O</h1>
 </div>
 
 
@@ -409,7 +409,7 @@ window.Quarto = {
 <pre><code>variable_name = expression</code></pre>
 </div>
 <p>For example:</p>
-<div id="fab074b6" class="cell" data-execution_count="1">
+<div id="7431459b" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mass <span class="op">=</span> <span class="dv">50</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>This sets the variable <em><code>mass</code></em> to the value <em><code>50</code></em>.</p>
@@ -422,10 +422,10 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="multiple-assignment">Multiple Assignment</h3>
 <p>You can also assign values to multiple variables in a single statement. This is known as multiple assignment.</p>
 <p>The following code blocks are functionally equivalent:</p>
-<div id="677dac92" class="cell" data-execution_count="2">
+<div id="5645c37f" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>x, y, z <span class="op">=</span> <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div id="d3618934" class="cell" data-execution_count="3">
+<div id="a6d3978e" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">0</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> <span class="dv">1</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>z <span class="op">=</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -450,7 +450,7 @@ window.Quarto = {
 <section id="copying-by-value-and-copying-by-reference" class="level2">
 <h2 class="anchored" data-anchor-id="copying-by-value-and-copying-by-reference">Copying by Value and Copying by Reference</h2>
 <p>This example demonstrates the idea of copying by value.</p>
-<div id="ce96e9fa" class="cell" data-execution_count="4">
+<div id="fb00ceaf" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">7</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>y <span class="op">=</span> x</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">10</span></span>
@@ -563,7 +563,7 @@ window.Quarto = {
 <section id="named-constants" class="level3">
 <h3 class="anchored" data-anchor-id="named-constants">Named Constants</h3>
 <p>Rather than using magic numbers, you should used a variable whose purpose is to represent the value. This variable is not intended to be changed during the program and so is called a <em>constant</em>. In practice, Python will allow you to change the value, so it is important to remember that this variable is supposed to be static. The common convention in Python is to use all caps to indicate a constant variable.</p>
-<div id="7164f872" class="cell" data-execution_count="5">
+<div id="a5d39aa5" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>INTEREST_RATE <span class="op">=</span> <span class="fl">0.051</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
@@ -608,7 +608,7 @@ window.Quarto = {
 <h3 class="anchored" data-anchor-id="program-execution-order">Program Execution Order</h3>
 <p>In general, statements execute in the order that they appear. Specifically, the go from top (first) to bottom (last). In the future we will see ways of repeating or skipping sections of code.</p>
 <p>The output of the following example is ‘<code>one</code>’ then ‘<code>two</code>’ then ‘<code>three</code>’.</p>
-<div id="f3666052" class="cell" data-execution_count="6">
+<div id="7c97ab36" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'two'</span>)</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'three'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -627,7 +627,7 @@ three</code></pre>
 <li><p>Arguments displayed in the order they are passed to the function.</p></li>
 <li><p>Items are automatically separated by a space when displayed on screen.</p></li>
 </ul>
-<div id="a32fecaa" class="cell" data-execution_count="7">
+<div id="955180f8" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>one two three</code></pre>
@@ -635,7 +635,7 @@ three</code></pre>
 </div>
 <p>Based off the previous examples we can see that successive print statements place their value(s) on different lines. This is because the print function puts a newline character at the end of printed data. We can change this default newline to a value of our choice using the special argument <em>end</em>.</p>
 <p>The following example changes the default newline to a space.</p>
-<div id="01c8d9c9" class="cell" data-execution_count="8">
+<div id="d4ed422b" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>,end<span class="op">=</span><span class="st">' '</span>)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'two'</span>,end<span class="op">=</span><span class="st">' '</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'three'</span>,end<span class="op">=</span><span class="st">' '</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -645,7 +645,7 @@ three</code></pre>
 </div>
 <p>Similarly, for multiple items displayed on the same line, we can use the separator argument <em>sep</em> to change the default space to something else.</p>
 <p>The following example changes the default space to a dash.</p>
-<div id="40684d2d" class="cell" data-execution_count="9">
+<div id="5dadb151" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'one'</span>, <span class="st">'two'</span>, <span class="st">'three'</span>,sep<span class="op">=</span><span class="st">'-'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>one-two-three</code></pre>
@@ -659,7 +659,7 @@ three</code></pre>
 <p>These characters are treated as commands inside a string.</p>
 <p>To create a newline, we use the character <code>\n</code>.</p>
 <p>Note the extra new line in the following example.</p>
-<div id="0486fa7a" class="cell" data-execution_count="10">
+<div id="94b43e51" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world</span><span class="ch">\n</span><span class="st">'</span>)</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -670,14 +670,14 @@ Hello world</code></pre>
 </div>
 <p>To create a tab, we use <code>\t</code>.</p>
 <p>Note the increased whitespace (the tab character) between the words <em>Hello</em> and <em>world</em>.</p>
-<div id="5e88842e" class="cell" data-execution_count="11">
+<div id="5a382374" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello</span><span class="ch">\t</span><span class="st">world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello   world</code></pre>
 </div>
 </div>
 <p>We can also see that there is no additional space here in the string <em><code>Hello\tworld</code></em> and yet the tab is still correctly placed. If we included space between the tab and the other parts of the string like:</p>
-<div id="a0907612" class="cell" data-execution_count="12">
+<div id="cd91cf40" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Hello </span><span class="ch">\t</span><span class="st"> world'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Hello    world</code></pre>

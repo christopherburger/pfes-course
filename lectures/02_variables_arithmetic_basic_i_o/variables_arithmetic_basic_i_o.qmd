@@ -1,5 +1,5 @@
 ---
-title: "2: Variable, Arithmeti and Basic I/O"
+title: "2: Variables, Arithmetic and Basic I/O"
 format: html
 ---
 
@@ -177,7 +177,7 @@ INTEREST_RATE = 0.051
 
 - `0` (a number)
 
--  `""` (an empty string)
+- `""` (an empty string)
 
 - `False` (a Boolean)
 
@@ -221,7 +221,7 @@ print('three')
 
 Python allows one to display multiple items with a single call to print.
 
--  Items are separated by commas when passed as arguments.
+- Items are separated by commas when passed as arguments.
 
 - Arguments displayed in the order they are passed to the function.
 
