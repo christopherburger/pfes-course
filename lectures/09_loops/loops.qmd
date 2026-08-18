@@ -17,7 +17,7 @@ Repetition structures are generally implemented in what are called loops. There 
 
 - Count-controlled which repeats a specific number of times
 
-## The `for` Loop$
+# The `for` Loop
 
 A `for` loop is a count-controlled loop. During initialization, it is set to iterate a fixed maximum number of times. We will see later on how we can skip iterations or end the loop prematurely but we can never increase the number of times the loop iterates. This is `not` much of a limitation as for loops are designed to work with a sequence of data items and so the loop needs to iterate for each item in the sequence.
 
@@ -39,7 +39,7 @@ for num in [1,2,3,4,5]:
 ```
 
 ::: practice-box
-Create a for loop that iterates through and prints the numbers from 1 to 10 inclusive.
+Create a `for` loop that iterates through and prints the numbers from 1 to 10 inclusive.
 
 <details>
 
@@ -69,7 +69,7 @@ for i in [1,2,3,4,5,6,7,8,9,10]:
 </details>
 :::
 
-## Using the range Function With the for Loop
+## Using the `range` Function With the for Loop
 
 The range function returns an **iterable** object, which is a type of object that contains a sequence of values that can be stepped through value by value (iterated over).
 
@@ -79,9 +79,9 @@ When we think back to indexing of lists and similar structures, this ordering is
 
 The range function has the capacity to alter its progression and this is controlled by the number of arguments passed into the function.
 
-  - One argument: used as ending limit
-  - Two arguments: starting value and ending limit
-  - Three arguments: third argument is step value
+- One argument: used as ending limit
+- Two arguments: starting value and ending limit
+- Three arguments: third argument is step value
 
 ### One Argument
 
@@ -90,9 +90,7 @@ for num in range(5):
   print(num)
 ```
 
-
 Note that the ending limit is excluded in the output of the code above.
-
 
 ### Two Arguments
 
@@ -103,7 +101,6 @@ for num in range(1,5):
   print(num)
 ```
 
-
 While we always start at the value specified, if we want to include the ending limit, we need to go one step further.
 
 ```{python}
@@ -111,1074 +108,682 @@ for num in range(1,6):
   print(num)
 ```
 
-
 ### Three Arguments
 
-If we specify a third argument, the final arguement becomes the step size. By default this is set to 1.
+If we specify a third argument, the final argument becomes the step size. By default this is set to 1.
 
-```{python} 
+```{python}
 for num in range(2,9,2):
   print(num)
 ```
 
+::: practice-box
+Create a `for` loop that prints all odd numbers from 1 to 25 inclusive.
 
-## Practice
+<details>
 
-- Create a for loop that prints all odd numbers from 1 to 25 inclusive.
+<summary>Click to show answer</summary>
 
-> for num in range(1,26,2):
->
-> print(num)
+```         
+for num in range(1,26,2):
+    print(num)
+```
 
-## Practice
+</details>
+:::
 
-- Create a for loop that prints all positive multiples of three up to and including 60.
+The range function can be used to generate a sequence with numbers in descending order. Make sure the starting number is larger than end limit, and the step value is negative.
 
-> for num in range(3,61,3):
->
-> print(num)
+```{python}
+for num in range(10,0,-1):
+    print(num)
+```
 
 ## Using the Target Variable Inside the Loop
 
-- **Purpose of target variable is to reference each item in a sequence as the loop iterates**
+The purpose of the target variable is to reference each item in a sequence as the loop iterates.
 
-- **Target variable can be used in calculations or tasks in the body of the loop**
+We can use the target variable in all kinds of calculations or other tasks in the body of the loop but any changes to the target variable will be discarded upon next iteration as it is set to a new value.
 
-  - Example: calculate square of each number in a range
-
-## Example
-
+```{python}
 for num in range(5):
+    print(num*num)
+```
 
-print(num\*num)
+::: practice-box
+Create a `for` loop to calculate and print the square of the first 5 non-zero multiples of three.
 
-0
+<details>
 
-1
+<summary>Click to show answer</summary>
 
-4
+```         
+for num in range(3,18,3):
+    print(num**2)
+```
 
-9
+</details>
+:::
 
-16
-
-## Practice
-
-- Create a for loop to calculate and print the cube of the first 5 non-zero multiples of four.
-
-> for num in range(4,21,4):
->
-> print(num\*num\*num)
+> 
 
 ## Letting the User Control the Loop Iterations
 
-- **Sometimes the programmer does not know exactly how many times the loop will execute**
+Sometimes we do not know exactly how many times the loop will execute. One solution is that, if the user knows how many times the loop needs to run, we can **r**eceive range inputs from the user, place them in variables, and call the `range` function in the for clause using these variables.
 
-- **Can receive range inputs from the user, place them in variables, and call the range function in the for clause using these variables**
+Be sure to consider the end cases: `range` does not include the ending limit.
 
-  - Be sure to consider the end cases: range does not include the ending limit
-
-## Example
-
+```         
 x = int(input("Input an integer: "))
 
 for i in range(x+1):
+    print(i)
+```
 
-print(i)
+::: practice-box
+Create a `for` loop that prints the value of the target variable which uses the input of three different variables to control the starting, ending, and step size of the `range` function.
 
-0
+<details>
 
-1
+<summary>Click to show answer</summary>
 
-2
+```         
+start = int(input("Enter the starting value: "))
+end = int(input("Enter the end limit: "))
+step = int(input("Enter the step size: "))
 
-…
+for i in range(start,end,step):
+    print(i)
+```
 
-x
+</details>
+:::
 
-## Practice
+## Augmented Assignment Operators
 
-- Create a for loop that uses the input of three different variables to control the starting, ending, and step size of the range function.
+In many assignment statements, the variable on the left side of the `=` operator also appears on the right side of the `=` operator.
 
-## The Augmented Assignment Operators (1 of 2)
+Augmented assignment operators are a special set of operators designed for this common operation to make the written code a little shorter.
 
-- **In many assignment statements, the variable on the left side of the = operator also appears on the right side of the = operator**
+| **Operator** | **Example Usage** | **Equivalent To** |
+|--------------|-------------------|-------------------|
+| +=           | x += 5            | x = x + 5         |
+| -=           | y -= 2            | y = y - 2         |
+| \*=          | z \*= 10          | z = z \* 10       |
+| /=           | a /= b            | a = a / b         |
+| %=           | c %= 3            | c = c % 3         |
 
-- **Augmented assignment operators: special set of operators designed for this type of job**
+## 
 
-  - Shorthand operators
-
-## The Augmented Assignment Operators (2 of 2)
-
-**Table 4-2** Augmented assignment operators
-
-| **Operator**    | **Example Usage** | **Equivalent To** |
-|-----------------|-------------------|-------------------|
-| +=              | x += 5            | x = x + 5         |
-| negative equals | y minus = 2       | y = y minus 2     |
-| \*=             | z \*= 10          | z = z \* 10       |
-| /=              | a /= b            | a = a / b         |
-| %=              | c %= 3            | c = c % 3         |
-
-Equation
-
-Equation
-
-Equation
-
-## Example
-
+```{python}
 value = 0
 
 for num in range(5):
+    value += num
+    print(value)
+```
 
-value += num
+::: practice-box
+Take in a positive integer using the input function into a variable named **initial***.*
 
-print(value)
+Take in a second variable to control the number of iterations of the loop, called **limit**.
 
-10
+Using a `for` loop and the augmented decrement operator, reduce the value in initial by 5 for each iteration of the loop.
 
-## Example
+<details>
 
-value = 1
+<summary>Click to show answer</summary>
 
-for num in range(1,5):
+```         
+initial = int(input("Enter a positive integer: "))
 
-value \*= num
+limit = int(input("Enter a positive integer: "))
 
-print(value)
+for i in range(limit):
+    initial -= 5
+    print(initial)
+```
 
-24
+</details>
+:::
 
-> What is this code calculating?
->
-> (5-1)!
+## The `break` Statement
 
-## Practice
+The break statement causes a loop to terminate as soon as it is encountered.
 
-- Take in a positive integer using the input function into a variable named **initial***.*
-- Take in a second variable to control the number of iterations of the loop, called **limit**.
-- Using a for loop and the augmented decrement operator, reduce the value in initial by 5 for each iteration of the loop.
-
-> initial = int(input("Enter a positive integer: "))
->
-> limit = int(input("Enter a positive integer: "))
->
-> for i in range(limit):
->
-> initial -= 5
->
-> print(initial)
->
-> Enter a positive integer: 25
->
-> Enter a positive integer: 10
->
-> -25
-
-## The break Statement
-
-- **The break statement causes a loop to terminate**
-
-**Program Output**
-
-0
-
-1
-
-2
-
-3
-
-4
-
-5
-
+```{python}
 for i in range(10):
+    if i > 5:
+        break  
+    print(i)
+```
 
-if i \> 5:
+::: practice-box
+Take in a positive integer using the input function into a variable named **initial***.*
 
-break
+Take in a second variable to control the number of iterations of the loop, called **limit**.
 
-print(i)
+Using a `for` loop and the augmented decrement operator, reduce the value in initial by 5 for each iteration of the loop.
 
-> The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 100 colon. Line 3, indented once. print left parenthesis n right parenthesis. Line 4, indented once. if n equals equals 5 colon. Line 5, indented twice. break. This line of code is labeled, this statement causes the loop to stop. Line 6, indented once. n plus equals 1. Line 7. print left parenthesis f single quote The loop stopped and n is left brace n right brace period single quote right parenthesis.
+If the variable **initial** would become negative, break the loop before this happens.
 
-## Practice
+<details>
 
-- Take in a positive integer using the input function into a variable named **initial***.*
-- Take in a second variable to control the number of iterations of the loop, called **limit**.
-- Using a for loop and the augmented decrement operator, reduce the value in initial by 5 for each iteration of the loop.
-- If the variable **initial** would become negative, break the loop before this happens.
+<summary>Click to show answer</summary>
 
-> initial = int(input("Enter a positive integer: "))
->
-> limit = int(input("Enter a positive integer: "))
->
-> for i in range(limit):
->
-> if initial - 5 \> 0:
->
-> initial -= 5
->
-> else:
->
-> break
->
-> print(initial)
+```         
+initial = int(input("Enter a positive integer: "))
+limit = int(input("Enter a positive integer: "))
 
-## The continue Statement (1 of 2)
+for i in range(limit):
+    if initial - 5 > 0:
+        initial -= 5
+    else:
+        break
+    print(initial)
+```
 
-- The continue statement causes the current iteration of a loop to end early
-- When the continue statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration)
+</details>
+:::
 
-## The continue Statement
+## The **`continue`** Statement
 
-- **The continue statement causes a loop to immediately move to the next iteration**
+The `continue` statement causes the current iteration of a loop to end early.
 
-**Program Output**
+When the `continue` statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration).
 
-1
-
-2
-
-4
-
-5
-
-7
-
-8
-
+```{python}
 for i in range(10):
+    if i % 3 == 0:
+        continue
+    print(i)
+```
 
-if i % 3 == 0:
+::: practice-box
+Using the input function, take in a positive integer into the variable **limit**.
 
-continue
+Then using a `for` loop, iterate to the limit where the following conditions are satisfied:
 
-print(i)
+- If the current value is divisible by 2, print using a formatted string the number and the statement “Divisible by 2”.
+- Repeat the above but for divisibility by 3.
+- If the current value is divisible by both 2 and 3, skip the current iteration before anything is printed.
 
-> The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 100 colon. Line 3, indented once. print left parenthesis n right parenthesis. Line 4, indented once. if n equals equals 5 colon. Line 5, indented twice. break. This line of code is labeled, this statement causes the loop to stop. Line 6, indented once. n plus equals 1. Line 7. print left parenthesis f single quote The loop stopped and n is left brace n right brace period single quote right parenthesis.
+<details>
 
-## Practice
+<summary>Click to show answer</summary>
 
-- Using the input function, take in a positive integer into the variable **limit**.
+```         
+limit = int(input("Enter a positive integer: "))
 
-- Then using a for loop iterate to the limit in which the following conditions are satisfied:
+for i in range(limit):
 
-  - If the current value is divisible by 2, print using a formatted string the number and the statement “Divisible by 2”.
-  - Repeat the above but for divisibility by 3.
-  - If the current value is divisible by both 2 and 3, skip the current iteration before anything is printed.
+    if i%2 ==0 and i%3 == 0:
+        continue
+    
+    if i% 2 == 0:
+        print(f"{i} Divisible by 2")
+    
+    if i % 3 == 0:
+        print(f"{i} Divisible by 3")
+```
 
-> limit = int(input("Enter a positive integer: "))
->
-> for i in range(limit):
->
-> if i%2 ==0 and i%3 == 0:
->
-> continue
->
-> if i% 2 == 0:
->
-> print(f"{i} Divisible by 2")
->
-> if i % 3 == 0:
->
-> print(f"{i} Divisible by 3")
+</details>
+:::
 
-## Accumulators and Traversal
+# Accumulators and Traversal
 
-CSCI – 1056
+## Calculating a Running Total
 
-Content Modified from Pearson’s Starting Out with Python 6th Edition
+Programs often need to calculate a total of a series of numbers. This typically includes two components:
 
-## Generating an Iterable Sequence That Ranges From Highest to Lowest
+- A loop that reads each number in series
+- An **accumulator** variable
 
-- **The range function can be used to generate a sequence with numbers in descending order**
+This is known as program that keeps a running total. At the end of the loop, the accumulator will reference the total.
 
-  - Make sure starting number is larger than end limit, and step value is negative
-
-- Example:
-
-Equation
-
-## Example
-
-for num in range(10,0,-1):
-
-print(num)
-
-10
-
-9
-
-8
-
-…
-
-2
-
-1
-
-## Practice
-
-- Create a for loop that prints all positive multiples of three from and including 60 down to 3.
-
-> for num in range(60,2,-3):
->
-> print(num)
->
-> Note that values of 1 and 0 will also work correctly.
-
-## Calculating a Running Total (1 of 2)
-
-- **Programs often need to calculate a total of a series of numbers**
-
-  - Typically include two elements:
-
-    - A loop that reads each number in series
-    - An **accumulator** variable
-
-  - Known as program that keeps a running total: accumulates total and reads in series
-
-  - At end of loop, accumulator will reference the total
-
-## Calculating a Running Total (2 of 2)
-
-**Figure 4-6** Logic for calculating a running total
-
-An illustration depicts a logic for calculating a running total. For long description in Notes pane, press F6.
-
-> The steps in the flowchart are as follows.\
-> Set accumulator to 0. Therefore, the condition in the diamond symbol is, is there another number to read. If the condition is yes, true, the following statements are followed. Read the next number. Add the number to the accumulator. Then the program goes back to the point above the diamond symbol. If the condition is no, false, the loop ends.
-
-## Example
-
+```{python}
 value = 0
 
 for num in range(5):
+    value = value + num
+    print(value)
+```
 
-value = value + num
+::: practice-box
+Using a for loop, accumulate into a variable **value** the sum of all positive even numbers up to and including 10.
 
-print(value)
+<details>
 
-10
+<summary>Click to show answer</summary>
 
-## Practice
+```         
+value = 0
 
-- Using a for loop, accumulate into a variable **value** the sum of all positive even numbers up to and including 10.
+for num in range(2,11,2):
+    value = value + num
+    print(value)
+```
 
-> value = 0
->
-> for num in range(2,11,2):
->
-> value = value + num
->
-> print(value)
+</details>
+:::
 
-## Copying Lists (1 of 3)
+## Copying Lists
 
-- **To make a copy of a list you must copy each element of the list**
+To make a copy of a list you must copy each element of the list. Simply creating a variable that references the original list does not create a copy, the new variable only points to the existing list.
 
-  - Two methods to do this:
+We cannot just use the assignment operator to set one list to another list.
 
-    - Creating a new empty list and using a for loop to add a copy of each element from the original list to the new list
-    - Creating a new empty list and concatenating the old list to the new empty list
+```{python}
+list1 = [1,2,3]
+list2 = list1
 
-## Copying Lists (2 of 3)
+list2[0] = 5
 
-- **We cannot just use the assignment operator to set one list to another list.**
+print(list1)
+print(list2)
+```
 
-- *list1 = list2*
+We can see that changing a value what is referenced by `list2` is reflected in `list1`. This is because both variables reference the same object.
 
-- This just maps two variables names to the same location.
+To create a true copy of a list we have two main methods:
 
-  - Any changes to one variable with then be reflected in the other.
+- Creating a new empty list and using a `for` loop to add a copy of each element from the original list to the new list
+- Creating a new empty list and concatenating the old list to the new empty list
 
-## Copying Lists (2 of 3)
+```{python}
+list1 = [1,2,3]
+list2 = []
 
-**Figure 7-4** list1 and list2 reference the same list
+for i in list1:
+    list2.append(i)
 
-List 1 and list 2 point to the first element of the list, which is depicted as a 1 by 4 array in which the following elements are entered in each of the cells. 1, 2, 3, and 4.
+#If we look at the memory locations of these lists, we see that they are different and so the lists themselves are different objects.
+print(id(list1))
+print(id(list2))
+```
 
-## Processing Lists (1 of 2)
+## List Comprehensions
 
-- **List elements can be used in calculations**
+List comprehensions are concise expressions that creates a new list by iterating over the elements of an existing list.
 
-- **To calculate total of numeric values in a list use loop with accumulator variable**
+The following code uses a list comprehension to make a copy of a list, just like the above example:
 
-- **To average numeric values in a list:**
+```{python}
+list1 = [1, 2, 3]
 
-  - Calculate total of the values
-  - Divide total of the values by len(list)
+list2 = [item for item in list1]
+```
 
-- **List can be passed as an argument to a function**
+$$ \mathtt{list2 = [} \underbrace{\mathtt{item}}_{\text{Result Expression}} \mathtt{\ } \underbrace{\mathtt{for\ item\ in\ list1}}_{\text{Iteration Expression}} \mathtt{]} $$
 
-## Processing Lists (2 of 2)
+The result expression is the first part of the expression, `item`, and the iteration expression is the latter part, `for item in list1`.
 
-- **A function can return a reference to a list**
+The iteration expression works like a `for` loop. In this example, it iterates over the elements of `list1`. Each time it iterates, the target variable `item` is assigned the value of an element. At the end of each iteration, the value of the result expression is appended to the new list.
 
-- **To save the contents of a list to a file:**
+```{python}
+list1 = [1, 2, 3, 4]
+list2 = [item**2 for item in list1]
 
-  - Use the file object’s writelines method
+#After this code executes, list2 will contain the values [1, 4, 9, 16]
+print(list2)
+```
 
-    - Does not automatically write \\n at then end of each item
+```{python}
+str_list = ['zero', 'one', 'two']
+len_list = [len(s) for s in str_list]
 
-  - Use a for loop to write each element and \\n
+#After this code executes, len_list will contain the values [4, 3, 3]
+print(len_list)
+```
 
-- **To read data from a file use the file object’s readlines method**
+You can use an `if` clause in a list comprehension to select only certain elements when processing a list.
 
-## List Comprehensions (1 of 7)
-
-- List comprehension: a concise expression that creates a new list by iterating over the elements of an existing list.
-
-## List Comprehensions (2 of 7)
-
-- **The following code uses a for loop to make a copy of a list:**
-
-list1 = \[1, 2, 3, 4\]
-
-list2 = \[\]
-
-for item in list1:
-
-list2.append(item)
-
-- **The following code uses a list comprehension to make a copy of a list:**
-
-list1 = \[1, 2, 3, 4\]
-
-list2 = \[item for item in list1\]
-
-## List Comprehensions (3 of 7)
-
-list 2 equals left bracket item for item in list 1 right bracket. The result expression is the first part of the expression, item, and the iteration expression is the latter part, for item in list 1.
-
-- The iteration expression works like a for loop
-- In this example, it iterates over the elements of list1
-- Each time it iterates, the target variable item is assigned the value of an element.
-- At the end of each iteration, the value of the result expression is appended to the new list.
-
-## List Comprehensions (4 of 7)
-
-list1 = \[1, 2, 3, 4\]
-
-list2 = \[item\*\*2 for item in list1\]
-
-- After this code executes, list2 will contain the values \[1, 4, 9, 16\]
-
-## List Comprehensions (5 of 7)
-
-str_list = \[‘zero', ‘one', ‘two'\]
-
-len_list = \[len(s) for s in str_list\]
-
-- After this code executes, len_list will contain the values \[4, 3, 3\]
-
-## List Comprehensions (6 of 7)
-
-- **You can use an if clause in a list comprehension to select only certain elements when processing a list**
-
-list1 = \[1, 12, 2, 20, 3, 15, 4\]
-
-list2 = \[\]
+```{python}
+list1 = [1, 12, 2, 20, 3, 15, 4]
+list2 = []
 
 for n in list1:
+    if n < 10:
+        list2.append(n)
 
-if n \< 10:
+print(list2)
+```
 
-list2.append(n)
+Works the same as
 
-Works the same as…
+```{python}
+list1 = [1, 12, 2, 20, 3, 15, 4]
+list2 = [item for item in list1 if item < 10]
 
-list1 = \[1, 12, 2, 20, 3, 15, 4\]
+print(list2)
+```
 
-list2 = \[item for item in list1 if item \< 10\]
+## String Traversal
 
-## List Comprehensions (7 of 7)
+To access an individual character in a string we can use the same index notation just like with lists: `my_string[i]`
 
-list1 = \[1, 12, 2, 20, 3, 15, 4\]
+We can also use a `for` loop with the `in` keyword: `for character in string`*.* This is useful when we need to iterate over the whole string, such as to count the occurrences of a specific character.
 
-list2 = \[item for item in list1 if item \< 10\]
+```{python}
+string = "abcdef"
 
-- After this code executes, list2 will contain \[1, 2, 3, 4\]
+for i in string:
+    print(i)
+```
 
-## Accessing the Individual Characters in a String (1 of 3)
+# While loops
 
-- **To access an individual character in a string:**
+## The while Loop: a Condition-Controlled Loop
 
-  - Use a for loop
+A `while` loop is a condition-controlled loop, where while the condition is true, the loop statement(s) are exectued.
 
-    - Format: for *character* in *string*:
-    - Useful when need to iterate over the whole string, such as to count the occurrences of a specific character
+There are two parts to the `while` loop:
 
-  - Use indexing
+- Condition tested for true or false value
+- Statements repeated as long as condition is true
 
-    - Each character has an index specifying its position in the string, starting at 0
-    - Format: *character* = *my_string*\[*i*\]
+The general format is:
 
-## Figure 8-1 Iterating Over the String 'Juliet'
+```         
+while condition:
 
-The six iterations of a loop. For long description in Notes pane, press F6.
+    statement
+    statement
+    ...
+```
 
-> The iterations are for the following computer code. Line 1. For c h in name colon, Line 2. Print left parenthesis c h right parenthesis. In each iteration, the c h variable references a copy of a character from the string. In all six iterations, the name extends right to a box with a text, single quote Juliet single quote.\
-> In first iteration, C h variable extends right to a box with text, single quote J single quote. In second iteration, C h variable extends right to a box with text, single quote u single quote. In third iteration, C h variable extends right to a box with text, single quote l single quote. In fourth iteration, C h variable extends right to a box with text, single quote i single quote. In fifth iteration, C h variable extends right to a box with text, single quote e single quote. In sixth iteration, C h variable extends right to a box with text, single quote t single quote.
+In order for a `while` loop to stop executing, something has to happen inside the loop to make the condition false.
 
-## Accessing the Individual Characters in a String (2 of 3)
+While loops in Python are known are **pretest** loops. This means the condition is tested before performing an iteration. If the condition is false to start with, the loop immediately ends.
 
-**Figure 8-2** String indexes
-
-Single quote Roses are red single quote. Each individual in the string is assigned a number as follows. R, 0. o, 1. s, 2. e, 3. s, 4. Space, 5. a, 6. r, 7. e, 8. Space, 9. r, 10. e, 11. d, 12.
-
-**Figure 8-3** Getting a copy of a character from a string
-
-An illustration depicts a string and c h variable. My underscore string extends right to a box with text that reads, single quote Roses are red single quote. c h extends right to a box with text that reads, single quote a single quote.
-
-## Accessing the Individual Characters in a String (3 of 3)
-
-- **IndexError exception will occur if:**
-
-  - You try to use an index that is out of range for the string
-
-    - Likely to happen when loop iterates beyond the end of the string
-
-- **len(string) function can be used to obtain the length of a string**
-
-  - Useful to prevent loops from iterating beyond the end of a string
-
-## While loops
-
-CSCI – 1056
-
-Content Modified from Pearson’s Starting Out with Python 6th Edition
-
-## The while Loop: a Condition-Controlled Loop (1 of 3)
-
-- **while loop: while condition is true, do something**
-
-  - Two parts:
-
-    - Condition tested for true or false value
-    - Statements repeated as long as condition is true
-
-  - In flow chart, line goes back to previous part
-
-  - General format:
-
-while *condition*:
-
-*statements*
-
-## The while Loop: a Condition-Controlled Loop (2 of 3)
-
-**Figure 4-1** The logic of a while loop
-
-An illustration depicts the logic of a while loop. If the condition in the diamond symbol is true, the statements are executed, and the condition is evaluated again. The process goes on until the condition is false.
-
-## The while Loop: a Condition-Controlled Loop (3 of 3)
-
-- **In order for a loop to stop executing, something has to happen inside the loop to make the condition false**
-
-- **Iteration: one execution of the body of a loop**
-
-- **while loop is known as a pretest loop**
-
-  - Tests condition before performing an iteration
-
-    - Will never execute if condition is false to start with
-    - Requires performing some steps prior to the loop
-
-## Example
-
-values = \[1,2,3\]
+```{python}
+values = [1,2,3]
 
 while len(values) !=0:
+    print(values.pop())
+```
 
-print(values.pop())
+```{python}
+n = 0
 
-## Example
-
-N = 0
-
-while N \< 10:
-
-print(N)
-
-N += 1
+while n < 10:
+    print(n)
+    n += 1
+```
 
 ## Infinite Loops
 
-- **Loops must contain within themselves a way to terminate**
+Loops must contain within themselves a way to terminate.With `for` loops, this was implicit as they had a maximum number of total iterations. But with `while` loops something needs to make the condition false.
 
-  - Something inside a while loop must eventually make the condition false
+If there is no way to make the condition false, you have an **infinite loop**, which is a loop that has no way of ending.
 
-- **Infinite loop: loop that does not have a way of stopping**
+```         
+n = 0
 
-  - Repeats until program is interrupted
-  - Occurs when programmer forgets to include stopping code in the loop
+while n < 10:
+    print(n)
+```
 
-## Example
+Note that there is no change to the value of `n` in the code above, so the expression `n < 10` will always evaluate to `True`.
 
-N = 0
+To avoid infinite loops there must always be a way to terminate the loop. This usually involves making progress towards turning the initial condition false by adjusting the value being tested.
 
-while N \< 10:
+Here, since we are testing `n < 10` if we continually increase the value of `n` each iteration we will eventually turn this condition false.
 
-print(N)
+```{python}
+n = 0
 
-## Practice
+while n < 10:
+    n += 1
+    print(n)
+```
 
-- Write a program that calculates the sum of the first N natural numbers using a while loop.
+::: practice-box
+Write a program that calculates the sum of the first $n$ natural numbers using a while loop.
 
-> N = int(input("Enter a number: "))
->
-> sum_n = 0
->
-> i = 1
->
-> while i \<= N:
->
-> sum_n += i
->
-> i += 1
->
-> print("Sum:", sum_n)
+<details>
 
-## Practice
+<summary>Click to show answer</summary>
 
-- Write a program that prints all even numbers from 1 to N using a while loop.
+```         
+n = int(input("Enter a number: "))
+sum_n = 0
+i = 1
 
-> N = int(input("Enter a number: "))
->
-> num = 2
->
-> while num \<= N:
->
-> print(num, end=" ")
->
-> num += 2
+while i <= n:
+    sum_n += i
+    i += 1
 
-## Practice
+print("Sum: ", sum_n)
+```
 
-- Write a program that calculates the factorial of a given number N using a while loop.
+</details>
+:::
 
-> N = int(input("Enter a number: "))
->
-> factorial = 1
->
-> i = 1
->
-> while i \<= N:
->
-> factorial \*= i
->
-> i += 1
->
-> print(f"{N}! =", factorial)
+::: practice-box
+Write a program that prints all even numbers from 1 to $n$ using a while loop.
+
+<details>
+
+<summary>Click to show answer</summary>
+
+```         
+n = int(input("Enter a number: "))
+num = 2
+
+while num <= n:
+    print(num, end=" ")
+    num += 2
+```
+
+</details>
+:::
 
 ## Sentinels
 
-- **Sentinel: special value that marks the end of a sequence of items**
+A **sentinel** is a special value that marks the end of a sequence of items. When program reaches a sentinel, it knows that the end of the sequence of items was reached, and the loop terminates.
 
-  - When program reaches a sentinel, it knows that the end of the sequence of items was reached, and the loop terminates
-  - Must be distinctive enough so as not to be mistaken for a regular value in the sequence
-  - Example: when reading an input file, empty line can be used as a sentinel
+The sentinel must be distinctive enough so as not to be mistaken for a regular value in the sequence.
 
-## Using the while Loop as a Count-Controlled Loop (1 of 3)
+In Python, usually sequences are iterated through with `for` loops which automatically control for the size of the sequence. However, if we are taking in input we may not know how long the input actually is and we need some way of recognizing that the input process is finished. We can use a sentinel for this.
 
-- **The while loop is inherently a condition-controlled loop**
+```         
+data = []
 
-  - It repeats as long as a Boolean condition is true
+while value := int(input("Enter a non-negative number or enter -1 to finish: ")) != -1:
+    if value < 0:
+        print("Enter only non-negative numbers or -1 to finish.")
+        continue
+    else:
+        data.append(value)
+```
 
-- **However, you can use the while loop as a count-controlled loop by pairing it with a counter variable**
+This code takes in non-negative numbers into a list called `data`. Note that the sentinel value is -1 and that any other negative value is ignored. This is an example of **input validation**. Input validation is a necessary part of programming as the computer cannot tell the difference between *good* data and *bad* data inherently.
 
-- **A counter variable is assigned a unique value during each iteration of a loop.**
+If a user provides bad input, the program will likely produce bad output. This is the Garbage In, Garbage Out (GIGO) principle. So it is important to design programs in a way that bad input is not accepted. We do this through input validation, where we inspect the input before it is actually processed by the program.
 
-- **It is called a counter variable because it can be used to count the number of times the loop iterates**
+This is common accomplished using a while loop like in the example above. The input process will repeat if the data is bad (usually with some error message displayed).
 
-## Using the while Loop as a Count-Controlled Loop (2 of 3)
+## Using the `while` Loop as a Count-Controlled Loop
 
-- **A count-controlled while loop must perform three actions:**
+The `while` loop is inherently a condition-controlled loop. However, you can use the `while` loop as a count-controlled loop by pairing it with a counter variable.
 
-  - **Initialization**: The counter variable must be initialized to a suitable starting value before the loop begins.
-  - **Comparison**: The loop must compare the counter variable to a suitable ending value, to determine whether the loop should iterate or not.
-  - **Update**: During each iteration, the loop must update the counter variable with a new value.
+A counter variable is assigned a unique value during each iteration of a loop and it *counts* the number of iterations. Once a certain value is reached, the loop will terminate.
 
-## Using the while Loop as a Count-Controlled Loop (3 of 3)
+A count-controlled while loop must perform three actions:
 
-- **Example**
+- **Initialization**: The counter variable must be initialized to a suitable starting value before the loop begins.
 
-A computer code has 4 lines. For long description in Notes pane, press F6.
+- **Comparison**: The loop must compare the counter variable to a suitable ending value, to determine whether the loop should iterate or not.
 
-- **Initialization**: The variable n is initialized with 0
-- **Comparison**: The loop iterates as long as n is less than 5
-- **Update**: 1 is added to n
+- **Update**: During each iteration, the loop must update the counter variable with a new value.
 
-> The lines read as follows. Line 1. n equals 0. This line is labeled, initialization. Line 2. while n left angle bracket 5 colon. This line of code is labeled, comparison. Line 3, indented once. print left parenthesis f single quote Inside the loop comma the value of n is left brace n right brace period single quote right parenthesis. Line 4, indented once. n plus equals 1. This line of code is labeled, update.
-
-## Example
-
+```{python}
 n = 0
+while n < 5:
+    print(n)
+    n += 1
+```
 
-while n \< 5:
+::: practice-box
+Write a program that prints numbers from **1 to 10** using a while loop.
 
-print(n)
+<details>
 
-n += 1
+<summary>Click to show answer</summary>
 
-1
+```         
+n = 1
 
-2
+while n <= 10:
+    print(n)
+    n+=1
+```
 
-3
+</details>
+:::
 
-4
+::: practice-box
+Modify the above program to print the numbers from **10 down to 1**.
 
-5
+<details>
 
-## Practice
+<summary>Click to show answer</summary>
 
-- Write a program that prints numbers from **1 to 10** using a while loop.
+```         
+n = 10
 
-## Practice
+while n > 0:
+    print(n)
+    n-=1
+```
 
-- Write a program that prints numbers from **10 down to 1**.
+</details>
+:::
 
-## Practice
+## Single-Line `while` Loops
 
-- Write a program that asks the user for a number **N** and calculates the sum of numbers from **1 to N** using a while loop.
+If there is only one statement in the body of a while loop, you can write the entire loop on one line.
 
-## Single-Line while Loops
+General format:
 
-- If there is only one statement in the body of a while loop, you can write the entire loop on one line.
-- General format:
+```         
+while condition: statement
+```
 
-while *condition*: *statement*
+```{python}
+n = 0
+while n < 5: print(n); n+= 1
+```
 
-- Example:
+## The `continue` Statement
 
-n = 0\
-while n \< 10: n += 1
+Just like with `for` loops the `continue` statement causes the current iteration of a loop to end early.
 
-## Example
+When the continue statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration)
 
+::: practice-box
+Write a program that prints **only odd numbers** from **1 to 10** using a while loop.
+
+Use the continue statement to skip even numbers.
+
+<details>
+
+<summary>Click to show answer</summary>
+
+```         
+i = 0
+
+while i < 10:
+    i += 1
+    
+    if i % 2 == 0:
+        continue # Skip even numbers
+    
+    print(i)
+```
+
+</details>
+:::
+
+## The `break` Statement
+
+The `break` statement is also the same as with `for` loops and causes a loop to terminate immediately.
+
+::: practice-box
+Write a program that prints numbers from **1 to 10**, but **stops** when it reaches 5 using break.
+
+<details>
+
+<summary>Click to show answer</summary>
+
+```         
 i = 1
 
-while i \<= 5: print(i); i += 1
+while i <= 10:
+    print(i)
 
-1
+    if i == 5:
+        break # Stop at 5
 
-2
+    i += 1
+```
 
-3
+</details>
+:::
 
-4
+::: practice-box
+Write a `while` loop that keeps asking the user to enter numbers. The loop should stop when the user enters -1, then print the sum of all entered numbers.
 
-5
+<details>
 
-## Practice
+<summary>Click to show answer</summary>
 
-- Create a single line while loop that sums the numbers in a given list.
+```         
+total = 0
 
-> nums = \[1, 2, 3, 4, 5\]
->
-> i, total = 0, 0
->
-> while i \< len(nums): total += nums\[i\]; i += 1
->
-> print(total)
+num = int(input("Enter a number (-1 to stop): "))
 
-## The continue Statement (1 of 2)
+while num != -1:
+    total += num
+    num = int(input("Enter a number (-1 to stop): "))
 
-- The continue statement causes the current iteration of a loop to end early
-- When the continue statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration)
+print("Total sum:", total)
+```
 
-## The continue Statement (2 of 2)
+</details>
+:::
 
-- **Example:**
+# Nested loops
 
-A computer code has 6 lines. For long description in Notes pane, press F6.
+A **nested loop** is a loop that is contained inside another loop.
 
-**Program Output**
+```{python}
+for i in range(2):      #outer loop
+    for j in range(3):  #inner loop
+        print(j)
+```
 
-1
+Note that the inner loop goes through all of its iterations for each iteration of outer loop. This implies that inner loops complete their iterations faster than outer loops
 
-2
+The total number of iterations in a nested loop is the number of each loops iterations all multiplied together.
 
-4
+For our example above, the inner loop has 3 iterations and the inner loop runs a total of 2 times, the number of iterations of the outer loop. So, there are 6 overall iterations completed or $2\times3$.
 
-5
-
-7
-
-8
-
-10
-
-> The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 10 colon. Line 3, indented once. n plus equals 1. Line 4, indented once. if n percent sign 3 equals equals 0 colon. Line 5, indented twice. continue. This line of code is labeled, this statement ends the current iteration and causes the loop to skip to the next iteration. Line 6, indented once. print left parenthesis n right parenthesis.
-
-## Practice
-
-- Write a program that prints **only odd numbers** from **1 to 10** using a while loop.
-- Use the continue statement to skip even numbers.
-
-> i = 0
->
-> while i \< 10:
->
-> i += 1
->
-> if i % 2 == 0:
->
-> continue \# Skip even numbers
->
-> print(i)
-
-## Practice
-
-- Write a program that asks the user for numbers and sums them up.
-
-- If the user enters **non-numeric input**, use continue to ignore it.
-
-  - Use the isdigit() function to test if the input is a number.
-
-- The loop stops when the user enters "done".
-
-- Print the sum of valid numbers.
-
-> total = 0
->
-> while True:
->
-> num = input("Enter a number: ")
->
-> if num == "done":
->
-> break \# Stop the loop
->
-> if not num.isdigit():
->
-> print("Invalid input, skipping...")
->
-> continue \# Skip non-numeric input
->
-> total += int(num)
->
-> print("Total sum:", total)
-
-## The break Statement
-
-- **The break statement causes a loop to terminate**
-
-A computer code has 7 lines. For long description in Notes pane, press F6.
-
-**Program Output**
-
-0
-
-1
-
-2
-
-3
-
-4
-
-5
-
-The loop stopped and n is 5.
-
-> The lines read as follows. Line 1. n equals 0. Line 2. while n left angle bracket 100 colon. Line 3, indented once. print left parenthesis n right parenthesis. Line 4, indented once. if n equals equals 5 colon. Line 5, indented twice. break. This line of code is labeled, this statement causes the loop to stop. Line 6, indented once. n plus equals 1. Line 7. print left parenthesis f single quote The loop stopped and n is left brace n right brace period single quote right parenthesis.
-
-## Practice
-
-- Write a program that prints numbers from **1 to 10**, but **stops** when it reaches 5 using break.
-
-> i = 1
->
-> while i \<= 10:
->
-> print(i)
->
-> if i == 5:
->
-> break \# Stop at 5
->
-> i += 1
-
-## Practice
-
-- Write a program that asks the user to **guess a number between 1 and 10**.
-- If they guess the **number (e.g., 7)**, print "Correct!" and stop using break.
-- Otherwise, keep asking.
-
-> secret = 7
->
-> while True:
->
-> guess = int(input("Guess a number: "))
->
-> if guess == secret:
->
-> print("Correct!")
->
-> break \# Stop when the correct number is guessed
->
-> print("Wrong, try again!")
-
-## Input Validation Loops (1 of 4)
-
-- **Computer cannot tell the difference between good data and bad data**
-
-  - If user provides bad input, program will produce bad output
-  - G I G O: garbage in, garbage out
-  - It is important to design program such that bad input is never accepted
-
-## Input Validation Loops (2 of 4)
-
-- **Input validation: inspecting input before it is processed by the program**
-
-  - If input is invalid, prompt user to enter correct data
-
-  - Commonly accomplished using a while loop which repeats as long as the input is bad
-
-    - If input is bad, display error message and receive another set of data
-    - If input is good, continue to process the input
-
-## Input Validation Loops (3 of 4)
-
-**Figure 4-7** Logic containing an input validation loop
-
-An illustration depicts a logic for calculating a running total. For long description in Notes pane, press F6.
-
-> The steps in the flowchart are as follows.\
-> Get input. Therefore, the condition in the decision box is, is the input bad. If the condition is yes, true, the following statements are followed. Display an error message. Get the input again. Then the program goes back to the point above the decision box. If the condition is no, false, the loop ends.
-
-## Input Validation Loops (4 of 4)
-
-- **Using the walrus operator in an input validation loop**
-
-  - You can use the walrus operator to create an assignment expression that combines the priming read with the input validation loop
-  - **Example**:
-
-while (score := int(input('Enter your score: '))) \< 0:
-
-print('The score cannot be negative.'
-
-## Practice
-
-- **Write a while loop** that keeps asking the user to enter a number. The loop should stop when the user enters -1.
-
-> num = int(input("Enter a number (-1 to stop): "))
->
-> while num != -1:
->
-> print("You entered:", num)
->
-> num = int(input("Enter a number (-1 to stop): "))
->
-> print("Loop ended.")
-
-## Practice
-
-- **Write a while loop** that keeps asking the user to enter numbers. The loop should stop when the user enters -1, then print the sum of all entered numbers.
-
-> total = 0
->
-> num = int(input("Enter a number (-1 to stop): "))
->
-> while num != -1:
->
-> total += num
->
-> num = int(input("Enter a number (-1 to stop): "))
->
-> print("Total sum:", total)
-
-## Practice
-
-- **Write a program** that ensures the user enters a number between 1 and 100. The loop should continue asking until the user enters -1 to quit.
-
-> num = int(input("Enter a number between 1 and 100 (-1 to quit): "))
->
-> while num != -1:
->
-> if 1 \<= num \<= 100:
->
-> print("Valid number:", num)
->
-> else:
->
-> print("Out of range! Try again.")
->
-> num = int(input("Enter a number between 1 and 100 (-1 to quit): "))
->
-> print("Exiting program.")
-
-## Nested loops
-
-CSCI – 1056
-
-Content Modified from Pearson’s Starting Out with Python 6th Edition
-
-## Nested Loops (1 of 2)
-
-- **Nested loop: loop that is contained inside another loop**
-
-  - Example: analog clock works like a nested loop
-
-    - Hours hand moves once for every twelve movements of the minutes hand: for each iteration of the “hours,” do twelve iterations of “minutes”
-    - Seconds hand moves 60 times for each movement of the minutes hand: for each iteration of “minutes,” do 60 iterations of “seconds”
-
-## Figure 4-8 Flowchart for a Clock Simulator
-
-A flowchart depicts clock simulator. For long description in Notes pane, press F6.
-
-> The steps are as follows.\
-> Start. Therefore, the condition in the diamond symbol is, is there another value in the list of hours. If the condition is yes, true, the following statement is evaluated. Assign the next hour to the hours variable. If the condition is no, false, the loop ends. The statement leads to next loop, where the condition is, is there another value in the list of minutes. If this condition is yes, true, the statement, assign the next minute to the minutes variable, is evaluated. If this condition is no, false, the program goes back to the point above the condition in the first loop. The statement leads to third loop. The condition in the third loop is, is there another value in the list of seconds. If the condition is yes, true, the following statements are evaluated. Assign the next second to the seconds variable. Display hours colon minutes colon seconds. Then the program goes back to the point above the condition in the third loop. If the condition is false, the program goes back to the point above the condition in the second loop.
-
-## Nested Loops (2 of 2)
-
-- **Key points about nested loops:**
-
-  - Inner loop goes through all of its iterations for each iteration of outer loop
-  - Inner loops complete their iterations faster than outer loops
-  - Total number of iterations in nested loop:
-
-## Example
-
-for i in range(2):
-
-for j in range(2):
-
-print(j)
-
-0
-
-1
-
-0
-
-1
-
-## Example
-
-values = \[1,2,3\]
+```{python}
+values = [1,2,3]
 
 for i in range(3):
-
-for j in range(2):
-
-values\[i\] += j
+    for j in range(2):
+        values[i] += j
 
 print(values)
+```
 
-\[2, 3, 4\]
+::: practice-box
+<details>
 
-## Practice
-
-- Write a Python program that uses nested for loops to print a 4x4 table of all ones like below:
-
-1 1 1 1
+Write a Python program that uses nested for loops to print a 4x4 table of all ones like below:
 
 1 1 1 1
 
@@ -1186,142 +791,93 @@ print(values)
 
 1 1 1 1
 
-> for i in range(1, 5): \# Rows from 1 to 5
->
-> for j in range(1, 5): \# Columns from 1 to 5
->
-> print(1, end="\\t") \# Print product with a tab space
->
-> print() \# Newline after each row
+1 1 1 1
 
-## Practice
+<summary>Click to show answer</summary>
 
-- Write a Python program that uses nested for loops to print a multiplication table from 1 to 4 in the following format:
+```         
+for i in range(1, 5):       # Rows from 1 to 5
+    for j in range(1, 5):   # Columns from 1 to 5
+        print(1, end="\t")  # Print product with a tab space
+    print()                 # Newline after each row
+```
 
-1 2 3 4
+</details>
+:::
 
-2 4 6 8
+## The `else` Clause With a Loop
 
-3 6 9 12
+Loops in Python can have an optional `else` clause.
 
-4 8 12 16
+```         
+for variable in sequence:
 
-> for i in range(1, 5): \# Rows from 1 to 5
->
-> for j in range(1, 5): \# Columns from 1 to 5
->
-> print(i \* j, end="\\t") \# Print product with a tab space
->
-> print() \# Newline after each row
-
-## The else Clause With a Loop (1 of 4)
-
-- **Loops in Python can have an optional else clause.**
-
-for *variable* in *\[value1, value2, etc.\]*:
-
-*statement*
-
-*statement*
-
-*etc*.
+    statement
+    statement
+    ...
 
 else:
 
-*statement*
+    statement
+    statement
+```
 
-*statement*
+An `else` clause in a loop will always execute unless the loop contains a `break` statement. The block of statements that appears after the `else` clause executes only when the loop terminates normally, **without** encountering a `break` statement.
 
-*etc*.
+If the loop terminates because of a `break` statement, the `else` clause will not execute its block of statements.
 
-## The else Clause With a Loop (2 of 4)
-
-- An else clause in a loop is useful only when the loop contains a break statement.
-- The block of statements that appears after the else clause executes only when the loop terminates normally, without encountering a break statement.
-- If the loop terminates because of a break statement, the else clause will not execute its block of statements.
-
-## The else Clause With a Loop (3 of 4)
-
-- **Example:**
-
+```{python}
 for n in range(10):
 
-if n == 5:
+    if n == 5:
+        print('Breaking out of the loop.')
+        break
 
-print('Breaking out of the loop.')
-
-break
-
-print(n)
+    print(n)
 
 else:
-
-print(f'After the loop, n is {n}.')
-
-**Program Output**
-
-0
-
-1
-
-2
-
-3
-
-4
-
-Breaking out of the loop.
+    print(f'After the loop, n is {n}.')
+```
 
 The else clause did not execute because the break statement executed
 
-## The else Clause With a Loop (4 of 4)
+```{python}
+for n in range(5):
 
-- **Example:**
+    if n == 50:
+        print('Breaking out of the loop.')
+        break
 
-for n in range(3):
-
-if n == 5:
-
-print('Breaking out of the loop.')
-
-break
-
-print(n)
+    print(n)
 
 else:
+    print(f'After the loop, n is {n}.')
+```
 
-print(f'After the loop, n is {n}.')
+::: practice-box
+Given a list of numbers called **values**, use a `for` loop to search for a given number called **target**.
 
-**Program Output**
+If the number is found, print “Found” and break the loop.
 
-0
+If the loop completes without finding the number, print “Not Found” using the `else` clause.
 
-1
+<details>
 
-2
+<summary>Click to show answer</summary>
 
-After the loop, n is 2.
+```         
+values = [1,2,3,4,5]
 
-The break statement did not execute, so the else clause executed.
+target = 3
 
-## Practice
+for i in values:
+    if i == target:
+        print("Found")
+        break
 
-- Given a list of numbers called **values**, use a for loop to search for a given number called **target**.
-- If the number is found, print “Found” and break the loop.
-- If the loop completes without finding the number, print “Not Found” using the else clause.
+else:
+    print("Not Found")
+```
 
-> values = \[1,2,3,4,5\]
->
-> target = 3
->
-> for i in values:
->
-> if i == target:
->
-> print("Found")
->
-> break
->
-> else:
->
-> print("Not Found")
+</details>
+:::

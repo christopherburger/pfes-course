@@ -318,7 +318,7 @@ df['Date'] = pd.to_datetime(df['Date_String'])
 df['Month'] = df['Date'].dt.month
 ```
 
-## Useful Distinctions
+### Useful Distinctions
 
 - **Aggregation** (`sum()`, `mean()`, `count()`) computes one value per group.
 
@@ -328,7 +328,7 @@ df['Month'] = df['Date'].dt.month
 
 - **Index retrieval** (`idxmax()`, `idxmin()`) tells you *which label* produced that maximum or minimum.
 
-## Performing Mathematics on DataFrames
+### Performing Mathematics on DataFrames
 
 More complicated mathematical operations will require you to cast the DataFrame to a NumPy array. This is done using the `.to_numpy()` method.
 
@@ -358,7 +358,7 @@ for i in df['Sales']:
 print(s/len(df['Sales']))
 ```
 
-## Multiple Aggregations
+### Multiple Aggregations
 
 Often, we need different math for different columns at the same time. The `.agg()` method takes a dictionary: `{ 'ColumnName': 'math_operation' }`.
 
@@ -372,7 +372,7 @@ summary = (df.groupby('Region')['Sales'].agg(['sum', 'mean', 'max', 'min']))
 print(summary)
 ```
 
-## Different Aggregations for Different Columns
+### Different Aggregations for Different Columns
 
 We can run simultaneous aggregations by passing a dictionary into the `.agg` method.
 
@@ -402,7 +402,7 @@ summary = (df.groupby('Region').agg({'Sales': range,}))
 print(summary)
 ```
 
-## Named Aggregations
+### Named Aggregations
 
 We can rename the displayed column names using a variable assignment inside the aggregation.
 
@@ -420,7 +420,7 @@ summary = (df.groupby('Category').agg(
 print(summary)
 ```
 
-## Several Statistics for Several Columns
+### Several Statistics for Several Columns
 
 We can produce multiple statistics across multiple columns. The same dictionary format is used for the `.agg` method and the value is now a list of operations.
 
@@ -434,7 +434,7 @@ summary = (df.groupby('Category').agg({
 print(summary)
 ```
 
-## Two-level groupby with Multiple Aggregations
+### Two-level groupby with Multiple Aggregations
 
 What if we want to evaluate the profit, sales, and average discount across the different categories of goods by region?
 
@@ -463,7 +463,9 @@ print(summary)
 
 Note that the empty space by office supplies is Pandas omitting the identical region name (south) to prevent repeats.
 
-## Reshaping: Pivot Tables
+## Reshaping
+
+### Pivot Tables
 
 Sometimes data is too "tall" to read easily. `pivot_table` reshapes data to look exactly like an Excel pivot table, turning unique row values into new columns.
 
@@ -532,7 +534,7 @@ pivot = df.pivot_table(
 print(pivot)
 ```
 
-## Reshaping: Melt
+### Melt
 
 Human generated data is often "wide" (e.g., Jan, Feb, Mar as separate columns). `pd.melt()` unpivots data, collapsing multiple columns down into two generic columns: "Variable" and "Value".
 
@@ -578,13 +580,13 @@ print(long)
 
 Note that it is important to reset the index to prevent repeated row numbers.
 
-\`\`\`{# Stacking Q1 and Q2 data vertically}
-
-full_year_df = pd.concat(\[q1_data, q2_data\], axis=0)
-
 ```         
+# Stacking Q1 and Q2 data vertically
 
-```{# Reset the index so row numbers don't repeat}
+full_year_df = pd.concat([q1_data, q2_data], axis=0)
+
+
+#Reset the index so row numbers don't repeat
 
 full_year_df = full_year_df.reset_index(drop=True)
 ```
@@ -685,7 +687,7 @@ print(merged)
 
 Notice that nothing in either table is discarded.
 
-## Merging on Different Column Names
+### Merging on Different Column Names
 
 - Sometimes the key columns have different names.
 - This is easily handled using the **left_on** and **right_on** parameters.
@@ -694,7 +696,7 @@ Notice that nothing in either table is discarded.
 pd.merge(customers, transactions, left_on="CustomerID", right_on="CustID")
 ```
 
-## Multi-Key Joins
+### Multi-Key Joins
 
 Sometimes one column is not enough to guarantee a unique match.
 
@@ -704,7 +706,7 @@ For example, an Account Number might repeat across different Processing Dates. W
 pd.merge(df1, df2, on=["CustomerID", "Type"])
 ```
 
-## Concatenation is Different from Merging
+### Concatenation is Different from Merging
 
 A common mistake is confusing `merge()` with `concat()`.
 
