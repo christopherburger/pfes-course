@@ -18,7 +18,6 @@ These blocks contain the core content of the course. You are expected to be able
 These blocks contain tools, syntax, or concepts that you should recognize and understand when you see them. You do not need to memorize these "cold," but you should know they exist and where to find them.
 :::
 
-
 ------------------------------------------------------------------------
 
 ### 3. Extended Information
@@ -27,15 +26,13 @@ These blocks contain tools, syntax, or concepts that you should recognize and un
 These blocks are for students looking to further explore related content. This material is **not testable** but provides may prove useful for mastery of the core material in the course.
 :::
 
-
 ------------------------------------------------------------------------
 
 ### 4. Notes
 
-::: extended-box
+::: note-box
 These blocks are for context, especially for definitions that are used in the course that may be defined differently elsewhere.
 :::
-
 
 ------------------------------------------------------------------------
 
