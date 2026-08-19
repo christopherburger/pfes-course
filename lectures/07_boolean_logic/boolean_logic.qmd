@@ -9,14 +9,14 @@ A Boolean variable is a special type of variable that references one of two valu
 
 Boolean variables are commonly used as **flags** which is a variable whose purpose is to signal when some condition exists in a program.
 
-- Flag set to `False` means the condition does not exist
-- Flag set to `True` means the condition exists
+- A flag set to `False` means the condition does not exist
+- A flag set to `True` means the condition exists
 
 ## Boolean Expressions and Relational Operators
 
 A **Boolean expression** is expression tested to determine if it is `True` or `False`.
 
-- Example: a \> b
+- Example: $a > b$
 
   - `True` if a is greater than b; `False` otherwise
 
@@ -34,7 +34,7 @@ The `==` operator determines whether the two operands are equal to one another
 
 The `!=` operator determines whether the two operands are not equal
 
-Boolean expressions using relational operators
+### Boolean expressions using relational operators
 
 | **Expression** | **Meaning**                      |
 |----------------|----------------------------------|
@@ -151,7 +151,7 @@ Logical operators are constructs that can be used to create complex Boolean expr
 
 Creates a compound Boolean expression that is `True` only when both sub-expressions are `True`
 
-Truth table for the `and` operator
+#### Truth table for the `and` operator
 
 | **Expression**  | **Value of the Expression** |
 |-----------------|-----------------------------|
@@ -175,7 +175,7 @@ print(x and x)
 
 Creates a compound Boolean expression that is `True` when either of the sub-expressions is `True`
 
-Truth table for the `or` operator
+#### Truth table for the `or` operator
 
 | **Expression** | **Value of the Expression** |
 |----------------|-----------------------------|
@@ -220,7 +220,7 @@ Takes one Boolean expression as operand and reverses its logical value
 
 - Sometimes it may be necessary to place parentheses around an expression to clarify to what you are applying the `not` operator
 
-Truth table for the `not` operator
+#### Truth table for the `not` operator
 
 | **Expression** | **Value of the Expression** |
 |----------------|-----------------------------|
@@ -258,7 +258,7 @@ print()
 print(x < 10 or x > 20)
 ```
 
-## The in Keyword (Membership Test)
+## The `in` Keyword (Membership Test)
 
 The `in` keyword checks whether a value exists inside a collection, such as a list.
 

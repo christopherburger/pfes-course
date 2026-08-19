@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Exceptions and Files</span></a>
+ <span class="menu-text">13: Files and Exceptions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#extracting-columns" id="toc-extracting-columns" class="nav-link" data-scroll-target="#extracting-columns">Extracting Columns</a></li>
   <li><a href="#renaming-columns" id="toc-renaming-columns" class="nav-link" data-scroll-target="#renaming-columns">Renaming Columns</a></li>
   <li><a href="#filtering-rows-boolean-masking" id="toc-filtering-rows-boolean-masking" class="nav-link" data-scroll-target="#filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</a></li>
-  <li><a href="#combining-logic-and-or" id="toc-combining-logic-and-or" class="nav-link" data-scroll-target="#combining-logic-and-or">Combining Logic (AND / OR)</a></li>
+  <li><a href="#combining-logic-and-or" id="toc-combining-logic-and-or" class="nav-link" data-scroll-target="#combining-logic-and-or">Combining Logic (<code>and</code> / <code>or</code>)</a></li>
   <li><a href="#sorting" id="toc-sorting" class="nav-link" data-scroll-target="#sorting">Sorting</a></li>
   <li><a href="#handling-missing-data" id="toc-handling-missing-data" class="nav-link" data-scroll-target="#handling-missing-data">Handling Missing Data</a></li>
   </ul></li>
@@ -365,16 +365,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h1>Pandas</h1>
 <p>We have seen that NumPy requires pure, homogeneous numbers. Remember that if we put a word into a NumPy array, it converts our numbers to text. But real data is messy, labeled, and heterogeneous.</p>
 <p>We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy). This solution is Pandas, which is an industry-standard library for data ingestion and cleaning.</p>
-<p>Pandas does not replace NumPy; they serve different roles. - Pandas prepares the data. - NumPy solves the equations.</p>
+<p>Pandas does not replace NumPy; they serve different roles.</p>
+<ul>
+<li><p>Pandas prepares the data.</p></li>
+<li><p>NumPy performs mathematics.</p></li>
+</ul>
 <p>As Pandas is an external library, we will need to import it to use it (and depending on your environment, it may need to be installed first).</p>
-<div id="3a33b4da" class="cell" data-execution_count="1">
+<div id="21d750d9" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="dataframes" class="level2">
 <h2 class="anchored" data-anchor-id="dataframes">DataFrames</h2>
 <p>The core component of Pandas is the <strong>DataFrame</strong> which is a 2D array (a matrix) with attached row and column labels. Each column can hold a <em>different</em> type of data without breaking the others.</p>
 <p>We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.</p>
-<p>An example of the first few items a DataFrame</p>
+<p>An example of the first few items in a DataFrame</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -461,7 +465,7 @@ url = "https://website/data.csv"
 
 df = pd.read_csv(url)</code></pre>
 <p>For many of our examples we will use a CSV file (Tableau’s Sample Superstore dataset) that can be found on Blackboard. Assuming we have named the file <code>superstore.csv</code> we can use the following code to load the data into a DataFrame named <code>df</code>.</p>
-<div id="f91a9fb6" class="cell" data-execution_count="2">
+<div id="85c33b02" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'superstore.csv'</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -471,7 +475,7 @@ df = pd.read_csv(url)</code></pre>
 <h3 class="anchored" data-anchor-id="inspecting-data">Inspecting Data</h3>
 <p>The example DataFrame from earlier was from the superstore dataset and the data we saw was output from the <code>head()</code> method which returns (by default) the first 5 rows of the data in the DataFrame.</p>
 <p>The <code>head</code> method (and its counterpart, <code>tail</code>) are important first steps after you load data using Pandas. You should never trust unseen data, as there are often missing entries, mislabeled columns, wrong data values, etc.</p>
-<div id="39a0167b" class="cell" data-execution_count="3">
+<div id="0a608531" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Row ID        Order ID  Order Date   Ship Date       Ship Mode Customer ID  \
@@ -512,7 +516,8 @@ df = pd.read_csv(url)</code></pre>
 [5 rows x 21 columns]</code></pre>
 </div>
 </div>
-<p>We can see not all the columns are visible (…) due to visual size limitations.</p>
+<p>Even with this limited representation things can be quite cluttered. Also, not all of the columns are visible (…) due to display limitations.</p>
+<p>The table below is a cleaner but even more limited version of the output above.</p>
 <table class="caption-top table">
 <colgroup>
 <col style="width: 6%">
@@ -589,17 +594,17 @@ df = pd.read_csv(url)</code></pre>
 </tr>
 </tbody>
 </table>
-<p>The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas. However, some datasets will be large enough that you will not have enough display space to visually inspect everything. The <code>head</code> and <code>tail</code> provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.</p>
+<p>The number of columns and rows displayed by <code>head</code> / <code>tail</code> can be adjusted using settings in Pandas. However, some datasets will be large enough that you will not have enough display space to visually inspect everything. The <code>head</code> and <code>tail</code> provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.</p>
 <p><code>[5 rows x 21 columns]</code></p>
 <p>While <code>head</code> / <code>tail</code> give us the total number of columns, they do not provide the total number of rows. We can use the <code>shape</code> attribute to return both the number of rows and number of columns.</p>
-<div id="a74362c6" class="cell" data-execution_count="4">
+<div id="bf03ed8e" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.shape)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>(10800, 21)</code></pre>
 </div>
 </div>
 <p><code>dtypes</code> tells us the data type of each column:</p>
-<div id="82977e8c" class="cell" data-execution_count="5">
+<div id="8d3ec92e" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Row ID               str
@@ -631,7 +636,7 @@ dtype: object</code></pre>
 <li><p>Object is a general non-numeric type (often a string).</p></li>
 </ul>
 <p><code>describe()</code> gives us summary statistics on columns with a numeric data type:</p>
-<div id="90e5539f" class="cell" data-execution_count="6">
+<div id="40ede4c8" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        Postal Code         Sales     Quantity     Discount       Profit
@@ -645,20 +650,21 @@ min     1040.000000      0.444000     1.000000     0.000000 -6599.978000
 max    99301.000000  22638.480000    14.000000     0.800000  8399.976000</code></pre>
 </div>
 </div>
-<ul>
-<li><p>The statistics are:</p>
+<p>The statistics are:</p>
 <ul>
 <li><p>count (the number of non-empty cells)</p>
 <ul>
-<li>The values <strong>None</strong>, <strong>NaN</strong>, <strong>NaT</strong>, <strong>pandas.NA</strong> are considered “empty”</li>
-<li><strong>NaN</strong>: not a number, <strong>NaT</strong>: not a time</li>
+<li>The values <code>None</code>, <code>NaN</code>, <code>NaT</code>, <code>pandas.NA</code> are considered “empty”</li>
+<li><code>NaN</code>: not a number, <code>NaT</code>: not a time</li>
 </ul></li>
-<li><p>mean</p></li>
+<li><p>mean</p>
+<ul>
+<li>The mean is the arithmetic mean, or what most people think of as the “average”</li>
+</ul></li>
 <li><p>standard deviation</p></li>
 <li><p>min (smallest value)</p></li>
-<li><p>25%, 50%, 75% (percentiles)</p></li>
+<li><p>The 25th, 50th and 75th percentiles</p></li>
 <li><p>max (largest value)</p></li>
-</ul></li>
 </ul>
 <p>Note that <code>describe()</code> gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).</p>
 <p><code>describe()</code> is very useful for finding impossible values. For example, assume we have a DataFrame of sensor readings with one of the columns being temperature in Kelvin. If we see negative values in the temperature column, we know the data is erroneous.</p>
@@ -671,7 +677,7 @@ max    99301.000000  22638.480000    14.000000     0.800000  8399.976000</code><
 <p>We can extract a single column (1D Series) using one set of brackets: <code>[‘Column_Name’]</code></p>
 <p>And can extract a sub-matrix (2D DataFrame) using a list of columns: <code>[[‘Column_Name_1’, ‘Column_Name_2’]]</code></p>
 <p>Note that a DataFrame is a dictionary of column vectors, so case matters for the column names.</p>
-<div id="0fdcf05a" class="cell" data-execution_count="7">
+<div id="c3536d22" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'Discount'</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>0        0.00
@@ -691,14 +697,14 @@ Name: Discount, Length: 10800, dtype: float64</code></pre>
 </section>
 <section id="renaming-columns" class="level3">
 <h3 class="anchored" data-anchor-id="renaming-columns">Renaming Columns</h3>
-<p>Raw data often has terrible names (e.g., “Temp (C) - Sensor 1!”). We can use <code>.rename()</code> and a dictionary to fix them before writing logic.</p>
+<p>Raw data often has terrible names (e.g., “Temp (C) - Sensor 1!”). We can use <code>.rename()</code> and a dictionary to fix them before writing any code that involves them.</p>
 <p>The syntax is: <code>columns={'old_name': 'new_name’}</code></p>
 <p>For example: <code>df = df.rename(columns={'Discount': 'Proportional Discount'})</code></p>
 </section>
 <section id="filtering-rows-boolean-masking" class="level3">
 <h3 class="anchored" data-anchor-id="filtering-rows-boolean-masking">Filtering Rows (Boolean Masking)</h3>
 <p>We can apply the exact same relational logic we have seen and used before (<code>&gt;</code>, <code>&lt;</code>, <code>==</code>) to a Pandas column. This creates a “mask” of <code>True</code>/<code>False</code> values to filter the DataFrame.</p>
-<div id="4f3fad50" class="cell" data-execution_count="8">
+<div id="767e56e3" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find all rows where the discount is greater than 20%</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>discount_mask <span class="op">=</span> df[<span class="st">'Discount'</span>] <span class="op">&gt;</span> <span class="fl">0.2</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -706,17 +712,15 @@ Name: Discount, Length: 10800, dtype: float64</code></pre>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>discount_data <span class="op">=</span> df[discount_mask]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can also do this all in a single line:</p>
-<div id="bc77ae22" class="cell" data-execution_count="9">
+<div id="fdc4ca0d" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>discount_data <span class="op">=</span> df[df[<span class="st">'Discount'</span>] <span class="op">&gt;</span> <span class="fl">0.2</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="combining-logic-and-or" class="level3">
-<h3 class="anchored" data-anchor-id="combining-logic-and-or">Combining Logic (AND / OR)</h3>
-<p>To find specific overlaps, use <code>&amp;</code> (AND) and <code>|</code> (OR).</p>
-<ul>
-<li><strong>Very Important:</strong> You <em>must</em> put parentheses around each condition.</li>
-</ul>
-<div id="cb9c588a" class="cell" data-execution_count="10">
+<h3 class="anchored" data-anchor-id="combining-logic-and-or">Combining Logic (<code>and</code> / <code>or</code>)</h3>
+<p>To find specific overlaps, use <code>&amp;</code> (<code>and</code>) and <code>|</code> (<code>or</code>).</p>
+<p><strong>Very Important:</strong> You <em>must</em> put parentheses around each condition.</p>
+<div id="b23c3c85" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find Discounts AND Negative Profit</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>losses <span class="op">=</span> df[(df[<span class="st">'Discount'</span>] <span class="op">&gt;</span> <span class="dv">0</span>) <span class="op">&amp;</span> (df[<span class="st">'Profit'</span>] <span class="op">&lt;</span> <span class="dv">0</span>)]</span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -764,14 +768,12 @@ Name: Discount, Length: 10800, dtype: float64</code></pre>
 <section id="sorting" class="level3">
 <h3 class="anchored" data-anchor-id="sorting">Sorting</h3>
 <p>Sorting data sequentially in Pandas is very simple.</p>
-<ul>
-<li><p><strong>.sort_values()</strong> orders the matrix by a specific column.</p>
+<p><code>.sort_values()</code> orders the matrix by a specific column.</p>
 <ul>
 <li>The column is specified using the <strong>by</strong> parameter</li>
 <li>You can adjust sorting by ascending/descending order by setting the Boolean on the <strong>ascending</strong> parameter.</li>
-</ul></li>
 </ul>
-<div id="eef44d19" class="cell" data-execution_count="11">
+<div id="cd4d55cc" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Sort from highest profit to lowest</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>sorted_data <span class="op">=</span> df.sort_values(by<span class="op">=</span><span class="st">'Profit'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -812,13 +814,13 @@ Name: Discount, Length: 10800, dtype: float64</code></pre>
 <p><code>NaN</code> stands for “Not a Number” (a blank cell in the CSV). We mentioned other versions earlier like <code>NaT</code> (Not a Time)</p>
 <p>In general, you cannot do mathematics with missing data.</p>
 <ul>
-<li>Calculations that involve <strong>NaN</strong> resolve to <strong>NaN</strong>.</li>
-<li>Calculations that involve <strong>None</strong> throw an exception.</li>
+<li>Calculations that involve <code>NaN</code> resolve to <code>NaN</code>.</li>
+<li>Calculations that involve <code>None</code> throw an exception.</li>
 </ul>
-<p><code>.dropna()</code> removes any row containing a <strong>NaN</strong>.</p>
+<p><code>.dropna()</code> removes any row containing a <code>NaN</code>.</p>
 <p>The safest decision is to drop the corrupted observation entirely.</p>
 <p>There exist methods to interpolate the missing value(s), but these should be used cautiously.</p>
-<div id="316f1a01" class="cell" data-execution_count="12">
+<div id="66768db1" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co"># See how many missing values exist</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isna().<span class="bu">sum</span>())</span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -858,7 +860,7 @@ dtype: int64</code></pre>
 
 df['Power_Watts'] = df['Voltage'] * df['Current']</code></pre>
 <p>Using calculated columns is much cleaner than writing a for loop to iterate through thousands of rows.</p>
-<div id="4b435c55" class="cell" data-execution_count="13">
+<div id="e13d095f" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Profit_Per_Unit'</span>] <span class="op">=</span> df[<span class="st">'Profit'</span>] <span class="op">/</span> df[<span class="st">'Quantity'</span>]</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -940,7 +942,7 @@ df['Month'] = df['Date'].dt.month `</code></pre>
 <li>Apply math.</li>
 <li>Combine the results.</li>
 </ol>
-<div id="584286ac" class="cell" data-execution_count="14">
+<div id="8a2b4070" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drop rows where the date column is NaT</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> df.dropna(subset<span class="op">=</span>[<span class="st">'Order Date'</span>])</span>
@@ -958,7 +960,7 @@ df['Month'] = df['Date'].dt.month `</code></pre>
 Name: Profit, dtype: float64</code></pre>
 </div>
 </div>
-<div id="713ffe69" class="cell" data-execution_count="15">
+<div id="e03ea5f5" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find the top 3 area codes by total sales</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>appd <span class="op">=</span> df.groupby(<span class="st">'Postal Code'</span>)[<span class="st">'Sales'</span>].<span class="bu">sum</span>().nlargest(<span class="dv">3</span>)</span>
@@ -973,7 +975,7 @@ Name: Sales, dtype: float64</code></pre>
 </div>
 </div>
 <p>We see that the Postal Codes here are floats. But these are an identifier and not a quantity, so it is a good idea to change the type. We can fix this using the <code>astype</code> method and casting as an integer.</p>
-<div id="20c22710" class="cell" data-execution_count="16">
+<div id="b1177d3b" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'Postal Code'</span>] <span class="op">=</span> df[<span class="st">'Postal Code'</span>].astype(<span class="st">'Int64'</span>)</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">'Postal Code'</span>].head())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -996,20 +998,18 @@ df['Date'] = pd.to_datetime(df['Date_String'])
 df['Month'] = df['Date'].dt.month</code></pre>
 <section id="useful-distinctions" class="level3">
 <h3 class="anchored" data-anchor-id="useful-distinctions">Useful Distinctions</h3>
-<ul>
-<li><p><strong>Aggregation</strong> (<code>sum()</code>, <code>mean()</code>, <code>count()</code>) computes one value per group.</p></li>
-<li><p><strong>Reduction</strong> (<code>max()</code>, <code>min()</code>) computes one value from the entire Series.</p>
+<p><strong>Aggregation</strong> (<code>sum()</code>, <code>mean()</code>, <code>count()</code>) computes one value per group.</p>
+<p><strong>Reduction</strong> (<code>max()</code>, <code>min()</code>) computes one value from the entire Series.</p>
 <ul>
 <li>A <strong>series</strong> can be viewed as a single column in the DataFrame.</li>
-</ul></li>
-<li><p><strong>Index retrieval</strong> (<code>idxmax()</code>, <code>idxmin()</code>) tells you <em>which label</em> produced that maximum or minimum.</p></li>
 </ul>
+<p><strong>Index retrieval</strong> (<code>idxmax()</code>, <code>idxmin()</code>) tells you <em>which label</em> produced that maximum or minimum.</p>
 </section>
 <section id="performing-mathematics-on-dataframes" class="level3">
 <h3 class="anchored" data-anchor-id="performing-mathematics-on-dataframes">Performing Mathematics on DataFrames</h3>
 <p>More complicated mathematical operations will require you to cast the DataFrame to a NumPy array. This is done using the <code>.to_numpy()</code> method.</p>
 <p>Note that there can be no text or <code>NaN</code> values in the columns that are cast into an array if you want to receive valid output.</p>
-<div id="d40be385" class="cell" data-execution_count="17">
+<div id="ee77419e" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> df[<span class="st">'Sales'</span>].to_numpy()</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1018,14 +1018,14 @@ df['Month'] = df['Date'].dt.month</code></pre>
 </div>
 </div>
 <p>Simple operations can be done on the DataFrame itself, especially a single series associated with it.</p>
-<div id="cfd08490" class="cell" data-execution_count="18">
+<div id="bdf9a192" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df[<span class="st">"Sales"</span>].mean())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>229.21681761995393</code></pre>
 </div>
 </div>
 <p>We can also iterate through using the standard Python for loop syntax. However, Pandas specific operations are both shorter to write and more efficient.</p>
-<div id="bfb2cb71" class="cell" data-execution_count="19">
+<div id="6b8fb479" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Also the mean of the sales series</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>s <span class="op">=</span> <span class="dv">0</span></span>
@@ -1042,7 +1042,7 @@ df['Month'] = df['Date'].dt.month</code></pre>
 <h3 class="anchored" data-anchor-id="multiple-aggregations">Multiple Aggregations</h3>
 <p>Often, we need different math for different columns at the same time. The <code>.agg()</code> method takes a dictionary: <code>{ 'ColumnName': 'math_operation' }</code>.</p>
 <p>This can complete enormous tasks in a single computational pass.</p>
-<div id="dcc51481" class="cell" data-execution_count="20">
+<div id="c22bb9fb" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Find the total, average, maximum, and minimum sales by region.</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Region'</span>)[<span class="st">'Sales'</span>].agg([<span class="st">'sum'</span>, <span class="st">'mean'</span>, <span class="st">'max'</span>, <span class="st">'min'</span>]))</span>
@@ -1065,7 +1065,7 @@ West     725457.8245  226.493233  13999.960  0.990</code></pre>
 <li>The key is the name of the column, and its value is the operation.</li>
 <li>Operations used must accept a series and return a single value.</li>
 </ul>
-<div id="2a95f0ca" class="cell" data-execution_count="21">
+<div id="b79466f6" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Region'</span>).agg({</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Sales'</span>: <span class="st">'sum'</span>,</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>                        <span class="st">'Profit'</span>: <span class="st">'mean'</span>,</span>
@@ -1082,12 +1082,12 @@ West     725457.8245  33.849032       0.7   12266.0</code></pre>
 </div>
 </div>
 <p>Note that you are not limited to pre-built aggregation functions. You can define operations yourself by creating a function that accepts a Pandas series and returns a single value.</p>
-<div id="844d14c6" class="cell" data-execution_count="22">
+<div id="087863ce" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> <span class="bu">range</span>(series):</span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> series.<span class="bu">max</span>() <span class="op">-</span> series.<span class="bu">min</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We have an issue here is that “Sales” is ambiguous for what we are performing by the aggregation. To make our operations obvious, we can use named aggregations to rename the displayed column names.</p>
-<div id="685abbb9" class="cell" data-execution_count="23">
+<div id="d9cd6558" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Region'</span>).agg({<span class="st">'Sales'</span>: <span class="bu">range</span>,}))</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(summary)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -1104,7 +1104,7 @@ West     13998.970</code></pre>
 <h3 class="anchored" data-anchor-id="named-aggregations">Named Aggregations</h3>
 <p>We can rename the displayed column names using a variable assignment inside the aggregation.</p>
 <p>For <code>TotalSales=(”Sales”, sum)</code>the resulting column name of the sum of sales by category is <strong>TotalSales</strong>.</p>
-<div id="9f0ff107" class="cell" data-execution_count="24">
+<div id="670eb4f0" class="cell" data-execution_count="24">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Category'</span>).agg(</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>            TotalSales<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'sum'</span>),</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>            AvgSale<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'mean'</span>),</span>
@@ -1126,7 +1126,7 @@ Technology        834554.27   452.58    145007.66      78.64    1844</code></pre
 <section id="several-statistics-for-several-columns" class="level3">
 <h3 class="anchored" data-anchor-id="several-statistics-for-several-columns">Several Statistics for Several Columns</h3>
 <p>We can produce multiple statistics across multiple columns. The same dictionary format is used for the <code>.agg</code> method and the value is now a list of operations.</p>
-<div id="354a1439" class="cell" data-execution_count="25">
+<div id="98b1b558" class="cell" data-execution_count="25">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby(<span class="st">'Category'</span>).agg({</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Sales'</span>: [<span class="st">'sum'</span>, <span class="st">'mean'</span>],</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>            <span class="st">'Profit'</span>: [<span class="st">'sum'</span>, <span class="st">'mean'</span>],</span>
@@ -1148,7 +1148,7 @@ Technology       834554.27  452.58  145007.66  78.64   6925.0  14.0</code></pre>
 <h3 class="anchored" data-anchor-id="two-level-groupby-with-multiple-aggregations">Two-level groupby with Multiple Aggregations</h3>
 <p>What if we want to evaluate the profit, sales, and average discount across the different categories of goods by region?</p>
 <p>We can include multiple levels in the groupby simply by using a list of series names.</p>
-<div id="686c6263" class="cell" data-execution_count="26">
+<div id="aedef8a2" class="cell" data-execution_count="26">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby([<span class="st">'Region'</span>, <span class="st">'Category'</span>]).agg(</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>            Sales<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'sum'</span>),</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>            Profit<span class="op">=</span>(<span class="st">'Profit'</span>, <span class="st">'sum'</span>),</span>
@@ -1174,7 +1174,7 @@ West    Furniture        252612.74  11504.95         0.13
 </div>
 </div>
 <p>What if we wish to find which category is most profitable in each region?</p>
-<div id="ad9628cc" class="cell" data-execution_count="27">
+<div id="492f0329" class="cell" data-execution_count="27">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>summary <span class="op">=</span> (df.groupby([<span class="st">'Region'</span>, <span class="st">'Category'</span>]).agg(</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>            TotalSales<span class="op">=</span>(<span class="st">'Sales'</span>, <span class="st">'sum'</span>),</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>            TotalProfit<span class="op">=</span>(<span class="st">'Profit'</span>, <span class="st">'sum'</span>)).sort_values(<span class="st">'TotalProfit'</span>, ascending<span class="op">=</span><span class="va">False</span>)</span>
@@ -1215,7 +1215,7 @@ Central Furniture        163797.1638   -2871.0494</code></pre>
     )</code></pre>
 <p>We can use pivot tables much the same way as groupby.</p>
 <p>Both below compute the same summary.</p>
-<div id="80c3a8b2" class="cell" data-execution_count="28">
+<div id="c9027a1f" class="cell" data-execution_count="28">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>pt <span class="op">=</span> df.pivot_table(</span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Sales'</span>,</span>
 <span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Region'</span>,</span>
@@ -1233,7 +1233,7 @@ South     117298.6840       125651.313  148771.908
 West      252612.7435       220853.249  251991.832</code></pre>
 </div>
 </div>
-<div id="0b633c1b" class="cell" data-execution_count="29">
+<div id="ff26139b" class="cell" data-execution_count="29">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>gb <span class="op">=</span> df.groupby([<span class="st">'Region'</span>, <span class="st">'Category'</span>])[<span class="st">'Sales'</span>].<span class="bu">sum</span>()</span>
 <span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(gb)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1260,7 +1260,7 @@ Name: Sales, dtype: float64</code></pre>
 <li><p><code>pivot_table()</code> places one grouping variable into columns, producing a cross-tab that resembles an Excel pivot table.</p></li>
 </ul>
 <p>Multiple values can be used by passing in a list.</p>
-<div id="a7b79277" class="cell" data-execution_count="30">
+<div id="9d9e0a4d" class="cell" data-execution_count="30">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>pivot <span class="op">=</span> df.pivot_table(</span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span>[<span class="st">'Sales'</span>, <span class="st">'Profit'</span>],</span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Region'</span>,</span>
@@ -1288,7 +1288,7 @@ West      251991.832  </code></pre>
 </div>
 </div>
 <p>Passing the margins flag generates an all column and row.</p>
-<div id="59bf3d91" class="cell" data-execution_count="31">
+<div id="30dc8844" class="cell" data-execution_count="31">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>pivot <span class="op">=</span> df.pivot_table(</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Sales'</span>,</span>
@@ -1313,10 +1313,10 @@ All       736879.70        716837.52   834554.27  2288271.49</code></pre>
 <section id="melt" class="level3">
 <h3 class="anchored" data-anchor-id="melt">Melt</h3>
 <p>Human generated data is often “wide” (e.g., Jan, Feb, Mar as separate columns). <code>pd.melt()</code> unpivots data, collapsing multiple columns down into two generic columns: “Variable” and “Value”.</p>
-<p>melt() takes multiple columns and stacks them into two columns: one for the former column names and one for their values.</p>
+<p><code>melt()</code> takes multiple columns and stacks them into two columns: one for the former column names and one for their values.</p>
 <p>Many plotting libraries, statistical tools and SQL databases expect data in the melt format, not the pivot format.</p>
 <p><code>{tall_df = pd.melt(}         wide_df,         id_vars=[’’], # Columns to lock in place         var_name='', # Name for the columns         value_name='' # Name for the values )</code></p>
-<div id="fabaa655" class="cell" data-execution_count="32">
+<div id="4bd36723" class="cell" data-execution_count="32">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>sales <span class="op">=</span> df.pivot_table(</span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>    values<span class="op">=</span><span class="st">'Sales'</span>,</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>    index<span class="op">=</span><span class="st">'Region'</span>,</span>
@@ -1334,7 +1334,7 @@ All       736879.70        716837.52   834554.27  2288271.49</code></pre>
 </div>
 </div>
 <p>If we wanted one row per Region–Category combination instead:</p>
-<div id="5475f467" class="cell" data-execution_count="33">
+<div id="4dc90c63" class="cell" data-execution_count="33">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="bu">long</span> <span class="op">=</span> sales.melt(</span>
 <span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>    id_vars<span class="op">=</span><span class="st">'Region'</span>,</span>
 <span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>    var_name<span class="op">=</span><span class="st">'Category'</span>,</span>
@@ -1395,7 +1395,7 @@ on="ColumnName", #Column used for matching
 
 how="inner") #Type of join</code></pre>
 <p>Suppose we have two DataFrames, <code>customers</code> and <code>accounts</code>.</p>
-<div id="2f3c23f8" class="cell" data-execution_count="34">
+<div id="7205cd0a" class="cell" data-execution_count="34">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>customers <span class="op">=</span> {</span>
 <span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'CustomerID'</span>:[<span class="dv">101</span>,<span class="dv">102</span>,<span class="dv">103</span>,<span class="dv">104</span>],</span>
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Name'</span>: [<span class="st">'Alice'</span>, <span class="st">'Bob'</span>, <span class="st">'Charlie'</span>, <span class="st">'David'</span>]</span>
@@ -1413,7 +1413,7 @@ how="inner") #Type of join</code></pre>
 <section id="inner-join" class="level3">
 <h3 class="anchored" data-anchor-id="inner-join">Inner Join</h3>
 <p>An <strong>inner join</strong> keeps only rows that appear in both tables.</p>
-<div id="c61bc2d3" class="cell" data-execution_count="35">
+<div id="08af4308" class="cell" data-execution_count="35">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"inner"</span>)</span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1428,8 +1428,8 @@ how="inner") #Type of join</code></pre>
 </section>
 <section id="left-join" class="level3">
 <h3 class="anchored" data-anchor-id="left-join">Left Join</h3>
-<p>A left join keeps <strong>everything from the left table</strong>.</p>
-<div id="79b95182" class="cell" data-execution_count="36">
+<p>A <strong>left join</strong> keeps everything from the left table.</p>
+<div id="853a6d51" class="cell" data-execution_count="36">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"left"</span>)</span>
 <span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1447,7 +1447,7 @@ how="inner") #Type of join</code></pre>
 <section id="right-join" class="level3">
 <h3 class="anchored" data-anchor-id="right-join">Right Join</h3>
 <p>A <strong>right join</strong> keeps everything from the right table.</p>
-<div id="a9954b72" class="cell" data-execution_count="37">
+<div id="f6076270" class="cell" data-execution_count="37">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"right"</span>)</span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1464,7 +1464,7 @@ how="inner") #Type of join</code></pre>
 <section id="outer-join" class="level3">
 <h3 class="anchored" data-anchor-id="outer-join">Outer Join</h3>
 <p>An <strong>outer join</strong> keeps everything from both tables.</p>
-<div id="decd9984" class="cell" data-execution_count="38">
+<div id="a8ae9cef" class="cell" data-execution_count="38">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> pd.merge(customers, accounts, on<span class="op">=</span><span class="st">"CustomerID"</span>, how<span class="op">=</span><span class="st">"outer"</span>)</span>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1484,7 +1484,7 @@ how="inner") #Type of join</code></pre>
 <h3 class="anchored" data-anchor-id="merging-on-different-column-names">Merging on Different Column Names</h3>
 <ul>
 <li>Sometimes the key columns have different names.</li>
-<li>This is easily handled using the <strong>left_on</strong> and <strong>right_on</strong> parameters.</li>
+<li>This is easily handled using the <code>left_on</code> and <code>right_on</code> parameters.</li>
 </ul>
 <pre><code>pd.merge(customers, transactions, left_on="CustomerID", right_on="CustID")</code></pre>
 </section>

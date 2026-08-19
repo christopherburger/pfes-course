@@ -468,9 +468,7 @@ print(f'Cosine similarity between A and C: {similarity(A, C)}')
 
 Note that a cosine similarity of -1 means the two vectors are closely related, they are just in opposite directions.
 
-If we had vectors of words, **good** and **bad** are related words, one is the opposite of the other.
-
-- These would likely have a cosine similarity of -1.
+If we had vectors of words, **good** and **bad** are related words, one is the opposite of the other. These words would likely have a cosine similarity of about -1.
 
 | **Cosine Similarity** | **Meaning**          |
 |-----------------------|----------------------|
@@ -479,16 +477,7 @@ If we had vectors of words, **good** and **bad** are related words, one is the o
 | 0                     | Unrelated directions |
 | -1                    | Opposite directions  |
 
-If we had vectors of the words, **good** and **brick**, there is no obvious relationship between the two.
-
-- As these words are unrelated, we would expect a cosine similarity around zero.
-
-| **Cosine Similarity** | **Meaning**          |
-|-----------------------|----------------------|
-| 1                     | Same direction       |
-| 0.8                   | Very similar         |
-| 0                     | Unrelated directions |
-| -1                    | Opposite directions  |
+If we had vectors of the words, **good** and **brick**, there is no obvious relationship between the two. As these words are unrelated, we would expect a cosine similarity around zero.
 
 ## Comparing Measures
 

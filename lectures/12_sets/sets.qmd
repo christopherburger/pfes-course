@@ -7,25 +7,25 @@ format: html
 
 ## Sets
 
-A set in Python is an object that stores a collection of data much in the same way as a set in mathematics is defined.
+A **set** in Python is an object that stores a collection of data much in the same way as a set in mathematics is defined.
 
 - All items must be unique
-- Set is unordered
+- There is no order to the elements
 - Elements can be of different data types
 
 ## Creating a Set
 
-- For empty set, call `set()`
+For an empty set, use the `set()` function.
 
-- For non-empty set, call `set(argument)` where *argument* is an object that contains iterable elements.
+For a non-empty set, call `set(argument)` where *argument* is an object that contains iterable elements.
 
-  - e.g., *argument* can be a list, string, or tuple
+- *argument* can be something like a list, string, or tuple
 
-  - If *argument* is a string, each character becomes a set element
+- If *argument* is a string, each character becomes a set element
 
-    - For set of strings, pass them to the function as a list
+  - For set of strings, pass them to the function as a list
 
-  - If *argument* contains duplicates, only one of the duplicates will appear in the set
+- If *argument* contains duplicates, only one of the duplicates will appear in the set
 
 ```{python}
 numbers = set(list(range(1,6)))
@@ -87,16 +87,16 @@ The order you see from the print statement can change if you rerun the code. Rem
 
 ### Deleting Elements
 
-- `remove`and `discard` methods: delete the specified item from the set
+`remove`and `discard` methods: delete the specified item from the set
 
-  - The item that should be deleted is passed to both methods as an argument
+- The item that should be deleted is passed to both methods as an argument
 
-  - These methods differently when the specified item is not found in the set
+These methods act differently when the specified item is not found in the set.
 
-    - `remove` method raises a KeyError exception
-    - `discard` method does not raise an exception
+- `remove` method raises a `KeyError` exception
+- `discard` method does not raise an exception
 
-- `clear` method: deletes all the elements of the set
+`clear` method: deletes all the elements of the set
 
 ```{python}
 numbers = set(list(range(1,6)))
@@ -131,14 +131,15 @@ print(numbers)
 
 ## Using the `for` Loop, `in`, and `not in` Operators with Sets
 
-- **A for loop can be used to iterate over elements in a set**
+A `for` loop can be used to iterate over elements in a set.
 
-  - General format: `for item in set`
-  - The loop iterates once for each element in the set
+- General format: `for item in set`
 
-- **The in operator can be used to test whether a value exists in a set**
+The loop iterates once for each element in the set.
 
-  - Similarly, the not in operator can be used to test whether a value does not exist in a set
+The `in` operator can be used to test whether a value exists in a set.
+
+Similarly, the `not in` operator can be used to test whether a value does not exist in a set.
 
 ```{python}
 numbers = set(list(range(1,6)))
@@ -153,17 +154,17 @@ For all the following set operations, the output of these methods returns a new 
 
 ### Union
 
-- The **union** of two sets is the set that contains all the elements of both sets.
+The **union** of two sets is the set that contains all the elements of both sets.
 
-- To find the union of two sets:
+To find the union of two sets:
 
-  - Use the `union` method
+- Use the `union` method
 
-    - Format: `set1.union(set2)`
+  - Format: `set1.union(set2)`
 
-  - Use the `|` operator
+- Use the `|` operator
 
-    - Format: `set1 | set2`
+  - Format: `set1 | set2`
 
 ```{python}
 A = {1,2,3}
@@ -175,17 +176,17 @@ print(A | B)
 
 ### Intersection
 
-- The **intersection** of two sets is the set that contains only the elements found in both sets.
+The **intersection** of two sets is the set that contains only the elements found in both sets.
 
-- To find the intersection of two sets:
+To find the intersection of two sets:
 
-  - Use the `intersection` method
+- Use the `intersection` method
 
-    - Format: `set1.intersection(set2)`
+  - Format: `set1.intersection(set2)`
 
-  - Use the `&` operator
+- Use the `&` operator
 
-    - Format: `set1 & set2`
+  - Format: `set1 & set2`
 
 ```{python}
 A = {1,2,3}
@@ -197,17 +198,17 @@ print(A & B)
 
 ### Difference
 
-- The difference of two sets is the set that contains the elements that appear in the first set but do not appear in the second set.
+The difference of two sets is the set that contains the elements that appear in the first set but do not appear in the second set.
 
-- To find the difference of two sets:
+To find the difference of two sets:
 
-  - Use the difference method
+- Use the difference method
 
-    - Format: `set1.difference(set2)`
+  - Format: `set1.difference(set2)`
 
-  - Use the `-` operator
+- Use the `-` operator
 
-    - Format: `set1 - set2`
+  - Format: `set1 - set2`
 
 ```{python}
 A = {1,2,3}
@@ -221,15 +222,15 @@ print(A - B)
 
 The symmetric difference of two sets is the set that contains the elements that are not shared by the two sets.
 
-- To find the symmetric difference of two sets:
+To find the symmetric difference of two sets:
 
-  - Use the `symmetric_difference` method
+- Use the `symmetric_difference` method
 
-    - Format: `set1.symmetric_difference(set2)`
+  - Format: `set1.symmetric_difference(set2)`
 
-  - Use the `^` operator
+- Use the `^` operator
 
-    - Format: `set1 ^ set2`
+  - Format: `set1 ^ set2`
 
 ```{python}
 A = {1,2,3}
@@ -241,17 +242,17 @@ print(A ^ B)
 
 ## Subsets and Supersets
 
-- Set A is **subset** of set B if all the elements in set A are included in set B
+Set A is **subset** of set B if all the elements in set A are included in set B
 
-- To determine whether set A is subset of set B
+To determine whether set A is subset of set B
 
-  - Use the `issubset` method
+- Use the `issubset` method
 
-    - Format: `setA.issubset(setB)`
+  - Format: `setA.issubset(setB)`
 
-  - Use the \<`=` operator
+- Use the \<`=` operator
 
-    - Format: `setA <= setB`
+  - Format: `setA <= setB`
 
 ```{python}
 A = {1,2,3}
@@ -269,17 +270,17 @@ B = {3}
 print(B <= A)
 ```
 
-- Set A is **superset** of set B if it contains all the elements of set B
+Set A is **superset** of set B if it contains all the elements of set B
 
-- To determine whether set A is superset of set B
+To determine whether set A is superset of set B
 
-  - Use the `issuperset` method
+- Use the `issuperset` method
 
-    - Format: *`setA`*`.issuperset(setB)`
+  - Format: *`setA`*`.issuperset(setB)`
 
-  - Use the `>=` operator
+- Use the `>=` operator
 
-    - Format: *`setA`*`>= setB`
+  - Format: *`setA`*`>= setB`
 
 ```{python}
 A = {1,2,3}
@@ -301,7 +302,9 @@ print(A >= B)
 
 Set comprehension: a concise expression that creates a new set by iterating over the elements of a sequence. Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces `{}` instead of brackets `[]`
 
-- **Example: making a copy of a set**
+### Examples 
+
+Making a copy of a set
 
 ```{python}
 set1 = set([1, 2, 3, 4, 5])
@@ -311,7 +314,7 @@ set2 = {item for item in set1}
 print(id(set1),id(set2))
 ```
 
-- **Example: creating a set that contains the squares of the numbers stored in another set**
+Creating a set that contains the squares of the numbers stored in another set
 
 ```{python}
 set1 = set([1, 2, 3, 4, 5])
@@ -321,7 +324,7 @@ set2 = {item**2 for item in set1}
 set2
 ```
 
-- **Example: copying the numbers in a set that are less than 10**
+Copying the numbers in a set that are less than 10
 
 ```{python}
 set1 = set([1, 20, 2, 40, 3, 50])

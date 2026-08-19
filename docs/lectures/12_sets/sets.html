@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Exceptions and Files</span></a>
+ <span class="menu-text">13: Files and Exceptions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -307,7 +307,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#symmetric-difference" id="toc-symmetric-difference" class="nav-link" data-scroll-target="#symmetric-difference">Symmetric Difference</a></li>
   </ul></li>
   <li><a href="#subsets-and-supersets" id="toc-subsets-and-supersets" class="nav-link" data-scroll-target="#subsets-and-supersets">Subsets and Supersets</a></li>
-  <li><a href="#set-comprehensions" id="toc-set-comprehensions" class="nav-link" data-scroll-target="#set-comprehensions">Set Comprehensions</a></li>
+  <li><a href="#set-comprehensions" id="toc-set-comprehensions" class="nav-link" data-scroll-target="#set-comprehensions">Set Comprehensions</a>
+  <ul class="collapse">
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples">Examples</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -338,28 +341,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="sets" class="level2">
 <h2 class="anchored" data-anchor-id="sets">Sets</h2>
-<p>A set in Python is an object that stores a collection of data much in the same way as a set in mathematics is defined.</p>
+<p>A <strong>set</strong> in Python is an object that stores a collection of data much in the same way as a set in mathematics is defined.</p>
 <ul>
 <li>All items must be unique</li>
-<li>Set is unordered</li>
+<li>There is no order to the elements</li>
 <li>Elements can be of different data types</li>
 </ul>
 </section>
 <section id="creating-a-set" class="level2">
 <h2 class="anchored" data-anchor-id="creating-a-set">Creating a Set</h2>
+<p>For an empty set, use the <code>set()</code> function.</p>
+<p>For a non-empty set, call <code>set(argument)</code> where <em>argument</em> is an object that contains iterable elements.</p>
 <ul>
-<li><p>For empty set, call <code>set()</code></p></li>
-<li><p>For non-empty set, call <code>set(argument)</code> where <em>argument</em> is an object that contains iterable elements.</p>
-<ul>
-<li><p>e.g., <em>argument</em> can be a list, string, or tuple</p></li>
+<li><p><em>argument</em> can be something like a list, string, or tuple</p></li>
 <li><p>If <em>argument</em> is a string, each character becomes a set element</p>
 <ul>
 <li>For set of strings, pass them to the function as a list</li>
 </ul></li>
 <li><p>If <em>argument</em> contains duplicates, only one of the duplicates will appear in the set</p></li>
-</ul></li>
 </ul>
-<div id="02d79d7e" class="cell" data-execution_count="1">
+<div id="5592e5ce" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -367,7 +368,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{1, 2, 3, 4, 5}</code></pre>
 </div>
 </div>
-<div id="17bd5f31" class="cell" data-execution_count="2">
+<div id="86e5556d" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">5</span>])</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -376,7 +377,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>Like many other objects in Python that we can iterate through, we can find the number of elements in a set using the <code>len</code> function.</p>
-<div id="cf2a93d2" class="cell" data-execution_count="3">
+<div id="d86d7ba1" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">len</span>(numbers))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -397,7 +398,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Argument must be a sequence containing iterable elements, and each of the elements is added to the set</li>
 </ul></li>
 </ul>
-<div id="35848a98" class="cell" data-execution_count="4">
+<div id="627203c7" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -405,7 +406,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{1, 2, 3, 4, 5}</code></pre>
 </div>
 </div>
-<div id="43387010" class="cell" data-execution_count="5">
+<div id="8825e8d4" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>numbers.add(<span class="st">'six'</span>)</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -413,7 +414,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{1, 2, 3, 4, 5, 'six'}</code></pre>
 </div>
 </div>
-<div id="bba1a965" class="cell" data-execution_count="6">
+<div id="902033b5" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -421,31 +422,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{1, 2, 3, 4, 5}</code></pre>
 </div>
 </div>
-<div id="a35ab99b" class="cell" data-execution_count="7">
+<div id="e9b17f9b" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>numbers.update([<span class="st">'six'</span>,<span class="st">'seven'</span>,<span class="dv">8</span>, <span class="dv">9</span>])</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>{1, 2, 3, 4, 5, 8, 9, 'seven', 'six'}</code></pre>
+<pre><code>{1, 2, 3, 4, 5, 'seven', 8, 9, 'six'}</code></pre>
 </div>
 </div>
 <p>The order you see from the print statement can change if you rerun the code. Remember that sets have no inherent order, this is just a visual representation of the contents.</p>
 </section>
 <section id="deleting-elements" class="level3">
 <h3 class="anchored" data-anchor-id="deleting-elements">Deleting Elements</h3>
+<p><code>remove</code>and <code>discard</code> methods: delete the specified item from the set</p>
 <ul>
-<li><p><code>remove</code>and <code>discard</code> methods: delete the specified item from the set</p>
-<ul>
-<li><p>The item that should be deleted is passed to both methods as an argument</p></li>
-<li><p>These methods differently when the specified item is not found in the set</p>
-<ul>
-<li><code>remove</code> method raises a KeyError exception</li>
-<li><code>discard</code> method does not raise an exception</li>
-</ul></li>
-</ul></li>
-<li><p><code>clear</code> method: deletes all the elements of the set</p></li>
+<li>The item that should be deleted is passed to both methods as an argument</li>
 </ul>
-<div id="dec0f9ae" class="cell" data-execution_count="8">
+<p>These methods act differently when the specified item is not found in the set.</p>
+<ul>
+<li><code>remove</code> method raises a <code>KeyError</code> exception</li>
+<li><code>discard</code> method does not raise an exception</li>
+</ul>
+<p><code>clear</code> method: deletes all the elements of the set</p>
+<div id="6e6e2a33" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>numbers.remove(<span class="dv">1</span>)</span>
@@ -455,7 +454,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{2, 3, 4, 5}</code></pre>
 </div>
 </div>
-<div id="228a4506" class="cell" data-execution_count="9">
+<div id="ef60fb59" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>     numbers.remove(<span class="dv">6</span>)</span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>     <span class="bu">print</span>(numbers)</span>
@@ -466,7 +465,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>6</code></pre>
 </div>
 </div>
-<div id="baaa05a9" class="cell" data-execution_count="10">
+<div id="76370e49" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>numbers.discard(<span class="dv">1</span>)</span>
@@ -476,7 +475,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{2, 3, 4, 5}</code></pre>
 </div>
 </div>
-<div id="005bf0a4" class="cell" data-execution_count="11">
+<div id="f437b294" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>numbers.discard(<span class="dv">6</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(numbers)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -488,18 +487,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="using-the-for-loop-in-and-not-in-operators-with-sets" class="level2">
 <h2 class="anchored" data-anchor-id="using-the-for-loop-in-and-not-in-operators-with-sets">Using the <code>for</code> Loop, <code>in</code>, and <code>not in</code> Operators with Sets</h2>
-<ul>
-<li><p><strong>A for loop can be used to iterate over elements in a set</strong></p>
+<p>A <code>for</code> loop can be used to iterate over elements in a set.</p>
 <ul>
 <li>General format: <code>for item in set</code></li>
-<li>The loop iterates once for each element in the set</li>
-</ul></li>
-<li><p><strong>The in operator can be used to test whether a value exists in a set</strong></p>
-<ul>
-<li>Similarly, the not in operator can be used to test whether a value does not exist in a set</li>
-</ul></li>
 </ul>
-<div id="bbd6a8d7" class="cell" data-execution_count="12">
+<p>The loop iterates once for each element in the set.</p>
+<p>The <code>in</code> operator can be used to test whether a value exists in a set.</p>
+<p>Similarly, the <code>not in</code> operator can be used to test whether a value does not exist in a set.</p>
+<div id="70ec9f42" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>numbers <span class="op">=</span> <span class="bu">set</span>(<span class="bu">list</span>(<span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">6</span>)))</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> numbers:</span>
@@ -518,9 +513,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>For all the following set operations, the output of these methods returns a new set.</p>
 <section id="union" class="level3">
 <h3 class="anchored" data-anchor-id="union">Union</h3>
-<ul>
-<li><p>The <strong>union</strong> of two sets is the set that contains all the elements of both sets.</p></li>
-<li><p>To find the union of two sets:</p>
+<p>The <strong>union</strong> of two sets is the set that contains all the elements of both sets.</p>
+<p>To find the union of two sets:</p>
 <ul>
 <li><p>Use the <code>union</code> method</p>
 <ul>
@@ -530,9 +524,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Format: <code>set1 | set2</code></li>
 </ul></li>
-</ul></li>
 </ul>
-<div id="884bba69" class="cell" data-execution_count="13">
+<div id="8b0b1be4" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>}</span>
@@ -545,9 +538,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="intersection" class="level3">
 <h3 class="anchored" data-anchor-id="intersection">Intersection</h3>
-<ul>
-<li><p>The <strong>intersection</strong> of two sets is the set that contains only the elements found in both sets.</p></li>
-<li><p>To find the intersection of two sets:</p>
+<p>The <strong>intersection</strong> of two sets is the set that contains only the elements found in both sets.</p>
+<p>To find the intersection of two sets:</p>
 <ul>
 <li><p>Use the <code>intersection</code> method</p>
 <ul>
@@ -557,9 +549,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Format: <code>set1 &amp; set2</code></li>
 </ul></li>
-</ul></li>
 </ul>
-<div id="2247c2bb" class="cell" data-execution_count="14">
+<div id="95c7b5d0" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>}</span>
@@ -572,9 +563,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="difference" class="level3">
 <h3 class="anchored" data-anchor-id="difference">Difference</h3>
-<ul>
-<li><p>The difference of two sets is the set that contains the elements that appear in the first set but do not appear in the second set.</p></li>
-<li><p>To find the difference of two sets:</p>
+<p>The difference of two sets is the set that contains the elements that appear in the first set but do not appear in the second set.</p>
+<p>To find the difference of two sets:</p>
 <ul>
 <li><p>Use the difference method</p>
 <ul>
@@ -584,9 +574,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Format: <code>set1 - set2</code></li>
 </ul></li>
-</ul></li>
 </ul>
-<div id="565debf2" class="cell" data-execution_count="15">
+<div id="6cbb628b" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>}</span>
@@ -600,8 +589,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="symmetric-difference" class="level3">
 <h3 class="anchored" data-anchor-id="symmetric-difference">Symmetric Difference</h3>
 <p>The symmetric difference of two sets is the set that contains the elements that are not shared by the two sets.</p>
-<ul>
-<li><p>To find the symmetric difference of two sets:</p>
+<p>To find the symmetric difference of two sets:</p>
 <ul>
 <li><p>Use the <code>symmetric_difference</code> method</p>
 <ul>
@@ -611,9 +599,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Format: <code>set1 ^ set2</code></li>
 </ul></li>
-</ul></li>
 </ul>
-<div id="7a736bf3" class="cell" data-execution_count="16">
+<div id="1dc99cb5" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>}</span>
@@ -627,9 +614,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="subsets-and-supersets" class="level2">
 <h2 class="anchored" data-anchor-id="subsets-and-supersets">Subsets and Supersets</h2>
-<ul>
-<li><p>Set A is <strong>subset</strong> of set B if all the elements in set A are included in set B</p></li>
-<li><p>To determine whether set A is subset of set B</p>
+<p>Set A is <strong>subset</strong> of set B if all the elements in set A are included in set B</p>
+<p>To determine whether set A is subset of set B</p>
 <ul>
 <li><p>Use the <code>issubset</code> method</p>
 <ul>
@@ -639,9 +625,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Format: <code>setA &lt;= setB</code></li>
 </ul></li>
-</ul></li>
 </ul>
-<div id="bf60d495" class="cell" data-execution_count="17">
+<div id="8cae1bc1" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">3</span>,<span class="dv">4</span>}</span>
@@ -651,7 +636,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>False</code></pre>
 </div>
 </div>
-<div id="70efd1fd" class="cell" data-execution_count="18">
+<div id="aea084ab" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">3</span>}</span>
@@ -661,9 +646,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>True</code></pre>
 </div>
 </div>
-<ul>
-<li><p>Set A is <strong>superset</strong> of set B if it contains all the elements of set B</p></li>
-<li><p>To determine whether set A is superset of set B</p>
+<p>Set A is <strong>superset</strong> of set B if it contains all the elements of set B</p>
+<p>To determine whether set A is superset of set B</p>
 <ul>
 <li><p>Use the <code>issuperset</code> method</p>
 <ul>
@@ -673,9 +657,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Format: <em><code>setA</code></em><code>&gt;= setB</code></li>
 </ul></li>
-</ul></li>
 </ul>
-<div id="107f117a" class="cell" data-execution_count="19">
+<div id="a2cfbd54" class="cell" data-execution_count="19">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">3</span>,<span class="dv">4</span>}</span>
@@ -685,7 +668,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>False</code></pre>
 </div>
 </div>
-<div id="581dffba" class="cell" data-execution_count="20">
+<div id="32308b3b" class="cell" data-execution_count="20">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>A <span class="op">=</span> {<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>}</span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>B <span class="op">=</span> {<span class="dv">3</span>}</span>
@@ -699,23 +682,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="set-comprehensions" class="level2">
 <h2 class="anchored" data-anchor-id="set-comprehensions">Set Comprehensions</h2>
 <p>Set comprehension: a concise expression that creates a new set by iterating over the elements of a sequence. Set comprehensions are written just like list comprehensions, except that a set comprehension is enclosed in curly braces <code>{}</code> instead of brackets <code>[]</code></p>
-<ul>
-<li><strong>Example: making a copy of a set</strong></li>
-</ul>
-<div id="1f03f1d9" class="cell" data-execution_count="21">
+<section id="examples" class="level3">
+<h3 class="anchored" data-anchor-id="examples">Examples</h3>
+<p>Making a copy of a set</p>
+<div id="598f6efd" class="cell" data-execution_count="21">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span> {item <span class="cf">for</span> item <span class="kw">in</span> set1}</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">id</span>(set1),<span class="bu">id</span>(set2))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>4625304256 4625306720</code></pre>
+<pre><code>4689135648 4689138784</code></pre>
 </div>
 </div>
-<ul>
-<li><strong>Example: creating a set that contains the squares of the numbers stored in another set</strong></li>
-</ul>
-<div id="aae48630" class="cell" data-execution_count="22">
+<p>Creating a set that contains the squares of the numbers stored in another set</p>
+<div id="0a8450eb" class="cell" data-execution_count="22">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>])</span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span> {item<span class="op">**</span><span class="dv">2</span> <span class="cf">for</span> item <span class="kw">in</span> set1}</span>
@@ -725,10 +706,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>{1, 4, 9, 16, 25}</code></pre>
 </div>
 </div>
-<ul>
-<li><strong>Example: copying the numbers in a set that are less than 10</strong></li>
-</ul>
-<div id="ca65d3dc" class="cell" data-execution_count="23">
+<p>Copying the numbers in a set that are less than 10</p>
+<div id="2273d6e6" class="cell" data-execution_count="23">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>set1 <span class="op">=</span> <span class="bu">set</span>([<span class="dv">1</span>, <span class="dv">20</span>, <span class="dv">2</span>, <span class="dv">40</span>, <span class="dv">3</span>, <span class="dv">50</span>])</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>set2 <span class="op">=</span> {item <span class="cf">for</span> item <span class="kw">in</span> set1 <span class="cf">if</span> item <span class="op">&lt;</span> <span class="dv">10</span>}</span>
@@ -740,6 +719,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

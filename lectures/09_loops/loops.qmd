@@ -5,15 +5,17 @@ format: html
 
 # Repetition Structures
 
-We often need to write code that performs the same task multiple times. There are many possible problems when it comes to duplicating code, most of which center around the increased likelihood of making mistakes. The program becomes larger, the time needed to construct the program becomes longer, mistakes that are noticed early may need to be corrected in many places, etc.
+We often need to write code that performs the same task multiple times. Now if we have written the code once, why not just copy and paste it as many times as needed?
 
-We can ease these issues by using **repetition structures**, which make the computer repeat a set of code.
+There are many possible problems when it comes to duplicating code like this, most of which center around the increased likelihood of making mistakes. The program becomes larger, the time needed to construct the program becomes longer, mistakes that are noticed early may need to be corrected in many places, etc. We also might need to repeat something a large or unknown number of times. It is not feasible to write a script that has the same line of code possibly millions of times.
+
+However, we can ease these issues by using **repetition structures**, which make the computer repeat a single section of code. This lets us write and test a single block of code rather than many.
 
 ## Condition-Controlled and Count-Controlled Loops
 
-Repetition structures are generally implemented in what are called loops. There are two broad categories of loops:
+Repetition structures are generally implemented in what are called **loops**. There are two broad categories of loops:
 
-- Condition-controlled which uses a True/False condition to control the number of times the loop iterates
+- Condition-controlled which uses a `True`/`False` condition to control the number of times the loop iterates
 
 - Count-controlled which repeats a specific number of times
 
@@ -135,7 +137,7 @@ for num in range(1,26,2):
 The range function can be used to generate a sequence with numbers in descending order. Make sure the starting number is larger than end limit, and the step value is negative.
 
 ```{python}
-for num in range(10,0,-1):
+for num in range(5,0,-1):
     print(num)
 ```
 
@@ -169,7 +171,7 @@ for num in range(3,18,3):
 
 ## Letting the User Control the Loop Iterations
 
-Sometimes we do not know exactly how many times the loop will execute. One solution is that, if the user knows how many times the loop needs to run, we can **r**eceive range inputs from the user, place them in variables, and call the `range` function in the for clause using these variables.
+Sometimes we do not know exactly how many times the loop will execute. One solution is that, if the user knows how many times the loop needs to run, we can receive range inputs from the user, place them in variables, and call the `range` function in the for clause using these variables.
 
 Be sure to consider the end cases: `range` does not include the ending limit.
 
@@ -203,7 +205,7 @@ for i in range(start,end,step):
 
 In many assignment statements, the variable on the left side of the `=` operator also appears on the right side of the `=` operator.
 
-Augmented assignment operators are a special set of operators designed for this common operation to make the written code a little shorter.
+Augmented assignment operators are a special set of operators designed for this common operation to make the written code cleaner.
 
 | **Operator** | **Example Usage** | **Equivalent To** |
 |--------------|-------------------|-------------------|
@@ -520,20 +522,20 @@ If there is no way to make the condition false, you have an **infinite loop**, w
 ```         
 n = 0
 
-while n < 10:
+while n < 5:
     print(n)
 ```
 
-Note that there is no change to the value of `n` in the code above, so the expression `n < 10` will always evaluate to `True`.
+Note that there is no change to the value of `n` in the code above, so the expression `n < 5` will always evaluate to `True`.
 
 To avoid infinite loops there must always be a way to terminate the loop. This usually involves making progress towards turning the initial condition false by adjusting the value being tested.
 
-Here, since we are testing `n < 10` if we continually increase the value of `n` each iteration we will eventually turn this condition false.
+Here, since we are testing `n < 5` if we continually increase the value of `n` each iteration we will eventually turn this condition false.
 
 ```{python}
 n = 0
 
-while n < 10:
+while n < 5:
     n += 1
     print(n)
 ```
@@ -600,9 +602,9 @@ while value := int(input("Enter a non-negative number or enter -1 to finish: "))
 
 This code takes in non-negative numbers into a list called `data`. Note that the sentinel value is -1 and that any other negative value is ignored. This is an example of **input validation**. Input validation is a necessary part of programming as the computer cannot tell the difference between *good* data and *bad* data inherently.
 
-If a user provides bad input, the program will likely produce bad output. This is the Garbage In, Garbage Out (GIGO) principle. So it is important to design programs in a way that bad input is not accepted. We do this through input validation, where we inspect the input before it is actually processed by the program.
+If a user provides bad input, the program will likely produce bad output. This is the Garbage In, Garbage Out (GIGO) principle. So it is important to design programs in a way that bad input is not accepted.
 
-This is common accomplished using a while loop like in the example above. The input process will repeat if the data is bad (usually with some error message displayed).
+We do this through input validation, where we inspect the input before it is actually processed by the program. This is commonly accomplished using a while loop like in the example above. The input process will repeat if the data is bad (usually with some error message displayed).
 
 ## Using the `while` Loop as a Count-Controlled Loop
 
@@ -680,7 +682,7 @@ while n < 5: print(n); n+= 1
 
 Just like with `for` loops the `continue` statement causes the current iteration of a loop to end early.
 
-When the continue statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration)
+When the `continue` statement is executed, all the statements in the body of the loop that appear after it are ignored, and the loop begins its next iteration (if there is a next iteration)
 
 ::: practice-box
 Write a program that prints **only odd numbers** from **1 to 10** using a while loop.

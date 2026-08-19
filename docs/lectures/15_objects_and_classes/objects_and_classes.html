@@ -257,7 +257,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../../lectures/13_exceptions_and_files/exceptions_and_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">13: Exceptions and Files</span></a>
+ <span class="menu-text">13: Files and Exceptions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -303,7 +303,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#identifying-a-classs-responsibilities" id="toc-identifying-a-classs-responsibilities" class="nav-link" data-scroll-target="#identifying-a-classs-responsibilities">Identifying a Class’s Responsibilities</a></li>
   <li><a href="#storing-classes-in-modules" id="toc-storing-classes-in-modules" class="nav-link" data-scroll-target="#storing-classes-in-modules">Storing Classes in Modules</a></li>
   </ul></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"></a></li>
   <li><a href="#operator-overloading" id="toc-operator-overloading" class="nav-link" data-scroll-target="#operator-overloading">Operator Overloading</a>
   <ul class="collapse">
   <li><a href="#the-__str__-method" id="toc-the-__str__-method" class="nav-link" data-scroll-target="#the-__str__-method">The __str__ method</a></li>
@@ -360,8 +359,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Object oriented design also focuses on the idea of reusability, where the same object can then be used in different programs.</p>
 <section id="an-everyday-example-of-an-object" class="level2">
 <h2 class="anchored" data-anchor-id="an-everyday-example-of-an-object">An Everyday Example of an Object</h2>
-<p>Consider the idea of a clock.</p>
-<p>When it comes to defining the state of our clock its <strong>data attributes</strong> would be things like second, minute, hour, day, month, etc.</p>
+<p>Consider the idea of a clock. When it comes to defining the state of our clock its <strong>data attributes</strong> would be things like second, minute, hour, day, month, etc.</p>
 <p>We need the ability to manipulate the object, and so we will need methods to do so. The question is, which methods should be accessible to outside code (<strong>public methods</strong>) and which should be exclusive to the object’s internal workings (<strong>private methods</strong>)?</p>
 <p>Public methods would be common tasks that someone could expect to do to use the clock, like setting the time, setting the date, creating an alarm, etc.</p>
 <p>Private methods would be things like how exactly the alarm functions to produce the sound at the correct time. This is not something one needs to know to <strong>use</strong> the clock, so it would be best off as a private method.</p>
@@ -376,7 +374,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Defining a class is similar to defining a function, we need the appropriate keyword <code>class</code> and the name of the class (by convention this starts with an uppercase letter).</p>
 <pre class="{class Clock:}"><code></code></pre>
 <p>To use initial parameters and define methods we need to use the <code>self</code> parameter. This is a special reference to the specific instance of the class.</p>
-<div id="f82ccb4a" class="cell" data-execution_count="1">
+<div id="ec4ba534" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Clock:</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, seconds, minutes, hours):</span>
@@ -387,7 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We can see a special initializer method, the constructor for the class. This takes in a single required parameter, <code>self</code>, and for our example, three other parameters passed in during instantiation of the class to the data attributes associated with our specific instance of the class <code>Clock</code>.</p>
 <p>This initializer method is automatically executed when an instance of the class is created and is usually the very first method in a class definition.</p>
 <p>Consider the following class designed to simulate a coin and the ability to toss it. Note that each method in the class has the <code>self</code> parameter.</p>
-<div id="764c6e9a" class="cell" data-execution_count="2">
+<div id="a3e4872a" class="cell" data-execution_count="2">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Coin:</span>
@@ -405,17 +403,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.sideup</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To create a new instance of a class we use the format <code>variable_name = ClassName().</code></p>
-<div id="4c6a76d1" class="cell" data-execution_count="3">
+<div id="e67f85bf" class="cell" data-execution_count="3">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>my_coin <span class="op">=</span> Coin()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>To call any of the class methods using the created instance we use the dot notation like <code>my_instance.method()</code>. Because the <code>self</code> parameter references the specific instance of the object, the method will affect this instance.</p>
-<div id="c26b7fb3" class="cell" data-execution_count="4">
+<div id="af66fa02" class="cell" data-execution_count="4">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_coin.get_sideup())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Heads</code></pre>
 </div>
 </div>
-<div id="8fa024a2" class="cell" data-execution_count="5">
+<div id="d4477821" class="cell" data-execution_count="5">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>my_coin.toss()</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_coin.get_sideup())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
@@ -429,7 +427,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>A key idea in object oriented programming is that certain components of an object data should be private.</p>
 <p>In Python, this is indicated by placing two underscores (<code>__</code>) in front of an attribute name or a method definition.</p>
 <p>This is our coin class redesigned to better indicate that the data attributes should not be accessed directly from outside the class.</p>
-<div id="8d7b75be" class="cell" data-execution_count="6">
+<div id="493fe8bb" class="cell" data-execution_count="6">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Coin:</span>
@@ -471,12 +469,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="storing-classes-in-modules" class="level3">
 <h3 class="anchored" data-anchor-id="storing-classes-in-modules">Storing Classes in Modules</h3>
-<p>Classes can be stored in modules for future use using the import statement.</p>
+<p>Classes can be stored in modules for future use using the <code>import</code> keyword.</p>
 <p>The rules for doing so are simple and similar to that of variable naming conventions. Additionally, the filename for the module must end in <code>.py</code></p>
 </section>
-</section>
-<section id="section-1" class="level2">
-<h2 class="anchored" data-anchor-id="section-1"></h2>
 </section>
 <section id="operator-overloading" class="level2">
 <h2 class="anchored" data-anchor-id="operator-overloading">Operator Overloading</h2>
@@ -485,16 +480,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="the-__str__-method" class="level3">
 <h3 class="anchored" data-anchor-id="the-__str__-method">The __str__ method</h3>
 <p>The __<code>str__</code> method is one of the most commonly overloaded methods. This method is automatically called when the object is passed as an argument to the <code>print</code> function or the <code>str</code> function.</p>
-<div id="bbc1c7f3" class="cell" data-execution_count="7">
+<div id="1ae0fd98" class="cell" data-execution_count="7">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>my_coin <span class="op">=</span> Coin()</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(my_coin)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>&lt;__main__.Coin object at 0x10e8081a0&gt;</code></pre>
+<pre><code>&lt;__main__.Coin object at 0x108df01a0&gt;</code></pre>
 </div>
 </div>
-<p>Note that the output of the print function for this instance of the <code>Coin</code> class is just a memory address. This may not be what we want for the default string representation of our coin.</p>
+<p>Note that the output of the print function for this instance of the <code>Coin</code> class is just a memory address. This is likely not what we want for the default string representation of our coin.</p>
 <p>Instead, we could use the value of the <code>sideup</code> attribute to see what the coin represents.</p>
-<div id="968ec43c" class="cell" data-execution_count="8">
+<div id="fd866579" class="cell" data-execution_count="8">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Coin:</span>
@@ -603,7 +598,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="a-fraction-class">A Fraction Class</h2>
 <p>We can change the state of an object by making an assignment to one of its instance variables.</p>
 <p>Consider the fraction class seen in 18.1 of our text.</p>
-<div id="1f195138" class="cell" data-execution_count="9">
+<div id="634969b5" class="cell" data-execution_count="9">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Fraction:</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, top, bottom):</span>
@@ -620,20 +615,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="va">self</span>.den</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The <strong>state</strong> of a fraction object can be completely described by representing two integers, the numerator and the denominator</p>
-<div id="5c541cc7" class="cell" data-execution_count="10">
+<div id="fecb9a57" class="cell" data-execution_count="10">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>myfraction <span class="op">=</span> Fraction(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3/4</code></pre>
 </div>
 </div>
-<div id="60b30fb7" class="cell" data-execution_count="11">
+<div id="dfb3b28f" class="cell" data-execution_count="11">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction.getNum())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>3</code></pre>
 </div>
 </div>
-<div id="3d777ef5" class="cell" data-execution_count="12">
+<div id="b23c6a14" class="cell" data-execution_count="12">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction.getDen())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>4</code></pre>
@@ -654,7 +649,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Are they both the same object?</li>
 </ul>
 <p>We can use the <code>is</code> operator to find out if two references refer to the same object.</p>
-<div id="77d2e5a7" class="cell" data-execution_count="13">
+<div id="26d7ab2d" class="cell" data-execution_count="13">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>myfraction <span class="op">=</span> Fraction(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>yourfraction <span class="op">=</span> Fraction(<span class="dv">3</span>, <span class="dv">4</span>)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -663,7 +658,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>False</code></pre>
 </div>
 </div>
-<div id="23afdd2b" class="cell" data-execution_count="14">
+<div id="904b0088" class="cell" data-execution_count="14">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>ourfraction <span class="op">=</span> myfraction</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(myfraction <span class="kw">is</span> ourfraction)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -691,7 +686,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="inheritance" class="level2">
 <h2 class="anchored" data-anchor-id="inheritance">Inheritance</h2>
 <p>Recall the <code>Point</code> class from earlier in our textbook:</p>
-<div id="286c8547" class="cell" data-execution_count="15">
+<div id="f81cec34" class="cell" data-execution_count="15">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Point:</span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY):</span>
@@ -707,7 +702,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Now, suppose we want to create a class that works like <code>Point</code> in every respect, but also keeps track of a short description for the point.</p>
 <p>We could create a <code>LabeledPoint</code> class by copying and pasting the definition for <code>Point</code>, changing the name to <code>LabeledPoint</code>, and modifying the class to suit our purposes. However, any time you copy and paste code, keep in mind that you are copying and pasting bugs that may exist in the code. Inheritance provides a way to reuse the definition of <code>Point</code> without having to copy and paste.</p>
 <p>This example defines a class named <code>LabeledPoint</code> that inherits from the <code>Point</code> class.</p>
-<div id="45b2f81e" class="cell" data-execution_count="16">
+<div id="48fa5f15" class="cell" data-execution_count="16">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LabeledPoint(Point):</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY, label):</span>
@@ -728,7 +723,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We can eliminate the duplication by having <code>LabeledPoint</code>’s <code>__init__()</code> method invoke Point’s <code>__init__()</code> method. That way, each class will be responsible for initializing its own instance variables.</p>
 <p>A method in a child class that overrides a method in the parent can invoke the overridden method using <code>super()</code>.</p>
 <p>In this example, line 4 invokes the <code>__init__()</code> method in Point, passing the values of <code>initX</code> and <code>initY</code> to be used in initializing the <code>x</code> and <code>y</code> instance variables.</p>
-<div id="2ec1c81a" class="cell" data-execution_count="17">
+<div id="036daf43" class="cell" data-execution_count="17">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LabeledPoint(Point):</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY, label):</span>
@@ -739,7 +734,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="composition" class="level2">
 <h2 class="anchored" data-anchor-id="composition">Composition</h2>
 <p>Inheritance is not the only way to reuse code. <strong>Composition</strong> occurs when an object stores a reference to one or more objects in one of its instance variables. The object is then able to reuse code in the objects it embeds within itself.</p>
-<div id="2c7f14ed" class="cell" data-execution_count="18">
+<div id="fdc5ba04" class="cell" data-execution_count="18">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> LabeledPoint(Point):</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, initX, initY, label):</span>

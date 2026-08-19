@@ -9,7 +9,11 @@ We have seen that NumPy requires pure, homogeneous numbers. Remember that if we 
 
 We need a solution to intake data, then prepare it for use with libraries that perform calculations (like NumPy). This solution is Pandas, which is an industry-standard library for data ingestion and cleaning.
 
-Pandas does not replace NumPy; they serve different roles. - Pandas prepares the data. - NumPy solves the equations.
+Pandas does not replace NumPy; they serve different roles.
+
+- Pandas prepares the data.
+
+- NumPy performs mathematics.
 
 As Pandas is an external library, we will need to import it to use it (and depending on your environment, it may need to be installed first).
 
@@ -23,7 +27,7 @@ The core component of Pandas is the **DataFrame** which is a 2D array (a matrix)
 
 We load our data using one of the Pandas methods depending on our file type, and Pandas will do the work of figuring out what the datatypes of the individual columns should be.
 
-An example of the first few items a DataFrame
+An example of the first few items in a DataFrame
 
 |     | Row ID | Order ID       | Order Date | ... | Quantity | Discount | Profit    |
 |-----|--------|----------------|------------|-----|----------|----------|-----------|
@@ -65,7 +69,9 @@ The `head` method (and its counterpart, `tail`) are important first steps after 
 print(df.head())
 ```
 
-We can see not all the columns are visible (…) due to visual size limitations.
+Even with this limited representation things can be quite cluttered. Also, not all of the columns are visible (…) due to display limitations.
+
+The table below is a cleaner but even more limited version of the output above.
 
 |     | Row ID | Order ID       | Order Date | ... | Quantity | Discount | Profit    |
 |-----|--------|----------------|------------|-----|----------|----------|-----------|
@@ -75,7 +81,7 @@ We can see not all the columns are visible (…) due to visual size limitations.
 | 3   | 4      | US-2016-108966 | 10/11/2016 | …   | 5.0      | 0.45     | -383.0310 |
 | 4   | 5      | US-2016-108966 | 10/11/2016 | …   | 2.0      | 0.20     | 2.5164    |
 
-The number of columns and rows displayed by head / tail can be adjusted using settings in Pandas. However, some datasets will be large enough that you will not have enough display space to visually inspect everything. The `head` and `tail` provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.
+The number of columns and rows displayed by `head` / `tail` can be adjusted using settings in Pandas. However, some datasets will be large enough that you will not have enough display space to visually inspect everything. The `head` and `tail` provides the total number of columns (even if they are not displayed) and the total number of currently displayed rows.
 
 `[5 rows x 21 columns]`
 
@@ -101,22 +107,24 @@ print(df.dtypes)
 print(df.describe())
 ```
 
-- The statistics are:
+The statistics are:
 
-  - count (the number of non-empty cells)
+- count (the number of non-empty cells)
 
-    - The values **None**, **NaN**, **NaT**, **pandas.NA** are considered “empty”
-    - **NaN**: not a number, **NaT**: not a time
+  - The values `None`, `NaN`, `NaT`, `pandas.NA` are considered “empty”
+  - `NaN`: not a number, `NaT`: not a time
 
-  - mean
+- mean
 
-  - standard deviation
+  - The mean is the arithmetic mean, or what most people think of as the "average"
 
-  - min (smallest value)
+- standard deviation
 
-  - 25%, 50%, 75% (percentiles)
+- min (smallest value)
 
-  - max (largest value)
+- The 25th, 50th and 75th percentiles
+
+- max (largest value)
 
 Note that `describe()` gives us summary statistics on every column even if it does not make sense in context (the mean of the postal codes is meaningless).
 
@@ -138,7 +146,7 @@ print(df['Discount'])
 
 ### Renaming Columns
 
-Raw data often has terrible names (e.g., "Temp (C) - Sensor 1!"). We can use `.rename()` and a dictionary to fix them before writing logic.
+Raw data often has terrible names (e.g., "Temp (C) - Sensor 1!"). We can use `.rename()` and a dictionary to fix them before writing any code that involves them.
 
 The syntax is: `columns={'old_name': 'new_name’}`
 
@@ -162,11 +170,11 @@ We can also do this all in a single line:
 discount_data = df[df['Discount'] > 0.2]
 ```
 
-### Combining Logic (AND / OR)
+### Combining Logic (`and` / `or`)
 
-To find specific overlaps, use `&` (AND) and `|` (OR).
+To find specific overlaps, use `&` (`and`) and `|` (`or`).
 
-- **Very Important:** You *must* put parentheses around each condition.
+**Very Important:** You *must* put parentheses around each condition.
 
 ```{python}
 # Find Discounts AND Negative Profit
@@ -179,10 +187,10 @@ print(losses.head())
 
 Sorting data sequentially in Pandas is very simple.
 
-- **.sort_values()** orders the matrix by a specific column.
+`.sort_values()` orders the matrix by a specific column.
 
-  - The column is specified using the **by** parameter
-  - You can adjust sorting by ascending/descending order by setting the Boolean on the **ascending** parameter.
+- The column is specified using the **by** parameter
+- You can adjust sorting by ascending/descending order by setting the Boolean on the **ascending** parameter.
 
 ```{python}
 # Sort from highest profit to lowest
@@ -198,10 +206,10 @@ print(sorted_data.head(3))
 
 In general, you cannot do mathematics with missing data.
 
-- Calculations that involve **NaN** resolve to **NaN**.
-- Calculations that involve **None** throw an exception.
+- Calculations that involve `NaN` resolve to `NaN`.
+- Calculations that involve `None` throw an exception.
 
-`.dropna()` removes any row containing a **NaN**.
+`.dropna()` removes any row containing a `NaN`.
 
 The safest decision is to drop the corrupted observation entirely.
 
@@ -320,13 +328,13 @@ df['Month'] = df['Date'].dt.month
 
 ### Useful Distinctions
 
-- **Aggregation** (`sum()`, `mean()`, `count()`) computes one value per group.
+**Aggregation** (`sum()`, `mean()`, `count()`) computes one value per group.
 
-- **Reduction** (`max()`, `min()`) computes one value from the entire Series.
+**Reduction** (`max()`, `min()`) computes one value from the entire Series.
 
-  - A **series** can be viewed as a single column in the DataFrame.
+- A **series** can be viewed as a single column in the DataFrame.
 
-- **Index retrieval** (`idxmax()`, `idxmin()`) tells you *which label* produced that maximum or minimum.
+**Index retrieval** (`idxmax()`, `idxmin()`) tells you *which label* produced that maximum or minimum.
 
 ### Performing Mathematics on DataFrames
 
@@ -538,7 +546,7 @@ print(pivot)
 
 Human generated data is often "wide" (e.g., Jan, Feb, Mar as separate columns). `pd.melt()` unpivots data, collapsing multiple columns down into two generic columns: "Variable" and "Value".
 
-melt() takes multiple columns and stacks them into two columns: one for the former column names and one for their values.
+`melt()` takes multiple columns and stacks them into two columns: one for the former column names and one for their values.
 
 Many plotting libraries, statistical tools and SQL databases expect data in the melt format, not the pivot format.
 
@@ -653,7 +661,7 @@ Notice that Alice appears twice. This is because there are two matching rows in 
 
 ### Left Join
 
-A left join keeps **everything from the left table**.
+A **left join** keeps everything from the left table.
 
 ```{python}
 merged = pd.merge(customers, accounts, on="CustomerID", how="left")
@@ -690,7 +698,7 @@ Notice that nothing in either table is discarded.
 ### Merging on Different Column Names
 
 - Sometimes the key columns have different names.
-- This is easily handled using the **left_on** and **right_on** parameters.
+- This is easily handled using the `left_on` and `right_on` parameters.
 
 ```         
 pd.merge(customers, transactions, left_on="CustomerID", right_on="CustID")

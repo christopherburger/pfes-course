@@ -15,7 +15,7 @@ So far, we have been dealing with what is known as a **sequence structure**, whe
 
 The `if` statement is the fundamental statement when it comes to creating a decision structure in Python (and in most other languages). It is a single alternative decision. Action(s) are performed should the condition be `True` and the program continues on the same after the block regardless of state of the condition.
 
-Python syntax:
+General Format:
 
 ```         
 if condition:
@@ -63,7 +63,7 @@ print("Continuing on...")
 
 The example above is missing the indent on the second print statement and so what is printed to the console is not reflective of what the value of `x` actually is.
 
-### Single-Line if Statements
+### Single-Line `if` Statements
 
 An `if` statement can be written on a single line if it executes **only one** statement.
 
@@ -278,7 +278,7 @@ print(result)
 
 ## Assignment Expressions and the Walrus Operator
 
-The walrus operator `:=` is a combination operator that assigns a value to a variable and returns the value that was assigned to the variable. These are known as `assignment expressions`.
+The walrus operator `:=` is a combination operator that assigns a value to a variable and returns the value that was assigned to the variable. These are known as **assignment expressions**.
 
 ```{python}
 print(num := 99)
@@ -315,4 +315,6 @@ print(num:= 15)
 
 ### **Precedence of the walrus operator**
 
-The walrus operator has the lowest precedence of all the operators in Python. When using the walrus operator in a larger expression that also uses other operators, the walrus operator will work last. In most cases, you need to put parentheses around the assignment expression to make sure the walrus operator assigns the correct value to its variable
+The walrus operator has the **lowest** precedence of all the operators in Python.
+
+When using the walrus operator in a larger expression that also uses other operators, the walrus operator will work last. This means in most cases, you need to put parentheses around the assignment expression to make sure the walrus operator assigns the correct value to its variable

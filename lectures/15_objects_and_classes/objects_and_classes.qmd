@@ -19,9 +19,7 @@ Object oriented design also focuses on the idea of reusability, where the same o
 
 ## An Everyday Example of an Object
 
-Consider the idea of a clock.
-
-When it comes to defining the state of our clock its **data attributes** would be things like second, minute, hour, day, month, etc.
+Consider the idea of a clock. When it comes to defining the state of our clock its **data attributes** would be things like second, minute, hour, day, month, etc.
 
 We need the ability to manipulate the object, and so we will need methods to do so. The question is, which methods should be accessible to outside code (**public methods**) and which should be exclusive to the object's internal workings (**private methods**)?
 
@@ -154,11 +152,9 @@ To find out a class’s responsibilities look at the problem domain and deduce r
 
 ### Storing Classes in Modules
 
-Classes can be stored in modules for future use using the import statement.
+Classes can be stored in modules for future use using the `import` keyword.
 
 The rules for doing so are simple and similar to that of variable naming conventions. Additionally, the filename for the module must end in `.py`
-
-## 
 
 ## Operator Overloading
 
@@ -175,7 +171,7 @@ my_coin = Coin()
 print(my_coin)
 ```
 
-Note that the output of the print function for this instance of the `Coin` class is just a memory address. This may not be what we want for the default string representation of our coin.
+Note that the output of the print function for this instance of the `Coin` class is just a memory address. This is likely not what we want for the default string representation of our coin.
 
 Instead, we could use the value of the `sideup` attribute to see what the coin represents.
 

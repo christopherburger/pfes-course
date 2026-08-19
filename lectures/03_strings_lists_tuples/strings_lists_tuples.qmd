@@ -217,11 +217,9 @@ number_list = my_string.split('/')
 print(number_list)
 ```
 
-# Multidimensional Variables
+# Lists
 
 In Python, variables can store more than a single piece of information. These are **multidimensional** variables. We have already seen an example of a multidimensional variable, the string data type. Recall that a string is a sequence of characters and that each character in the sequence can be accessed independently from any other character.
-
-## Lists
 
 The most common general purpose multidimensional variable in Python is the **list**.
 
@@ -263,6 +261,12 @@ print(f'Second element: {C_List[1]}')
 
 ```{python}
 print(f'Third element: {C_List[2]}')
+```
+
+Python also has the ability to access elements using negative indices where -1 is shorthand for the last element of the list. As such, -2 is the second to last element, -3 the third to last element and so on.
+
+```{python}
+print(f'Last element: {C_List[-1]}')
 ```
 
 ## Adding Elements to a List
@@ -348,6 +352,13 @@ The `del` operation removes an element at a specified index.
 
 - `del[index]`
 
+```{python}
+data = [1, 2, 3]
+
+del(data[0])
+print(data)
+```
+
 Unlike `pop()`, `del` does not return the item that was removed.
 
 Note that the `del` operation uses the square brackets instead of the parenthesis.
@@ -355,6 +366,13 @@ Note that the `del` operation uses the square brackets instead of the parenthesi
 The `del` operation can also be used to completely delete a list.
 
 - `del my_list`
+
+```         
+data = [1, 2, 3]
+
+del(data)
+print(data) #Attemping to reference data will throw an exception as it is no longer defined.
+```
 
 ## Calculating the Length of a List
 
@@ -368,16 +386,27 @@ Python has a built-in function to calculate a list’s length
 
 This function returns the number of total elements as an integer.
 
+```{python}
+data = ["a", "b", "c", "d"]
+print(len(data))
+```
+
 ## List Slicing
 
 A **slice** is a span of items that are taken from a sequence like a list.
 
-- Format: *list*\[*start* : *end*\]
+- Format: `list[start : end]`
 
-A span is a subset of a sequence containing copies of elements from *start* up to, but not including, *end.*
+A span is a subset of a sequence containing copies of elements from `start` up to, but not including, `end`*.*
 
-- If *start* not specified, 0 is used for start index
-- If *end* not specified, len(list) is used for end index
+- If `start` not specified, 0 is used for start index
+- If `end` not specified, `len(list)` is used for end index
+
+```{python}
+data = ["a", "b", "c", "d","e"]
+new_data = data[1:3]
+print(new_data)
+```
 
 Slicing expressions can include a step value and negative indexes relative to end of list.
 
@@ -390,6 +419,11 @@ Similar to a list in that it is ordered and can hold multiple objects of differe
 Creating a tuple is just like creating a list except we use parenthesis instead of square brackets.
 
 - Format: `my_tuple= (item1, item2)`
+
+```{python}
+data = ("a", "b", "c")
+print(type(data))
+```
 
 Note that since a tuple is immutable, once it is created it cannot be altered. You need to specify all the items you want inside the tuple at the time of its creation.
 

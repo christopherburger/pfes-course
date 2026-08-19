@@ -86,9 +86,9 @@ x = 10
 print(y)
 ```
 
-- y gets the value of x at the time of assignment
-- Changing x later does not change y
-- y still prints 7
+- `y` gets the value of `x` at the time of assignment
+- Changing `x` later does not change `y`
+- `y` still prints 7
 
 For simple data types (numbers, strings, Booleans), assignment behaves like copying a value.
 
@@ -356,7 +356,7 @@ x = 1 + y
 | \% | Remainder (Modulus) | Division that returns only the remainder |
 | \*\* | Exponentiation | Raises number to a power |
 
-### Operator Precedence
+## Operator Precedence
 
 Python has rules for operator precedence that are very close to that of normal arithmetic. Higher precedence operators are performed first and operators with the same precedence execute from left to right.
 
@@ -365,7 +365,7 @@ Python has rules for operator precedence that are very close to that of normal a
 3.  Multiplication, Floating Point Division, Integer Division, Remainder.
 4.  Addition, Subtraction
 
-### Converting Math Formulas into Python
+## Converting Math Formulas into Python
 
 In Python, an operator is required for any mathematical operation.
 
@@ -378,11 +378,5 @@ In general, converting math formulas into Python tends to require adding multipl
 The data type resulting from mathematical operations depends on the type of operands.
 
 - Two `int` operands results in another `int`
-
-<!-- -->
-
 - Two `float` operands results in another `float`
-
-<!-- -->
-
 - One `int` operands and one `float` operand results in a `float`

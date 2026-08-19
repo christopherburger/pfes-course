@@ -7,7 +7,9 @@ format: html
 
 ## Lists and Vectors
 
-Standard Python is designed for general software development, not math. Structures like lists in Python have their own set of rules that makes using them in mathematical operations difficult. If we try to perform math on a standard Python list, the results are either completely wrong for our purposes, or they crash the program.
+Standard Python is designed for general software development, not math. Structures like lists in Python have their own set of rules that makes using them in mathematical operations difficult.
+
+If we try to perform math on a standard Python list, the results are either completely wrong for our purposes, or they crash the program.
 
 Consider a list of test scores: `scores = [85, 90, 78]`
 
@@ -15,60 +17,50 @@ If we want to double the score of every student, our first instinct is to multip
 
 - `print(scores * 2)`
 
-But what happens is it repeats the list items
+But what happens is it repeats the list items:
 
 ```{python}
 scores = [85, 90,  78]
 print(scores * 2)
 ```
 
-Now, if we try to add 2 bonus points to every score using `scores + 2`, Python throws a **TypeError** because it does not understand how to combine a list with an integer.
+Now, if we try to add 2 bonus points to every score using `scores + 2`, Python throws a `TypeError` because it does not understand how to combine a list with an integer.
 
 ## Libraries
 
-- If we want mathematics to play well with the idea of lists, we need more specialized tools.
-- Libraries are **external** toolsets built that we can bring into our Python code.
-- For numerical data, the industry standard is **NumPy** (Numerical Python).
-- If you are working on a local machine, you likely need to install the library first using **pip install numpy** in your terminal.
-- Cloud environments like Colab usually have it pre-installed.
+If we want mathematics to play well with the idea of lists, we need more specialized tools.
 
-### Standard Library Functions and the import Statement
+Libraries are **external** toolsets built that we can bring into our Python code. For numerical data, the industry standard is **NumPy** (Numerical Python).
 
-- **Standard library:** library of pre-written functions that comes with Python
+If you are working on a local machine, you likely need to install the library first using **pip install numpy** in your terminal. Cloud environments like Colab usually have it pre-installed.
 
-  - **Library functions** perform tasks that programmers commonly need
+### Standard Library Functions and the `import` Statement
 
-    - Example: print, input, range
-    - Viewed by programmers as a “black box”
+A **standard library** is a collection of pre-written code that comes with Python.
 
-- Some library functions built into Python interpreter
+**Library functions** perform tasks that programmers commonly need like `print`, `input`, `range`.
 
-  - To use, just call the function
+These functions are usually viewed by programmers as a “black box” in that we are not concerned with how they perform their task, only that they do it correctly and we understand what format the results will be.
 
-- **Modules:** files that stores functions of the standard library
+**Modules** are files that stores functions of the standard library. They help organize library functions not built into the interpreter.
 
-  - Help organize library functions not built into the interpreter
-  - Copied to computer when you install Python
+To call a function stored in a module, you need to write an import statement. This is written before you use anything within the module and by convertion is written at the top of the program.
 
-- To call a function stored in a module, need to write an import statement
-
-  - Written at the top of the program
-  - Format: import *module_name*
+- Format: `import module_name`
 
 ### Importing NumPy
 
-- Once you have access to NumPy we need to use an import statement:
+Once you have access to NumPy we need to use an import statement:
 
 ```{python}
 import numpy as np
 ```
 
-- We use `as np` as a standard convention.
-- It acts as a nickname so we do not have to type "numpy" every time we want to use one of its tools.
+We use `as np` as a standard convention. It acts as a nickname so we do not have to type "numpy" every time we want to use one of its tools.
 
 ## Creating Arrays
 
-- To use NumPy's features, we must convert our standard Python list into a specialized NumPy object called a **ndarray** (n-dimensional array).
+To use NumPy's features, we must convert our standard Python list into a specialized NumPy object called a **ndarray** (n-dimensional array).
 
 ```{python}
 scores = [85, 90, 78]
@@ -76,12 +68,13 @@ scores = [85, 90, 78]
 np_scores = np.array(scores)
 ```
 
-- Our data is now stored in a format designed for mathematics.
+Our data is now stored in a format designed for mathematics.
 
 ## Vectorization
 
-- Vectorization allows operations to be applied to every element in the array at the exact same time.
-- We can now multiply our collection by two and get the result that we initially anticipated.
+Vectorization allows operations to be applied to every element in the array at the exact same time.
+
+We can now multiply our collection by two and get the result that we initially anticipated.
 
 ```{python}
 print(np_scores * 2)
@@ -89,33 +82,31 @@ print(np_scores * 2)
 
 ## Comparison Between Arrays and Lists
 
-- **Standard Python List:**
+-  **Python** `list`**:**
 
   - Designed to store mixed data types natively.
   - Mathematical operators like `+` concatenate and `*` repeat.
   - Can hold mixed types like `[1, "apple", True]`.
 
-- **NumPy ndarray:**
+- **NumPy** `ndarray`**:**
 
   - Designed for math.
   - Must hold uniform data types.
 
-- **Warning:** If you put a string into an array of numbers NumPy will silently convert your numbers into strings to maintain uniformity.
+**Warning:** If you put a string into an array of numbers NumPy will silently convert your numbers into strings to maintain uniformity.
 
-  ```{python}
-  arr = np.array([85, 90, "apple"])
-  print(arr)
-  ```
+```{python}
+arr = np.array([85, 90, "apple"])
+print(arr)
+```
 
 ## Scalars
 
-- The standard textbook definition of a scalar is "*a quantity with magnitude but no direction.*”
+The standard textbook definition of a scalar is "*a quantity with magnitude but no direction.*”
 
-- Another more useful definition when it comes to dealing with vectors is a scalar is a **scaling factor**.
+Another more useful definition when it comes to dealing with vectors is a scalar is a **scaling factor**. It is a quantity that stretches or shrinks something else.
 
-  - It is a quantity that stretches or shrinks something else.
-
-- **In Python:** A scalar is a standard integer or float like `x = 5.`
+In Python a scalar is a standard integer or float like `x = 5.`
 
 ## Vectors
 
@@ -131,18 +122,18 @@ import numpy as np
 v = np.array([3, 2])
 ```
 
-- Visually, we have:
+Visually, we have:
 
-  - Tail at the origin (0, 0)
-  - Head at (3, 2)
-  - Length = magnitude
-  - Orientation = direction
+- Tail at the origin (0, 0)
+- Head at (3, 2)
+- Length = magnitude
+- Orientation = direction
 
-  ![](images/paste-4.png)
+![](images/paste-4.png)
 
-  Note that vectors are not tied to a location. We can have two vectors be equal (their components are all identical) while having a different origin.
+Note that vectors are not tied to a location. We can have two vectors be equal (their components are all identical) while having a different origin.
 
-  ![](images/paste-5.png)
+![](images/paste-5.png)
 
 ## Vector Arithmetic
 
@@ -294,9 +285,9 @@ $$y = v\sin(\theta)$$
 
 ## Attributes in NumPy
 
-Arrays in NumPy have certain inherent properties, called **attributes**, that can be useful for diagnosing errors or just inspecting the array. Note that attributes are different from functions, so they do not use parentheses () at the end.
+Arrays in NumPy have certain inherent properties, called **attributes**, that can be useful for diagnosing errors or just inspecting the array. Note that attributes are different from functions, so they do not use parentheses `()` at the end.
 
-### array.shape
+### `array.shape`
 
 `array.shape` returns a tuple indicating the number of elements along each axis.
 
@@ -316,21 +307,21 @@ grid = np.array([[1, 2], [3, 4], [5, 6]])
 print(grid.shape)# Output: (3, 2) 3 rows, 2 columns
 ```
 
-Note that the comma in a 1D shape like (3,) is because Python handles tuples with a trailing comma to distinguish them from regular parentheses.
+Note that the comma in a 1D shape like `(3,)` is because Python handles tuples with a trailing comma to distinguish them from regular parentheses.
 
 - It means "3 elements in the first dimension, and no other dimensions exist."
 
-### array.ndim
+### `array.ndim`
 
 `array.ndim` returns the total number of dimensions (axes) that the array has.
 
-- A scalar has ndim = 0
+- A scalar has `ndim = 0`
 
-- A vector has ndim = 1
+- A vector has `ndim = 1`
 
-- A matrix has ndim = 2
+- A matrix has `ndim = 2`
 
-### array.dtype
+### `array.dtype`
 
 `array.dtype` tells you exactly what kind of data is stored inside.
 
@@ -356,7 +347,7 @@ This can be very useful as NumPy enforces uniform types. If a single string slip
 
   - `np.min()`
 
-### Reshape
+### `array.reshape`
 
 `array.reshape()` changes the dimensions of an array without changing its actual data.
 
@@ -374,7 +365,7 @@ Note that you cannot reshape an array into dimensions that do not fit the number
 
 If you try `flat_data.reshape(3, 3)` on the above array, NumPy will throw a: *ValueError: cannot reshape array of size 6 into shape (3,3).* The shape (3,3) requires exactly 9 items, and we only have 6.
 
-### Flatten
+### `array.flatten`
 
 `array.flatten()` takes a multi-dimensional grid and squashes it back down into a single 1D row. This iu Useful when a library expects a flat sequence of values, but you currently have them inside a multi-dimensional structure.
 
@@ -388,11 +379,11 @@ flat_data = grid_data.flatten()
 print(flat_data)
 ```
 
-### isnan
+### `isnan`
 
-`np.isnan()` returns a Boolean array (True/False) indicating where missing or corrupted data (NaN or Not a Number) is located.
+`np.isnan()` returns a Boolean array (True/False) indicating where missing or corrupted data (`NaN` or Not a Number) is located.
 
-If you run `np.mean(scores)`and the result is just NaN, having just a single broken data point has ruined your calculation. Combining this with an aggregate tool allows you to count how many broken points you have.
+If you run `np.mean(scores)`and the result is just `NaN`, having just a single broken data point has ruined your calculation. Combining this with an aggregate tool allows you to count how many broken points you have.
 
 ```{python}
 data = np.array([85, np.nan, 90])
@@ -410,7 +401,7 @@ print(np.sum(np.isnan(data)))
 # Output: 1 (Because True acts as 1, False acts as 0)
 ```
 
-### astype
+### `astype`
 
 `array.astype()` explicitly forces an array to convert from one data type to another.
 

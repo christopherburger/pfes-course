@@ -48,7 +48,7 @@ An important property of matrices is its **dimensions**, which are the number of
 
 Matrix multiplication is unlike scalar multiplication which is commutative (order does not matter). Multiplication of two matrices is defined only if both have a relation between their dimensions. Specifically, the first matrix must have the same number of columns as the second matrix has rows.
 
-In NumPy we can use the **shape** attribute to find the dimensions of a matrix.
+In NumPy we can use the `shape` attribute to find the dimensions of a matrix.
 
 `A.shape` here returns **(2,3)**
 
@@ -134,7 +134,7 @@ print(A[:,0])
 
 Adding a scalar value to a matrix is defined by adding the scalar value to each element of the matrix.
 
-![](images/paste-1.png)
+$$A + s \begin{bmatrix} a_{0,0}+ s & ... & a_{0,n} + s \\ ... & & ... \\ a_{m,0} + s & ... & a_{m,n} + s \end{bmatrix}$$
 
 ```{python}
 print(f'A = {A}\n')
@@ -146,7 +146,7 @@ print(f'A+2 = {A+2}')
 
 Multiplying a matrix by a scalar value is defined by multiplying the scalar value with each element of the matrix.
 
-![](images/paste-2.png)
+$$A \times s = \begin{bmatrix} a_{0,0}\times s & ... & a_{0,n} \times s \\ ... & & ... \\ a_{m,0} \times s & ... & a_{m,n} \times s \end{bmatrix}$$
 
 ```{python}
 print(f'A = {A}\n')

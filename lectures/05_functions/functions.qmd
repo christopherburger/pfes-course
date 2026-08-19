@@ -51,7 +51,7 @@ def add(x,y):
 add(2,3)
 ```
 
-The simple function *add* above takes in two parameters, *x* and *y* then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation **add(2,3)**. Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to *x* and 3 is the second argument so it is assigned to *y*.
+The simple function *add* above takes in two parameters, *x* and *y* then prints their summed value. A parameter is a variable that is assigned the value of an argument when the function is called. We call the function with specific values for the parameters, arguments, in this case 2 and 3 using the notation `add(2,3)`. Note that the function assigns the parameter values in order of the arguments that are passed in. 2 is the first argument, so it is assigned to *x* and 3 is the second argument so it is assigned to *y*.
 
 Functions can take in multiple arguments, a single argument or none at all. How many parameters are needed for a function is dependent on its construction.
 
@@ -59,9 +59,9 @@ Functions can take in multiple arguments, a single argument or none at all. How 
 
 The function we just saw does not return any data back out of the function, it simply prints a value to the terminal. We call this type of function that executes the statements it contains and then ends a **void** function.
 
-In contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The *input* and *int* functions are example of value-returning functions that you have used.
+In contrast, a value-returning function executes its statements and then returns some value back to the point of the program that called it. The `input` and `int` functions are example of value-returning functions that you have used.
 
-To return a value from a function, you need only use the **return** keyword.
+To return a value from a function, you need only use the `return` keyword.
 
 ```{python}
 def add(x,y):
@@ -71,7 +71,7 @@ result = add(2,3)
 print(result)
 ```
 
-We can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the *result* variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The return keyword only specifics to send that value back, there is no check to see what type of value it actually is.
+We can see in the modified version of our add function that we now return the sum of the values instead of printing to the terminal. This returned value is stored in the `result` variable and then this variable is printed to the terminal. Note that we do not need to tell Python what type of value is being returned unlike in some other programming languages. The `return` keyword only specifics to send that value back, there is no check to see what type of value it actually is.
 
 ### Returning Multiple Values
 
@@ -85,7 +85,7 @@ result = add(2,3)
 print(result)
 ```
 
-Our add function now returns the sum, then the value associated with parameter *x* and finally the value associated with parameter *y*. Note that the values are returned in the order they are specified. Also note that the variable *result* is now a tuple containing three objects, which is what we would expect since we returned three individual values.
+Our add function now returns the sum, then the value associated with parameter *x* and finally the value associated with parameter *y*. Note that the values are returned in the order they are specified. Also note that the variable `result` is now a tuple containing three objects, which is what we would expect since we returned three individual values.
 
 We can assign these values immediately using the convention for multiple assignment:
 
@@ -101,7 +101,7 @@ print(y)
 
 If you choose to do multiple assignment from a function call, you will need exactly as many variables as there are returned values.
 
-### The pass Keyword
+### The `pass` Keyword
 
 You can use the **pass** keyword to create empty functions. This keyword is ignored by the Python interpreter and this can be helpful when designing a program.
 
@@ -252,9 +252,9 @@ print(sum(a_list)) # TypeError: 'int' object is not callable
 
 Once you shadow a built-in name, you lose access to the original built-in function within that scope, which leads to subtle, frustrating bugs later. Always avoid using Python keywords or built-in function names as variable identifiers.
 
-## The id() Function
+## The `id` Function
 
-We can differentiate variables that may appear to be the same (by having the same value) using the id() function. The id() function returns a unique identifier, the object’s memory address.
+We can differentiate variables that may appear to be the same (by having the same value) using the `id()` function. The `id()` function returns a unique identifier, the object’s memory address.
 
 - If two variables are stored at the same memory address, they must refer to the same data.
 - If two variables are stored at different memory addresses, then while they might refer to the same value, they do not refer to the same physical data and so are different to Python.
