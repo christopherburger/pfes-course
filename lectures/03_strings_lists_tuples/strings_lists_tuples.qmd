@@ -1,7 +1,200 @@
 ---
-title: "3: Strings, Lists and Tuples"
+title: "3: Lists, Strings and Tuples"
 format: html
 ---
+
+# Lists
+
+In Python, variables can store more than a single piece of information. These are **multidimensional** variables. We have already seen an example of a multidimensional variable, the string data type. Recall that a string is a sequence of characters and that each character in the sequence can be accessed independently from any other character.
+
+The most common general purpose multidimensional variable in Python is the **list**.
+
+Lists are **ordered** collections of values.
+
+- Duplicates are allowed.
+- You may have different types of data present in a single list.
+
+We use the order built into a list to access and alter the different values.
+
+## Creating a List
+
+- Lists are created using the **square brackets** **`[ ]`**
+- Separate multiple items in a list using a comma.
+
+```{python}
+A_List = [ ] #This is an empty list
+
+B_List = [ 1 , 2 ] #This list contains integers 1 and 2
+```
+
+## Accessing Elements in a List
+
+Items within a list are often referred to as **elements**.
+
+Use the square brackets `[ ]` after the name of the list to reference the location of the desired element.
+
+Note that Python starts counting elements from zero, not from one. Therefore the first element in a list is located at index zero.
+
+```{python}
+C_List = [ 'x' , 'y' , 'z' ]
+
+print(f'First element: {C_List[0]}')
+```
+
+```{python}
+print(f'Second element: {C_List[1]}')
+```
+
+```{python}
+print(f'Third element: {C_List[2]}')
+```
+
+Python also has the ability to access elements using negative indices where -1 is shorthand for the last element of the list. As such, -2 is the second to last element, -3 the third to last element and so on.
+
+```{python}
+print(f'Last element: {C_List[-1]}')
+```
+
+## Adding Elements to a List
+
+Adding new elements to a list in Python is often accomplished using two methods.
+
+The `insert` function adds an item to a specific index (location).
+
+- Format: `insert(index,value)`
+
+```{python}
+C_List = [ 'x' , 'y' , 'z' ]
+
+C_List.insert(0,'a')
+
+print(C_List)
+```
+
+The `append` function adds an item directly to the end of the list. Adding an item to the end of a list is a very common operation, so it was given its own dedicated function.
+
+- Format: `append(value)`
+
+```{python}
+C_List = [ 'x' , 'y' , 'z' ]
+
+C_List.append('a')
+
+print(C_List)
+```
+
+::: practice-box
+- Define a list called *items* that contains the letters a, b, c, and d.
+- Add the number 1 at index 2 of *items*.
+- Add the number 7 at the end of *items*.
+- Print the list *items*.
+:::
+
+## Removing Elements from a List
+
+Removing elements from a list can be accomplished by using the `pop()` method.
+
+The `pop` method can be used in two different ways.
+
+- Removing an element at a specified index.
+
+  - `pop(index)`
+
+- Removing an element at the end of the list.
+
+  - `pop()`
+
+By omitting the index from the pop method, Python automatically assumes you want to remove the last item in the list.
+
+```{python}
+C_List = [ 'x' , 'y' , 'z' ]
+
+C_List.pop(0)
+
+print(C_List)
+```
+
+```{python}
+C_List = [ 'x' , 'y' , 'z' ]
+
+C_List.pop()
+
+print(C_List)
+```
+
+::: practice-box
+- Define a list called *items* that contains the letters a, b, c, and d.
+
+- Remove letter b from *items*.
+
+- Remove the last letter from *items*.
+
+- Print the list *items*.
+:::
+
+Removing elements from a list can also be accomplished by using the `del` keyword.
+
+The `del` operation removes an element at a specified index.
+
+- `del list[index]`
+
+```{python}
+data = [1, 2, 3]
+
+del data[0]
+print(data)
+```
+
+Unlike `pop()`, `del` does not return the item that was removed.
+
+Note that the `del` operation uses the square brackets instead of the parenthesis.
+
+The `del` operation can also be used to completely delete a list.
+
+- `del my_list`
+
+```         
+data = [1, 2, 3]
+
+del(data)
+print(data) #Attemping to reference data will throw an exception as it is no longer defined.
+```
+
+## Calculating the Length of a List
+
+A common operation in programming is calculating the number of elements in a list.
+
+In Python this is termed the *length* of a list.
+
+Python has a built-in function to calculate a list’s length
+
+- `len(list)`
+
+This function returns the number of total elements as an integer.
+
+```{python}
+data = ["a", "b", "c", "d"]
+print(len(data))
+```
+
+## List Slicing
+
+A **slice** is a span of items that are taken from a sequence like a list.
+
+- Format: `list[start : end]`
+
+A span is a subset of a sequence containing copies of elements from `start` up to, but not including, `end`*.*
+
+- If `start` not specified, 0 is used for start index
+- If `end` not specified, `len(list)` is used for end index
+
+```{python}
+data = ["a", "b", "c", "d","e"]
+new_data = data[1:3]
+print(new_data)
+```
+
+Slicing expressions can include a step value and negative indexes relative to end of list.
 
 # Strings and String Literals
 
@@ -216,199 +409,6 @@ number_list = my_string.split('/')
 
 print(number_list)
 ```
-
-# Lists
-
-In Python, variables can store more than a single piece of information. These are **multidimensional** variables. We have already seen an example of a multidimensional variable, the string data type. Recall that a string is a sequence of characters and that each character in the sequence can be accessed independently from any other character.
-
-The most common general purpose multidimensional variable in Python is the **list**.
-
-Lists are **ordered** collections of values.
-
-- Duplicates are allowed.
-- You may have different types of data present in a single list.
-
-We use the order built into a list to access and alter the different values.
-
-## Creating a List
-
-- Lists are created using the **square brackets** **`[ ]`**
-- Separate multiple items in a list using a comma.
-
-```{python}
-A_List = [ ] #This is an empty list
-
-B_List = [ 1 , 2 ] #This list contains integers 1 and 2
-```
-
-## Accessing Elements in a List
-
-Items within a list are often referred to as **elements**.
-
-Use the square brackets `[ ]` after the name of the list to reference the location of the desired element.
-
-Note that Python starts counting elements from zero, not from one. Therefore the first element in a list is located at index zero.
-
-```{python}
-C_List = [ 'x' , 'y' , 'z' ]
-
-print(f'First element: {C_List[0]}')
-```
-
-```{python}
-print(f'Second element: {C_List[1]}')
-```
-
-```{python}
-print(f'Third element: {C_List[2]}')
-```
-
-Python also has the ability to access elements using negative indices where -1 is shorthand for the last element of the list. As such, -2 is the second to last element, -3 the third to last element and so on.
-
-```{python}
-print(f'Last element: {C_List[-1]}')
-```
-
-## Adding Elements to a List
-
-Adding new elements to a list in Python is often accomplished using two methods.
-
-The `insert` function adds an item to a specific index (location).
-
-- Format: `insert(index,value)`
-
-```{python}
-C_List = [ 'x' , 'y' , 'z' ]
-
-C_List.insert(0,'a')
-
-print(C_List)
-```
-
-The `append` function adds an item directly to the end of the list. Adding an item to the end of a list is a very common operation, so it was given its own dedicated function.
-
-- Format: `append(value)`
-
-```{python}
-C_List = [ 'x' , 'y' , 'z' ]
-
-C_List.append('a')
-
-print(C_List)
-```
-
-::: practice-box
-- Define a list called *items* that contains the letters a, b, c, and d.
-- Add the number 1 at index 2 of *items*.
-- Add the number 7 at the end of *items*.
-- Print the list *items*.
-:::
-
-## Removing Elements from a List
-
-Removing elements from a list can be accomplished by using the `pop()` method.
-
-The `pop` method can be used in two different ways.
-
-- Removing an element at a specified index.
-
-  - `pop(index)`
-
-- Removing an element at the end of the list.
-
-  - `pop()`
-
-By omitting the index from the pop method, Python automatically assumes you want to remove the last item in the list.
-
-```{python}
-C_List = [ 'x' , 'y' , 'z' ]
-
-C_List.pop(0)
-
-print(C_List)
-```
-
-```{python}
-C_List = [ 'x' , 'y' , 'z' ]
-
-C_List.pop()
-
-print(C_List)
-```
-
-::: practice-box
-- Define a list called *items* that contains the letters a, b, c, and d.
-
-- Remove letter b from *items*.
-
-- Remove the last letter from *items*.
-
-- Print the list *items*.
-:::
-
-Removing elements from a list can also be accomplished by using the `del` keyword.
-
-The `del` operation removes an element at a specified index.
-
-- `del[index]`
-
-```{python}
-data = [1, 2, 3]
-
-del(data[0])
-print(data)
-```
-
-Unlike `pop()`, `del` does not return the item that was removed.
-
-Note that the `del` operation uses the square brackets instead of the parenthesis.
-
-The `del` operation can also be used to completely delete a list.
-
-- `del my_list`
-
-```         
-data = [1, 2, 3]
-
-del(data)
-print(data) #Attemping to reference data will throw an exception as it is no longer defined.
-```
-
-## Calculating the Length of a List
-
-A common operation in programming is calculating the number of elements in a list.
-
-In Python this is termed the *length* of a list.
-
-Python has a built-in function to calculate a list’s length
-
-- `len(list)`
-
-This function returns the number of total elements as an integer.
-
-```{python}
-data = ["a", "b", "c", "d"]
-print(len(data))
-```
-
-## List Slicing
-
-A **slice** is a span of items that are taken from a sequence like a list.
-
-- Format: `list[start : end]`
-
-A span is a subset of a sequence containing copies of elements from `start` up to, but not including, `end`*.*
-
-- If `start` not specified, 0 is used for start index
-- If `end` not specified, `len(list)` is used for end index
-
-```{python}
-data = ["a", "b", "c", "d","e"]
-new_data = data[1:3]
-print(new_data)
-```
-
-Slicing expressions can include a step value and negative indexes relative to end of list.
 
 # Tuples
 
