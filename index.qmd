@@ -1,6 +1,6 @@
 ---
 title: "Course Overview"
-subtitle: "Programming for Engineers and Scientists"
+subtitle: "Programming in Python"
 author: "Christopher Burger"
 institute: "University of Mississippi | School of Engineering"
 format: 

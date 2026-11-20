@@ -5,7 +5,7 @@ execute:
   freeze: auto
 
 website:
-  title: "Programming for Engineers and Scientists"
+  title: "Programming in Python"
   sidebar:
     style: "floating"
     contents:
