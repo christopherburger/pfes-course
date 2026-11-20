@@ -132,7 +132,6 @@ We will develop an algorithm to find the closest match in our DataFrame for a gi
 - We need to iterate through every row in the DataFrame, as we will not know if there is a closer pair unless we examine every pair.
 - We then need to calculate the distance between each pair.
 - We will need to keep track of the smallest distance.
-- 
 
 `best_distance = infinity`
 
